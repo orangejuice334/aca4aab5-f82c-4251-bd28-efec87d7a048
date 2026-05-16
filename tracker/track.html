@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.1.0">
+<meta name="app-version" content="v6.1.1">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -4456,7 +4456,7 @@
     // checkout list keeps its time-of-day ordering. Items with no time set
     // sort to the bottom and never flag as past-due (no data-time).
     return Object.entries(ITEMS || {})
-      .filter(([k, v]) => v && v.category === 'supplements')
+      .filter(([k, v]) => v && v.category === 'supplements' && !v.archived)
       .map(([k, v]) => ({
         key: k,
         name: v.name || k,
@@ -4481,7 +4481,7 @@
     // bare name minus "Water"); this matches how the legacy profile.waterSchedule
     // entries spelled out their slot ("wake", "pre-lunch", etc.).
     return Object.entries(ITEMS || {})
-      .filter(([k, v]) => v && v.category === 'water')
+      .filter(([k, v]) => v && v.category === 'water' && !v.archived)
       .map(([k, v]) => {
         // v5.17+: serving size lives on the default displayUnits entry's
         // multiplier. Legacy amount.value is a stub (0) and would silently
@@ -4526,11 +4526,13 @@
   // without needing to remember to refresh a cached array.
   // Counters are only meaningful for food items. Supplements + water are
   // toggled in the schedule (renderSupplementWaterRows); folding them in
-  // here lets a stale counter value double-count daily totals.
+  // here lets a stale counter value double-count daily totals. Archived
+  // items are excluded too — they have no visible UI to clear the counter,
+  // so leaving them in keeps inflating daily totals from a hidden row.
   function getCounterKeys() {
     return Object.keys(ITEMS).filter(k => {
       const it = ITEMS[k];
-      return it && it.category !== 'supplements' && it.category !== 'water';
+      return it && it.category !== 'supplements' && it.category !== 'water' && !it.archived;
     });
   }
 
@@ -4692,6 +4694,23 @@
       sortMode: state.sortMode,
       totalsMode: state.totalsMode,
       collapsedGroups: structuredClone(state.collapsedGroups || {}),
+    };
+  }
+
+  // For cold-start against an empty/missing gist: a true-empty snapshot so the
+  // next emitDiffOps diff sees every locally-cached item/category/profile as
+  // brand new and emits the upsert ops. Capturing the live in-memory state
+  // here would diff to zero and the local catalog would never reach the gist.
+  function emptySnapshot() {
+    return {
+      ITEMS: {},
+      CATEGORIES: [],
+      days: {},
+      savedItems: [],
+      profile: {},
+      sortMode: undefined,
+      totalsMode: undefined,
+      collapsedGroups: {},
     };
   }
 
@@ -5514,6 +5533,8 @@
       if (!btn) return;
       const key = btn.getAttribute('data-supp-delete');
       if (!ITEMS[key]) return;
+      const suppName = (ITEMS[key] && ITEMS[key].name) || key;
+      if (!confirm('Delete supplement "' + suppName + '"? This also clears its check-history across every day.')) return;
       delete ITEMS[key];
       // Also clear any toggle state for this key across days so an orphaned
       // checked entry doesn't keep contributing to history's supplements count
@@ -6343,7 +6364,7 @@
         // so the next mutation actually emits ops (without this, emitDiffOps
         // early-returns on null lastKnownGistState forever).
         firstLoadCompleted = true;
-        lastKnownGistState = captureSnapshot();
+        lastKnownGistState = emptySnapshot();
         return null;
       }
       const content = file.content;
@@ -6353,7 +6374,7 @@
         hideSyncError();
         setSyncMode('normal');
         firstLoadCompleted = true;
-        lastKnownGistState = captureSnapshot();
+        lastKnownGistState = emptySnapshot();
         return null;
       }
       let parsed;
@@ -7250,7 +7271,10 @@
   // Compute the nutrients for a single ingredient against the live ITEMS
   // map. v5: ingredient.amount is in grams, source's macros are per-gram.
   // Multiplier-shape ingredients (legacy) resolved against canonical amount.
-  function computeIngredientMacros(ing) {
+  // `seen` threads through the recipe → ingredient → recipe recursion so a
+  // self-referential or cyclic recipe (A ingredient B; B ingredient A) returns
+  // zero macros instead of blowing the stack.
+  function computeIngredientMacros(ing, seen) {
     const z = zeroNutrients();
     if (!ing) return z;
     if (!ing.itemKey) {
@@ -7273,11 +7297,19 @@
     // strips them, deferring to ingredient sum). scaleByNative would yield
     // zero. Instead compute the source-recipe batch macros and scale by
     // (units / batch_grams) — same logic computeTotals uses for top-level
-    // recipe counters.
+    // recipe counters. Always treat a recipe's canonical batch as "1 batch"
+    // regardless of any stored displayUnits, so the user's `counter` stays
+    // in fractional-batch units across saves.
     if (item.category === 'recipes' && Array.isArray(item.ingredients) && item.ingredients.length) {
-      const canon = getDisplayUnits(item)[0];
-      const canonUnits = canon.unitsPerServing || 1;
-      const batch = computeItemMacros(item);
+      const visited = seen || new Set();
+      if (visited.has(item)) {
+        console.warn('[tracker] recipe ingredient cycle detected at', ing.itemKey, '— returning zero macros');
+        return z;
+      }
+      visited.add(item);
+      const canonUnits = 1;
+      const batch = computeItemMacros(item, visited);
+      visited.delete(item);
       const factor = units / canonUnits;
       const out = {};
       for (const k of STORED_NUTRIENT_KEYS) out[k] = (batch[k] || 0) * factor;
@@ -7290,11 +7322,12 @@
   // ingredients. For everything else, return the per-canonical-serving
   // macros (using the smallest displayUnit) so display fns have a baseline.
   // Most callers should use scaleByNative(item, nativeUnits) directly though.
-  function computeItemMacros(item) {
+  // `seen` is forwarded to computeIngredientMacros for cycle protection.
+  function computeItemMacros(item, seen) {
     if (!item) return zeroNutrients();
     if (item.category === 'recipes' && Array.isArray(item.ingredients) && item.ingredients.length) {
       const t = zeroNutrients();
-      for (const ing of item.ingredients) addNutrients(t, computeIngredientMacros(ing));
+      for (const ing of item.ingredients) addNutrients(t, computeIngredientMacros(ing, seen));
       return t;
     }
     const canon = getDisplayUnits(item)[0];
@@ -7915,12 +7948,13 @@
     const ctrl = document.createElement('div');
     ctrl.className = 'counter-control';
     const servingSize = variant.unitsPerServing || 1;
+    const safeKey = escapeHtml(key);
     ctrl.innerHTML =
       '<div class="counter-flag-slot"></div>' +
       '<div class="counter-buttons">' +
-        '<button class="counter-btn" data-action="dec" data-key="' + key + '" data-serving-size="' + servingSize + '">−</button>' +
-        '<input type="number" class="counter-value" data-value="' + key + '" data-serving-size="' + servingSize + '" min="0" step="0.1" value="0" inputmode="decimal" />' +
-        '<button class="counter-btn" data-action="inc" data-key="' + key + '" data-serving-size="' + servingSize + '">+</button>' +
+        '<button class="counter-btn" data-action="dec" data-key="' + safeKey + '" data-serving-size="' + servingSize + '">−</button>' +
+        '<input type="number" class="counter-value" data-value="' + safeKey + '" data-serving-size="' + servingSize + '" min="0" step="0.1" value="0" inputmode="decimal" />' +
+        '<button class="counter-btn" data-action="inc" data-key="' + safeKey + '" data-serving-size="' + servingSize + '">+</button>' +
       '</div>';
     row.appendChild(ctrl);
 
@@ -7997,12 +8031,13 @@
       const ctrl = document.createElement('div');
       ctrl.className = 'counter-control';
       const servingSize = variant.unitsPerServing || 1;
+      const safeKey = escapeHtml(key);
       ctrl.innerHTML =
         '<div class="counter-flag-slot"></div>' +
         '<div class="counter-buttons">' +
-          '<button class="counter-btn" data-action="dec" data-key="' + key + '" data-serving-size="' + servingSize + '">−</button>' +
-          '<input type="number" class="counter-value" data-value="' + key + '" data-serving-size="' + servingSize + '" min="0" step="0.1" value="0" inputmode="decimal" />' +
-          '<button class="counter-btn" data-action="inc" data-key="' + key + '" data-serving-size="' + servingSize + '">+</button>' +
+          '<button class="counter-btn" data-action="dec" data-key="' + safeKey + '" data-serving-size="' + servingSize + '">−</button>' +
+          '<input type="number" class="counter-value" data-value="' + safeKey + '" data-serving-size="' + servingSize + '" min="0" step="0.1" value="0" inputmode="decimal" />' +
+          '<button class="counter-btn" data-action="inc" data-key="' + safeKey + '" data-serving-size="' + servingSize + '">+</button>' +
         '</div>';
       row.appendChild(ctrl);
       return { row, nameCol };
@@ -8226,6 +8261,12 @@
     if (!item) return '';
     if (item.category === 'supplements' || item.category === 'water') return '';
     const isRecipe = (item.category === 'recipes');
+    // Discrete-unit items (defaultMeasuredIn === 'units': pills, pieces) have
+    // no meaningful gram-per-item conversion at the catalog level — typing
+    // "10 g" would write 10 into the counter as if it were 10 pieces. Hide
+    // the generic free-form block here; the per-variant +/- buttons already
+    // handle whole/half/quarter portions for these items.
+    if (!isRecipe && getDefaultMeasuredIn(item) === 'units') return '';
     const prim = isRecipe ? 'g' : primaryUnit(item);
     const hasDensity = (typeof item.density_g_per_ml === 'number' && item.density_g_per_ml > 0);
     const fmt = (u) => u.replace('_', ' ');
@@ -8834,6 +8875,13 @@
     // nutrient set for linked ingredients; flat rows only expose kcal/p/sf/
     // water/caffeine in the UI so their other keys stay zero.
     const sumMacros = zeroNutrients();
+    // Track whether any linked ingredient row exists — linked rows pull the
+    // full nutrient set from their source via computeIngredientMacros, so the
+    // sum is authoritative for every STORED_NUTRIENT_KEYS key. Flat rows only
+    // expose 5 keys in the UI; when the recipe is ALL-flat, leave existing
+    // vitamins/minerals on the host item untouched rather than zero-deleting
+    // every key that the form had no input for.
+    let hasLinked = false;
     rows.forEach(row => {
       const f = (k) => {
         const el = row.querySelector('[data-ing-field="' + k + '"]');
@@ -8841,6 +8889,7 @@
       };
       const isLinked = row.dataset.ingLinked === 'true';
       if (isLinked) {
+        hasLinked = true;
         const itemKey = row.dataset.ingItemkey;
         if (!itemKey) return;
         const sourceBasis = row.dataset.ingSourceBasis;
@@ -8899,8 +8948,15 @@
       // top-level macros stay consistent with the components. All stored
       // values are rounded to 4 decimals (display caps at 1 decimal via
       // fmt1, so we keep precision in storage and round only on display).
+      // When at least one linked ingredient exists, sumMacros covers every
+      // STORED_NUTRIENT_KEYS key authoritatively. When the recipe is
+      // ALL-flat, only the 5 user-input keys are authoritative — preserve
+      // every other key so vitamin/mineral data the user typed in
+      // separately doesn't get zero-deleted out of existence.
       item.ingredients = ingredients;
-      for (const k of STORED_NUTRIENT_KEYS) {
+      const FLAT_FORM_KEYS = ['kcal', 'p', 'sf', 'water', 'caffeine'];
+      const writeKeys = hasLinked ? STORED_NUTRIENT_KEYS : FLAT_FORM_KEYS;
+      for (const k of writeKeys) {
         const rounded = roundStorage(sumMacros[k] || 0);
         if (rounded > 0) item[k] = rounded;
         else delete item[k];
