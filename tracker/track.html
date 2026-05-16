@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.0.5">
+<meta name="app-version" content="v6.1.0">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -4344,7 +4344,9 @@
       category: 'small_portions',
       defaultMeasuredIn: 'g',
       amount: { value: 182, unit: 'g', label: 'medium size' },
-      kcal: 52, p: 0.3, sf: 0, water: 86, caffeine: 0,
+      // Per-1-native (per-gram) storage so scaleByNative(item, grams) yields
+      // the right totals. Macros stored per gram = label-value / 100.
+      kcal: 0.52, p: 0.003, sf: 0, water: 0.86, caffeine: 0,
       demo: true,
     },
     demo_almonds_oz: {
@@ -4352,7 +4354,7 @@
       category: 'small_portions',
       defaultMeasuredIn: 'g',
       amount: { value: 28, unit: 'g' },
-      kcal: 579, p: 21, sf: 3.7, water: 4, caffeine: 0,
+      kcal: 5.79, p: 0.21, sf: 0.037, water: 0.04, caffeine: 0,
       demo: true,
     },
     demo_apple_almonds: {
@@ -4394,7 +4396,7 @@
       name: 'Black coffee',
       category: 'small_portions',
       amount: { value: 240, unit: 'ml', label: '1 cup' },
-      kcal: 1, p: 0.1, sf: 0, water: 99, caffeine: 40,
+      kcal: 0.01, p: 0.001, sf: 0, water: 0.99, caffeine: 0.4,
       defaultMeasuredIn: 'ml',
       time: '00:01',
       frequency: 'daily',
@@ -4408,7 +4410,7 @@
       category: 'water',
       defaultMeasuredIn: 'ml',
       amount: { value: 500, unit: 'ml' },
-      kcal: 0, p: 0, sf: 0, water: 100, caffeine: 0,
+      kcal: 0, p: 0, sf: 0, water: 1, caffeine: 0,
       time: '23:59',
       frequency: 'daily',
       demo: true,
@@ -4522,7 +4524,15 @@
   // COUNTER_KEYS is derived dynamically from ITEMS via this getter so that
   // catalog mutations (gist load, hash commands) are reflected immediately
   // without needing to remember to refresh a cached array.
-  function getCounterKeys() { return Object.keys(ITEMS); }
+  // Counters are only meaningful for food items. Supplements + water are
+  // toggled in the schedule (renderSupplementWaterRows); folding them in
+  // here lets a stale counter value double-count daily totals.
+  function getCounterKeys() {
+    return Object.keys(ITEMS).filter(k => {
+      const it = ITEMS[k];
+      return it && it.category !== 'supplements' && it.category !== 'water';
+    });
+  }
 
   // Read the native measurement unit of an item. Returns 'g', 'ml', or
   // 'units' (discrete items like pills) so callers branch on one field.
@@ -5897,7 +5907,6 @@
       return;
     }
     const ratio = goals.kcal / goals.p;
-    const proteinPer100 = dropTrailingZeros((100 / ratio).toFixed(2));
     el.textContent = dropTrailingZeros(ratio.toFixed(2)) + ' kcal/p';
   }
 
@@ -5925,15 +5934,31 @@
         const savedItem = !catItem ? (state.savedItems || []).find(s => s.key === key) : null;
         const item = catItem || savedItem;
         if (!item) continue;
-        const m = catItem ? computeItemMacros(catItem) : {
-          kcal: item.kcal || 0, p: item.p || 0, sf: item.sf || 0,
-        };
+        // Compute per-row macros from the live counter `n` so history matches
+        // the daily-totals computation in computeTotals. Recipes scale the
+        // batch by counter/canonical-batch-units; everything else scales
+        // per-native macros by counter directly.
+        let m;
+        if (catItem) {
+          if (catItem.category === 'recipes' && Array.isArray(catItem.ingredients) && catItem.ingredients.length) {
+            const canon = getDisplayUnits(catItem)[0];
+            const canonUnits = canon.unitsPerServing || 1;
+            const batch = computeItemMacros(catItem);
+            const factor = n / canonUnits;
+            m = {};
+            for (const k of STORED_NUTRIENT_KEYS) m[k] = (batch[k] || 0) * factor;
+          } else {
+            m = scaleByNative(catItem, n);
+          }
+        } else {
+          m = { kcal: (item.kcal || 0) * n, p: (item.p || 0) * n, sf: (item.sf || 0) * n };
+        }
         items.push({
           name: item.name || key,
           count: n,
-          kcal: m.kcal * n,
-          p: m.p * n,
-          sf: m.sf * n,
+          kcal: m.kcal || 0,
+          p: m.p || 0,
+          sf: m.sf || 0,
           lastModified: counterMeta[key] || null,
         });
       }
@@ -6314,8 +6339,11 @@
         setSyncStatus('warn', 'gist file missing — will create on next save');
         // Empty/missing gist is the only "load succeeded with no payload"
         // shape where it IS safe to enable writes — we know the remote is
-        // empty so there's nothing to clobber.
+        // empty so there's nothing to clobber. Capture a baseline snapshot
+        // so the next mutation actually emits ops (without this, emitDiffOps
+        // early-returns on null lastKnownGistState forever).
         firstLoadCompleted = true;
+        lastKnownGistState = captureSnapshot();
         return null;
       }
       const content = file.content;
@@ -6325,6 +6353,7 @@
         hideSyncError();
         setSyncMode('normal');
         firstLoadCompleted = true;
+        lastKnownGistState = captureSnapshot();
         return null;
       }
       let parsed;
@@ -6395,6 +6424,13 @@
     if (remoteState.userCatalog) hydrateCatalog(remoteState.userCatalog);
     const hadLegacySupps = !!(remoteState.profile && Array.isArray(remoteState.profile.supplements) && remoteState.profile.supplements.length);
     const hadLegacyWater = !!(remoteState.profile && Array.isArray(remoteState.profile.waterSchedule) && remoteState.profile.waterSchedule.length);
+    // Snapshot the gist as it actually was — BEFORE applyProfile runs the
+    // legacy-supplement / water migration into ITEMS. Otherwise emitDiffOps
+    // diffs current state against a post-migration snapshot (they match) and
+    // the migration never reaches the gist. Snapshot must come AFTER
+    // hydrateCatalog so ITEMS truly reflects the remote payload's catalog,
+    // not the offline-demo defaults.
+    lastKnownGistState = captureSnapshot();
     applyProfile(remoteState.profile); // applyProfile falls back to defaults if remote is missing
     for (const k in state.days) {
       if (!state.days[k].customs) state.days[k].customs = [];
@@ -6424,11 +6460,6 @@
     // Migrate any customs that came in from remote without ids. Flag-gated:
     // if this device already ran the migration, this no-ops.
     maybeMigrateCustoms();
-    // Snapshot what we just loaded so emitDiffOps() has a baseline to diff
-    // against. MUST happen before any cold-path saveState() below, otherwise
-    // the legacy-supplement migration would re-emit ops for items that
-    // already match the gist.
-    lastKnownGistState = captureSnapshot();
     // If the legacy profile.supplements or .waterSchedule was just migrated
     // into ITEMS, persist the new shape back to the gist via op diff.
     if (hadLegacySupps || hadLegacyWater) {
@@ -6481,13 +6512,17 @@
     for (const w of getWaterSchedule()) {
       if (s.toggles && s.toggles[w.key]) t.water += (w.ml || WATER_DEFAULT_ML);
     }
-    // Supplement toggles — when checked, add full per-canonical-serving
-    // contribution (canonical = first/smallest displayUnit).
+    // Supplement toggles — when checked, add the "default" variant's macros.
+    // displayUnits is stored DESC by size, so [0] is the largest variant;
+    // pick the explicit default if one exists (matches the water schedule's
+    // canonical-pick logic) so multi-variant supps don't toggle the largest
+    // serving by accident.
     for (const sup of getSupplementSchedule()) {
       if (!(s.toggles && s.toggles[sup.key])) continue;
       const item = ITEMS[sup.key];
       if (!item) continue;
-      const canon = getDisplayUnits(item)[0];
+      const variants = getDisplayUnits(item);
+      const canon = variants.find(v => v && v.default) || variants[0] || { unitsPerServing: 0 };
       const m = scaleByNative(item, canon.unitsPerServing || 0);
       for (const k of STORED_NUTRIENT_KEYS) t[k] += (m[k] || 0);
     }
@@ -6840,7 +6875,7 @@
       const skip = suggestSkip(state, over);
       let suggestion = '';
       if (skip) suggestion = ` Consider skipping a ${skip.item.name} (saves ${Math.round(skip.kcal)} kcal).`;
-      warnings.push({ type: 'warn', text: `Calories ${Math.round(over)} kcal over the 1,650 daily goal.${suggestion}` });
+      warnings.push({ type: 'warn', text: `Calories ${Math.round(over)} kcal over the ${GOALS.kcal.toLocaleString()} daily goal.${suggestion}` });
     } else if (isToday && !tooEarly && now >= 18 * 60) {
       // Past 6 PM — flag if calories well under goal (genuinely under-eating)
       const expectedK = GOALS.kcal * pacingFraction('kcal');
@@ -6875,7 +6910,7 @@
 
     // -------- SAT FAT (ceiling only — applies to any date) --------
     if (totals.sf > GOALS.sf) {
-      warnings.push({ type: 'warn', text: `Saturated fat ${(totals.sf - GOALS.sf).toFixed(1)} g over the 12 g daily ceiling. Avoid further SF-heavy items (Larabar, full-egg bowl).` });
+      warnings.push({ type: 'warn', text: `Saturated fat ${(totals.sf - GOALS.sf).toFixed(1)} g over the ${GOALS.sf} g daily ceiling.` });
     }
 
     // -------- WATER --------
@@ -6893,7 +6928,7 @@
 
     // -------- CAFFEINE --------
     if (totals.caffeine > GOALS.caffeine) {
-      warnings.push({ type: 'warn', text: `Caffeine ${Math.round(totals.caffeine - GOALS.caffeine)} mg over the 400 mg cap.${isToday ? ' No more coffee, My Tea, or Premier Latte protein shake today.' : ''}` });
+      warnings.push({ type: 'warn', text: `Caffeine ${Math.round(totals.caffeine - GOALS.caffeine)} mg over the ${GOALS.caffeine} mg daily cap.${isToday ? ' Hold off on coffee, tea, and caffeinated shakes for today.' : ''}` });
     } else if (isToday && now >= 11 * 60 && now < 12 * 60 && totals.caffeine < 100) {
       warnings.push({ type: 'warn', text: `Only ${Math.round(totals.caffeine)} mg caffeine before noon cutoff. Time for My Coffee, My Tea, or Premier Latte protein shake.` });
     } else if (isToday && now >= 12 * 60 && now < 14 * 60 && totals.caffeine < 100) {
@@ -6908,8 +6943,13 @@
       warnings.push({ type: 'good', text: `Daily protein target reached (${GOALS.p} g).` });
     }
 
+    // Warning text contains interpolated item names that originate in the
+    // user catalog — could include angle brackets if the user pasted weird
+    // input or imported via hash command. Escape the text on the way to
+    // innerHTML; the surrounding wrapper class is hardcoded so no template
+    // escaping needed there.
     warningsEl.innerHTML = warnings.map(w =>
-      `<div class="checkout-warning${w.type === 'good' ? ' good' : ''}">${w.text}</div>`
+      `<div class="checkout-warning${w.type === 'good' ? ' good' : ''}">${escapeHtml(w.text)}</div>`
     ).join('');
   }
 
@@ -7021,7 +7061,7 @@
   // never show "7.0", just "7"; "3.3" stays "3.3"; "12.55" → "12.6".
   // Storage is separate (up to 4 decimals); this is display-only.
   function fmt1(n) {
-    if (n == null || isNaN(n)) return '0';
+    if (n == null || !Number.isFinite(n)) return '0';
     const rounded = Math.round(n * 10) / 10;
     if (rounded === Math.floor(rounded)) return String(Math.floor(rounded));
     return rounded.toFixed(1);
@@ -7158,6 +7198,55 @@
     };
   }
 
+  // Total grams in one batch of a recipe — the sum of each ingredient's
+  // gram-equivalent weight. Used by the recipe custom-portion logger to
+  // convert "I ate 250 g" → fraction of a batch. Volume-measured ingredients
+  // convert via item.density_g_per_ml when set; otherwise they're skipped
+  // (a 0-density-volume ingredient can't be expressed in grams reliably).
+  // Discrete-unit ingredients (pills, cups, pieces) are skipped — they can't
+  // be summed as grams. Flat ingredients with a gram-unit amount contribute
+  // directly; flat ingredients without a usable unit are skipped.
+  function recipeBatchGrams(item) {
+    if (!item || item.category !== 'recipes') return 0;
+    if (!Array.isArray(item.ingredients) || !item.ingredients.length) return 0;
+    let total = 0;
+    for (const ing of item.ingredients) {
+      if (!ing) continue;
+      if (ing.itemKey) {
+        const src = ITEMS[ing.itemKey];
+        if (!src) continue;
+        const measure = getDefaultMeasuredIn(src);
+        let units = 0;
+        if (typeof ing.amount === 'number') units = ing.amount;
+        else if (typeof ing.multiplier === 'number') {
+          const canon = getDisplayUnits(src)[0];
+          units = ing.multiplier * (canon.unitsPerServing || 0);
+        }
+        if (units <= 0) continue;
+        if (measure === 'g') {
+          total += units;
+        } else if (measure === 'ml') {
+          const d = (typeof src.density_g_per_ml === 'number' && src.density_g_per_ml > 0)
+            ? src.density_g_per_ml : 1; // assume ~water density when unset
+          total += units * d;
+        }
+        // 'units' (discrete) ingredients can't be summed as grams — skip.
+        continue;
+      }
+      // Flat ingredient
+      const amt = ing.amount;
+      if (amt && typeof amt.value === 'number' && amt.value > 0) {
+        const unit = (amt.unit || '').toLowerCase();
+        if (unit === 'g')      total += amt.value;
+        else if (unit === 'oz') total += amt.value * 28.3495;
+        else if (unit === 'lb') total += amt.value * 453.592;
+        else if (unit === 'ml') total += amt.value;        // assume ≈1 g/ml
+        // other units (cup, tbsp, "to taste") have no gram conversion here.
+      }
+    }
+    return total;
+  }
+
   // Compute the nutrients for a single ingredient against the live ITEMS
   // map. v5: ingredient.amount is in grams, source's macros are per-gram.
   // Multiplier-shape ingredients (legacy) resolved against canonical amount.
@@ -7179,6 +7268,20 @@
       // Multiplier × source's canonical unitsPerServing.
       const canon = getDisplayUnits(item)[0];
       units = ing.multiplier * (canon.unitsPerServing || 0);
+    }
+    // Recipes-as-ingredients carry no per-native macros (saveExpandedEdits
+    // strips them, deferring to ingredient sum). scaleByNative would yield
+    // zero. Instead compute the source-recipe batch macros and scale by
+    // (units / batch_grams) — same logic computeTotals uses for top-level
+    // recipe counters.
+    if (item.category === 'recipes' && Array.isArray(item.ingredients) && item.ingredients.length) {
+      const canon = getDisplayUnits(item)[0];
+      const canonUnits = canon.unitsPerServing || 1;
+      const batch = computeItemMacros(item);
+      const factor = units / canonUnits;
+      const out = {};
+      for (const k of STORED_NUTRIENT_KEYS) out[k] = (batch[k] || 0) * factor;
+      return out;
     }
     return scaleByNative(item, units);
   }
@@ -7207,6 +7310,40 @@
   //   amount: { value: 182, unit: 'g', label: 'medium size' } → "Apple (medium size / 182 g)"
   //   amount: { value: 240, unit: 'ml' }                  → "Skim milk (240 ml · ≈1 cup)"
   //   no amount                                           → "Apple + almonds snack"
+  // Compose the trailing "· <label> (<size> <unit>)" segment for a variant
+  // row title. The goal: every variant row should make the gram/ml weight
+  // visible at a glance. formatItemDisplayName already prints the size for
+  // single-portion items with an `amount` (e.g. "Apple (medium size / 182 g)"),
+  // so suppress the suffix when the displayed name already exposes the size
+  // — otherwise we'd duplicate "Apple (medium size / 182 g) · medium size".
+  // Recipes have no meaningful native size and skip the size suffix.
+  function variantRowTitleSuffix(item, variant) {
+    if (!variant) return '';
+    const label = variant.label || '';
+    // Recipes have no meaningful native size; the synthesized label ("1 unit")
+    // adds no info, so skip the suffix entirely.
+    if (!item || item.category === 'recipes') return '';
+    const size = (typeof variant.unitsPerServing === 'number') ? variant.unitsPerServing
+               : (typeof variant.multiplier === 'number' ? variant.multiplier : 0);
+    if (!size || size <= 0) return label ? ' · ' + label : '';
+    const unit = primaryUnit(item);
+    const sizeStr = formatSize(size) + ' ' + unit;
+    const norm = (s) => (s || '').replace(/\s+/g, '').toLowerCase();
+    const normName  = norm(formatItemDisplayName(item));
+    const normSize  = norm(sizeStr);
+    const normLabel = norm(label);
+    const sizeInName  = !!normSize  && normName.indexOf(normSize) >= 0;
+    const labelInName = !!normLabel && normName.indexOf(normLabel) >= 0;
+    // Whole thing already in the title — no suffix.
+    if ((sizeInName && labelInName) || (sizeInName && !label)) return '';
+    if (!label) return ' · ' + sizeStr;
+    // Variant label is literally the size+unit (auto-synthesized fallback) —
+    // show it once, but not twice.
+    if (normLabel === normSize) return ' · ' + label;
+    // Descriptive label + size both add value.
+    return sizeInName ? ' · ' + label : ' · ' + label + ' (' + sizeStr + ')';
+  }
+
   function formatItemDisplayName(item) {
     const name = (item && item.name) || '';
     const amt = item && item.amount;
@@ -7240,6 +7377,9 @@
   // anchored on the user's daily target ratio. Below target = green tint scaled by leanness;
   // above target = orange→red tint scaled by how far over (saturates at 3× target).
   function ratioBackground(ratio, target) {
+    // Target = Infinity (e.g. protein goal is 0) → ratio comparisons lose
+    // meaning; render every row neutral so the color signal stays honest.
+    if (!Number.isFinite(target) || target <= 0) return 'transparent';
     if (ratio <= target) {
       // Square-root curve so middling-good ratios (e.g. 4.17 vs target 8.97)
       // already read as clearly green instead of pale wash. Pure water and
@@ -7456,12 +7596,15 @@
     const root = document.getElementById('catalog-groups');
     if (!root) return;
     root.innerHTML = '';
-    const targetRatio = GOALS.kcal / GOALS.p;
+    const targetRatio = (GOALS.p > 0) ? (GOALS.kcal / GOALS.p) : Infinity;
     // Supplements live in the catalog (single source of truth) but render
     // in the dedicated schedule section above, not here. Skip them in both
     // sort modes. Archived items are shown only in the Archive group at
     // the end.
-    const isFoodCategory = (it) => it && it.category !== 'supplements' && !it.archived;
+    // Supplements and water both have their own scheduled-row UI (in
+    // renderSupplementWaterRows). Letting them through here too would
+    // double-render the row and double-count their counter on totals.
+    const isFoodCategory = (it) => it && it.category !== 'supplements' && it.category !== 'water' && !it.archived;
 
     if (state.sortMode === 'alpha' || state.sortMode === 'ratio') {
       const allEntries = Object.keys(ITEMS)
@@ -7512,7 +7655,11 @@
 
     // Category mode (default)
     CATEGORIES.forEach(cat => {
-      if (cat.key === 'supplements') return; // rendered in schedule section
+      // Supplements + water render in the dedicated schedule section above
+      // (renderSupplementWaterRows). Skipping here keeps each row in one
+      // place and prevents the counter / toggle from compounding into the
+      // daily totals from two paths.
+      if (cat.key === 'supplements' || cat.key === 'water') return;
       const entries = Object.keys(ITEMS)
         .filter(k => ITEMS[k].category === cat.key && !ITEMS[k].archived)
         .map(k => ({ key: k, item: ITEMS[k], ratio: ratioFor(ITEMS[k]) }))
@@ -7536,7 +7683,6 @@
           divider.dataset.section = cat.key;
           const label = document.createElement('span');
           label.className = 'protein-cutoff-label';
-          const proteinPer100 = (GOALS.p / GOALS.kcal * 100).toFixed(1);
           label.textContent = targetRatio.toFixed(2) + ' kcal/p — daily cutoff (' + GOALS.kcal + '/' + GOALS.p + ')';
           divider.appendChild(label);
           group.appendChild(divider);
@@ -7745,10 +7891,7 @@
     const nameCol = document.createElement('div');
     const nameSpan = document.createElement('span');
     nameSpan.className = 'checkout-item-name';
-    const variantLabel = variant && variant.label ? variant.label : '';
-    nameSpan.textContent = variantLabel
-      ? formatItemDisplayName(item) + ' · ' + variantLabel
-      : formatItemDisplayName(item);
+    nameSpan.textContent = formatItemDisplayName(item) + variantRowTitleSuffix(item, variant);
     nameCol.appendChild(nameSpan);
 
     if (item.demo) {
@@ -7831,7 +7974,7 @@
       const nameCol = document.createElement('div');
       const nameSpan = document.createElement('span');
       nameSpan.className = 'checkout-item-name';
-      nameSpan.textContent = formatItemDisplayName(item) + ' · ' + variant.label;
+      nameSpan.textContent = formatItemDisplayName(item) + variantRowTitleSuffix(item, variant);
       nameCol.appendChild(nameSpan);
       if (idx === 0 && item.demo) {
         const badge = document.createElement('span');
@@ -8018,7 +8161,7 @@
     const mlPerG = hasDensity ? (Math.round((1 / density) * 100000) / 100000) : '';
     return (
       '<div class="edit-panel-row">' +
-        '<label>Serving sizes <span class="edit-panel-hint">each row is one way to count this item — e.g. "1 slice = 28 g" or "1 tub = 226 g". The one marked <em>default</em> shows up when the row is collapsed.</span></label>' +
+        '<label>Serving sizes (' + escapeHtml(prim) + ') <span class="edit-panel-hint">each row is one way to count this item — e.g. "1 slice = 28 ' + escapeHtml(prim) + '" or "1 tub = 226 ' + escapeHtml(prim) + '". The one marked <em>default</em> shows up when the row is collapsed.</span></label>' +
         '<div class="ing-amount-row" style="margin-bottom: 10px;">' +
           '<div class="ing-field-labeled" style="flex: 1 1 160px;">' +
             '<label>Density · g per ml</label>' +
@@ -8082,12 +8225,21 @@
   function renderTrackPortionBlock(item, key) {
     if (!item) return '';
     if (item.category === 'supplements' || item.category === 'water') return '';
-    const prim = primaryUnit(item);
+    const isRecipe = (item.category === 'recipes');
+    const prim = isRecipe ? 'g' : primaryUnit(item);
     const hasDensity = (typeof item.density_g_per_ml === 'number' && item.density_g_per_ml > 0);
     const fmt = (u) => u.replace('_', ' ');
-    const genericNative = (prim === 'g') ? MASS_UNIT_KEYS : VOLUME_UNIT_KEYS;
-    const genericCross  = (prim === 'g') ? VOLUME_UNIT_KEYS : MASS_UNIT_KEYS;
-    const variants = orderVariantsForCatalog(getDisplayUnits(item));
+    // Recipes: mass-only (g, oz, lb). Logging "I ate 250 g of my turkey slab"
+    // converts to a fraction of one batch using recipeBatchGrams. No volume
+    // units, no per-variant options — the canonical "1 batch" already lives
+    // on the row's +/- buttons.
+    const genericNative = isRecipe
+      ? MASS_UNIT_KEYS
+      : ((prim === 'g') ? MASS_UNIT_KEYS : VOLUME_UNIT_KEYS);
+    const genericCross  = isRecipe
+      ? []
+      : ((prim === 'g') ? VOLUME_UNIT_KEYS : MASS_UNIT_KEYS);
+    const variants = isRecipe ? [] : orderVariantsForCatalog(getDisplayUnits(item));
     // Build options. Native generic units first (g, oz, lb / ml, fl_oz,
     // cup, tbsp, tsp), then cross-family (gated on density), then a divider,
     // then each variant. Variant options carry data-track-size so the handler
@@ -8104,10 +8256,16 @@
           escapeHtml(labelTxt) + ' (' + v.unitsPerServing + ' ' + prim + ')' +
         '</option>';
       }).join('');
+    const batchG = isRecipe ? recipeBatchGrams(item) : 0;
+    const recipeHint = isRecipe
+      ? (batchG > 0
+          ? ' <span class="edit-panel-hint">1 batch ≈ ' + formatSize(batchG) + ' g — logging X g adds X/' + formatSize(batchG) + ' of a batch.</span>'
+          : ' <span class="edit-panel-hint">Add ingredients to enable gram-based logging.</span>')
+      : ' <span class="edit-panel-hint">log an ad-hoc amount without saving it as a serving — adds to today\'s total for this item</span>';
     return (
       '<div class="edit-panel-row">' +
-        '<label>Track custom portion <span class="edit-panel-hint">log an ad-hoc amount without saving it as a serving — adds to today\'s total for this item</span></label>' +
-        '<div class="ing-amount-row variant-custom-add" data-variant-custom-add data-track-portion-row>' +
+        '<label>Track custom portion' + recipeHint + '</label>' +
+        '<div class="ing-amount-row variant-custom-add" data-variant-custom-add data-track-portion-row' + (isRecipe ? ' data-recipe-portion' : '') + '>' +
           '<div class="ing-field-labeled">' +
             '<label>Amount</label>' +
             '<input type="number" data-track-portion-amount placeholder="0" min="0" step="0.01" inputmode="decimal" />' +
@@ -8609,7 +8767,7 @@
           const label = labelEl ? (labelEl.value || '').trim() : '';
           const servingSize = servingSizeEl ? parseFloat(servingSizeEl.value) : NaN;
           if (!isFinite(servingSize) || servingSize <= 0) return;
-          const entry = { label: label || (servingSize + ' g'), unitsPerServing: servingSize };
+          const entry = { label: label || (servingSize + ' ' + primaryUnit(item)), unitsPerServing: servingSize };
           if (radio && radio.checked) entry.default = true;
           newUnits.push(entry);
         });
@@ -8670,7 +8828,12 @@
     //   - Flat: {name, amount{value,unit}, kcal, p, ...}.
     const rows = panel.querySelectorAll('[data-ing-row]');
     const ingredients = [];
-    const sumMacros = { kcal: 0, p: 0, sf: 0, water: 0, caffeine: 0 };
+    // Accumulate every stored nutrient key (not just the 5 hot ones) so a
+    // non-recipe item with sub-ingredients doesn't have its vitamins/minerals
+    // silently dropped on save. computeIngredientMacros returns the full
+    // nutrient set for linked ingredients; flat rows only expose kcal/p/sf/
+    // water/caffeine in the UI so their other keys stay zero.
+    const sumMacros = zeroNutrients();
     rows.forEach(row => {
       const f = (k) => {
         const el = row.querySelector('[data-ing-field="' + k + '"]');
@@ -8697,14 +8860,7 @@
           if (labelRaw) entry.label = labelRaw;
         }
         ingredients.push(entry);
-        const resolved = resolveIngredient(entry);
-        if (resolved) {
-          sumMacros.kcal += resolved.kcal || 0;
-          sumMacros.p += resolved.p || 0;
-          sumMacros.sf += resolved.sf || 0;
-          sumMacros.water += resolved.water || 0;
-          sumMacros.caffeine += resolved.caffeine || 0;
-        }
+        addNutrients(sumMacros, computeIngredientMacros(entry));
         return;
       }
       // Flat row
@@ -8728,11 +8884,7 @@
         };
       }
       ingredients.push(entry);
-      sumMacros.kcal += entry.kcal;
-      sumMacros.p += entry.p;
-      sumMacros.sf += entry.sf;
-      sumMacros.water += entry.water;
-      sumMacros.caffeine += entry.caffeine;
+      for (const k of STORED_NUTRIENT_KEYS) sumMacros[k] += (entry[k] || 0);
     });
 
     if (isRecipe) {
@@ -9160,8 +9312,10 @@
         if (document.activeElement === valEl) return;
         const servingSize = parseFloat(valEl.dataset.servingSize) || 1;
         const display = servingSize > 0 ? grams / servingSize : 0;
-        // Round to 4 decimals to avoid float wobble in the input
-        const rounded = Math.round(display * 10000) / 10000;
+        // 1-decimal display so the value lines up with the input's step="0.1"
+        // (a 4-decimal value renders off-step and disables the spinner buttons
+        // in some browsers). Storage stays at full precision in state.counters.
+        const rounded = Math.round(display * 10) / 10;
         if ('value' in valEl) valEl.value = rounded;
         else valEl.textContent = rounded;
       });
@@ -10271,8 +10425,22 @@
           return;
         }
         const unitVal = unitEl ? unitEl.value : 'g';
+        const isRecipe = (item.category === 'recipes');
         let addNative;
-        if (unitVal && unitVal.indexOf('__variant_') === 0) {
+        if (isRecipe) {
+          // Recipe: convert the typed mass amount → grams → fraction of one
+          // batch. The recipe row counter is in units of "batches" (canonical
+          // unitsPerServing = 1 by default for recipes), so we add a decimal
+          // fraction of a batch rather than raw grams.
+          const grams = (unitVal === 'g') ? amt
+                      : (unitVal === 'oz') ? amt * MASS_TO_G.oz
+                      : (unitVal === 'lb') ? amt * MASS_TO_G.lb
+                      : NaN;
+          if (!isFinite(grams) || grams <= 0) return;
+          const batchG = recipeBatchGrams(item);
+          if (!isFinite(batchG) || batchG <= 0) return;
+          addNative = grams / batchG;
+        } else if (unitVal && unitVal.indexOf('__variant_') === 0) {
           // Variant option: read the servingSize off the selected <option>.
           const opt = unitEl.options[unitEl.selectedIndex];
           const servingSize = opt ? parseFloat(opt.dataset.trackSize) : NaN;
