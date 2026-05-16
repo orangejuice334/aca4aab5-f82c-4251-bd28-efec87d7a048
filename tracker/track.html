@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.1.1">
+<meta name="app-version" content="v6.1.2">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -9049,12 +9049,23 @@
   // outside the catalog (e.g. the protein density reference callout) updates
   // automatically when goals change.
   function renderGoalRefs() {
+    // Guard against goals === 0 — divisions render Infinity/NaN into the
+    // span otherwise. Fall back to "—" so the surrounding prose still reads.
+    const safe = (n) => Number.isFinite(n) ? n : null;
+    const kcalGoal = safe(GOALS.kcal);
+    const pGoal = safe(GOALS.p);
     document.querySelectorAll('[data-goal]').forEach(el => {
       const which = el.dataset.goal;
-      if (which === 'kcal') el.textContent = GOALS.kcal.toLocaleString();
-      else if (which === 'p') el.textContent = GOALS.p.toString();
-      else if (which === 'ratio') el.textContent = (GOALS.kcal / GOALS.p).toFixed(2);
-      else if (which === 'ratio_inv') el.textContent = (100 * GOALS.p / GOALS.kcal).toFixed(2);
+      if (which === 'kcal') el.textContent = (kcalGoal != null) ? kcalGoal.toLocaleString() : '—';
+      else if (which === 'p') el.textContent = (pGoal != null) ? pGoal.toString() : '—';
+      else if (which === 'ratio') {
+        el.textContent = (kcalGoal != null && pGoal != null && pGoal > 0)
+          ? (kcalGoal / pGoal).toFixed(2) : '—';
+      }
+      else if (which === 'ratio_inv') {
+        el.textContent = (kcalGoal != null && pGoal != null && kcalGoal > 0)
+          ? (100 * pGoal / kcalGoal).toFixed(2) : '—';
+      }
     });
   }
 
@@ -10573,7 +10584,19 @@
         const key = panel && panel.dataset.editPanelKey;
         if (!key) return;
         const itemName = (ITEMS[key] && ITEMS[key].name) || key;
-        if (!confirm('Delete "' + itemName + '"? This removes it from the catalog. (Day-counter references in past days will go stale.)')) return;
+        // Find every recipe in the catalog whose ingredients reference this
+        // key — deleting will leave them with "(missing item)" rows and
+        // silently zero their contribution. Surface this in the confirm so
+        // the user knows what else this breaks.
+        const referencingRecipes = Object.entries(ITEMS)
+          .filter(([rk, rv]) => rv && rv.category === 'recipes' && Array.isArray(rv.ingredients)
+            && rv.ingredients.some(ing => ing && ing.itemKey === key))
+          .map(([rk, rv]) => rv.name || rk);
+        let warning = 'Delete "' + itemName + '"? This removes it from the catalog. (Day-counter references in past days will go stale.)';
+        if (referencingRecipes.length) {
+          warning += '\n\nReferenced by ' + referencingRecipes.length + ' recipe' + (referencingRecipes.length === 1 ? '' : 's') + ': ' + referencingRecipes.slice(0, 5).join(', ') + (referencingRecipes.length > 5 ? '…' : '') + '. Those ingredients will compute as zero.';
+        }
+        if (!confirm(warning)) return;
         delete ITEMS[key];
         saveState();
         if (typeof renderCatalog === 'function') renderCatalog();
