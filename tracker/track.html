@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.3.2">
+<meta name="app-version" content="v6.4.0">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -770,24 +770,26 @@
   .variant-edit-row input[data-variant-field="size"] {
     width: 80px;
   }
-  /* Match the rest of the editor (mono, paper bg, rule border, rust on
-     focus) for both the variant size/name inputs and any other plain
-     inputs that escaped the more specific .edit-panel-row rules. Explicit
-     height keeps the Name field a single line regardless of how the parent
-     flex container stretches. */
+  /* Force single-line height on every input in a serving-size row,
+     regardless of which more-specific rule downstream wins. The !important
+     here is load-bearing: `.edit-panel-row input[type="text"]` is later in
+     the stylesheet at equal specificity, and without !important it would
+     reset height to auto and the flex container stretch makes the NAME box
+     render as a 150-px square. */
   .variant-edit-row input[type="text"],
-  .variant-edit-row input[type="number"] {
+  .variant-edit-row input[type="number"],
+  .variant-edit-row select {
     box-sizing: border-box;
     padding: 5px 8px;
-    height: 26px;
-    line-height: 1;
+    height: 28px !important;
+    line-height: 1.4;
     border: 1px solid var(--rule);
     border-radius: 2px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
     background: var(--paper);
     color: var(--ink);
-    line-height: 1.4;
+    align-self: flex-end;
   }
   .variant-edit-row input:focus {
     outline: none;
@@ -857,21 +859,22 @@
     min-width: 0;
   }
   .variant-edit-row .variant-delete {
-    /* Matches the input height (variant size/name inputs are ~24px tall
-       after padding+border). Inside variant-edit-size-row it sits to the
-       right of the input. */
+    /* Sized to match the 28-px input height so the delete control reads as
+       part of the same row of fields instead of a floating tiny X. */
     flex: 0 0 auto;
-    padding: 4px 9px;
-    border: 1px solid var(--ink-faint);
+    padding: 0 10px;
+    border: 1px solid var(--rule);
     background: var(--paper);
     color: var(--ink-soft);
     cursor: pointer;
     border-radius: 2px;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 600;
     line-height: 1;
-    height: 24px;
+    height: 28px;
+    min-width: 28px;
     box-sizing: border-box;
-    align-self: stretch;
+    align-self: flex-end;
   }
   .variant-edit-row .variant-delete:hover {
     background: var(--rust);
@@ -8452,8 +8455,9 @@
         '</div>' +
         '<div class="edit-panel-hint" style="display: block; margin-top: -4px; margin-bottom: 8px;">Both textboxes edit the same density — fill in whichever you have. Leave blank when unknown; required to define ' + crossLabel + ' servings (' + crossExamples + ').</div>' +
         '<div class="variant-edit-list" data-variant-list>' + rows + '</div>' +
+        '<div class="variant-section-header" style="margin-top:10px;font-family:\'JetBrains Mono\',monospace;font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.08em;">Create new serving size</div>' +
         '<div class="variant-quick-add" data-variant-quick-add>' +
-          '<span class="edit-panel-hint">New Serving Size:</span>' +
+          '<span class="edit-panel-hint">Use default amount modified by:</span>' +
           '<button type="button" data-variant-op="mult" data-variant-num="1" data-variant-denom="2">½</button>' +
           '<button type="button" data-variant-op="mult" data-variant-num="1" data-variant-denom="3">⅓</button>' +
           '<button type="button" data-variant-op="mult" data-variant-num="1" data-variant-denom="4">¼</button>' +
@@ -8929,27 +8933,10 @@
 
       supplementBlock +
 
-      // Top-level amount: value (in basis units), unit, optional label.
-      // Each field gets its own little label above; pattern matches the
-      // ingredient row labelled-field style for vertical alignment.
-      (isRecipe ? '' :
-        '<div class="edit-panel-row">' +
-          '<div class="ing-amount-row">' +
-            '<div class="ing-field-labeled">' +
-              '<label>Serving amount</label>' +
-              '<input type="number" data-edit-field="top-amount-value" placeholder="100" min="0" step="0.1" value="' + escapeHtml(String(topAmtVal)) + '" inputmode="decimal" />' +
-            '</div>' +
-            '<div class="ing-field-labeled">' +
-              '<label>Serving unit</label>' +
-              unitSelect(topAmtUnit, 'data-edit-field="top-amount-unit"') +
-            '</div>' +
-            '<div class="ing-field-labeled">' +
-              '<label>Serving label</label>' +
-              '<input type="text" data-edit-field="top-amount-label" placeholder="e.g. medium size" value="' + escapeHtml(topAmtLabel) + '" />' +
-            '</div>' +
-          '</div>' +
-        '</div>'
-      ) +
+      // (Removed parent-level "Serving amount / Serving unit / Serving
+      // label" inputs — these properties belong to each serving size,
+      // not the parent item. They now live in the per-row serving-size
+      // editor below.)
 
       // Measurement variants editor: lets the user manage the displayUnits
       // array — each one is a portion size that gets its own catalog row.
