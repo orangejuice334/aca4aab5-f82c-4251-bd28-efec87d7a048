@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.3.0">
+<meta name="app-version" content="v6.3.1">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -921,7 +921,8 @@
   }
   .variant-custom-add .variant-add-btn-cell { flex: 0 0 auto; }
   .variant-custom-add button[data-variant-add],
-  .variant-custom-add button[data-variant-reset] {
+  .variant-custom-add button[data-variant-reset],
+  .variant-custom-add button[data-track-portion-add] {
     padding: 6px 14px;
     border: 1px solid var(--ink-soft);
     background: var(--paper);
@@ -934,7 +935,8 @@
     line-height: 1.4;
   }
   .variant-custom-add button[data-variant-add]:hover,
-  .variant-custom-add button[data-variant-reset]:hover {
+  .variant-custom-add button[data-variant-reset]:hover,
+  .variant-custom-add button[data-track-portion-add]:hover {
     background: var(--ink);
     color: var(--paper);
     border-color: var(--ink);
@@ -5845,6 +5847,17 @@
     HEIGHT_M = (state.profile.heightCm || 0) / 100;
     HEIGHT_M_SQ = HEIGHT_M * HEIGHT_M;
     renderCheckoutTotalCells();
+    // Daily goal targets (the kcal/p/sf/water banner numbers) need to refresh
+    // whenever the user edits a goal — otherwise the bar percentages and the
+    // labels still show the old goal until a full reload.
+    if (typeof renderTargetsBanner === 'function') renderTargetsBanner();
+    // Catalog row colors depend on GOALS.kcal / GOALS.p (the target ratio)
+    // and on the displayedNutrients list. Rebuild both the catalog grid and
+    // the scheduled-row strip so colors + macro lines re-render with the
+    // new goals.
+    if (typeof renderCatalog === 'function') renderCatalog();
+    if (typeof renderSupplementWaterRows === 'function') renderSupplementWaterRows();
+    if (typeof renderRatioCutoff === 'function') renderRatioCutoff();
 
     // Update display name in summary if it changed
     const nameEl = document.getElementById('profile-name');
@@ -5979,9 +5992,40 @@
         } else {
           m = { kcal: (item.kcal || 0) * n, p: (item.p || 0) * n, sf: (item.sf || 0) * n };
         }
+        // Format the "how much" suffix for the history line. Raw counter is
+        // in native units (g for mass items, ml for volume); a "×30" reading
+        // is misleading because it looks like "30 servings." For recipes we
+        // also include "≈N servings" using the default variant as the unit.
+        let countSuffix = '';
+        if (catItem) {
+          const prim = primaryUnit(catItem);
+          const isRecipeItem = catItem.category === 'recipes' && Array.isArray(catItem.ingredients) && catItem.ingredients.length;
+          if (isRecipeItem) {
+            const effective = effectiveRecipeForDay(key, bucket);
+            const variants = getDisplayUnits(effective || catItem);
+            const def = (variants.find(v => v && v.default) || variants[0]) || null;
+            const defSize = def && typeof def.unitsPerServing === 'number' && def.unitsPerServing > 0
+              ? def.unitsPerServing : 0;
+            const grams = formatSize(n) + ' g';
+            if (defSize > 0) {
+              const servings = n / defSize;
+              const servingsTxt = (Math.round(servings * 100) / 100).toString();
+              countSuffix = ' · ' + grams + ' (≈ ' + servingsTxt + ' × ' + (def.label || 'serving') + ')';
+            } else {
+              countSuffix = ' · ' + grams;
+            }
+          } else {
+            countSuffix = ' · ' + formatSize(n) + ' ' + prim;
+          }
+        } else {
+          // Saved custom item — store native count + unit if known on the saved entry.
+          const u = (item && item.amount && item.amount.unit) || 'unit';
+          countSuffix = ' · ' + formatSize(n) + ' ' + u;
+        }
         items.push({
           name: item.name || key,
           count: n,
+          countSuffix,
           kcal: m.kcal || 0,
           p: m.p || 0,
           sf: m.sf || 0,
@@ -5992,9 +6036,13 @@
       for (const c of bucket.customs || []) {
         const n = (c.count !== undefined && c.count !== null) ? c.count : 1;
         if (!n) continue;
+        // Customs are user-entered with `count` in their own unit (1 serving
+        // typically). "×N" makes sense here since each click = +1.
+        const countSuffix = ' ×' + (Math.round(n * 100) / 100).toString();
         customs.push({
           name: c.name || 'Custom',
           count: n,
+          countSuffix,
           kcal: (c.kcal || 0) * n,
           p: (c.p || 0) * n,
           sf: (c.sf || 0) * n,
@@ -7058,7 +7106,8 @@
       for (const it of consumed) {
         const macros = `${Math.round(it.kcal)}k · ${fmt(it.p, 0)}P · ${fmt(it.sf, 1)}SF`;
         const tag = it.isCustom ? ' <em class="hd-tag">(custom)</em>' : '';
-        out.push(`<li><span class="hd-name">${escapeHtml(it.name)} ×${it.count}${tag}</span><span class="hd-macros">${macros}</span><span class="hd-time">${fmtTime(it.lastModified)}</span></li>`);
+        const suffix = it.countSuffix || (' ×' + it.count);
+        out.push(`<li><span class="hd-name">${escapeHtml(it.name)}${escapeHtml(suffix)}${tag}</span><span class="hd-macros">${macros}</span><span class="hd-time">${fmtTime(it.lastModified)}</span></li>`);
       }
       out.push('</ul></div>');
     }
@@ -8345,7 +8394,12 @@
   // density is filled; for a volume-measured item (defaultMeasuredIn 'ml'), mass
   // units stay disabled.
   function renderVariantEditorBlock(item, key) {
-    if (!item || item.category === 'recipes') return '';
+    if (!item) return '';
+    // Recipes now support multi-variant editing too — variants are sized in
+    // grams of mixture relative to the batch (sum of ingredient grams), so
+    // 1 batch / 1 serving / 100 g / etc. all coexist. The macro math uses
+    // recipeCanonicalGrams for scaling regardless of which variant the user
+    // clicks the counter on.
     const prim = primaryUnit(item);
     // Use getDisplayUnits so variants come back with unitsPerServing mirrored
     // from their stored multiplier (the canonical "1 native unit" is implicit).
@@ -9011,9 +9065,11 @@
 
     // Variants editor: replace item.displayUnits with whatever's currently
     // in the form's variant rows. Empty / invalid rows are dropped. If the
-    // form has no rows (e.g. recipes that skip the editor block), the
-    // existing displayUnits stay untouched.
-    if (!isRecipe) {
+    // form has no rows, the existing displayUnits stay untouched. Recipes
+    // also support multi-variant editing (g-based variants, scaled relative
+    // to the batch sum); the math always uses recipeCanonicalGrams as the
+    // canonical scale so a recipe with several variants stays consistent.
+    {
       const varRows = panel.querySelectorAll('[data-variant-row]');
       if (varRows.length > 0) {
         const newUnits = [];
