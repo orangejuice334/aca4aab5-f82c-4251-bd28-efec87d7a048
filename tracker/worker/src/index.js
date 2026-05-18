@@ -230,6 +230,38 @@ const OPS = {
     delete day.fatPercentMeta;
     return { ok: true };
   },
+  neck_set(state, op) {
+    if (typeof op.value !== 'number' || !Number.isFinite(op.value)) {
+      return { ok: false, error: 'neck_set requires numeric value' };
+    }
+    const day = ensureDay(state, op.date);
+    day.neck = op.value;
+    if (op.ts) day.neckMeta = op.ts;
+    return { ok: true };
+  },
+  neck_clear(state, op) {
+    if (!op.date) return { ok: false, error: 'neck_clear requires date' };
+    const day = ensureDay(state, op.date);
+    delete day.neck;
+    delete day.neckMeta;
+    return { ok: true };
+  },
+  waist_set(state, op) {
+    if (typeof op.value !== 'number' || !Number.isFinite(op.value)) {
+      return { ok: false, error: 'waist_set requires numeric value' };
+    }
+    const day = ensureDay(state, op.date);
+    day.waist = op.value;
+    if (op.ts) day.waistMeta = op.ts;
+    return { ok: true };
+  },
+  waist_clear(state, op) {
+    if (!op.date) return { ok: false, error: 'waist_clear requires date' };
+    const day = ensureDay(state, op.date);
+    delete day.waist;
+    delete day.waistMeta;
+    return { ok: true };
+  },
   day_delete(state, op) {
     if (!op.date) return { ok: false, error: 'day_delete requires date' };
     if (state.days && state.days[op.date]) delete state.days[op.date];

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.5">
+<meta name="app-version" content="v6.5.6">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -3080,6 +3080,23 @@
     font-size: 10px;
     color: var(--ink-faint);
   }
+  /* Inline computed body-fat % readout next to the Neck + Waist inputs.
+     Renders blank ("—") when either input is missing or out of range. */
+  .bf-inline {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border: 1px dashed var(--ink-faint);
+    border-radius: 2px;
+    background: rgba(0,0,0,0.02);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+  }
+  .bf-inline.has-value { color: var(--ink); border-style: solid; border-color: var(--rust); background: rgba(176, 74, 46, 0.06); }
+  .bf-inline.over-goal { color: var(--rust-deep); border-color: var(--rust); }
+  .bf-inline.under-goal { color: var(--sage); border-color: var(--sage); }
 
   /* Weight & BMI charts */
   .weight-summary {
@@ -4012,10 +4029,16 @@
       <span class="weight-input-unit">kg</span>
     </span>
     <span class="weight-input-wrapper">
-      <label class="weight-input-label" for="checkout-fat">Body fat</label>
-      <input type="number" id="checkout-fat" class="weight-input" step="0.1" min="0" max="60" placeholder="—" inputmode="decimal" title="Body-fat percentage. Measure with the Navy method described under the chart.">
-      <span class="weight-input-unit">%</span>
+      <label class="weight-input-label" for="checkout-neck">Neck</label>
+      <input type="number" id="checkout-neck" class="weight-input" step="0.1" min="0" max="80" placeholder="—" inputmode="decimal" title="Neck circumference at the narrowest point, just below Adam's apple. cm.">
+      <span class="weight-input-unit">cm</span>
     </span>
+    <span class="weight-input-wrapper">
+      <label class="weight-input-label" for="checkout-waist">Waist</label>
+      <input type="number" id="checkout-waist" class="weight-input" step="0.1" min="0" max="250" placeholder="—" inputmode="decimal" title="Waist circumference at navel level, end of a normal exhale. cm.">
+      <span class="weight-input-unit">cm</span>
+    </span>
+    <span class="bf-inline" id="bf-inline" title="Computed body fat % via the Navy method. Need both neck and waist in valid ranges plus profile height.">—</span>
   </h2>
   <div class="section-rule"></div>
 
@@ -10265,12 +10288,57 @@
     return arr;
   }
 
-  // Body-fat series — mirror of collectWeightSeries against the
-  // fatPercent field, used by renderFatPercentChart.
+  // Navy body-fat formula. Inputs in cm; height comes from
+  // state.profile.heightCm. Male formula by default; female adds hips
+  // (currently not collected per-day, so female falls back to the legacy
+  // direct fatPercent until hips is wired up). Returns null when any
+  // input is missing or the geometry doesn't make sense (waist <= neck).
+  function computeNavyBodyFat(neckCm, waistCm, heightCm, gender, hipsCm) {
+    if (!(neckCm > 0) || !(waistCm > 0) || !(heightCm > 0)) return null;
+    if (waistCm - neckCm <= 0) return null;
+    const log10 = (x) => Math.log(x) / Math.LN10;
+    if (gender === 'female') {
+      if (!(hipsCm > 0)) return null;
+      const denom = 1.29579 - 0.35004 * log10(waistCm + hipsCm - neckCm) + 0.22100 * log10(heightCm);
+      if (denom <= 0) return null;
+      return 495 / denom - 450;
+    }
+    const denom = 1.0324 - 0.19077 * log10(waistCm - neckCm) + 0.15456 * log10(heightCm);
+    if (denom <= 0) return null;
+    return 495 / denom - 450;
+  }
+
+  // Resolve which gender the Navy formula should use for the current user.
+  // Stored on state.profile.gender ('male' | 'female'); falls back to 'male'
+  // when unset.
+  function profileGender() {
+    const g = state.profile && state.profile.gender;
+    return (g === 'female') ? 'female' : 'male';
+  }
+
+  // Returns the effective body-fat % for a given day's bucket, either by
+  // running the Navy formula against neck + waist + height, or falling
+  // back to a legacy directly-entered fatPercent if no measurements are
+  // present. null when nothing usable is on the bucket.
+  function fatPercentForDay(bucket) {
+    if (!bucket) return null;
+    const h = state.profile && state.profile.heightCm;
+    const navy = computeNavyBodyFat(bucket.neck, bucket.waist, h, profileGender(), bucket.hips);
+    if (typeof navy === 'number' && navy > 0 && navy < 60) {
+      return Math.round(navy * 10) / 10;
+    }
+    if (typeof bucket.fatPercent === 'number' && bucket.fatPercent > 0 && bucket.fatPercent < 60) {
+      return bucket.fatPercent;
+    }
+    return null;
+  }
+
+  // Body-fat series — mirror of collectWeightSeries against the per-day
+  // Navy-computed body fat (falls back to legacy fatPercent field).
   function collectFatPercentSeries() {
     const map = new Map();
     for (const dateKey in state.days) {
-      const f = state.days[dateKey].fatPercent;
+      const f = fatPercentForDay(state.days[dateKey]);
       if (typeof f === 'number' && f > 0 && f < 60) map.set(dateKey, f);
     }
     const arr = [];
@@ -10279,18 +10347,44 @@
     return arr;
   }
 
+  // Update the inline `#bf-inline` readout next to the Neck + Waist
+  // inputs in the Checkout List header. Reads the LIVE input values (not
+  // committed-to-state), so the BF% updates as the user types — even
+  // before the debounce fires.
+  function renderBfInlineFromInputs() {
+    const el = document.getElementById('bf-inline');
+    if (!el) return;
+    const neckEl = document.getElementById('checkout-neck');
+    const waistEl = document.getElementById('checkout-waist');
+    const neck = neckEl ? parseFloat(neckEl.value) : NaN;
+    const waist = waistEl ? parseFloat(waistEl.value) : NaN;
+    const height = state.profile && state.profile.heightCm;
+    const bf = computeNavyBodyFat(neck, waist, height, profileGender());
+    if (typeof bf !== 'number' || !isFinite(bf) || bf <= 0 || bf >= 60) {
+      el.textContent = '— body fat';
+      el.className = 'bf-inline';
+      return;
+    }
+    const goal = state.profile && state.profile.goals && state.profile.goals.fatPercent;
+    el.textContent = bf.toFixed(1) + '% body fat' + (typeof goal === 'number' ? ' · goal ≤ ' + goal + '%' : '');
+    let cls = 'bf-inline has-value';
+    if (typeof goal === 'number') {
+      cls += bf > goal ? ' over-goal' : ' under-goal';
+    }
+    el.className = cls;
+  }
+
   function renderWeightSection() {
-    // Sync the weight input with the active day's stored value
-    const weightInput = document.getElementById('checkout-weight');
-    if (weightInput && document.activeElement !== weightInput) {
-      const bucket = state.days[state.activeDate];
-      weightInput.value = (bucket && bucket.weight) ? bucket.weight : '';
-    }
-    const fatInput = document.getElementById('checkout-fat');
-    if (fatInput && document.activeElement !== fatInput) {
-      const bucket = state.days[state.activeDate];
-      fatInput.value = (bucket && typeof bucket.fatPercent === 'number') ? bucket.fatPercent : '';
-    }
+    const bucket = state.days[state.activeDate];
+    const syncInput = (id, val) => {
+      const el = document.getElementById(id);
+      if (!el || document.activeElement === el) return;
+      el.value = (typeof val === 'number' && val > 0) ? val : '';
+    };
+    syncInput('checkout-weight', bucket && bucket.weight);
+    syncInput('checkout-neck',   bucket && bucket.neck);
+    syncInput('checkout-waist',  bucket && bucket.waist);
+    renderBfInlineFromInputs();
     renderWeightSummary();
     renderWeightChart();
     renderBmiChart();
@@ -11920,43 +12014,50 @@
       });
     }
 
-    // Body-fat % input — same debounced commit pattern as weight, separate
-    // data field on the day bucket (`fatPercent` / `fatPercentMeta`). Measured
-    // independently of weight; user can log either or both on a given day.
-    const fatInput = document.getElementById('checkout-fat');
-    if (fatInput) {
-      const commitFat = () => {
-        const raw = fatInput.value.trim();
+    // Neck + waist inputs — same debounced commit pattern as weight. Body
+    // fat % is computed from neck + waist + profile height via the Navy
+    // method (see computeNavyBodyFat); no fatPercent input anymore. The
+    // computed value is shown inline next to the inputs and drives the
+    // body-fat chart.
+    function wireMeasurementInput(elId, fieldName, range, opType, clearOp) {
+      const inp = document.getElementById(elId);
+      if (!inp) return;
+      const commit = () => {
+        const raw = inp.value.trim();
         const bucket = ensureDayBucket(state.activeDate);
         if (raw === '') {
-          delete bucket.fatPercent;
-          delete bucket.fatPercentMeta;
+          delete bucket[fieldName];
+          delete bucket[fieldName + 'Meta'];
           saveStateLocal();
-          sendOp({ type: 'fatPercent_clear', date: state.activeDate, ts: new Date().toISOString() });
+          sendOp({ type: clearOp, date: state.activeDate, ts: new Date().toISOString() });
           renderWeightSection();
           return;
         }
         const n = parseFloat(raw);
-        if (isNaN(n) || n <= 0 || n >= 60) return;
+        if (isNaN(n) || n < range[0] || n > range[1]) return;
         const rounded = Math.round(n * 10) / 10;
         const ts = new Date().toISOString();
-        bucket.fatPercent = rounded;
-        bucket.fatPercentMeta = ts;
+        bucket[fieldName] = rounded;
+        bucket[fieldName + 'Meta'] = ts;
         saveStateLocal();
-        sendOp({ type: 'fatPercent_set', date: state.activeDate, value: rounded, ts });
+        sendOp({ type: opType, date: state.activeDate, value: rounded, ts });
         renderWeightSection();
       };
-      let fatDebounce = null;
-      const scheduleFatCommit = () => {
-        if (fatDebounce) clearTimeout(fatDebounce);
-        fatDebounce = setTimeout(() => { fatDebounce = null; commitFat(); }, 350);
-      };
-      fatInput.addEventListener('input', scheduleFatCommit);
-      fatInput.addEventListener('blur', () => {
-        if (fatDebounce) { clearTimeout(fatDebounce); fatDebounce = null; }
-        commitFat();
+      let debounce = null;
+      inp.addEventListener('input', () => {
+        if (debounce) clearTimeout(debounce);
+        debounce = setTimeout(() => { debounce = null; commit(); }, 350);
+        // Update the inline BF readout live as the user types — no need to
+        // wait for debounce. Uses the current input values directly.
+        renderBfInlineFromInputs();
+      });
+      inp.addEventListener('blur', () => {
+        if (debounce) { clearTimeout(debounce); debounce = null; }
+        commit();
       });
     }
+    wireMeasurementInput('checkout-neck',  'neck',  [10, 80],  'neck_set',  'neck_clear');
+    wireMeasurementInput('checkout-waist', 'waist', [30, 250], 'waist_set', 'waist_clear');
 
     // Date navigation
     dateNavPrev.addEventListener('click', () => {

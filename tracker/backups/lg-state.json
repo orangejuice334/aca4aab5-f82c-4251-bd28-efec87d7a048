@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-18T23:34:06.761Z",
-  "_gistSavedAt": "2026-05-18T23:33:57.550Z",
+  "_backupTakenAt": "2026-05-18T23:57:33.822Z",
+  "_gistSavedAt": "2026-05-18T23:50:20.190Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -31,8 +31,7 @@
         "toggles": {
           "two_per_day#08:00": true,
           "d3#08:00": true,
-          "wegovy#07:30": true,
-          "soy_coffee#09:00": true
+          "wegovy#07:30": true
         },
         "counters": {
           "turkey_breast_smithfield": 224,
@@ -42,8 +41,7 @@
         "toggleMeta": {
           "two_per_day#08:00": "2026-05-18T22:06:22.895Z",
           "d3#08:00": "2026-05-18T22:06:22.895Z",
-          "wegovy#07:30": "2026-05-18T22:06:22.895Z",
-          "soy_coffee#09:00": "2026-05-18T22:06:22.895Z"
+          "wegovy#07:30": "2026-05-18T22:06:22.895Z"
         },
         "counterMeta": {
           "turkey_breast_smithfield": "2026-05-16T16:50:19.688Z",
@@ -55,8 +53,7 @@
           "omega3#08:00": true,
           "two_per_day#08:00": true,
           "d3#08:00": true,
-          "wegovy#07:30": true,
-          "soy_coffee#09:00": true
+          "wegovy#07:30": true
         },
         "counters": {
           "yogurt_half": 453.5,
@@ -68,8 +65,7 @@
           "omega3#08:00": "2026-05-18T22:06:22.895Z",
           "two_per_day#08:00": "2026-05-18T22:06:22.895Z",
           "d3#08:00": "2026-05-18T22:06:22.895Z",
-          "wegovy#07:30": "2026-05-18T22:06:22.895Z",
-          "soy_coffee#09:00": "2026-05-18T22:06:22.895Z"
+          "wegovy#07:30": "2026-05-18T22:06:22.895Z"
         },
         "counterMeta": {
           "yogurt_half": "2026-05-18T00:50:13.924Z",
@@ -85,7 +81,10 @@
           "creatine#08:00": true,
           "flonase#08:00": true,
           "d3#08:00": true,
-          "wegovy#07:30": true
+          "wegovy#07:30": true,
+          "omega3#19:00": true,
+          "water#12:30": true,
+          "omega3#12:30": true
         },
         "counters": {
           "kashi_blueberry_clusters": 30,
@@ -95,7 +94,10 @@
           "drink_performx_strawberry_banana": 828,
           "turkey_slices_oven_roasted": 70,
           "avocado_half": 65,
-          "salsa_casa_mamita_chunky": 82.5
+          "salsa_casa_mamita_chunky": 82.5,
+          "chicken_livers_bell_evans": 112,
+          "evoo_tsp": 1.25,
+          "premier": 325
         },
         "customs": [],
         "toggleMeta": {
@@ -105,14 +107,20 @@
           "creatine#08:00": "2026-05-18T22:06:22.895Z",
           "flonase#08:00": "2026-05-18T22:06:22.895Z",
           "d3#08:00": "2026-05-18T22:06:22.895Z",
-          "wegovy#07:30": "2026-05-18T22:06:22.895Z"
+          "wegovy#07:30": "2026-05-18T22:06:22.895Z",
+          "omega3#19:00": "2026-05-18T23:48:37.278Z",
+          "water#12:30": "2026-05-18T23:49:58.791Z",
+          "omega3#12:30": "2026-05-18T23:49:59.688Z"
         },
         "counterMeta": {
           "turkey_salmon_black_bean_slab": "2026-05-18T22:25:41.241Z",
           "drink_performx_strawberry_banana": "2026-05-18T22:22:25.333Z",
           "turkey_slices_oven_roasted": "2026-05-18T23:03:37.119Z",
           "avocado_half": "2026-05-18T23:04:07.409Z",
-          "salsa_casa_mamita_chunky": "2026-05-18T23:08:09.755Z"
+          "salsa_casa_mamita_chunky": "2026-05-18T23:08:09.755Z",
+          "chicken_livers_bell_evans": "2026-05-18T23:46:21.106Z",
+          "evoo_tsp": "2026-05-18T23:37:39+00:00",
+          "premier": "2026-05-18T23:48:28.050Z"
         },
         "weight": 98.5,
         "weightMeta": "2026-05-18T23:09:39.640Z"
@@ -191,10 +199,7 @@
     },
     "sortMode": "ratio",
     "collapsedGroups": {
-      "section-density": true,
-      "supplements-water": true,
-      "section-checkout": true,
-      "details-profile-section": true
+      "section-density": true
     },
     "userCatalog": {
       "items": {
@@ -903,21 +908,24 @@
           "defaultMeasuredIn": "g",
           "kcal": 0.9821,
           "p": 0.1875,
-          "sf": 0.008929,
+          "sf": 0.0089,
           "water": 0.72,
-          "caffeine": 0,
           "sodium": 1.116,
           "cholesterol": 3.527,
           "notes": "Label: 110 kcal / 112g (4oz) serving, 4.5 servings / 510g container. Protein 21g, fat 2.5g, sat fat 1g, trans fat 0g (chicken is not a ruminant; USDA data confirms negligible trans fat). Carbs 0g. Cholesterol 395mg/serving = 3.527 mg/g — very high, expected for liver. Sodium 125mg/serving (5% DV). Iron 12.3mg/serving (70% DV) = 0.1098 mg/g — heme iron, highly bioavailable; this contributes significantly to daily iron total alongside soy + multi. Potassium 280mg (6% DV). Vitamin D 0.7 mcg (4% DV). Water est. 72% per USDA SR Legacy chicken liver data (moderate confidence). Organic, air-chilled, no antibiotics. Bell and Evans, Fredericksburg PA.",
           "displayUnits": [
             {
-              "label": "4 oz (112 g)",
-              "multiplier": 112,
-              "default": true
+              "label": "Whole container (510 g)",
+              "amount": 510,
+              "unit": "g",
+              "multiplier": 510
             },
             {
-              "label": "Whole container (510 g)",
-              "multiplier": 510
+              "label": "4 oz (112 g)",
+              "amount": 112,
+              "unit": "g",
+              "default": true,
+              "multiplier": 112
             }
           ]
         },
@@ -2966,43 +2974,6 @@
             "unit": "g"
           }
         },
-        "soy_coffee": {
-          "name": "Soy coffee",
-          "category": "supplements",
-          "kcal": 0.084,
-          "p": 0.006,
-          "fat": 0.0036,
-          "sf": 0.0006,
-          "sodium": 0.14,
-          "carbs": 0.002,
-          "fiber": 0.0016,
-          "sugar": 0.0008,
-          "water": 0.97,
-          "caffeine": 0.32,
-          "calcium": 0.088,
-          "magnesium": 0.032,
-          "potassium": 0.54,
-          "b2": 0.0002,
-          "b3": 0.0008,
-          "phosphorus": 0.12,
-          "displayUnits": [
-            {
-              "label": "1 cup",
-              "multiplier": 250,
-              "time": "09:00",
-              "frequency": "daily",
-              "default": true,
-              "amount": 250,
-              "unit": "g"
-            }
-          ],
-          "notes": "Coffee + soy milk splash (~200 ml coffee + ~50 ml unsweetened soy milk). Approximate; adjust if your usual amounts differ. Provides ~80 mg caffeine.",
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
-        },
         "soy_milk": {
           "name": "Soy milk unsweetened",
           "category": "liquids",
@@ -4320,7 +4291,6 @@
           "label": "Uncategorized"
         }
       ]
-    },
-    "totalsMode": "all"
+    }
   }
 }
