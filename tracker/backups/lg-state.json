@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-18T23:20:31.436Z",
-  "_gistSavedAt": "2026-05-18T23:18:21.886Z",
+  "_backupTakenAt": "2026-05-18T23:34:06.761Z",
+  "_gistSavedAt": "2026-05-18T23:33:57.550Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -127,7 +127,7 @@
       "sex": "M",
       "activityLevel": "light",
       "startWeightKg": 102,
-      "targetWeightKg": 88,
+      "targetWeightKg": 76,
       "goals": {
         "kcal": 1200,
         "p": 190,
@@ -167,7 +167,8 @@
         "manganese": 2.3,
         "iodine": 150,
         "chromium": 35,
-        "molybdenum": 45
+        "molybdenum": 45,
+        "fatPercent": 15
       },
       "displayedNutrients": [
         "kcal",
@@ -895,6 +896,30 @@
             "unit": "g"
           },
           "brand": "Giant"
+        },
+        "chicken_livers_bell_evans": {
+          "name": "Chicken livers organic (Bell and Evans)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.9821,
+          "p": 0.1875,
+          "sf": 0.008929,
+          "water": 0.72,
+          "caffeine": 0,
+          "sodium": 1.116,
+          "cholesterol": 3.527,
+          "notes": "Label: 110 kcal / 112g (4oz) serving, 4.5 servings / 510g container. Protein 21g, fat 2.5g, sat fat 1g, trans fat 0g (chicken is not a ruminant; USDA data confirms negligible trans fat). Carbs 0g. Cholesterol 395mg/serving = 3.527 mg/g — very high, expected for liver. Sodium 125mg/serving (5% DV). Iron 12.3mg/serving (70% DV) = 0.1098 mg/g — heme iron, highly bioavailable; this contributes significantly to daily iron total alongside soy + multi. Potassium 280mg (6% DV). Vitamin D 0.7 mcg (4% DV). Water est. 72% per USDA SR Legacy chicken liver data (moderate confidence). Organic, air-chilled, no antibiotics. Bell and Evans, Fredericksburg PA.",
+          "displayUnits": [
+            {
+              "label": "4 oz (112 g)",
+              "multiplier": 112,
+              "default": true
+            },
+            {
+              "label": "Whole container (510 g)",
+              "multiplier": 510
+            }
+          ]
         },
         "crackers_50g": {
           "name": "Crackers",

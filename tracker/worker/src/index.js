@@ -59,6 +59,20 @@ function ensureDay(state, date) {
 // snapshot already exists for that key — the client is the source of truth
 // for "when is this day still mutable" (it only sends recipeSnapshot when
 // the user is editing on that same calendar day).
+// Deep-merge plain object `src` into `dst` in place. Arrays + primitives
+// overwrite; nested plain objects recurse. Used by profile_update so
+// `{goals: {fatPercent: 15}}` doesn't clobber the rest of `goals`.
+function deepMerge(dst, src) {
+  for (const k of Object.keys(src)) {
+    const v = src[k];
+    if (v && typeof v === 'object' && !Array.isArray(v) && dst[k] && typeof dst[k] === 'object' && !Array.isArray(dst[k])) {
+      deepMerge(dst[k], v);
+    } else {
+      dst[k] = v;
+    }
+  }
+}
+
 function maybeWriteRecipeSnapshot(day, op) {
   if (!op || !op.recipeSnapshot || !op.key) return;
   if (!day.recipeSnapshots) day.recipeSnapshots = {};
@@ -200,6 +214,22 @@ const OPS = {
     delete day.weightMeta;
     return { ok: true };
   },
+  fatPercent_set(state, op) {
+    if (typeof op.value !== 'number' || !Number.isFinite(op.value)) {
+      return { ok: false, error: 'fatPercent_set requires numeric value' };
+    }
+    const day = ensureDay(state, op.date);
+    day.fatPercent = op.value;
+    if (op.ts) day.fatPercentMeta = op.ts;
+    return { ok: true };
+  },
+  fatPercent_clear(state, op) {
+    if (!op.date) return { ok: false, error: 'fatPercent_clear requires date' };
+    const day = ensureDay(state, op.date);
+    delete day.fatPercent;
+    delete day.fatPercentMeta;
+    return { ok: true };
+  },
   day_delete(state, op) {
     if (!op.date) return { ok: false, error: 'day_delete requires date' };
     if (state.days && state.days[op.date]) delete state.days[op.date];
@@ -253,7 +283,11 @@ const OPS = {
     if (!op.fields || typeof op.fields !== 'object') {
       return { ok: false, error: 'profile_update requires fields object' };
     }
-    state.profile = { ...(state.profile || {}), ...op.fields };
+    if (!state.profile) state.profile = {};
+    // Deep merge so nested objects (notably `goals`) aren't clobbered when
+    // a partial update arrives. AGENT-OPS.md has long documented this as
+    // "Deep-merged"; impl was shallow until v6.5.5.
+    deepMerge(state.profile, op.fields);
     return { ok: true };
   },
   sort_mode_set(state, op) {
