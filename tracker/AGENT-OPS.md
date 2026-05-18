@@ -72,6 +72,17 @@ ingredients:[
 ### "Edit recipe ingredients"
 `catalog_edit` with `fields:{ingredients:[...full new array...]}`.
 
+### Recipe snapshots (non-preserve recipes only)
+Non-preserve recipes (`preserve: false` on the catalog item) get a per-day frozen copy stored at `state.days[<date>].recipeSnapshots[<key>]`. Past days are immutable; today's snapshot tracks edits to the recipe so same-day logs see the latest definition.
+
+`counter_inc / counter_dec / counter_set` ops accept an optional `recipeSnapshot` field (a deep-clone of the recipe item). When present, the Worker writes it to `state.days[<op.date>].recipeSnapshots[<op.key>]`. The client only includes this field for non-preserve recipes logged on the current calendar day.
+
+`recipe_snapshot_set { date, key, recipe }` — explicitly refresh a snapshot. Used when the user edits a non-preserve recipe and today already has a counter or snapshot for it. Does not touch past days.
+
+`recipe_snapshot_clear { date, key }` — drop a snapshot if you need to force a re-capture on next log.
+
+Macro compute paths (`computeTotals`, the history detail view) resolve the recipe via `effectiveRecipeForDay(key, day)`: returns the snapshot when present, falls back to live `ITEMS[key]` otherwise.
+
 ### "Set my counter directly to N"
 `{type:'counter_set', date, key, value:<grams or batches>, ts}`. Use sparingly — `counter_inc` is the usual path.
 

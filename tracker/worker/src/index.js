@@ -53,6 +53,18 @@ function ensureDay(state, date) {
   return d;
 }
 
+// Optional recipe-def snapshot embedded in counter ops. Used to freeze
+// non-preserve recipe definitions on the day they were logged so historical
+// totals don't shift when the recipe is edited later. Overwrites if a
+// snapshot already exists for that key — the client is the source of truth
+// for "when is this day still mutable" (it only sends recipeSnapshot when
+// the user is editing on that same calendar day).
+function maybeWriteRecipeSnapshot(day, op) {
+  if (!op || !op.recipeSnapshot || !op.key) return;
+  if (!day.recipeSnapshots) day.recipeSnapshots = {};
+  day.recipeSnapshots[op.key] = op.recipeSnapshot;
+}
+
 const OPS = {
   counter_inc(state, op) {
     if (!op.key) return { ok: false, error: 'counter_inc requires key' };
@@ -64,6 +76,7 @@ const OPS = {
     const inc = (typeof op.servingSize === 'number' && op.servingSize > 0) ? op.servingSize : 1;
     day.counters[op.key] = Math.round(((day.counters[op.key] || 0) + inc) * 10000) / 10000;
     if (op.ts) day.counterMeta[op.key] = op.ts;
+    maybeWriteRecipeSnapshot(day, op);
     return { ok: true };
   },
   counter_dec(state, op) {
@@ -72,6 +85,7 @@ const OPS = {
     const dec = (typeof op.servingSize === 'number' && op.servingSize > 0) ? op.servingSize : 1;
     day.counters[op.key] = Math.max(0, Math.round(((day.counters[op.key] || 0) - dec) * 10000) / 10000);
     if (op.ts) day.counterMeta[op.key] = op.ts;
+    maybeWriteRecipeSnapshot(day, op);
     return { ok: true };
   },
   counter_set(state, op) {
@@ -82,6 +96,28 @@ const OPS = {
     const day = ensureDay(state, op.date);
     day.counters[op.key] = Math.max(0, op.value);
     if (op.ts) day.counterMeta[op.key] = op.ts;
+    maybeWriteRecipeSnapshot(day, op);
+    return { ok: true };
+  },
+  // Refresh a recipe snapshot for a specific day without changing the
+  // counter. Used when the user edits a non-preserve recipe ON the day it
+  // was logged — the snapshot tracks the latest definition for that day's
+  // historical view. The client only emits this for the current activeDate;
+  // past-day snapshots stay frozen.
+  recipe_snapshot_set(state, op) {
+    if (!op.key) return { ok: false, error: 'recipe_snapshot_set requires key' };
+    if (!op.recipe || typeof op.recipe !== 'object') {
+      return { ok: false, error: 'recipe_snapshot_set requires recipe object' };
+    }
+    const day = ensureDay(state, op.date);
+    if (!day.recipeSnapshots) day.recipeSnapshots = {};
+    day.recipeSnapshots[op.key] = op.recipe;
+    return { ok: true };
+  },
+  recipe_snapshot_clear(state, op) {
+    if (!op.key) return { ok: false, error: 'recipe_snapshot_clear requires key' };
+    const day = ensureDay(state, op.date);
+    if (day.recipeSnapshots) delete day.recipeSnapshots[op.key];
     return { ok: true };
   },
   toggle_set(state, op) {

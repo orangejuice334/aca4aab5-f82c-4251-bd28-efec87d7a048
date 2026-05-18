@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.2.4">
+<meta name="app-version" content="v6.3.0">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -4779,7 +4779,9 @@
       const oldC = (old && old.counters) || {};
       for (const k in curC) {
         if ((oldC[k] || 0) !== curC[k]) {
-          sendOp({ type: 'counter_set', key: k, date, value: curC[k], ts: counterMeta[k] });
+          const op = { type: 'counter_set', key: k, date, value: curC[k], ts: counterMeta[k] };
+          attachRecipeSnapshotIfApplicable(op, k);
+          sendOp(op);
         }
       }
       for (const k in oldC) {
@@ -5963,8 +5965,11 @@
         let m;
         if (catItem) {
           if (catItem.category === 'recipes' && Array.isArray(catItem.ingredients) && catItem.ingredients.length) {
-            const canonUnits = recipeCanonicalGrams(catItem);
-            const batch = computeItemMacros(catItem);
+            // History view: a non-preserve recipe uses the day's snapshot if
+            // one was captured, so past days stay frozen against later edits.
+            const effective = effectiveRecipeForDay(key, bucket);
+            const canonUnits = recipeCanonicalGrams(effective);
+            const batch = computeItemMacros(effective);
             const factor = n / canonUnits;
             m = {};
             for (const k of STORED_NUTRIENT_KEYS) m[k] = (batch[k] || 0) * factor;
@@ -6501,9 +6506,12 @@
       const units = getCounterNative(item, counter);
       // Recipes compute via their ingredients list, scaled by the
       // ratio of units_consumed / recipeCanonicalGrams (sum of ingredient grams).
+      // For non-preserve recipes, use the per-day snapshot when present so
+      // historical totals stay frozen against later catalog edits.
       if (item.category === 'recipes' && Array.isArray(item.ingredients) && item.ingredients.length) {
-        const canonUnits = recipeCanonicalGrams(item);
-        const recipeBatch = computeItemMacros(item); // sum of ingredients = one batch
+        const effective = effectiveRecipeForDay(key, s);
+        const canonUnits = recipeCanonicalGrams(effective);
+        const recipeBatch = computeItemMacros(effective);
         const factor = units / canonUnits;
         for (const k of STORED_NUTRIENT_KEYS) t[k] += (recipeBatch[k] || 0) * factor;
         continue;
@@ -7331,6 +7339,65 @@
     }
     const canon = getDisplayUnits(item)[0];
     return scaleByNative(item, canon.unitsPerServing || 0);
+  }
+
+  // Recipe-snapshot helpers. Non-preserve recipes (preserve === false) are
+  // logged onto a day with a frozen copy of their definition at log time, so
+  // editing the recipe later doesn't retroactively change past totals.
+  //   - On log (counter_inc/dec/set on today): the client embeds the current
+  //     recipe object as op.recipeSnapshot so the Worker mirrors it into
+  //     state.days[date].recipeSnapshots[key].
+  //   - On edit (saveExpandedEdits) while on today: the client emits a
+  //     recipe_snapshot_set op for today so the day's snapshot tracks the
+  //     latest definition for the rest of the day. Past days never refresh.
+  //   - Compute paths read effectiveRecipeForDay(key, day) — snapshot when
+  //     present, live ITEMS[key] otherwise.
+  function isNonPreserveRecipe(item) {
+    return !!(item && item.category === 'recipes' && item.preserve === false
+              && Array.isArray(item.ingredients) && item.ingredients.length);
+  }
+  function effectiveRecipeForDay(key, day) {
+    if (day && day.recipeSnapshots && day.recipeSnapshots[key]
+        && Array.isArray(day.recipeSnapshots[key].ingredients)
+        && day.recipeSnapshots[key].ingredients.length) {
+      return day.recipeSnapshots[key];
+    }
+    return ITEMS[key];
+  }
+  // Attach `recipeSnapshot` to a counter op for non-preserve recipes when
+  // logging on today. Mutates `op` in place. No-op if not a recipe, if
+  // preserve isn't false, or if activeDate isn't today.
+  function attachRecipeSnapshotIfApplicable(op, key) {
+    if (!op || !key) return;
+    if (op.date !== todayKey()) return;
+    const item = ITEMS[key];
+    if (!isNonPreserveRecipe(item)) return;
+    try { op.recipeSnapshot = JSON.parse(JSON.stringify(item)); }
+    catch (e) {}
+  }
+  // After a non-preserve recipe is edited, refresh today's snapshot so
+  // ongoing same-day logs see the updated definition (and tomorrow's view
+  // freezes the latest state). Past-day snapshots are never touched.
+  function maybeEmitRecipeSnapshotForToday(key) {
+    const item = ITEMS[key];
+    if (!isNonPreserveRecipe(item)) return;
+    const today = todayKey();
+    const day = state.days && state.days[today];
+    if (!day) return;
+    const hasCounter = (day.counters && (day.counters[key] || 0) > 0);
+    const hasSnapshot = !!(day.recipeSnapshots && day.recipeSnapshots[key]);
+    if (!hasCounter && !hasSnapshot) return;
+    // Update local snapshot for immediate UI consistency, then sync via op.
+    if (!day.recipeSnapshots) day.recipeSnapshots = {};
+    const snap = JSON.parse(JSON.stringify(item));
+    day.recipeSnapshots[key] = snap;
+    sendOp({
+      type: 'recipe_snapshot_set',
+      key,
+      date: today,
+      recipe: snap,
+      ts: new Date().toISOString(),
+    });
   }
 
   // Canonical scale for a recipe = total grams resolved from its ingredients
@@ -9191,6 +9258,10 @@
     }
 
     saveState();
+    // If this is a non-preserve recipe edited on today AND today has a
+    // counter or snapshot for it, refresh today's snapshot so same-day logs
+    // pick up the latest definition. Past days are never touched.
+    maybeEmitRecipeSnapshotForToday(key);
     const skipRender = !!(options && options.skipCatalogRender);
     if (!skipRender) {
       if (typeof renderCatalog === 'function') renderCatalog();
@@ -10961,13 +11032,15 @@
       }
       stampCounter(key);
       saveStateLocal();
-      sendOp({
+      const counterOp = {
         type: action === 'inc' ? 'counter_inc' : 'counter_dec',
         key,
         servingSize,
         date: state.activeDate,
         ts: new Date().toISOString(),
-      });
+      };
+      attachRecipeSnapshotIfApplicable(counterOp, key);
+      sendOp(counterOp);
       render();
     });
 
