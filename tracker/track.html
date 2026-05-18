@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.2.3">
+<meta name="app-version" content="v6.2.4">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -8025,6 +8025,15 @@
     const nameSpan = document.createElement('span');
     nameSpan.className = 'checkout-item-name';
     nameSpan.textContent = formatItemDisplayName(item) + variantRowTitleSuffix(item, variant);
+    // For recipes with approximated total grams, attach a tooltip explaining
+    // the asterisk. Mass ingredients are exact; volume-only ingredients
+    // without a `density_g_per_ml` get summed as ml ≈ 1 g, flagged with *.
+    if (item && item.category === 'recipes' && Array.isArray(item.ingredients) && item.ingredients.length) {
+      const total = recipeTotalGramsDisplay(item);
+      if (total.approximate) {
+        nameSpan.title = 'The total grams is approximate. One or more ingredients are measured in volume (ml) without a density set on their source item — those are summed as if 1 ml = 1 g. Open the source item and set "Density · g per ml" to remove the asterisk.';
+      }
+    }
     nameCol.appendChild(nameSpan);
 
     if (item.demo) {
@@ -8109,6 +8118,14 @@
       const nameSpan = document.createElement('span');
       nameSpan.className = 'checkout-item-name';
       nameSpan.textContent = formatItemDisplayName(item) + variantRowTitleSuffix(item, variant);
+      // Tooltip explaining the * suffix on approximated recipe totals
+      // (volume-only ingredients without density on the source).
+      if (item && item.category === 'recipes' && Array.isArray(item.ingredients) && item.ingredients.length) {
+        const total = recipeTotalGramsDisplay(item);
+        if (total.approximate) {
+          nameSpan.title = 'The total grams is approximate. One or more ingredients are measured in volume (ml) without a density set on their source item — those are summed as if 1 ml = 1 g. Open the source item and set "Density · g per ml" to remove the asterisk.';
+        }
+      }
       nameCol.appendChild(nameSpan);
       if (idx === 0 && item.demo) {
         const badge = document.createElement('span');
