@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.4.0">
+<meta name="app-version" content="v6.4.1">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -8364,33 +8364,49 @@
     return null;
   }
 
-  // Render a row for one displayUnit. The unit suffix mirrors the item's
-  // native unit (g for mass items, ml for volume) so the numeric field
-  // matches the macro storage. A radio at the left marks which variant is
-  // the default (= primary on the catalog row). `defaultGroup` namespaces
-  // the radio so multiple items' editors don't share a group.
-  function variantEditRow(variant, primUnit, defaultGroup) {
-    const label = variant && variant.label ? variant.label : '';
-    const servingSize = variant && typeof variant.unitsPerServing === 'number' ? variant.unitsPerServing : 0;
+  // Render one serving-size row. Each row carries its own Amount + Unit +
+  // Label triple. Amount stays in the user-picked Unit; on save it's
+  // converted to native units (g for mass items, ml for volume) and stored
+  // in `multiplier`. A radio at the left marks which serving size is the
+  // default (= primary on the catalog row). `defaultGroup` namespaces the
+  // radio so multiple items' editors don't share a group. `unitOptionsHtml`
+  // is the per-item unit dropdown content (precomputed by the parent block
+  // because it depends on whether density is set).
+  function variantEditRow(variant, primUnit, defaultGroup, unitOptionsHtml) {
+    const label = (variant && variant.label) ? variant.label : '';
     const isDefault = !!(variant && variant.default);
-    const unitSuffix = primUnit || 'g';
+    const multiplier = variant && typeof variant.unitsPerServing === 'number' ? variant.unitsPerServing : 0;
+    // Round-trip: if the row was saved with a user-typed Amount + Unit,
+    // restore them. Otherwise fall back to multiplier shown as native units.
+    const storedAmount = (variant && typeof variant.amount === 'number' && variant.amount > 0) ? variant.amount : null;
+    const storedUnit   = (variant && typeof variant.unit === 'string' && variant.unit) ? variant.unit : null;
+    const amount = storedAmount != null ? storedAmount : multiplier;
+    const unit   = storedUnit   != null ? storedUnit   : (primUnit || 'g');
+    // Mark the matching <option selected> in the precomputed dropdown HTML
+    // so we don't have to rebuild it per row.
+    const optsForRow = (unitOptionsHtml || '').replace(
+      new RegExp('value="' + unit.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&') + '"', 'i'),
+      'value="' + unit + '" selected'
+    );
     return (
       '<div class="variant-edit-row" data-variant-row>' +
         '<label class="variant-edit-default-wrap" title="Pick the default serving (the one shown when the row is collapsed)">' +
           '<input type="radio" name="' + escapeHtml(defaultGroup || 'variant-default') + '" data-variant-default-radio' + (isDefault ? ' checked' : '') + ' />' +
           '<span class="variant-edit-default-label">default</span>' +
         '</label>' +
-        '<div class="variant-edit-field">' +
-          '<label class="variant-edit-fieldlabel">Name</label>' +
-          '<input type="text" data-variant-field="label" placeholder="e.g. 1 slice" value="' + escapeHtml(label) + '" />' +
+        '<div class="variant-edit-field" style="flex:0 1 90px;">' +
+          '<label class="variant-edit-fieldlabel">Amount</label>' +
+          '<input type="number" data-variant-field="amount" min="0" step="0.1" inputmode="decimal" value="' + escapeHtml(formatSize(amount)) + '" />' +
         '</div>' +
-        '<div class="variant-edit-field variant-edit-field-amount">' +
-          '<label class="variant-edit-fieldlabel">Size (' + escapeHtml(unitSuffix) + ')</label>' +
-          '<div class="variant-edit-size-row">' +
-            '<input type="number" data-variant-field="size" min="0" step="0.1" value="' + escapeHtml(formatSize(servingSize)) + '" inputmode="decimal" />' +
-            '<button type="button" class="variant-delete" data-variant-delete aria-label="Remove serving">×</button>' +
-          '</div>' +
+        '<div class="variant-edit-field" style="flex:0 1 120px;">' +
+          '<label class="variant-edit-fieldlabel">Unit</label>' +
+          '<select data-variant-field="unit">' + optsForRow + '</select>' +
         '</div>' +
+        '<div class="variant-edit-field" style="flex:1 1 160px;">' +
+          '<label class="variant-edit-fieldlabel">Label</label>' +
+          '<input type="text" data-variant-field="label" placeholder="e.g. 1/2 tub, medium size" value="' + escapeHtml(label) + '" />' +
+        '</div>' +
+        '<button type="button" class="variant-delete" data-variant-delete aria-label="Remove serving size">×</button>' +
       '</div>'
     );
   }
@@ -8414,7 +8430,10 @@
     const variants = getDisplayUnits(item).slice();
     variants.sort((a, b) => (b.unitsPerServing || 0) - (a.unitsPerServing || 0));
     const defGroup = 'variant-default-' + (key || 'item');
-    const rows = variants.map(v => variantEditRow(v, prim, defGroup)).join('');
+    // Precompute the unit dropdown once; variantEditRow marks the selected
+    // option per row. Building once instead of per-row keeps the function
+    // signature simple AND avoids repeating the native/cross unit logic.
+    // (Computed below after density-derived option HTML.)
     // Preload values for the "New Serving Size" scratch inputs. Default
     // variant first; biggest as fallback. So the form starts populated
     // with sensible numbers — user can click Add to duplicate, click a
@@ -8434,6 +8453,8 @@
       .concat(nativeUnits.map(u => '<option value="' + u + '">' + fmt(u) + '</option>'))
       .concat(crossUnits.map(u => '<option value="' + u + '"' + (hasDensity ? '' : ' disabled') + '>' + fmt(u) + (hasDensity ? '' : ' (set density)') + '</option>'))
       .join('');
+    // Now that optHtml exists, build the per-row HTML using it.
+    const rowsHtml = variants.map(v => variantEditRow(v, prim, defGroup, optHtml)).join('');
     const crossLabel = (prim === 'g') ? 'volume' : 'mass';
     const crossExamples = (prim === 'g') ? 'ml, cup, tbsp, …' : 'g, oz, lb';
     // Inverse density for the second textbox: ml per g = 1 / (g per ml).
@@ -8454,7 +8475,7 @@
           '</div>' +
         '</div>' +
         '<div class="edit-panel-hint" style="display: block; margin-top: -4px; margin-bottom: 8px;">Both textboxes edit the same density — fill in whichever you have. Leave blank when unknown; required to define ' + crossLabel + ' servings (' + crossExamples + ').</div>' +
-        '<div class="variant-edit-list" data-variant-list>' + rows + '</div>' +
+        '<div class="variant-edit-list" data-variant-list>' + rowsHtml + '</div>' +
         '<div class="variant-section-header" style="margin-top:10px;font-family:\'JetBrains Mono\',monospace;font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.08em;">Create new serving size</div>' +
         '<div class="variant-quick-add" data-variant-quick-add>' +
           '<span class="edit-panel-hint">Use default amount modified by:</span>' +
@@ -8466,28 +8487,7 @@
           '<button type="button" data-variant-op="add" data-variant-num="1" data-variant-denom="4">+1/4</button>' +
           '<button type="button" data-variant-op="mult" data-variant-num="2" data-variant-denom="1">×2</button>' +
           '<button type="button" data-variant-op="mult" data-variant-num="3" data-variant-denom="1">×3</button>' +
-        '</div>' +
-        '<div class="ing-amount-row variant-custom-add" data-variant-custom-add>' +
-          '<div class="ing-field-labeled">' +
-            '<label>Serving amount</label>' +
-            '<input type="number" data-variant-add-amount placeholder="0" min="0" step="0.1" inputmode="decimal" value="' + escapeHtml(formatSize(preloadAmt)) + '" />' +
-          '</div>' +
-          '<div class="ing-field-labeled">' +
-            '<label>Serving unit</label>' +
-            '<select data-variant-add-unit>' + optHtml + '</select>' +
-          '</div>' +
-          '<div class="ing-field-labeled">' +
-            '<label>Serving label</label>' +
-            '<input type="text" data-variant-add-label placeholder="e.g. 1/2 tub" value="' + escapeHtml(preloadLabel) + '" />' +
-          '</div>' +
-          '<div class="ing-field-labeled variant-add-btn-cell">' +
-            '<label>&nbsp;</label>' +
-            '<button type="button" data-variant-reset title="Reset Serving amount + label to the variant marked default">Reset</button>' +
-          '</div>' +
-          '<div class="ing-field-labeled variant-add-btn-cell">' +
-            '<label>&nbsp;</label>' +
-            '<button type="button" data-variant-add>Add</button>' +
-          '</div>' +
+          '<button type="button" data-variant-add-empty class="variant-add-empty-btn" title="Add an empty serving size row">+ blank</button>' +
         '</div>' +
         (!hasDensity
           ? '<div class="variant-density-hint">' + (prim === 'g' ? 'Volume' : 'Mass') + ' units (' + crossExamples + ') are greyed out — set <strong>Density</strong> above first.</div>'
@@ -9042,15 +9042,13 @@
       else delete item.brand;
     }
 
-    // Measurement mode (g / ml / units) is mandatory and auto-derived from
-    // the serving unit. Recipes are special — they're always computed from
-    // ingredients, so they get defaultMeasuredIn 'units' purely as a placeholder.
-    if (!isRecipe) {
-      const taUnit = (get('top-amount-unit') || '').trim().toLowerCase();
-      if (taUnit === 'g' || taUnit === 'ml') item.defaultMeasuredIn = taUnit;
-      else item.defaultMeasuredIn = 'units';
-    } else {
+    // Measurement mode (g / ml / units). The parent-level top-amount-unit
+    // input was removed in v6.4.0 (those fields belong per-serving). Keep
+    // the existing defaultMeasuredIn; only force 'units' for recipes.
+    if (isRecipe) {
       item.defaultMeasuredIn = 'units';
+    } else if (!item.defaultMeasuredIn) {
+      item.defaultMeasuredIn = 'g';
     }
     // Drop legacy basis field if present — mandatory rename.
     delete item.basis;
@@ -9066,13 +9064,36 @@
       if (varRows.length > 0) {
         const newUnits = [];
         varRows.forEach(row => {
-          const labelEl = row.querySelector('[data-variant-field="label"]');
-          const servingSizeEl = row.querySelector('[data-variant-field="size"]');
-          const radio = row.querySelector('[data-variant-default-radio]');
-          const label = labelEl ? (labelEl.value || '').trim() : '';
-          const servingSize = servingSizeEl ? parseFloat(servingSizeEl.value) : NaN;
-          if (!isFinite(servingSize) || servingSize <= 0) return;
-          const entry = { label: label || (servingSize + ' ' + primaryUnit(item)), unitsPerServing: servingSize };
+          const labelEl  = row.querySelector('[data-variant-field="label"]');
+          const amountEl = row.querySelector('[data-variant-field="amount"]');
+          const unitEl   = row.querySelector('[data-variant-field="unit"]');
+          // Backwards compat: a legacy "size" field reads as Amount in native units.
+          const sizeEl   = row.querySelector('[data-variant-field="size"]');
+          const radio   = row.querySelector('[data-variant-default-radio]');
+          const label   = labelEl  ? (labelEl.value || '').trim() : '';
+          const rawAmt  = parseFloat((amountEl || sizeEl || {}).value);
+          const unit    = unitEl ? (unitEl.value || '').trim().toLowerCase() : primaryUnit(item);
+          if (!isFinite(rawAmt) || rawAmt <= 0) return;
+          // Convert (amount, unit) → native units (g/ml). Density-aware via
+          // convertToPrimary; falls back to raw amount if the conversion
+          // returns null (cross-family without density), so the row still
+          // produces a working multiplier even with incomplete data.
+          let nativeAmount = rawAmt;
+          if (unit && unit !== primaryUnit(item)) {
+            const converted = convertToPrimary(item, rawAmt, unit);
+            if (converted != null && isFinite(converted) && converted > 0) {
+              nativeAmount = converted;
+            }
+          }
+          const entry = {
+            label: label || (rawAmt + ' ' + unit),
+            unitsPerServing: nativeAmount,
+            // Round-trip preservation: keep the user's typed amount+unit so
+            // reopening the panel doesn't lose intent (1 cup stays "1 cup",
+            // not "240 ml" after save).
+            amount: rawAmt,
+            unit,
+          };
           if (radio && radio.checked) entry.default = true;
           newUnits.push(entry);
         });
@@ -10635,119 +10656,101 @@
       //   - mult: new = current × (num/denom). Used by ½/⅓/¼ and ×2/×3.
       //   - add:  new = current + CANONICAL × (num/denom). Used by +1/2 +1/3 +1/4.
       // Limits: amount must stay within [canonical/8, canonical×10].
+      // Math buttons: take the DEFAULT serving-size row as the base, apply
+      // the modifier (× or +), and INSERT a fresh row at the end of the
+      // list with the computed amount + label. Old behavior (modify the
+      // scratch fields) is gone because the scratch row was removed in
+      // v6.4.0. Each click adds one new row — no per-button-click cycling.
       const variantOpBtn = ev.target.closest('[data-variant-op]');
       if (variantOpBtn) {
         const panel = variantOpBtn.closest('[data-edit-panel]');
         if (!panel) return;
         const list = panel.querySelector('[data-variant-list]');
         if (!list) return;
-        const existing = Array.from(list.querySelectorAll('[data-variant-row]')).map(r => {
-          const l = r.querySelector('[data-variant-field="label"]');
-          const g = r.querySelector('[data-variant-field="size"]');
-          return { label: l ? l.value : '', servingSize: g ? parseFloat(g.value) : NaN };
-        }).filter(e => isFinite(e.servingSize) && e.servingSize > 0);
-        if (!existing.length) return;
-        existing.sort((a, b) => b.servingSize - a.servingSize);
-        const biggest = existing[0];
+        const key = panel.dataset.editPanelKey;
+        const item = ITEMS[key];
+        if (!item) return;
+
+        const rows = Array.from(list.querySelectorAll('[data-variant-row]'));
+        if (!rows.length) return;
+        // Pick the row marked default; fall back to the first row.
+        const defaultRow = rows.find(r => r.querySelector('[data-variant-default-radio]:checked')) || rows[0];
+        const dAmt   = parseFloat((defaultRow.querySelector('[data-variant-field="amount"]') || {}).value);
+        const dUnit  = (defaultRow.querySelector('[data-variant-field="unit"]') || {}).value || primaryUnit(item);
+        const dLabel = (defaultRow.querySelector('[data-variant-field="label"]') || {}).value || '';
+        if (!isFinite(dAmt) || dAmt <= 0) return;
 
         const op = variantOpBtn.dataset.variantOp; // 'mult' | 'add'
         const opNum = parseInt(variantOpBtn.dataset.variantNum, 10);
         const opDenom = parseInt(variantOpBtn.dataset.variantDenom, 10);
         if (!isFinite(opNum) || !isFinite(opDenom) || opDenom <= 0) return;
 
-        const amtEl = panel.querySelector('[data-variant-add-amount]');
-        const labelEl = panel.querySelector('[data-variant-add-label]');
-        const unitEl = panel.querySelector('[data-variant-add-unit]');
-
-        // Current state = field values (preferring whatever the user / a
-        // previous click last produced). Empty fields → fall back to biggest.
-        const curAmtRaw = amtEl ? parseFloat(amtEl.value) : NaN;
-        const curAmt = (isFinite(curAmtRaw) && curAmtRaw > 0) ? curAmtRaw : biggest.servingSize;
-        const curLabelRaw = (labelEl && labelEl.value || '').trim();
-        const curLabel = curLabelRaw || biggest.label || '';
-
-        // Derive the canonical "1 of the thing" amount from biggest's label.
-        // biggest "1/2 tub" with servingSize=340 → canonical = 340 / (1/2) = 680.
-        const bigFrac = parseLeadingFraction(biggest.label || '');
-        const bigFracVal = (bigFrac.num > 0 && bigFrac.denom > 0)
-          ? (bigFrac.num / bigFrac.denom) : 1;
-        const canonicalSize = biggest.servingSize / bigFracVal;
+        // For 'add' the increment is the canonical "1 of the thing" derived
+        // from the default row's label (e.g. label "1/2 tub" with amount 113
+        // → canonical = 226 of whatever unit).
+        const dFrac = parseLeadingFraction(dLabel);
+        const dFracVal = (dFrac.num > 0 && dFrac.denom > 0) ? (dFrac.num / dFrac.denom) : 1;
+        const canonical = dAmt / dFracVal;
 
         let newAmt;
-        if (op === 'mult') newAmt = curAmt * opNum / opDenom;
-        else if (op === 'add') newAmt = curAmt + canonicalSize * opNum / opDenom;
+        if (op === 'mult')      newAmt = dAmt * opNum / opDenom;
+        else if (op === 'add')  newAmt = dAmt + canonical * opNum / opDenom;
         else return;
         newAmt = Math.round(newAmt * 10000) / 10000;
+        if (!isFinite(newAmt) || newAmt <= 0) return;
 
-        // Limits anchored to the canonical unit: min 1/8, max 10×.
-        const minAmt = canonicalSize / 8;
-        const maxAmt = canonicalSize * 10;
-        if (newAmt < minAmt || newAmt > maxAmt) return;
-
-        const newLabel = applyVariantLabelOp(curLabel, biggest.label || '', op, opNum, opDenom);
-
-        if (amtEl) amtEl.value = formatSize(newAmt);
-        if (labelEl) labelEl.value = newLabel;
-        if (unitEl) {
-          const item = ITEMS[panel.dataset.editPanelKey];
-          const prim = primaryUnit(item);
-          unitEl.value = prim;
-        }
+        const newLabel = applyVariantLabelOp(dLabel, dLabel, op, opNum, opDenom);
+        // Build the unit options for the new row using same logic as the
+        // editor block builder (density-aware).
+        const prim = primaryUnit(item);
+        const hasDensity = typeof item.density_g_per_ml === 'number' && item.density_g_per_ml > 0;
+        const nativeUnits = (prim === 'g') ? MASS_UNIT_KEYS : VOLUME_UNIT_KEYS;
+        const crossUnits  = (prim === 'g') ? VOLUME_UNIT_KEYS : MASS_UNIT_KEYS;
+        const fmt = (u) => u.replace('_', ' ');
+        const optHtml = []
+          .concat(nativeUnits.map(u => '<option value="' + u + '">' + fmt(u) + '</option>'))
+          .concat(crossUnits.map(u => '<option value="' + u + '"' + (hasDensity ? '' : ' disabled') + '>' + fmt(u) + (hasDensity ? '' : ' (set density)') + '</option>'))
+          .join('');
+        const defGroup = 'variant-default-' + (key || 'item');
+        const newRowHtml = variantEditRow(
+          { label: newLabel, unitsPerServing: newAmt, unit: dUnit, amount: newAmt, default: false },
+          prim, defGroup, optHtml
+        );
+        list.insertAdjacentHTML('beforeend', newRowHtml);
         return;
       }
-      // Variants editor: Reset button — repopulate the New Serving Size
-      // scratch inputs (Amount + Unit + Label) to match whichever variant is
-      // currently marked default in the form. Same logic also runs when the
-      // user flips the default radio (see the change handler below).
-      const variantResetBtn = ev.target.closest('[data-variant-reset]');
-      if (variantResetBtn) {
-        const panel = variantResetBtn.closest('[data-edit-panel]');
-        if (panel) resetVariantScratchToDefault(panel);
-        return;
-      }
-      // Variants editor: custom-add with amount + unit + optional label.
-      const variantAddBtn = ev.target.closest('[data-variant-add]');
-      if (variantAddBtn) {
-        const panel = variantAddBtn.closest('[data-edit-panel]');
+      // "+ blank" — append an empty serving-size row that the user fills in
+      // from scratch. Replaces the old scratch-form workflow.
+      const variantAddEmptyBtn = ev.target.closest('[data-variant-add-empty]');
+      if (variantAddEmptyBtn) {
+        const panel = variantAddEmptyBtn.closest('[data-edit-panel]');
         if (!panel) return;
+        const list = panel.querySelector('[data-variant-list]');
+        if (!list) return;
         const key = panel.dataset.editPanelKey;
         const item = ITEMS[key];
         if (!item) return;
-        const list = panel.querySelector('[data-variant-list]');
-        const amountEl = panel.querySelector('[data-variant-add-amount]');
-        const unitEl = panel.querySelector('[data-variant-add-unit]');
-        const labelEl = panel.querySelector('[data-variant-add-label]');
-        const densEl = panel.querySelector('[data-edit-field="density"]');
-        const amt = parseFloat(amountEl && amountEl.value);
-        const unit = unitEl ? unitEl.value : 'g';
-        const label = (labelEl && labelEl.value || '').trim();
-        if (!isFinite(amt) || amt <= 0) {
-          amountEl && amountEl.focus();
-          return;
-        }
-        // Resolve to the item's native unit. Native-family units convert
-        // directly; cross-family needs density (read from the form so an
-        // unsaved density value still works for the immediate add).
-        const formDensity = parseFloat(densEl && densEl.value);
-        const liveItem = Object.assign({}, item);
-        if (isFinite(formDensity) && formDensity > 0) liveItem.density_g_per_ml = formDensity;
-        const perUnits = convertToPrimary(liveItem, amt, unit);
-        if (perUnits == null) {
-          // Disabled <option> should block this, but defend anyway.
-          return;
-        }
-        const servingSize = Math.round(perUnits * 10000) / 10000;
-        const finalLabel = label || (amt + ' ' + unit.replace('_', ' '));
-        list.insertAdjacentHTML('beforeend', variantEditRow({ label: finalLabel, unitsPerServing: servingSize }, primaryUnit(item), 'variant-default-' + key));
-        if (amountEl) amountEl.value = '';
-        if (labelEl) labelEl.value = '';
-        // Full re-render so the new variant shows up as a catalog row right
-        // away. The edit panel is destroyed in the rebuild — re-open the
-        // fresh one for this item so the user can keep editing.
-        saveExpandedEdits(key, panel);
-        reopenEditPanelForKey(key);
+        const prim = primaryUnit(item);
+        const hasDensity = typeof item.density_g_per_ml === 'number' && item.density_g_per_ml > 0;
+        const nativeUnits = (prim === 'g') ? MASS_UNIT_KEYS : VOLUME_UNIT_KEYS;
+        const crossUnits  = (prim === 'g') ? VOLUME_UNIT_KEYS : MASS_UNIT_KEYS;
+        const fmt = (u) => u.replace('_', ' ');
+        const optHtml = []
+          .concat(nativeUnits.map(u => '<option value="' + u + '">' + fmt(u) + '</option>'))
+          .concat(crossUnits.map(u => '<option value="' + u + '"' + (hasDensity ? '' : ' disabled') + '>' + fmt(u) + (hasDensity ? '' : ' (set density)') + '</option>'))
+          .join('');
+        const defGroup = 'variant-default-' + (key || 'item');
+        const blankRow = variantEditRow(
+          { label: '', unitsPerServing: 0, unit: prim, amount: 0, default: false },
+          prim, defGroup, optHtml
+        );
+        list.insertAdjacentHTML('beforeend', blankRow);
         return;
       }
+      // (Old scratch-form `data-variant-add` handler removed in v6.4.0 —
+      // the bottom "Create new serving size" Amount/Unit/Label/Reset/Add
+      // form is gone. The math buttons and "+ blank" button above append
+      // new rows directly into the editor list.)
       // Density input change: re-enable/disable volume units in the custom-add
       // dropdown and refresh the hint. Listening via 'input' on document for
       // simplicity (the panel is rebuilt on each open so attach-once is fine).
