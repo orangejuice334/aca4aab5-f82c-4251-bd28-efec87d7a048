@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.1.3">
+<meta name="app-version" content="v6.2.0">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -4422,7 +4422,7 @@
   // category-derived schedule code.
   const RESERVED_CATEGORY_KEYS = ['water', 'supplements', 'uncategorized'];
   const OFFLINE_DEMO_CATEGORIES = [
-    { key: 'recipes',        label: 'Recipes' },
+    { key: 'recipes',        label: 'Recipes and Meals' },
     { key: 'small_portions', label: 'Small portions' },
     { key: 'water',          label: 'Water' },
     { key: 'supplements',    label: 'Supplements' },
@@ -7638,10 +7638,20 @@
     // renderSupplementWaterRows). Letting them through here too would
     // double-render the row and double-count their counter on totals.
     const isFoodCategory = (it) => it && it.category !== 'supplements' && it.category !== 'water' && !it.archived;
+    // Non-preserve recipes behave like customs — only visible in the catalog
+    // on days where they were logged (counter > 0 on activeDate). Preserved
+    // recipes (default) always show.
+    const isVisibleOnActiveDay = (key, item) => {
+      if (!item) return false;
+      if (item.category !== 'recipes') return true;
+      if (item.preserve !== false) return true;
+      const counter = (state.counters && state.counters[key]) || 0;
+      return counter > 0;
+    };
 
     if (state.sortMode === 'alpha' || state.sortMode === 'ratio') {
       const allEntries = Object.keys(ITEMS)
-        .filter(k => isFoodCategory(ITEMS[k]))
+        .filter(k => isFoodCategory(ITEMS[k]) && isVisibleOnActiveDay(k, ITEMS[k]))
         .map(k => {
           const m = computeItemMacros(ITEMS[k]);
           return {
@@ -7694,7 +7704,7 @@
       // daily totals from two paths.
       if (cat.key === 'supplements' || cat.key === 'water') return;
       const entries = Object.keys(ITEMS)
-        .filter(k => ITEMS[k].category === cat.key && !ITEMS[k].archived)
+        .filter(k => ITEMS[k].category === cat.key && !ITEMS[k].archived && isVisibleOnActiveDay(k, ITEMS[k]))
         .map(k => ({ key: k, item: ITEMS[k], ratio: ratioFor(ITEMS[k]) }))
         .sort((a, b) => a.ratio - b.ratio);
       if (!entries.length) return;
@@ -8626,15 +8636,27 @@
         groupBlock('minerals', 'Minerals', false);
     }
 
-    // Schedule block: any non-recipe item can carry a time/frequency. For
-    // supplements it's always shown (defaulting to 08:00/daily on add). For
-    // foods it's optional — leaving the time blank means no schedule and no
-    // past-due flag.
-    const hasSchedule = (item.category !== 'recipes');
+    // Schedule block: every item can carry an optional time/frequency. For
+    // supplements it's always shown (defaulting to 08:00/daily on add); for
+    // foods, recipes and meals the time is optional — leaving it blank
+    // means no schedule and no past-due flag. Recipes additionally carry a
+    // "preserve" flag (default true) — when false the recipe behaves like
+    // a custom: visible only on the day it was logged and in that day's
+    // history, hidden from the catalog on other days.
+    const hasSchedule = true;
     const schedTime = item.time || '';
     const schedFreq = item.frequency || 'daily';
     const isSupplement = (item.category === 'supplements');
     const schedTimeLabelExtra = isSupplement ? '' : ' <span class="edit-panel-hint">optional</span>';
+    const preserveChecked = (item.preserve === false) ? '' : ' checked';
+    const recipePreserveRow = isRecipe
+      ? '<div class="edit-panel-row">' +
+          '<label class="nowrap-label" style="display:flex;align-items:center;gap:8px;">' +
+            '<input type="checkbox" data-edit-field="preserve"' + preserveChecked + ' />' +
+            '<span>Preserve across days <span class="edit-panel-hint">uncheck to keep this recipe visible only on the day it was logged</span></span>' +
+          '</label>' +
+        '</div>'
+      : '';
     const supplementBlock = hasSchedule
       ? '<div class="edit-panel-row">' +
           '<div class="ing-amount-row">' +
@@ -8650,7 +8672,8 @@
               '</select>' +
             '</div>' +
           '</div>' +
-        '</div>'
+        '</div>' +
+        recipePreserveRow
       : '';
 
     return (
@@ -9015,9 +9038,9 @@
       delete item.notes;
     }
 
-    // Schedule fields apply to any non-recipe item. Blank time clears the
-    // schedule entirely; non-blank persists the new value.
-    if (item.category !== 'recipes') {
+    // Schedule fields apply to any item. Blank time clears the schedule
+    // entirely; non-blank persists the new value.
+    {
       const t = (get('supp-time') || '').trim();
       const f = (get('supp-frequency') || '').trim();
       if (t) {
@@ -9026,6 +9049,18 @@
       } else {
         delete item.time;
         delete item.frequency;
+      }
+    }
+
+    // Recipes carry an optional `preserve` flag (default true). When false,
+    // the recipe behaves like a custom — only visible on days where it was
+    // logged. The checkbox is only rendered for recipes; for other categories
+    // the field is left alone.
+    if (item.category === 'recipes') {
+      const cb = panel.querySelector('[data-edit-field="preserve"]');
+      if (cb) {
+        if (cb.checked) delete item.preserve;
+        else item.preserve = false;
       }
     }
 

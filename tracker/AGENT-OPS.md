@@ -42,6 +42,8 @@ Macros are **per-1-native** (per gram for mass items, per ml for volume). Divide
   kcal:<per-1>, p, sf, water, caffeine, sodium, cholesterol, ...,
   displayUnits:[{label:'1 pkg', multiplier:448, default:true}, {label:'100 g', multiplier:100}, ...],
   density_g_per_ml:<optional, only if cross-unit variants needed>,
+  time:'HH:MM', frequency:'daily'|'alternate',          // optional schedule for any category
+  preserve:true,                                        // recipes only; false = day-scoped like a custom
 }}
 ```
 
@@ -52,7 +54,12 @@ Macros are **per-1-native** (per gram for mass items, per ml for volume). Divide
 `{type:'catalog_delete', key}`. **First** scan recipes for references and warn the user if any will go orphan.
 
 ### "Create recipe: <name>, with <ingredient list>"
-`catalog_add` with `category:'recipes'`. No top-level kcal/p (computed from ingredients).
+`catalog_add` with `category:'recipes'`. Category label in the UI is "Recipes and Meals". No top-level kcal/p (computed from ingredients).
+
+Optional fields supported on the recipe object:
+- `time: 'HH:MM'` + `frequency: 'daily'|'alternate'` — schedules the recipe alongside supplements/water for a whole-day meal plan. Leave blank for unscheduled.
+- `preserve: true|false` — defaults to true. When `false`, the recipe behaves like a custom: visible in the catalog only on the day(s) it was logged (counter > 0 on activeDate), hidden everywhere else. Use for one-off meals you don't want cluttering the catalog.
+
 ```
 ingredients:[
   {itemKey:'<src1>', multiplier:1, label:'1 pkg'},
