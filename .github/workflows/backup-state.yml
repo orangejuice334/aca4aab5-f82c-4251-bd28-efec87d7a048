@@ -1,0 +1,47 @@
+# Daily snapshot of the tracker gist state, committed to tracker/backups/.
+# Runs once a day at 07:00 UTC (03:00 ET). Manual runs via "Run workflow".
+# The assistant's push convention ALSO calls backup-state.mjs locally before
+# each tracker commit, so the typical recovery window is at most ~24 hours.
+
+name: Daily tracker state backup
+
+on:
+  schedule:
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "backup-state"
+  cancel-in-progress: false
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch + write backup
+        working-directory: tracker
+        run: node backup-state.mjs
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add tracker/backups/lg-state.json tracker/backups/eg-state.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            MSG=$(cat /proc/sys/kernel/random/uuid)
+            git commit -m "$MSG"
+            git push
+          fi

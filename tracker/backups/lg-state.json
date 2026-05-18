@@ -1,0 +1,4301 @@
+{
+  "_backupTakenAt": "2026-05-18T23:20:31.436Z",
+  "_gistSavedAt": "2026-05-18T23:18:21.886Z",
+  "user": "lg",
+  "state": {
+    "activeDate": "2026-05-15",
+    "days": {
+      "2026-04-30": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "weight": 103,
+        "weightMeta": "2026-05-18T23:18:21.165636Z"
+      },
+      "2026-05-15": {
+        "toggles": {},
+        "counters": {
+          "soy_milk": 247,
+          "turkey_breast_smithfield": 224
+        },
+        "customs": [],
+        "counterMeta": {
+          "soy_milk": "2026-05-16T00:29:34.640Z",
+          "turkey_breast_smithfield": "2026-05-16T00:29:35.147Z"
+        },
+        "toggleMeta": {}
+      },
+      "2026-05-16": {
+        "toggles": {
+          "two_per_day#08:00": true,
+          "d3#08:00": true,
+          "wegovy#07:30": true,
+          "soy_coffee#09:00": true
+        },
+        "counters": {
+          "turkey_breast_smithfield": 224,
+          "soy_milk": 247
+        },
+        "customs": [],
+        "toggleMeta": {
+          "two_per_day#08:00": "2026-05-18T22:06:22.895Z",
+          "d3#08:00": "2026-05-18T22:06:22.895Z",
+          "wegovy#07:30": "2026-05-18T22:06:22.895Z",
+          "soy_coffee#09:00": "2026-05-18T22:06:22.895Z"
+        },
+        "counterMeta": {
+          "turkey_breast_smithfield": "2026-05-16T16:50:19.688Z",
+          "soy_milk": "2026-05-16T16:50:19.961Z"
+        }
+      },
+      "2026-05-17": {
+        "toggles": {
+          "omega3#08:00": true,
+          "two_per_day#08:00": true,
+          "d3#08:00": true,
+          "wegovy#07:30": true,
+          "soy_coffee#09:00": true
+        },
+        "counters": {
+          "yogurt_half": 453.5,
+          "banana": 118,
+          "peanuts_fistful": 30
+        },
+        "customs": [],
+        "toggleMeta": {
+          "omega3#08:00": "2026-05-18T22:06:22.895Z",
+          "two_per_day#08:00": "2026-05-18T22:06:22.895Z",
+          "d3#08:00": "2026-05-18T22:06:22.895Z",
+          "wegovy#07:30": "2026-05-18T22:06:22.895Z",
+          "soy_coffee#09:00": "2026-05-18T22:06:22.895Z"
+        },
+        "counterMeta": {
+          "yogurt_half": "2026-05-18T00:50:13.924Z",
+          "banana": "2026-05-17T14:41:55.440Z",
+          "peanuts_fistful": "2026-05-17T16:36:00.000Z"
+        }
+      },
+      "2026-05-18": {
+        "toggles": {
+          "omega3#08:00": true,
+          "two_per_day#08:00": true,
+          "water#07:00": true,
+          "creatine#08:00": true,
+          "flonase#08:00": true,
+          "d3#08:00": true,
+          "wegovy#07:30": true
+        },
+        "counters": {
+          "kashi_blueberry_clusters": 30,
+          "soy_milk": 100,
+          "premier_latte": 325,
+          "turkey_salmon_black_bean_slab": 200,
+          "drink_performx_strawberry_banana": 828,
+          "turkey_slices_oven_roasted": 70,
+          "avocado_half": 65,
+          "salsa_casa_mamita_chunky": 82.5
+        },
+        "customs": [],
+        "toggleMeta": {
+          "omega3#08:00": "2026-05-18T22:06:22.895Z",
+          "two_per_day#08:00": "2026-05-18T22:06:22.895Z",
+          "water#07:00": "2026-05-18T22:06:22.895Z",
+          "creatine#08:00": "2026-05-18T22:06:22.895Z",
+          "flonase#08:00": "2026-05-18T22:06:22.895Z",
+          "d3#08:00": "2026-05-18T22:06:22.895Z",
+          "wegovy#07:30": "2026-05-18T22:06:22.895Z"
+        },
+        "counterMeta": {
+          "turkey_salmon_black_bean_slab": "2026-05-18T22:25:41.241Z",
+          "drink_performx_strawberry_banana": "2026-05-18T22:22:25.333Z",
+          "turkey_slices_oven_roasted": "2026-05-18T23:03:37.119Z",
+          "avocado_half": "2026-05-18T23:04:07.409Z",
+          "salsa_casa_mamita_chunky": "2026-05-18T23:08:09.755Z"
+        },
+        "weight": 98.5,
+        "weightMeta": "2026-05-18T23:09:39.640Z"
+      }
+    },
+    "savedItems": [],
+    "profile": {
+      "displayName": "L.G.",
+      "fullName": "Luis",
+      "heightCm": 183,
+      "ageYears": 42,
+      "sex": "M",
+      "activityLevel": "light",
+      "startWeightKg": 102,
+      "targetWeightKg": 88,
+      "goals": {
+        "kcal": 1200,
+        "p": 190,
+        "carbs": 275,
+        "fiber": 28,
+        "sugar": 50,
+        "fat": 78,
+        "sf": 12,
+        "transfat": 0,
+        "cholesterol": 300,
+        "sodium": 2300,
+        "water": 3200,
+        "caffeine": 400,
+        "omega3": 1100,
+        "vitA": 900,
+        "vitC": 90,
+        "vitD": 20,
+        "vitE": 15,
+        "vitK": 120,
+        "b1": 1.2,
+        "b2": 1.3,
+        "b3": 16,
+        "b5": 5,
+        "b6": 1.7,
+        "b7": 30,
+        "b9": 400,
+        "b12": 2.4,
+        "choline": 550,
+        "calcium": 1300,
+        "iron": 18,
+        "magnesium": 420,
+        "phosphorus": 1250,
+        "potassium": 4700,
+        "zinc": 11,
+        "selenium": 55,
+        "copper": 0.9,
+        "manganese": 2.3,
+        "iodine": 150,
+        "chromium": 35,
+        "molybdenum": 45
+      },
+      "displayedNutrients": [
+        "kcal",
+        "p",
+        "sf",
+        "water",
+        "caffeine",
+        "potassium",
+        "_kcal_per_p"
+      ],
+      "units": {
+        "weight": "kg",
+        "height": "cm"
+      },
+      "display": {
+        "unitDisplay": "both_prefer_metric",
+        "dateFormat": "yyyy-MM-dd",
+        "timeFormat": "24h"
+      }
+    },
+    "sortMode": "ratio",
+    "collapsedGroups": {
+      "section-density": true,
+      "supplements-water": true,
+      "section-checkout": true,
+      "details-profile-section": true
+    },
+    "userCatalog": {
+      "items": {
+        "4_doctor_s_best_magnesiu": {
+          "name": "4 Doctor's Best Magnesium",
+          "category": "supplements",
+          "magnesium": 200,
+          "displayUnits": [
+            {
+              "label": "800 mg total",
+              "multiplier": 4,
+              "time": "19:00",
+              "frequency": "daily",
+              "default": true,
+              "amount": 4,
+              "unit": "g"
+            }
+          ],
+          "notes": "Doctor's Best Magnesium Glycinate, 4 tablets (800 mg magnesium total). Multiple reasons:\n\n• Sleep quality — glycinate contains glycine, an inhibitory neurotransmitter that promotes calm.\n• Cramps and recovery — heavy lifting + sweating + a deficit all increase magnesium demand; calf cramps are often magnesium-adjacent.\n• Cardiovascular — mild blood pressure lowering, modest insulin sensitivity.\n• Constipation prevention — lower food intake + high protein slows transit.\n\nGlycinate specifically because it's highly bioavailable AND non-laxative, unlike oxide (poorly absorbed) or citrate (loose stools at higher doses). Dinner timing keeps it away from caffeine (which antagonizes magnesium) and lets the calming effect help sleep.",
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "almond_powder_tbsp": {
+          "name": "Almond powder defatted",
+          "category": "small_portions",
+          "kcal": 3.75,
+          "p": 0.5,
+          "carbs": 0.3333,
+          "fiber": 0.167,
+          "sugar": 0.0833,
+          "fat": 0.0833,
+          "vitE": 0.0333,
+          "b1": 0.002,
+          "b2": 0.02,
+          "b3": 0.0667,
+          "b5": 0.0083,
+          "b6": 0.0025,
+          "b7": 0.6,
+          "b9": 0.8333,
+          "choline": 0.9,
+          "calcium": 5,
+          "iron": 0.1,
+          "magnesium": 4.8333,
+          "phosphorus": 8.5,
+          "potassium": 14.1667,
+          "zinc": 0.05,
+          "selenium": 0.0667,
+          "copper": 0.0167,
+          "manganese": 0.035,
+          "molybdenum": 0.5,
+          "purines": 0.3333,
+          "displayUnits": [
+            {
+              "label": "100 g serving",
+              "multiplier": 100
+            },
+            {
+              "label": "1 tbsp",
+              "default": true,
+              "multiplier": 6
+            },
+            {
+              "label": "g",
+              "multiplier": 1
+            }
+          ],
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "defaultMeasuredIn": "g",
+          "brand": "Barney Butter"
+        },
+        "applesauce": {
+          "name": "Applesauce",
+          "category": "small_portions",
+          "kcal": 0.198,
+          "carbs": 0.1048,
+          "fiber": 0.0115,
+          "sugar": 0.0857,
+          "fat": 0.001,
+          "sodium": 0.019,
+          "water": 0.3885,
+          "vitA": 0.0095,
+          "vitC": 0.0095,
+          "vitE": 0.0019,
+          "vitK": 0.0048,
+          "b1": 0.0002,
+          "b2": 0.0003,
+          "b3": 0.0005,
+          "b5": 0.0006,
+          "b6": 0.0003,
+          "b9": 0.0095,
+          "choline": 0.0143,
+          "potassium": 0.7143,
+          "selenium": 0.001,
+          "copper": 0.0001,
+          "manganese": 0.0002,
+          "purines": 0.0476,
+          "displayUnits": [
+            {
+              "label": "1 cup",
+              "default": true,
+              "multiplier": 252
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "apricot_preserves_sf_quarter": {
+          "name": "Apricot preserves sugar-free",
+          "category": "items",
+          "kcal": 0.5,
+          "carbs": 0.15,
+          "sugar": 0.05,
+          "sodium": 0.75,
+          "water": 0.6,
+          "vitA": 0.625,
+          "vitC": 0.0125,
+          "vitE": 0.005,
+          "vitK": 0.0188,
+          "b3": 0.0038,
+          "b9": 0.0125,
+          "choline": 0.0125,
+          "iron": 0.0025,
+          "copper": 0.0006,
+          "manganese": 0.0006,
+          "displayUnits": [
+            {
+              "label": "1/4 jar",
+              "default": true,
+              "multiplier": 80
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "avocado_half": {
+          "name": "Avocado",
+          "category": "items",
+          "kcal": 1.6,
+          "p": 0.02,
+          "carbs": 0.085,
+          "fiber": 0.0667,
+          "sugar": 0.007,
+          "fat": 0.147,
+          "sf": 0.0213,
+          "sodium": 0.07,
+          "water": 0.72,
+          "vitA": 0.07,
+          "vitC": 0.1,
+          "vitE": 0.0207,
+          "vitK": 0.21,
+          "b1": 0.0007,
+          "b2": 0.0013,
+          "b3": 0.0174,
+          "b5": 0.0139,
+          "b6": 0.0026,
+          "b7": 0.036,
+          "b9": 0.81,
+          "choline": 0.142,
+          "magnesium": 0.29,
+          "potassium": 4.85,
+          "selenium": 0.004,
+          "copper": 0.0019,
+          "manganese": 0.0014,
+          "iodine": 0.02,
+          "purines": 0.19,
+          "displayUnits": [
+            {
+              "label": "1/2 medium size",
+              "default": true,
+              "multiplier": 65
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "bagel_sesame_qtr": {
+          "name": "Bagel sesame",
+          "category": "small_portions",
+          "kcal": 2.6786,
+          "p": 0.1071,
+          "carbs": 0.53,
+          "fiber": 0.0214,
+          "sugar": 0.06,
+          "fat": 0.016,
+          "sf": 0.0071,
+          "sodium": 5.3,
+          "water": 0.2857,
+          "vitE": 0.005,
+          "vitK": 0.007,
+          "b1": 0.005,
+          "b2": 0.003,
+          "b3": 0.05,
+          "b5": 0.004,
+          "b6": 0.001,
+          "b7": 0.04,
+          "b9": 1,
+          "choline": 0.18,
+          "calcium": 0.25,
+          "iron": 0.034,
+          "phosphorus": 0.75,
+          "selenium": 0.3,
+          "copper": 0.0018,
+          "manganese": 0.0065,
+          "iodine": 0.05,
+          "molybdenum": 0.35,
+          "purines": 0.25,
+          "displayUnits": [
+            {
+              "label": "1/4",
+              "default": true,
+              "multiplier": 28
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "banana": {
+          "name": "Banana",
+          "category": "items",
+          "kcal": 0.8898,
+          "p": 0.0085,
+          "carbs": 0.2288,
+          "fiber": 0.0263,
+          "sugar": 0.1186,
+          "fat": 0.0034,
+          "sf": 0.0009,
+          "sodium": 0.0085,
+          "water": 0.7458,
+          "vitA": 0.0339,
+          "vitC": 0.0847,
+          "vitE": 0.001,
+          "vitK": 0.0051,
+          "b1": 0.0003,
+          "b2": 0.0008,
+          "b3": 0.0066,
+          "b5": 0.0033,
+          "b6": 0.0036,
+          "b7": 0.0085,
+          "b9": 0.2034,
+          "choline": 0.0975,
+          "magnesium": 0.2712,
+          "potassium": 3.5763,
+          "selenium": 0.0102,
+          "copper": 0.0008,
+          "manganese": 0.0027,
+          "iodine": 0.0085,
+          "purines": 0.2966,
+          "displayUnits": [
+            {
+              "label": "1 unit",
+              "default": true,
+              "multiplier": 118
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "bar_luna_lemon_zest": {
+          "name": "Bar Lemon Zest",
+          "category": "items",
+          "kcal": 3.9583,
+          "p": 0.1667,
+          "carbs": 0.583,
+          "fiber": 0.0625,
+          "sugar": 0.1875,
+          "fat": 0.125,
+          "sf": 0.0521,
+          "sodium": 1.77,
+          "vitE": 0.019,
+          "b1": 0.003,
+          "b2": 0.003,
+          "b3": 0.04,
+          "b5": 0.005,
+          "b6": 0.002,
+          "b7": 0.05,
+          "b9": 0.5,
+          "choline": 0.3,
+          "calcium": 1.54,
+          "iron": 0.021,
+          "magnesium": 0.52,
+          "phosphorus": 2.08,
+          "potassium": 2.65,
+          "zinc": 0.015,
+          "selenium": 0.12,
+          "copper": 0.002,
+          "manganese": 0.015,
+          "iodine": 0.05,
+          "purines": 0.08,
+          "displayUnits": [
+            {
+              "label": "1 bar",
+              "default": true,
+              "multiplier": 48
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "beef_bulgogi_100g": {
+          "name": "Beef bulgogi seasoned rib-eye",
+          "category": "items",
+          "kcal": 2.8,
+          "p": 0.22,
+          "carbs": 0.04,
+          "sugar": 0.03,
+          "fat": 0.18,
+          "sf": 0.06,
+          "transfat": 0.005,
+          "cholesterol": 0.7,
+          "sodium": 6,
+          "water": 0.5,
+          "vitD": 0.001,
+          "vitE": 0.004,
+          "vitK": 0.014,
+          "b1": 0.0007,
+          "b2": 0.0016,
+          "b3": 0.05,
+          "b5": 0.006,
+          "b6": 0.004,
+          "b7": 0.015,
+          "b9": 0.05,
+          "b12": 0.025,
+          "choline": 0.65,
+          "iron": 0.025,
+          "phosphorus": 2,
+          "potassium": 3.2,
+          "zinc": 0.05,
+          "selenium": 0.22,
+          "copper": 0.0006,
+          "manganese": 0.0001,
+          "iodine": 0.08,
+          "molybdenum": 0.01,
+          "purines": 1.1,
+          "displayUnits": [
+            {
+              "label": "100 g serving",
+              "default": true,
+              "multiplier": 100
+            },
+            {
+              "label": "g",
+              "multiplier": 1
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "black_bean_pasta": {
+          "name": "Black bean pasta",
+          "category": "items",
+          "kcal": 3.21,
+          "p": 0.446,
+          "fat": 0.018,
+          "carbs": 0.393,
+          "fiber": 0.214,
+          "sugar": 0.018,
+          "water": 0.1,
+          "omega3": 0.5,
+          "vitA": 0.001,
+          "vitE": 0.002,
+          "vitK": 0.058,
+          "b1": 0.009,
+          "b2": 0.002,
+          "b3": 0.022,
+          "b5": 0.009,
+          "b6": 0.003,
+          "b9": 4.44,
+          "choline": 0.66,
+          "calcium": 0.75,
+          "iron": 0.086,
+          "magnesium": 2.3,
+          "phosphorus": 4.15,
+          "potassium": 15,
+          "zinc": 0.037,
+          "selenium": 0.3,
+          "copper": 0.008,
+          "manganese": 0.012,
+          "iodine": 0.01,
+          "purines": 0.75,
+          "displayUnits": [
+            {
+              "label": "1 pkg",
+              "default": true,
+              "multiplier": 200
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            },
+            {
+              "label": "1 serving",
+              "multiplier": 56
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "brand": "Explore Cuisine"
+        },
+        "black_beans_dry_goya": {
+          "name": "Black beans Goya (dry)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.8571,
+          "p": 0.2857,
+          "fat": 0.0143,
+          "sodium": 0.1429,
+          "carbs": 0.5429,
+          "fiber": 0.3143,
+          "sugar": 0.0143,
+          "water": 0.11,
+          "calcium": 0.2857,
+          "iron": 0.06,
+          "potassium": 15.1429,
+          "vitE": 0.0021,
+          "vitK": 0.058,
+          "b1": 0.009,
+          "b2": 0.0019,
+          "b3": 0.019,
+          "b5": 0.009,
+          "b6": 0.0028,
+          "b9": 4.4,
+          "choline": 0.66,
+          "magnesium": 1.71,
+          "phosphorus": 3.52,
+          "zinc": 0.038,
+          "selenium": 0.034,
+          "copper": 0.008,
+          "manganese": 0.011,
+          "molybdenum": 0.014,
+          "omega3": 1.8,
+          "purines": 0.75,
+          "displayUnits": [
+            {
+              "label": "1 bag (1 lb)",
+              "multiplier": 454
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            },
+            {
+              "label": "1/2 cup",
+              "multiplier": 70
+            },
+            {
+              "label": "1/4 cup",
+              "default": true,
+              "multiplier": 35
+            }
+          ],
+          "notes": "Goya dry black beans. Label per 1/4 cup (35 g): 80 kcal · 10 g P · 19 g carb · 11 g fiber · 530 mg K · 5 mg Na · 0.5 g fat. CATALOG USES CORRECTED kcal = 100 (Goya treats fiber as 0 kcal; fermentable fiber adds back ~2 kcal/g = +22 kcal). Real k/g P ~10, not the label-implied 8. When boiled at home, mass triples (35 g dry → ~100 g cooked); kcal and protein transfer 1:1. Goya canned shows k/g P 14 because canned label uses standard fiber=4kcal/g accounting — same beans, different label convention.",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "bran_flakes": {
+          "name": "Bran flakes",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 3.3333,
+          "p": 0.1,
+          "carbs": 0.7667,
+          "fiber": 0.1667,
+          "sugar": 0.2,
+          "fat": 0.0167,
+          "sodium": 7.3333,
+          "potassium": 2.3333,
+          "iron": 0.2667,
+          "calcium": 0.6667,
+          "vitA": 6.6667,
+          "vitC": 0.2,
+          "vitD": 0.0417,
+          "vitE": 0.06,
+          "b1": 0.0133,
+          "b2": 0.0133,
+          "b3": 0.1667,
+          "b6": 0.0167,
+          "b9": 3.3333,
+          "b12": 0.06,
+          "magnesium": 1.6667,
+          "zinc": 0.1667,
+          "displayUnits": [
+            {
+              "label": "100 g",
+              "default": true,
+              "multiplier": 100
+            }
+          ],
+          "notes": "Generic fortified bran flakes (Post / Kellogg's style). Per-gram macros derived from a 30 g labelled serving; tweak per brand if needed.",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "bran_flakes_with_soy_milk": {
+          "name": "Bran flakes with soy milk",
+          "category": "recipes",
+          "ingredients": [
+            {
+              "itemKey": "bran_flakes",
+              "multiplier": 1,
+              "label": "100 g"
+            },
+            {
+              "itemKey": "soy_milk",
+              "multiplier": 1,
+              "label": "1 cup (247 g)"
+            }
+          ],
+          "defaultMeasuredIn": "units",
+          "displayUnits": [
+            {
+              "label": "1 bowl",
+              "multiplier": 347,
+              "default": true
+            }
+          ]
+        },
+        "cali_medley": {
+          "name": "California Medley",
+          "category": "small_portions",
+          "kcal": 0.2941,
+          "p": 0.0241,
+          "carbs": 0.05,
+          "fiber": 0.02,
+          "sugar": 0.02,
+          "fat": 0.003,
+          "sodium": 0.25,
+          "water": 0.9118,
+          "vitA": 2,
+          "vitC": 0.25,
+          "vitE": 0.005,
+          "vitK": 0.3,
+          "b1": 0.0005,
+          "b2": 0.0005,
+          "b3": 0.005,
+          "b5": 0.002,
+          "b6": 0.001,
+          "b7": 0.005,
+          "b9": 0.3,
+          "choline": 0.12,
+          "potassium": 2.3,
+          "selenium": 0.005,
+          "copper": 0.0004,
+          "manganese": 0.0015,
+          "iodine": 0.01,
+          "molybdenum": 0.04,
+          "purines": 0.2,
+          "displayUnits": [
+            {
+              "label": "1/2 bag",
+              "default": true,
+              "multiplier": 170
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "cc": {
+          "name": "Cottage cheese 2%",
+          "category": "items",
+          "kcal": 0.885,
+          "p": 0.115,
+          "carbs": 0.04,
+          "sugar": 0.04,
+          "fat": 0.025,
+          "sf": 0.013,
+          "cholesterol": 0.09,
+          "sodium": 3.3,
+          "water": 0.782,
+          "vitA": 0.36,
+          "vitD": 0.001,
+          "vitE": 0.0006,
+          "b1": 0.0003,
+          "b2": 0.0016,
+          "b3": 0.001,
+          "b5": 0.0055,
+          "b6": 0.0007,
+          "b7": 0.015,
+          "b9": 0.12,
+          "b12": 0.004,
+          "choline": 0.18,
+          "calcium": 1.1,
+          "phosphorus": 1.59,
+          "zinc": 0.004,
+          "selenium": 0.09,
+          "copper": 0.0003,
+          "manganese": 0.0001,
+          "iodine": 0.31,
+          "molybdenum": 0.06,
+          "purines": 0.05,
+          "displayUnits": [
+            {
+              "label": "1/2 tub",
+              "default": true,
+              "multiplier": 340
+            },
+            {
+              "label": "1/4 tub",
+              "multiplier": 170
+            },
+            {
+              "label": "g",
+              "multiplier": 1
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "cc_giant_ff": {
+          "name": "Cottage cheese fat-free",
+          "category": "items",
+          "kcal": 0.7079,
+          "p": 0.1062,
+          "cholesterol": 0.0442,
+          "sodium": 3.8053,
+          "carbs": 0.0531,
+          "sugar": 0.0442,
+          "water": 0.8,
+          "vitA": 0.531,
+          "calcium": 0.885,
+          "potassium": 1.5929,
+          "vitE": 0.0001,
+          "b1": 0.0003,
+          "b2": 0.0018,
+          "b3": 0.0013,
+          "b5": 0.0021,
+          "b6": 0.0007,
+          "b7": 0.03,
+          "b9": 0.12,
+          "b12": 0.0105,
+          "choline": 0.18,
+          "magnesium": 0.07,
+          "phosphorus": 1.65,
+          "zinc": 0.004,
+          "selenium": 0.09,
+          "manganese": 0.0001,
+          "iodine": 0.05,
+          "purines": 0.6,
+          "displayUnits": [
+            {
+              "label": "1/2 tub",
+              "default": true,
+              "multiplier": 340
+            },
+            {
+              "label": "2/3 tub",
+              "multiplier": 222
+            },
+            {
+              "label": "1/4 tub",
+              "multiplier": 170
+            },
+            {
+              "label": "1 serving",
+              "multiplier": 113
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "brand": "Giant"
+        },
+        "crackers_50g": {
+          "name": "Crackers",
+          "category": "small_portions",
+          "kcal": 4.3,
+          "p": 0.07,
+          "carbs": 0.67,
+          "fiber": 0.02,
+          "sugar": 0.08,
+          "fat": 0.14,
+          "sf": 0.02,
+          "sodium": 8,
+          "vitE": 0.015,
+          "vitK": 0.07,
+          "b1": 0.005,
+          "b2": 0.004,
+          "b3": 0.05,
+          "b6": 0.001,
+          "b9": 0.8,
+          "choline": 0.25,
+          "calcium": 0.3,
+          "iron": 0.04,
+          "zinc": 0.01,
+          "selenium": 0.27,
+          "copper": 0.0015,
+          "manganese": 0.006,
+          "iodine": 0.03,
+          "purines": 0.3,
+          "displayUnits": [
+            {
+              "label": "50 g",
+              "default": true,
+              "multiplier": 50
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "creatine": {
+          "name": "Creatine 5 g",
+          "category": "supplements",
+          "displayUnits": [
+            {
+              "label": "1 scoop",
+              "multiplier": 5,
+              "time": "08:00",
+              "frequency": "daily",
+              "default": true,
+              "amount": 5,
+              "unit": "g"
+            }
+          ],
+          "notes": "Nature's Wonder Creatine, 5 g (use scoop, or ~1.5 level tsp). Strength and lean mass preservation on a cut. The most-studied performance supplement in existence — ~1,000+ trials. Saturates muscle phosphocreatine stores over 3–4 weeks, then maintains with daily 5 g. Especially valuable on a calorie deficit where lifts tend to drop; creatine helps them hold. Note: 1 level tsp ≈ 3 g, not 5 g — use the scoop that came with the tub or measure ~1.5 tsp. Avoid hot acidic liquids (slow degradation). Timing isn't critical once saturated — total daily dose is what matters.",
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "d3": {
+          "name": "NatureWise D3 5000 IU",
+          "category": "supplements",
+          "vitD": 125,
+          "displayUnits": [
+            {
+              "label": "1 softgel",
+              "multiplier": 1,
+              "time": "08:00",
+              "frequency": "alternate",
+              "default": true,
+              "amount": 1,
+              "unit": "g"
+            }
+          ],
+          "notes": "NatureWise D3 5,000 IU. Vitamin D supplementation. Maryland latitude (~39°N) means winter sun is too low-angle for skin synthesis Oct–April. Earlier bloodwork showed low-normal D; supplementation targets the 40–60 ng/mL range for bone, immune, and muscle support on a deficit. Every other day (~17,500 IU/week) is the sweet spot for someone your size — daily 5,000 IU long-term over-saturates. With breakfast because it's fat-soluble; needs dietary fat to absorb.",
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "drink_performx_strawberry_banana": {
+          "name": "Drink hydration strawberry-banana",
+          "category": "items",
+          "kcal": 0.0423,
+          "carbs": 0.0056,
+          "sugar": 0.0028,
+          "water": 0.98,
+          "vitA": 0.5352,
+          "vitE": 0.009,
+          "b6": 0.0068,
+          "b12": 0.0096,
+          "magnesium": 0.2535,
+          "phosphorus": 0.0563,
+          "potassium": 1.4085,
+          "displayUnits": [
+            {
+              "label": "1 bottle (28 oz)",
+              "amount": 828,
+              "unit": "g",
+              "default": true,
+              "multiplier": 828
+            },
+            {
+              "label": "12 fl oz serving",
+              "amount": 355,
+              "unit": "g",
+              "multiplier": 355
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "brand": "PerformX"
+        },
+        "edamame_half": {
+          "name": "Edamame shelled",
+          "category": "items",
+          "kcal": 1.322,
+          "p": 0.1062,
+          "carbs": 0.09,
+          "fiber": 0.052,
+          "sugar": 0.022,
+          "fat": 0.05,
+          "sf": 0.0062,
+          "sodium": 0.06,
+          "water": 0.6608,
+          "vitC": 0.06,
+          "vitE": 0.007,
+          "vitK": 0.26,
+          "b1": 0.002,
+          "b2": 0.0016,
+          "b3": 0.0091,
+          "b5": 0.005,
+          "b6": 0.001,
+          "b7": 0.02,
+          "b9": 3.11,
+          "choline": 0.56,
+          "calcium": 0.63,
+          "iron": 0.023,
+          "magnesium": 0.64,
+          "potassium": 4.36,
+          "zinc": 0.014,
+          "selenium": 0.008,
+          "copper": 0.0034,
+          "manganese": 0.01,
+          "molybdenum": 0.3,
+          "purines": 1.7,
+          "displayUnits": [
+            {
+              "label": "1/2 bag",
+              "default": true,
+              "multiplier": 227
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "egg_substitute": {
+          "name": "Egg substitute",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.5435,
+          "p": 0.1087,
+          "sodium": 1.8478,
+          "water": 0.87,
+          "vitD": 0.0196,
+          "calcium": 4.3478,
+          "iron": 0.0174,
+          "potassium": 1.5217,
+          "vitA": 0.3913,
+          "vitE": 0.0196,
+          "b1": 0.0026,
+          "b2": 0.0113,
+          "b5": 0.0163,
+          "b6": 0.0015,
+          "b7": 0.163,
+          "b9": 1.413,
+          "b12": 0.0104,
+          "zinc": 0.0096,
+          "displayUnits": [
+            {
+              "label": "1 carton",
+              "default": true,
+              "multiplier": 920
+            },
+            {
+              "label": "1 cup",
+              "multiplier": 245
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            },
+            {
+              "label": "3 Tbsp (label)",
+              "multiplier": 46
+            }
+          ],
+          "notes": "Giant Food egg substitute. Yellow carton, pasteurized egg whites + small gums + beta-carotene color + B-vitamin / mineral fortification. Container ~32 fl oz / ~920 g. Density ~1.022 g/ml (3 Tbsp = 45 ml = 46 g per label) so ml and g are interchangeable for cooking. Same protein/kcal as plain egg whites; difference is the added fortification - vit D, calcium 200 mg per serving (15% DV), B-complex (riboflavin 40% DV, B12 20% DV, biotin 25% DV) - and trace gums + salt (85 mg sodium per serving). Pick between this and plain egg whites on micronutrient-density vs ingredient-minimalism.",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "brand": "Giant"
+        },
+        "egg_whites": {
+          "name": "Egg whites",
+          "category": "items",
+          "kcal": 0.52,
+          "p": 0.109,
+          "fat": 0.0017,
+          "sodium": 1.66,
+          "carbs": 0.0073,
+          "sugar": 0.0071,
+          "water": 0.88,
+          "b2": 0.0044,
+          "b3": 0.0011,
+          "b5": 0.0019,
+          "b6": 0.0001,
+          "b7": 0.0007,
+          "b9": 0.04,
+          "b12": 0.0009,
+          "choline": 0.011,
+          "calcium": 0.07,
+          "iron": 0.0008,
+          "magnesium": 0.11,
+          "phosphorus": 0.15,
+          "potassium": 1.63,
+          "zinc": 0.0003,
+          "selenium": 0.2,
+          "manganese": 0.0001,
+          "iodine": 0.06,
+          "purines": 0.05,
+          "displayUnits": [
+            {
+              "label": "1 cup",
+              "default": true,
+              "multiplier": 243
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            },
+            {
+              "label": "1 large",
+              "multiplier": 33
+            }
+          ],
+          "notes": "From whole eggs, separated. ~1 large egg yields ~33 g of whites. Carton egg whites (e.g., Egg Beaters) have similar macros. Excellent k/g P (kcal per gram of protein) ≈ 4.77 — high-volume protein with negligible fat.",
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "eggs_shrimp_edamame_bowl": {
+          "name": "Eggs, shrimp & edamame microwave bowl",
+          "category": "recipes",
+          "displayUnits": [
+            {
+              "label": "1 serving",
+              "default": true,
+              "multiplier": 250
+            }
+          ],
+          "ingredients": [
+            {
+              "name": "Eggs",
+              "kcal": 280,
+              "p": 24,
+              "sf": 6.4,
+              "water": 0,
+              "caffeine": 0,
+              "amount": {
+                "value": 4,
+                "unit": "large"
+              }
+            },
+            {
+              "name": "Shrimp pre-cooked frozen",
+              "kcal": 149,
+              "p": 36,
+              "sf": 0.5,
+              "water": 0,
+              "caffeine": 0,
+              "amount": {
+                "value": 150,
+                "unit": "g"
+              }
+            },
+            {
+              "name": "Edamame shelled frozen",
+              "kcal": 132,
+              "p": 11,
+              "sf": 0,
+              "water": 0,
+              "caffeine": 0,
+              "amount": {
+                "value": 100,
+                "unit": "g"
+              }
+            },
+            {
+              "name": "Olive oil",
+              "kcal": 40,
+              "p": 0,
+              "sf": 0.6,
+              "water": 0,
+              "caffeine": 0,
+              "amount": {
+                "value": 1,
+                "unit": "tsp"
+              }
+            },
+            {
+              "itemKey": "salt_eighth_tbsp",
+              "multiplier": 1,
+              "label": "1 g pinch"
+            }
+          ],
+          "instructions": [
+            "Crack 4 eggs into a wide microwave-safe bowl. Whisk with 1/8 tsp salt and 1 tsp olive oil (oil keeps the eggs from going rubbery). Drop in 150 g frozen pre-cooked shrimp and 100 g frozen shelled edamame. Spread everything out in a single layer.",
+            "Microwave at power level 5 (50%) for 4:00. Place the bowl off-center on the turntable, on the outer half — not center. If eggs still look wet, add 30 sec at the same power. Eat. First-time cook is data collection — adjust ±30 sec next time based on how it came out. Magic Chef HMM1611ST, 1100W output. Shrimp and edamame must both be the pre-cooked frozen kind."
+          ],
+          "defaultMeasuredIn": "units"
+        },
+        "eggs_shrimp_skillet": {
+          "name": "Eggs & shrimp microwave bowl",
+          "category": "recipes",
+          "displayUnits": [
+            {
+              "label": "1 serving",
+              "default": true,
+              "multiplier": 200
+            }
+          ],
+          "ingredients": [
+            {
+              "name": "Eggs",
+              "kcal": 280,
+              "p": 24,
+              "sf": 6.4,
+              "water": 0,
+              "caffeine": 0,
+              "amount": {
+                "value": 4,
+                "unit": "large"
+              }
+            },
+            {
+              "name": "Shrimp pre-cooked frozen",
+              "kcal": 99,
+              "p": 24,
+              "sf": 0.3,
+              "water": 0,
+              "caffeine": 0,
+              "amount": {
+                "value": 100,
+                "unit": "g"
+              }
+            },
+            {
+              "name": "Olive oil",
+              "kcal": 40,
+              "p": 0,
+              "sf": 0.6,
+              "water": 0,
+              "caffeine": 0,
+              "amount": {
+                "value": 1,
+                "unit": "tsp"
+              }
+            },
+            {
+              "name": "Soy sauce + salt",
+              "kcal": 3,
+              "p": 0,
+              "sf": 0,
+              "water": 0,
+              "caffeine": 0,
+              "amount": {
+                "value": 1,
+                "unit": "to taste"
+              }
+            }
+          ],
+          "instructions": [
+            "Crack 4 eggs into a wide microwave-safe bowl. Whisk with 1/8 tsp salt (or skip salt entirely — soy sauce + shrimp's processing salt is plenty), ~1 tsp soy sauce, and 1 tsp olive oil. Drop in 100 g frozen pre-cooked shrimp and spread them out.",
+            "Microwave at power level 6 (60%) for 2:30. If eggs still look wet, add 30 sec at the same power. Eat. Note: this is calibrated for a 1700W microwave; at 1000W use full power; at 700W use full power for ~3:30. Shrimp must be pre-cooked (pink/curled)."
+          ],
+          "defaultMeasuredIn": "units"
+        },
+        "evoo_tsp": {
+          "name": "Olive oil extra virgin",
+          "category": "small_portions",
+          "kcal": 8.8191,
+          "fat": 1,
+          "sf": 0.1543,
+          "sodium": 0.0217,
+          "omega3": 8.2609,
+          "vitE": 0.1435,
+          "vitK": 0.5978,
+          "choline": 0.0033,
+          "iron": 0.0061,
+          "displayUnits": [
+            {
+              "label": "1 tsp",
+              "default": true,
+              "multiplier": 5
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "flonase": {
+          "name": "Flonase",
+          "category": "supplements",
+          "displayUnits": [
+            {
+              "label": "1 spray",
+              "multiplier": 1,
+              "time": "08:00",
+              "frequency": "daily",
+              "default": true,
+              "amount": 1,
+              "unit": "g"
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "frank_dietz_watson": {
+          "name": "Frank uncured beef-pork",
+          "category": "items",
+          "kcal": 2.8571,
+          "p": 0.1224,
+          "fat": 0.2653,
+          "sf": 0.0816,
+          "cholesterol": 0.5102,
+          "sodium": 8.5714,
+          "water": 0.55,
+          "calcium": 0.2449,
+          "iron": 0.0204,
+          "potassium": 2.8571,
+          "vitE": 0.0015,
+          "vitK": 0.012,
+          "b1": 0.0025,
+          "b2": 0.0012,
+          "b3": 0.0269,
+          "b5": 0.0045,
+          "b6": 0.001,
+          "b9": 0.04,
+          "b12": 0.0104,
+          "choline": 0.47,
+          "magnesium": 0.14,
+          "phosphorus": 1.67,
+          "zinc": 0.017,
+          "selenium": 0.186,
+          "copper": 0.0006,
+          "iodine": 0.04,
+          "omega3": 0.15,
+          "purines": 0.5,
+          "displayUnits": [
+            {
+              "label": "1 pkg",
+              "default": true,
+              "multiplier": 392
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            },
+            {
+              "label": "1 frank",
+              "multiplier": 49
+            }
+          ],
+          "notes": "Dietz & Watson \"Dietz Dogs\" Uncured Beef & Pork Franks. Net wt 14 oz (~397 g), 8 franks per package. No nitrates/nitrites added (except those naturally in celery powder). Calorie- and sodium-dense — k/g P ratio is 23.4, very high for a protein item.",
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "brand": "Dietz & Watson"
+        },
+        "guac_tbsp": {
+          "name": "Guacamole",
+          "category": "small_portions",
+          "kcal": 1.5551,
+          "p": 0.0203,
+          "carbs": 0.09,
+          "fiber": 0.0609,
+          "sugar": 0.007,
+          "fat": 0.14,
+          "sf": 0.0203,
+          "sodium": 3.5,
+          "water": 0.7438,
+          "vitA": 0.07,
+          "vitC": 0.08,
+          "vitE": 0.02,
+          "vitK": 0.18,
+          "b1": 0.0007,
+          "b2": 0.0013,
+          "b3": 0.017,
+          "b5": 0.014,
+          "b6": 0.0026,
+          "b7": 0.03,
+          "b9": 0.8,
+          "choline": 0.14,
+          "iron": 0.0055,
+          "magnesium": 0.27,
+          "potassium": 4.5,
+          "selenium": 0.004,
+          "copper": 0.0019,
+          "manganese": 0.0014,
+          "iodine": 0.02,
+          "purines": 0.19,
+          "displayUnits": [
+            {
+              "label": "1 tbsp",
+              "default": true,
+              "multiplier": 15
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "ham_serrano_lidl": {
+          "name": "Ham serrano dry-cured",
+          "category": "items",
+          "kcal": 2.5,
+          "p": 0.3571,
+          "fat": 0.125,
+          "sf": 0.0357,
+          "cholesterol": 0.8929,
+          "sodium": 21.0714,
+          "water": 0.4,
+          "potassium": 6.7857,
+          "iron": 0.0143,
+          "vitD": 0.005,
+          "vitE": 0.0027,
+          "b1": 0.0093,
+          "b2": 0.002,
+          "b3": 0.057,
+          "b5": 0.0045,
+          "b6": 0.0032,
+          "b9": 0.04,
+          "b12": 0.007,
+          "choline": 0.9,
+          "magnesium": 0.21,
+          "phosphorus": 2.2,
+          "zinc": 0.023,
+          "selenium": 0.25,
+          "copper": 0.0007,
+          "manganese": 0.0002,
+          "iodine": 0.15,
+          "omega3": 0.3,
+          "purines": 1.25,
+          "displayUnits": [
+            {
+              "label": "100 g",
+              "default": true,
+              "multiplier": 100
+            },
+            {
+              "label": "1 pkg",
+              "multiplier": 85
+            },
+            {
+              "label": "1 serving (1 oz)",
+              "multiplier": 28
+            },
+            {
+              "label": "1 slice (est.)",
+              "multiplier": 14
+            }
+          ],
+          "notes": "Wild caught Alaskan pink salmon, MSC-certified sustainable. Includes edible bones (calcium source). 14.75 oz can = 5 servings. Pink and sockeye are the LOW-mercury canned salmon picks (vs higher-mercury King/Chinook). Drain liquid before macro calculations apply; values are for drained weight.",
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "brand": "Lidl"
+        },
+        "harvest_snaps": {
+          "name": "Harvest Snaps Tomato Basil",
+          "category": "items",
+          "kcal": 4.6,
+          "p": 0.18,
+          "carbs": 0.6,
+          "fiber": 0.12,
+          "sugar": 0.04,
+          "fat": 0.16,
+          "sf": 0.02,
+          "sodium": 7.2,
+          "vitA": 0.5,
+          "vitC": 0.05,
+          "vitE": 0.005,
+          "vitK": 0.25,
+          "b1": 0.005,
+          "b2": 0.0015,
+          "b5": 0.003,
+          "b6": 0.002,
+          "b7": 0.01,
+          "b9": 1,
+          "choline": 0.3,
+          "calcium": 0.5,
+          "iron": 0.04,
+          "magnesium": 1,
+          "potassium": 7,
+          "selenium": 0.02,
+          "copper": 0.004,
+          "manganese": 0.005,
+          "molybdenum": 0.8,
+          "purines": 0.8,
+          "displayUnits": [
+            {
+              "label": "1 bag",
+              "default": true,
+              "multiplier": 50
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "hummus": {
+          "name": "Hummus",
+          "category": "items",
+          "kcal": 2.333,
+          "p": 0.067,
+          "fat": 0.1667,
+          "sf": 0.033,
+          "sodium": 4.1667,
+          "carbs": 0.1333,
+          "fiber": 0.033,
+          "sugar": 0.0333,
+          "water": 0.64,
+          "omega3": 0.3,
+          "vitA": 0.01,
+          "vitC": 0.08,
+          "vitE": 0.01,
+          "vitK": 0.05,
+          "b1": 0.0018,
+          "b2": 0.0006,
+          "b3": 0.006,
+          "b5": 0.0027,
+          "b6": 0.0012,
+          "b7": 0.015,
+          "b9": 0.83,
+          "choline": 0.36,
+          "calcium": 0.38,
+          "iron": 0.024,
+          "magnesium": 0.71,
+          "phosphorus": 1.76,
+          "potassium": 2.28,
+          "zinc": 0.016,
+          "selenium": 0.04,
+          "copper": 0.0051,
+          "manganese": 0.006,
+          "iodine": 0.01,
+          "molybdenum": 1,
+          "purines": 0.5,
+          "displayUnits": [
+            {
+              "label": "100 g",
+              "default": true,
+              "multiplier": 100
+            },
+            {
+              "label": "1 tbsp",
+              "multiplier": 15
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "jacklinks_turkey": {
+          "name": "Turkey jerky original",
+          "category": "small_portions",
+          "kcal": 2.7778,
+          "p": 0.4444,
+          "carbs": 0.06,
+          "sugar": 0.04,
+          "fat": 0.07,
+          "sf": 0.0222,
+          "cholesterol": 1.1,
+          "sodium": 22,
+          "vitE": 0.005,
+          "vitK": 0.005,
+          "b1": 0.0007,
+          "b2": 0.002,
+          "b3": 0.09,
+          "b5": 0.01,
+          "b6": 0.005,
+          "b7": 0.05,
+          "b9": 0.05,
+          "b12": 0.012,
+          "choline": 1,
+          "iron": 0.025,
+          "phosphorus": 2.5,
+          "zinc": 0.04,
+          "copper": 0.0013,
+          "manganese": 0.0003,
+          "iodine": 0.16,
+          "molybdenum": 0.02,
+          "purines": 3,
+          "displayUnits": [
+            {
+              "label": "18 g pack",
+              "default": true,
+              "multiplier": 18
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "kashi_berry_fruitful": {
+          "name": "Kashi Organic Berry Fruitful",
+          "category": "items",
+          "kcal": 3.2787,
+          "p": 0.1148,
+          "carbs": 0.7705,
+          "fiber": 0.0984,
+          "sugar": 0.1475,
+          "fat": 0.0164,
+          "vitE": 0.012,
+          "vitK": 0.015,
+          "b1": 0.002,
+          "b2": 0.002,
+          "b3": 0.066,
+          "b5": 0.007,
+          "b6": 0.003,
+          "b9": 0.35,
+          "choline": 0.3,
+          "calcium": 0.1639,
+          "iron": 0.0311,
+          "magnesium": 1.03,
+          "potassium": 3.4426,
+          "zinc": 0.018,
+          "selenium": 0.6,
+          "copper": 0.004,
+          "manganese": 0.035,
+          "iodine": 0.05,
+          "molybdenum": 0.3,
+          "purines": 0.25,
+          "displayUnits": [
+            {
+              "label": "32 biscuits",
+              "default": true,
+              "multiplier": 61
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "kashi_blueberry_clusters": {
+          "name": "Kashi Organic Blueberry Clusters",
+          "category": "items",
+          "kcal": 3.7037,
+          "p": 0.0926,
+          "carbs": 0.8148,
+          "fiber": 0.0556,
+          "sugar": 0.2037,
+          "fat": 0.037,
+          "sf": 0.0019,
+          "transFat": 0,
+          "polyunsat": 0.0185,
+          "monounsat": 0.0185,
+          "sodium": 2.4074,
+          "iron": 0.2796,
+          "potassium": 2.2222,
+          "calcium": 0.1852,
+          "vitE": 0.012,
+          "vitK": 0.005,
+          "b1": 0.0008,
+          "b2": 0.0008,
+          "b3": 0.02,
+          "b5": 0.002,
+          "b6": 0.001,
+          "b9": 0.1,
+          "choline": 0.12,
+          "magnesium": 0.7,
+          "phosphorus": 1.2,
+          "zinc": 0.01,
+          "selenium": 0.15,
+          "copper": 0.0015,
+          "manganese": 0.015,
+          "iodine": 0.01,
+          "molybdenum": 0.1,
+          "purines": 0.1,
+          "water": 0.06,
+          "displayUnits": [
+            {
+              "label": "1 box (13.4 oz)",
+              "multiplier": 380
+            },
+            {
+              "label": "1 cup",
+              "default": true,
+              "multiplier": 54
+            },
+            {
+              "label": "30 g portion",
+              "multiplier": 30
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "notes": "Label-derived (high confidence): kcal, p, carbs, fiber, sugar, fat, polyunsat, monounsat, sodium, iron (fortified via ferric phosphate, 80% DV/serving), potassium, calcium. Sat fat label 0g but contains canola oil; est ~0.1g/serving (sub-threshold rounding). Estimated from USDA whole oats + rice + blueberry composition (lower confidence): B-vitamins, choline, Mg, P, Zn, Se, Cu, Mn, iodine, Mo, purines, water content. Ingredients: whole oats, rice, blueberry granola clusters, cane sugar, canola oil, blueberries, elderberry juice (color), salt, natural flavors, iron (ferric phosphate), mixed tocopherols (vit E)."
+        },
+        "kashi_soymilk_bowl": {
+          "name": "Kashi cereal bowl with soy milk",
+          "category": "recipes",
+          "displayUnits": [
+            {
+              "label": "1 bowl",
+              "default": true,
+              "multiplier": 405
+            }
+          ],
+          "ingredients": [
+            {
+              "itemKey": "kashi_berry_fruitful",
+              "multiplier": 1,
+              "label": "200 g cereal"
+            },
+            {
+              "itemKey": "soy_milk",
+              "multiplier": 1,
+              "label": "200 ml soy milk"
+            }
+          ],
+          "defaultMeasuredIn": "units"
+        },
+        "ketchup_heinz_packet": {
+          "name": "Ketchup tomato packet",
+          "category": "items",
+          "kcal": 1.1111,
+          "sodium": 11.1111,
+          "carbs": 0.2778,
+          "sugar": 0.2222,
+          "water": 0.68,
+          "vitA": 0.005,
+          "vitC": 0.04,
+          "vitE": 0.0014,
+          "vitK": 0.029,
+          "b2": 0.0001,
+          "b3": 0.0014,
+          "b5": 0.001,
+          "b6": 0.0002,
+          "b9": 0.09,
+          "choline": 0.06,
+          "calcium": 0.15,
+          "iron": 0.0035,
+          "magnesium": 0.13,
+          "phosphorus": 0.27,
+          "potassium": 2.81,
+          "zinc": 0.0017,
+          "selenium": 0.005,
+          "copper": 0.0001,
+          "manganese": 0.0001,
+          "purines": 0.1,
+          "displayUnits": [
+            {
+              "label": "100 g",
+              "multiplier": 100
+            },
+            {
+              "label": "3 packets",
+              "multiplier": 27
+            },
+            {
+              "label": "2 packets",
+              "multiplier": 18
+            },
+            {
+              "label": "1 packet",
+              "default": true,
+              "multiplier": 9
+            }
+          ],
+          "notes": "Heinz Tomato Ketchup, single-serve packet. 9 g per packet. Ingredients: tomato concentrate from red ripe tomatoes, distilled vinegar, high fructose corn syrup, corn syrup, salt, spice, onion powder, natural flavoring. Per packet: 10 kcal · 100 mg sodium · 2 g sugar. Sodium-dense relative to size (11 mg/g) but absolute amount per packet is small. Two packets ≈ 200 mg sodium.",
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "brand": "Heinz"
+        },
+        "ketchup_packet": {
+          "name": "Ketchup packet",
+          "category": "small_portions",
+          "kcal": 0.8889,
+          "carbs": 0.24,
+          "fiber": 0.0056,
+          "sugar": 0.21,
+          "sodium": 8,
+          "water": 0.7778,
+          "vitA": 0.15,
+          "vitC": 0.04,
+          "vitE": 0.015,
+          "vitK": 0.06,
+          "b1": 0.0004,
+          "b2": 0.0007,
+          "b3": 0.014,
+          "b5": 0.004,
+          "b6": 0.0016,
+          "b9": 0.09,
+          "choline": 0.07,
+          "iron": 0.005,
+          "potassium": 2.7,
+          "selenium": 0.007,
+          "copper": 0.0013,
+          "manganese": 0.0013,
+          "iodine": 0.01,
+          "purines": 0.05,
+          "displayUnits": [
+            {
+              "label": "18 g",
+              "default": true,
+              "multiplier": 18
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "larabar": {
+          "name": "Larabar",
+          "category": "items",
+          "kcal": 4.8889,
+          "p": 0.0889,
+          "carbs": 0.6222,
+          "fiber": 0.0889,
+          "sugar": 0.4,
+          "fat": 0.2444,
+          "sf": 0.0778,
+          "water": 0.1333,
+          "vitA": 0.1111,
+          "vitE": 0.0333,
+          "vitK": 0.0222,
+          "b1": 0.0011,
+          "b2": 0.0011,
+          "b3": 0.0222,
+          "b5": 0.0044,
+          "b6": 0.0022,
+          "b7": 0.1111,
+          "b9": 0.2667,
+          "choline": 0.5556,
+          "calcium": 0.5556,
+          "iron": 0.0222,
+          "magnesium": 1.1111,
+          "potassium": 5.3333,
+          "selenium": 0.0333,
+          "copper": 0.0044,
+          "manganese": 0.0089,
+          "molybdenum": 0.0889,
+          "purines": 0.2222,
+          "displayUnits": [
+            {
+              "label": "1 unit",
+              "default": true,
+              "multiplier": 45
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "large_egg": {
+          "name": "Egg",
+          "category": "small_portions",
+          "kcal": 1.44,
+          "p": 0.126,
+          "carbs": 0.007,
+          "sugar": 0.004,
+          "fat": 0.095,
+          "sf": 0.032,
+          "cholesterol": 3.72,
+          "sodium": 1.42,
+          "water": 0.76,
+          "vitA": 1.6,
+          "vitD": 0.02,
+          "vitE": 0.0105,
+          "vitK": 0.003,
+          "b1": 0.0004,
+          "b2": 0.0046,
+          "b3": 0.0008,
+          "b5": 0.014,
+          "b9": 0.47,
+          "b12": 0.0089,
+          "choline": 2.51,
+          "iron": 0.0175,
+          "phosphorus": 1.98,
+          "zinc": 0.013,
+          "selenium": 0.3,
+          "copper": 0.0007,
+          "manganese": 0.0003,
+          "iodine": 0.32,
+          "molybdenum": 0.05,
+          "mercury": 0.001,
+          "purines": 0.05,
+          "displayUnits": [
+            {
+              "label": "large size",
+              "default": true,
+              "multiplier": 50
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "mandarin": {
+          "name": "Mandarin",
+          "category": "small_portions",
+          "kcal": 0.5341,
+          "p": 0.008,
+          "carbs": 0.13,
+          "fiber": 0.0182,
+          "sugar": 0.11,
+          "fat": 0.003,
+          "sodium": 0.02,
+          "water": 0.8523,
+          "vitA": 0.34,
+          "vitC": 0.27,
+          "vitE": 0.002,
+          "b1": 0.0006,
+          "b2": 0.0004,
+          "b3": 0.0038,
+          "b5": 0.0022,
+          "b6": 0.0008,
+          "b7": 0.005,
+          "b9": 0.16,
+          "choline": 0.102,
+          "potassium": 1.66,
+          "selenium": 0.001,
+          "copper": 0.0004,
+          "manganese": 0.0004,
+          "purines": 0.2,
+          "displayUnits": [
+            {
+              "label": "medium size",
+              "default": true,
+              "multiplier": 88
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "mayo_packet": {
+          "name": "Mayonnaise packet",
+          "category": "small_portions",
+          "kcal": 6.4286,
+          "carbs": 0.02,
+          "sugar": 0.01,
+          "fat": 0.7,
+          "sf": 0.1071,
+          "cholesterol": 0.5,
+          "sodium": 6,
+          "water": 0.1429,
+          "omega3": 6,
+          "vitA": 0.3,
+          "vitE": 0.07,
+          "vitK": 0.9,
+          "b2": 0.0004,
+          "b5": 0.0013,
+          "b6": 0.0001,
+          "b9": 0.06,
+          "b12": 0.002,
+          "choline": 0.17,
+          "selenium": 0.057,
+          "copper": 0.0002,
+          "manganese": 0.0001,
+          "iodine": 0.06,
+          "displayUnits": [
+            {
+              "label": "14 g",
+              "default": true,
+              "multiplier": 14
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "moz_turkey_snack": {
+          "name": "Mozzarella stick + turkey slice",
+          "category": "recipes",
+          "displayUnits": [
+            {
+              "label": "1 serving",
+              "default": true,
+              "multiplier": 49
+            }
+          ],
+          "ingredients": [
+            {
+              "itemKey": "string_cheese",
+              "multiplier": 1,
+              "label": "1 stick"
+            },
+            {
+              "itemKey": "turkey_oven_classic",
+              "multiplier": 28,
+              "label": "1 slice"
+            }
+          ],
+          "defaultMeasuredIn": "units",
+          "preserve": false
+        },
+        "mozzarella_ff_shred": {
+          "name": "Mozzarella fat-free shredded",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.6071,
+          "p": 0.3214,
+          "cholesterol": 0.1429,
+          "sodium": 10,
+          "carbs": 0.0714,
+          "water": 0.5,
+          "calcium": 8.9286,
+          "vitA": 2.1429,
+          "displayUnits": [
+            {
+              "label": "1 bag",
+              "default": true,
+              "multiplier": 196
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            },
+            {
+              "label": "1/4 cup (label)",
+              "multiplier": 28
+            }
+          ],
+          "notes": "Kraft fat-free shredded mozzarella. Bag ~7 servings × 28 g = 196 g. 9 g protein per 1/4 cup serving - k/g P ~5, well below your 8.0 protein-positive cutoff so a strong protein-dense topper. Sodium 280 mg per serving (12% DV) is the main watch-out. Ingredients: nonfat mozzarella (pasteurized skim milk, cheese culture, salt, vitamin yeast, vit-A palmitate, enzymes, artificial color), modified cornstarch (anti-caking), natamycin (mold inhibitor).",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "brand": "Kraft"
+        },
+        "mushrooms_pampa_jar": {
+          "name": "Mushrooms pieces & stems jarred",
+          "category": "items",
+          "kcal": 0.1575,
+          "p": 0.0158,
+          "sodium": 2.5984,
+          "carbs": 0.0315,
+          "fiber": 0.0158,
+          "water": 0.91,
+          "vitD": 0.0032,
+          "potassium": 0.7402,
+          "b1": 0.0001,
+          "b2": 0.0025,
+          "b3": 0.022,
+          "b5": 0.009,
+          "b6": 0.0006,
+          "b9": 0.1,
+          "b12": 0.0004,
+          "choline": 0.1,
+          "magnesium": 0.07,
+          "phosphorus": 0.65,
+          "zinc": 0.004,
+          "selenium": 0.07,
+          "copper": 0.0025,
+          "manganese": 0.0004,
+          "purines": 0.5,
+          "displayUnits": [
+            {
+              "label": "1 jar w/ liquid",
+              "default": true,
+              "multiplier": 207
+            },
+            {
+              "label": "1 jar drained",
+              "multiplier": 127
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            },
+            {
+              "label": "50 g",
+              "multiplier": 50
+            }
+          ],
+          "notes": "Lidl Preferred Selection Jamón Serrano. Spain, aged 12mo min. 3 oz (85 g) pkg = 3 servings × 28 g. Pork ham + sea salt. 21 mg Na/g. k/g P 7.0. Re-added 2026-05-14 after sync issue.",
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "brand": "Pampa"
+        },
+        "mustard_heinz_packet": {
+          "name": "Mustard yellow packet",
+          "category": "items",
+          "kcal": 0.7143,
+          "p": 0.0446,
+          "fat": 0.0446,
+          "sodium": 11.4286,
+          "carbs": 0.0893,
+          "fiber": 0.0536,
+          "water": 0.83,
+          "vitE": 0.005,
+          "vitK": 0.015,
+          "b1": 0.0003,
+          "b2": 0.0001,
+          "b3": 0.005,
+          "b5": 0.0004,
+          "b6": 0.0006,
+          "b9": 0.07,
+          "choline": 0.07,
+          "calcium": 0.58,
+          "iron": 0.015,
+          "magnesium": 0.49,
+          "phosphorus": 1.06,
+          "potassium": 1.5,
+          "zinc": 0.006,
+          "selenium": 0.323,
+          "copper": 0.0001,
+          "manganese": 0.001,
+          "omega3": 2,
+          "displayUnits": [
+            {
+              "label": "100 g",
+              "multiplier": 100
+            },
+            {
+              "label": "5 packets",
+              "multiplier": 28
+            },
+            {
+              "label": "2 packets",
+              "multiplier": 11.2
+            },
+            {
+              "label": "1 packet",
+              "default": true,
+              "multiplier": 5.6
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "brand": "Heinz"
+        },
+        "mycoffee": {
+          "name": "My Coffee soy milk",
+          "category": "liquids",
+          "kcal": 87,
+          "p": 7,
+          "sf": 0.5,
+          "water": 730,
+          "caffeine": 200,
+          "displayUnits": [
+            {
+              "label": "1 unit",
+              "default": true,
+              "multiplier": 330
+            }
+          ],
+          "ingredients": [
+            {
+              "name": "500 ml drip coffee",
+              "kcal": 5,
+              "p": 0,
+              "sf": 0,
+              "water": 500,
+              "caffeine": 200,
+              "amount": {
+                "value": 0,
+                "unit": "g"
+              }
+            },
+            {
+              "name": "240 ml 365 unsweetened soy",
+              "kcal": 70,
+              "p": 7,
+              "sf": 0.5,
+              "water": 230,
+              "caffeine": 0,
+              "amount": {
+                "value": 0,
+                "unit": "g"
+              }
+            },
+            {
+              "name": "3 sucralose packets",
+              "kcal": 12,
+              "p": 0,
+              "sf": 0,
+              "water": 0,
+              "caffeine": 0,
+              "amount": {
+                "value": 0,
+                "unit": "g"
+              }
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "mycowcoffee": {
+          "name": "My Coffee cow milk",
+          "category": "liquids",
+          "kcal": 107,
+          "p": 8,
+          "water": 730,
+          "caffeine": 200,
+          "displayUnits": [
+            {
+              "label": "1 unit",
+              "default": true,
+              "multiplier": 330
+            }
+          ],
+          "ingredients": [
+            {
+              "name": "500 ml drip coffee",
+              "kcal": 5,
+              "p": 0,
+              "sf": 0,
+              "water": 500,
+              "caffeine": 200,
+              "amount": {
+                "value": 0,
+                "unit": "g"
+              }
+            },
+            {
+              "name": "240 ml Friendly Farms Skim Milk",
+              "kcal": 90,
+              "p": 8,
+              "sf": 0,
+              "water": 230,
+              "caffeine": 0,
+              "amount": {
+                "value": 0,
+                "unit": "g"
+              }
+            },
+            {
+              "name": "3 sucralose packets",
+              "kcal": 12,
+              "p": 0,
+              "sf": 0,
+              "water": 0,
+              "caffeine": 0,
+              "amount": {
+                "value": 0,
+                "unit": "g"
+              }
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "omega3": {
+          "name": "Omega-3 (fish oil)",
+          "category": "supplements",
+          "kcal": 10,
+          "fat": 1.1667,
+          "sf": 0.1667,
+          "omega3": 720,
+          "displayUnits": [
+            {
+              "label": "AM",
+              "multiplier": 1,
+              "time": "08:00",
+              "frequency": "daily",
+              "default": true,
+              "amount": 1,
+              "unit": "g"
+            },
+            {
+              "label": "Lunch",
+              "multiplier": 1,
+              "time": "12:30",
+              "frequency": "daily",
+              "amount": 1,
+              "unit": "g"
+            },
+            {
+              "label": "PM",
+              "multiplier": 1,
+              "time": "19:00",
+              "frequency": "daily",
+              "amount": 1,
+              "unit": "g"
+            }
+          ],
+          "notes": "MAV Nutrition Triple Strength Omega-3. 720 mg combined EPA+DHA per softgel. 3 softgels daily = 2,160 mg target (cardiovascular outcome trial dose). Anchovy-sourced, low mercury.\n\nABSORPTION REQUIRES DIETARY FAT (micelle formation in the small intestine):\n- High-fat meal (~30g fat): ~100% absorption\n- Low-fat meal (~10g fat): ~50%\n- Fasting / no fat: ~30% (only one-third reaches circulation)\nFat-absorption window is 2-4 hours post-meal; taking a softgel 3+ hours after eating misses most of the bile + lipase response.\n\nLOW-FAT DIET PLAN (current 1400 kcal cut, half avocado/day = ~11-15g fat):\n- Half avocado covers 1-2 softgels at full absorption.\n- Default: 2 softgels with the avocado meal, 1 softgel with whichever other meal has the most incidental fat (eggs, dairy, salmon, chicken thigh; even 3-5 g of fat helps a lot vs dry).\n- If no other meal has any fat: drop to 1-2 softgels that day. 1,440 mg well-absorbed beats 2,160 mg with the 3rd barely getting in.\n- Salmon days: dietary EPA+DHA from salmon (~1-1.5 g per 100 g Atlantic) covers a chunk of the daily target; 1-2 softgels is fine.\n- Stacking all 3 with avocado works too if you drizzle a teaspoon of olive oil to push the meal past the 15 g fat threshold (and accept the fish-burps).\n\nSPLITTING ACROSS MEALS (when fat is available at each):\n- Each dose gets its own micelle pool = better absorption per dose.\n- Eliminates the fish-burps / reflux that 3-at-once tends to cause.\n- Steady tissue EPA/DHA saturation across the day.\n\nEMERGENCY RULE (skipped meal, dry softgel imminent): take it with even a small fat-bearing bite (teaspoon olive oil, slice of cheese, glass of milk, handful of nuts). Or delay to the next meal that has fat. Dry softgel = ~one-third absorbed.",
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "orange_chicken_100g": {
+          "name": "Orange chicken — takeout",
+          "category": "items",
+          "kcal": 2.5,
+          "p": 0.12,
+          "carbs": 0.24,
+          "fiber": 0.005,
+          "sugar": 0.12,
+          "fat": 0.12,
+          "sf": 0.02,
+          "cholesterol": 0.35,
+          "sodium": 7,
+          "water": 0.3,
+          "vitA": 0.16,
+          "vitC": 0.01,
+          "vitD": 0.001,
+          "vitE": 0.005,
+          "vitK": 0.015,
+          "b1": 0.0007,
+          "b2": 0.0012,
+          "b3": 0.06,
+          "b5": 0.007,
+          "b6": 0.003,
+          "b7": 0.05,
+          "b9": 0.08,
+          "choline": 0.6,
+          "iron": 0.01,
+          "phosphorus": 1.3,
+          "selenium": 0.18,
+          "copper": 0.0004,
+          "manganese": 0.0002,
+          "iodine": 0.07,
+          "molybdenum": 0.01,
+          "purines": 1.3,
+          "displayUnits": [
+            {
+              "label": "100 g serving",
+              "default": true,
+              "multiplier": 100
+            },
+            {
+              "label": "g",
+              "multiplier": 1
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "pb2": {
+          "name": "PB2",
+          "category": "small_portions",
+          "kcal": 2.0286,
+          "p": 0.2,
+          "carbs": 0.35,
+          "fiber": 0.0857,
+          "sugar": 0.08,
+          "fat": 0.12,
+          "sf": 0.0143,
+          "sodium": 3.5,
+          "vitE": 0.05,
+          "b1": 0.005,
+          "b2": 0.001,
+          "b3": 0.11,
+          "b5": 0.01,
+          "b6": 0.004,
+          "b9": 0.5,
+          "choline": 0.5,
+          "magnesium": 1.68,
+          "phosphorus": 3.5,
+          "selenium": 0.05,
+          "copper": 0.005,
+          "manganese": 0.017,
+          "molybdenum": 0.5,
+          "purines": 0.6,
+          "displayUnits": [
+            {
+              "label": "1 tbsp",
+              "default": true,
+              "multiplier": 7
+            },
+            {
+              "label": "1 tsp",
+              "multiplier": 2
+            },
+            {
+              "label": "g",
+              "multiplier": 1
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "peanuts_fistful": {
+          "name": "Peanuts dry roasted (lightly salted)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 5.85,
+          "p": 0.237,
+          "fat": 0.497,
+          "sf": 0.07,
+          "sodium": 4,
+          "carbs": 0.215,
+          "fiber": 0.08,
+          "sugar": 0.047,
+          "water": 0.02,
+          "calcium": 0.54,
+          "iron": 0.023,
+          "potassium": 6.58,
+          "magnesium": 1.68,
+          "phosphorus": 3.76,
+          "zinc": 0.033,
+          "copper": 0.0067,
+          "manganese": 0.021,
+          "selenium": 0.073,
+          "b1": 0.004,
+          "b3": 0.135,
+          "b5": 0.018,
+          "b6": 0.003,
+          "b9": 1.45,
+          "vitE": 0.069,
+          "choline": 0.55,
+          "omega3": 0.0001,
+          "displayUnits": [
+            {
+              "label": "100 g",
+              "multiplier": 100
+            },
+            {
+              "label": "50 g (generous handful)",
+              "multiplier": 50
+            },
+            {
+              "label": "1 fistful",
+              "default": true,
+              "multiplier": 30
+            },
+            {
+              "label": "1 oz",
+              "multiplier": 28
+            }
+          ],
+          "notes": "Dry roasted peanuts, lightly salted (USDA reference per 100 g: 585 kcal · 23.7 g protein · 49.7 g fat · 21.5 g carbs · 8 g fiber · 410 mg sodium). Fistful weight estimated at 30 g (about 1 oz, ~25-35 peanuts). k/g P ~24.7 — calorie-dense, protein per calorie is poor. Strong vitE, niacin (b3), magnesium, potassium contributor. Sodium varies by brand; unsalted ~0.05 mg/g, heavily salted ~8 mg/g.",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "pork_beans_halfcup": {
+          "name": "Pork & beans",
+          "category": "items",
+          "kcal": 0.9231,
+          "p": 0.0461,
+          "carbs": 0.16,
+          "fiber": 0.04,
+          "sugar": 0.04,
+          "fat": 0.013,
+          "sf": 0.0054,
+          "cholesterol": 0.01,
+          "sodium": 3.5,
+          "water": 0.7308,
+          "vitA": 0.01,
+          "vitC": 0.006,
+          "vitE": 0.002,
+          "vitK": 0.007,
+          "b1": 0.0007,
+          "b2": 0.0005,
+          "b3": 0.005,
+          "b5": 0.0018,
+          "b6": 0.001,
+          "b7": 0.02,
+          "b9": 0.35,
+          "choline": 0.35,
+          "calcium": 0.35,
+          "iron": 0.014,
+          "magnesium": 0.28,
+          "potassium": 2.5,
+          "selenium": 0.016,
+          "copper": 0.0013,
+          "manganese": 0.0034,
+          "iodine": 0.01,
+          "molybdenum": 0.7,
+          "purines": 0.9,
+          "displayUnits": [
+            {
+              "label": "1/2 cup",
+              "default": true,
+              "multiplier": 130
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "premier": {
+          "name": "Protein shake",
+          "category": "liquids",
+          "kcal": 0.4923,
+          "p": 0.0923,
+          "carbs": 0.0123,
+          "fiber": 0.0031,
+          "sugar": 0.0031,
+          "fat": 0.0092,
+          "sf": 0.0031,
+          "cholesterol": 0.0462,
+          "sodium": 0.7077,
+          "water": 0.9077,
+          "vitA": 0.7077,
+          "vitC": 0.1846,
+          "vitD": 0.0154,
+          "vitE": 0.0123,
+          "vitK": 0.0492,
+          "b1": 0.0012,
+          "b2": 0.0012,
+          "b3": 0.0154,
+          "b6": 0.0015,
+          "b9": 0.2462,
+          "b12": 0.0046,
+          "choline": 0.1692,
+          "calcium": 2,
+          "iron": 0.0031,
+          "magnesium": 0.1846,
+          "phosphorus": 1.4769,
+          "potassium": 1.4462,
+          "zinc": 0.0138,
+          "selenium": 0.0554,
+          "displayUnits": [
+            {
+              "label": "1 bottle",
+              "default": true,
+              "multiplier": 325
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "brand": "Premier"
+        },
+        "premier_latte": {
+          "name": "Protein shake latte",
+          "category": "liquids",
+          "kcal": 0.4923,
+          "p": 0.0923,
+          "carbs": 0.0123,
+          "fiber": 0.0031,
+          "sugar": 0.0031,
+          "fat": 0.0092,
+          "sf": 0.0031,
+          "cholesterol": 0.0462,
+          "sodium": 0.7077,
+          "water": 0.9077,
+          "caffeine": 0.2923,
+          "vitA": 0.7077,
+          "vitC": 0.1846,
+          "vitD": 0.0154,
+          "vitE": 0.0123,
+          "vitK": 0.0492,
+          "b1": 0.0012,
+          "b2": 0.0012,
+          "b3": 0.0154,
+          "b6": 0.0015,
+          "b9": 0.2462,
+          "b12": 0.0046,
+          "choline": 0.1692,
+          "calcium": 2,
+          "iron": 0.0031,
+          "magnesium": 0.1846,
+          "phosphorus": 1.4769,
+          "potassium": 1.4462,
+          "zinc": 0.0138,
+          "selenium": 0.0554,
+          "displayUnits": [
+            {
+              "label": "1 bottle",
+              "default": true,
+              "multiplier": 325
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "brand": "Premier"
+        },
+        "preserves_blackberry_skinnygirl": {
+          "name": "Preserves blackberry sugar-free",
+          "category": "items",
+          "kcal": 0.5882,
+          "carbs": 0.2941,
+          "fiber": 0.1765,
+          "water": 0.72,
+          "vitC": 0.0015,
+          "vitK": 0.001,
+          "calcium": 0.005,
+          "manganese": 0.0001,
+          "displayUnits": [
+            {
+              "label": "1 jar",
+              "default": true,
+              "multiplier": 283
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            },
+            {
+              "label": "2 tbsp",
+              "multiplier": 34
+            },
+            {
+              "label": "1 tbsp",
+              "multiplier": 17
+            }
+          ],
+          "notes": "Skinnygirl Sugar Free Preserves Blackberry. Net wt 10 oz (283 g), 16 servings of 17 g each. Ingredients: water, blackberries, maltodextrin, polydextrose, pectin, guar gum, citric acid, natural flavor, sucralose, potassium sorbate, sodium benzoate, calcium chloride, Red 40, Blue 1. The \"carb\" content is mostly polydextrose (a soluble fiber/bulking agent that registers as carb but yields ~1 kcal/g) and a trace of maltodextrin — that's where the 3 g fiber out of 5 g carb comes from. Net digestible carbs per tbsp: ~2 g. Sweetened with sucralose. Use case: calorie-cheap flavoring/sweetener for Greek yogurt, cottage cheese, oats, toast. NOT a protein or nutrient source — pure flavor + fiber.",
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "brand": "Skinnygirl"
+        },
+        "salmon_pink_canned": {
+          "name": "Salmon pink canned",
+          "category": "items",
+          "kcal": 1.1765,
+          "p": 0.1882,
+          "fat": 0.0471,
+          "sf": 0.0118,
+          "cholesterol": 0.6471,
+          "sodium": 3.5294,
+          "water": 0.66,
+          "vitD": 0.2976,
+          "calcium": 2.2353,
+          "iron": 0.0047,
+          "potassium": 3.1765,
+          "omega3": 16.1176,
+          "vitA": 0.09,
+          "vitE": 0.0116,
+          "vitK": 0.004,
+          "b1": 0.0002,
+          "b2": 0.0016,
+          "b3": 0.06,
+          "b5": 0.0055,
+          "b6": 0.003,
+          "b9": 0.13,
+          "b12": 0.037,
+          "choline": 0.6,
+          "magnesium": 0.28,
+          "phosphorus": 2.7,
+          "zinc": 0.0092,
+          "selenium": 0.354,
+          "copper": 0.0008,
+          "iodine": 0.09,
+          "purines": 1.2,
+          "displayUnits": [
+            {
+              "label": "1 can",
+              "default": true,
+              "multiplier": 418
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            },
+            {
+              "label": "1 serving",
+              "multiplier": 85
+            }
+          ],
+          "notes": "Wild caught Alaskan pink salmon, MSC-certified sustainable. Includes edible bones (calcium source). 14.75 oz can = 5 servings. Pink and sockeye are the LOW-mercury canned salmon picks (vs higher-mercury King/Chinook). Drain liquid before macro calculations apply; values are for drained weight.",
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "brand": "Nixe / Lidl"
+        },
+        "salsa_casa_mamita_chunky": {
+          "name": "Salsa chunky medium (Casa Mamita / ALDI)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.303,
+          "water": 0.89,
+          "sodium": 7.576,
+          "notes": "Label: 10 kcal / 33g serving. Fat rounds to 0g on label — actual est. ~0.003 g/g (plant product, no added oils; genuinely negligible). Trans fat: 0 (no hydrogenated oils). Sugar: 0.0303 g/g. Fiber: 0.0303 g/g. Water est. 89% per USDA salsa data (low-confidence). Sodium 250mg/serving = 7.576 mg/g. Iron 0% DV, Potassium 2% DV per label. ALDI Casa Mamita brand, 680g jar (~21 servings).",
+          "displayUnits": [
+            {
+              "label": "Whole jar (680 g)",
+              "amount": 680,
+              "unit": "g",
+              "multiplier": 680
+            },
+            {
+              "label": "2 Tbsp (33 g)",
+              "amount": 33,
+              "unit": "g",
+              "default": true,
+              "multiplier": 33
+            }
+          ]
+        },
+        "sesame_chicken_100g": {
+          "name": "Sesame chicken — takeout",
+          "category": "items",
+          "kcal": 2.45,
+          "p": 0.13,
+          "carbs": 0.25,
+          "fiber": 0.005,
+          "sugar": 0.11,
+          "fat": 0.11,
+          "sf": 0.02,
+          "cholesterol": 0.35,
+          "sodium": 6.5,
+          "water": 0.5,
+          "vitA": 0.16,
+          "vitC": 0.01,
+          "vitD": 0.001,
+          "vitE": 0.005,
+          "vitK": 0.015,
+          "b1": 0.0007,
+          "b2": 0.0012,
+          "b3": 0.06,
+          "b5": 0.007,
+          "b6": 0.003,
+          "b7": 0.05,
+          "b9": 0.08,
+          "choline": 0.6,
+          "iron": 0.01,
+          "phosphorus": 1.3,
+          "selenium": 0.18,
+          "copper": 0.0004,
+          "manganese": 0.0002,
+          "iodine": 0.07,
+          "molybdenum": 0.01,
+          "purines": 1.3,
+          "displayUnits": [
+            {
+              "label": "100 g serving",
+              "default": true,
+              "multiplier": 100
+            },
+            {
+              "label": "g",
+              "multiplier": 1
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "shrimp_oceans_cooked": {
+          "name": "Shrimp medium peeled cooked",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.7059,
+          "p": 0.1647,
+          "fat": 0.0059,
+          "cholesterol": 1.9412,
+          "sodium": 4,
+          "water": 0.77,
+          "calcium": 0.8235,
+          "iron": 0.0012,
+          "potassium": 0.7059,
+          "displayUnits": [
+            {
+              "label": "1 pkg",
+              "default": true,
+              "multiplier": 340
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            },
+            {
+              "label": "1/4 pkg (label)",
+              "multiplier": 85
+            }
+          ],
+          "notes": "Ocean's (Lidl) medium cooked shrimp, peeled & deveined, tail-off. Bag 12 oz / 340 g, 4 servings × 85 g. 71/91 count per pound (53-67 per bag). 14 g protein per 85 g serving — k/g P 4.3, very protein-dense. Cholesterol 165 mg per serving (56% DV) is the watch-out for any cardio-conscious diet; sodium 340 mg per serving (15% DV) reflects the salt-water cooking brine. ALREADY COOKED — fold in last during slab prep so the bake doesn't turn it rubbery; ~30 min at 375 F is the rubbery edge for shrimp.",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "brand": "Ocean's / Lidl"
+        },
+        "skim_milk": {
+          "name": "Skim milk",
+          "category": "liquids",
+          "kcal": 0.3623,
+          "p": 0.0318,
+          "carbs": 0.0483,
+          "sugar": 0.0483,
+          "fat": 0.0019,
+          "sf": 0.0008,
+          "sodium": 0.4058,
+          "water": 0.9255,
+          "vitA": 0.5797,
+          "vitD": 0.0116,
+          "vitE": 0.0001,
+          "vitK": 0.001,
+          "b1": 0.0004,
+          "b2": 0.0017,
+          "b3": 0.0009,
+          "b5": 0.0035,
+          "b6": 0.0004,
+          "b7": 0.0145,
+          "b9": 0.0483,
+          "b12": 0.0048,
+          "choline": 0.1739,
+          "calcium": 1.2077,
+          "phosphorus": 0.9662,
+          "potassium": 1.5072,
+          "selenium": 0.029,
+          "copper": 0.0001,
+          "iodine": 0.2899,
+          "molybdenum": 0.0483,
+          "displayUnits": [
+            {
+              "label": "240 ml",
+              "default": true,
+              "multiplier": 248
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "smoked_salmon_slice": {
+          "name": "Smoked salmon",
+          "category": "small_portions",
+          "kcal": 1.4286,
+          "p": 0.2143,
+          "fat": 0.043,
+          "sf": 0.0071,
+          "cholesterol": 0.23,
+          "sodium": 6.72,
+          "water": 0.6429,
+          "omega3": 11,
+          "vitA": 0.08,
+          "vitD": 0.17,
+          "vitE": 0.014,
+          "vitK": 0.001,
+          "b1": 0.0002,
+          "b2": 0.001,
+          "b3": 0.06,
+          "b5": 0.008,
+          "b6": 0.0028,
+          "b7": 0.015,
+          "b9": 0.02,
+          "b12": 0.033,
+          "choline": 0.65,
+          "phosphorus": 1.64,
+          "potassium": 1.75,
+          "selenium": 0.32,
+          "copper": 0.0025,
+          "manganese": 0.0001,
+          "iodine": 0.21,
+          "molybdenum": 0.01,
+          "mercury": 0.02,
+          "purines": 1.7,
+          "displayUnits": [
+            {
+              "label": "1 slice",
+              "default": true,
+              "multiplier": 14
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "soy_coffee": {
+          "name": "Soy coffee",
+          "category": "supplements",
+          "kcal": 0.084,
+          "p": 0.006,
+          "fat": 0.0036,
+          "sf": 0.0006,
+          "sodium": 0.14,
+          "carbs": 0.002,
+          "fiber": 0.0016,
+          "sugar": 0.0008,
+          "water": 0.97,
+          "caffeine": 0.32,
+          "calcium": 0.088,
+          "magnesium": 0.032,
+          "potassium": 0.54,
+          "b2": 0.0002,
+          "b3": 0.0008,
+          "phosphorus": 0.12,
+          "displayUnits": [
+            {
+              "label": "1 cup",
+              "multiplier": 250,
+              "time": "09:00",
+              "frequency": "daily",
+              "default": true,
+              "amount": 250,
+              "unit": "g"
+            }
+          ],
+          "notes": "Coffee + soy milk splash (~200 ml coffee + ~50 ml unsweetened soy milk). Approximate; adjust if your usual amounts differ. Provides ~80 mg caffeine.",
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "soy_milk": {
+          "name": "Soy milk unsweetened",
+          "category": "liquids",
+          "kcal": 0.2836,
+          "p": 0.0283,
+          "carbs": 0.0117,
+          "fiber": 0.0041,
+          "fat": 0.0175,
+          "sf": 0.002,
+          "sodium": 0.2427,
+          "water": 0.93,
+          "vitA": 0.0049,
+          "vitD": 0.0097,
+          "vitE": 0.001,
+          "vitK": 0.0097,
+          "b1": 0.0006,
+          "b2": 0.0017,
+          "b3": 0.0039,
+          "b5": 0.0029,
+          "b6": 0.0004,
+          "b9": 0.1748,
+          "b12": 0.0117,
+          "choline": 0.2233,
+          "calcium": 1.165,
+          "iron": 0.0049,
+          "potassium": 1.165,
+          "selenium": 0.0126,
+          "copper": 0.001,
+          "manganese": 0.0019,
+          "iodine": 0.0097,
+          "molybdenum": 0.0485,
+          "purines": 0.0485,
+          "displayUnits": [
+            {
+              "label": "365 Whole Foods",
+              "default": true,
+              "multiplier": 247
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "strawberry": {
+          "name": "Strawberry",
+          "category": "small_portions",
+          "kcal": 0.3333,
+          "p": 0.0083,
+          "carbs": 0.075,
+          "fiber": 0.0167,
+          "sugar": 0.0492,
+          "fat": 0.0033,
+          "water": 0.9167,
+          "vitA": 0.0083,
+          "vitC": 0.5833,
+          "vitE": 0.0033,
+          "vitK": 0.025,
+          "b1": 0.0003,
+          "b2": 0.0003,
+          "b3": 0.0038,
+          "b5": 0.0013,
+          "b6": 0.0005,
+          "b9": 0.25,
+          "choline": 0.0583,
+          "potassium": 1.5,
+          "selenium": 0.0042,
+          "copper": 0.0005,
+          "manganese": 0.0042,
+          "purines": 0.25,
+          "displayUnits": [
+            {
+              "label": "1 medium",
+              "default": true,
+              "multiplier": 12
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "string_cheese": {
+          "name": "Mozzarella stick string cheese",
+          "category": "small_portions",
+          "kcal": 2.381,
+          "p": 0.2857,
+          "carbs": 0.0476,
+          "fat": 0.119,
+          "sf": 0.0714,
+          "cholesterol": 0.4762,
+          "sodium": 9.5238,
+          "water": 0.5714,
+          "vitA": 2.8571,
+          "vitD": 0.0048,
+          "vitE": 0.0024,
+          "vitK": 0.0143,
+          "b2": 0.0033,
+          "b5": 0.0024,
+          "b6": 0.001,
+          "b9": 0.1905,
+          "b12": 0.0143,
+          "choline": 0.1905,
+          "calcium": 9.5238,
+          "phosphorus": 6.1905,
+          "selenium": 0.1667,
+          "copper": 0.0002,
+          "iodine": 0.2857,
+          "molybdenum": 0.0476,
+          "purines": 0.0476,
+          "displayUnits": [
+            {
+              "label": "1 stick",
+              "default": true,
+              "multiplier": 21
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "subway_pocket_chicken": {
+          "name": "Chicken protein pocket peppercorn ranch",
+          "category": "items",
+          "kcal": 2.9204,
+          "p": 0.2124,
+          "carbs": 0.177,
+          "fiber": 0.0354,
+          "sugar": 0.0265,
+          "fat": 0.1416,
+          "sf": 0.062,
+          "cholesterol": 0.531,
+          "sodium": 7.0796,
+          "vitA": 0.2212,
+          "vitC": 0.0089,
+          "vitD": 0.0044,
+          "vitE": 0.0062,
+          "vitK": 0.0265,
+          "b1": 0.0013,
+          "b2": 0.0018,
+          "b3": 0.0708,
+          "b5": 0.0071,
+          "b7": 0.0354,
+          "b9": 0.531,
+          "b12": 0.0044,
+          "choline": 0.4425,
+          "calcium": 0.885,
+          "iron": 0.0177,
+          "selenium": 0.1947,
+          "copper": 0.0009,
+          "manganese": 0.0053,
+          "iodine": 0.2212,
+          "molybdenum": 0.0708,
+          "purines": 0.885,
+          "displayUnits": [
+            {
+              "label": "1 piece",
+              "default": true,
+              "multiplier": 113
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "sucralose": {
+          "name": "Sucralose",
+          "category": "small_portions",
+          "kcal": 4,
+          "carbs": 1,
+          "displayUnits": [
+            {
+              "label": "1 packet",
+              "default": true,
+              "multiplier": 1
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "tofu_firm_half": {
+          "name": "Tofu firm",
+          "category": "items",
+          "kcal": 0.8793,
+          "p": 0.0991,
+          "carbs": 0.022,
+          "fiber": 0.022,
+          "fat": 0.044,
+          "sf": 0.0053,
+          "water": 0.837,
+          "vitC": 0.002,
+          "vitK": 0.024,
+          "b1": 0.0008,
+          "b2": 0.0005,
+          "b3": 0.0034,
+          "b5": 0.0007,
+          "b6": 0.0005,
+          "b7": 0.08,
+          "b9": 0.19,
+          "choline": 0.28,
+          "calcium": 1.3187,
+          "iron": 0.011,
+          "magnesium": 0.3,
+          "phosphorus": 1.3,
+          "selenium": 0.09,
+          "copper": 0.0019,
+          "manganese": 0.006,
+          "iodine": 0.01,
+          "molybdenum": 0.8,
+          "purines": 0.7,
+          "displayUnits": [
+            {
+              "label": "1/2 container",
+              "default": true,
+              "multiplier": 227
+            },
+            {
+              "label": "1 serving",
+              "multiplier": 91
+            }
+          ],
+          "notes": "SIMMER METHOD — silken-ish texture from firm tofu\n\nWhy it works: two things happen at once. (1) Water migration — firm tofu was made denser by pressing water out; simmering lets it absorb water back, plumping and softening. (2) Salt loosens the tight protein bonds that give firm tofu its chewy bite, and seasons the tofu from the inside (firm tofu is famously bland on its own).\n\nINGREDIENTS (yields ~2 servings, half a container)\n• ½ container (227 g) Nature's Soy firm tofu\n• 500 ml (2 cups) cold water\n• 2 tsp (10 g) salt → makes a 2% saline solution\n\nSTEPS\n\n1. Drain the tofu. Open the package over the sink, pour off the storage water. Lift the block out and blot it dry with a paper towel or clean cloth.\n   Why: the packaging water is bland and slightly soybean-smelling. Getting rid of it lets the salted simmer water flavor the tofu instead of competing with it.\n\n2. Cut the tofu before simmering. For most uses, 2–3 cm (¾–1 inch) cubes work well. Cut precisely — once simmered, the tofu becomes too fragile to recut without breaking.\n   Why: surface area exposed to salted water determines how much texture changes. Cubes balance softening throughout the piece while keeping a clean plated shape.\n\n3. Pour 500 ml of cold water into a small saucepan or wide skillet — choose a vessel that holds the tofu cubes in a single layer. Place over medium heat.\n\n4. Bring to a GENTLE simmer. You want small bubbles rising occasionally, not a rolling boil.\n   Why: vigorous boiling agitates the tofu and breaks it apart. Firm tofu becomes fragile during this process; the surface is the first thing to go.\n\n5. Add 2 tsp salt to the simmering water. Stir briefly until dissolved.\n   Don't taste the water — 2% saline is unpleasantly salty in your mouth, but the tofu only absorbs a fraction of it. The final tofu will taste seasoned, not salty.\n\n6. Lower the tofu cubes in with a slotted spoon or flat strainer. Submerge fully.\n   If they float: the water level is right.\n   If they sink heavily: the tofu was extra-pressed (this is fine — they'll absorb water and rise gradually).\n\n7. Set a timer:\n   • 10 minutes → slightly softer than firm; \"medium\" tofu texture, still firmly cuttable.\n   • 12–15 minutes → noticeably softer, like \"soft\" tofu, gently springy bite.\n   • Past 15 minutes → starts losing structural integrity.\n   • Past 20 minutes → you'll need to fish out fragments.\n   For silken-ish target, aim 13–15 minutes.\n\n8. While simmering: keep the heat low. If the water rolls hard, lower the burner. Don't stir — the cubes are fragile. If you must reposition, lift and place gently with a slotted spoon, never push or scrape.\n\n9. Lift the tofu out with a slotted spoon. Drain on a plate lined with paper towel.\n   Don't dump the pot through a colander — the drop impact will shatter soft cubes.\n\n10. Use immediately for best texture. Options:\n    • Toss in sauce (mapo tofu, garlic-chili oil, mushroom gravy).\n    • Cold: pour a splash of soy sauce, sesame oil, top with chopped green onion and chili crisp — Chinese-style cold tofu.\n    • Layer into a bowl with rice or noodles.\n    • Blend into a dressing or pudding-style dish.\n\nSTORAGE\nRefrigerate leftovers in their own salted simmer water (not plain water — plain water leaches the seasoning back out). Use within 24 hours. The texture continues to soften while sitting and gets fragile by day 2.\n\nTIPS\n• Richer flavor: replace plain water with light vegetable broth or dashi (kombu + dried bonito) before adding the salt. The 2 tsp salt amount stays the same.\n• A sliver of fresh ginger and a small piece of star anise in the simmer water adds subtle Chinese-style aroma.\n• Slightly under-simmer (10–11 min) if the tofu will then go into a hot sauced dish — the residual heat continues softening.\n• Saline scaling: 2 tsp salt per 500 ml is the 2% ratio. 1 L water → 4 tsp salt. 250 ml (1 cup) → 1 tsp.",
+          "potassium": 1.3187,
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "brand": "Nature's Soy"
+        },
+        "tofu_silken_half": {
+          "name": "Tofu silken",
+          "category": "items",
+          "kcal": 0.53112,
+          "p": 0.05809,
+          "carbs": 0.02,
+          "sugar": 0.005,
+          "fat": 0.034,
+          "sf": 0.00498,
+          "sodium": 0.06,
+          "water": 0.85104,
+          "vitK": 0.02,
+          "b1": 0.0007,
+          "b2": 0.0005,
+          "b3": 0.003,
+          "b5": 0.0007,
+          "b6": 0.0005,
+          "b7": 0.06,
+          "b9": 0.17,
+          "choline": 0.25,
+          "calcium": 0.31,
+          "iron": 0.01,
+          "magnesium": 0.27,
+          "phosphorus": 0.87,
+          "potassium": 1.78,
+          "selenium": 0.09,
+          "copper": 0.0016,
+          "manganese": 0.0045,
+          "iodine": 0.01,
+          "molybdenum": 0.6,
+          "purines": 0.5,
+          "displayUnits": [
+            {
+              "label": "1/2 container",
+              "default": true,
+              "multiplier": 241
+            }
+          ],
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "prevCategory": "items",
+          "archived": true,
+          "defaultMeasuredIn": "g"
+        },
+        "tomato_paste": {
+          "name": "Tomato paste",
+          "category": "items",
+          "kcal": 0.82,
+          "p": 0.0429,
+          "fat": 0.0047,
+          "sf": 0.0012,
+          "sodium": 0.59,
+          "carbs": 0.189,
+          "fiber": 0.0412,
+          "sugar": 0.122,
+          "water": 0.7353,
+          "omega3": 0.12,
+          "vitA": 0.42,
+          "vitC": 0.219,
+          "vitE": 0.043,
+          "vitK": 0.098,
+          "b1": 0.0005,
+          "b2": 0.0018,
+          "b3": 0.031,
+          "b5": 0.013,
+          "b6": 0.0022,
+          "b9": 0.14,
+          "choline": 0.08,
+          "calcium": 0.36,
+          "iron": 0.0298,
+          "magnesium": 0.42,
+          "phosphorus": 0.83,
+          "potassium": 10.14,
+          "zinc": 0.0063,
+          "selenium": 0.044,
+          "copper": 0.005,
+          "manganese": 0.0023,
+          "iodine": 0.04,
+          "molybdenum": 0.05,
+          "purines": 0.4,
+          "displayUnits": [
+            {
+              "label": "1 can",
+              "default": true,
+              "multiplier": 170
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            },
+            {
+              "label": "1 tbsp",
+              "multiplier": 16
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "tomato_paste_giant": {
+          "name": "Tomato paste",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.9091,
+          "p": 0.0303,
+          "sodium": 0.4546,
+          "carbs": 0.1818,
+          "fiber": 0.0606,
+          "sugar": 0.1212,
+          "water": 0.74,
+          "potassium": 8.1818,
+          "displayUnits": [
+            {
+              "label": "1 can",
+              "default": true,
+              "multiplier": 340
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            },
+            {
+              "label": "2 Tbsp (label)",
+              "multiplier": 33
+            }
+          ],
+          "notes": "Giant Food tomato paste. 12 oz (340 g) can, ~10 servings × 33 g per label. Same product family as the unbranded tomato_paste item (which is the 6 oz / 170 g size); kcal and macros are essentially identical per gram. Sodium unusually low (15 mg per 33 g serving = 4 mg/oz) - many tomato paste brands run 100-300 mg per serving, so this Giant SKU is a low-sodium win. Potassium 270 mg per 33 g serving (6% DV) - meaningful in a slab batch.",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "brand": "Giant"
+        },
+        "tuna_can": {
+          "name": "Tuna chunk light",
+          "category": "items",
+          "kcal": 0.9726,
+          "p": 0.2124,
+          "fat": 0.0096,
+          "sf": 0.0027,
+          "cholesterol": 0.3,
+          "sodium": 2.47,
+          "water": 0.7522,
+          "omega3": 2.3,
+          "vitA": 0.32,
+          "vitD": 0.017,
+          "vitE": 0.003,
+          "vitK": 0.001,
+          "b1": 0.0004,
+          "b2": 0.001,
+          "b3": 0.13,
+          "b5": 0.0071,
+          "b6": 0.0032,
+          "b7": 0.005,
+          "b9": 0.04,
+          "b12": 0.025,
+          "choline": 0.27,
+          "iron": 0.013,
+          "magnesium": 0.27,
+          "phosphorus": 2.22,
+          "potassium": 2.37,
+          "zinc": 0.0065,
+          "selenium": 0.8,
+          "copper": 0.0007,
+          "manganese": 0.0001,
+          "iodine": 0.17,
+          "molybdenum": 0.01,
+          "mercury": 0.13,
+          "purines": 1.4,
+          "displayUnits": [
+            {
+              "label": "1 can drained",
+              "default": true,
+              "multiplier": 113
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "turkey_bacon": {
+          "name": "Turkey bacon uncured",
+          "category": "items",
+          "kcal": 1.6071,
+          "p": 0.2141,
+          "fat": 0.0714,
+          "sf": 0.0181,
+          "cholesterol": 0.7143,
+          "sodium": 7.1429,
+          "water": 0.5502,
+          "vitA": 0.005,
+          "vitE": 0.0015,
+          "b1": 0.0004,
+          "b2": 0.0017,
+          "b3": 0.06,
+          "b5": 0.0078,
+          "b6": 0.004,
+          "b9": 0.06,
+          "b12": 0.004,
+          "choline": 0.3,
+          "calcium": 0.3571,
+          "iron": 0.0143,
+          "magnesium": 0.17,
+          "phosphorus": 1.65,
+          "potassium": 2.8571,
+          "zinc": 0.017,
+          "selenium": 0.25,
+          "copper": 0.0004,
+          "iodine": 0.05,
+          "omega3": 0.18,
+          "purines": 0.85,
+          "displayUnits": [
+            {
+              "label": "1 pkg",
+              "default": true,
+              "multiplier": 227
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            },
+            {
+              "label": "1 slice",
+              "multiplier": 28
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "notes": "Oikos Pro Complete Protein, Lemon (Danone). 5.3 oz / 150 g. Front label: \"20 g protein, 0 g added sugar, 8 vitamins (vit D + B2/B6/B12).\" Uses whey protein concentrate IN ADDITION to ultra-filtered milk for higher protein density. Sweetened with stevia. Note: NOT a low-calorie food (130 kcal per cup, vs 90 for Triple Zero). Per cup: k/g P 6.5 — still protein-positive. 20 g/cup is closer to clearing the 44 g per-meal anabolic threshold (protein per sitting at age 42 needed to fully trigger muscle protein synthesis) — 2 cups = 40 g, just under threshold. Pair with one other protein source for a full MPS event.",
+          "brand": "Trader Joe's"
+        },
+        "turkey_bb_pasta": {
+          "name": "Turkey + black bean pasta",
+          "category": "recipes",
+          "displayUnits": [
+            {
+              "label": "1 serving",
+              "default": true,
+              "multiplier": 200
+            }
+          ],
+          "ingredients": [
+            {
+              "itemKey": "turkey_ground_99",
+              "multiplier": 1,
+              "label": "1 serving (112 g)"
+            },
+            {
+              "itemKey": "black_bean_pasta",
+              "multiplier": 1,
+              "label": "1 serving (56 g)"
+            },
+            {
+              "itemKey": "tomato_paste",
+              "multiplier": 1,
+              "label": "30 g (~2 Tbsp)"
+            },
+            {
+              "itemKey": "evoo_tsp",
+              "multiplier": 1,
+              "label": "1 tsp"
+            }
+          ],
+          "defaultMeasuredIn": "units"
+        },
+        "turkey_breast_smithfield": {
+          "name": "Turkey breast oven roasted",
+          "category": "items",
+          "kcal": 0.8929,
+          "p": 0.2143,
+          "fat": 0.0089,
+          "cholesterol": 0.1786,
+          "sodium": 9.2857,
+          "carbs": 0.0179,
+          "sugar": 0.0089,
+          "water": 0.7402,
+          "vitE": 0.0007,
+          "b1": 0.0003,
+          "b2": 0.0008,
+          "b3": 0.07,
+          "b5": 0.005,
+          "b6": 0.005,
+          "b7": 0.02,
+          "b9": 0.04,
+          "b12": 0.004,
+          "choline": 0.5,
+          "iron": 0.0064,
+          "magnesium": 0.2,
+          "phosphorus": 2.1,
+          "potassium": 1.6,
+          "zinc": 0.014,
+          "selenium": 0.27,
+          "copper": 0.0003,
+          "iodine": 0.05,
+          "omega3": 0.04,
+          "purines": 0.65,
+          "displayUnits": [
+            {
+              "label": "1 pkg",
+              "multiplier": 224
+            },
+            {
+              "label": "1 slice",
+              "default": true,
+              "multiplier": 28
+            }
+          ],
+          "notes": "Bought at Safeway. Smithfield brand, oven roasted turkey breast deli slices. Net wt 8 oz (~224 g), about 4 servings. Once opened, use within 5 days per label.",
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "brand": "Smithfield"
+        },
+        "turkey_ground_99": {
+          "name": "Turkey ground 99/1 breast",
+          "category": "items",
+          "kcal": 1.0714,
+          "p": 0.2411,
+          "fat": 0.0089,
+          "cholesterol": 0.5804,
+          "sodium": 1.3393,
+          "water": 0.69,
+          "vitE": 0.001,
+          "b1": 0.0004,
+          "b2": 0.0013,
+          "b3": 0.14,
+          "b5": 0.0095,
+          "b6": 0.006,
+          "b7": 0.02,
+          "b9": 0.05,
+          "b12": 0.005,
+          "choline": 0.8,
+          "calcium": 0.0893,
+          "iron": 0.0089,
+          "magnesium": 0.3,
+          "phosphorus": 2.2,
+          "potassium": 2.4107,
+          "zinc": 0.017,
+          "selenium": 0.32,
+          "copper": 0.0006,
+          "iodine": 0.07,
+          "omega3": 0.05,
+          "purines": 0.7,
+          "displayUnits": [
+            {
+              "label": "1 pkg",
+              "default": true,
+              "multiplier": 448
+            },
+            {
+              "label": "1/2 pkg",
+              "multiplier": 224
+            },
+            {
+              "label": "1 serving",
+              "multiplier": 112
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            }
+          ],
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "defaultMeasuredIn": "g",
+          "brand": "Trader Joe's"
+        },
+        "turkey_ground_safeway": {
+          "name": "Turkey ground",
+          "category": "items",
+          "kcal": 1.5179,
+          "p": 0.1875,
+          "fat": 0.0714,
+          "sf": 0.0223,
+          "cholesterol": 0.8036,
+          "sodium": 0.8929,
+          "water": 0.65,
+          "vitA": 0.05,
+          "vitE": 0.0026,
+          "vitK": 0.02,
+          "b1": 0.0005,
+          "b2": 0.0018,
+          "b3": 0.06,
+          "b5": 0.009,
+          "b6": 0.005,
+          "b7": 0.02,
+          "b9": 0.05,
+          "b12": 0.014,
+          "choline": 0.75,
+          "calcium": 0.2679,
+          "iron": 0.0098,
+          "magnesium": 0.26,
+          "phosphorus": 2.2,
+          "potassium": 2.5,
+          "zinc": 0.025,
+          "selenium": 0.25,
+          "copper": 0.0006,
+          "iodine": 0.07,
+          "omega3": 0.1,
+          "purines": 0.85,
+          "displayUnits": [
+            {
+              "label": "1 pkg",
+              "default": true,
+              "multiplier": 448
+            },
+            {
+              "label": "1/2 pkg",
+              "multiplier": 224
+            },
+            {
+              "label": "1 serving",
+              "multiplier": 112
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "brand": "Safeway"
+        },
+        "turkey_leg_baked": {
+          "name": "Turkey leg, oven baked",
+          "category": "items",
+          "kcal": 2.08,
+          "p": 0.286,
+          "fat": 0.098,
+          "sf": 0.03,
+          "cholesterol": 0.95,
+          "sodium": 1.2,
+          "omega3": 1,
+          "vitD": 0.004,
+          "vitE": 0.0027,
+          "b1": 0.0007,
+          "b2": 0.0024,
+          "b3": 0.051,
+          "b5": 0.0105,
+          "b6": 0.0036,
+          "b7": 0.06,
+          "b9": 0.09,
+          "b12": 0.0042,
+          "choline": 0.8,
+          "calcium": 0.28,
+          "iron": 0.0145,
+          "magnesium": 0.24,
+          "phosphorus": 1.95,
+          "potassium": 2.56,
+          "zinc": 0.0362,
+          "selenium": 0.33,
+          "copper": 0.0013,
+          "manganese": 0.0002,
+          "iodine": 0.08,
+          "molybdenum": 0.01,
+          "purines": 1.5,
+          "displayUnits": [
+            {
+              "label": "100 g serving",
+              "default": true,
+              "multiplier": 100
+            },
+            {
+              "label": "g",
+              "multiplier": 1
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "turkey_oven_classic": {
+          "name": "Turkey breast oven classic",
+          "category": "small_portions",
+          "kcal": 1.07143,
+          "p": 0.23214,
+          "fat": 0.014,
+          "sf": 0.00357,
+          "cholesterol": 0.5,
+          "sodium": 8,
+          "water": 0.69643,
+          "vitD": 0.004,
+          "vitE": 0.0013,
+          "vitK": 0.001,
+          "b1": 0.0006,
+          "b2": 0.0016,
+          "b3": 0.08,
+          "b5": 0.01,
+          "b6": 0.005,
+          "b7": 0.045,
+          "b9": 0.06,
+          "b12": 0.004,
+          "choline": 0.7,
+          "phosphorus": 1.8,
+          "zinc": 0.015,
+          "selenium": 0.22,
+          "copper": 0.00067,
+          "manganese": 0.00012,
+          "iodine": 0.09,
+          "molybdenum": 0.01,
+          "purines": 1.5,
+          "displayUnits": [
+            {
+              "label": "2 slices",
+              "default": true,
+              "multiplier": 56
+            }
+          ],
+          "notes": "Bought at Aldi.",
+          "archived": true
+        },
+        "turkey_salmon_black_bean_slab": {
+          "name": "Turkey salmon black bean slab",
+          "category": "recipes",
+          "defaultMeasuredIn": "units",
+          "ingredients": [
+            {
+              "itemKey": "turkey_ground_safeway",
+              "multiplier": 1,
+              "label": "1 pkg"
+            },
+            {
+              "itemKey": "salmon_pink_canned",
+              "multiplier": 1,
+              "label": "1 can"
+            },
+            {
+              "itemKey": "black_beans_dry_goya",
+              "multiplier": 1,
+              "label": "1/2 bag (≈650 g cooked)"
+            },
+            {
+              "itemKey": "egg_substitute",
+              "multiplier": 1,
+              "label": "2 cups"
+            },
+            {
+              "itemKey": "yogurt_half",
+              "multiplier": 1,
+              "label": "1/4 tub"
+            },
+            {
+              "itemKey": "mozzarella_ff_shred",
+              "multiplier": 1,
+              "label": "1 bag"
+            },
+            {
+              "itemKey": "mushrooms_pampa_jar",
+              "multiplier": 1,
+              "label": "2 jars drained"
+            },
+            {
+              "itemKey": "tomato_paste_giant",
+              "multiplier": 1,
+              "label": "100 g"
+            },
+            {
+              "itemKey": "veggies_bag",
+              "multiplier": 1,
+              "label": "1 bag (steamed + drained)"
+            },
+            {
+              "itemKey": "shrimp_oceans_cooked",
+              "multiplier": 1,
+              "label": "1 pkg (whole, fold in last)"
+            }
+          ],
+          "displayUnits": [
+            {
+              "label": "1 serving",
+              "amount": 200,
+              "unit": "g",
+              "default": true,
+              "multiplier": 200
+            },
+            {
+              "label": "full recipe",
+              "amount": 4117,
+              "unit": "g",
+              "multiplier": 4117,
+              "locked": true
+            }
+          ]
+        },
+        "turkey_sausage_qtr": {
+          "name": "Turkey sausage smoked rope",
+          "category": "items",
+          "kcal": 1.7677,
+          "p": 0.1596,
+          "carbs": 0.02,
+          "sugar": 0.01,
+          "fat": 0.12,
+          "sf": 0.0263,
+          "cholesterol": 0.6,
+          "sodium": 7.5,
+          "vitD": 0.003,
+          "vitE": 0.002,
+          "vitK": 0.005,
+          "b1": 0.0006,
+          "b2": 0.0018,
+          "b3": 0.05,
+          "b5": 0.011,
+          "b7": 0.05,
+          "b9": 0.05,
+          "b12": 0.007,
+          "choline": 0.8,
+          "iron": 0.012,
+          "phosphorus": 1.7,
+          "selenium": 0.22,
+          "copper": 0.0008,
+          "manganese": 0.0001,
+          "iodine": 0.1,
+          "purines": 1.2,
+          "displayUnits": [
+            {
+              "label": "1/4 rope",
+              "default": true,
+              "multiplier": 99
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "turkey_slices_oven_roasted": {
+          "name": "Turkey slices air fried ket-must",
+          "category": "recipes",
+          "ingredients": [
+            {
+              "itemKey": "turkey_breast_smithfield",
+              "multiplier": 1,
+              "label": "2 slices (56 g)"
+            },
+            {
+              "itemKey": "ketchup_heinz_packet",
+              "multiplier": 1,
+              "label": "1 packet"
+            },
+            {
+              "itemKey": "mustard_heinz_packet",
+              "multiplier": 1,
+              "label": "1 packet"
+            }
+          ],
+          "defaultMeasuredIn": "units",
+          "displayUnits": [
+            {
+              "label": "1 serving",
+              "multiplier": 70,
+              "default": true
+            }
+          ]
+        },
+        "two_per_day": {
+          "name": "Life Extension Two-Per-Day",
+          "category": "supplements",
+          "vitA": 750,
+          "vitC": 250,
+          "vitD": 25,
+          "vitE": 50,
+          "vitK": 100,
+          "b1": 37.5,
+          "b2": 25,
+          "b3": 50,
+          "b5": 50,
+          "b6": 37.5,
+          "b7": 150,
+          "b9": 200,
+          "b12": 300,
+          "choline": 25,
+          "calcium": 25,
+          "magnesium": 50,
+          "zinc": 12.5,
+          "selenium": 100,
+          "copper": 0.5,
+          "manganese": 1,
+          "iodine": 75,
+          "chromium": 100,
+          "molybdenum": 50,
+          "displayUnits": [
+            {
+              "label": "AM (1 of 2)",
+              "multiplier": 1,
+              "time": "08:00",
+              "frequency": "daily",
+              "default": true,
+              "amount": 1,
+              "unit": "g"
+            },
+            {
+              "label": "PM (2 of 2)",
+              "multiplier": 1,
+              "time": "19:00",
+              "frequency": "daily",
+              "amount": 1,
+              "unit": "g"
+            }
+          ],
+          "notes": "Life Extension Two-Per-Day. Multivitamin baseline — covers micronutrients you might miss on a 1,650 kcal diet (limited variety = small deficiency risk). Notable inclusions: zinc 25 mg, B-complex, K2, lutein. Split AM (with breakfast) + PM (with dinner): the iron + zinc + B-vitamin load is gentler on the stomach split, and B-vitamin absorption saturates per dose so spreading captures more.",
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "veggies_bag": {
+          "name": "Vegetables mixed steamable",
+          "category": "items",
+          "kcal": 0.5882,
+          "p": 0.0241,
+          "carbs": 0.07,
+          "fiber": 0.03,
+          "sugar": 0.03,
+          "fat": 0.003,
+          "sodium": 0.3,
+          "water": 0.8818,
+          "vitA": 2,
+          "vitC": 0.25,
+          "vitE": 0.003,
+          "vitK": 0.1,
+          "b1": 0.0005,
+          "b2": 0.0005,
+          "b3": 0.005,
+          "b5": 0.002,
+          "b6": 0.001,
+          "b7": 0.005,
+          "b9": 0.3,
+          "choline": 0.12,
+          "potassium": 2.3,
+          "selenium": 0.005,
+          "copper": 0.0004,
+          "manganese": 0.0015,
+          "iodine": 0.01,
+          "molybdenum": 0.04,
+          "purines": 0.25,
+          "displayUnits": [
+            {
+              "label": "1 bag",
+              "multiplier": 340
+            },
+            {
+              "label": "1/2 bag",
+              "default": true,
+              "multiplier": 170
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "water": {
+          "name": "Water",
+          "category": "water",
+          "water": 1,
+          "displayUnits": [
+            {
+              "label": "wake",
+              "multiplier": 500,
+              "time": "07:00",
+              "frequency": "daily",
+              "default": true,
+              "amount": 500,
+              "unit": "ml"
+            },
+            {
+              "label": "pre-lunch",
+              "multiplier": 500,
+              "time": "12:30",
+              "frequency": "daily",
+              "amount": 500,
+              "unit": "ml"
+            },
+            {
+              "label": "afternoon",
+              "multiplier": 500,
+              "time": "16:00",
+              "frequency": "daily",
+              "amount": 500,
+              "unit": "ml"
+            },
+            {
+              "label": "dinner",
+              "multiplier": 500,
+              "time": "19:00",
+              "frequency": "daily",
+              "amount": 500,
+              "unit": "ml"
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "wegovy": {
+          "name": "Wegovy (oral semaglutide)",
+          "category": "supplements",
+          "displayUnits": [
+            {
+              "label": "1 pill",
+              "multiplier": 1,
+              "time": "07:30",
+              "frequency": "daily",
+              "default": true,
+              "amount": 1,
+              "unit": "g"
+            }
+          ],
+          "notes": "Oral semaglutide. Strict admin protocol per FDA label:\n• Take on empty stomach with up to 100-120 mL plain water.\n• Wait 30 min before food, other liquids, or any other oral medications/supplements.\n• 4-week dose escalation: 1.5 mg → 4 mg → 9 mg → 25 mg target.\n• If miss a dose: skip it and resume the next day. Do not double up.\n\nGI side effects (nausea, constipation) most common in first 1-2 weeks of each dose step.\nConstipation: psyllium husk + extra water is the standard fix.",
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "yogurt_bowl_apricot_almond": {
+          "name": "Yogurt bowl Greek + apricot + almond",
+          "category": "recipes",
+          "displayUnits": [
+            {
+              "label": "1 serving",
+              "default": true,
+              "multiplier": 220
+            }
+          ],
+          "ingredients": [
+            {
+              "name": "¼ tub Greek yogurt plain",
+              "kcal": 120,
+              "p": 21.5,
+              "sf": 0,
+              "water": 191,
+              "caffeine": 0,
+              "amount": {
+                "value": 0,
+                "unit": "g"
+              }
+            },
+            {
+              "name": "¼ jar Skinnygirl apricot preserves SF",
+              "kcal": 40,
+              "p": 0,
+              "sf": 0,
+              "water": 48,
+              "caffeine": 0,
+              "amount": {
+                "value": 0,
+                "unit": "g"
+              }
+            },
+            {
+              "name": "4 tbsp Barney almond powder",
+              "kcal": 90,
+              "p": 12,
+              "sf": 0,
+              "water": 0,
+              "caffeine": 0,
+              "amount": {
+                "value": 0,
+                "unit": "g"
+              }
+            }
+          ],
+          "defaultMeasuredIn": "units"
+        },
+        "yogurt_half": {
+          "name": "Yogurt Greek plain",
+          "category": "items",
+          "kcal": 0.529,
+          "p": 0.095,
+          "carbs": 0.036,
+          "sugar": 0.032,
+          "fat": 0.004,
+          "sf": 0.0011,
+          "cholesterol": 0.05,
+          "sodium": 0.36,
+          "water": 0.8399,
+          "vitA": 0.27,
+          "vitC": 0.01,
+          "vitD": 0.001,
+          "vitE": 0.0005,
+          "vitK": 0.002,
+          "b1": 0.0004,
+          "b2": 0.0028,
+          "b3": 0.002,
+          "b5": 0.004,
+          "b6": 0.0006,
+          "b7": 0.015,
+          "b9": 0.07,
+          "b12": 0.0075,
+          "choline": 0.15,
+          "calcium": 1.1,
+          "phosphorus": 1.35,
+          "potassium": 1.41,
+          "zinc": 0.005,
+          "selenium": 0.09,
+          "copper": 0.0001,
+          "manganese": 0.0001,
+          "iodine": 0.3,
+          "molybdenum": 0.05,
+          "displayUnits": [
+            {
+              "label": "1/2 tub",
+              "default": true,
+              "multiplier": 453.5
+            },
+            {
+              "label": "1/4 tub",
+              "multiplier": 226.8
+            }
+          ],
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          }
+        },
+        "yogurt_oikos_pro_lemon": {
+          "name": "Yogurt Greek Pro Complete Protein lemon",
+          "category": "items",
+          "kcal": 0.8667,
+          "p": 0.1333,
+          "fat": 0.02,
+          "sf": 0.0167,
+          "cholesterol": 0.1667,
+          "sodium": 0.3,
+          "carbs": 0.04,
+          "sugar": 0.02,
+          "water": 0.78,
+          "vitD": 0.0133,
+          "calcium": 1.3,
+          "potassium": 1.2533,
+          "b2": 0.0017,
+          "b6": 0.0023,
+          "b12": 0.008,
+          "b1": 0.0004,
+          "b3": 0.0021,
+          "b5": 0.0033,
+          "b9": 0.07,
+          "choline": 0.18,
+          "magnesium": 0.13,
+          "phosphorus": 1.6,
+          "zinc": 0.006,
+          "selenium": 0.105,
+          "iodine": 0.42,
+          "omega3": 0.025,
+          "purines": 0.04,
+          "displayUnits": [
+            {
+              "label": "2 containers",
+              "default": true,
+              "multiplier": 300
+            },
+            {
+              "label": "1 container",
+              "multiplier": 150
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            },
+            {
+              "label": "½ container",
+              "multiplier": 75
+            }
+          ],
+          "notes": "Oikos Triple Zero Lemon (Danone). 5.3 oz / 150 g cup. \"Triple Zero\" = 0 added sugar (sweetened with stevia leaf extract), 0 fat, 0 artificial sweeteners. Cultured Grade A nonfat milk + tapioca starch (texture) + lemon juice concentrate + turmeric (color) + stevia + vitamin D3. Cultures: S. thermophilus, L. bulgaricus. Per cup: 90 kcal · 15 g protein. k/g P 6.0 — well under your 8.0 protein-positive cutoff. Single cup is below the 44 g per-meal anabolic threshold (the per-meal protein needed at age 42 to fully trigger muscle protein synthesis) — pair with another protein source for a full MPS-triggering meal.",
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "brand": "Oikos"
+        },
+        "yogurt_oikos_triple_zero_lemon": {
+          "name": "Yogurt Greek nonfat Triple Zero lemon",
+          "category": "items",
+          "kcal": 0.6,
+          "p": 0.1,
+          "cholesterol": 0.0667,
+          "sodium": 0.3667,
+          "carbs": 0.0467,
+          "sugar": 0.0333,
+          "water": 0.81,
+          "vitD": 0.0133,
+          "calcium": 0.8667,
+          "potassium": 1.2533,
+          "b1": 0.0004,
+          "b2": 0.0028,
+          "b3": 0.0021,
+          "b5": 0.0033,
+          "b6": 0.0006,
+          "b9": 0.07,
+          "b12": 0.0075,
+          "choline": 0.15,
+          "magnesium": 0.11,
+          "phosphorus": 1.35,
+          "zinc": 0.0052,
+          "selenium": 0.097,
+          "iodine": 0.4,
+          "purines": 0.04,
+          "displayUnits": [
+            {
+              "label": "1 container",
+              "default": true,
+              "multiplier": 150
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            },
+            {
+              "label": "½ container",
+              "multiplier": 75
+            }
+          ],
+          "notes": "Oikos Triple Zero Lemon (Danone). 5.3 oz / 150 g cup. \"Triple Zero\" = 0 added sugar (sweetened with stevia leaf extract), 0 fat, 0 artificial sweeteners. Cultured Grade A nonfat milk + tapioca starch (texture) + lemon juice concentrate + turmeric (color) + stevia + vitamin D3. Cultures: S. thermophilus, L. bulgaricus. Per cup: 90 kcal · 15 g protein. k/g P 6.0 — well under your 8.0 protein-positive cutoff. Single cup is below the 44 g per-meal anabolic threshold (the per-meal protein needed at age 42 to fully trigger muscle protein synthesis) — pair with another protein source for a full MPS-triggering meal.",
+          "defaultMeasuredIn": "g",
+          "amount": {
+            "value": 0,
+            "unit": "g"
+          },
+          "brand": "Oikos"
+        }
+      },
+      "categories": [
+        {
+          "key": "liquids",
+          "label": "Liquids"
+        },
+        {
+          "key": "recipes",
+          "label": "Recipes and Meals"
+        },
+        {
+          "key": "items",
+          "label": "Items"
+        },
+        {
+          "key": "small_portions",
+          "label": "Small portions"
+        },
+        {
+          "key": "supplements",
+          "label": "Supplements"
+        },
+        {
+          "key": "water",
+          "label": "Water"
+        },
+        {
+          "key": "uncategorized",
+          "label": "Uncategorized"
+        }
+      ]
+    },
+    "totalsMode": "all"
+  }
+}

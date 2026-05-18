@@ -1,0 +1,157 @@
+{
+  "_backupTakenAt": "2026-05-18T23:20:31.741Z",
+  "_gistSavedAt": "2026-05-16T21:42:29.790Z",
+  "user": "eg",
+  "state": {
+    "profile": {
+      "goals": {
+        "kcal": 1400,
+        "p": 110,
+        "carbs": 275,
+        "fiber": 28,
+        "sugar": 50,
+        "fat": 78,
+        "sf": 12,
+        "transfat": 0,
+        "cholesterol": 300,
+        "sodium": 2300,
+        "water": 2000,
+        "caffeine": 200,
+        "omega3": 1100,
+        "vitA": 900,
+        "vitC": 90,
+        "vitD": 20,
+        "vitE": 15,
+        "vitK": 120,
+        "b1": 1.2,
+        "b2": 1.3,
+        "b3": 16,
+        "b5": 5,
+        "b6": 1.7,
+        "b7": 30,
+        "b9": 400,
+        "b12": 2.4,
+        "choline": 550,
+        "calcium": 1300,
+        "iron": 18,
+        "magnesium": 420,
+        "phosphorus": 1250,
+        "potassium": 4700,
+        "zinc": 11,
+        "selenium": 55,
+        "copper": 0.9,
+        "manganese": 2.3,
+        "iodine": 150,
+        "chromium": 35,
+        "molybdenum": 45
+      },
+      "displayedNutrients": [
+        "kcal",
+        "p",
+        "sf",
+        "water",
+        "caffeine"
+      ],
+      "displayName": "E.G.",
+      "fullName": "Eg",
+      "heightCm": 165,
+      "ageYears": 38,
+      "sex": "F",
+      "activityLevel": "light",
+      "startWeightKg": 65,
+      "targetWeightKg": 60,
+      "units": {
+        "weight": "kg",
+        "height": "cm"
+      },
+      "display": {
+        "unitDisplay": "both_prefer_imperial",
+        "dateFormat": "yyyy-MM-dd",
+        "timeFormat": "24h"
+      }
+    },
+    "userCatalog": {
+      "categories": [
+        {
+          "key": "items",
+          "label": "Items"
+        },
+        {
+          "key": "recipes",
+          "label": "Recipes"
+        },
+        {
+          "key": "water",
+          "label": "Water"
+        },
+        {
+          "key": "supplements",
+          "label": "Supplements"
+        },
+        {
+          "key": "uncategorized",
+          "label": "Uncategorized"
+        }
+      ],
+      "items": {
+        "chicken": {
+          "name": "Chicken breast cooked",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.65,
+          "p": 0.31,
+          "displayUnits": [
+            {
+              "label": "100 g",
+              "default": true,
+              "multiplier": 100
+            }
+          ]
+        },
+        "chicken_bowl": {
+          "name": "Chicken rice bowl",
+          "category": "recipes",
+          "ingredients": [
+            {
+              "itemKey": "chicken",
+              "multiplier": 2,
+              "label": "200 g chicken"
+            },
+            {
+              "itemKey": "rice",
+              "multiplier": 1,
+              "label": "1 cup rice"
+            }
+          ]
+        },
+        "rice": {
+          "name": "Rice cooked",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.3,
+          "p": 0.027,
+          "displayUnits": [
+            {
+              "label": "1 cup",
+              "default": true,
+              "multiplier": 200
+            }
+          ]
+        }
+      }
+    },
+    "days": {
+      "2026-05-16": {
+        "toggles": {},
+        "counters": {
+          "chicken_bowl": 1.5
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "chicken_bowl": "2026-05-16T21:42:28.730Z"
+        }
+      }
+    }
+  }
+}
