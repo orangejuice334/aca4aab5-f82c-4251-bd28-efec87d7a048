@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.2">
+<meta name="app-version" content="v6.5.3">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -775,13 +775,55 @@
   .variant-edit-row .variant-edit-default-wrap { align-self: flex-end; margin-bottom: 7px; }
   /* Cap the whole serving-size list at a comfortable reading width so it
      doesn't stretch across an ultrawide monitor. Each input cell also
-     enforces a sensible max so a single LABEL field can't balloon. */
-  .variant-edit-list {
-    max-width: 720px;
+     enforces a sensible max so a single LABEL field can't balloon. Halved
+     from v6.5.2 maxes per user request — the editor was way too wide. */
+  .variant-edit-list,
+  .variant-pending-wrap {
+    max-width: 380px;
   }
-  .variant-edit-row input[type="number"] { max-width: 110px; }
-  .variant-edit-row input[type="text"]   { max-width: 240px; }
-  .variant-edit-row select                { max-width: 140px; }
+  .variant-edit-row input[type="number"] { max-width: 55px; }
+  .variant-edit-row input[type="text"]   { max-width: 120px; }
+  .variant-edit-row select                { max-width: 70px; }
+  .variant-edit-row input[type="time"]   { max-width: 80px; }
+  /* Hide the × delete button on whichever saved row is currently marked
+     as default — the default can't be removed without picking a new one
+     first. Same rule covers `data-variant-locked` (e.g. a recipe's
+     auto-generated "full recipe" variant), which is never deletable. */
+  .variant-edit-row:has(input[data-variant-default-radio]:checked) .variant-delete,
+  .variant-edit-row[data-variant-locked] .variant-delete {
+    visibility: hidden;
+  }
+  /* Hide the schedule-frequency cell while the row's time field is
+     empty — frequency only matters when a time is set. The :has()
+     selector targets the row when the time input has no value. */
+  .variant-edit-row:has(input[data-variant-field="time"]:placeholder-shown),
+  .variant-edit-row.no-schedule-time {
+    /* placeholder-shown matches when the input has no value AND a
+       placeholder. We also accept a hand-flagged `.no-schedule-time`
+       class set by the time-input listener for browsers that don't
+       evaluate :has(:placeholder-shown) inside the row selector. */
+  }
+  .variant-edit-row.no-schedule-time .variant-edit-field:has(select[data-variant-field="frequency"]) {
+    display: none;
+  }
+  /* Tighten the gap between the LABEL input and the × delete button so
+     they sit visually paired at the end of the row, like an inline
+     name-with-clear control. */
+  .variant-edit-row .variant-delete { margin-left: -4px; }
+  /* Inline duplicate-serving error styling — sits below the pending row,
+     hidden when empty. Same warm rust accent as the rest of the app. */
+  .variant-add-error {
+    margin-top: 6px;
+    padding: 6px 10px;
+    border: 1px solid var(--rust);
+    border-radius: 2px;
+    background: rgba(176, 74, 46, 0.08);
+    color: var(--rust-deep);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    max-width: 380px;
+  }
+  .variant-add-error[hidden] { display: none; }
   .variant-edit-row input[data-variant-field="label"] {
     flex: 1 1 140px;
     min-width: 100px;
@@ -2125,10 +2167,15 @@
     }
   }
 
-  /* Counter rows: counter-control goes in the first column, name in the second */
+  /* Counter rows: counter-control goes in the first column, name in the second.
+     align-self: start pins the counter cluster to the top of its grid cell so
+     when the row expands (edit panel renders in column 2), the −/+ buttons
+     stay at the same vertical position they had when the row was collapsed
+     instead of drifting down to the new row-center. */
   .checkout-row[data-counter] > .counter-control {
     grid-column: 1;
     grid-row: 1;
+    align-self: start;
   }
 
   /* Hide the empty divs that were placeholders */
@@ -4025,52 +4072,6 @@
       <span class="bmi-legend-band obese"></span>obese ≥30
     </div>
   </div>
-</section>
-
-<!-- ============ SECTION 2: PROTEIN DENSITY ============ -->
-<section id="density" data-collapsible>
-  <h2><span class="num">03</span>Protein Density Reference</h2>
-  <div class="section-rule"></div>
-
-  <p style="margin-bottom: 16px; color: var(--ink-soft);">Calories per gram of protein. Lower = more protein per calorie spent. Useful as a quick label-scan: anything under 6 is a pure protein source, under 10 is protein-positive, 10–15 is a balanced food, 15–25 is mostly carbs/fat with some protein, over 25 is not a protein source regardless of how it's marketed.</p>
-
-  <table>
-    <thead>
-      <tr>
-        <th style="width: 12%">kcal/p</th>
-        <th>Food</th>
-        <th>Tier</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td class="mono"><strong>4.2</strong></td><td class="label">Whey protein isolate</td><td class="notes">Pure protein</td></tr>
-      <tr><td class="mono"><strong>4.4</strong></td><td class="label">Tuna in water (drained)</td><td class="notes">Pure protein</td></tr>
-      <tr><td class="mono"><strong>4.6</strong></td><td class="label">Cod / whitefish (cooked)</td><td class="notes">Pure protein</td></tr>
-      <tr><td class="mono"><strong>4.7</strong></td><td class="label">Egg whites</td><td class="notes">Pure protein</td></tr>
-      <tr><td class="mono"><strong>5.3</strong></td><td class="label">Chicken breast (cooked)</td><td class="notes">Pure protein</td></tr>
-      <tr><td class="mono"><strong>5.3</strong></td><td class="label">Premier Protein shake</td><td class="notes">Pure protein</td></tr>
-      <tr><td class="mono"><strong>5.6</strong></td><td class="label">Greek yogurt 0% (Fage / Friendly Farms)</td><td class="notes">Pure protein</td></tr>
-      <tr><td class="mono"><strong>5.8</strong></td><td class="label">Skyr (Siggi's)</td><td class="notes">Pure protein</td></tr>
-      <tr><td class="mono"><strong>5.8</strong></td><td class="label">Lean beef sirloin (cooked)</td><td class="notes">Pure protein</td></tr>
-      <tr><td class="mono"><strong>6.0</strong></td><td class="label">Lean deli ham (low-sodium)</td><td class="notes">Protein-positive</td></tr>
-      <tr><td class="mono"><strong>7.5</strong></td><td class="label">Friendly Farms Low Fat Cottage Cheese</td><td class="notes">Protein-positive</td></tr>
-      <tr><td class="mono"><strong>8.3</strong></td><td class="label">Happy Farms Light String Cheese (1 stick)</td><td class="notes">Protein-positive · 50 kcal / 6g P / 1.5g SF</td></tr>
-      <tr><td class="mono"><strong>8.4</strong></td><td class="label">Lean turkey sausage</td><td class="notes">Protein-positive</td></tr>
-      <tr><td class="mono"><strong>9.5</strong></td><td class="label">Quest bar</td><td class="notes">Protein-positive</td></tr>
-      <tr><td class="mono"><strong>10.0</strong></td><td class="label">PB2 powdered peanut butter</td><td class="notes">Protein-positive (borderline)</td></tr>
-      <tr><td class="mono"><strong>11.1</strong></td><td class="label">Edamame (shelled, cooked)</td><td class="notes">Balanced</td></tr>
-      <tr><td class="mono"><strong>12.0</strong></td><td class="label">Whole egg</td><td class="notes">Balanced (yolk = fat)</td></tr>
-      <tr><td class="mono"><strong>12.8</strong></td><td class="label">Lentils (cooked)</td><td class="notes">Balanced (mostly carbs)</td></tr>
-      <tr><td class="mono"><strong>13.0</strong></td><td class="label">Greek yogurt + fruit (flavored)</td><td class="notes">Balanced</td></tr>
-      <tr><td class="mono"><strong>15.1</strong></td><td class="label">Black beans (cooked)</td><td class="notes">Mostly carbs</td></tr>
-      <tr><td class="mono"><strong>16.1</strong></td><td class="label">Cheddar cheese</td><td class="notes">Mostly fat</td></tr>
-      <tr><td class="mono"><strong>23.5</strong></td><td class="label">Regular peanut butter</td><td class="notes">Not a protein source</td></tr>
-      <tr><td class="mono"><strong>27.3</strong></td><td class="label">Almonds</td><td class="notes">Not a protein source</td></tr>
-      <tr><td class="mono"><strong>27.5</strong></td><td class="label">Pasta (cooked)</td><td class="notes">Not a protein source</td></tr>
-      <tr><td class="mono"><strong>27.8</strong></td><td class="label">Quinoa (cooked)</td><td class="notes">Not a protein source</td></tr>
-      <tr><td class="mono"><strong>80.0</strong></td><td class="label">Avocado</td><td class="notes">Pure fat</td></tr>
-    </tbody>
-  </table>
 </section>
 
 <!-- ============ SECTION 4 (Supplements reference cards) removed.
@@ -7791,8 +7792,21 @@
     if (brand) parts.push(brand);
 
     if (isRecipe) {
-      const { grams, approximate } = recipeTotalGramsDisplay(item);
-      if (grams > 0) parts.push(grams + ' g' + (approximate ? '*' : ''));
+      // v6.5.3: recipes now expose their DEFAULT serving in the parens
+      // (the size you eat: "200 g", "1 slice", etc.) instead of the full
+      // batch's gram count. The full batch lives as a separate
+      // displayUnit variant ("full recipe") for the rare time you want to
+      // log the whole thing.
+      const variants = getDisplayUnits(item);
+      const def = variants.find(v => v && v.default) || variants[0] || null;
+      if (def) {
+        const dSize = (def.multiplier ?? def.unitsPerServing) || 0;
+        if (def.label) parts.push(def.label + (dSize ? ' / ' + fmt1(dSize) + ' g' : ''));
+        else if (dSize) parts.push(fmt1(dSize) + ' g');
+      } else {
+        const { grams, approximate } = recipeTotalGramsDisplay(item);
+        if (grams > 0) parts.push(grams + ' g' + (approximate ? '*' : ''));
+      }
       return parts.length ? name + ' (' + parts.join(' · ') + ')' : name;
     }
 
@@ -8623,8 +8637,13 @@
           '</select>' +
         '</div>'
       : '';
+    // For supplement/water rows: when no time is set, hide the frequency
+    // cell via a row-level class (CSS rule below acts on `.no-schedule-time`).
+    const rowClass = 'variant-edit-row' + (showSchedule && !rowTime ? ' no-schedule-time' : '');
+    const isLocked = !!(variant && variant.locked);
+    const lockedAttr = isLocked ? ' data-variant-locked' : '';
     return (
-      '<div class="variant-edit-row" data-variant-row>' +
+      '<div class="' + rowClass + '" data-variant-row' + lockedAttr + '>' +
         '<label class="variant-edit-default-wrap" title="Pick the default serving (the one shown when the row is collapsed)">' +
           '<input type="radio" name="' + escapeHtml(defaultGroup || 'variant-default') + '" data-variant-default-radio' + (isDefault ? ' checked' : '') + ' />' +
           '<span class="variant-edit-default-label">default</span>' +
@@ -8728,17 +8747,12 @@
     const rowOpts = { showSchedule: showRowSchedule };
     // Now that optHtml exists, build the per-row HTML using it.
     const rowsHtml = variants.map(v => variantEditRow(v, prim, defGroup, optHtml, rowOpts)).join('');
-    // Always-visible "Add new serving size" pending row at the bottom of
-    // the list. Pre-populated with the current default variant's values so
-    // the common case ("a slight tweak of the default") is one-click. The
-    // pending row carries `data-variant-pending-row` instead of
-    // `data-variant-row`, so saveExpandedEdits skips it. Pressing the row's
-    // Add button converts it into a normal saved row and resets the
-    // pending row's inputs to the default again.
-    const pendingPreload = variants.find(v => v && v.default) || variants[0] || null;
-    const pendingSeed = pendingPreload
-      ? Object.assign({}, pendingPreload, { default: false })
-      : { label: '', unitsPerServing: 0, unit: prim, amount: 0, default: false };
+    // Always-visible "Add new serving" pending row beneath the math
+    // buttons. Starts empty — the math buttons (½, ⅓, ×2, etc.) and the
+    // user's own typing populate it. Carries `data-variant-pending-row` so
+    // saveExpandedEdits skips it; pressing Add converts it into a saved
+    // variant row above and clears the inputs for the next add.
+    const pendingSeed = { label: '', unitsPerServing: 0, unit: prim, amount: 0, default: false };
     const pendingRowHtml = variantPendingAddRow(pendingSeed, prim, defGroup, optHtml, rowOpts);
     const crossLabel = (prim === 'g') ? 'volume' : 'mass';
     const crossExamples = (prim === 'g') ? 'ml, cup, tbsp, …' : 'g, oz, lb';
@@ -8760,8 +8774,8 @@
           '</div>' +
         '</div>' +
         '<div class="edit-panel-hint" style="display: block; margin-top: -4px; margin-bottom: 8px;">Both textboxes edit the same density — fill in whichever you have. Leave blank when unknown; required to define ' + crossLabel + ' servings (' + crossExamples + ').</div>' +
-        '<div class="variant-edit-list" data-variant-list>' + rowsHtml + pendingRowHtml + '</div>' +
-        '<div class="variant-section-header" style="margin-top:10px;font-family:\'JetBrains Mono\',monospace;font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.08em;">Or scale the default amount</div>' +
+        '<div class="variant-edit-list" data-variant-list>' + rowsHtml + '</div>' +
+        '<div class="variant-section-header" style="margin-top:14px;font-family:\'JetBrains Mono\',monospace;font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.08em;">Add new serving</div>' +
         '<div class="variant-quick-add" data-variant-quick-add>' +
           '<span class="edit-panel-hint">Use default amount modified by:</span>' +
           '<button type="button" data-variant-op="mult" data-variant-num="1" data-variant-denom="2">½</button>' +
@@ -8773,6 +8787,8 @@
           '<button type="button" data-variant-op="mult" data-variant-num="2" data-variant-denom="1">×2</button>' +
           '<button type="button" data-variant-op="mult" data-variant-num="3" data-variant-denom="1">×3</button>' +
         '</div>' +
+        '<div class="variant-pending-wrap" data-variant-pending-wrap>' + pendingRowHtml + '</div>' +
+        '<div class="variant-add-error" data-variant-add-error hidden></div>' +
         (!hasDensity
           ? '<div class="variant-density-hint">' + (prim === 'g' ? 'Volume' : 'Mass') + ' units (' + crossExamples + ') are greyed out — set <strong>Density</strong> above first.</div>'
           : '') +
@@ -9417,10 +9433,17 @@
             entry.time = rowTime;
             entry.frequency = rowFreq;
           }
+          // Preserve the locked flag (used for recipe "full recipe" rows
+          // and any other auto-generated, undeletable variant).
+          if (row.hasAttribute('data-variant-locked')) entry.locked = true;
           newUnits.push(entry);
         });
         if (dupErr) {
-          alert(dupErr);
+          const errBox = panel.querySelector('[data-variant-add-error]');
+          if (errBox) {
+            errBox.textContent = dupErr;
+            errBox.hidden = false;
+          }
           return;
         }
         // Always keep at least one variant — if the user emptied the list,
@@ -10552,11 +10575,28 @@
     // Recipes in the new schema are pure references — name + category +
     // ingredients (which carry name, amount, references). No cached macros.
     // computeItemMacros sums them on demand at render/sort/total time.
-    ITEMS[key] = {
+    // v6.5.3: every recipe gets an initial "full recipe" serving variant
+    // representing the whole batch (sum of ingredient grams). It's marked
+    // `locked: true` so it can't be deleted from the variant editor — the
+    // user always has a way to log "I ate the whole thing." Additional
+    // per-serving variants are added in the editor afterwards.
+    const newRecipe = {
       name: name,
       category: 'recipes',
       ingredients: ingredients,
     };
+    const fullBatch = recipeCanonicalGrams(newRecipe);
+    if (fullBatch > 0) {
+      newRecipe.displayUnits = [{
+        label: 'full recipe',
+        multiplier: fullBatch,
+        amount: fullBatch,
+        unit: 'g',
+        default: true,
+        locked: true,
+      }];
+    }
+    ITEMS[key] = newRecipe;
     saveState();
     if (typeof renderCatalog === 'function') renderCatalog();
     render();
@@ -11003,9 +11043,10 @@
         const item = ITEMS[key];
         if (!item) return;
 
+        // Read the current default (top of the saved-rows list) — the math
+        // buttons scale or add relative to it.
         const rows = Array.from(list.querySelectorAll('[data-variant-row]'));
         if (!rows.length) return;
-        // Pick the row marked default; fall back to the first row.
         const defaultRow = rows.find(r => r.querySelector('[data-variant-default-radio]:checked')) || rows[0];
         const dAmt   = parseFloat((defaultRow.querySelector('[data-variant-field="amount"]') || {}).value);
         const dUnit  = (defaultRow.querySelector('[data-variant-field="unit"]') || {}).value || primaryUnit(item);
@@ -11032,42 +11073,45 @@
         if (!isFinite(newAmt) || newAmt <= 0) return;
 
         const newLabel = applyVariantLabelOp(dLabel, dLabel, op, opNum, opDenom);
-        // Build the unit options for the new row using same logic as the
-        // editor block builder (density-aware).
-        const prim = primaryUnit(item);
-        const hasDensity = typeof item.density_g_per_ml === 'number' && item.density_g_per_ml > 0;
-        const nativeUnits = (prim === 'g') ? MASS_UNIT_KEYS : VOLUME_UNIT_KEYS;
-        const crossUnits  = (prim === 'g') ? VOLUME_UNIT_KEYS : MASS_UNIT_KEYS;
-        const fmt = (u) => u.replace('_', ' ');
-        const optHtml = []
-          .concat(nativeUnits.map(u => '<option value="' + u + '">' + fmt(u) + '</option>'))
-          .concat(crossUnits.map(u => '<option value="' + u + '"' + (hasDensity ? '' : ' disabled') + '>' + fmt(u) + (hasDensity ? '' : ' (set density)') + '</option>'))
-          .join('');
-        const defGroup = 'variant-default-' + (key || 'item');
-        const showSchedule = (item.category === 'supplements' || item.category === 'water');
-        const newRowHtml = variantEditRow(
-          { label: newLabel, unitsPerServing: newAmt, unit: dUnit, amount: newAmt, default: false },
-          prim, defGroup, optHtml, { showSchedule }
-        );
-        list.insertAdjacentHTML('beforeend', newRowHtml);
+        // Populate the always-visible pending row instead of appending a
+        // saved row directly. The user clicks Add to commit (or further
+        // tweaks the amount/label by hand before doing so).
+        const pending = panel.querySelector('[data-variant-pending-row]');
+        if (!pending) return;
+        const pAmt = pending.querySelector('[data-variant-field="amount"]');
+        const pUnit = pending.querySelector('[data-variant-field="unit"]');
+        const pLabel = pending.querySelector('[data-variant-field="label"]');
+        if (pAmt) pAmt.value = formatSize(newAmt);
+        if (pUnit) pUnit.value = dUnit;
+        if (pLabel) pLabel.value = newLabel;
         return;
       }
       // "Add" button on the always-visible pending row. Validates the
-      // pending row's amount, converts it into a normal saved variant row
-      // (insertBefore the pending row), then resets the pending row's
-      // inputs to the current default for the next add.
+      // pending row's amount, checks for duplicate (time / amount-unit)
+      // against the saved rows, then converts the pending values into a
+      // saved variant-edit-row appended to the list and clears the
+      // pending inputs.
       const pendingAddBtn = ev.target.closest('[data-variant-pending-add]');
       if (pendingAddBtn) {
         const panel = pendingAddBtn.closest('[data-edit-panel]');
         if (!panel) return;
         const list = panel.querySelector('[data-variant-list]');
-        if (!list) return;
-        const pending = list.querySelector('[data-variant-pending-row]');
-        if (!pending) return;
+        const pending = panel.querySelector('[data-variant-pending-row]');
+        const errBox = panel.querySelector('[data-variant-add-error]');
+        const setErr = (msg) => {
+          if (!errBox) return;
+          if (msg) {
+            errBox.textContent = msg;
+            errBox.hidden = false;
+          } else {
+            errBox.textContent = '';
+            errBox.hidden = true;
+          }
+        };
+        if (!list || !pending) return;
         const key = panel.dataset.editPanelKey;
         const item = ITEMS[key];
         if (!item) return;
-        // Read the pending row's current values.
         const labelEl  = pending.querySelector('[data-variant-field="label"]');
         const amountEl = pending.querySelector('[data-variant-field="amount"]');
         const unitEl   = pending.querySelector('[data-variant-field="unit"]');
@@ -11079,12 +11123,35 @@
         const timeVal  = timeEl ? (timeEl.value || '').trim() : '';
         const freqVal  = freqEl ? (freqEl.value || 'daily') : 'daily';
         if (!isFinite(rawAmt) || rawAmt <= 0) {
-          alert('Set an amount greater than zero before adding.');
+          setErr('Set an amount greater than zero before adding.');
           if (amountEl) amountEl.focus();
           return;
         }
+        // Duplicate-serving check against existing saved rows.
+        const savedRows = Array.from(list.querySelectorAll('[data-variant-row]'));
+        const showSchedule = (item.category === 'supplements' || item.category === 'water');
+        for (const r of savedRows) {
+          const rAmt   = parseFloat((r.querySelector('[data-variant-field="amount"]') || {}).value);
+          const rUnit  = ((r.querySelector('[data-variant-field="unit"]') || {}).value || '').toLowerCase();
+          const rTime  = (r.querySelector('[data-variant-field="time"]') || {}).value || '';
+          const rFreq  = (r.querySelector('[data-variant-field="frequency"]') || {}).value || 'daily';
+          if (showSchedule && timeVal && rTime === timeVal) {
+            setErr('Another serving is already scheduled at ' + timeVal + '. Pick a different time.');
+            if (timeEl) timeEl.focus();
+            return;
+          }
+          if (rAmt === rawAmt && rUnit === unitVal && (rTime || '') === (timeVal || '') && (showSchedule ? rFreq === freqVal : true)) {
+            setErr('That serving already exists (' + rawAmt + ' ' + unitVal + (timeVal ? ' @ ' + timeVal : '') + ').');
+            if (amountEl) amountEl.focus();
+            return;
+          }
+        }
+        setErr('');
         // Build a saved variant-edit-row populated with those values and
-        // insert it before the pending row so saved rows stay at top.
+        // append to the list (after all existing saved rows). The pending
+        // row lives OUTSIDE the variant-edit-list now, so a plain append
+        // here keeps saved rows together and the pending row visually
+        // distinct below.
         const prim = primaryUnit(item);
         const hasDensity = typeof item.density_g_per_ml === 'number' && item.density_g_per_ml > 0;
         const nativeUnits = (prim === 'g') ? MASS_UNIT_KEYS : VOLUME_UNIT_KEYS;
@@ -11095,7 +11162,6 @@
           .concat(crossUnits.map(u => '<option value="' + u + '"' + (hasDensity ? '' : ' disabled') + '>' + fmt(u) + (hasDensity ? '' : ' (set density)') + '</option>'))
           .join('');
         const defGroup = 'variant-default-' + (key || 'item');
-        const showSchedule = (item.category === 'supplements' || item.category === 'water');
         const newVariant = {
           label: labelVal,
           unitsPerServing: rawAmt,
@@ -11108,22 +11174,13 @@
           newVariant.frequency = freqVal;
         }
         const newRowHtml = variantEditRow(newVariant, prim, defGroup, optHtml, { showSchedule });
-        pending.insertAdjacentHTML('beforebegin', newRowHtml);
-        // Reset the pending row to the current default again so the next
-        // add starts from the same baseline.
-        const defaultRow = list.querySelector('[data-variant-row] [data-variant-default-radio]:checked');
-        const defaultRowEl = defaultRow ? defaultRow.closest('[data-variant-row]') : null;
-        const readField = (rowEl, name) => {
-          const el = rowEl ? rowEl.querySelector('[data-variant-field="' + name + '"]') : null;
-          return el ? (el.value || '') : '';
-        };
-        if (amountEl && defaultRowEl) amountEl.value = readField(defaultRowEl, 'amount');
-        if (unitEl   && defaultRowEl) unitEl.value   = readField(defaultRowEl, 'unit') || unitVal;
-        if (labelEl  && defaultRowEl) labelEl.value  = readField(defaultRowEl, 'label');
-        if (showSchedule) {
-          if (timeEl) timeEl.value = '';
-          if (freqEl) freqEl.value = 'daily';
-        }
+        list.insertAdjacentHTML('beforeend', newRowHtml);
+        // Clear the pending row for the next add.
+        if (amountEl) amountEl.value = '';
+        if (unitEl)   unitEl.value = prim;
+        if (labelEl)  labelEl.value = '';
+        if (timeEl)   timeEl.value = '';
+        if (freqEl)   freqEl.value = 'daily';
         return;
       }
       // (Old scratch-form `data-variant-add` handler removed in v6.4.0 —
@@ -11298,6 +11355,19 @@
         counterDebounce.delete(inp);
         commitCatalogCounter(inp);
       }, 350));
+    });
+
+    // Schedule-time toggling: when a variant row's time input gains or
+    // loses a value, toggle the row's `no-schedule-time` class so the
+    // sibling frequency cell shows/hides. Lets the user only see the
+    // frequency dropdown once a meaningful time exists.
+    document.addEventListener('input', (ev) => {
+      const t = ev.target.closest('input[data-variant-field="time"]');
+      if (!t) return;
+      const row = t.closest('.variant-edit-row');
+      if (!row) return;
+      if ((t.value || '').trim()) row.classList.remove('no-schedule-time');
+      else row.classList.add('no-schedule-time');
     });
 
     // Select-all on click for the two "Serving amount" inputs (top-level
