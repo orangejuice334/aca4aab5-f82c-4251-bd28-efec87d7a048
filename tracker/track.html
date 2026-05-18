@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.4.1">
+<meta name="app-version" content="v6.5.0">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -4460,70 +4460,148 @@
   // `time` field for the schedule. WATER_DEFAULT_ML is the canonical pour.
   const WATER_DEFAULT_ML = 500;
 
-  function getSupplementSchedule() {
-    // Read supplement AND water (scheduled-liquid) entries from the catalog.
-    // Both show up as time-scheduled rows in the profile editor and the
-    // checkout "Supplements and liquids" group. Sorted by time so the
-    // checkout list keeps its time-of-day ordering. Items with no time set
-    // sort to the bottom and never flag as past-due (no data-time).
-    return Object.entries(ITEMS || {})
-      .filter(([k, v]) => v && (v.category === 'supplements' || v.category === 'water') && !v.archived)
-      .map(([k, v]) => ({
-        key: k,
-        name: v.name || k,
-        time: v.time || '',
-        frequency: v.frequency || 'daily',
-        amount: (v.amount && v.amount.value) ? v.amount.value : null,
-        unit: (v.amount && v.amount.unit) ? v.amount.unit : null,
-        kcalEach: v.kcal || 0,
-        demo: !!v.demo,
-      }))
-      .sort((a, b) => {
-        if (!a.time && !b.time) return 0;
-        if (!a.time) return 1;
-        if (!b.time) return -1;
-        return a.time.localeCompare(b.time);
+  // Returns one entry per scheduled serving of `item`. Schedule lives on each
+  // displayUnit's `time` field (per-serving scheduling, v6.5+); when no
+  // displayUnit carries a time, falls back to legacy item.time as a single
+  // virtual serving sized off the default variant. Toggle key for each
+  // scheduled serving = `${itemKey}#${time}` (or the bare item key for the
+  // legacy single-schedule case, so unmigrated past-day toggles still match).
+  function getScheduledServings(item, itemKey) {
+    if (!item) return [];
+    const variants = getDisplayUnits(item);
+    const out = [];
+    let scheduledOnVariants = false;
+    for (const v of variants) {
+      if (v && v.time) {
+        scheduledOnVariants = true;
+        const ml = (v.multiplier ?? v.unitsPerServing) || 0;
+        out.push({
+          slot: v.time,
+          time: v.time,
+          frequency: v.frequency || 'daily',
+          multiplier: ml,
+          label: v.label || '',
+          isDefault: !!v.default,
+          fullKey: itemKey + '#' + v.time,
+        });
+      }
+    }
+    if (!scheduledOnVariants && item.time) {
+      const def = variants.find(v => v && v.default) || variants[0] || null;
+      const ml = def ? ((def.multiplier ?? def.unitsPerServing) || 0) : 0;
+      out.push({
+        slot: item.time,
+        time: item.time,
+        frequency: item.frequency || 'daily',
+        multiplier: ml,
+        label: (def && def.label) || '',
+        isDefault: true,
+        // Legacy single-time items keep the bare item key so older past-day
+        // toggles continue to match. Migrated items always use compound keys.
+        fullKey: itemKey,
       });
+    }
+    return out;
+  }
+
+  function getSupplementSchedule() {
+    // Supplement-only: yields one row per scheduled serving. Water has its
+    // own helper. Unscheduled supplement items still surface (rendered at
+    // the bottom of the list) so the user can see them in the editor.
+    const rows = [];
+    for (const [k, v] of Object.entries(ITEMS || {})) {
+      if (!v || v.archived) continue;
+      if (v.category !== 'supplements') continue;
+      const servings = getScheduledServings(v, k);
+      if (servings.length === 0) {
+        rows.push({
+          key: k, itemKey: k, slot: '',
+          name: v.name || k, label: '',
+          time: '', frequency: 'daily',
+          amount: (v.amount && v.amount.value) ? v.amount.value : null,
+          unit: (v.amount && v.amount.unit) ? v.amount.unit : null,
+          kcalEach: v.kcal || 0,
+          multiplier: 0,
+          demo: !!v.demo,
+        });
+        continue;
+      }
+      for (const s of servings) {
+        rows.push({
+          key: s.fullKey, itemKey: k, slot: s.slot,
+          name: v.name || k, label: s.label,
+          time: s.time, frequency: s.frequency,
+          amount: s.multiplier,
+          unit: (v.amount && v.amount.unit) ? v.amount.unit : null,
+          kcalEach: v.kcal || 0,
+          multiplier: s.multiplier,
+          isDefault: s.isDefault,
+          demo: !!v.demo,
+        });
+      }
+    }
+    rows.sort((a, b) => {
+      if (!a.time && !b.time) return 0;
+      if (!a.time) return 1;
+      if (!b.time) return -1;
+      return a.time.localeCompare(b.time);
+    });
+    return rows;
   }
 
   function getWaterSchedule() {
-    // Catalog-derived: items with category='water' become schedule rows.
-    // The display label is whatever follows "Water · " in the name (or the
-    // bare name minus "Water"); this matches how the legacy profile.waterSchedule
-    // entries spelled out their slot ("wake", "pre-lunch", etc.).
-    return Object.entries(ITEMS || {})
-      .filter(([k, v]) => v && v.category === 'water' && !v.archived)
-      .map(([k, v]) => {
-        // v5.17+: serving size lives on the default displayUnits entry's
-        // multiplier. Legacy amount.value is a stub (0) and would silently
-        // zero the pour.
+    // One row per scheduled serving of any category='water' item. Each
+    // serving's pour size comes from its own displayUnit.multiplier (ml).
+    // Backward compat: legacy water items with a single item-level time and
+    // a single default variant get one row sized off the default variant.
+    const rows = [];
+    for (const [k, v] of Object.entries(ITEMS || {})) {
+      if (!v || v.archived) continue;
+      if (v.category !== 'water') continue;
+      const servings = getScheduledServings(v, k);
+      const rawName = v.name || k;
+      const baseLabel = rawName.replace(/^Water\s*·\s*/i, '').replace(/^Water\s+/i, '') || rawName;
+      if (servings.length === 0) {
+        // Unscheduled water item — still visible at the bottom of the list.
         const variants = getDisplayUnits(v);
         const def = variants.find(u => u && u.default) || variants[0];
         const fromVariant = def && (def.multiplier ?? def.unitsPerServing);
-        const ml = (typeof fromVariant === 'number' && fromVariant > 0)
-          ? fromVariant
-          : ((v.amount && typeof v.amount.value === 'number' && v.amount.value > 0) ? v.amount.value : WATER_DEFAULT_ML);
-        const rawName = v.name || k;
-        const label = rawName.replace(/^Water\s*·\s*/i, '').replace(/^Water\s+/i, '') || rawName;
-        return {
-          key: k,
-          label,
-          ml,
-          time: v.time || '',
+        const ml = (typeof fromVariant === 'number' && fromVariant > 0) ? fromVariant : WATER_DEFAULT_ML;
+        rows.push({
+          key: k, itemKey: k, slot: '',
+          label: baseLabel, ml,
+          time: '', frequency: 'daily', multiplier: ml,
           demo: !!v.demo,
-        };
-      })
-      .sort((a, b) => {
-        if (!a.time && !b.time) return 0;
-        if (!a.time) return 1;
-        if (!b.time) return -1;
-        return a.time.localeCompare(b.time);
-      });
+        });
+        continue;
+      }
+      for (const s of servings) {
+        // Each scheduled serving labels itself by its variant label, falling
+        // back to "Water · <whatever>" of the base name.
+        const slotLabel = s.label || baseLabel;
+        rows.push({
+          key: s.fullKey, itemKey: k, slot: s.slot,
+          label: slotLabel,
+          ml: s.multiplier || WATER_DEFAULT_ML,
+          time: s.time, frequency: s.frequency,
+          multiplier: s.multiplier || WATER_DEFAULT_ML,
+          isDefault: s.isDefault,
+          demo: !!v.demo,
+        });
+      }
+    }
+    rows.sort((a, b) => {
+      if (!a.time && !b.time) return 0;
+      if (!a.time) return 1;
+      if (!b.time) return -1;
+      return a.time.localeCompare(b.time);
+    });
+    return rows;
   }
 
-  function getToggleKeys() { return getSupplementSchedule().map(s => s.key); }
-  function getWaterToggleKeys() { return getWaterSchedule().map(w => w.key); }
-  function getKcalToggleKeys() { return getSupplementSchedule().filter(s => (s.kcalEach || 0) > 0).map(s => s.key); }
+  function getToggleKeys() { return getSupplementSchedule().filter(s => s.time).map(s => s.key); }
+  function getWaterToggleKeys() { return getWaterSchedule().filter(w => w.time).map(w => w.key); }
+  function getKcalToggleKeys() { return getSupplementSchedule().filter(s => s.time && (s.kcalEach || 0) > 0).map(s => s.key); }
   function getKcalForToggle(key) {
     const s = getSupplementSchedule().find(x => x.key === key);
     return (s && s.kcalEach) || 0;
@@ -5322,19 +5400,27 @@
       isDemo ? ' <span class="demo-badge">demo</span>' : '';
 
     for (const w of getWaterSchedule()) {
+      if (!w.time) continue; // unscheduled water rows hide from the checkout list
       const ml = w.ml || WATER_DEFAULT_ML;
-      const label = (w.label || w.key.replace(/^water_/, '').replace(/^demo_water_/, '').replace(/_/g, ' '));
+      const label = (w.label || w.itemKey.replace(/^water_/, '').replace(/^demo_water_/, '').replace(/_/g, ' '));
       items.push({
         type: 'water',
-        key: w.key,
-        time: w.time || '00:00',
+        key: w.key,           // compound toggle key
+        itemKey: w.itemKey,   // catalog item key for edit panel lookup
+        time: w.time,
         nameHtml: escapeHtml('Water · ' + label) + demoBadge(w.demo),
         amount: fmtAmount(ml, 'ml'),
       });
     }
     for (const s of getSupplementSchedule()) {
-      const name = s.label || s.name || s.key;
-      let nameHtml = escapeHtml(name);
+      if (!s.time) continue; // unscheduled supplements hide from the checkout list
+      // Append the serving label after the name (e.g. "Omega-3 · AM") so a
+      // multi-time supplement is visually disambiguated by serving label.
+      let displayName = s.name || s.itemKey;
+      if (s.label && s.label !== displayName) {
+        displayName = displayName + ' · ' + s.label;
+      }
+      let nameHtml = escapeHtml(displayName);
       if (s.frequency && s.frequency !== 'daily') {
         const freqLabel = s.frequency === 'alternate' ? 'every other day' : s.frequency;
         nameHtml += ' <span style="color: var(--ink-soft);">(' + escapeHtml(freqLabel) + ')</span>';
@@ -5342,8 +5428,9 @@
       nameHtml += demoBadge(s.demo);
       items.push({
         type: 'supplement',
-        key: s.key,
-        time: s.time || '',
+        key: s.key,           // compound toggle key
+        itemKey: s.itemKey,   // catalog item key for edit panel lookup
+        time: s.time,
         nameHtml,
         amount: fmtAmount(s.amount, s.unit),
       });
@@ -5361,7 +5448,8 @@
     // forcing a 7-track grid that wraps on typical viewport widths.
     container.innerHTML = items.map(it => {
       const waterAttr = it.type === 'water' ? ' data-water-toggle' : '';
-      const k = escapeHtml(it.key);
+      const k = escapeHtml(it.key);                 // compound toggle key (omega3#08:00)
+      const ik = escapeHtml(it.itemKey || it.key); // catalog item key (omega3)
       const timeAttr = it.time ? ' data-time="' + escapeHtml(it.time) + '"' : '';
       const timeCell = it.time
         ? '<span class="macro-time">' + escapeHtml(fmtClock(it.time)) + '</span>'
@@ -5376,7 +5464,7 @@
       let nutrientLine = '';
       let isSupp = false;
       if (it.type !== 'water') {
-        const item = ITEMS[it.key];
+        const item = ITEMS[it.itemKey || it.key];
         if (item) {
           isSupp = true;
           const totals = computeItemMacros(item);
@@ -5405,13 +5493,16 @@
       // used by catalog rows). Water rows stay non-expandable since there's
       // nothing to edit beyond the schedule itself.
       const expandableClass = isSupp ? ' row-expandable' : '';
+      // Edit panel is keyed off the catalog item key (itemKey), NOT the
+      // compound toggle key, so each scheduled-serving row that targets the
+      // same catalog item edits the shared catalog entry.
       const panelHtml = isSupp
-        ? '<div class="ingredient-list edit-panel" data-edit-panel data-edit-panel-key="' + k + '" hidden>' +
-            renderEditPanelHTML(it.key, ITEMS[it.key]) +
+        ? '<div class="ingredient-list edit-panel" data-edit-panel data-edit-panel-key="' + ik + '" hidden>' +
+            renderEditPanelHTML(it.itemKey || it.key, ITEMS[it.itemKey || it.key]) +
           '</div>'
         : '';
       return (
-        '<div class="checkout-row' + expandableClass + '" data-row="' + k + '" data-toggle' + timeAttr + ' data-key="' + k + '"' + waterAttr + '>' +
+        '<div class="checkout-row' + expandableClass + '" data-row="' + k + '" data-toggle' + timeAttr + ' data-key="' + k + '" data-item-key="' + ik + '"' + waterAttr + '>' +
           '<div class="control-cell"><input type="checkbox" data-check="' + k + '" aria-label="Done"></div>' +
           '<div>' +
             '<span class="checkout-item-name">' + it.nameHtml + '</span>' +
@@ -5468,7 +5559,8 @@
     list.innerHTML = supps.map(s => {
       const kcal = s.kcalEach || 0;
       const freqLabel = s.frequency === 'alternate' ? 'every other day' : (s.frequency || 'daily');
-      const name = s.name || s.label || s.key;
+      let name = s.name || s.itemKey;
+      if (s.label && s.label !== name) name = name + ' · ' + s.label;
       const amt = (s.amount && s.unit) ? (' ' + s.amount + ' ' + s.unit) : '';
       const demoBadge = s.demo ? '<span class="demo-badge">demo</span>' : '';
       return (
@@ -5480,7 +5572,7 @@
           '<span class="supp-time">' + escapeHtml(s.time || '') + '</span>' +
           '<span class="supp-freq">' + escapeHtml(freqLabel) + '</span>' +
           '<span class="supp-kcal' + (kcal ? '' : ' zero') + '">' + kcal + ' kcal</span>' +
-          '<button type="button" class="supp-delete" data-supp-delete="' + escapeHtml(s.key) + '" aria-label="Delete">×</button>' +
+          '<button type="button" class="supp-delete" data-supp-delete="' + escapeHtml(s.itemKey) + '" data-supp-slot="' + escapeHtml(s.slot || '') + '" aria-label="Delete">×</button>' +
         '</div>'
       );
     }).join('');
@@ -5521,14 +5613,15 @@
       if (!CATEGORIES.some(c => c.key === 'supplements')) {
         CATEGORIES.push({ key: 'supplements', label: 'Supplements' });
       }
+      // v6.5+: schedule lives on the displayUnit, not the item. New
+      // supplements added through this form get one scheduled serving by
+      // default; user can add more in the catalog editor.
       ITEMS[key] = {
         name,
         category: 'supplements',
         amount: { value: 1, unit: 'pill' },
-        displayUnits: [{ label: '1 pill', multiplier: 1, default: true }],
+        displayUnits: [{ label: '1 pill', multiplier: 1, default: true, time, frequency }],
         kcal: kcalEach, p: 0, sf: 0, water: 0, caffeine: 0,
-        time,
-        frequency,
       };
       // Reset form
       nameEl.value = '';
@@ -5544,17 +5637,49 @@
     list.addEventListener('click', (ev) => {
       const btn = ev.target.closest('[data-supp-delete]');
       if (!btn) return;
-      const key = btn.getAttribute('data-supp-delete');
-      if (!ITEMS[key]) return;
-      const suppName = (ITEMS[key] && ITEMS[key].name) || key;
-      if (!confirm('Delete supplement "' + suppName + '"? This also clears its check-history across every day.')) return;
-      delete ITEMS[key];
-      // Also clear any toggle state for this key across days so an orphaned
-      // checked entry doesn't keep contributing to history's supplements count
-      // or kcal totals.
-      for (const dk in state.days) {
-        if (state.days[dk].toggles && state.days[dk].toggles[key] !== undefined) {
-          delete state.days[dk].toggles[key];
+      const itemKey = btn.getAttribute('data-supp-delete');
+      const slot = btn.getAttribute('data-supp-slot') || '';
+      const item = ITEMS[itemKey];
+      if (!item) return;
+      // Count scheduled servings to decide between "remove this serving"
+      // and "delete the whole catalog item." Per-serving deletion fires when
+      // the item has more than one scheduled slot; full deletion fires when
+      // this is the last (or only) scheduled serving.
+      const allServings = getScheduledServings(item, itemKey);
+      const isLastServing = allServings.length <= 1;
+      const suppName = item.name || itemKey;
+      if (isLastServing) {
+        if (!confirm('Delete supplement "' + suppName + '"? This also clears its check-history across every day.')) return;
+        delete ITEMS[itemKey];
+        // Clear toggle state for the bare key AND any compound `${itemKey}#...` keys.
+        const compoundPrefix = itemKey + '#';
+        for (const dk in state.days) {
+          const togs = state.days[dk].toggles || {};
+          for (const tk of Object.keys(togs)) {
+            if (tk === itemKey || tk.startsWith(compoundPrefix)) delete togs[tk];
+          }
+        }
+      } else {
+        if (!confirm('Remove the ' + slot + ' serving of "' + suppName + '"? Other scheduled times keep their history; the ' + slot + ' toggle history is cleared.')) return;
+        // Remove just the matching scheduled-serving variant from displayUnits.
+        const variants = getDisplayUnits(item).slice();
+        const idx = variants.findIndex(v => v && v.time === slot);
+        if (idx >= 0) {
+          variants.splice(idx, 1);
+          // Strip the per-variant mirror fields so storage stays canonical.
+          for (const v of variants) { if (v) delete v.unitsPerServing; }
+          item.displayUnits = variants;
+          // Ensure exactly one default remains.
+          if (!variants.some(v => v && v.default) && variants.length > 0) {
+            variants[0].default = true;
+          }
+        }
+        // Clear toggle history for the compound key only.
+        const compoundKey = itemKey + '#' + slot;
+        for (const dk in state.days) {
+          if (state.days[dk].toggles && state.days[dk].toggles[compoundKey] !== undefined) {
+            delete state.days[dk].toggles[compoundKey];
+          }
         }
       }
       saveState();
@@ -6059,8 +6184,12 @@
       }
       const toggles = [];
       for (const sup of getSupplementSchedule()) {
+        if (!sup.time) continue;
         if (bucket.toggles[sup.key]) {
-          const supName = sup.label || sup.name || sup.key;
+          // Multi-time supplement: append the serving label so "Omega-3 · AM",
+          // "Omega-3 · Lunch", "Omega-3 · PM" each show distinctly.
+          let supName = sup.name || sup.itemKey;
+          if (sup.label && sup.label !== supName) supName = supName + ' · ' + sup.label;
           const supAmt = (sup.amount && sup.unit) ? (sup.amount + ' ' + sup.unit) : '';
           toggles.push({
             name: supName,
@@ -6071,9 +6200,10 @@
         }
       }
       for (const w of getWaterSchedule()) {
+        if (!w.time) continue;
         if (bucket.toggles[w.key]) {
           const ml = w.ml || WATER_DEFAULT_ML;
-          const wLabel = w.label || w.key.replace(/^demo_/, '').replace(/^water_/, '').replace(/_/g, ' ');
+          const wLabel = w.label || w.itemKey.replace(/^demo_/, '').replace(/^water_/, '').replace(/_/g, ' ');
           toggles.push({
             name: 'Water · ' + wLabel,
             amount: ml + ' ml',
@@ -6592,22 +6722,24 @@
       if (!n) continue;
       for (const k of STORED_NUTRIENT_KEYS) t[k] += (c[k] || 0) * n;
     }
-    // Water toggles: each checked entry adds its `ml` (= grams for water)
+    // Water toggles: each checked entry adds its per-serving `ml`. Multi-time
+    // water items contribute one ml-pour per checked scheduled serving.
     for (const w of getWaterSchedule()) {
+      if (!w.time) continue;
       if (s.toggles && s.toggles[w.key]) t.water += (w.ml || WATER_DEFAULT_ML);
     }
-    // Supplement toggles — when checked, add the "default" variant's macros.
-    // displayUnits is stored DESC by size, so [0] is the largest variant;
-    // pick the explicit default if one exists (matches the water schedule's
-    // canonical-pick logic) so multi-variant supps don't toggle the largest
-    // serving by accident.
+    // Supplement toggles — each checked scheduled serving adds that serving's
+    // per-native macros × the serving's `multiplier`. Each scheduled serving
+    // can have its own size, so we read multiplier off the schedule row rather
+    // than always using the catalog's default variant.
     for (const sup of getSupplementSchedule()) {
+      if (!sup.time) continue;
       if (!(s.toggles && s.toggles[sup.key])) continue;
-      const item = ITEMS[sup.key];
+      const item = ITEMS[sup.itemKey];
       if (!item) continue;
-      const variants = getDisplayUnits(item);
-      const canon = variants.find(v => v && v.default) || variants[0] || { unitsPerServing: 0 };
-      const m = scaleByNative(item, canon.unitsPerServing || 0);
+      const units = (typeof sup.multiplier === 'number' && sup.multiplier > 0) ? sup.multiplier : 0;
+      if (!units) continue;
+      const m = scaleByNative(item, units);
       for (const k of STORED_NUTRIENT_KEYS) t[k] += (m[k] || 0);
     }
     return t;
@@ -8372,7 +8504,7 @@
   // radio so multiple items' editors don't share a group. `unitOptionsHtml`
   // is the per-item unit dropdown content (precomputed by the parent block
   // because it depends on whether density is set).
-  function variantEditRow(variant, primUnit, defaultGroup, unitOptionsHtml) {
+  function variantEditRow(variant, primUnit, defaultGroup, unitOptionsHtml, opts) {
     const label = (variant && variant.label) ? variant.label : '';
     const isDefault = !!(variant && variant.default);
     const multiplier = variant && typeof variant.unitsPerServing === 'number' ? variant.unitsPerServing : 0;
@@ -8388,6 +8520,26 @@
       new RegExp('value="' + unit.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&') + '"', 'i'),
       'value="' + unit + '" selected'
     );
+    // v6.5: per-serving schedule. Supplement and water items get a time +
+    // frequency pair per serving so a single item can hold multiple
+    // scheduled servings (e.g. Omega-3 AM / Lunch / PM). Other categories
+    // skip the schedule fields entirely.
+    const showSchedule = !!(opts && opts.showSchedule);
+    const rowTime = (variant && variant.time) ? variant.time : '';
+    const rowFreq = (variant && variant.frequency) ? variant.frequency : 'daily';
+    const scheduleFields = showSchedule
+      ? '<div class="variant-edit-field" style="flex:0 1 110px;">' +
+          '<label class="variant-edit-fieldlabel">Time</label>' +
+          '<input type="time" data-variant-field="time" value="' + escapeHtml(rowTime) + '" />' +
+        '</div>' +
+        '<div class="variant-edit-field" style="flex:0 1 130px;">' +
+          '<label class="variant-edit-fieldlabel">Frequency</label>' +
+          '<select data-variant-field="frequency">' +
+            '<option value="daily"' + (rowFreq === 'daily' ? ' selected' : '') + '>daily</option>' +
+            '<option value="alternate"' + (rowFreq === 'alternate' ? ' selected' : '') + '>every other day</option>' +
+          '</select>' +
+        '</div>'
+      : '';
     return (
       '<div class="variant-edit-row" data-variant-row>' +
         '<label class="variant-edit-default-wrap" title="Pick the default serving (the one shown when the row is collapsed)">' +
@@ -8406,6 +8558,7 @@
           '<label class="variant-edit-fieldlabel">Label</label>' +
           '<input type="text" data-variant-field="label" placeholder="e.g. 1/2 tub, medium size" value="' + escapeHtml(label) + '" />' +
         '</div>' +
+        scheduleFields +
         '<button type="button" class="variant-delete" data-variant-delete aria-label="Remove serving size">×</button>' +
       '</div>'
     );
@@ -8453,8 +8606,28 @@
       .concat(nativeUnits.map(u => '<option value="' + u + '">' + fmt(u) + '</option>'))
       .concat(crossUnits.map(u => '<option value="' + u + '"' + (hasDensity ? '' : ' disabled') + '>' + fmt(u) + (hasDensity ? '' : ' (set density)') + '</option>'))
       .join('');
+    // Supplements + water get per-serving schedule fields on each row.
+    // Other categories edit the schedule (if any) at the item level.
+    const showRowSchedule = (item.category === 'supplements' || item.category === 'water');
+    // Legacy fallback: if an unmigrated supplement still has item.time and
+    // none of its variants do, pre-fill the default variant's time/freq in
+    // the rendered form so the schedule isn't dropped when the user saves.
+    // The pre-fill only affects the rendered HTML — storage migrates once
+    // the user clicks save. Clone the variant first so we don't accidentally
+    // mutate the live ITEMS object before the user commits.
+    for (let i = 0; i < variants.length; i++) {
+      variants[i] = Object.assign({}, variants[i]);
+    }
+    if (showRowSchedule && item.time && !variants.some(v => v && v.time)) {
+      const def = variants.find(v => v && v.default) || variants[0];
+      if (def) {
+        def.time = item.time;
+        if (item.frequency) def.frequency = item.frequency;
+      }
+    }
+    const rowOpts = { showSchedule: showRowSchedule };
     // Now that optHtml exists, build the per-row HTML using it.
-    const rowsHtml = variants.map(v => variantEditRow(v, prim, defGroup, optHtml)).join('');
+    const rowsHtml = variants.map(v => variantEditRow(v, prim, defGroup, optHtml, rowOpts)).join('');
     const crossLabel = (prim === 'g') ? 'volume' : 'mass';
     const crossExamples = (prim === 'g') ? 'ml, cup, tbsp, …' : 'g, oz, lb';
     // Inverse density for the second textbox: ml per g = 1 / (g per ml).
@@ -8880,11 +9053,16 @@
     // "preserve" flag (default true) — when false the recipe behaves like
     // a custom: visible only on the day it was logged and in that day's
     // history, hidden from the catalog on other days.
-    const hasSchedule = true;
+    // v6.5+: supplement + water items schedule per-serving (via each
+    // displayUnit's time/frequency); the item-level schedule block is
+    // suppressed for those categories. Recipes/foods keep the item-level
+    // schedule for whole-day meal planning.
+    const isSupplement = (item.category === 'supplements');
+    const isWaterItem = (item.category === 'water');
+    const hasSchedule = !(isSupplement || isWaterItem);
     const schedTime = item.time || '';
     const schedFreq = item.frequency || 'daily';
-    const isSupplement = (item.category === 'supplements');
-    const schedTimeLabelExtra = isSupplement ? '' : ' <span class="edit-panel-hint">optional</span>';
+    const schedTimeLabelExtra = ' <span class="edit-panel-hint">optional</span>';
     const preserveChecked = (item.preserve === false) ? '' : ' checked';
     const recipePreserveRow = isRecipe
       ? '<div class="edit-panel-row">' +
@@ -9062,7 +9240,16 @@
     {
       const varRows = panel.querySelectorAll('[data-variant-row]');
       if (varRows.length > 0) {
+        const isScheduleCategory = (item.category === 'supplements' || item.category === 'water');
         const newUnits = [];
+        // Track schedule times to enforce uniqueness across rows. Same-time
+        // (whether the same serving size or not) collapses into a single
+        // serving — block the second occurrence with a user-facing alert.
+        const seenTimes = new Set();
+        // Track (amount, time, frequency) tuples to detect fully-duplicate
+        // unscheduled rows too (same amount, no time set on either).
+        const seenTuples = new Set();
+        let dupErr = null;
         varRows.forEach(row => {
           const labelEl  = row.querySelector('[data-variant-field="label"]');
           const amountEl = row.querySelector('[data-variant-field="amount"]');
@@ -9070,10 +9257,29 @@
           // Backwards compat: a legacy "size" field reads as Amount in native units.
           const sizeEl   = row.querySelector('[data-variant-field="size"]');
           const radio   = row.querySelector('[data-variant-default-radio]');
+          const timeEl  = row.querySelector('[data-variant-field="time"]');
+          const freqEl  = row.querySelector('[data-variant-field="frequency"]');
           const label   = labelEl  ? (labelEl.value || '').trim() : '';
           const rawAmt  = parseFloat((amountEl || sizeEl || {}).value);
           const unit    = unitEl ? (unitEl.value || '').trim().toLowerCase() : primaryUnit(item);
+          const rowTime = timeEl ? (timeEl.value || '').trim() : '';
+          const rowFreq = freqEl ? (freqEl.value || 'daily') : 'daily';
           if (!isFinite(rawAmt) || rawAmt <= 0) return;
+          // Validation: same time can't appear twice on the same item.
+          if (isScheduleCategory && rowTime) {
+            if (seenTimes.has(rowTime)) {
+              dupErr = 'Two scheduled servings share the time ' + rowTime + ' — set a different time, or remove one of the rows.';
+              return;
+            }
+            seenTimes.add(rowTime);
+          }
+          // Validation: fully-duplicated (amount, time, frequency) is rejected.
+          const tupleKey = rawAmt + '|' + unit + '|' + rowTime + '|' + rowFreq;
+          if (seenTuples.has(tupleKey)) {
+            dupErr = 'Two serving rows are identical (' + rawAmt + ' ' + unit + (rowTime ? ' @ ' + rowTime : '') + ') — remove one or change the amount/time.';
+            return;
+          }
+          seenTuples.add(tupleKey);
           // Convert (amount, unit) → native units (g/ml). Density-aware via
           // convertToPrimary; falls back to raw amount if the conversion
           // returns null (cross-family without density), so the row still
@@ -9095,8 +9301,17 @@
             unit,
           };
           if (radio && radio.checked) entry.default = true;
+          // v6.5+: per-serving schedule fields on supplement/water variants.
+          if (isScheduleCategory && rowTime) {
+            entry.time = rowTime;
+            entry.frequency = rowFreq;
+          }
           newUnits.push(entry);
         });
+        if (dupErr) {
+          alert(dupErr);
+          return;
+        }
         // Always keep at least one variant — if the user emptied the list,
         // fall back to a synthetic '1 g' so the catalog row can render.
         if (newUnits.length === 0) newUnits.push({ label: 'g', unitsPerServing: 1 });
@@ -9300,9 +9515,15 @@
       delete item.notes;
     }
 
-    // Schedule fields apply to any item. Blank time clears the schedule
-    // entirely; non-blank persists the new value.
-    {
+    // Schedule fields. For supplements/water the schedule lives on each
+    // displayUnit (per-serving), so the item-level schedule fields aren't
+    // rendered — strip any legacy item.time/frequency so the migrated
+    // schema stays clean. For other categories (recipes etc.) keep the
+    // item-level schedule semantics.
+    if (item.category === 'supplements' || item.category === 'water') {
+      delete item.time;
+      delete item.frequency;
+    } else {
       const t = (get('supp-time') || '').trim();
       const f = (get('supp-frequency') || '').trim();
       if (t) {
@@ -10712,9 +10933,10 @@
           .concat(crossUnits.map(u => '<option value="' + u + '"' + (hasDensity ? '' : ' disabled') + '>' + fmt(u) + (hasDensity ? '' : ' (set density)') + '</option>'))
           .join('');
         const defGroup = 'variant-default-' + (key || 'item');
+        const showSchedule = (item.category === 'supplements' || item.category === 'water');
         const newRowHtml = variantEditRow(
           { label: newLabel, unitsPerServing: newAmt, unit: dUnit, amount: newAmt, default: false },
-          prim, defGroup, optHtml
+          prim, defGroup, optHtml, { showSchedule }
         );
         list.insertAdjacentHTML('beforeend', newRowHtml);
         return;
@@ -10740,9 +10962,10 @@
           .concat(crossUnits.map(u => '<option value="' + u + '"' + (hasDensity ? '' : ' disabled') + '>' + fmt(u) + (hasDensity ? '' : ' (set density)') + '</option>'))
           .join('');
         const defGroup = 'variant-default-' + (key || 'item');
+        const showSchedule = (item.category === 'supplements' || item.category === 'water');
         const blankRow = variantEditRow(
           { label: '', unitsPerServing: 0, unit: prim, amount: 0, default: false },
-          prim, defGroup, optHtml
+          prim, defGroup, optHtml, { showSchedule }
         );
         list.insertAdjacentHTML('beforeend', blankRow);
         return;
