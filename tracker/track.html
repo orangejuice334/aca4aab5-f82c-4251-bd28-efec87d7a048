@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.3.1">
+<meta name="app-version" content="v6.3.2">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -711,7 +711,12 @@
     border: 1px solid var(--rule);
     border-radius: 4px;
     margin: 4px 0;
-    background: rgba(255, 255, 255, 0.5);
+    /* No outer background — was rgba(255,255,255,0.5) which acted as a
+       50% white wash on top of the inner row's ratio color. That caused
+       variant groups to render visibly LIGHTER than single-variant items
+       at the same kcal/p ratio, breaking the gradient when adjacent rows
+       mixed both types. The 1 px rule border below already provides the
+       grouping cue without altering color saturation. */
   }
   .variant-group .checkout-row {
     background: transparent;
