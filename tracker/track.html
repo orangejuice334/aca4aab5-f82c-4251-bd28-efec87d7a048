@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.2.0">
+<meta name="app-version" content="v6.2.1">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -767,11 +767,15 @@
   }
   /* Match the rest of the editor (mono, paper bg, rule border, rust on
      focus) for both the variant size/name inputs and any other plain
-     inputs that escaped the more specific .edit-panel-row rules. */
+     inputs that escaped the more specific .edit-panel-row rules. Explicit
+     height keeps the Name field a single line regardless of how the parent
+     flex container stretches. */
   .variant-edit-row input[type="text"],
   .variant-edit-row input[type="number"] {
     box-sizing: border-box;
     padding: 5px 8px;
+    height: 26px;
+    line-height: 1;
     border: 1px solid var(--rule);
     border-radius: 2px;
     font-family: 'JetBrains Mono', monospace;
@@ -7413,17 +7417,23 @@
     // Target = Infinity (e.g. protein goal is 0) → ratio comparisons lose
     // meaning; render every row neutral so the color signal stays honest.
     if (!Number.isFinite(target) || target <= 0) return 'transparent';
+    // Null / NaN / non-finite ratio → no meaningful k/g P value (zero-
+    // everything items: empty recipes, "free" entries, etc.). White row.
+    if (ratio == null || !Number.isFinite(ratio)) return 'transparent';
     if (ratio <= target) {
       // Square-root curve so middling-good ratios (e.g. 4.17 vs target 8.97)
       // already read as clearly green instead of pale wash. Pure water and
-      // other 0-ratio items max out at strong green.
+      // other 0-ratio items max out at strong green. The alpha range now
+      // widens to 0.08..0.60 (was 0.06..0.56) so adjacent rows at close
+      // ratios still differ visibly instead of all rounding to a similar
+      // washed tint.
       const t = Math.max(0, Math.min(1, 1 - ratio / target));
-      const alpha = (0.06 + Math.sqrt(t) * 0.50).toFixed(3);
+      const alpha = (0.08 + Math.sqrt(t) * 0.52).toFixed(3);
       return `hsla(135, 65%, 45%, ${alpha})`;
     }
     const t = Math.max(0, Math.min(1, (ratio - target) / (2 * target)));
     const hue = (30 - t * 20).toFixed(0);
-    const alpha = (0.06 + t * 0.26).toFixed(3);
+    const alpha = (0.08 + t * 0.32).toFixed(3);
     return `hsla(${hue}, 75%, 50%, ${alpha})`;
   }
 
@@ -7510,8 +7520,12 @@
   function ratioFor(it) {
     if (!it) return Infinity;
     const m = computeItemMacros(it);
+    // Zero-everything items (empty recipes, water with no macros, "free"
+    // entries) have no meaningful k/g P ratio. Return null so renderers can
+    // distinguish them from "perfect ratio" (which would saturate green) and
+    // give them a neutral / white row instead.
+    if ((m.p || 0) === 0 && (m.kcal || 0) === 0) return null;
     if (m.p > 0) return m.kcal / m.p;
-    if ((m.kcal || 0) === 0) return 0;
     return Infinity;
   }
 
