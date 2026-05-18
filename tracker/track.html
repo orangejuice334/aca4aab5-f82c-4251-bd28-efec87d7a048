@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.1.2">
+<meta name="app-version" content="v6.1.3">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -3704,7 +3704,7 @@
     </fieldset>
 
     <fieldset class="profile-fieldset profile-supps">
-      <legend>Supplements</legend>
+      <legend>Supplements and liquids</legend>
       <div class="supps-list" id="supps-list"></div>
       <div class="supps-add" id="supps-add">
         <input type="text" id="supp-new-name" placeholder="Name (e.g. Magnesium glycinate)" maxlength="80" />
@@ -3784,7 +3784,7 @@
     </div>
 
     <div class="checkout-group" data-group-key="supplements-water">
-      <div class="checkout-group-header">Supplements & Scheduled Water</div>
+      <div class="checkout-group-header">Supplements and liquids</div>
       <div id="supplements-water-rows"></div>
     </div>
 
@@ -4450,13 +4450,13 @@
   const WATER_DEFAULT_ML = 500;
 
   function getSupplementSchedule() {
-    // Read supplement entries directly from the catalog. Each entry exposes
-    // its key alongside the catalog fields so downstream consumers (renderers,
-    // toggle handlers) get the same shape as before. Sorted by time so the
+    // Read supplement AND water (scheduled-liquid) entries from the catalog.
+    // Both show up as time-scheduled rows in the profile editor and the
+    // checkout "Supplements and liquids" group. Sorted by time so the
     // checkout list keeps its time-of-day ordering. Items with no time set
     // sort to the bottom and never flag as past-due (no data-time).
     return Object.entries(ITEMS || {})
-      .filter(([k, v]) => v && v.category === 'supplements' && !v.archived)
+      .filter(([k, v]) => v && (v.category === 'supplements' || v.category === 'water') && !v.archived)
       .map(([k, v]) => ({
         key: k,
         name: v.name || k,
@@ -7056,7 +7056,7 @@
       out.push('</ul></div>');
     }
     if (h.details.toggles.length) {
-      out.push('<div class="hd-section"><h4>Supplements &amp; Water</h4><ul class="hd-list">');
+      out.push('<div class="hd-section"><h4>Supplements and liquids</h4><ul class="hd-list">');
       for (const t of h.details.toggles) {
         const amtSpan = t.amount
           ? ' <span class="checkout-item-amount">' + escapeHtml(t.amount) + '</span>'
