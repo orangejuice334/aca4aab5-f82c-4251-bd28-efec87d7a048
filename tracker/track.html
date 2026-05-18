@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.2.2">
+<meta name="app-version" content="v6.2.3">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -7402,33 +7402,89 @@
     return sizeInName ? ' · ' + label : ' · ' + label + ' (' + sizeStr + ')';
   }
 
+  // For a recipe: sum every ingredient's effective mass. Returns
+  // { grams, approximate } where approximate=true if any ingredient is
+  // measured in a volume unit (ml) without a density on its source — we then
+  // approximate ml ≈ 1 g/ml. Mass-measured ingredients (amount in g) are
+  // exact. Used by formatItemDisplayName to append "(N g)" or "(N g*)" to a
+  // recipe title.
+  function recipeTotalGramsDisplay(item) {
+    if (!item || !Array.isArray(item.ingredients) || !item.ingredients.length) {
+      return { grams: 0, approximate: false };
+    }
+    let grams = 0;
+    let approximate = false;
+    for (const ing of item.ingredients) {
+      if (!ing) continue;
+      const src = ing.itemKey ? ITEMS[ing.itemKey] : null;
+      const srcIsVolume = src && getDefaultMeasuredIn(src) === 'ml';
+      const srcDensity = src && typeof src.density_g_per_ml === 'number' && src.density_g_per_ml > 0
+        ? src.density_g_per_ml : null;
+      let raw = 0;
+      if (typeof ing.amount === 'number' && ing.amount > 0) raw = ing.amount;
+      else if (typeof ing.multiplier === 'number' && ing.multiplier > 0 && src) {
+        const srcCanon = getDisplayUnits(src)[0];
+        raw = ing.multiplier * ((srcCanon && srcCanon.unitsPerServing) || 0);
+      }
+      if (!raw) continue;
+      if (srcIsVolume) {
+        if (srcDensity) grams += raw * srcDensity;
+        else { grams += raw; approximate = true; }
+      } else {
+        grams += raw;
+      }
+    }
+    return { grams: Math.round(grams), approximate };
+  }
+
+  // Build the human-readable display string for an item. Composes:
+  //   <name> (<brand>)                                  if brand set
+  //   <name> (<amount-parens>)                           if amount is set (legacy items)
+  //   <name> (<brand> · <amount-parens>)                 brand + amount
+  //   <recipe name> (<grams> g)                          recipes: total ingredient grams
+  //   <recipe name> (<grams> g*)                         recipes with any volume-no-density ing
+  //   <recipe name> (<brand> · <grams> g)                recipes with brand
   function formatItemDisplayName(item) {
     const name = (item && item.name) || '';
+    const brand = (item && typeof item.brand === 'string' && item.brand.trim()) ? item.brand.trim() : '';
+    const isRecipe = item && item.category === 'recipes' && Array.isArray(item.ingredients) && item.ingredients.length;
+    const parts = [];
+    if (brand) parts.push(brand);
+
+    if (isRecipe) {
+      const { grams, approximate } = recipeTotalGramsDisplay(item);
+      if (grams > 0) parts.push(grams + ' g' + (approximate ? '*' : ''));
+      return parts.length ? name + ' (' + parts.join(' · ') + ')' : name;
+    }
+
     const amt = item && item.amount;
-    // No useful amount info → name alone. v5 items keep displayUnits and
-    // often only have `amount.unit` (e.g. 'g') as a defaultMeasuredIn shadow; that
-    // alone is meaningless for a label, so skip it too.
-    if (!amt || (!amt.value && !amt.label)) return name;
+    // No useful amount info → name (+ brand if set). v5 items keep displayUnits
+    // and often only have `amount.unit` (e.g. 'g') as a defaultMeasuredIn
+    // shadow; that alone is meaningless for a label, so skip it too.
+    if (!amt || (!amt.value && !amt.label)) {
+      return parts.length ? name + ' (' + parts.join(' · ') + ')' : name;
+    }
     const v = amt.value;
     const u = amt.unit || '';
     const lbl = amt.label || '';
-    let parens;
+    let amountParens;
     if (lbl && v && u) {
-      parens = lbl + ' / ' + fmt1(v) + ' ' + u;
+      amountParens = lbl + ' / ' + fmt1(v) + ' ' + u;
     } else if (lbl) {
-      parens = lbl;
+      amountParens = lbl;
     } else if (v && u) {
-      parens = fmt1(v) + ' ' + u;
+      amountParens = fmt1(v) + ' ' + u;
     } else {
-      parens = fmt1(v);
+      amountParens = fmt1(v);
     }
     // For ml amounts without an explicit label, append a tsp/tbsp/cup
     // companion so the volume is human-readable.
     if (!lbl && u && u.toLowerCase() === 'ml' && v) {
       const comp = formatVolumeCompanion(v);
-      if (comp) parens += ' · ≈' + comp;
+      if (comp) amountParens += ' · ≈' + comp;
     }
-    return name + ' (' + parens + ')';
+    parts.push(amountParens);
+    return name + ' (' + parts.join(' · ') + ')';
   }
 
   // Map a kcal/g-protein ratio to a background color on a green→orange→red gradient,
@@ -8711,10 +8767,21 @@
       : '';
 
     return (
-      // Name
+      // Name + Brand. Brand is its own property; when set, it renders as
+      // "Name (Brand)" in catalog rows / history / labels via
+      // formatItemDisplayName. For recipes the brand combines with the
+      // computed total grams: "Name (Brand · 3040 g)".
       '<div class="edit-panel-row">' +
-        '<label>Name</label>' +
-        '<input type="text" data-edit-field="name" value="' + escapeHtml(item.name || '') + '" />' +
+        '<div class="ing-amount-row">' +
+          '<div class="ing-field-labeled" style="flex:1 1 200px;">' +
+            '<label>Name</label>' +
+            '<input type="text" data-edit-field="name" value="' + escapeHtml(item.name || '') + '" />' +
+          '</div>' +
+          '<div class="ing-field-labeled" style="flex:1 1 140px;">' +
+            '<label>Brand <span class="edit-panel-hint">optional</span></label>' +
+            '<input type="text" data-edit-field="brand" placeholder="e.g. Premier" value="' + escapeHtml(item.brand || '') + '" />' +
+          '</div>' +
+        '</div>' +
       '</div>' +
 
       supplementBlock +
@@ -8836,6 +8903,14 @@
 
     const newName = (get('name') || '').trim();
     if (newName) item.name = newName;
+    // Brand is optional. Blank input clears the field; non-blank stores the
+    // trimmed value. formatItemDisplayName renders "Name (Brand)" when set.
+    const brandEl = panel.querySelector('[data-edit-field="brand"]');
+    if (brandEl) {
+      const brandVal = (brandEl.value || '').trim();
+      if (brandVal) item.brand = brandVal;
+      else delete item.brand;
+    }
 
     // Measurement mode (g / ml / units) is mandatory and auto-derived from
     // the serving unit. Recipes are special — they're always computed from
