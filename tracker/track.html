@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.2.1">
+<meta name="app-version" content="v6.2.2">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -1306,7 +1306,6 @@
     gap: 10px;
     padding: 10px 12px;
     align-items: center;
-    border-bottom: 1px solid var(--rule);
     position: relative;
   }
   @media (max-width: 600px) {
@@ -2047,8 +2046,6 @@
   .checkout-row[data-counter] > div:not(.counter-control):not(:empty) {
     grid-column: 2;
   }
-
-  .checkout-row:last-child { border-bottom: none; }
 
   .checkout-row.flagged {
     background: rgba(120, 50, 200, 0.34) !important;
@@ -5966,8 +5963,7 @@
         let m;
         if (catItem) {
           if (catItem.category === 'recipes' && Array.isArray(catItem.ingredients) && catItem.ingredients.length) {
-            const canon = getDisplayUnits(catItem)[0];
-            const canonUnits = canon.unitsPerServing || 1;
+            const canonUnits = recipeCanonicalGrams(catItem);
             const batch = computeItemMacros(catItem);
             const factor = n / canonUnits;
             m = {};
@@ -6504,10 +6500,9 @@
       if (!item) continue;
       const units = getCounterNative(item, counter);
       // Recipes compute via their ingredients list, scaled by the
-      // ratio of units_consumed / canonical_recipe_units.
+      // ratio of units_consumed / recipeCanonicalGrams (sum of ingredient grams).
       if (item.category === 'recipes' && Array.isArray(item.ingredients) && item.ingredients.length) {
-        const canon = getDisplayUnits(item)[0];
-        const canonUnits = canon.unitsPerServing || 1;
+        const canonUnits = recipeCanonicalGrams(item);
         const recipeBatch = computeItemMacros(item); // sum of ingredients = one batch
         const factor = units / canonUnits;
         for (const k of STORED_NUTRIENT_KEYS) t[k] += (recipeBatch[k] || 0) * factor;
@@ -7338,6 +7333,32 @@
     return scaleByNative(item, canon.unitsPerServing || 0);
   }
 
+  // Canonical scale for a recipe = total grams resolved from its ingredients
+  // (amount field, or multiplier × source's first variant). When you log "N
+  // native units" of a recipe, the macros scale as (N / recipeCanonicalGrams)
+  // × full-batch-macros. Using ingredient-sum here instead of
+  // displayUnits[0].multiplier lets a recipe have a single displayUnit (e.g.
+  // "1 serving (1/12 slab)" = 253 g) and still get correct per-serving math
+  // — 253 / 3040 = 1/12 of the batch.
+  function recipeCanonicalGrams(item) {
+    if (!item || !Array.isArray(item.ingredients) || !item.ingredients.length) return 1;
+    let sum = 0;
+    for (const ing of item.ingredients) {
+      if (!ing) continue;
+      if (typeof ing.amount === 'number' && ing.amount > 0) {
+        sum += ing.amount;
+        continue;
+      }
+      if (typeof ing.multiplier === 'number' && ing.multiplier > 0) {
+        const src = ITEMS[ing.itemKey];
+        if (!src) continue;
+        const srcCanon = getDisplayUnits(src)[0];
+        sum += ing.multiplier * ((srcCanon && srcCanon.unitsPerServing) || 0);
+      }
+    }
+    return sum > 0 ? sum : 1;
+  }
+
   // Build the human-readable display string for an item: combines the bare
   // stored name with a parenthetical derived from amount fields. The stored
   // name should be just the food (e.g., "Almonds"); everything else is
@@ -7445,8 +7466,7 @@
     let m;
     if (typeof gramsOverride === 'number' && gramsOverride > 0) {
       if (item && item.category === 'recipes' && Array.isArray(item.ingredients) && item.ingredients.length) {
-        const canon = getDisplayUnits(item)[0];
-        const canonG = canon.unitsPerServing || 1;
+        const canonG = recipeCanonicalGrams(item);
         const batch = computeItemMacros(item);
         const factor = gramsOverride / canonG;
         m = {};
