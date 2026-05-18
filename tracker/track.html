@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.1">
+<meta name="app-version" content="v6.5.2">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -761,8 +761,27 @@
     align-items: center;
     gap: 6px;
     flex-wrap: wrap;
+    padding: 5px 0;
+  }
+  .variant-edit-row + .variant-edit-row {
+    border-top: 1px dashed rgba(0,0,0,0.06);
   }
   .variant-edit-row .variant-delete { align-self: flex-end; }
+  /* The default-radio cluster sits at the LEFT and needs to line up with
+     the input row, not the per-cell label-header row above the inputs.
+     Each cell has a ~10px label header + a 1px gap + the 28px input; push
+     the radio cluster down by ~11px so its center matches the input box
+     center, not the cell's vertical center. */
+  .variant-edit-row .variant-edit-default-wrap { align-self: flex-end; margin-bottom: 7px; }
+  /* Cap the whole serving-size list at a comfortable reading width so it
+     doesn't stretch across an ultrawide monitor. Each input cell also
+     enforces a sensible max so a single LABEL field can't balloon. */
+  .variant-edit-list {
+    max-width: 720px;
+  }
+  .variant-edit-row input[type="number"] { max-width: 110px; }
+  .variant-edit-row input[type="text"]   { max-width: 240px; }
+  .variant-edit-row select                { max-width: 140px; }
   .variant-edit-row input[data-variant-field="label"] {
     flex: 1 1 140px;
     min-width: 100px;
@@ -896,6 +915,35 @@
     background: var(--rust);
     color: var(--paper);
     border-color: var(--rust);
+  }
+  /* Always-visible "Add new serving size" pending row. Lighter background
+     + dashed top border so it reads as a draft, not a saved row. */
+  .variant-edit-row-pending {
+    background: rgba(176, 74, 46, 0.06);
+    border-top: 1px dashed var(--ink-faint);
+    margin-top: 4px;
+    padding-top: 6px;
+  }
+  .variant-pending-add-btn {
+    flex: 0 0 auto;
+    padding: 0 14px;
+    height: 28px;
+    min-width: 56px;
+    border: 1px solid var(--rust);
+    background: var(--rust);
+    color: var(--paper);
+    cursor: pointer;
+    border-radius: 2px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+    box-sizing: border-box;
+    align-self: flex-end;
+  }
+  .variant-pending-add-btn:hover {
+    background: var(--rust-deep);
+    border-color: var(--rust-deep);
   }
   .variant-quick-add {
     display: flex;
@@ -8599,6 +8647,23 @@
     );
   }
 
+  // Always-visible "pending add" row: same layout as a saved variant row,
+  // pre-populated with the default variant's amount/unit/label so the most
+  // common case (slight tweak of the default) is one-click. Marked with
+  // `data-variant-pending-row` so saveExpandedEdits ignores it. The button
+  // at the right is "Add" instead of "×".
+  function variantPendingAddRow(seedVariant, primUnit, defaultGroup, unitOptionsHtml, opts) {
+    const inner = variantEditRow(seedVariant, primUnit, defaultGroup, unitOptionsHtml, opts);
+    // Swap the row's data attribute + the trailing × button for an Add button.
+    // The variantEditRow output is a `<div class="variant-edit-row" data-variant-row>...×</div>`
+    // string — we substitute both pieces.
+    return inner
+      .replace('class="variant-edit-row" data-variant-row',
+               'class="variant-edit-row variant-edit-row-pending" data-variant-pending-row')
+      .replace(/<button[^>]*data-variant-delete[^>]*>×<\/button>/,
+               '<button type="button" class="variant-pending-add-btn" data-variant-pending-add>Add</button>');
+  }
+
   // Variants editor block — only meaningful for non-recipe items. Whichever
   // unit family the item is NOT natively measured in gets greyed out unless
   // density (g per ml) is set, since crossing the boundary needs it. For a
@@ -8663,6 +8728,18 @@
     const rowOpts = { showSchedule: showRowSchedule };
     // Now that optHtml exists, build the per-row HTML using it.
     const rowsHtml = variants.map(v => variantEditRow(v, prim, defGroup, optHtml, rowOpts)).join('');
+    // Always-visible "Add new serving size" pending row at the bottom of
+    // the list. Pre-populated with the current default variant's values so
+    // the common case ("a slight tweak of the default") is one-click. The
+    // pending row carries `data-variant-pending-row` instead of
+    // `data-variant-row`, so saveExpandedEdits skips it. Pressing the row's
+    // Add button converts it into a normal saved row and resets the
+    // pending row's inputs to the default again.
+    const pendingPreload = variants.find(v => v && v.default) || variants[0] || null;
+    const pendingSeed = pendingPreload
+      ? Object.assign({}, pendingPreload, { default: false })
+      : { label: '', unitsPerServing: 0, unit: prim, amount: 0, default: false };
+    const pendingRowHtml = variantPendingAddRow(pendingSeed, prim, defGroup, optHtml, rowOpts);
     const crossLabel = (prim === 'g') ? 'volume' : 'mass';
     const crossExamples = (prim === 'g') ? 'ml, cup, tbsp, …' : 'g, oz, lb';
     // Inverse density for the second textbox: ml per g = 1 / (g per ml).
@@ -8683,8 +8760,8 @@
           '</div>' +
         '</div>' +
         '<div class="edit-panel-hint" style="display: block; margin-top: -4px; margin-bottom: 8px;">Both textboxes edit the same density — fill in whichever you have. Leave blank when unknown; required to define ' + crossLabel + ' servings (' + crossExamples + ').</div>' +
-        '<div class="variant-edit-list" data-variant-list>' + rowsHtml + '</div>' +
-        '<div class="variant-section-header" style="margin-top:10px;font-family:\'JetBrains Mono\',monospace;font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.08em;">Create new serving size</div>' +
+        '<div class="variant-edit-list" data-variant-list>' + rowsHtml + pendingRowHtml + '</div>' +
+        '<div class="variant-section-header" style="margin-top:10px;font-family:\'JetBrains Mono\',monospace;font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.08em;">Or scale the default amount</div>' +
         '<div class="variant-quick-add" data-variant-quick-add>' +
           '<span class="edit-panel-hint">Use default amount modified by:</span>' +
           '<button type="button" data-variant-op="mult" data-variant-num="1" data-variant-denom="2">½</button>' +
@@ -8695,10 +8772,6 @@
           '<button type="button" data-variant-op="add" data-variant-num="1" data-variant-denom="4">+1/4</button>' +
           '<button type="button" data-variant-op="mult" data-variant-num="2" data-variant-denom="1">×2</button>' +
           '<button type="button" data-variant-op="mult" data-variant-num="3" data-variant-denom="1">×3</button>' +
-        '</div>' +
-        '<div class="variant-quick-add" style="margin-top:6px;">' +
-          '<span class="edit-panel-hint">Or start from scratch:</span>' +
-          '<button type="button" data-variant-add-empty class="variant-add-empty-btn" title="Add an empty serving size row">+ blank row</button>' +
         '</div>' +
         (!hasDensity
           ? '<div class="variant-density-hint">' + (prim === 'g' ? 'Volume' : 'Mass') + ' units (' + crossExamples + ') are greyed out — set <strong>Density</strong> above first.</div>'
@@ -10979,17 +11052,39 @@
         list.insertAdjacentHTML('beforeend', newRowHtml);
         return;
       }
-      // "+ blank" — append an empty serving-size row that the user fills in
-      // from scratch. Replaces the old scratch-form workflow.
-      const variantAddEmptyBtn = ev.target.closest('[data-variant-add-empty]');
-      if (variantAddEmptyBtn) {
-        const panel = variantAddEmptyBtn.closest('[data-edit-panel]');
+      // "Add" button on the always-visible pending row. Validates the
+      // pending row's amount, converts it into a normal saved variant row
+      // (insertBefore the pending row), then resets the pending row's
+      // inputs to the current default for the next add.
+      const pendingAddBtn = ev.target.closest('[data-variant-pending-add]');
+      if (pendingAddBtn) {
+        const panel = pendingAddBtn.closest('[data-edit-panel]');
         if (!panel) return;
         const list = panel.querySelector('[data-variant-list]');
         if (!list) return;
+        const pending = list.querySelector('[data-variant-pending-row]');
+        if (!pending) return;
         const key = panel.dataset.editPanelKey;
         const item = ITEMS[key];
         if (!item) return;
+        // Read the pending row's current values.
+        const labelEl  = pending.querySelector('[data-variant-field="label"]');
+        const amountEl = pending.querySelector('[data-variant-field="amount"]');
+        const unitEl   = pending.querySelector('[data-variant-field="unit"]');
+        const timeEl   = pending.querySelector('[data-variant-field="time"]');
+        const freqEl   = pending.querySelector('[data-variant-field="frequency"]');
+        const labelVal = labelEl  ? (labelEl.value || '').trim() : '';
+        const rawAmt   = parseFloat((amountEl || {}).value);
+        const unitVal  = unitEl ? (unitEl.value || primaryUnit(item)).trim().toLowerCase() : primaryUnit(item);
+        const timeVal  = timeEl ? (timeEl.value || '').trim() : '';
+        const freqVal  = freqEl ? (freqEl.value || 'daily') : 'daily';
+        if (!isFinite(rawAmt) || rawAmt <= 0) {
+          alert('Set an amount greater than zero before adding.');
+          if (amountEl) amountEl.focus();
+          return;
+        }
+        // Build a saved variant-edit-row populated with those values and
+        // insert it before the pending row so saved rows stay at top.
         const prim = primaryUnit(item);
         const hasDensity = typeof item.density_g_per_ml === 'number' && item.density_g_per_ml > 0;
         const nativeUnits = (prim === 'g') ? MASS_UNIT_KEYS : VOLUME_UNIT_KEYS;
@@ -11001,11 +11096,34 @@
           .join('');
         const defGroup = 'variant-default-' + (key || 'item');
         const showSchedule = (item.category === 'supplements' || item.category === 'water');
-        const blankRow = variantEditRow(
-          { label: '', unitsPerServing: 0, unit: prim, amount: 0, default: false },
-          prim, defGroup, optHtml, { showSchedule }
-        );
-        list.insertAdjacentHTML('beforeend', blankRow);
+        const newVariant = {
+          label: labelVal,
+          unitsPerServing: rawAmt,
+          unit: unitVal,
+          amount: rawAmt,
+          default: false,
+        };
+        if (showSchedule && timeVal) {
+          newVariant.time = timeVal;
+          newVariant.frequency = freqVal;
+        }
+        const newRowHtml = variantEditRow(newVariant, prim, defGroup, optHtml, { showSchedule });
+        pending.insertAdjacentHTML('beforebegin', newRowHtml);
+        // Reset the pending row to the current default again so the next
+        // add starts from the same baseline.
+        const defaultRow = list.querySelector('[data-variant-row] [data-variant-default-radio]:checked');
+        const defaultRowEl = defaultRow ? defaultRow.closest('[data-variant-row]') : null;
+        const readField = (rowEl, name) => {
+          const el = rowEl ? rowEl.querySelector('[data-variant-field="' + name + '"]') : null;
+          return el ? (el.value || '') : '';
+        };
+        if (amountEl && defaultRowEl) amountEl.value = readField(defaultRowEl, 'amount');
+        if (unitEl   && defaultRowEl) unitEl.value   = readField(defaultRowEl, 'unit') || unitVal;
+        if (labelEl  && defaultRowEl) labelEl.value  = readField(defaultRowEl, 'label');
+        if (showSchedule) {
+          if (timeEl) timeEl.value = '';
+          if (freqEl) freqEl.value = 'daily';
+        }
         return;
       }
       // (Old scratch-form `data-variant-add` handler removed in v6.4.0 —
