@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.26">
+<meta name="app-version" content="v6.5.27">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -152,16 +152,11 @@
   }
 
   /* === Unified labeled-bar heading ===
-     One ruleset shared by EVERY collapsible bar heading: .targets bands
-     (Daily Goals / Accumulation Watch), .checkout-totals (Today's
-     Totals), section.section-minimal h2 (Catalog, Weight & BMI), and
-     #profile-section summary. The heading sits absolute-positioned on
-     the band's top border so the paper-color background visually cuts
-     through the rule, like a fieldset legend. */
-  .targets[data-collapsible] > .targets-heading,
-  .checkout-totals[data-collapsible] > .targets-heading,
-  section.section-minimal[data-collapsible] > h2,
-  #profile-section > summary {
+     Every collapsible bar is now a <section class="section-minimal">
+     so a single selector covers all of them. The heading sits
+     absolute-positioned on the band's top border so the paper-color
+     background visually cuts through the rule, like a fieldset legend. */
+  section.section-minimal[data-collapsible] > h2 {
     position: absolute;
     top: -7px;
     left: 16px;
@@ -180,15 +175,17 @@
     user-select: none;
     list-style: none;
     z-index: 4;
+    /* Override the base `h2 { display: flex; gap: 12px }` rule that
+       otherwise injects 12 px of dead space between the chevron and
+       label on h2-based bars (Catalog, Weight & BMI) and breaks
+       alignment vs the div / summary bars. */
+    display: inline-block;
+    gap: 0;
+    align-items: baseline;
+    text-indent: 0;
   }
-  /* Hide the native <summary> disclosure marker. */
-  #profile-section > summary::-webkit-details-marker { display: none; }
-  #profile-section > summary::marker { display: none; }
   /* Shared chevron prefix on every bar heading. */
-  .targets[data-collapsible] > .targets-heading::before,
-  .checkout-totals[data-collapsible] > .targets-heading::before,
-  section.section-minimal[data-collapsible] > h2::before,
-  #profile-section > summary::before {
+  section.section-minimal[data-collapsible] > h2::before {
     content: '▾';
     display: inline-block;
     margin: 0 8px 0 0;
@@ -199,18 +196,12 @@
     opacity: 0.55;
     transition: transform 120ms ease-out;
   }
-  .targets[data-collapsible].collapsed > .targets-heading::before,
-  .checkout-totals[data-collapsible].collapsed > .targets-heading::before,
-  section.section-minimal[data-collapsible].collapsed > h2::before,
-  #profile-section:not([open]) > summary::before {
+  section.section-minimal[data-collapsible].collapsed > h2::before {
     transform: rotate(-90deg);
   }
   /* Extended click target around each heading so the label area is easy
      to hit (the band's ::before strip handles the full-width rule). */
-  .targets[data-collapsible] > .targets-heading::after,
-  .checkout-totals[data-collapsible] > .targets-heading::after,
-  section.section-minimal[data-collapsible] > h2::after,
-  #profile-section > summary::after {
+  section.section-minimal[data-collapsible] > h2::after {
     content: '';
     position: absolute;
     inset: -3px -24px -1px -24px;
@@ -3697,13 +3688,10 @@
     border-bottom: 2px solid var(--ink);
     position: relative;
   }
-  #profile-section:not([open]) {
-    border-bottom: none;
-    padding: 0;
-    margin: 16px 0;
-  }
-  /* #profile-section summary uses the unified bar-heading ruleset near
-     the top of the stylesheet. No per-section override here. */
+  /* Profile-section is now a regular <section class="section-minimal">
+     so it inherits the collapsed-state styling from .section-minimal.collapsed.
+     This per-id override is kept only for the legacy padding/margin
+     reset, which the shared rule also handles. */
   .profile-form {
     margin-top: 12px;
     font-size: 13px;
@@ -4145,8 +4133,8 @@
 </div>
 
 
-<details id="profile-section">
-  <summary>Profile · <span id="profile-name">—</span></summary>
+<section id="profile-section" class="section-minimal" data-collapsible data-collapse-key="profile">
+  <h2>Profile · <span id="profile-name">—</span></h2>
   <form class="profile-form" id="profile-form" autocomplete="off">
     <fieldset class="profile-fieldset">
       <legend>Identity</legend>
@@ -4294,24 +4282,24 @@
 
     <p class="profile-note" id="profile-form-status" hidden></p>
   </form>
-</details>
+</section>
 
-<div class="targets warnings-ribbon" data-collapsible data-collapse-key="targets-accumulation" aria-labelledby="warnings-heading" id="warnings-ribbon">
-  <div class="targets-heading" id="warnings-heading">Last 7 days · accumulation watch</div>
+<section class="section-minimal band-tiles targets warnings-ribbon" data-collapsible data-collapse-key="targets-accumulation" aria-labelledby="warnings-heading" id="warnings-ribbon">
+  <h2 id="warnings-heading">Last 7 days · accumulation watch</h2>
   <!-- Tiles rendered dynamically by renderWarningsRibbon() based on
        WARNING_DEFS. Only entries currently warn/danger or worth flagging
        appear by default; use the toggle to see all tracked thresholds. -->
   <div class="warnings-list" id="warnings-list"></div>
   <div class="warnings-consequences" id="warnings-consequences" hidden></div>
-</div>
+</section>
 
 <!-- Today's totals widget sits at the top of the page (above Catalog)
      so it stays glanceable regardless of which sections are open. -->
-<div class="checkout-totals" id="checkout-totals" data-collapsible data-collapse-key="checkout-totals" title="Click to collapse / expand">
-  <div class="targets-heading">Today's totals</div>
+<section class="section-minimal band-totals checkout-totals" id="checkout-totals" data-collapsible data-collapse-key="checkout-totals" title="Click to collapse / expand">
+  <h2>Today's totals</h2>
   <!-- Cells rendered dynamically by renderCheckoutTotalCells based on
        profile.displayedNutrients. -->
-</div>
+</section>
 
 <!-- ============ SECTION 1: CATALOG ============ -->
 <section id="checkout" class="section-minimal" data-collapsible>
@@ -8554,7 +8542,7 @@
       else el.classList.remove('collapsed');
     });
     document.querySelectorAll('section[data-collapsible]').forEach(el => {
-      const k = 'section-' + (el.id || '');
+      const k = el.dataset.collapseKey || ('section-' + (el.id || ''));
       if (map[k]) el.classList.add('collapsed');
       else el.classList.remove('collapsed');
     });
@@ -10567,10 +10555,10 @@
           '</div>';
       }
     }
-    // Preserve the static targets-heading label sitting above the
-    // dynamically-rendered cells: prepend it back into the html before
-    // assigning so the labeled top rule survives a re-render.
-    container.innerHTML = '<div class="targets-heading">Today\'s totals</div>' + html;
+    // Preserve the static heading sitting above the dynamically-
+    // rendered cells: prepend it back into the html before assigning
+    // so the labeled top rule survives a re-render.
+    container.innerHTML = '<h2>Today\'s totals</h2>' + html;
   }
 
   function render() {
@@ -13099,48 +13087,25 @@
           const h2 = e.target.closest('h2');
           if (h2 && h2.parentElement && h2.parentElement.matches('section[data-collapsible]')) {
             host = h2.parentElement;
-            k = 'section-' + (host.id || '');
+            k = host.dataset.collapseKey || ('section-' + (host.id || ''));
           }
         }
+        // Unified collapsible band toggle: every collapsible bar is now
+        // a <section class="section-minimal" data-collapsible>. Click
+        // on its h2 heading, or anywhere inside it when collapsed, or
+        // within 14 px of its top edge when expanded, triggers the
+        // toggle. data-collapse-key persists state across reloads;
+        // falls back to a stable per-id key.
         if (!host) {
-          const th = e.target.closest('.targets-heading');
-          if (th && th.parentElement && th.parentElement.matches('.targets[data-collapsible]')) {
-            host = th.parentElement;
-            k = host.dataset.collapseKey || ('targets-' + (host.id || ''));
-          }
-        }
-        if (!host) {
-          const totals = e.target.closest('.checkout-totals[data-collapsible]');
-          if (totals) {
-            host = totals;
-            k = totals.dataset.collapseKey || ('totals-' + (totals.id || ''));
-          }
-        }
-        // Any click on a collapsed labeled band toggles it open. For an
-        // expanded band, only clicks within ~14 px of the top edge
-        // (along the labeled rule) toggle. Covers .targets,
-        // .checkout-totals and section.section-minimal in one pass.
-        if (!host) {
-          for (const sel of [
-            '.targets[data-collapsible]',
-            '.checkout-totals[data-collapsible]',
-            'section.section-minimal[data-collapsible]',
-          ]) {
-            const band = e.target.closest(sel);
-            if (!band) continue;
+          const band = e.target.closest('section.section-minimal[data-collapsible]');
+          if (band) {
             const collapsed = band.classList.contains('collapsed');
             const rect = band.getBoundingClientRect();
             const inTopStrip = (e.clientY - rect.top) < 14;
-            if (collapsed || inTopStrip) {
+            const onHeading = !!e.target.closest('h2');
+            if (collapsed || inTopStrip || onHeading) {
               host = band;
-              if (sel.startsWith('section')) {
-                k = 'section-' + (band.id || '');
-              } else if (sel.startsWith('.checkout-totals')) {
-                k = band.dataset.collapseKey || ('totals-' + (band.id || ''));
-              } else {
-                k = band.dataset.collapseKey || ('targets-' + (band.id || ''));
-              }
-              break;
+              k = band.dataset.collapseKey || ('section-' + (band.id || ''));
             }
           }
         }
@@ -13149,10 +13114,10 @@
         // (default → all-nutrients → collapsed → default). Mode lives in
         // state.totalsMode; collapsedGroups stays a clean boolean map.
         if (host.matches('.checkout-totals[data-collapsible]')) {
+          // v6.5.27: two-state toggle. The legacy "all nutrients" middle
+          // mode is gone; clicks now flip default <-> collapsed.
           const cur = getTotalsMode();
-          const next = (cur === undefined) ? TOTALS_MODE.ALL
-                     : (cur === TOTALS_MODE.ALL) ? TOTALS_MODE.COLLAPSED
-                     : TOTALS_MODE.DEFAULT;
+          const next = (cur === TOTALS_MODE.COLLAPSED) ? TOTALS_MODE.DEFAULT : TOTALS_MODE.COLLAPSED;
           setTotalsMode(next);
           if (next === TOTALS_MODE.COLLAPSED) host.classList.add('collapsed');
           else host.classList.remove('collapsed');

@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-19T23:18:13.207Z",
-  "_gistSavedAt": "2026-05-19T23:14:18.451Z",
+  "_backupTakenAt": "2026-05-19T23:46:12.642Z",
+  "_gistSavedAt": "2026-05-19T23:44:20.121Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -146,7 +146,7 @@
         },
         "counters": {
           "protein_whey_dymatize_iso100_vanilla": 120,
-          "turkey_breast_smithfield": 0,
+          "turkey_breast_smithfield": 140,
           "premier": 325,
           "spinach_fresh": 40
         },
@@ -177,7 +177,7 @@
         },
         "counterMeta": {
           "protein_whey_dymatize_iso100_vanilla": "2026-05-19T21:00:22.243Z",
-          "turkey_breast_smithfield": "2026-05-19T14:06:43.765Z",
+          "turkey_breast_smithfield": "2026-05-19T23:36:52.333Z",
           "premier": "2026-05-19T18:44:06.065Z",
           "spinach_fresh": "2026-05-19T20:59:07.151Z"
         },
@@ -255,7 +255,8 @@
         "water",
         "caffeine",
         "potassium",
-        "_kcal_per_p"
+        "_kcal_per_p",
+        "calcium"
       ],
       "units": {
         "weight": "kg",
@@ -273,13 +274,14 @@
       "catalog-archive": true,
       "details-recipe-maker": true,
       "details-checkout-history": true,
+      "targets-daily": true,
+      "section-weight-tracker": true,
+      "targets-accumulation": true,
       "supplements-water": true,
       "catalog-ratio": true,
-      "targets-daily": true,
-      "details-profile-section": true,
-      "targets-accumulation": true,
-      "section-checkout": true,
-      "section-weight-tracker": true
+      "today-customs": true,
+      "details-add-new-item": true,
+      "details-profile-section": true
     },
     "userCatalog": {
       "items": {
@@ -818,6 +820,26 @@
               "unit": "g",
               "default": true,
               "multiplier": 347
+            }
+          ]
+        },
+        "caffeine_anhydrous_200mg": {
+          "name": "Caffeine anhydrous 200 mg capsule",
+          "category": "supplements",
+          "defaultMeasuredIn": "units",
+          "kcal": 0,
+          "p": 0,
+          "sf": 0,
+          "water": 0,
+          "caffeine": 200,
+          "sodium": 0,
+          "cholesterol": 0,
+          "notes": "200 mg caffeine per capsule. FDA upper safe daily limit 400 mg (2 caps/day). Protocol: 1 cap at 8 AM, 1 cap at 11 AM. Half-life ~5 hours; 11 AM dose clears to ~12.5 mg by midnight. Zero kcal, no macros.",
+          "displayUnits": [
+            {
+              "label": "1 capsule",
+              "multiplier": 1,
+              "default": true
             }
           ]
         },
@@ -4423,7 +4445,6 @@
           "label": "Uncategorized"
         }
       ]
-    },
-    "totalsMode": "collapsed"
+    }
   }
 }
