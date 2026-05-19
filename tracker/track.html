@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.7">
+<meta name="app-version" content="v6.5.8">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -774,12 +774,12 @@
      center, not the cell's vertical center. */
   .variant-edit-row .variant-edit-default-wrap { align-self: flex-end; margin-bottom: 7px; }
   /* Cap the whole serving-size list at a comfortable reading width so it
-     doesn't stretch across an ultrawide monitor. Each input cell also
-     enforces a sensible max so a single LABEL field can't balloon. Halved
-     from v6.5.2 maxes per user request — the editor was way too wide. */
+     doesn't stretch across an ultrawide monitor, but wide enough to keep
+     one row on one line at typical desktop widths. Per-cell maxes still
+     enforce that no single LABEL/UNIT input balloons within the row. */
   .variant-edit-list,
   .variant-pending-wrap {
-    max-width: 380px;
+    max-width: 560px;
   }
   .variant-edit-row input[type="number"] { max-width: 55px; }
   .variant-edit-row input[type="text"]   { max-width: 120px; }
