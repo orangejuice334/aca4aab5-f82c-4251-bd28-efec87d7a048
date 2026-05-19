@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.27">
+<meta name="app-version" content="v6.5.28">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -1531,7 +1531,8 @@
      near the top of the stylesheet (search "Unified labeled-bar
      heading"). Only the collapsed-state body-hide stays here since it
      is targets-specific. */
-  .targets[data-collapsible].collapsed > *:not(.targets-heading) {
+  .targets[data-collapsible].collapsed > *:not(.targets-heading):not(h2),
+  .checkout-totals[data-collapsible].collapsed > *:not(.targets-heading):not(h2) {
     display: none !important;
   }
   /* When the .targets band is collapsed, only the labeled top border is
