@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.10">
+<meta name="app-version" content="v6.5.11">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -762,7 +762,21 @@
     gap: 3px;
     flex-wrap: wrap;
     padding: 3px 0;
+    /* Shrink-wrap the row so the inter-row separator (drawn via the +
+       selector below) only extends as far as the actual content (and not
+       all the way to the list's max-width across empty space). */
+    width: fit-content;
+    max-width: 100%;
   }
+  /* Per-cell spacing tweaks on top of the row's 3px gap:
+       DEFAULT → AMOUNT  : 50% wider (3 + 1.5 = 4.5px effective).
+       AMOUNT → UNIT     : 25% shorter (3 - 0.75 = 2.25px effective).
+       UNIT → LABEL      : matches AMOUNT → UNIT (2.25px effective).
+     Targeted via :has() on the inner field so the rule survives the
+     time/frequency cells slipping in for supplement rows. */
+  .variant-edit-row .variant-edit-field:has([data-variant-field="amount"]) { margin-left: 1.5px; }
+  .variant-edit-row .variant-edit-field:has([data-variant-field="unit"])   { margin-left: -0.75px; }
+  .variant-edit-row .variant-edit-field:has([data-variant-field="label"])  { margin-left: -0.75px; }
   .variant-edit-row + .variant-edit-row {
     border-top: 1px dashed rgba(0,0,0,0.06);
   }

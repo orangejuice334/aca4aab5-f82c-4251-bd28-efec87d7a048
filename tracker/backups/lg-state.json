@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-19T14:06:58.974Z",
-  "_gistSavedAt": "2026-05-19T14:06:44.027Z",
+  "_backupTakenAt": "2026-05-19T14:10:59.051Z",
+  "_gistSavedAt": "2026-05-19T14:07:02.012Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -135,7 +135,7 @@
         "toggles": {},
         "counters": {
           "protein_whey_dymatize_iso100_vanilla": 60,
-          "turkey_breast_smithfield": 224
+          "turkey_breast_smithfield": 0
         },
         "customs": [
           {
@@ -153,7 +153,7 @@
         "toggleMeta": {},
         "counterMeta": {
           "protein_whey_dymatize_iso100_vanilla": "2026-05-19T13:50:58+00:00",
-          "turkey_breast_smithfield": "2026-05-19T14:06:42.474Z"
+          "turkey_breast_smithfield": "2026-05-19T14:06:43.765Z"
         },
         "neck": 43,
         "neckMeta": "2026-05-19T12:17:37.196Z",
@@ -2765,25 +2765,29 @@
           "defaultMeasuredIn": "g",
           "kcal": 3.6667,
           "p": 0.8333,
-          "sf": 0,
           "water": 0.04,
-          "caffeine": 0,
           "sodium": 4,
           "cholesterol": 0.3333,
           "notes": "Label: 110 kcal / 30g scoop, 20 servings, 610g tub. Protein 25g, total fat 1g, sat fat 0g (sub-threshold — actual est. ~0.15g/scoop from whey lipid fraction; negligible), trans fat 0g (trace CLA from dairy is biologically benign and rounds to 0). Carbs 2g, sugar 1g (from flavoring), fiber 0g. Cholesterol 10mg. Sodium 120mg. Calcium 120mg (10% DV). Iron 0mg, Potassium 0mg. Water est. 4% (dry powder; low-confidence). BCAAs 5.5g/scoop, leucine 2.6g/scoop per front label. Contains milk and soy (soy lecithin). Hydrolyzed whey protein isolate — fast-absorbing. Dymatize, Gourmet Vanilla flavor.",
           "displayUnits": [
             {
-              "label": "1 scoop (30 g)",
-              "multiplier": 30,
-              "default": true
+              "label": "Whole tub (610 g)",
+              "amount": 610,
+              "unit": "g",
+              "multiplier": 610
             },
             {
               "label": "2 scoops (60 g)",
+              "amount": 60,
+              "unit": "g",
               "multiplier": 60
             },
             {
-              "label": "Whole tub (610 g)",
-              "multiplier": 610
+              "label": "1 scoop (30 g)",
+              "amount": 30,
+              "unit": "g",
+              "default": true,
+              "multiplier": 30
             }
           ]
         },
