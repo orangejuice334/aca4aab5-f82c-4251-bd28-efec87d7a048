@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.9">
+<meta name="app-version" content="v6.5.10">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -2167,14 +2167,18 @@
     }
   }
 
-  /* Counter rows: counter-control goes in the first column, name in the second.
-     align-self: start pins the counter cluster to the top of its grid cell so
-     when the row expands (edit panel renders in column 2), the −/+ buttons
-     stay at the same vertical position they had when the row was collapsed
-     instead of drifting down to the new row-center. */
+  /* Counter rows: counter-control goes in the first column, name in the
+     second. On COLLAPSED rows the counter sits at the vertical center of
+     the row so it aligns with the wrapped name + macros to its right. On
+     EXPANDED rows it pins to the top instead, so the −/+ buttons stay at
+     the same vertical position they had when collapsed and don't drift
+     down to the center of the now-tall row. */
   .checkout-row[data-counter] > .counter-control {
     grid-column: 1;
     grid-row: 1;
+    align-self: center;
+  }
+  .checkout-row[data-counter].row-expanded > .counter-control {
     align-self: start;
   }
 
