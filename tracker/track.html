@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.11">
+<meta name="app-version" content="v6.5.12">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -3755,6 +3755,17 @@
     border-radius: 2px;
   }
   .supps-add-btn:hover { background: #9b3f25; border-color: #9b3f25; }
+  .supps-add-error {
+    margin: 6px 0 4px;
+    padding: 6px 10px;
+    border: 1px solid var(--rust);
+    border-radius: 2px;
+    background: rgba(176, 74, 46, 0.08);
+    color: var(--rust-deep);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+  }
+  .supps-add-error[hidden] { display: none; }
   .supps-note {
     font-size: 10px;
     color: var(--ink-faint);
@@ -4003,16 +4014,17 @@
       <legend>Supplements and liquids</legend>
       <div class="supps-list" id="supps-list"></div>
       <div class="supps-add" id="supps-add">
-        <input type="text" id="supp-new-name" placeholder="Name (e.g. Magnesium glycinate)" maxlength="80" />
+        <select id="supp-new-item" title="Pick which supplement to schedule. Create a new one in the catalog first if it's not in this list.">
+          <option value="">— pick supplement —</option>
+        </select>
         <input type="time" id="supp-new-time" value="08:00" />
         <select id="supp-new-frequency">
           <option value="daily">daily</option>
           <option value="alternate">every other day</option>
         </select>
-        <input type="number" id="supp-new-kcal" placeholder="kcal" min="0" max="500" step="1" />
         <button type="button" class="supps-add-btn" id="supps-add-btn">Add</button>
       </div>
-      <p class="supps-note">Order in the checkout list is by time. Delete with ×.</p>
+      <div class="supps-add-error" id="supps-add-error" hidden></div>
     </fieldset>
 
     <fieldset class="profile-fieldset profile-cats">
@@ -4022,7 +4034,6 @@
         <input type="text" id="cat-new-name" placeholder="New category name" maxlength="40" />
         <button type="button" class="supps-add-btn" id="cats-add-btn">Add</button>
       </div>
-      <p class="supps-note">Reserved categories (water, supplements, uncategorized) can't be deleted. No two categories can share a name (case-insensitive).</p>
     </fieldset>
 
     <fieldset class="profile-fieldset profile-nutrients">
@@ -4950,7 +4961,13 @@
   function getCounterKeys() {
     return Object.keys(ITEMS).filter(k => {
       const it = ITEMS[k];
-      return it && it.category !== 'supplements' && it.category !== 'water' && !it.archived;
+      // Water still only renders in the dedicated supplements-and-liquids
+      // group at the top. Supplements DO render in the main catalog now
+      // too — so unscheduled supplements (e.g. ad-hoc caffeine capsules)
+      // are visible + counter-able. Scheduled ones also appear in the
+      // supplements-and-liquids group as before; the two views serve
+      // different purposes (checkbox vs counter).
+      return it && it.category !== 'water' && !it.archived;
     });
   }
 
@@ -5876,7 +5893,26 @@
     renderProfileDerived();
   }
 
+  // Populate the supps-add dropdown with every supplement-category catalog
+  // item. The user picks ONE supplement, sets time + freq, hits Add and the
+  // form appends a new scheduled-serving variant to that supplement's
+  // displayUnits. Brand-new supplements are created through the regular
+  // catalog "Add new item" flow first.
+  function renderSuppItemDropdown() {
+    const sel = document.getElementById('supp-new-item');
+    if (!sel) return;
+    const prev = sel.value;
+    const supps = Object.entries(ITEMS || {})
+      .filter(([k, v]) => v && v.category === 'supplements' && !v.archived)
+      .map(([k, v]) => ({ key: k, name: v.name || k }))
+      .sort((a, b) => a.name.localeCompare(b.name));
+    sel.innerHTML = '<option value="">— pick supplement —</option>' +
+      supps.map(s => '<option value="' + escapeHtml(s.key) + '">' + escapeHtml(s.name) + '</option>').join('');
+    if (prev && [...sel.options].some(o => o.value === prev)) sel.value = prev;
+  }
+
   function renderSuppsList() {
+    renderSuppItemDropdown();
     const list = document.getElementById('supps-list');
     if (!list) return;
     // Use the same source-of-truth helper as the checkout-list rendering
@@ -5917,47 +5953,58 @@
     const list = document.getElementById('supps-list');
     if (!addBtn || !list) return;
     addBtn.addEventListener('click', () => {
-      const nameEl = document.getElementById('supp-new-name');
+      const itemEl = document.getElementById('supp-new-item');
       const timeEl = document.getElementById('supp-new-time');
       const freqEl = document.getElementById('supp-new-frequency');
-      const kcalEl = document.getElementById('supp-new-kcal');
-      const name = (nameEl.value || '').trim();
-      const time = (timeEl.value || '').trim();
-      const frequency = freqEl.value || 'daily';
-      const kcalRaw = (kcalEl.value || '').trim();
-      const kcalEach = kcalRaw === '' ? 0 : Math.max(0, Number(kcalRaw) || 0);
-      if (!name) { nameEl.focus(); return; }
-      if (!time) { timeEl.focus(); return; }
-      // Generate a unique snake_case key from the name. Existing-key check
-      // covers both supplements and food items so we don't collide.
-      const baseKey = name.toLowerCase()
-        .replace(/[^a-z0-9]+/g, '_')
-        .replace(/^_+|_+$/g, '')
-        .slice(0, 24) || 'supp';
-      let key = baseKey;
-      let n = 2;
-      while (ITEMS[key]) { key = baseKey + '_' + n; n++; }
-      // Ensure supplements category is in CATEGORIES list so renderCatalog
-      // groups it. Idempotent: the .some() check skips when already present.
-      if (!CATEGORIES.some(c => c.key === 'supplements')) {
-        CATEGORIES.push({ key: 'supplements', label: 'Supplements' });
-      }
-      // v6.5+: schedule lives on the displayUnit, not the item. New
-      // supplements added through this form get one scheduled serving by
-      // default; user can add more in the catalog editor.
-      ITEMS[key] = {
-        name,
-        category: 'supplements',
-        amount: { value: 1, unit: 'pill' },
-        displayUnits: [{ label: '1 pill', multiplier: 1, default: true, time, frequency }],
-        kcal: kcalEach, p: 0, sf: 0, water: 0, caffeine: 0,
+      const errBox = document.getElementById('supps-add-error');
+      const setErr = (msg) => {
+        if (!errBox) return;
+        if (msg) { errBox.textContent = msg; errBox.hidden = false; }
+        else { errBox.textContent = ''; errBox.hidden = true; }
       };
+      const itemKey = (itemEl && itemEl.value || '').trim();
+      const time = (timeEl && timeEl.value || '').trim();
+      const frequency = (freqEl && freqEl.value) || 'daily';
+      if (!itemKey || !ITEMS[itemKey]) {
+        setErr('Pick a supplement from the dropdown first.');
+        if (itemEl) itemEl.focus();
+        return;
+      }
+      if (!time) {
+        setErr('Set a time for the new scheduled serving.');
+        if (timeEl) timeEl.focus();
+        return;
+      }
+      const item = ITEMS[itemKey];
+      const variants = getDisplayUnits(item).slice();
+      // Reject if a scheduled serving already exists at the same time.
+      if (variants.some(v => v && v.time === time)) {
+        setErr(item.name + ' already has a scheduled serving at ' + time + '.');
+        return;
+      }
+      // Append a new scheduled-serving variant cloned from the default
+      // (so it inherits label / amount / unit). The user can tweak it
+      // afterwards via the catalog editor.
+      const def = variants.find(v => v && v.default) || variants[0] || {};
+      const newVariant = {
+        label: def.label || '1 serving',
+        multiplier: (def.multiplier ?? def.unitsPerServing) || 1,
+        time,
+        frequency,
+      };
+      if (def.amount) newVariant.amount = def.amount;
+      if (def.unit)   newVariant.unit = def.unit;
+      const merged = variants.concat([newVariant]);
+      // Strip mirrored read-only `unitsPerServing` so storage stays canonical.
+      for (const v of merged) { if (v) delete v.unitsPerServing; }
+      item.displayUnits = merged;
+      setErr('');
       // Reset form
-      nameEl.value = '';
-      kcalEl.value = '';
-      timeEl.value = '08:00';
-      freqEl.value = 'daily';
+      if (timeEl) timeEl.value = '08:00';
+      if (freqEl) freqEl.value = 'daily';
+      if (itemEl) itemEl.value = '';
       saveState();
+      renderSuppItemDropdown();
       renderSuppsList();
       renderSupplementWaterRows();
       if (typeof renderCatalog === 'function') renderCatalog();

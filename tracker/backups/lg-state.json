@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-19T14:10:59.051Z",
-  "_gistSavedAt": "2026-05-19T14:07:02.012Z",
+  "_backupTakenAt": "2026-05-19T21:19:01.606Z",
+  "_gistSavedAt": "2026-05-19T21:17:57.038Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -132,10 +132,23 @@
         "waistMeta": "2026-05-19T01:36:17.938Z"
       },
       "2026-05-19": {
-        "toggles": {},
+        "toggles": {
+          "water#07:00": true,
+          "wegovy#07:30": true,
+          "d3#08:00": true,
+          "flonase#08:00": true,
+          "omega3#08:00": true,
+          "two_per_day#08:00": true,
+          "water#12:30": true,
+          "creatine#08:00": true,
+          "omega3#12:30": true,
+          "water#16:00": true
+        },
         "counters": {
-          "protein_whey_dymatize_iso100_vanilla": 60,
-          "turkey_breast_smithfield": 0
+          "protein_whey_dymatize_iso100_vanilla": 120,
+          "turkey_breast_smithfield": 0,
+          "premier": 325,
+          "spinach_fresh": 40
         },
         "customs": [
           {
@@ -150,10 +163,23 @@
             "lastModified": "2026-05-19T13:04:12.973Z"
           }
         ],
-        "toggleMeta": {},
+        "toggleMeta": {
+          "water#07:00": "2026-05-19T20:31:15.262Z",
+          "wegovy#07:30": "2026-05-19T20:31:16.320Z",
+          "d3#08:00": "2026-05-19T20:31:17.015Z",
+          "flonase#08:00": "2026-05-19T20:31:20.070Z",
+          "omega3#08:00": "2026-05-19T20:31:27.758Z",
+          "two_per_day#08:00": "2026-05-19T20:31:28.601Z",
+          "water#12:30": "2026-05-19T20:31:31.139Z",
+          "creatine#08:00": "2026-05-19T20:58:17.428Z",
+          "omega3#12:30": "2026-05-19T20:58:44.519Z",
+          "water#16:00": "2026-05-19T20:58:50.427Z"
+        },
         "counterMeta": {
-          "protein_whey_dymatize_iso100_vanilla": "2026-05-19T13:50:58+00:00",
-          "turkey_breast_smithfield": "2026-05-19T14:06:43.765Z"
+          "protein_whey_dymatize_iso100_vanilla": "2026-05-19T21:00:22.243Z",
+          "turkey_breast_smithfield": "2026-05-19T14:06:43.765Z",
+          "premier": "2026-05-19T18:44:06.065Z",
+          "spinach_fresh": "2026-05-19T20:59:07.151Z"
         },
         "neck": 43,
         "neckMeta": "2026-05-19T12:17:37.196Z",
@@ -178,7 +204,7 @@
       "ageYears": 42,
       "sex": "M",
       "activityLevel": "light",
-      "startWeightKg": 102,
+      "startWeightKg": 103,
       "targetWeightKg": 76,
       "goals": {
         "kcal": 1200,
@@ -244,12 +270,9 @@
     "sortMode": "ratio",
     "collapsedGroups": {
       "section-density": true,
-      "supplements-water": true,
       "catalog-archive": true,
       "details-recipe-maker": true,
       "details-checkout-history": true,
-      "targets-accumulation": true,
-      "details-profile-section": true,
       "details-add-new-item": true
     },
     "userCatalog": {
@@ -789,6 +812,26 @@
               "unit": "g",
               "default": true,
               "multiplier": 347
+            }
+          ]
+        },
+        "caffeine_anhydrous_200mg": {
+          "name": "Caffeine anhydrous 200 mg capsule",
+          "category": "supplements",
+          "defaultMeasuredIn": "units",
+          "kcal": 0,
+          "p": 0,
+          "sf": 0,
+          "water": 0,
+          "caffeine": 200,
+          "sodium": 0,
+          "cholesterol": 0,
+          "notes": "200 mg caffeine per capsule. FDA upper safe daily limit 400 mg (2 caps/day). Protocol: 1 cap at 8 AM, 1 cap at 11 AM. Half-life ~5 hours; 11 AM dose clears to ~12.5 mg by midnight. Zero kcal, no macros.",
+          "displayUnits": [
+            {
+              "label": "1 capsule",
+              "multiplier": 1,
+              "default": true
             }
           ]
         },
@@ -2398,9 +2441,9 @@
               "label": "AM",
               "amount": 1,
               "unit": "g",
+              "default": true,
               "time": "08:00",
               "frequency": "daily",
-              "default": true,
               "multiplier": 1
             },
             {
@@ -3089,6 +3132,32 @@
             }
           ],
           "defaultMeasuredIn": "g"
+        },
+        "spinach_fresh": {
+          "name": "Spinach fresh raw",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.23,
+          "p": 0.0286,
+          "sf": 0.0006,
+          "water": 0.914,
+          "sodium": 0.79,
+          "notes": "Source: USDA SR Legacy #11457 (raw spinach). Per 100g: 23 kcal, 2.86g protein, 0.39g fat, 0.063g sat fat, 0g trans fat (plant product), 2.2g fiber, 79mg sodium, 558mg potassium, 99mg calcium, 2.71mg iron (non-heme), 91.4g water. Notable micronutrients: vitamin K 483mcg/100g, folate 194mcg/100g, vitamin C 28mg/100g. All values high-confidence USDA data.",
+          "displayUnits": [
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            },
+            {
+              "label": "10 g",
+              "amount": 10,
+              "unit": "g",
+              "default": true,
+              "multiplier": 10
+            }
+          ]
         },
         "strawberry": {
           "name": "Strawberry",
@@ -4368,6 +4437,7 @@
           "label": "Uncategorized"
         }
       ]
-    }
+    },
+    "totalsMode": "collapsed"
   }
 }
