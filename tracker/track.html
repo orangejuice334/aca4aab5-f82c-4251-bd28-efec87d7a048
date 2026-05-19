@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.22">
+<meta name="app-version" content="v6.5.23">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -57,8 +57,8 @@
   /* ===== HEADER ===== */
   .header {
     border-bottom: 1px solid var(--ink);
-    padding-bottom: 20px;
-    margin-bottom: 32px;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
     position: relative;
   }
 
@@ -144,7 +144,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 0;
-    margin: 24px 0 40px;
+    margin: 16px 0;
     border-top: 2px solid var(--ink);
     border-bottom: 2px solid var(--ink);
     padding: 18px 0;
@@ -1255,7 +1255,7 @@
     background: transparent;
     position: relative;
     padding: 18px 0;
-    margin: 24px 0 16px;
+    margin: 16px 0;
   }
   .checkout-totals > .checkout-total {
     flex: 1 1 160px;
@@ -1266,8 +1266,7 @@
   .checkout-totals.collapsed {
     border-bottom: none;
     padding: 0;
-    margin-top: 16px;
-    margin-bottom: 16px;
+    margin: 16px 0;
   }
   .checkout-totals.collapsed > .checkout-total {
     display: none !important;
@@ -1445,7 +1444,7 @@
     border-top: 2px solid var(--ink);
     border-bottom: 2px solid var(--ink);
     padding: 18px 0;
-    margin: 24px 0 40px;
+    margin: 16px 0;
     position: relative;
     background: transparent;
   }
@@ -1477,8 +1476,7 @@
   section.section-minimal.collapsed {
     border-bottom: none;
     padding: 0;
-    margin-top: 24px;
-    margin-bottom: 16px;
+    margin: 16px 0;
   }
   /* .targets bands (Daily goals + accumulation watch) AND the checkout
      totals band share the same labeled-rule + chevron header. Chevron
@@ -1526,7 +1524,7 @@
   .targets[data-collapsible].collapsed {
     border-bottom: none;
     padding: 0;
-    margin-top: 24px;
+    margin-top: 16px;
     margin-bottom: 16px;
   }
 
@@ -3334,10 +3332,10 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 10px 14px;
-    padding: 10px 0;
-    margin-bottom: 8px;
-    border-bottom: 1px solid var(--rule);
+    gap: 6px 14px;
+    padding: 4px 0;
+    margin-bottom: 0;
+    border-bottom: none;
   }
   .context-bar-date {
     display: inline-flex;
@@ -3666,7 +3664,7 @@
     border-radius: 0;
     background: none;
     padding: 18px 0;
-    margin: 24px 0 40px;
+    margin: 16px 0;
     border-top: 2px solid var(--ink);
     border-bottom: 2px solid var(--ink);
     position: relative;
@@ -3674,8 +3672,7 @@
   #profile-section:not([open]) {
     border-bottom: none;
     padding: 0;
-    margin-top: 24px;
-    margin-bottom: 16px;
+    margin: 16px 0;
   }
   #profile-section > summary {
     position: absolute;

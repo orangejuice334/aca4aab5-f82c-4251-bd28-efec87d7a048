@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-19T22:37:35.391Z",
-  "_gistSavedAt": "2026-05-19T22:36:39.003Z",
+  "_backupTakenAt": "2026-05-19T22:47:06.920Z",
+  "_gistSavedAt": "2026-05-19T22:42:42.876Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -4423,6 +4423,7 @@
           "label": "Uncategorized"
         }
       ]
-    }
+    },
+    "totalsMode": "collapsed"
   }
 }
