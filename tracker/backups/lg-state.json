@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-19T22:31:27.127Z",
-  "_gistSavedAt": "2026-05-19T22:29:15.127Z",
+  "_backupTakenAt": "2026-05-19T22:37:35.391Z",
+  "_gistSavedAt": "2026-05-19T22:36:39.003Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -275,9 +275,10 @@
       "details-checkout-history": true,
       "targets-accumulation": true,
       "details-profile-section": true,
-      "targets-daily": true,
       "supplements-water": true,
       "catalog-ratio": true,
+      "section-weight-tracker": true,
+      "targets-daily": true,
       "section-checkout": true
     },
     "userCatalog": {
@@ -4422,7 +4423,6 @@
           "label": "Uncategorized"
         }
       ]
-    },
-    "totalsMode": "collapsed"
+    }
   }
 }

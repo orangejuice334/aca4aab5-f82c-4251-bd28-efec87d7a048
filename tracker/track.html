@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.21">
+<meta name="app-version" content="v6.5.22">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -4153,25 +4153,6 @@
   <span id="data-updated" class="last-sync data-updated" style="display: none;"></span>
 </div>
 
-<div class="targets" data-collapsible data-collapse-key="targets-daily" aria-labelledby="targets-heading">
-  <div class="targets-heading" id="targets-heading">Daily goals</div>
-  <div class="target">
-    <div class="target-label">Calories</div>
-    <div class="target-value"><span id="target-kcal">—</span><span class="target-unit"> kcal</span></div>
-  </div>
-  <div class="target">
-    <div class="target-label">Protein</div>
-    <div class="target-value"><span id="target-p">—</span><span class="target-unit"> g</span></div>
-  </div>
-  <div class="target">
-    <div class="target-label">Caffeine cap</div>
-    <div class="target-value"><span id="target-caffeine">—</span><span class="target-unit"> mg</span></div>
-  </div>
-  <div class="target">
-    <div class="target-label">Fluid target</div>
-    <div class="target-value"><span id="target-water">—</span><span class="target-unit"> L</span></div>
-  </div>
-</div>
 
 <div class="targets warnings-ribbon" data-collapsible data-collapse-key="targets-accumulation" aria-labelledby="warnings-heading" id="warnings-ribbon">
   <div class="targets-heading" id="warnings-heading">Last 7 days · accumulation watch</div>
@@ -4333,19 +4314,19 @@
   </form>
 </details>
 
+<!-- Today's totals widget sits at the top of the page (above Catalog)
+     so it stays glanceable regardless of which sections are open. -->
+<div class="checkout-totals" id="checkout-totals" data-collapsible data-collapse-key="checkout-totals" title="Click to collapse / expand">
+  <div class="targets-heading">Today's totals</div>
+  <!-- Cells rendered dynamically by renderCheckoutTotalCells based on
+       profile.displayedNutrients. -->
+</div>
+
 <!-- ============ SECTION 1: CATALOG ============ -->
 <section id="checkout" class="section-minimal" data-collapsible>
   <h2>Catalog</h2>
 
   <div class="checkout">
-    <div class="checkout-totals" id="checkout-totals" data-collapsible data-collapse-key="checkout-totals" title="Click to collapse / expand">
-      <div class="targets-heading">Today's totals</div>
-      <!-- Cells rendered dynamically by renderCheckoutTotalCells based on
-           profile.displayedNutrients. Each cell has class .checkout-total
-           with id-suffixed children (.checkout-total-value, .checkout-bar,
-           etc.) just like the prior static markup. -->
-    </div>
-
     <div class="checkout-group" data-group-key="supplements-water">
       <div class="checkout-group-header">Supplements and liquids</div>
       <div id="supplements-water-rows"></div>
@@ -4453,9 +4434,8 @@
 </section>
 
 <!-- ============ WEIGHT & BMI ============ -->
-<section id="weight-tracker" data-collapsible>
-  <h2 class="title-with-action"><span class="num">02</span>Weight &amp; BMI</h2>
-  <div class="section-rule"></div>
+<section id="weight-tracker" class="section-minimal" data-collapsible>
+  <h2>Weight &amp; BMI</h2>
 
   <!-- Per-day measurements: weight, neck, waist (the last two drive the
        Navy body-fat formula). Inline body-fat readout computes live as
@@ -13143,6 +13123,28 @@
           if (totals) {
             host = totals;
             k = totals.dataset.collapseKey || ('totals-' + (totals.id || ''));
+          }
+        }
+        // Treat any click within the top-edge band (the labeled rule + a
+        // few px each way) as a click on the bar. Lets the user toggle by
+        // clicking the long horizontal line to the right of the label,
+        // not just the small label itself.
+        if (!host) {
+          for (const sel of ['.targets[data-collapsible]', 'section.section-minimal[data-collapsible]']) {
+            const band = e.target.closest(sel);
+            if (!band) continue;
+            const rect = band.getBoundingClientRect();
+            // Within 10 px of the top edge (and not over the body in
+            // expanded state) counts as a bar click.
+            if (e.clientY - rect.top < 10) {
+              host = band;
+              if (sel.startsWith('section')) {
+                k = 'section-' + (band.id || '');
+              } else {
+                k = band.dataset.collapseKey || ('targets-' + (band.id || ''));
+              }
+              break;
+            }
           }
         }
         if (!host || !k) return;
