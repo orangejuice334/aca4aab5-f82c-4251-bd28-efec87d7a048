@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.8">
+<meta name="app-version" content="v6.5.9">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -759,9 +759,9 @@
        on the labelled-field cells. The delete X overrides to flex-end so it
        bottom-aligns with the input baseline. */
     align-items: center;
-    gap: 6px;
+    gap: 3px;
     flex-wrap: wrap;
-    padding: 5px 0;
+    padding: 3px 0;
   }
   .variant-edit-row + .variant-edit-row {
     border-top: 1px dashed rgba(0,0,0,0.06);
@@ -809,7 +809,7 @@
   /* Tighten the gap between the LABEL input and the × delete button so
      they sit visually paired at the end of the row, like an inline
      name-with-clear control. */
-  .variant-edit-row .variant-delete { margin-left: -4px; }
+  .variant-edit-row .variant-delete { margin-left: 0; }
   /* Inline duplicate-serving error styling — sits below the pending row,
      hidden when empty. Same warm rust accent as the rest of the app. */
   .variant-add-error {
@@ -8883,7 +8883,7 @@
           '<label class="variant-edit-fieldlabel">Unit</label>' +
           '<select data-variant-field="unit">' + optsForRow + '</select>' +
         '</div>' +
-        '<div class="variant-edit-field" style="flex:1 1 160px;">' +
+        '<div class="variant-edit-field" style="flex:0 1 130px;">' +
           '<label class="variant-edit-fieldlabel">Label</label>' +
           '<input type="text" data-variant-field="label" placeholder="e.g. 1/2 tub, medium size" value="' + escapeHtml(label) + '" />' +
         '</div>' +
