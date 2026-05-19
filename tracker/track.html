@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.25">
+<meta name="app-version" content="v6.5.26">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -151,10 +151,17 @@
     position: relative;
   }
 
-  /* Inline section title that sits on the top border line, like a fieldset
-     legend. Background of paper color creates the "label cuts the rule" look.
-     Positioned absolutely so it does not add any vertical height. */
-  .targets-heading {
+  /* === Unified labeled-bar heading ===
+     One ruleset shared by EVERY collapsible bar heading: .targets bands
+     (Daily Goals / Accumulation Watch), .checkout-totals (Today's
+     Totals), section.section-minimal h2 (Catalog, Weight & BMI), and
+     #profile-section summary. The heading sits absolute-positioned on
+     the band's top border so the paper-color background visually cuts
+     through the rule, like a fieldset legend. */
+  .targets[data-collapsible] > .targets-heading,
+  .checkout-totals[data-collapsible] > .targets-heading,
+  section.section-minimal[data-collapsible] > h2,
+  #profile-section > summary {
     position: absolute;
     top: -7px;
     left: 16px;
@@ -162,10 +169,51 @@
     padding: 0 8px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 9px;
+    font-weight: 400;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--ink-soft);
     line-height: 1;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    list-style: none;
+    z-index: 4;
+  }
+  /* Hide the native <summary> disclosure marker. */
+  #profile-section > summary::-webkit-details-marker { display: none; }
+  #profile-section > summary::marker { display: none; }
+  /* Shared chevron prefix on every bar heading. */
+  .targets[data-collapsible] > .targets-heading::before,
+  .checkout-totals[data-collapsible] > .targets-heading::before,
+  section.section-minimal[data-collapsible] > h2::before,
+  #profile-section > summary::before {
+    content: '▾';
+    display: inline-block;
+    margin: 0 8px 0 0;
+    padding: 0;
+    font-size: 10px;
+    line-height: 1;
+    vertical-align: baseline;
+    opacity: 0.55;
+    transition: transform 120ms ease-out;
+  }
+  .targets[data-collapsible].collapsed > .targets-heading::before,
+  .checkout-totals[data-collapsible].collapsed > .targets-heading::before,
+  section.section-minimal[data-collapsible].collapsed > h2::before,
+  #profile-section:not([open]) > summary::before {
+    transform: rotate(-90deg);
+  }
+  /* Extended click target around each heading so the label area is easy
+     to hit (the band's ::before strip handles the full-width rule). */
+  .targets[data-collapsible] > .targets-heading::after,
+  .checkout-totals[data-collapsible] > .targets-heading::after,
+  section.section-minimal[data-collapsible] > h2::after,
+  #profile-section > summary::after {
+    content: '';
+    position: absolute;
+    inset: -3px -24px -1px -24px;
   }
 
   .target {
@@ -1448,44 +1496,9 @@
     position: relative;
     background: transparent;
   }
-  section.section-minimal > h2 {
-    position: absolute;
-    top: -7px;
-    left: 16px;
-    background: var(--paper);
-    padding: 0 8px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    line-height: 1;
-    font-weight: 400;
-    margin: 0;
-    border: none;
-  }
-  /* Override the base section[data-collapsible] > h2::before chevron
-     so the labeled-rule sections render with EXACTLY the same chevron
-     geometry as .targets-heading::before. Without an explicit override
-     of every property (including vertical-align, line-height, padding)
-     the base rule's vertical-align: middle inflates the chevron's
-     visual box and shifts the label rightward. */
-  section.section-minimal > h2::before {
-    content: '▾';
-    display: inline-block;
-    margin: 0 8px 0 0;
-    padding: 0;
-    font-size: 10px;
-    line-height: 1;
-    vertical-align: baseline;
-    opacity: 0.55;
-    transition: transform 120ms ease-out;
-  }
-  section.section-minimal > h2::after {
-    content: '';
-    position: absolute;
-    inset: -3px -24px -1px -24px;
-  }
+  /* H2 heading inside .section-minimal uses the unified bar-heading
+     ruleset near the top of the stylesheet. No per-section override
+     here. */
   /* Whole-band pointer cursor when collapsed: the entire band is just
      the labeled rule, so any click inside it toggles. */
   .targets[data-collapsible].collapsed,
@@ -1523,36 +1536,10 @@
      totals band share the same labeled-rule + chevron header. Chevron
      sits in the heading; collapse hides every tile but keeps the
      heading. */
-  .targets[data-collapsible] > .targets-heading,
-  .checkout-totals[data-collapsible] > .targets-heading {
-    cursor: pointer;
-    user-select: none;
-  }
-  /* Extend the click target around the small heading label without
-     changing its visual box. The ::after is transparent and grabs
-     clicks via the host element so the chevron-toggle still fires.
-     Asymmetric extension per v6.5.20: 3 px above the labeled bar +
-     1 px below, so the entire visible black rule is clickable
-     without bleeding into the next band's region. */
-  .targets[data-collapsible] > .targets-heading::after,
-  .checkout-totals[data-collapsible] > .targets-heading::after {
-    content: '';
-    position: absolute;
-    inset: -3px -24px -1px -24px;
-  }
-  .targets[data-collapsible] > .targets-heading::before,
-  .checkout-totals[data-collapsible] > .targets-heading::before {
-    content: '▾';
-    display: inline-block;
-    margin-right: 8px;
-    font-size: 10px;
-    opacity: 0.55;
-    transition: transform 120ms ease-out;
-  }
-  .targets[data-collapsible].collapsed > .targets-heading::before,
-  .checkout-totals[data-collapsible].collapsed > .targets-heading::before {
-    transform: rotate(-90deg);
-  }
+  /* Heading + chevron rules now live in the unified bar-heading block
+     near the top of the stylesheet (search "Unified labeled-bar
+     heading"). Only the collapsed-state body-hide stays here since it
+     is targets-specific. */
   .targets[data-collapsible].collapsed > *:not(.targets-heading) {
     display: none !important;
   }
@@ -3715,42 +3702,8 @@
     padding: 0;
     margin: 16px 0;
   }
-  #profile-section > summary {
-    position: absolute;
-    top: -7px;
-    left: 16px;
-    background: var(--paper);
-    padding: 0 8px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    line-height: 1;
-    cursor: pointer;
-    user-select: none;
-    list-style: none;
-  }
-  #profile-section > summary::-webkit-details-marker { display: none; }
-  #profile-section > summary::marker { display: none; }
-  #profile-section > summary::before {
-    content: '▾';
-    display: inline-block;
-    margin-right: 8px;
-    font-size: 10px;
-    opacity: 0.55;
-    transition: transform 120ms ease-out;
-  }
-  #profile-section:not([open]) > summary::before {
-    transform: rotate(-90deg);
-  }
-  /* Match the .targets-heading click-target extension so the rule
-     itself is clickable without overlapping the next band. */
-  #profile-section > summary::after {
-    content: '';
-    position: absolute;
-    inset: -3px -24px -1px -24px;
-  }
+  /* #profile-section summary uses the unified bar-heading ruleset near
+     the top of the stylesheet. No per-section override here. */
   .profile-form {
     margin-top: 12px;
     font-size: 13px;
