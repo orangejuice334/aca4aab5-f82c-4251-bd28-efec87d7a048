@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.19">
+<meta name="app-version" content="v6.5.20">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -1449,14 +1449,14 @@
   /* Extend the click target around the small heading label without
      changing its visual box. The ::after is transparent and grabs
      clicks via the host element so the chevron-toggle still fires.
-     Vertical extent intentionally tight (6 px each way) so two
-     collapsed bands stacked one below the other don't overlap each
-     other's click regions and route clicks to the wrong band. */
+     Asymmetric extension per v6.5.20: 3 px above the labeled bar +
+     1 px below, so the entire visible black rule is clickable
+     without bleeding into the next band's region. */
   .targets[data-collapsible] > .targets-heading::after,
   .checkout-totals[data-collapsible] > .targets-heading::after {
     content: '';
     position: absolute;
-    inset: -6px -24px;
+    inset: -3px -24px -1px -24px;
   }
   .targets[data-collapsible] > .targets-heading::before,
   .checkout-totals[data-collapsible] > .targets-heading::before {
@@ -3666,7 +3666,7 @@
   #profile-section > summary::after {
     content: '';
     position: absolute;
-    inset: -6px -24px;
+    inset: -3px -24px -1px -24px;
   }
   .profile-form {
     margin-top: 12px;
