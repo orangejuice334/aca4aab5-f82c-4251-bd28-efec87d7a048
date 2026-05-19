@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.6">
+<meta name="app-version" content="v6.5.7">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -3081,22 +3081,44 @@
     color: var(--ink-faint);
   }
   /* Inline computed body-fat % readout next to the Neck + Waist inputs.
-     Renders blank ("—") when either input is missing or out of range. */
+     Plain text — no warning colors, no goal reference. Reads
+     "X.X% body fat" once both measurements + height are valid. */
   .bf-inline {
     display: inline-flex;
     align-items: center;
     padding: 4px 10px;
-    border: 1px dashed var(--ink-faint);
-    border-radius: 2px;
-    background: rgba(0,0,0,0.02);
     font-family: 'JetBrains Mono', monospace;
     font-size: 12px;
     color: var(--ink-soft);
     letter-spacing: 0.02em;
   }
-  .bf-inline.has-value { color: var(--ink); border-style: solid; border-color: var(--rust); background: rgba(176, 74, 46, 0.06); }
-  .bf-inline.over-goal { color: var(--rust-deep); border-color: var(--rust); }
-  .bf-inline.under-goal { color: var(--sage); border-color: var(--sage); }
+  .bf-inline.has-value { color: var(--ink); }
+
+  /* Global context bar — sits above all sections. Holds the date picker,
+     sync status, sort toggle. Single row that wraps on narrow screens. */
+  .context-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 14px;
+    padding: 10px 0;
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .context-bar-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  /* Measurement input row inside the Weight & BMI section. Holds the
+     per-day weight / neck / waist inputs and the inline body-fat readout. */
+  .measurement-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
 
   /* Weight & BMI charts */
   .weight-summary {
@@ -4009,36 +4031,27 @@
   </form>
 </details>
 
+<!-- ============ GLOBAL CONTEXT BAR ============
+     Sits above all sections. Holds the date picker, sync indicator, sort
+     toggle — controls that affect the whole app, not just any one
+     section. Moved out of the Checkout List header (was crowded). -->
+<div class="context-bar">
+  <span class="context-bar-date">
+    <button id="checkout-date-prev" type="button" class="date-nav-btn" aria-label="Previous day">‹</button>
+    <span class="title-date" id="checkout-date"></span>
+    <button id="checkout-date-next" type="button" class="date-nav-btn" aria-label="Next day">›</button>
+  </span>
+  <button id="sync-now" type="button" class="title-btn-secondary" title="Pull latest from the cloud and save any pending changes">Sync</button>
+  <button id="sort-toggle" type="button" class="title-btn-secondary sort-toggle" title="Toggle between category and alphabetical sort">Sort: by category</button>
+  <span id="sync-status" class="sync-status" style="display: none;"></span>
+  <span id="last-sync" class="last-sync" style="display: none;" title="Last successful sync"></span>
+  <span id="data-updated" class="last-sync data-updated" style="display: none;"></span>
+</div>
+
 <!-- ============ SECTION 1: CHECKOUT LIST ============ -->
 <section id="checkout" data-collapsible>
   <h2 class="title-with-action">
     <span class="num">01</span>Checkout List
-    <span class="checkout-date-nav">
-      <button id="checkout-date-prev" type="button" class="date-nav-btn" aria-label="Previous day">‹</button>
-      <span class="title-date" id="checkout-date"></span>
-      <button id="checkout-date-next" type="button" class="date-nav-btn" aria-label="Next day">›</button>
-    </span>
-    <button id="sync-now" type="button" class="title-btn-secondary" title="Pull latest from the cloud and save any pending changes">Sync</button>
-    <button id="sort-toggle" type="button" class="title-btn-secondary sort-toggle" title="Toggle between category and alphabetical sort">Sort: by category</button>
-    <span id="sync-status" class="sync-status" style="display: none;"></span>
-    <span id="last-sync" class="last-sync" style="display: none;" title="Last successful sync"></span>
-    <span id="data-updated" class="last-sync data-updated" style="display: none;"></span>
-    <span class="weight-input-wrapper">
-      <label class="weight-input-label" for="checkout-weight">Weight</label>
-      <input type="number" id="checkout-weight" class="weight-input" step="0.1" min="0" placeholder="—" inputmode="decimal">
-      <span class="weight-input-unit">kg</span>
-    </span>
-    <span class="weight-input-wrapper">
-      <label class="weight-input-label" for="checkout-neck">Neck</label>
-      <input type="number" id="checkout-neck" class="weight-input" step="0.1" min="0" max="80" placeholder="—" inputmode="decimal" title="Neck circumference at the narrowest point, just below Adam's apple. cm.">
-      <span class="weight-input-unit">cm</span>
-    </span>
-    <span class="weight-input-wrapper">
-      <label class="weight-input-label" for="checkout-waist">Waist</label>
-      <input type="number" id="checkout-waist" class="weight-input" step="0.1" min="0" max="250" placeholder="—" inputmode="decimal" title="Waist circumference at navel level, end of a normal exhale. cm.">
-      <span class="weight-input-unit">cm</span>
-    </span>
-    <span class="bf-inline" id="bf-inline" title="Computed body fat % via the Navy method. Need both neck and waist in valid ranges plus profile height.">—</span>
   </h2>
   <div class="section-rule"></div>
 
@@ -4178,8 +4191,30 @@
 
 <!-- ============ WEIGHT & BMI ============ -->
 <section id="weight-tracker" data-collapsible>
-  <h2><span class="num">02</span>Weight &amp; BMI</h2>
+  <h2 class="title-with-action"><span class="num">02</span>Weight &amp; BMI</h2>
   <div class="section-rule"></div>
+
+  <!-- Per-day measurements: weight, neck, waist (the last two drive the
+       Navy body-fat formula). Inline body-fat readout computes live as
+       the user types. -->
+  <div class="measurement-row">
+    <span class="weight-input-wrapper">
+      <label class="weight-input-label" for="checkout-weight">Weight</label>
+      <input type="number" id="checkout-weight" class="weight-input" step="0.1" min="0" placeholder="—" inputmode="decimal">
+      <span class="weight-input-unit">kg</span>
+    </span>
+    <span class="weight-input-wrapper">
+      <label class="weight-input-label" for="checkout-neck">Neck</label>
+      <input type="number" id="checkout-neck" class="weight-input" step="0.1" min="0" max="80" placeholder="—" inputmode="decimal" title="Neck circumference at the narrowest point, just below Adam's apple. cm.">
+      <span class="weight-input-unit">cm</span>
+    </span>
+    <span class="weight-input-wrapper">
+      <label class="weight-input-label" for="checkout-waist">Waist</label>
+      <input type="number" id="checkout-waist" class="weight-input" step="0.1" min="0" max="250" placeholder="—" inputmode="decimal" title="Waist circumference at navel level, end of a normal exhale. cm.">
+      <span class="weight-input-unit">cm</span>
+    </span>
+    <span class="bf-inline" id="bf-inline" title="Computed body fat % via the Navy method. Need both neck and waist in valid ranges plus profile height.">—</span>
+  </div>
 
   <div class="weight-summary" id="weight-summary"></div>
 
@@ -8842,7 +8877,7 @@
         '</label>' +
         '<div class="variant-edit-field" style="flex:0 1 90px;">' +
           '<label class="variant-edit-fieldlabel">Amount</label>' +
-          '<input type="number" data-variant-field="amount" min="0" step="0.1" inputmode="decimal" value="' + escapeHtml(formatSize(amount)) + '" />' +
+          '<input type="number" data-variant-field="amount" min="0" step="0.1" inputmode="decimal" value="' + escapeHtml(amount > 0 ? formatSize(amount) : '') + '" />' +
         '</div>' +
         '<div class="variant-edit-field" style="flex:0 1 120px;">' +
           '<label class="variant-edit-fieldlabel">Unit</label>' +
@@ -10348,9 +10383,9 @@
   }
 
   // Update the inline `#bf-inline` readout next to the Neck + Waist
-  // inputs in the Checkout List header. Reads the LIVE input values (not
-  // committed-to-state), so the BF% updates as the user types — even
-  // before the debounce fires.
+  // inputs. Reads the LIVE input values, so it updates as the user
+  // types — even before the debounce fires. Plain text, no warning
+  // coloring, no goal reference (the chart bands convey health ranges).
   function renderBfInlineFromInputs() {
     const el = document.getElementById('bf-inline');
     if (!el) return;
@@ -10365,13 +10400,8 @@
       el.className = 'bf-inline';
       return;
     }
-    const goal = state.profile && state.profile.goals && state.profile.goals.fatPercent;
-    el.textContent = bf.toFixed(1) + '% body fat' + (typeof goal === 'number' ? ' · goal ≤ ' + goal + '%' : '');
-    let cls = 'bf-inline has-value';
-    if (typeof goal === 'number') {
-      cls += bf > goal ? ' over-goal' : ' under-goal';
-    }
-    el.className = cls;
+    el.textContent = bf.toFixed(1) + '% body fat';
+    el.className = 'bf-inline has-value';
   }
 
   function renderWeightSection() {

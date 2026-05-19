@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-18T23:57:33.822Z",
-  "_gistSavedAt": "2026-05-18T23:50:20.190Z",
+  "_backupTakenAt": "2026-05-19T14:00:19.354Z",
+  "_gistSavedAt": "2026-05-19T13:53:38.552Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -97,7 +97,8 @@
           "salsa_casa_mamita_chunky": 82.5,
           "chicken_livers_bell_evans": 112,
           "evoo_tsp": 1.25,
-          "premier": 325
+          "premier": 650,
+          "turkey_breast_smithfield": 112
         },
         "customs": [],
         "toggleMeta": {
@@ -120,10 +121,51 @@
           "salsa_casa_mamita_chunky": "2026-05-18T23:08:09.755Z",
           "chicken_livers_bell_evans": "2026-05-18T23:46:21.106Z",
           "evoo_tsp": "2026-05-18T23:37:39+00:00",
-          "premier": "2026-05-18T23:48:28.050Z"
+          "premier": "2026-05-19T01:37:49.046Z",
+          "turkey_breast_smithfield": "2026-05-19T01:36:23.174Z"
         },
         "weight": 98.5,
-        "weightMeta": "2026-05-18T23:09:39.640Z"
+        "weightMeta": "2026-05-18T23:09:39.640Z",
+        "neck": 43,
+        "neckMeta": "2026-05-19T00:21:04.797Z",
+        "waist": 110,
+        "waistMeta": "2026-05-19T01:36:17.938Z"
+      },
+      "2026-05-19": {
+        "toggles": {},
+        "counters": {
+          "protein_whey_dymatize_iso100_vanilla": 60
+        },
+        "customs": [
+          {
+            "id": "6b1d2aad-13cb-408b-9fa0-c618f9536950",
+            "name": "bf",
+            "kcal": 500,
+            "p": 20,
+            "sf": 0,
+            "water": 0,
+            "caffeine": 0,
+            "count": 1,
+            "lastModified": "2026-05-19T13:04:12.973Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "protein_whey_dymatize_iso100_vanilla": "2026-05-19T13:50:58+00:00"
+        },
+        "neck": 43,
+        "neckMeta": "2026-05-19T12:17:37.196Z",
+        "weight": 99.1,
+        "weightMeta": "2026-05-19T12:17:55.290Z",
+        "waist": 110,
+        "waistMeta": "2026-05-19T12:18:52.960Z"
+      },
+      "2026-05-20": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {}
       }
     },
     "savedItems": [],
@@ -199,7 +241,14 @@
     },
     "sortMode": "ratio",
     "collapsedGroups": {
-      "section-density": true
+      "section-density": true,
+      "supplements-water": true,
+      "catalog-archive": true,
+      "details-recipe-maker": true,
+      "details-checkout-history": true,
+      "targets-accumulation": true,
+      "details-profile-section": true,
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
@@ -210,20 +259,16 @@
           "displayUnits": [
             {
               "label": "800 mg total",
-              "multiplier": 4,
+              "amount": 4,
+              "unit": "g",
+              "default": true,
               "time": "19:00",
               "frequency": "daily",
-              "default": true,
-              "amount": 4,
-              "unit": "g"
+              "multiplier": 4
             }
           ],
           "notes": "Doctor's Best Magnesium Glycinate, 4 tablets (800 mg magnesium total). Multiple reasons:\n\n• Sleep quality — glycinate contains glycine, an inhibitory neurotransmitter that promotes calm.\n• Cramps and recovery — heavy lifting + sweating + a deficit all increase magnesium demand; calf cramps are often magnesium-adjacent.\n• Cardiovascular — mild blood pressure lowering, modest insulin sensitivity.\n• Constipation prevention — lower food intake + high protein slows transit.\n\nGlycinate specifically because it's highly bioavailable AND non-laxative, unlike oxide (poorly absorbed) or citrate (loose stools at higher doses). Dinner timing keeps it away from caffeine (which antagonizes magnesium) and lets the calming effect help sleep.",
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "almond_powder_tbsp": {
           "name": "Almond powder defatted",
@@ -257,22 +302,24 @@
           "displayUnits": [
             {
               "label": "100 g serving",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             },
             {
               "label": "1 tbsp",
+              "amount": 6,
+              "unit": "g",
               "default": true,
               "multiplier": 6
             },
             {
               "label": "g",
+              "amount": 1,
+              "unit": "g",
               "multiplier": 1
             }
           ],
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "defaultMeasuredIn": "g",
           "brand": "Barney Butter"
         },
@@ -305,15 +352,13 @@
           "displayUnits": [
             {
               "label": "1 cup",
+              "amount": 252,
+              "unit": "g",
               "default": true,
               "multiplier": 252
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "apricot_preserves_sf_quarter": {
           "name": "Apricot preserves sugar-free",
@@ -336,15 +381,13 @@
           "displayUnits": [
             {
               "label": "1/4 jar",
+              "amount": 80,
+              "unit": "g",
               "default": true,
               "multiplier": 80
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "avocado_half": {
           "name": "Avocado",
@@ -380,15 +423,13 @@
           "displayUnits": [
             {
               "label": "1/2 medium size",
+              "amount": 65,
+              "unit": "g",
               "default": true,
               "multiplier": 65
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "bagel_sesame_qtr": {
           "name": "Bagel sesame",
@@ -424,15 +465,13 @@
           "displayUnits": [
             {
               "label": "1/4",
+              "amount": 28,
+              "unit": "g",
               "default": true,
               "multiplier": 28
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "banana": {
           "name": "Banana",
@@ -468,15 +507,13 @@
           "displayUnits": [
             {
               "label": "1 unit",
+              "amount": 118,
+              "unit": "g",
               "default": true,
               "multiplier": 118
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "bar_luna_lemon_zest": {
           "name": "Bar Lemon Zest",
@@ -512,15 +549,13 @@
           "displayUnits": [
             {
               "label": "1 bar",
+              "amount": 48,
+              "unit": "g",
               "default": true,
               "multiplier": 48
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "beef_bulgogi_100g": {
           "name": "Beef bulgogi seasoned rib-eye",
@@ -560,19 +595,19 @@
           "displayUnits": [
             {
               "label": "100 g serving",
+              "amount": 100,
+              "unit": "g",
               "default": true,
               "multiplier": 100
             },
             {
               "label": "g",
+              "amount": 1,
+              "unit": "g",
               "multiplier": 1
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "black_bean_pasta": {
           "name": "Black bean pasta",
@@ -609,23 +644,25 @@
           "displayUnits": [
             {
               "label": "1 pkg",
+              "amount": 200,
+              "unit": "g",
               "default": true,
               "multiplier": 200
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             },
             {
               "label": "1 serving",
+              "amount": 56,
+              "unit": "g",
               "multiplier": 56
             }
           ],
           "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "brand": "Explore Cuisine"
         },
         "black_beans_dry_goya": {
@@ -664,27 +701,31 @@
           "displayUnits": [
             {
               "label": "1 bag (1 lb)",
+              "amount": 454,
+              "unit": "g",
               "multiplier": 454
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             },
             {
               "label": "1/2 cup",
+              "amount": 70,
+              "unit": "g",
               "multiplier": 70
             },
             {
               "label": "1/4 cup",
+              "amount": 35,
+              "unit": "g",
               "default": true,
               "multiplier": 35
             }
           ],
-          "notes": "Goya dry black beans. Label per 1/4 cup (35 g): 80 kcal · 10 g P · 19 g carb · 11 g fiber · 530 mg K · 5 mg Na · 0.5 g fat. CATALOG USES CORRECTED kcal = 100 (Goya treats fiber as 0 kcal; fermentable fiber adds back ~2 kcal/g = +22 kcal). Real k/g P ~10, not the label-implied 8. When boiled at home, mass triples (35 g dry → ~100 g cooked); kcal and protein transfer 1:1. Goya canned shows k/g P 14 because canned label uses standard fiber=4kcal/g accounting — same beans, different label convention.",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "notes": "Goya dry black beans. Label per 1/4 cup (35 g): 80 kcal · 10 g P · 19 g carb · 11 g fiber · 530 mg K · 5 mg Na · 0.5 g fat. CATALOG USES CORRECTED kcal = 100 (Goya treats fiber as 0 kcal; fermentable fiber adds back ~2 kcal/g = +22 kcal). Real k/g P ~10, not the label-implied 8. When boiled at home, mass triples (35 g dry → ~100 g cooked); kcal and protein transfer 1:1. Goya canned shows k/g P 14 because canned label uses standard fiber=4kcal/g accounting — same beans, different label convention."
         },
         "bran_flakes": {
           "name": "Bran flakes",
@@ -715,15 +756,13 @@
           "displayUnits": [
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "default": true,
               "multiplier": 100
             }
           ],
-          "notes": "Generic fortified bran flakes (Post / Kellogg's style). Per-gram macros derived from a 30 g labelled serving; tweak per brand if needed.",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "notes": "Generic fortified bran flakes (Post / Kellogg's style). Per-gram macros derived from a 30 g labelled serving; tweak per brand if needed."
         },
         "bran_flakes_with_soy_milk": {
           "name": "Bran flakes with soy milk",
@@ -744,8 +783,10 @@
           "displayUnits": [
             {
               "label": "1 bowl",
-              "multiplier": 347,
-              "default": true
+              "amount": 347,
+              "unit": "g",
+              "default": true,
+              "multiplier": 347
             }
           ]
         },
@@ -782,15 +823,13 @@
           "displayUnits": [
             {
               "label": "1/2 bag",
+              "amount": 170,
+              "unit": "g",
               "default": true,
               "multiplier": 170
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "cc": {
           "name": "Cottage cheese 2%",
@@ -828,23 +867,25 @@
           "displayUnits": [
             {
               "label": "1/2 tub",
+              "amount": 340,
+              "unit": "g",
               "default": true,
               "multiplier": 340
             },
             {
               "label": "1/4 tub",
+              "amount": 170,
+              "unit": "g",
               "multiplier": 170
             },
             {
               "label": "g",
+              "amount": 1,
+              "unit": "g",
               "multiplier": 1
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "cc_giant_ff": {
           "name": "Cottage cheese fat-free",
@@ -879,27 +920,31 @@
           "displayUnits": [
             {
               "label": "1/2 tub",
+              "amount": 340,
+              "unit": "g",
               "default": true,
               "multiplier": 340
             },
             {
               "label": "2/3 tub",
+              "amount": 222,
+              "unit": "g",
               "multiplier": 222
             },
             {
               "label": "1/4 tub",
+              "amount": 170,
+              "unit": "g",
               "multiplier": 170
             },
             {
               "label": "1 serving",
+              "amount": 113,
+              "unit": "g",
               "multiplier": 113
             }
           ],
           "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "brand": "Giant"
         },
         "chicken_livers_bell_evans": {
@@ -959,15 +1004,13 @@
           "displayUnits": [
             {
               "label": "50 g",
+              "amount": 50,
+              "unit": "g",
               "default": true,
               "multiplier": 50
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "creatine": {
           "name": "Creatine 5 g",
@@ -975,20 +1018,16 @@
           "displayUnits": [
             {
               "label": "1 scoop",
-              "multiplier": 5,
+              "amount": 5,
+              "unit": "g",
+              "default": true,
               "time": "08:00",
               "frequency": "daily",
-              "default": true,
-              "amount": 5,
-              "unit": "g"
+              "multiplier": 5
             }
           ],
           "notes": "Nature's Wonder Creatine, 5 g (use scoop, or ~1.5 level tsp). Strength and lean mass preservation on a cut. The most-studied performance supplement in existence — ~1,000+ trials. Saturates muscle phosphocreatine stores over 3–4 weeks, then maintains with daily 5 g. Especially valuable on a calorie deficit where lifts tend to drop; creatine helps them hold. Note: 1 level tsp ≈ 3 g, not 5 g — use the scoop that came with the tub or measure ~1.5 tsp. Avoid hot acidic liquids (slow degradation). Timing isn't critical once saturated — total daily dose is what matters.",
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "d3": {
           "name": "NatureWise D3 5000 IU",
@@ -997,20 +1036,16 @@
           "displayUnits": [
             {
               "label": "1 softgel",
-              "multiplier": 1,
+              "amount": 1,
+              "unit": "g",
+              "default": true,
               "time": "08:00",
               "frequency": "alternate",
-              "default": true,
-              "amount": 1,
-              "unit": "g"
+              "multiplier": 1
             }
           ],
           "notes": "NatureWise D3 5,000 IU. Vitamin D supplementation. Maryland latitude (~39°N) means winter sun is too low-angle for skin synthesis Oct–April. Earlier bloodwork showed low-normal D; supplementation targets the 40–60 ng/mL range for bone, immune, and muscle support on a deficit. Every other day (~17,500 IU/week) is the sweet spot for someone your size — daily 5,000 IU long-term over-saturates. With breakfast because it's fat-soluble; needs dietary fat to absorb.",
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "drink_performx_strawberry_banana": {
           "name": "Drink hydration strawberry-banana",
@@ -1086,15 +1121,13 @@
           "displayUnits": [
             {
               "label": "1/2 bag",
+              "amount": 227,
+              "unit": "g",
               "default": true,
               "multiplier": 227
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "egg_substitute": {
           "name": "Egg substitute",
@@ -1121,27 +1154,31 @@
           "displayUnits": [
             {
               "label": "1 carton",
+              "amount": 920,
+              "unit": "g",
               "default": true,
               "multiplier": 920
             },
             {
               "label": "1 cup",
+              "amount": 245,
+              "unit": "g",
               "multiplier": 245
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             },
             {
               "label": "3 Tbsp (label)",
+              "amount": 46,
+              "unit": "g",
               "multiplier": 46
             }
           ],
           "notes": "Giant Food egg substitute. Yellow carton, pasteurized egg whites + small gums + beta-carotene color + B-vitamin / mineral fortification. Container ~32 fl oz / ~920 g. Density ~1.022 g/ml (3 Tbsp = 45 ml = 46 g per label) so ml and g are interchangeable for cooking. Same protein/kcal as plain egg whites; difference is the added fortification - vit D, calcium 200 mg per serving (15% DV), B-complex (riboflavin 40% DV, B12 20% DV, biotin 25% DV) - and trace gums + salt (85 mg sodium per serving). Pick between this and plain egg whites on micronutrient-density vs ingredient-minimalism.",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "brand": "Giant"
         },
         "egg_whites": {
@@ -1175,24 +1212,26 @@
           "displayUnits": [
             {
               "label": "1 cup",
+              "amount": 243,
+              "unit": "g",
               "default": true,
               "multiplier": 243
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             },
             {
               "label": "1 large",
+              "amount": 33,
+              "unit": "g",
               "multiplier": 33
             }
           ],
           "notes": "From whole eggs, separated. ~1 large egg yields ~33 g of whites. Carton egg whites (e.g., Egg Beaters) have similar macros. Excellent k/g P (kcal per gram of protein) ≈ 4.77 — high-volume protein with negligible fat.",
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "eggs_shrimp_edamame_bowl": {
           "name": "Eggs, shrimp & edamame microwave bowl",
@@ -1200,6 +1239,8 @@
           "displayUnits": [
             {
               "label": "1 serving",
+              "amount": 250,
+              "unit": "g",
               "default": true,
               "multiplier": 250
             }
@@ -1271,6 +1312,8 @@
           "displayUnits": [
             {
               "label": "1 serving",
+              "amount": 200,
+              "unit": "g",
               "default": true,
               "multiplier": 200
             }
@@ -1346,15 +1389,13 @@
           "displayUnits": [
             {
               "label": "1 tsp",
+              "amount": 5,
+              "unit": "g",
               "default": true,
               "multiplier": 5
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "flonase": {
           "name": "Flonase",
@@ -1362,19 +1403,15 @@
           "displayUnits": [
             {
               "label": "1 spray",
-              "multiplier": 1,
+              "amount": 1,
+              "unit": "g",
+              "default": true,
               "time": "08:00",
               "frequency": "daily",
-              "default": true,
-              "amount": 1,
-              "unit": "g"
+              "multiplier": 1
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "frank_dietz_watson": {
           "name": "Frank uncured beef-pork",
@@ -1410,24 +1447,26 @@
           "displayUnits": [
             {
               "label": "1 pkg",
+              "amount": 392,
+              "unit": "g",
               "default": true,
               "multiplier": 392
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             },
             {
               "label": "1 frank",
+              "amount": 49,
+              "unit": "g",
               "multiplier": 49
             }
           ],
           "notes": "Dietz & Watson \"Dietz Dogs\" Uncured Beef & Pork Franks. Net wt 14 oz (~397 g), 8 franks per package. No nitrates/nitrites added (except those naturally in celery powder). Calorie- and sodium-dense — k/g P ratio is 23.4, very high for a protein item.",
           "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "brand": "Dietz & Watson"
         },
         "guac_tbsp": {
@@ -1465,15 +1504,13 @@
           "displayUnits": [
             {
               "label": "1 tbsp",
+              "amount": 15,
+              "unit": "g",
               "default": true,
               "multiplier": 15
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "ham_serrano_lidl": {
           "name": "Ham serrano dry-cured",
@@ -1509,28 +1546,32 @@
           "displayUnits": [
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "default": true,
               "multiplier": 100
             },
             {
               "label": "1 pkg",
+              "amount": 85,
+              "unit": "g",
               "multiplier": 85
             },
             {
               "label": "1 serving (1 oz)",
+              "amount": 28,
+              "unit": "g",
               "multiplier": 28
             },
             {
               "label": "1 slice (est.)",
+              "amount": 14,
+              "unit": "g",
               "multiplier": 14
             }
           ],
           "notes": "Wild caught Alaskan pink salmon, MSC-certified sustainable. Includes edible bones (calcium source). 14.75 oz can = 5 servings. Pink and sockeye are the LOW-mercury canned salmon picks (vs higher-mercury King/Chinook). Drain liquid before macro calculations apply; values are for drained weight.",
           "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "brand": "Lidl"
         },
         "harvest_snaps": {
@@ -1567,15 +1608,13 @@
           "displayUnits": [
             {
               "label": "1 bag",
+              "amount": 50,
+              "unit": "g",
               "default": true,
               "multiplier": 50
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "hummus": {
           "name": "Hummus",
@@ -1617,19 +1656,19 @@
           "displayUnits": [
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "default": true,
               "multiplier": 100
             },
             {
               "label": "1 tbsp",
+              "amount": 15,
+              "unit": "g",
               "multiplier": 15
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "jacklinks_turkey": {
           "name": "Turkey jerky original",
@@ -1664,15 +1703,13 @@
           "displayUnits": [
             {
               "label": "18 g pack",
+              "amount": 18,
+              "unit": "g",
               "default": true,
               "multiplier": 18
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "kashi_berry_fruitful": {
           "name": "Kashi Organic Berry Fruitful",
@@ -1706,15 +1743,13 @@
           "displayUnits": [
             {
               "label": "32 biscuits",
+              "amount": 61,
+              "unit": "g",
               "default": true,
               "multiplier": 61
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "kashi_blueberry_clusters": {
           "name": "Kashi Organic Blueberry Clusters",
@@ -1755,23 +1790,25 @@
           "displayUnits": [
             {
               "label": "1 box (13.4 oz)",
+              "amount": 380,
+              "unit": "g",
               "multiplier": 380
             },
             {
               "label": "1 cup",
+              "amount": 54,
+              "unit": "g",
               "default": true,
               "multiplier": 54
             },
             {
               "label": "30 g portion",
+              "amount": 30,
+              "unit": "g",
               "multiplier": 30
             }
           ],
           "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "notes": "Label-derived (high confidence): kcal, p, carbs, fiber, sugar, fat, polyunsat, monounsat, sodium, iron (fortified via ferric phosphate, 80% DV/serving), potassium, calcium. Sat fat label 0g but contains canola oil; est ~0.1g/serving (sub-threshold rounding). Estimated from USDA whole oats + rice + blueberry composition (lower confidence): B-vitamins, choline, Mg, P, Zn, Se, Cu, Mn, iodine, Mo, purines, water content. Ingredients: whole oats, rice, blueberry granola clusters, cane sugar, canola oil, blueberries, elderberry juice (color), salt, natural flavors, iron (ferric phosphate), mixed tocopherols (vit E)."
         },
         "kashi_soymilk_bowl": {
@@ -1780,6 +1817,8 @@
           "displayUnits": [
             {
               "label": "1 bowl",
+              "amount": 405,
+              "unit": "g",
               "default": true,
               "multiplier": 405
             }
@@ -1829,28 +1868,32 @@
           "displayUnits": [
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             },
             {
               "label": "3 packets",
+              "amount": 27,
+              "unit": "g",
               "multiplier": 27
             },
             {
               "label": "2 packets",
+              "amount": 18,
+              "unit": "g",
               "multiplier": 18
             },
             {
               "label": "1 packet",
+              "amount": 9,
+              "unit": "g",
               "default": true,
               "multiplier": 9
             }
           ],
           "notes": "Heinz Tomato Ketchup, single-serve packet. 9 g per packet. Ingredients: tomato concentrate from red ripe tomatoes, distilled vinegar, high fructose corn syrup, corn syrup, salt, spice, onion powder, natural flavoring. Per packet: 10 kcal · 100 mg sodium · 2 g sugar. Sodium-dense relative to size (11 mg/g) but absolute amount per packet is small. Two packets ≈ 200 mg sodium.",
           "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "brand": "Heinz"
         },
         "ketchup_packet": {
@@ -1883,15 +1926,13 @@
           "displayUnits": [
             {
               "label": "18 g",
+              "amount": 18,
+              "unit": "g",
               "default": true,
               "multiplier": 18
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "larabar": {
           "name": "Larabar",
@@ -1927,15 +1968,13 @@
           "displayUnits": [
             {
               "label": "1 unit",
+              "amount": 45,
+              "unit": "g",
               "default": true,
               "multiplier": 45
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "large_egg": {
           "name": "Egg",
@@ -1973,15 +2012,13 @@
           "displayUnits": [
             {
               "label": "large size",
+              "amount": 50,
+              "unit": "g",
               "default": true,
               "multiplier": 50
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "mandarin": {
           "name": "Mandarin",
@@ -2013,15 +2050,13 @@
           "displayUnits": [
             {
               "label": "medium size",
+              "amount": 88,
+              "unit": "g",
               "default": true,
               "multiplier": 88
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "mayo_packet": {
           "name": "Mayonnaise packet",
@@ -2051,15 +2086,13 @@
           "displayUnits": [
             {
               "label": "14 g",
+              "amount": 14,
+              "unit": "g",
               "default": true,
               "multiplier": 14
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "moz_turkey_snack": {
           "name": "Mozzarella stick + turkey slice",
@@ -2101,23 +2134,25 @@
           "displayUnits": [
             {
               "label": "1 bag",
+              "amount": 196,
+              "unit": "g",
               "default": true,
               "multiplier": 196
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             },
             {
               "label": "1/4 cup (label)",
+              "amount": 28,
+              "unit": "g",
               "multiplier": 28
             }
           ],
           "notes": "Kraft fat-free shredded mozzarella. Bag ~7 servings × 28 g = 196 g. 9 g protein per 1/4 cup serving - k/g P ~5, well below your 8.0 protein-positive cutoff so a strong protein-dense topper. Sodium 280 mg per serving (12% DV) is the main watch-out. Ingredients: nonfat mozzarella (pasteurized skim milk, cheese culture, salt, vitamin yeast, vit-A palmitate, enzymes, artificial color), modified cornstarch (anti-caking), natamycin (mold inhibitor).",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "brand": "Kraft"
         },
         "mushrooms_pampa_jar": {
@@ -2149,28 +2184,32 @@
           "displayUnits": [
             {
               "label": "1 jar w/ liquid",
+              "amount": 207,
+              "unit": "g",
               "default": true,
               "multiplier": 207
             },
             {
               "label": "1 jar drained",
+              "amount": 127,
+              "unit": "g",
               "multiplier": 127
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             },
             {
               "label": "50 g",
+              "amount": 50,
+              "unit": "g",
               "multiplier": 50
             }
           ],
           "notes": "Lidl Preferred Selection Jamón Serrano. Spain, aged 12mo min. 3 oz (85 g) pkg = 3 servings × 28 g. Pork ham + sea salt. 21 mg Na/g. k/g P 7.0. Re-added 2026-05-14 after sync issue.",
           "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "brand": "Pampa"
         },
         "mustard_heinz_packet": {
@@ -2205,27 +2244,31 @@
           "displayUnits": [
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             },
             {
               "label": "5 packets",
+              "amount": 28,
+              "unit": "g",
               "multiplier": 28
             },
             {
               "label": "2 packets",
+              "amount": 11.2,
+              "unit": "g",
               "multiplier": 11.2
             },
             {
               "label": "1 packet",
+              "amount": 5.6,
+              "unit": "g",
               "default": true,
               "multiplier": 5.6
             }
           ],
           "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "brand": "Heinz"
         },
         "mycoffee": {
@@ -2239,6 +2282,8 @@
           "displayUnits": [
             {
               "label": "1 unit",
+              "amount": 330,
+              "unit": "g",
               "default": true,
               "multiplier": 330
             }
@@ -2281,11 +2326,7 @@
               }
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "mycowcoffee": {
           "name": "My Coffee cow milk",
@@ -2297,6 +2338,8 @@
           "displayUnits": [
             {
               "label": "1 unit",
+              "amount": 330,
+              "unit": "g",
               "default": true,
               "multiplier": 330
             }
@@ -2339,11 +2382,7 @@
               }
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "omega3": {
           "name": "Omega-3 (fish oil)",
@@ -2355,36 +2394,32 @@
           "displayUnits": [
             {
               "label": "AM",
-              "multiplier": 1,
+              "amount": 1,
+              "unit": "g",
               "time": "08:00",
               "frequency": "daily",
               "default": true,
-              "amount": 1,
-              "unit": "g"
+              "multiplier": 1
             },
             {
               "label": "Lunch",
-              "multiplier": 1,
+              "amount": 1,
+              "unit": "g",
               "time": "12:30",
               "frequency": "daily",
-              "amount": 1,
-              "unit": "g"
+              "multiplier": 1
             },
             {
               "label": "PM",
-              "multiplier": 1,
+              "amount": 1,
+              "unit": "g",
               "time": "19:00",
               "frequency": "daily",
-              "amount": 1,
-              "unit": "g"
+              "multiplier": 1
             }
           ],
           "notes": "MAV Nutrition Triple Strength Omega-3. 720 mg combined EPA+DHA per softgel. 3 softgels daily = 2,160 mg target (cardiovascular outcome trial dose). Anchovy-sourced, low mercury.\n\nABSORPTION REQUIRES DIETARY FAT (micelle formation in the small intestine):\n- High-fat meal (~30g fat): ~100% absorption\n- Low-fat meal (~10g fat): ~50%\n- Fasting / no fat: ~30% (only one-third reaches circulation)\nFat-absorption window is 2-4 hours post-meal; taking a softgel 3+ hours after eating misses most of the bile + lipase response.\n\nLOW-FAT DIET PLAN (current 1400 kcal cut, half avocado/day = ~11-15g fat):\n- Half avocado covers 1-2 softgels at full absorption.\n- Default: 2 softgels with the avocado meal, 1 softgel with whichever other meal has the most incidental fat (eggs, dairy, salmon, chicken thigh; even 3-5 g of fat helps a lot vs dry).\n- If no other meal has any fat: drop to 1-2 softgels that day. 1,440 mg well-absorbed beats 2,160 mg with the 3rd barely getting in.\n- Salmon days: dietary EPA+DHA from salmon (~1-1.5 g per 100 g Atlantic) covers a chunk of the daily target; 1-2 softgels is fine.\n- Stacking all 3 with avocado works too if you drizzle a teaspoon of olive oil to push the meal past the 15 g fat threshold (and accept the fish-burps).\n\nSPLITTING ACROSS MEALS (when fat is available at each):\n- Each dose gets its own micelle pool = better absorption per dose.\n- Eliminates the fish-burps / reflux that 3-at-once tends to cause.\n- Steady tissue EPA/DHA saturation across the day.\n\nEMERGENCY RULE (skipped meal, dry softgel imminent): take it with even a small fat-bearing bite (teaspoon olive oil, slice of cheese, glass of milk, handful of nuts). Or delay to the next meal that has fat. Dry softgel = ~one-third absorbed.",
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "orange_chicken_100g": {
           "name": "Orange chicken — takeout",
@@ -2423,19 +2458,19 @@
           "displayUnits": [
             {
               "label": "100 g serving",
+              "amount": 100,
+              "unit": "g",
               "default": true,
               "multiplier": 100
             },
             {
               "label": "g",
+              "amount": 1,
+              "unit": "g",
               "multiplier": 1
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "pb2": {
           "name": "PB2",
@@ -2466,23 +2501,25 @@
           "displayUnits": [
             {
               "label": "1 tbsp",
+              "amount": 7,
+              "unit": "g",
               "default": true,
               "multiplier": 7
             },
             {
               "label": "1 tsp",
+              "amount": 2,
+              "unit": "g",
               "multiplier": 2
             },
             {
               "label": "g",
+              "amount": 1,
+              "unit": "g",
               "multiplier": 1
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "peanuts_fistful": {
           "name": "Peanuts dry roasted (lightly salted)",
@@ -2517,27 +2554,31 @@
           "displayUnits": [
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             },
             {
               "label": "50 g (generous handful)",
+              "amount": 50,
+              "unit": "g",
               "multiplier": 50
             },
             {
               "label": "1 fistful",
+              "amount": 30,
+              "unit": "g",
               "default": true,
               "multiplier": 30
             },
             {
               "label": "1 oz",
+              "amount": 28,
+              "unit": "g",
               "multiplier": 28
             }
           ],
-          "notes": "Dry roasted peanuts, lightly salted (USDA reference per 100 g: 585 kcal · 23.7 g protein · 49.7 g fat · 21.5 g carbs · 8 g fiber · 410 mg sodium). Fistful weight estimated at 30 g (about 1 oz, ~25-35 peanuts). k/g P ~24.7 — calorie-dense, protein per calorie is poor. Strong vitE, niacin (b3), magnesium, potassium contributor. Sodium varies by brand; unsalted ~0.05 mg/g, heavily salted ~8 mg/g.",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "notes": "Dry roasted peanuts, lightly salted (USDA reference per 100 g: 585 kcal · 23.7 g protein · 49.7 g fat · 21.5 g carbs · 8 g fiber · 410 mg sodium). Fistful weight estimated at 30 g (about 1 oz, ~25-35 peanuts). k/g P ~24.7 — calorie-dense, protein per calorie is poor. Strong vitE, niacin (b3), magnesium, potassium contributor. Sodium varies by brand; unsalted ~0.05 mg/g, heavily salted ~8 mg/g."
         },
         "pork_beans_halfcup": {
           "name": "Pork & beans",
@@ -2577,15 +2618,13 @@
           "displayUnits": [
             {
               "label": "1/2 cup",
+              "amount": 130,
+              "unit": "g",
               "default": true,
               "multiplier": 130
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "premier": {
           "name": "Protein shake",
@@ -2622,15 +2661,13 @@
           "displayUnits": [
             {
               "label": "1 bottle",
+              "amount": 325,
+              "unit": "g",
               "default": true,
               "multiplier": 325
             }
           ],
           "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "brand": "Premier"
         },
         "premier_latte": {
@@ -2669,15 +2706,13 @@
           "displayUnits": [
             {
               "label": "1 bottle",
+              "amount": 325,
+              "unit": "g",
               "default": true,
               "multiplier": 325
             }
           ],
           "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "brand": "Premier"
         },
         "preserves_blackberry_skinnygirl": {
@@ -2694,29 +2729,61 @@
           "displayUnits": [
             {
               "label": "1 jar",
+              "amount": 283,
+              "unit": "g",
               "default": true,
               "multiplier": 283
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             },
             {
               "label": "2 tbsp",
+              "amount": 34,
+              "unit": "g",
               "multiplier": 34
             },
             {
               "label": "1 tbsp",
+              "amount": 17,
+              "unit": "g",
               "multiplier": 17
             }
           ],
           "notes": "Skinnygirl Sugar Free Preserves Blackberry. Net wt 10 oz (283 g), 16 servings of 17 g each. Ingredients: water, blackberries, maltodextrin, polydextrose, pectin, guar gum, citric acid, natural flavor, sucralose, potassium sorbate, sodium benzoate, calcium chloride, Red 40, Blue 1. The \"carb\" content is mostly polydextrose (a soluble fiber/bulking agent that registers as carb but yields ~1 kcal/g) and a trace of maltodextrin — that's where the 3 g fiber out of 5 g carb comes from. Net digestible carbs per tbsp: ~2 g. Sweetened with sucralose. Use case: calorie-cheap flavoring/sweetener for Greek yogurt, cottage cheese, oats, toast. NOT a protein or nutrient source — pure flavor + fiber.",
           "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "brand": "Skinnygirl"
+        },
+        "protein_whey_dymatize_iso100_vanilla": {
+          "name": "Protein powder whey isolate hydrolyzed vanilla (Dymatize ISO100)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 3.6667,
+          "p": 0.8333,
+          "sf": 0,
+          "water": 0.04,
+          "caffeine": 0,
+          "sodium": 4,
+          "cholesterol": 0.3333,
+          "notes": "Label: 110 kcal / 30g scoop, 20 servings, 610g tub. Protein 25g, total fat 1g, sat fat 0g (sub-threshold — actual est. ~0.15g/scoop from whey lipid fraction; negligible), trans fat 0g (trace CLA from dairy is biologically benign and rounds to 0). Carbs 2g, sugar 1g (from flavoring), fiber 0g. Cholesterol 10mg. Sodium 120mg. Calcium 120mg (10% DV). Iron 0mg, Potassium 0mg. Water est. 4% (dry powder; low-confidence). BCAAs 5.5g/scoop, leucine 2.6g/scoop per front label. Contains milk and soy (soy lecithin). Hydrolyzed whey protein isolate — fast-absorbing. Dymatize, Gourmet Vanilla flavor.",
+          "displayUnits": [
+            {
+              "label": "1 scoop (30 g)",
+              "multiplier": 30,
+              "default": true
+            },
+            {
+              "label": "2 scoops (60 g)",
+              "multiplier": 60
+            },
+            {
+              "label": "Whole tub (610 g)",
+              "multiplier": 610
+            }
+          ]
         },
         "salmon_pink_canned": {
           "name": "Salmon pink canned",
@@ -2754,24 +2821,26 @@
           "displayUnits": [
             {
               "label": "1 can",
+              "amount": 418,
+              "unit": "g",
               "default": true,
               "multiplier": 418
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             },
             {
               "label": "1 serving",
+              "amount": 85,
+              "unit": "g",
               "multiplier": 85
             }
           ],
           "notes": "Wild caught Alaskan pink salmon, MSC-certified sustainable. Includes edible bones (calcium source). 14.75 oz can = 5 servings. Pink and sockeye are the LOW-mercury canned salmon picks (vs higher-mercury King/Chinook). Drain liquid before macro calculations apply; values are for drained weight.",
           "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "brand": "Nixe / Lidl"
         },
         "salsa_casa_mamita_chunky": {
@@ -2835,19 +2904,19 @@
           "displayUnits": [
             {
               "label": "100 g serving",
+              "amount": 100,
+              "unit": "g",
               "default": true,
               "multiplier": 100
             },
             {
               "label": "g",
+              "amount": 1,
+              "unit": "g",
               "multiplier": 1
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "shrimp_oceans_cooked": {
           "name": "Shrimp medium peeled cooked",
@@ -2865,23 +2934,25 @@
           "displayUnits": [
             {
               "label": "1 pkg",
+              "amount": 340,
+              "unit": "g",
               "default": true,
               "multiplier": 340
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             },
             {
               "label": "1/4 pkg (label)",
+              "amount": 85,
+              "unit": "g",
               "multiplier": 85
             }
           ],
           "notes": "Ocean's (Lidl) medium cooked shrimp, peeled & deveined, tail-off. Bag 12 oz / 340 g, 4 servings × 85 g. 71/91 count per pound (53-67 per bag). 14 g protein per 85 g serving — k/g P 4.3, very protein-dense. Cholesterol 165 mg per serving (56% DV) is the watch-out for any cardio-conscious diet; sodium 340 mg per serving (15% DV) reflects the salt-water cooking brine. ALREADY COOKED — fold in last during slab prep so the bake doesn't turn it rubbery; ~30 min at 375 F is the rubbery edge for shrimp.",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "brand": "Ocean's / Lidl"
         },
         "skim_milk": {
@@ -2918,15 +2989,13 @@
           "displayUnits": [
             {
               "label": "240 ml",
+              "amount": 248,
+              "unit": "g",
               "default": true,
               "multiplier": 248
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "smoked_salmon_slice": {
           "name": "Smoked salmon",
@@ -2964,15 +3033,13 @@
           "displayUnits": [
             {
               "label": "1 slice",
+              "amount": 14,
+              "unit": "g",
               "default": true,
               "multiplier": 14
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "soy_milk": {
           "name": "Soy milk unsweetened",
@@ -3009,15 +3076,13 @@
           "displayUnits": [
             {
               "label": "365 Whole Foods",
+              "amount": 247,
+              "unit": "g",
               "default": true,
               "multiplier": 247
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "strawberry": {
           "name": "Strawberry",
@@ -3048,15 +3113,13 @@
           "displayUnits": [
             {
               "label": "1 medium",
+              "amount": 12,
+              "unit": "g",
               "default": true,
               "multiplier": 12
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "string_cheese": {
           "name": "Mozzarella stick string cheese",
@@ -3089,15 +3152,13 @@
           "displayUnits": [
             {
               "label": "1 stick",
+              "amount": 21,
+              "unit": "g",
               "default": true,
               "multiplier": 21
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "subway_pocket_chicken": {
           "name": "Chicken protein pocket peppercorn ranch",
@@ -3135,15 +3196,13 @@
           "displayUnits": [
             {
               "label": "1 piece",
+              "amount": 113,
+              "unit": "g",
               "default": true,
               "multiplier": 113
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "sucralose": {
           "name": "Sucralose",
@@ -3153,15 +3212,13 @@
           "displayUnits": [
             {
               "label": "1 packet",
+              "amount": 1,
+              "unit": "g",
               "default": true,
               "multiplier": 1
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "tofu_firm_half": {
           "name": "Tofu firm",
@@ -3196,21 +3253,21 @@
           "displayUnits": [
             {
               "label": "1/2 container",
+              "amount": 227,
+              "unit": "g",
               "default": true,
               "multiplier": 227
             },
             {
               "label": "1 serving",
+              "amount": 91,
+              "unit": "g",
               "multiplier": 91
             }
           ],
           "notes": "SIMMER METHOD — silken-ish texture from firm tofu\n\nWhy it works: two things happen at once. (1) Water migration — firm tofu was made denser by pressing water out; simmering lets it absorb water back, plumping and softening. (2) Salt loosens the tight protein bonds that give firm tofu its chewy bite, and seasons the tofu from the inside (firm tofu is famously bland on its own).\n\nINGREDIENTS (yields ~2 servings, half a container)\n• ½ container (227 g) Nature's Soy firm tofu\n• 500 ml (2 cups) cold water\n• 2 tsp (10 g) salt → makes a 2% saline solution\n\nSTEPS\n\n1. Drain the tofu. Open the package over the sink, pour off the storage water. Lift the block out and blot it dry with a paper towel or clean cloth.\n   Why: the packaging water is bland and slightly soybean-smelling. Getting rid of it lets the salted simmer water flavor the tofu instead of competing with it.\n\n2. Cut the tofu before simmering. For most uses, 2–3 cm (¾–1 inch) cubes work well. Cut precisely — once simmered, the tofu becomes too fragile to recut without breaking.\n   Why: surface area exposed to salted water determines how much texture changes. Cubes balance softening throughout the piece while keeping a clean plated shape.\n\n3. Pour 500 ml of cold water into a small saucepan or wide skillet — choose a vessel that holds the tofu cubes in a single layer. Place over medium heat.\n\n4. Bring to a GENTLE simmer. You want small bubbles rising occasionally, not a rolling boil.\n   Why: vigorous boiling agitates the tofu and breaks it apart. Firm tofu becomes fragile during this process; the surface is the first thing to go.\n\n5. Add 2 tsp salt to the simmering water. Stir briefly until dissolved.\n   Don't taste the water — 2% saline is unpleasantly salty in your mouth, but the tofu only absorbs a fraction of it. The final tofu will taste seasoned, not salty.\n\n6. Lower the tofu cubes in with a slotted spoon or flat strainer. Submerge fully.\n   If they float: the water level is right.\n   If they sink heavily: the tofu was extra-pressed (this is fine — they'll absorb water and rise gradually).\n\n7. Set a timer:\n   • 10 minutes → slightly softer than firm; \"medium\" tofu texture, still firmly cuttable.\n   • 12–15 minutes → noticeably softer, like \"soft\" tofu, gently springy bite.\n   • Past 15 minutes → starts losing structural integrity.\n   • Past 20 minutes → you'll need to fish out fragments.\n   For silken-ish target, aim 13–15 minutes.\n\n8. While simmering: keep the heat low. If the water rolls hard, lower the burner. Don't stir — the cubes are fragile. If you must reposition, lift and place gently with a slotted spoon, never push or scrape.\n\n9. Lift the tofu out with a slotted spoon. Drain on a plate lined with paper towel.\n   Don't dump the pot through a colander — the drop impact will shatter soft cubes.\n\n10. Use immediately for best texture. Options:\n    • Toss in sauce (mapo tofu, garlic-chili oil, mushroom gravy).\n    • Cold: pour a splash of soy sauce, sesame oil, top with chopped green onion and chili crisp — Chinese-style cold tofu.\n    • Layer into a bowl with rice or noodles.\n    • Blend into a dressing or pudding-style dish.\n\nSTORAGE\nRefrigerate leftovers in their own salted simmer water (not plain water — plain water leaches the seasoning back out). Use within 24 hours. The texture continues to soften while sitting and gets fragile by day 2.\n\nTIPS\n• Richer flavor: replace plain water with light vegetable broth or dashi (kombu + dried bonito) before adding the salt. The 2 tsp salt amount stays the same.\n• A sliver of fresh ginger and a small piece of star anise in the simmer water adds subtle Chinese-style aroma.\n• Slightly under-simmer (10–11 min) if the tofu will then go into a hot sauced dish — the residual heat continues softening.\n• Saline scaling: 2 tsp salt per 500 ml is the 2% ratio. 1 L water → 4 tsp salt. 250 ml (1 cup) → 1 tsp.",
           "potassium": 1.3187,
           "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "brand": "Nature's Soy"
         },
         "tofu_silken_half": {
@@ -3298,23 +3355,25 @@
           "displayUnits": [
             {
               "label": "1 can",
+              "amount": 170,
+              "unit": "g",
               "default": true,
               "multiplier": 170
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             },
             {
               "label": "1 tbsp",
+              "amount": 16,
+              "unit": "g",
               "multiplier": 16
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "tomato_paste_giant": {
           "name": "Tomato paste",
@@ -3331,23 +3390,25 @@
           "displayUnits": [
             {
               "label": "1 can",
+              "amount": 340,
+              "unit": "g",
               "default": true,
               "multiplier": 340
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             },
             {
               "label": "2 Tbsp (label)",
+              "amount": 33,
+              "unit": "g",
               "multiplier": 33
             }
           ],
           "notes": "Giant Food tomato paste. 12 oz (340 g) can, ~10 servings × 33 g per label. Same product family as the unbranded tomato_paste item (which is the 6 oz / 170 g size); kcal and macros are essentially identical per gram. Sodium unusually low (15 mg per 33 g serving = 4 mg/oz) - many tomato paste brands run 100-300 mg per serving, so this Giant SKU is a low-sodium win. Potassium 270 mg per 33 g serving (6% DV) - meaningful in a slab batch.",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "brand": "Giant"
         },
         "tuna_can": {
@@ -3389,15 +3450,13 @@
           "displayUnits": [
             {
               "label": "1 can drained",
+              "amount": 113,
+              "unit": "g",
               "default": true,
               "multiplier": 113
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "turkey_bacon": {
           "name": "Turkey bacon uncured",
@@ -3433,23 +3492,25 @@
           "displayUnits": [
             {
               "label": "1 pkg",
+              "amount": 227,
+              "unit": "g",
               "default": true,
               "multiplier": 227
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             },
             {
               "label": "1 slice",
+              "amount": 28,
+              "unit": "g",
               "multiplier": 28
             }
           ],
           "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "notes": "Oikos Pro Complete Protein, Lemon (Danone). 5.3 oz / 150 g. Front label: \"20 g protein, 0 g added sugar, 8 vitamins (vit D + B2/B6/B12).\" Uses whey protein concentrate IN ADDITION to ultra-filtered milk for higher protein density. Sweetened with stevia. Note: NOT a low-calorie food (130 kcal per cup, vs 90 for Triple Zero). Per cup: k/g P 6.5 — still protein-positive. 20 g/cup is closer to clearing the 44 g per-meal anabolic threshold (protein per sitting at age 42 needed to fully trigger muscle protein synthesis) — 2 cups = 40 g, just under threshold. Pair with one other protein source for a full MPS event.",
           "brand": "Trader Joe's"
         },
@@ -3459,6 +3520,8 @@
           "displayUnits": [
             {
               "label": "1 serving",
+              "amount": 200,
+              "unit": "g",
               "default": true,
               "multiplier": 200
             }
@@ -3521,20 +3584,20 @@
           "displayUnits": [
             {
               "label": "1 pkg",
+              "amount": 224,
+              "unit": "g",
               "multiplier": 224
             },
             {
               "label": "1 slice",
+              "amount": 28,
+              "unit": "g",
               "default": true,
               "multiplier": 28
             }
           ],
           "notes": "Bought at Safeway. Smithfield brand, oven roasted turkey breast deli slices. Net wt 8 oz (~224 g), about 4 servings. Once opened, use within 5 days per label.",
           "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "brand": "Smithfield"
         },
         "turkey_ground_99": {
@@ -3570,26 +3633,30 @@
           "displayUnits": [
             {
               "label": "1 pkg",
+              "amount": 448,
+              "unit": "g",
               "default": true,
               "multiplier": 448
             },
             {
               "label": "1/2 pkg",
+              "amount": 224,
+              "unit": "g",
               "multiplier": 224
             },
             {
               "label": "1 serving",
+              "amount": 112,
+              "unit": "g",
               "multiplier": 112
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             }
           ],
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "defaultMeasuredIn": "g",
           "brand": "Trader Joe's"
         },
@@ -3629,27 +3696,31 @@
           "displayUnits": [
             {
               "label": "1 pkg",
+              "amount": 448,
+              "unit": "g",
               "default": true,
               "multiplier": 448
             },
             {
               "label": "1/2 pkg",
+              "amount": 224,
+              "unit": "g",
               "multiplier": 224
             },
             {
               "label": "1 serving",
+              "amount": 112,
+              "unit": "g",
               "multiplier": 112
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             }
           ],
           "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "brand": "Safeway"
         },
         "turkey_leg_baked": {
@@ -3688,19 +3759,19 @@
           "displayUnits": [
             {
               "label": "100 g serving",
+              "amount": 100,
+              "unit": "g",
               "default": true,
               "multiplier": 100
             },
             {
               "label": "g",
+              "amount": 1,
+              "unit": "g",
               "multiplier": 1
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "turkey_oven_classic": {
           "name": "Turkey breast oven classic",
@@ -3800,18 +3871,18 @@
           ],
           "displayUnits": [
             {
+              "label": "full recipe",
+              "amount": 4117,
+              "unit": "g",
+              "locked": true,
+              "multiplier": 4117
+            },
+            {
               "label": "1 serving",
               "amount": 200,
               "unit": "g",
               "default": true,
               "multiplier": 200
-            },
-            {
-              "label": "full recipe",
-              "amount": 4117,
-              "unit": "g",
-              "multiplier": 4117,
-              "locked": true
             }
           ]
         },
@@ -3847,15 +3918,13 @@
           "displayUnits": [
             {
               "label": "1/4 rope",
+              "amount": 99,
+              "unit": "g",
               "default": true,
               "multiplier": 99
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "turkey_slices_oven_roasted": {
           "name": "Turkey slices air fried ket-must",
@@ -3881,8 +3950,10 @@
           "displayUnits": [
             {
               "label": "1 serving",
-              "multiplier": 70,
-              "default": true
+              "amount": 70,
+              "unit": "g",
+              "default": true,
+              "multiplier": 70
             }
           ]
         },
@@ -3915,28 +3986,24 @@
           "displayUnits": [
             {
               "label": "AM (1 of 2)",
-              "multiplier": 1,
+              "amount": 1,
+              "unit": "g",
+              "default": true,
               "time": "08:00",
               "frequency": "daily",
-              "default": true,
-              "amount": 1,
-              "unit": "g"
+              "multiplier": 1
             },
             {
               "label": "PM (2 of 2)",
-              "multiplier": 1,
+              "amount": 1,
+              "unit": "g",
               "time": "19:00",
               "frequency": "daily",
-              "amount": 1,
-              "unit": "g"
+              "multiplier": 1
             }
           ],
           "notes": "Life Extension Two-Per-Day. Multivitamin baseline — covers micronutrients you might miss on a 1,650 kcal diet (limited variety = small deficiency risk). Notable inclusions: zinc 25 mg, B-complex, K2, lutein. Split AM (with breakfast) + PM (with dinner): the iron + zinc + B-vitamin load is gentler on the stomach split, and B-vitamin absorption saturates per dose so spreading captures more.",
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "veggies_bag": {
           "name": "Vegetables mixed steamable",
@@ -3971,19 +4038,19 @@
           "displayUnits": [
             {
               "label": "1 bag",
+              "amount": 340,
+              "unit": "g",
               "multiplier": 340
             },
             {
               "label": "1/2 bag",
+              "amount": 170,
+              "unit": "g",
               "default": true,
               "multiplier": 170
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "water": {
           "name": "Water",
@@ -4036,20 +4103,16 @@
           "displayUnits": [
             {
               "label": "1 pill",
-              "multiplier": 1,
+              "amount": 1,
+              "unit": "g",
+              "default": true,
               "time": "07:30",
               "frequency": "daily",
-              "default": true,
-              "amount": 1,
-              "unit": "g"
+              "multiplier": 1
             }
           ],
           "notes": "Oral semaglutide. Strict admin protocol per FDA label:\n• Take on empty stomach with up to 100-120 mL plain water.\n• Wait 30 min before food, other liquids, or any other oral medications/supplements.\n• 4-week dose escalation: 1.5 mg → 4 mg → 9 mg → 25 mg target.\n• If miss a dose: skip it and resume the next day. Do not double up.\n\nGI side effects (nausea, constipation) most common in first 1-2 weeks of each dose step.\nConstipation: psyllium husk + extra water is the standard fix.",
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "yogurt_bowl_apricot_almond": {
           "name": "Yogurt bowl Greek + apricot + almond",
@@ -4057,6 +4120,8 @@
           "displayUnits": [
             {
               "label": "1 serving",
+              "amount": 220,
+              "unit": "g",
               "default": true,
               "multiplier": 220
             }
@@ -4139,19 +4204,19 @@
           "displayUnits": [
             {
               "label": "1/2 tub",
+              "amount": 453.5,
+              "unit": "g",
               "default": true,
               "multiplier": 453.5
             },
             {
               "label": "1/4 tub",
+              "amount": 226.8,
+              "unit": "g",
               "multiplier": 226.8
             }
           ],
-          "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          }
+          "defaultMeasuredIn": "g"
         },
         "yogurt_oikos_pro_lemon": {
           "name": "Yogurt Greek Pro Complete Protein lemon",
@@ -4186,28 +4251,32 @@
           "displayUnits": [
             {
               "label": "2 containers",
+              "amount": 300,
+              "unit": "g",
               "default": true,
               "multiplier": 300
             },
             {
               "label": "1 container",
+              "amount": 150,
+              "unit": "g",
               "multiplier": 150
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             },
             {
               "label": "½ container",
+              "amount": 75,
+              "unit": "g",
               "multiplier": 75
             }
           ],
           "notes": "Oikos Triple Zero Lemon (Danone). 5.3 oz / 150 g cup. \"Triple Zero\" = 0 added sugar (sweetened with stevia leaf extract), 0 fat, 0 artificial sweeteners. Cultured Grade A nonfat milk + tapioca starch (texture) + lemon juice concentrate + turmeric (color) + stevia + vitamin D3. Cultures: S. thermophilus, L. bulgaricus. Per cup: 90 kcal · 15 g protein. k/g P 6.0 — well under your 8.0 protein-positive cutoff. Single cup is below the 44 g per-meal anabolic threshold (the per-meal protein needed at age 42 to fully trigger muscle protein synthesis) — pair with another protein source for a full MPS-triggering meal.",
           "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "brand": "Oikos"
         },
         "yogurt_oikos_triple_zero_lemon": {
@@ -4240,24 +4309,26 @@
           "displayUnits": [
             {
               "label": "1 container",
+              "amount": 150,
+              "unit": "g",
               "default": true,
               "multiplier": 150
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             },
             {
               "label": "½ container",
+              "amount": 75,
+              "unit": "g",
               "multiplier": 75
             }
           ],
           "notes": "Oikos Triple Zero Lemon (Danone). 5.3 oz / 150 g cup. \"Triple Zero\" = 0 added sugar (sweetened with stevia leaf extract), 0 fat, 0 artificial sweeteners. Cultured Grade A nonfat milk + tapioca starch (texture) + lemon juice concentrate + turmeric (color) + stevia + vitamin D3. Cultures: S. thermophilus, L. bulgaricus. Per cup: 90 kcal · 15 g protein. k/g P 6.0 — well under your 8.0 protein-positive cutoff. Single cup is below the 44 g per-meal anabolic threshold (the per-meal protein needed at age 42 to fully trigger muscle protein synthesis) — pair with another protein source for a full MPS-triggering meal.",
           "defaultMeasuredIn": "g",
-          "amount": {
-            "value": 0,
-            "unit": "g"
-          },
           "brand": "Oikos"
         }
       },
