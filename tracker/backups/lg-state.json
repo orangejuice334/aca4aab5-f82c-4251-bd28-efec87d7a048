@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-19T23:49:43.334Z",
-  "_gistSavedAt": "2026-05-19T23:49:41.057Z",
+  "_backupTakenAt": "2026-05-19T23:58:52.301Z",
+  "_gistSavedAt": "2026-05-19T23:58:46.607Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -142,13 +142,15 @@
           "water#12:30": true,
           "creatine#08:00": true,
           "omega3#12:30": true,
-          "water#16:00": true
+          "water#16:00": true,
+          "caffeine_anhydrous_200mg#08:01": true
         },
         "counters": {
           "protein_whey_dymatize_iso100_vanilla": 120,
           "turkey_breast_smithfield": 140,
           "premier": 325,
-          "spinach_fresh": 40
+          "spinach_fresh": 40,
+          "yogurt_oikos_pro_lemon": 0
         },
         "customs": [
           {
@@ -173,13 +175,15 @@
           "water#12:30": "2026-05-19T20:31:31.139Z",
           "creatine#08:00": "2026-05-19T20:58:17.428Z",
           "omega3#12:30": "2026-05-19T20:58:44.519Z",
-          "water#16:00": "2026-05-19T20:58:50.427Z"
+          "water#16:00": "2026-05-19T20:58:50.427Z",
+          "caffeine_anhydrous_200mg#08:01": "2026-05-19T23:51:34.683Z"
         },
         "counterMeta": {
           "protein_whey_dymatize_iso100_vanilla": "2026-05-19T21:00:22.243Z",
           "turkey_breast_smithfield": "2026-05-19T23:36:52.333Z",
           "premier": "2026-05-19T18:44:06.065Z",
-          "spinach_fresh": "2026-05-19T20:59:07.151Z"
+          "spinach_fresh": "2026-05-19T20:59:07.151Z",
+          "yogurt_oikos_pro_lemon": "2026-05-19T23:58:44.955Z"
         },
         "neck": 43,
         "neckMeta": "2026-05-19T12:17:37.196Z",
@@ -275,11 +279,10 @@
       "details-checkout-history": true,
       "targets-daily": true,
       "section-weight-tracker": true,
-      "supplements-water": true,
-      "today-customs": true,
-      "details-add-new-item": true,
       "details-profile-section": true,
       "targets-accumulation": true,
+      "supplements-water": true,
+      "details-add-new-item": true,
       "profile": true
     },
     "userCatalog": {
@@ -841,6 +844,14 @@
               "unit": "g",
               "default": true,
               "multiplier": 2
+            },
+            {
+              "label": "2 capsule",
+              "multiplier": 2,
+              "time": "08:01",
+              "frequency": "daily",
+              "amount": 2,
+              "unit": "g"
             }
           ]
         },

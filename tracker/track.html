@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.28">
+<meta name="app-version" content="v6.5.29">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -3847,7 +3847,7 @@
   .profile-field input:focus,
   .profile-field select:focus {
     outline: none;
-    border-color: var(--rust);
+    border-color: var(--ink-soft);
   }
   .profile-field input.bad {
     border-color: var(--rust);
@@ -4258,10 +4258,6 @@
     <fieldset class="profile-fieldset profile-cats">
       <legend>Categories</legend>
       <div class="cats-list" id="cats-list"></div>
-      <div class="cats-add" id="cats-add">
-        <input type="text" id="cat-new-name" placeholder="New category name" maxlength="40" />
-        <button type="button" class="supps-add-btn" id="cats-add-btn">Add</button>
-      </div>
     </fieldset>
 
     <fieldset class="profile-fieldset profile-nutrients">
@@ -6290,20 +6286,17 @@
   function renderCatsList() {
     const list = document.getElementById('cats-list');
     if (!list) return;
+    // v6.5.29: Categories list is read-only on the profile page. No
+     // delete buttons, no add form (taken out of the HTML). Categories
+     // are added implicitly via the "Add new item" form's category
+     // picker.
     list.innerHTML = CATEGORIES.map(c => {
-      const isReserved = RESERVED_CATEGORY_KEYS.indexOf(c.key) !== -1;
       const itemCount = Object.values(ITEMS || {}).filter(v => v && v.category === c.key).length;
       return (
         '<div class="supps-row" data-cat-key="' + escapeHtml(c.key) + '">' +
           '<span class="supp-name">' + escapeHtml(c.label || c.key) +
             ' <span class="checkout-item-amount">' + itemCount + ' item' + (itemCount === 1 ? '' : 's') + '</span>' +
           '</span>' +
-          '<span class="supp-time" style="color: var(--ink-faint); font-size: 10px;">' +
-            (isReserved ? 'reserved' : '') +
-          '</span>' +
-          (isReserved
-            ? '<span class="supp-delete" style="visibility: hidden;">·</span>'
-            : '<button type="button" class="supp-delete" data-cat-delete="' + escapeHtml(c.key) + '" aria-label="Delete">×</button>') +
         '</div>'
       );
     }).join('');
