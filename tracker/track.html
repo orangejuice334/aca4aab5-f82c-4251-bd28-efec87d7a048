@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.23">
+<meta name="app-version" content="v6.5.24">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -1464,14 +1464,51 @@
     margin: 0;
     border: none;
   }
+  /* Override the base section[data-collapsible] > h2::before chevron
+     (which uses font-size: 0.5em + vertical-align: middle, inflating
+     the chevron's box width) so the labeled-rule sections render with
+     the SAME chevron geometry as .targets-heading::before. Keeps the
+     left-edge alignment uniform between bars. */
   section.section-minimal > h2::before {
-    font-size: 10px;
+    content: '▾';
+    display: inline-block;
     margin-right: 8px;
+    font-size: 10px;
+    vertical-align: baseline;
+    opacity: 0.55;
+    transition: transform 120ms ease-out;
   }
   section.section-minimal > h2::after {
     content: '';
     position: absolute;
     inset: -3px -24px -1px -24px;
+  }
+  /* Whole-band pointer cursor when collapsed: the entire band is just
+     the labeled rule, so any click inside it toggles. */
+  .targets[data-collapsible].collapsed,
+  .checkout-totals[data-collapsible].collapsed,
+  section.section-minimal[data-collapsible].collapsed,
+  #profile-section:not([open]) {
+    cursor: pointer;
+  }
+  /* Top-edge pointer strip for the EXPANDED state. Cursor: pointer
+     across the full width of the labeled top rule so the user sees the
+     hand cursor anywhere on the bar, not just on the small label box.
+     Pseudo passes clicks through to the band element (e.target =
+     band), and the JS handler's "within 14 px of top" check catches
+     the click and toggles. */
+  .targets[data-collapsible]:not(.collapsed)::before,
+  .checkout-totals[data-collapsible]:not(.collapsed)::before,
+  section.section-minimal[data-collapsible]:not(.collapsed)::before,
+  #profile-section[open]::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 0;
+    right: 0;
+    height: 14px;
+    cursor: pointer;
+    z-index: 2;
   }
   section.section-minimal.collapsed {
     border-bottom: none;
@@ -3334,7 +3371,7 @@
     align-items: center;
     gap: 6px 14px;
     padding: 4px 0;
-    margin-bottom: 0;
+    margin-bottom: 28px;
     border-bottom: none;
   }
   .context-bar-date {
@@ -4160,157 +4197,6 @@
   <div class="warnings-consequences" id="warnings-consequences" hidden></div>
 </div>
 
-<details id="profile-section">
-  <summary>Profile · <span id="profile-name">—</span></summary>
-  <form class="profile-form" id="profile-form" autocomplete="off">
-    <fieldset class="profile-fieldset">
-      <legend>Identity</legend>
-      <label class="profile-field">
-        <span>Display name</span>
-        <input type="text" data-profile="displayName" maxlength="20" />
-      </label>
-      <label class="profile-field">
-        <span>Full name</span>
-        <input type="text" data-profile="fullName" maxlength="60" />
-      </label>
-      <label class="profile-field">
-        <span>Sex</span>
-        <select data-profile="sex">
-          <option value="M">M</option>
-          <option value="F">F</option>
-        </select>
-      </label>
-      <label class="profile-field">
-        <span>Age (yr)</span>
-        <input type="number" data-profile="ageYears" min="0" max="120" step="1" />
-      </label>
-    </fieldset>
-
-    <fieldset class="profile-fieldset">
-      <legend>Body</legend>
-      <label class="profile-field">
-        <span>Height (cm)</span>
-        <input type="number" data-profile="heightCm" min="0" max="260" step="0.5" />
-      </label>
-      <label class="profile-field">
-        <span>Start weight (kg)</span>
-        <input type="number" data-profile="startWeightKg" min="0" max="400" step="0.1" />
-      </label>
-      <label class="profile-field">
-        <span>Target weight (kg)</span>
-        <input type="number" data-profile="targetWeightKg" min="0" max="400" step="0.1" />
-      </label>
-      <label class="profile-field">
-        <span>Activity</span>
-        <select data-profile="activityLevel">
-          <option value="sedentary">Sedentary (1.2)</option>
-          <option value="light">Light (1.375)</option>
-          <option value="moderate">Moderate (1.55)</option>
-          <option value="active">Active (1.725)</option>
-          <option value="very_active">Very active (1.9)</option>
-        </select>
-      </label>
-    </fieldset>
-
-    <fieldset class="profile-fieldset">
-      <legend>Daily goals</legend>
-      <label class="profile-field">
-        <span>Calories (kcal)</span>
-        <input type="number" data-profile="goals.kcal" min="0" max="6000" step="10" />
-      </label>
-      <label class="profile-field">
-        <span>Protein (g)</span>
-        <input type="number" data-profile="goals.p" min="0" max="500" step="1" />
-      </label>
-      <label class="profile-field">
-        <span>Sat fat ceiling (g)</span>
-        <input type="number" data-profile="goals.sf" min="0" max="200" step="0.5" />
-      </label>
-      <label class="profile-field">
-        <span>Water target (ml)</span>
-        <input type="number" data-profile="goals.water" min="0" max="10000" step="50" />
-      </label>
-      <label class="profile-field">
-        <span>Caffeine cap (mg)</span>
-        <input type="number" data-profile="goals.caffeine" min="0" max="1000" step="10" />
-      </label>
-    </fieldset>
-
-    <fieldset class="profile-fieldset">
-      <legend>Display</legend>
-      <label class="profile-field">
-        <span>Units</span>
-        <select data-profile="display.unitDisplay">
-          <option value="metric">Metric only</option>
-          <option value="imperial">Imperial only</option>
-          <option value="both_prefer_metric">Both, prefer metric</option>
-          <option value="both_prefer_imperial">Both, prefer imperial</option>
-        </select>
-      </label>
-      <label class="profile-field">
-        <span>Date format</span>
-        <select data-profile="display.dateFormat">
-          <option value="yyyy-MM-dd">yyyy-MM-dd</option>
-          <option value="MM/DD/yyyy">MM/DD/yyyy</option>
-          <option value="DD/MM/yyyy">DD/MM/yyyy</option>
-        </select>
-      </label>
-      <label class="profile-field">
-        <span>Time format</span>
-        <select data-profile="display.timeFormat">
-          <option value="24h">24h</option>
-          <option value="12h">12h</option>
-        </select>
-      </label>
-    </fieldset>
-
-    <fieldset class="profile-fieldset profile-supps">
-      <legend>Supplements and liquids</legend>
-      <div class="supps-list" id="supps-list"></div>
-      <div class="supps-add" id="supps-add">
-        <select id="supp-new-item" title="Pick which supplement to schedule. Create a new one in the catalog first if it's not in this list.">
-          <option value="">— pick supplement —</option>
-        </select>
-        <input type="time" id="supp-new-time" value="08:00" />
-        <select id="supp-new-frequency">
-          <option value="daily">daily</option>
-          <option value="alternate">every other day</option>
-        </select>
-        <button type="button" class="supps-add-btn" id="supps-add-btn">Add</button>
-      </div>
-      <div class="supps-add-error" id="supps-add-error" hidden></div>
-    </fieldset>
-
-    <fieldset class="profile-fieldset profile-cats">
-      <legend>Categories</legend>
-      <div class="cats-list" id="cats-list"></div>
-      <div class="cats-add" id="cats-add">
-        <input type="text" id="cat-new-name" placeholder="New category name" maxlength="40" />
-        <button type="button" class="supps-add-btn" id="cats-add-btn">Add</button>
-      </div>
-    </fieldset>
-
-    <fieldset class="profile-fieldset profile-nutrients">
-      <legend>Displayed nutrients</legend>
-      <div class="nutrients-checklist" id="nutrients-checklist"></div>
-      <p class="supps-note">Pick which nutrients show up in the daily totals strip. The edit panel always shows every nutrient, and supplements always show their non-zero values regardless of this list.</p>
-    </fieldset>
-
-    <fieldset class="profile-fieldset profile-nutrients">
-      <legend>Accumulation watch (last 7 days)</legend>
-      <div class="nutrients-checklist" id="warnings-checklist"></div>
-      <p class="supps-note">Toggle which multi-day risk metrics appear in the watch ribbon. Thresholds for sat fat / fiber scale to your kcal goal; mercury scales to body weight.</p>
-    </fieldset>
-
-    <div class="profile-derived">
-      <span><em>Basal metabolic rate</em> <strong id="profile-bmr">—</strong> kcal/day</span>
-      <span><em>Total daily energy expenditure</em> <strong id="profile-tdee">—</strong> kcal/day</span>
-    </div>
-
-    <p class="profile-note" id="profile-form-status" hidden></p>
-  </form>
-</details>
-
 <!-- Today's totals widget sits at the top of the page (above Catalog)
      so it stays glanceable regardless of which sections are open. -->
 <div class="checkout-totals" id="checkout-totals" data-collapsible data-collapse-key="checkout-totals" title="Click to collapse / expand">
@@ -4541,6 +4427,157 @@
 
 <!-- ============ SECTION 4 (Supplements reference cards) removed.
      Per-supplement notes now live as catalog item fields in the gist. ============ -->
+
+<details id="profile-section">
+  <summary>Profile · <span id="profile-name">—</span></summary>
+  <form class="profile-form" id="profile-form" autocomplete="off">
+    <fieldset class="profile-fieldset">
+      <legend>Identity</legend>
+      <label class="profile-field">
+        <span>Display name</span>
+        <input type="text" data-profile="displayName" maxlength="20" />
+      </label>
+      <label class="profile-field">
+        <span>Full name</span>
+        <input type="text" data-profile="fullName" maxlength="60" />
+      </label>
+      <label class="profile-field">
+        <span>Sex</span>
+        <select data-profile="sex">
+          <option value="M">M</option>
+          <option value="F">F</option>
+        </select>
+      </label>
+      <label class="profile-field">
+        <span>Age (yr)</span>
+        <input type="number" data-profile="ageYears" min="0" max="120" step="1" />
+      </label>
+    </fieldset>
+
+    <fieldset class="profile-fieldset">
+      <legend>Body</legend>
+      <label class="profile-field">
+        <span>Height (cm)</span>
+        <input type="number" data-profile="heightCm" min="0" max="260" step="0.5" />
+      </label>
+      <label class="profile-field">
+        <span>Start weight (kg)</span>
+        <input type="number" data-profile="startWeightKg" min="0" max="400" step="0.1" />
+      </label>
+      <label class="profile-field">
+        <span>Target weight (kg)</span>
+        <input type="number" data-profile="targetWeightKg" min="0" max="400" step="0.1" />
+      </label>
+      <label class="profile-field">
+        <span>Activity</span>
+        <select data-profile="activityLevel">
+          <option value="sedentary">Sedentary (1.2)</option>
+          <option value="light">Light (1.375)</option>
+          <option value="moderate">Moderate (1.55)</option>
+          <option value="active">Active (1.725)</option>
+          <option value="very_active">Very active (1.9)</option>
+        </select>
+      </label>
+    </fieldset>
+
+    <fieldset class="profile-fieldset">
+      <legend>Daily goals</legend>
+      <label class="profile-field">
+        <span>Calories (kcal)</span>
+        <input type="number" data-profile="goals.kcal" min="0" max="6000" step="10" />
+      </label>
+      <label class="profile-field">
+        <span>Protein (g)</span>
+        <input type="number" data-profile="goals.p" min="0" max="500" step="1" />
+      </label>
+      <label class="profile-field">
+        <span>Sat fat ceiling (g)</span>
+        <input type="number" data-profile="goals.sf" min="0" max="200" step="0.5" />
+      </label>
+      <label class="profile-field">
+        <span>Water target (ml)</span>
+        <input type="number" data-profile="goals.water" min="0" max="10000" step="50" />
+      </label>
+      <label class="profile-field">
+        <span>Caffeine cap (mg)</span>
+        <input type="number" data-profile="goals.caffeine" min="0" max="1000" step="10" />
+      </label>
+    </fieldset>
+
+    <fieldset class="profile-fieldset">
+      <legend>Display</legend>
+      <label class="profile-field">
+        <span>Units</span>
+        <select data-profile="display.unitDisplay">
+          <option value="metric">Metric only</option>
+          <option value="imperial">Imperial only</option>
+          <option value="both_prefer_metric">Both, prefer metric</option>
+          <option value="both_prefer_imperial">Both, prefer imperial</option>
+        </select>
+      </label>
+      <label class="profile-field">
+        <span>Date format</span>
+        <select data-profile="display.dateFormat">
+          <option value="yyyy-MM-dd">yyyy-MM-dd</option>
+          <option value="MM/DD/yyyy">MM/DD/yyyy</option>
+          <option value="DD/MM/yyyy">DD/MM/yyyy</option>
+        </select>
+      </label>
+      <label class="profile-field">
+        <span>Time format</span>
+        <select data-profile="display.timeFormat">
+          <option value="24h">24h</option>
+          <option value="12h">12h</option>
+        </select>
+      </label>
+    </fieldset>
+
+    <fieldset class="profile-fieldset profile-supps">
+      <legend>Supplements and liquids</legend>
+      <div class="supps-list" id="supps-list"></div>
+      <div class="supps-add" id="supps-add">
+        <select id="supp-new-item" title="Pick which supplement to schedule. Create a new one in the catalog first if it's not in this list.">
+          <option value="">— pick supplement —</option>
+        </select>
+        <input type="time" id="supp-new-time" value="08:00" />
+        <select id="supp-new-frequency">
+          <option value="daily">daily</option>
+          <option value="alternate">every other day</option>
+        </select>
+        <button type="button" class="supps-add-btn" id="supps-add-btn">Add</button>
+      </div>
+      <div class="supps-add-error" id="supps-add-error" hidden></div>
+    </fieldset>
+
+    <fieldset class="profile-fieldset profile-cats">
+      <legend>Categories</legend>
+      <div class="cats-list" id="cats-list"></div>
+      <div class="cats-add" id="cats-add">
+        <input type="text" id="cat-new-name" placeholder="New category name" maxlength="40" />
+        <button type="button" class="supps-add-btn" id="cats-add-btn">Add</button>
+      </div>
+    </fieldset>
+
+    <fieldset class="profile-fieldset profile-nutrients">
+      <legend>Displayed nutrients</legend>
+      <div class="nutrients-checklist" id="nutrients-checklist"></div>
+      <p class="supps-note">Pick which nutrients show up in the daily totals strip. The edit panel always shows every nutrient, and supplements always show their non-zero values regardless of this list.</p>
+    </fieldset>
+
+    <fieldset class="profile-fieldset profile-nutrients">
+      <legend>Accumulation watch (last 7 days)</legend>
+      <div class="nutrients-checklist" id="warnings-checklist"></div>
+      <p class="supps-note">Toggle which multi-day risk metrics appear in the watch ribbon. Thresholds for sat fat / fiber scale to your kcal goal; mercury scales to body weight.</p>
+    </fieldset>
+
+    <div class="profile-derived">
+      <span><em>Basal metabolic rate</em> <strong id="profile-bmr">—</strong> kcal/day</span>
+      <span><em>Total daily energy expenditure</em> <strong id="profile-tdee">—</strong> kcal/day</span>
+    </div>
+
+    <p class="profile-note" id="profile-form-status" hidden></p>
+  </form>
+</details>
 
 </main>
 <script>
@@ -13122,21 +13159,27 @@
             k = totals.dataset.collapseKey || ('totals-' + (totals.id || ''));
           }
         }
-        // Treat any click within the top-edge band (the labeled rule + a
-        // few px each way) as a click on the bar. Lets the user toggle by
-        // clicking the long horizontal line to the right of the label,
-        // not just the small label itself.
+        // Any click on a collapsed labeled band toggles it open. For an
+        // expanded band, only clicks within ~14 px of the top edge
+        // (along the labeled rule) toggle. Covers .targets,
+        // .checkout-totals and section.section-minimal in one pass.
         if (!host) {
-          for (const sel of ['.targets[data-collapsible]', 'section.section-minimal[data-collapsible]']) {
+          for (const sel of [
+            '.targets[data-collapsible]',
+            '.checkout-totals[data-collapsible]',
+            'section.section-minimal[data-collapsible]',
+          ]) {
             const band = e.target.closest(sel);
             if (!band) continue;
+            const collapsed = band.classList.contains('collapsed');
             const rect = band.getBoundingClientRect();
-            // Within 10 px of the top edge (and not over the body in
-            // expanded state) counts as a bar click.
-            if (e.clientY - rect.top < 10) {
+            const inTopStrip = (e.clientY - rect.top) < 14;
+            if (collapsed || inTopStrip) {
               host = band;
               if (sel.startsWith('section')) {
                 k = 'section-' + (band.id || '');
+              } else if (sel.startsWith('.checkout-totals')) {
+                k = band.dataset.collapseKey || ('totals-' + (band.id || ''));
               } else {
                 k = band.dataset.collapseKey || ('targets-' + (band.id || ''));
               }
