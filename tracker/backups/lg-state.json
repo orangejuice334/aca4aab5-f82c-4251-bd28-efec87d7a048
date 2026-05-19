@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-19T22:16:52.680Z",
-  "_gistSavedAt": "2026-05-19T22:16:09.551Z",
+  "_backupTakenAt": "2026-05-19T22:24:36.095Z",
+  "_gistSavedAt": "2026-05-19T22:23:26.250Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -274,7 +274,6 @@
       "details-recipe-maker": true,
       "details-checkout-history": true,
       "targets-daily": true,
-      "targets-accumulation": true,
       "details-profile-section": true
     },
     "userCatalog": {
@@ -1065,9 +1064,9 @@
               "label": "1 softgel",
               "amount": 1,
               "unit": "g",
-              "default": true,
               "time": "08:00",
               "frequency": "alternate",
+              "default": true,
               "multiplier": 1
             }
           ],

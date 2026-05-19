@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.17">
+<meta name="app-version" content="v6.5.18">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -704,19 +704,25 @@
     gap: 24px;
   }
 
-  /* Multi-variant item group: a wider border wraps all variant rows. Group
-     starts collapsed (only the primary row visible). A click cycles through:
-     collapsed → extras visible → extras + edit form → collapsed. */
+  /* Multi-variant item group: groups all variant rows of one item.
+     v6.5.18: dropped the outer box border so a variant-group looks the
+     same as a single-variant catalog row from the outside. Consistent
+     row separators are now drawn by .checkout-group's child-sibling
+     border rule below, which fires between every row regardless of
+     whether the row is single or part of a multi-variant group. */
   .variant-group {
-    border: 1px solid var(--rule);
-    border-radius: 4px;
-    margin: 4px 0;
-    /* No outer background — was rgba(255,255,255,0.5) which acted as a
-       50% white wash on top of the inner row's ratio color. That caused
-       variant groups to render visibly LIGHTER than single-variant items
-       at the same kcal/p ratio, breaking the gradient when adjacent rows
-       mixed both types. The 1 px rule border below already provides the
-       grouping cue without altering color saturation. */
+    border: none;
+    border-radius: 0;
+    margin: 0;
+  }
+  /* Uniform horizontal separator between every catalog item. Applies
+     to single-row entries AND multi-variant group entries so the
+     visual rhythm is consistent. */
+  .checkout-group > .checkout-row + .checkout-row,
+  .checkout-group > .checkout-row + .variant-group,
+  .checkout-group > .variant-group + .checkout-row,
+  .checkout-group > .variant-group + .variant-group {
+    border-top: 1px solid var(--rule);
   }
   .variant-group .checkout-row {
     background: transparent;
@@ -728,7 +734,37 @@
   /* Secondary variants hidden by default; revealed when the group's expand
      state ≥ 1. */
   .variant-extras-wrap { display: none; }
-  .variant-group.variants-shown .variant-extras-wrap { display: block; }
+  .variant-group.variants-shown .variant-extras-wrap { display: block; position: relative; }
+  /* When expanded, draw a dashed vertical line through the counter
+     column and a ↕ glyph indicating that all the variant counters are
+     linked (incrementing one variant updates all others). The line is
+     anchored on `.variant-extras-wrap` so it extends from the primary
+     row's counter (top: negative offset) through the last secondary
+     variant's counter, stopping before the edit panel. */
+  .variant-group.row-expanded .variant-extras-wrap::before {
+    content: '';
+    position: absolute;
+    left: 56px;
+    top: -42px;
+    bottom: 6px;
+    border-left: 1.5px dashed var(--ink-soft);
+    pointer-events: none;
+    z-index: 0;
+  }
+  .variant-group.row-expanded .variant-extras-wrap::after {
+    content: '↕';
+    position: absolute;
+    left: 49px;
+    top: -22px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    color: var(--ink-soft);
+    background: var(--paper);
+    padding: 0 3px;
+    pointer-events: none;
+    z-index: 1;
+    line-height: 1;
+  }
   /* "+N more serving options · tap" hint sits on the primary row and only
      shows while the group is collapsed. */
   .variant-more-hint {
@@ -1206,33 +1242,34 @@
   .checkout-totals {
     /* Flex-wrap layout so the last row's cells grow to fill leftover width
        instead of leaving an empty grid track. Cells base-width 160 px,
-       allowed to stretch (flex-grow 1) and shrink (flex-shrink 1). */
+       allowed to stretch (flex-grow 1) and shrink (flex-shrink 1).
+       v6.5.18: restyled to match the .targets band - 2 px top + bottom
+       ink rule with a small mono uppercase heading cutting through the
+       top rule, no boxed border, no background fill. */
     display: flex;
     flex-wrap: wrap;
     gap: 0;
-    border: 1px solid var(--ink);
-    background: var(--paper);
-    cursor: pointer;
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+    background: transparent;
     position: relative;
+    padding: 18px 0;
+    margin: 24px 0 16px;
   }
   .checkout-totals > .checkout-total {
     flex: 1 1 160px;
   }
-  /* Collapsed state: thin labeled bar, no cells, matches the height of
-     the other collapsed bands. */
+  /* Collapsed: drop the bottom rule + padding, only the labeled top rule
+     remains. The .targets-heading rules below (shared with .targets) emit
+     the chevron and click target. */
   .checkout-totals.collapsed {
-    padding: 4px 12px;
+    border-bottom: none;
+    padding: 0;
+    margin-top: 16px;
+    margin-bottom: 16px;
   }
   .checkout-totals.collapsed > .checkout-total {
     display: none !important;
-  }
-  .checkout-totals.collapsed::before {
-    content: '▸ TODAY\'s TOTALS';
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.18em;
-    color: var(--ink-soft);
-    line-height: 1.6;
   }
 
   .checkout-total {
@@ -1399,9 +1436,12 @@
   section[data-collapsible].collapsed > *:not(h2) {
     display: none !important;
   }
-  /* .targets bands (Daily goals + accumulation watch). Chevron sits in
-     the heading line; collapse hides every tile but keeps the heading. */
-  .targets[data-collapsible] > .targets-heading {
+  /* .targets bands (Daily goals + accumulation watch) AND the checkout
+     totals band share the same labeled-rule + chevron header. Chevron
+     sits in the heading; collapse hides every tile but keeps the
+     heading. */
+  .targets[data-collapsible] > .targets-heading,
+  .checkout-totals[data-collapsible] > .targets-heading {
     cursor: pointer;
     user-select: none;
   }
@@ -1411,12 +1451,14 @@
      Vertical extent intentionally tight (6 px each way) so two
      collapsed bands stacked one below the other don't overlap each
      other's click regions and route clicks to the wrong band. */
-  .targets[data-collapsible] > .targets-heading::after {
+  .targets[data-collapsible] > .targets-heading::after,
+  .checkout-totals[data-collapsible] > .targets-heading::after {
     content: '';
     position: absolute;
     inset: -6px -24px;
   }
-  .targets[data-collapsible] > .targets-heading::before {
+  .targets[data-collapsible] > .targets-heading::before,
+  .checkout-totals[data-collapsible] > .targets-heading::before {
     content: '▾';
     display: inline-block;
     margin-right: 8px;
@@ -1424,7 +1466,8 @@
     opacity: 0.55;
     transition: transform 120ms ease-out;
   }
-  .targets[data-collapsible].collapsed > .targets-heading::before {
+  .targets[data-collapsible].collapsed > .targets-heading::before,
+  .checkout-totals[data-collapsible].collapsed > .targets-heading::before {
     transform: rotate(-90deg);
   }
   .targets[data-collapsible].collapsed > *:not(.targets-heading) {
@@ -1476,7 +1519,7 @@
   .checkout-row {
     display: grid;
     grid-template-columns: 100px 1fr;
-    gap: 10px;
+    gap: 15px;
     padding: 10px 12px;
     align-items: center;
     position: relative;
@@ -1484,7 +1527,7 @@
   @media (max-width: 600px) {
     .checkout-row {
       grid-template-columns: 95px 1fr;
-      gap: 8px;
+      gap: 13px;
       padding: 10px 10px;
     }
     /* Tighter counter-control gap on mobile to keep the [-] N [+] cluster
@@ -2314,12 +2357,19 @@
     cursor: not-allowed;
   }
   .counter-locked-hint {
-    display: block;
+    display: none;
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
     color: var(--ink-soft);
     margin-top: 2px;
     letter-spacing: 0.02em;
+  }
+  /* Reveal the "toggle in the supplements section" hint only when the
+     row (or its variant-group wrapper, for multi-variant items) is
+     expanded - the collapsed view shouldn't carry this noise. */
+  .checkout-row.row-expanded .counter-locked-hint,
+  .variant-group.row-expanded .counter-locked-hint {
+    display: block;
   }
   @media (max-width: 600px) {
     .counter-buttons { gap: 4px; }
@@ -4040,6 +4090,23 @@
   <div class="readonly-banner-body" id="readonly-banner-body"></div>
 </div>
 
+<!-- ============ GLOBAL CONTEXT BAR ============
+     Sits above the Daily goals band. Holds the date picker, sync
+     indicator, sort toggle, last-sync chips - controls that affect
+     the whole app, not just any one section. -->
+<div class="context-bar">
+  <span class="context-bar-date">
+    <button id="checkout-date-prev" type="button" class="date-nav-btn" aria-label="Previous day">‹</button>
+    <span class="title-date" id="checkout-date"></span>
+    <button id="checkout-date-next" type="button" class="date-nav-btn" aria-label="Next day">›</button>
+  </span>
+  <button id="sync-now" type="button" class="title-btn-secondary" title="Pull latest from the cloud and save any pending changes">Sync</button>
+  <button id="sort-toggle" type="button" class="title-btn-secondary sort-toggle" title="Toggle between category and alphabetical sort">Sort: by category</button>
+  <span id="sync-status" class="sync-status" style="display: none;"></span>
+  <span id="last-sync" class="last-sync" style="display: none;" title="Last successful sync"></span>
+  <span id="data-updated" class="last-sync data-updated" style="display: none;"></span>
+</div>
+
 <div class="targets" data-collapsible data-collapse-key="targets-daily" aria-labelledby="targets-heading">
   <div class="targets-heading" id="targets-heading">Daily goals</div>
   <div class="target">
@@ -4214,31 +4281,11 @@
     <div class="profile-derived">
       <span><em>Basal metabolic rate</em> <strong id="profile-bmr">—</strong> kcal/day</span>
       <span><em>Total daily energy expenditure</em> <strong id="profile-tdee">—</strong> kcal/day</span>
-      <span class="profile-derived-note">Mifflin-St Jeor, latest weight</span>
     </div>
 
-    <p class="profile-note" id="profile-form-status">
-      <em>Edits save automatically.</em>
-    </p>
+    <p class="profile-note" id="profile-form-status" hidden></p>
   </form>
 </details>
-
-<!-- ============ GLOBAL CONTEXT BAR ============
-     Sits above all sections. Holds the date picker, sync indicator, sort
-     toggle — controls that affect the whole app, not just any one
-     section. Moved out of the Checkout List header (was crowded). -->
-<div class="context-bar">
-  <span class="context-bar-date">
-    <button id="checkout-date-prev" type="button" class="date-nav-btn" aria-label="Previous day">‹</button>
-    <span class="title-date" id="checkout-date"></span>
-    <button id="checkout-date-next" type="button" class="date-nav-btn" aria-label="Next day">›</button>
-  </span>
-  <button id="sync-now" type="button" class="title-btn-secondary" title="Pull latest from the cloud and save any pending changes">Sync</button>
-  <button id="sort-toggle" type="button" class="title-btn-secondary sort-toggle" title="Toggle between category and alphabetical sort">Sort: by category</button>
-  <span id="sync-status" class="sync-status" style="display: none;"></span>
-  <span id="last-sync" class="last-sync" style="display: none;" title="Last successful sync"></span>
-  <span id="data-updated" class="last-sync data-updated" style="display: none;"></span>
-</div>
 
 <!-- ============ SECTION 1: CHECKOUT LIST ============ -->
 <section id="checkout" data-collapsible>
@@ -4249,6 +4296,7 @@
 
   <div class="checkout">
     <div class="checkout-totals" id="checkout-totals" data-collapsible data-collapse-key="checkout-totals" title="Click to collapse / expand">
+      <div class="targets-heading">Today's totals</div>
       <!-- Cells rendered dynamically by renderCheckoutTotalCells based on
            profile.displayedNutrients. Each cell has class .checkout-total
            with id-suffixed children (.checkout-total-value, .checkout-bar,
