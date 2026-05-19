@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.13">
+<meta name="app-version" content="v6.5.14">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -2301,6 +2301,22 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
+  }
+  /* Read-only catalog counter for scheduled supplements. Counter value
+     is a live mirror of the supplements-and-liquids toggle state; the
+     user can't tap +/- here, they must use the toggle. */
+  .checkout-row.counter-locked .counter-btn,
+  .checkout-row.counter-locked .counter-value {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+  .counter-locked-hint {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-soft);
+    margin-top: 2px;
+    letter-spacing: 0.02em;
   }
   @media (max-width: 600px) {
     .counter-buttons { gap: 4px; }
@@ -7131,6 +7147,12 @@
       if (!counter) continue;
       const item = ITEMS[key];
       if (!item) continue;
+      // Scheduled supplements feed totals through the toggle loop below
+      // (so checking a scheduled-serving toggle = one dose worth of
+      // macros). The catalog row mirrors that count but is read-only;
+      // any stale counter value on these items is ignored here to
+      // prevent double counting.
+      if (isCounterLocked(item, key)) continue;
       const units = getCounterNative(item, counter);
       // Recipes compute via their ingredients list, scaled by the
       // ratio of units_consumed / recipeCanonicalGrams (sum of ingredient grams).
@@ -8460,14 +8482,13 @@
     if (!root) return;
     root.innerHTML = '';
     const targetRatio = (GOALS.p > 0) ? (GOALS.kcal / GOALS.p) : Infinity;
-    // Supplements live in the catalog (single source of truth) but render
-    // in the dedicated schedule section above, not here. Skip them in both
-    // sort modes. Archived items are shown only in the Archive group at
-    // the end.
-    // Supplements and water both have their own scheduled-row UI (in
-    // renderSupplementWaterRows). Letting them through here too would
-    // double-render the row and double-count their counter on totals.
-    const isFoodCategory = (it) => it && it.category !== 'supplements' && it.category !== 'water' && !it.archived;
+    // Water has its own dedicated schedule UI in renderSupplementWaterRows
+    // and is not shown in the main catalog. Supplements DO show in the
+    // catalog now (v6.5.13): scheduled ones have their counter mirrored
+    // from the toggles and disabled (interact via the supplements section
+    // up top); unscheduled ones (e.g. ad-hoc caffeine capsules) work like
+    // normal catalog rows.
+    const isFoodCategory = (it) => it && it.category !== 'water' && !it.archived;
     // Non-preserve recipes behave like customs — only visible in the catalog
     // on days where they were logged (counter > 0 on activeDate). Preserved
     // recipes (default) always show.
@@ -8528,11 +8549,9 @@
 
     // Category mode (default)
     CATEGORIES.forEach(cat => {
-      // Supplements + water render in the dedicated schedule section above
-      // (renderSupplementWaterRows). Skipping here keeps each row in one
-      // place and prevents the counter / toggle from compounding into the
-      // daily totals from two paths.
-      if (cat.key === 'supplements' || cat.key === 'water') return;
+      // Water has its own UI above; skip its catalog group. Supplements
+      // DO render here now — see renderCatalog header comment.
+      if (cat.key === 'water') return;
       const entries = Object.keys(ITEMS)
         .filter(k => ITEMS[k].category === cat.key && !ITEMS[k].archived && isVisibleOnActiveDay(k, ITEMS[k]))
         .map(k => ({ key: k, item: ITEMS[k], ratio: ratioFor(ITEMS[k]) }))
@@ -8749,6 +8768,53 @@
     return buildSingleRow(key, item, ratio, targetRatio, variants[0]);
   }
 
+  // True when the catalog row's counter is a read-only mirror of the
+  // supplements-and-liquids toggle state for this item: scheduled
+  // supplements live in two places (toggles + catalog row), and only the
+  // toggles drive totals. The catalog row is informational + disabled.
+  function isCounterLocked(item, key) {
+    if (!item || item.category !== 'supplements') return false;
+    return getScheduledServings(item, key).length > 0;
+  }
+
+  // For a scheduled supplement, derive the catalog-row counter value from
+  // today's toggles instead of state.counters[key]: each checked
+  // scheduled-serving toggle contributes its multiplier (typically 1 for
+  // pill supplements, 5g for creatine, etc.) so the row reads as the
+  // total native-unit amount taken today.
+  function lockedCounterValueForDay(item, key, day) {
+    if (!day || !day.toggles) return 0;
+    let v = 0;
+    for (const s of getScheduledServings(item, key)) {
+      if (day.toggles[s.fullKey]) v += (s.multiplier || 1);
+    }
+    return v;
+  }
+
+  // Apply the "locked" treatment to a freshly-built catalog row (the
+  // single-row builder AND each variant-group sub-row both call this so
+  // the visual cue is consistent). Disables the +/- buttons + input,
+  // attaches the data-counter-locked attribute (used by the update-
+  // counters loop in render() to switch the value source from
+  // state.counters to today's toggle-derived count), and inserts a small
+  // hint pointing the user to the supplements section.
+  function applyCounterLockUI(row, nameCol, key, item) {
+    row.classList.add('counter-locked');
+    row.dataset.counterLocked = '1';
+    row.querySelectorAll('.counter-btn').forEach(b => { b.disabled = true; });
+    row.querySelectorAll('.counter-value').forEach(inp => {
+      inp.disabled = true;
+      inp.readOnly = true;
+      inp.dataset.counterLocked = '1';
+    });
+    if (nameCol && !nameCol.querySelector('.counter-locked-hint')) {
+      const hint = document.createElement('span');
+      hint.className = 'counter-locked-hint';
+      hint.textContent = '↑ Toggle in the supplements section to log';
+      nameCol.appendChild(hint);
+    }
+  }
+
   function buildSingleRow(key, item, ratio, targetRatio, variant) {
     const row = document.createElement('div');
     row.className = 'checkout-row';
@@ -8828,6 +8894,7 @@
         }
       });
     }
+    if (isCounterLocked(item, key)) applyCounterLockUI(row, nameCol, key, item);
     return row;
   }
 
@@ -8897,6 +8964,7 @@
           '<button class="counter-btn" data-action="inc" data-key="' + safeKey + '" data-serving-size="' + servingSize + '">+</button>' +
         '</div>';
       row.appendChild(ctrl);
+      if (isCounterLocked(item, key)) applyCounterLockUI(row, nameCol, key, item);
       return { row, nameCol };
     };
 
@@ -10415,22 +10483,32 @@
     // Update counter values. v5: state.counters[key] is grams. Each
     // variant row's <input> displays grams / servingSize (so 226g shows as 2 on
     // the half-tub row and 4 on the quarter-tub row, automatically synced).
+    // Scheduled supplements bypass state.counters entirely; their catalog
+    // row mirrors today's toggle state (see lockedCounterValueForDay).
+    const activeDay = state.days && state.days[state.activeDate];
     for (const key of getCounterKeys()) {
+      const item = ITEMS[key];
+      const locked = isCounterLocked(item, key);
       const valEls = document.querySelectorAll(`[data-value="${key}"]`);
-      const grams = state.counters[key] || 0;
+      const native = locked
+        ? lockedCounterValueForDay(item, key, activeDay)
+        : (state.counters[key] || 0);
       valEls.forEach(valEl => {
         if (document.activeElement === valEl) return;
         const servingSize = parseFloat(valEl.dataset.servingSize) || 1;
-        const display = servingSize > 0 ? grams / servingSize : 0;
-        // 1-decimal display so the value lines up with the input's step="0.1"
-        // (a 4-decimal value renders off-step and disables the spinner buttons
-        // in some browsers). Storage stays at full precision in state.counters.
+        const display = servingSize > 0 ? native / servingSize : 0;
         const rounded = Math.round(display * 10) / 10;
         if ('value' in valEl) valEl.value = rounded;
         else valEl.textContent = rounded;
       });
+      // Locked rows keep buttons disabled regardless of value; otherwise
+      // mirror the old "dec disabled at zero" behavior.
       const decBtns = document.querySelectorAll(`.counter-btn[data-action="dec"][data-key="${key}"]`);
-      decBtns.forEach(b => b.disabled = !grams);
+      decBtns.forEach(b => { b.disabled = locked || !native; });
+      if (locked) {
+        const incBtns = document.querySelectorAll(`.counter-btn[data-action="inc"][data-key="${key}"]`);
+        incBtns.forEach(b => { b.disabled = true; });
+      }
     }
 
     // Update toggle checkboxes

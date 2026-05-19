@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-19T21:22:43.660Z",
-  "_gistSavedAt": "2026-05-19T21:19:58.722Z",
+  "_backupTakenAt": "2026-05-19T21:43:57.645Z",
+  "_gistSavedAt": "2026-05-19T21:42:41.736Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -272,9 +272,7 @@
       "section-density": true,
       "catalog-archive": true,
       "details-recipe-maker": true,
-      "details-checkout-history": true,
-      "details-add-new-item": true,
-      "supplements-water": true
+      "details-checkout-history": true
     },
     "userCatalog": {
       "items": {
@@ -813,26 +811,6 @@
               "unit": "g",
               "default": true,
               "multiplier": 347
-            }
-          ]
-        },
-        "caffeine_anhydrous_200mg": {
-          "name": "Caffeine anhydrous 200 mg capsule",
-          "category": "supplements",
-          "defaultMeasuredIn": "units",
-          "kcal": 0,
-          "p": 0,
-          "sf": 0,
-          "water": 0,
-          "caffeine": 200,
-          "sodium": 0,
-          "cholesterol": 0,
-          "notes": "200 mg caffeine per capsule. FDA upper safe daily limit 400 mg (2 caps/day). Protocol: 1 cap at 8 AM, 1 cap at 11 AM. Half-life ~5 hours; 11 AM dose clears to ~12.5 mg by midnight. Zero kcal, no macros.",
-          "displayUnits": [
-            {
-              "label": "1 capsule",
-              "multiplier": 1,
-              "default": true
             }
           ]
         },
