@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-19T22:10:39.528Z",
-  "_gistSavedAt": "2026-05-19T22:01:07.346Z",
+  "_backupTakenAt": "2026-05-19T22:13:19.153Z",
+  "_gistSavedAt": "2026-05-19T22:12:10.139Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -272,7 +272,10 @@
       "section-density": true,
       "catalog-archive": true,
       "details-recipe-maker": true,
-      "details-checkout-history": true
+      "details-checkout-history": true,
+      "details-profile-section": true,
+      "targets-daily": true,
+      "targets-accumulation": true
     },
     "userCatalog": {
       "items": {

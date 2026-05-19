@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.15">
+<meta name="app-version" content="v6.5.16">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -4373,8 +4373,6 @@
     </div>
   </div>
 
-  <div class="weight-rate-warning" id="weight-rate-warning" hidden></div>
-
   <details class="navy-method-block">
     <summary><span class="num">02b</span>How to measure body fat with the Navy method</summary>
     <div class="navy-body">
@@ -7287,6 +7285,26 @@
     // paragraph below the ribbon explaining what staying in the red
     // actually costs (per WARNING_CONSEQUENCES).
     const dangerEntries = [];
+    // Weight-change tile (delta-based; computed separately from the
+    // accumulation-totals path the rest of the ribbon uses).
+    if (!disabled.has('weightChange')) {
+      const wt = computeWeightChangeWarning();
+      if (wt) {
+        html +=
+          '<div class="warning-tile ' + wt.status + '" title="Weight change over the last 7-day window">' +
+            '<div class="warning-tile-label">' + escapeHtml(wt.label) + '</div>' +
+            '<div class="warning-tile-value">' + escapeHtml(wt.value) + '</div>' +
+            '<div class="warning-tile-bound">' + escapeHtml(wt.bound) + '</div>' +
+          '</div>';
+        if ((wt.status === 'danger' || wt.status === 'warn') && wt.consequence) {
+          dangerEntries.push({
+            label: 'Weight change',
+            direction: 'rate',
+            consequence: wt.consequence,
+          });
+        }
+      }
+    }
     for (const def of WARNING_DEFS) {
       if (disabled.has(def.key)) continue;
       if (!totalsByWindow[def.days]) totalsByWindow[def.days] = computeNDayTotals(def.days);
@@ -10721,79 +10739,65 @@
     renderWeightChart();
     renderBmiChart();
     renderFatPercentChart();
-    renderWeightRateWarning();
   }
 
-  // Weight-loss rate warning shown under the BMI chart. Reads the recent
-  // weight series (last ~21 days, or all if fewer) and emits a recommendation:
-  //   - too fast: > 1.0% body weight / week or > 1.0 kg/week  → muscle-loss risk
-  //   - too slow / stalled: < 0.15 kg/week trend  → cut is not effective
-  //   - on track: 0.15 - 1.0 kg/week with target not yet reached
-  //   - at/below target: latest <= targetWeightKg
-  // Uses a simple endpoint-to-endpoint delta divided by the day span (more
-  // robust than linear regression with sparse data points). Returns no
-  // warning until at least 2 data points span at least 3 days.
-  function renderWeightRateWarning() {
-    const el = document.getElementById('weight-rate-warning');
-    if (!el) return;
-    const hide = (msg) => { el.hidden = true; el.textContent = ''; el.className = 'weight-rate-warning'; };
+  // Compute the weight-change tile shown in the accumulation watch ribbon.
+  // Returns null when there isn't enough data; otherwise returns
+  // { status, label, value, bound, days, consequence } in the same
+  // shape the warning-tile renderer expects. status is 'ok' | 'warn' |
+  // 'danger'. Decision rules:
+  //   - kgPerWeek > 1.0 (or > 1% body weight) → losing-too-fast danger
+  //   - kgPerWeek > 0.2 → gaining (warn at 0.2-0.5, danger above)
+  //   - kgPerWeek in (-0.15, 0.2] → stalled (warn)
+  //   - kgPerWeek in [-1.0, -0.15] → on-track (ok)
+  //   - At or below target weight → ok (maintenance)
+  function computeWeightChangeWarning() {
     const series = collectWeightSeries();
-    if (series.length < 2) return hide();
-    // Trim to a recent window so an old start-weight doesn't dominate the
-    // average. 21 days strikes a balance between enough data and "recent."
+    if (series.length < 2) return null;
     const latest = series[series.length - 1];
-    const cutoffMs = new Date(latest.date + 'T00:00:00').getTime() - 21 * 86400000;
-    const recent = series.filter(s => new Date(s.date + 'T00:00:00').getTime() >= cutoffMs);
-    if (recent.length < 2) return hide();
-    const first = recent[0];
-    const dayDelta = (new Date(latest.date + 'T00:00:00').getTime() - new Date(first.date + 'T00:00:00').getTime()) / 86400000;
-    if (dayDelta < 3) return hide(); // not enough time to read a trend
-    const kgDelta = first.weight - latest.weight; // positive = losing
-    const kgPerWeek = (kgDelta / dayDelta) * 7;
-    const target = state.profile && state.profile.targetWeightKg;
-    const goalReached = (typeof target === 'number' && target > 0 && latest.weight <= target);
-    let tone = 'info'; // 'info' | 'ok' | 'warn' | 'danger'
-    let headline = '';
-    let detail = '';
-    const rateFmt = (kgPerWeek >= 0 ? '−' : '+') + Math.abs(kgPerWeek).toFixed(2) + ' kg/wk';
-    const pctOfBody = (Math.abs(kgPerWeek) / latest.weight) * 100;
-    const pctFmt = pctOfBody.toFixed(2) + '% body weight / wk';
-    if (goalReached) {
-      tone = 'ok';
-      headline = 'At target.';
-      detail = 'Latest ' + latest.weight + ' kg ≤ target ' + target + ' kg. Hold weight; switch focus from deficit to maintenance.';
-    } else if (kgPerWeek > 1.0 || pctOfBody > 1.0) {
-      tone = 'danger';
-      headline = 'Losing too fast (' + rateFmt + ', ' + pctFmt + ').';
-      detail = 'Sustainable on a cut is 0.5-1.0 kg/wk (≤ 1% body weight). Faster than that and you lose muscle alongside fat, and adherence collapses by week 4-6. Increase intake by ~150-200 kcal/day and re-check next week.';
-    } else if (kgPerWeek < 0.15) {
-      tone = 'warn';
-      if (kgPerWeek <= 0) {
-        headline = 'Not losing (' + rateFmt + ' over last ' + Math.round(dayDelta) + ' days).';
-        detail = 'Either the deficit isn\'t real (intake higher than logged, or TDEE has adapted) or it\'s a normal water-weight stall. Wait one more week; if still flat, drop ~100-150 kcal/day or add 15-20 min of zone-2 cardio.';
-      } else {
-        headline = 'Losing too slow (' + rateFmt + ').';
-        detail = 'Below the typical cut floor of ~0.25 kg/wk. Possible causes: small unaccounted snacks, weekend drift, or your TDEE is lower than the 1400 kcal target assumes. Re-weigh logged portions for 3 days; if still slow, drop ~100 kcal/day.';
-      }
-    } else {
-      tone = 'ok';
-      headline = 'On track (' + rateFmt + ', ' + pctFmt + ').';
-      detail = 'In the 0.15-1.0 kg/wk sustainable cut range. Hold the current plan; expect occasional flat weeks (water retention, glycogen) — they\'re noise, not signal.';
+    const latestMs = new Date(latest.date + 'T00:00:00').getTime();
+    // Look back 7 days for a measurement; fall back to the oldest point
+    // we have if no measurement is at least 3 days old.
+    const targetMs = latestMs - 7 * 86400000;
+    let prior = null;
+    for (let i = series.length - 2; i >= 0; i--) {
+      const dMs = new Date(series[i].date + 'T00:00:00').getTime();
+      if (dMs <= targetMs) { prior = series[i]; break; }
     }
-    const remainingKg = (typeof target === 'number' && target > 0) ? (latest.weight - target) : null;
-    const etaWeeks = (remainingKg != null && kgPerWeek > 0.1) ? (remainingKg / kgPerWeek) : null;
-    const etaLine = (etaWeeks != null && etaWeeks > 0)
-      ? ' At current pace, target in ~' + Math.round(etaWeeks) + ' weeks (~' + (etaWeeks * 7).toFixed(0) + ' days).'
-      : '';
-    el.hidden = false;
-    el.className = 'weight-rate-warning tone-' + tone;
-    el.innerHTML =
-      '<div class="wrw-headline">' + escapeHtml(headline) + '</div>' +
-      '<div class="wrw-detail">' + escapeHtml(detail + etaLine) + '</div>' +
-      '<div class="wrw-meta">Trend over ' + Math.round(dayDelta) + ' days · ' +
-        recent.length + ' data points · latest ' + latest.weight + ' kg' +
-        (typeof target === 'number' && target > 0 ? ' · target ' + target + ' kg' : '') +
-      '</div>';
+    if (!prior) prior = series[0];
+    const days = (latestMs - new Date(prior.date + 'T00:00:00').getTime()) / 86400000;
+    if (days < 3) return null;
+    const deltaKg = latest.weight - prior.weight;
+    const kgPerWeek = (deltaKg / days) * 7;
+    const pctOfBody = (Math.abs(kgPerWeek) / latest.weight) * 100;
+    const target = state.profile && state.profile.targetWeightKg;
+    const atGoal = (typeof target === 'number' && target > 0 && latest.weight <= target);
+    let status, consequence;
+    if (atGoal) {
+      status = 'ok';
+    } else if (kgPerWeek > 0.5) {
+      status = 'danger';
+      consequence = 'Gaining at ' + kgPerWeek.toFixed(2) + ' kg/wk while on a 1,400 kcal cut means intake is higher than what you logged - likely culprits: weekend drift, restaurant portions, alcohol, snacks, condiments, oils used in cooking. Re-weigh every logged portion for 3 days; if the gain persists, your TDEE is lower than the cut math assumes and the kcal target needs to drop another 100-150.';
+    } else if (kgPerWeek > 0.2) {
+      status = 'warn';
+      consequence = 'Trending up on a cut. Could be water retention (high sodium meal, heavy lift recovery, glycogen rebound, monthly cycle) or could be the start of a real drift. Wait one more week before adjusting; if still up, audit portions.';
+    } else if (kgPerWeek < -1.0 || pctOfBody > 1.0) {
+      status = 'danger';
+      consequence = 'Losing at ' + Math.abs(kgPerWeek).toFixed(2) + ' kg/wk is past the 0.5 to 1.0 kg/wk sustainable cut window. Faster than that you lose muscle alongside fat, energy crashes (especially lifts), and adherence falls apart by week 4 to 6. Bump intake by 150-200 kcal/day and re-check next week.';
+    } else if (kgPerWeek < -0.15) {
+      status = 'ok';
+    } else {
+      status = 'warn';
+      consequence = 'Flat or barely moving (' + kgPerWeek.toFixed(2) + ' kg/wk over ' + Math.round(days) + ' days). On a real deficit you expect 0.25-1.0 kg/wk loss. Either the deficit is not as big as logged (small snacks, drinks, condiments add up fast) or your TDEE has adapted down. Wait one more week; if still flat, drop ~100-150 kcal/day or add 15-20 min of zone-2 cardio.';
+    }
+    const sign = kgPerWeek > 0 ? '+' : '';
+    return {
+      status,
+      label: 'Weight Δ',
+      value: sign + kgPerWeek.toFixed(2) + ' kg/wk',
+      bound: 'target ' + (target || '?') + ' kg · ' + Math.round(days) + 'd window',
+      consequence,
+    };
   }
 
   function renderWeightSummary() {
