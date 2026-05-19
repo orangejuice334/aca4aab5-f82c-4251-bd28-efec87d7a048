@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.14">
+<meta name="app-version" content="v6.5.15">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -2788,6 +2788,67 @@
   }
 
   /* ===== CUSTOM ITEM FORM ===== */
+  /* Visual separator between Today's Custom Items (inside the checkout
+     section) and the standalone "Add new item" details below. The
+     dashed-border on `.custom-add` already gives the form its own
+     surface; the separator + extra top margin make it read as a
+     different region. */
+  .custom-add-separator {
+    height: 1px;
+    margin: 28px 0 16px;
+    border-top: 1px solid var(--rule);
+  }
+  .custom-add.custom-add-section {
+    margin-top: 0;
+  }
+  /* Nutrient grid inside the custom-add form. Three groups (Macros /
+     Vitamins / Minerals) with their own section heading. Each cell has
+     a small label + a unit chip + a number input. */
+  .custom-nutrient-group-label {
+    grid-column: 1 / -1;
+    margin: 12px 0 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+  .custom-nutrient-grid {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 8px;
+  }
+  .custom-nutrient-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .custom-nutrient-cell label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+  }
+  .custom-nutrient-cell .custom-nutrient-unit {
+    color: var(--ink-faint);
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 9px;
+  }
+  .custom-nutrient-cell input[type="number"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 4px 6px;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    background: #fff;
+    color: var(--ink);
+  }
   .custom-add {
     border: 1px dashed var(--rule);
     background: var(--paper);
@@ -4168,7 +4229,8 @@
     </div>
   </div>
 
-  <details class="custom-add" id="add-new-item">
+  <div class="custom-add-separator"></div>
+  <details class="custom-add custom-add-section" id="add-new-item">
     <summary>Add new item</summary>
     <div data-custom-form="2">
       <div class="custom-form">
@@ -4180,32 +4242,11 @@
           <label>kcal *</label>
           <input type="number" data-custom-input="kcal" min="0" step="1" />
         </div>
-        <div class="custom-form-field">
-          <label>P (g)</label>
-          <input type="number" data-custom-input="p" min="0" step="0.1" />
-        </div>
-        <div class="custom-form-field">
-          <label>SF (g)</label>
-          <input type="number" data-custom-input="sf" min="0" step="0.1" />
-        </div>
-        <div class="custom-form-field">
-          <label>Water (ml)</label>
-          <input type="number" data-custom-input="water" min="0" step="1" />
-        </div>
-        <div class="custom-form-field">
-          <label>Caffeine (mg)</label>
-          <input type="number" data-custom-input="caffeine" min="0" step="1" />
-        </div>
-        <div class="custom-form-field">
-          <label>Time <span class="edit-panel-hint">optional · for scheduled items</span></label>
-          <input type="time" data-custom-input="time" />
-        </div>
-        <div class="custom-form-field">
-          <label>Frequency</label>
-          <select data-custom-input="frequency">
-            <option value="daily">Daily</option>
-            <option value="alternate">Alternate days</option>
-          </select>
+        <!-- Full nutrient grid (every STORED_NUTRIENT_KEYS except kcal,
+             which is the required field above). Populated by
+             renderCustomNutrientGrid() at bind time so the field set
+             stays in sync with NUTRIENT_DEFS. -->
+        <div class="custom-form-field wide" data-custom-nutrient-grid>
         </div>
         <div class="custom-form-field wide">
           <label>Category</label>
@@ -5878,10 +5919,10 @@
       const waterAttr = it.type === 'water' ? ' data-water-toggle' : '';
       const k = escapeHtml(it.key);                 // compound toggle key (omega3#08:00)
       const ik = escapeHtml(it.itemKey || it.key); // catalog item key (omega3)
+      // v6.5.15: schedule time stays in storage + data-time for cluster
+      // coloring, but is no longer displayed inline next to the row.
       const timeAttr = it.time ? ' data-time="' + escapeHtml(it.time) + '"' : '';
-      const timeCell = it.time
-        ? '<span class="macro-time">' + escapeHtml(fmtClock(it.time)) + '</span>'
-        : '';
+      const timeCell = '';
       const amountCell = it.amount
         ? '<span>' + escapeHtml(it.amount) + '</span>'
         : '';
@@ -8340,10 +8381,9 @@
     } else {
       body = cells.join('');
     }
-    const timeCell = item.time
-      ? `<span class="macro-time">${escapeHtml(fmtClock(item.time))}</span>`
-      : '<span></span>';
-    return body + timeCell;
+    // v6.5.15: time pill removed from catalog rows; schedule time still
+    // travels in the gist but isn't surfaced here.
+    return body + '<span></span>';
   }
 
   // One-time DOM setup: populate macros from ITEMS and sort/color-code selected sections.
@@ -9072,33 +9112,22 @@
       new RegExp('value="' + unit.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&') + '"', 'i'),
       'value="' + unit + '" selected'
     );
-    // v6.5: per-serving schedule. Supplement and water items get a time +
-    // frequency pair per serving so a single item can hold multiple
-    // scheduled servings (e.g. Omega-3 AM / Lunch / PM). Other categories
-    // skip the schedule fields entirely.
-    const showSchedule = !!(opts && opts.showSchedule);
+    // v6.5.15: schedule time + frequency stay on the gist (so existing
+    // scheduled servings keep their schedule) but are NOT rendered or
+    // editable in the variant editor. Time-only edits happen through the
+    // profile supplements picker. We still need to round-trip the values
+    // through the form so saveExpandedEdits doesn't lose them — carried
+    // as hidden data attributes on the row.
     const rowTime = (variant && variant.time) ? variant.time : '';
-    const rowFreq = (variant && variant.frequency) ? variant.frequency : 'daily';
-    const scheduleFields = showSchedule
-      ? '<div class="variant-edit-field" style="flex:0 1 110px;">' +
-          '<label class="variant-edit-fieldlabel">Time</label>' +
-          '<input type="time" data-variant-field="time" value="' + escapeHtml(rowTime) + '" />' +
-        '</div>' +
-        '<div class="variant-edit-field" style="flex:0 1 130px;">' +
-          '<label class="variant-edit-fieldlabel">Frequency</label>' +
-          '<select data-variant-field="frequency">' +
-            '<option value="daily"' + (rowFreq === 'daily' ? ' selected' : '') + '>daily</option>' +
-            '<option value="alternate"' + (rowFreq === 'alternate' ? ' selected' : '') + '>every other day</option>' +
-          '</select>' +
-        '</div>'
-      : '';
-    // For supplement/water rows: when no time is set, hide the frequency
-    // cell via a row-level class (CSS rule below acts on `.no-schedule-time`).
-    const rowClass = 'variant-edit-row' + (showSchedule && !rowTime ? ' no-schedule-time' : '');
+    const rowFreq = (variant && variant.frequency) ? variant.frequency : '';
+    const scheduleFields = '';
+    const rowClass = 'variant-edit-row';
     const isLocked = !!(variant && variant.locked);
     const lockedAttr = isLocked ? ' data-variant-locked' : '';
+    const timeAttr = rowTime ? ' data-variant-original-time="' + escapeHtml(rowTime) + '"' : '';
+    const freqAttr = rowFreq ? ' data-variant-original-frequency="' + escapeHtml(rowFreq) + '"' : '';
     return (
-      '<div class="' + rowClass + '" data-variant-row' + lockedAttr + '>' +
+      '<div class="' + rowClass + '" data-variant-row' + lockedAttr + timeAttr + freqAttr + '>' +
         '<label class="variant-edit-default-wrap" title="Pick the default serving (the one shown when the row is collapsed)">' +
           '<input type="radio" name="' + escapeHtml(defaultGroup || 'variant-default') + '" data-variant-default-radio' + (isDefault ? ' checked' : '') + ' />' +
           '<span class="variant-edit-default-label">default</span>' +
@@ -9641,7 +9670,10 @@
     // schedule for whole-day meal planning.
     const isSupplement = (item.category === 'supplements');
     const isWaterItem = (item.category === 'water');
-    const hasSchedule = !(isSupplement || isWaterItem);
+    // v6.5.15: schedule time is no longer surfaced in the edit panel for
+    // any category. It still lives in the gist; only the profile
+    // supplements picker exposes a time control going forward.
+    const hasSchedule = false;
     const schedTime = item.time || '';
     const schedFreq = item.frequency || 'daily';
     const schedTimeLabelExtra = ' <span class="edit-panel-hint">optional</span>';
@@ -9839,13 +9871,14 @@
           // Backwards compat: a legacy "size" field reads as Amount in native units.
           const sizeEl   = row.querySelector('[data-variant-field="size"]');
           const radio   = row.querySelector('[data-variant-default-radio]');
-          const timeEl  = row.querySelector('[data-variant-field="time"]');
-          const freqEl  = row.querySelector('[data-variant-field="frequency"]');
+          // Time + frequency aren't editable from the variant editor any
+          // more (per v6.5.15 UI cleanup). They round-trip via hidden data
+          // attributes on the row so existing schedules survive a save.
           const label   = labelEl  ? (labelEl.value || '').trim() : '';
           const rawAmt  = parseFloat((amountEl || sizeEl || {}).value);
           const unit    = unitEl ? (unitEl.value || '').trim().toLowerCase() : primaryUnit(item);
-          const rowTime = timeEl ? (timeEl.value || '').trim() : '';
-          const rowFreq = freqEl ? (freqEl.value || 'daily') : 'daily';
+          const rowTime = (row.dataset.variantOriginalTime || '').trim();
+          const rowFreq = (row.dataset.variantOriginalFrequency || 'daily').trim() || 'daily';
           if (!isFinite(rawAmt) || rawAmt <= 0) return;
           // Validation: same time can't appear twice on the same item.
           if (isScheduleCategory && rowTime) {
@@ -10104,25 +10137,12 @@
       delete item.notes;
     }
 
-    // Schedule fields. For supplements/water the schedule lives on each
-    // displayUnit (per-serving), so the item-level schedule fields aren't
-    // rendered — strip any legacy item.time/frequency so the migrated
-    // schema stays clean. For other categories (recipes etc.) keep the
-    // item-level schedule semantics.
-    if (item.category === 'supplements' || item.category === 'water') {
-      delete item.time;
-      delete item.frequency;
-    } else {
-      const t = (get('supp-time') || '').trim();
-      const f = (get('supp-frequency') || '').trim();
-      if (t) {
-        item.time = t;
-        if (f) item.frequency = f;
-      } else {
-        delete item.time;
-        delete item.frequency;
-      }
-    }
+    // v6.5.15: schedule time + frequency are no longer editable from the
+    // edit panel for any category (per the time-UI cleanup). Existing
+    // item.time / item.frequency stay untouched here so the gist data
+    // survives a save. Supplement scheduling now happens exclusively via
+    // the profile supplements picker, and only mutates displayUnit-level
+    // time/frequency anyway.
 
     // Recipes carry an optional `preserve` flag (default true). When false,
     // the recipe behaves like a custom — only visible on days where it was
@@ -10544,6 +10564,50 @@
 
   // Collect all weight data points: union of history entries and active day buckets.
   // Returns array of {date, weight} sorted by date ascending.
+  // Linear-interpolate `metricField` across any days between the most
+  // recent prior recorded date and `newDate`. Updates state.days[<key>]
+  // in place and returns the ops to enqueue (caller passes each into
+  // sendOp). Called after the user enters a new weight / neck / waist
+  // value — fills the gap so the chart and trend math don't see a flat
+  // step between sparse measurements.
+  function fillGapsForMetric(metricField, opType, newDate, newValue) {
+    if (!(newValue > 0)) return [];
+    const dates = Object.keys(state.days || {}).filter(d =>
+      d < newDate &&
+      state.days[d] &&
+      typeof state.days[d][metricField] === 'number' &&
+      state.days[d][metricField] > 0
+    ).sort();
+    if (!dates.length) return [];
+    const prevDate = dates[dates.length - 1];
+    const prevVal = state.days[prevDate][metricField];
+    const start = new Date(prevDate + 'T00:00:00');
+    const end = new Date(newDate + 'T00:00:00');
+    const daySpan = Math.round((end.getTime() - start.getTime()) / 86400000);
+    if (daySpan <= 1) return []; // adjacent days, nothing to fill
+    const ts = new Date().toISOString();
+    const ops = [];
+    const metaField = metricField + 'Meta';
+    for (let i = 1; i < daySpan; i++) {
+      const d = new Date(start.getTime());
+      d.setDate(d.getDate() + i);
+      const key = d.toISOString().slice(0, 10);
+      const interp = prevVal + (newValue - prevVal) * (i / daySpan);
+      const rounded = Math.round(interp * 10) / 10;
+      if (!state.days[key]) {
+        state.days[key] = { counters: {}, customs: [], toggles: {}, toggleMeta: {} };
+      }
+      // Don't overwrite a real measurement the user may have already
+      // logged inside the gap (defensive — sorted dates above should
+      // exclude these, but doubly-skip just in case of races).
+      if (typeof state.days[key][metricField] === 'number' && state.days[key][metricField] > 0) continue;
+      state.days[key][metricField] = rounded;
+      state.days[key][metaField] = ts;
+      ops.push({ type: opType, date: key, value: rounded, ts });
+    }
+    return ops;
+  }
+
   function collectWeightSeries() {
     const map = new Map();
     // History entries
@@ -12268,6 +12332,11 @@
         bucket.weightMeta = ts;
         saveStateLocal();
         sendOp({ type: 'weight_set', date: state.activeDate, value: rounded, ts });
+        // Gap-fill any missing days between the previous recorded weight
+        // and this one with a linear interpolation. Keeps the chart and
+        // rate-warning math from seeing a multi-day step.
+        const gapOps = fillGapsForMetric('weight', 'weight_set', state.activeDate, rounded);
+        for (const op of gapOps) sendOp(op);
         renderWeightSection();
       };
       let weightDebounce = null;
@@ -12309,6 +12378,10 @@
         bucket[fieldName + 'Meta'] = ts;
         saveStateLocal();
         sendOp({ type: opType, date: state.activeDate, value: rounded, ts });
+        // Gap-fill missing-day interpolation for body-fat inputs too,
+        // since the body-fat chart reads from the live neck/waist series.
+        const gapOps = fillGapsForMetric(fieldName, opType, state.activeDate, rounded);
+        for (const op of gapOps) sendOp(op);
         renderWeightSection();
       };
       let debounce = null;
@@ -12381,6 +12454,39 @@
       });
     });
 
+    // Populate the custom-item add form's nutrient grid. One input per
+    // STORED_NUTRIENT_KEYS entry except `kcal` (which is the required
+    // standalone field above the grid). Grouped by macros / vitamins /
+    // minerals via section headings.
+    function renderCustomNutrientGrid() {
+      document.querySelectorAll('[data-custom-nutrient-grid]').forEach(host => {
+        if (host.dataset.populated === '1') return;
+        const groups = [
+          { label: 'Macros',   group: 'macros' },
+          { label: 'Vitamins', group: 'vitamins' },
+          { label: 'Minerals', group: 'minerals' },
+        ];
+        let html = '';
+        for (const g of groups) {
+          const entries = NUTRIENT_DEFS.filter(n => !n.computed && n.group === g.group && n.key !== 'kcal');
+          if (!entries.length) continue;
+          html += '<div class="custom-nutrient-group-label">' + escapeHtml(g.label) + '</div>';
+          html += '<div class="custom-nutrient-grid">';
+          for (const n of entries) {
+            const step = n.dec ? '0.' + '1'.padStart(n.dec, '0') : '1';
+            html += '<div class="custom-nutrient-cell">' +
+              '<label>' + escapeHtml(n.label) + ' <span class="custom-nutrient-unit">' + escapeHtml(n.unit || '') + '</span></label>' +
+              '<input type="number" data-custom-input="' + escapeHtml(n.key) + '" min="0" step="' + step + '" inputmode="decimal" />' +
+            '</div>';
+          }
+          html += '</div>';
+        }
+        host.innerHTML = html;
+        host.dataset.populated = '1';
+      });
+    }
+    renderCustomNutrientGrid();
+
     document.querySelectorAll('[data-custom-submit]').forEach(submitBtn => {
       submitBtn.addEventListener('click', () => {
         const formRoot = submitBtn.closest('[data-custom-form]');
@@ -12409,19 +12515,23 @@
           return n;
         };
 
-        const p = numInput('p');
-        const sf = numInput('sf');
-        const water = numInput('water');
-        const caffeine = numInput('caffeine');
-        if (p === null || sf === null || water === null || caffeine === null) {
-          errorEl.textContent = 'All numeric fields must be ≥ 0.';
-          errorEl.style.display = '';
-          return;
+        // Capture every STORED_NUTRIENT_KEYS field from the rendered
+        // nutrient grid. kcal handled separately above. Non-numeric or
+        // negative values bail with a single error message.
+        const nutrients = {};
+        for (const nutKey of STORED_NUTRIENT_KEYS) {
+          if (nutKey === 'kcal') continue;
+          const el = getInput(nutKey);
+          if (!el) continue;
+          const v = numInput(nutKey);
+          if (v === null) {
+            errorEl.textContent = 'All numeric fields must be ≥ 0.';
+            errorEl.style.display = '';
+            return;
+          }
+          if (v > 0) nutrients[nutKey] = v;
         }
-
-        // Optional schedule. Time is HH:MM (browsers normalize the time input).
-        const timeRaw = (getInput('time') && getInput('time').value || '').trim();
-        const frequency = (getInput('frequency') && getInput('frequency').value) || 'daily';
+        const p = nutrients.p || 0;
 
         // Category resolution: existing key, or "__new__" → register a new
         // CATEGORIES entry from the text input. Validation: case-insensitive
@@ -12466,17 +12576,8 @@
         const item = {
           name,
           kcal,
-          p,
-          sf,
-          water,
-          caffeine,
+          ...nutrients,
         };
-        // Attach optional schedule fields and category. Time/frequency only
-        // make sense together — if no time, drop frequency too.
-        if (timeRaw) {
-          item.time = timeRaw;
-          item.frequency = frequency;
-        }
         if (category && category !== 'uncategorized') item.category = category;
 
         const store = getInput('store').checked;
@@ -12517,8 +12618,6 @@
         // Reset selects to defaults; hide new-category input again.
         const catSelReset = formRoot.querySelector('[data-cat-select]');
         if (catSelReset) catSelReset.value = 'uncategorized';
-        const freqResel = formRoot.querySelector('[data-custom-input="frequency"]');
-        if (freqResel) freqResel.value = 'daily';
         const newCatInputReset = formRoot.querySelector('[data-new-cat-input]');
         if (newCatInputReset) { newCatInputReset.style.display = 'none'; newCatInputReset.value = ''; }
 
