@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.20">
+<meta name="app-version" content="v6.5.21">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -1437,6 +1437,49 @@
   section[data-collapsible].collapsed > *:not(h2) {
     display: none !important;
   }
+  /* Minimal section style: a labeled top + bottom ink rule matching the
+     .targets bands and the profile section. The H2 sits absolutely on
+     the top rule (paper-color background cuts through). No serif title,
+     no big number, no section-rule under-bar. */
+  section.section-minimal {
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+    padding: 18px 0;
+    margin: 24px 0 40px;
+    position: relative;
+    background: transparent;
+  }
+  section.section-minimal > h2 {
+    position: absolute;
+    top: -7px;
+    left: 16px;
+    background: var(--paper);
+    padding: 0 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    line-height: 1;
+    font-weight: 400;
+    margin: 0;
+    border: none;
+  }
+  section.section-minimal > h2::before {
+    font-size: 10px;
+    margin-right: 8px;
+  }
+  section.section-minimal > h2::after {
+    content: '';
+    position: absolute;
+    inset: -3px -24px -1px -24px;
+  }
+  section.section-minimal.collapsed {
+    border-bottom: none;
+    padding: 0;
+    margin-top: 24px;
+    margin-bottom: 16px;
+  }
   /* .targets bands (Daily goals + accumulation watch) AND the checkout
      totals band share the same labeled-rule + chevron header. Chevron
      sits in the heading; collapse hides every tile but keeps the
@@ -1476,12 +1519,14 @@
   }
   /* When the .targets band is collapsed, only the labeled top border is
      wanted. Drop the bottom border + inner padding so we don't draw an
-     empty unlabeled rule plus 36 px of dead vertical space. Tighten the
-     vertical margin too. */
+     empty unlabeled rule plus 36 px of dead vertical space. Keep the
+     TOP margin identical to the expanded state so the labeled rule
+     stays at the same y when toggling open/closed (no shift of the
+     header line). Only the bottom margin tightens. */
   .targets[data-collapsible].collapsed {
     border-bottom: none;
     padding: 0;
-    margin-top: 16px;
+    margin-top: 24px;
     margin-bottom: 16px;
   }
 
@@ -3629,7 +3674,7 @@
   #profile-section:not([open]) {
     border-bottom: none;
     padding: 0;
-    margin-top: 16px;
+    margin-top: 24px;
     margin-bottom: 16px;
   }
   #profile-section > summary {
@@ -4288,12 +4333,9 @@
   </form>
 </details>
 
-<!-- ============ SECTION 1: CHECKOUT LIST ============ -->
-<section id="checkout" data-collapsible>
-  <h2 class="title-with-action">
-    <span class="num">01</span>Checkout List
-  </h2>
-  <div class="section-rule"></div>
+<!-- ============ SECTION 1: CATALOG ============ -->
+<section id="checkout" class="section-minimal" data-collapsible>
+  <h2>Catalog</h2>
 
   <div class="checkout">
     <div class="checkout-totals" id="checkout-totals" data-collapsible data-collapse-key="checkout-totals" title="Click to collapse / expand">
@@ -10554,7 +10596,10 @@
           '</div>';
       }
     }
-    container.innerHTML = html;
+    // Preserve the static targets-heading label sitting above the
+    // dynamically-rendered cells: prepend it back into the html before
+    // assigning so the labeled top rule survives a re-render.
+    container.innerHTML = '<div class="targets-heading">Today\'s totals</div>' + html;
   }
 
   function render() {
