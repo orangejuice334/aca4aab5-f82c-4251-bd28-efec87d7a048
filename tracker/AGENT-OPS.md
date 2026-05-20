@@ -4,7 +4,9 @@ A read-from-scratch reference. No history, no migration notes, just the
 current schema and how to drive it.
 
 Endpoint: `https://19ff6f4d-3d5b-40e6-88e2-573f647f903f.orangejuice9137.workers.dev`
-Users: `?user=lg` (Luis), `?user=eg` (Estela).
+User: this document is scoped to `?user=lg` (Luis). Every read and write
+in here assumes that query string. Do not act on any other user from this
+playbook.
 
 ## Read state
 `GET /state?user=<u>` returns the raw gist object. Parse the live state via
