@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-20T00:43:36.389Z",
-  "_gistSavedAt": "2026-05-20T00:35:14.761Z",
+  "_backupTakenAt": "2026-05-20T01:02:31.659Z",
+  "_gistSavedAt": "2026-05-20T00:56:56.611Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -292,8 +292,7 @@
       "details-add-new-item": true,
       "catalog-ratio": true,
       "section-checkout": true,
-      "profile": true,
-      "targets-accumulation": true
+      "profile": true
     },
     "userCatalog": {
       "items": {

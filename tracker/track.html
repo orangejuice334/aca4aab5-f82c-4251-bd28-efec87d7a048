@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.33">
+<meta name="app-version" content="v6.5.34">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -7743,12 +7743,32 @@
     // renderCheckoutTotalCells / render(). The time gate lives there.
   }
 
+  // Per-metric DAILY consequence text. Each function takes the delta
+  // (val - goal, positive = over, negative = under) and returns the
+  // human-readable consequence string. Metrics without an entry don't
+  // produce a card - no generic fallback. Tone matches the Weekly
+  // Tracker consequences but scoped to "what you can do today".
+  // Daily consequences. Tone is honest: by the time the user sees this
+  // (20:00 to 02:00), most of the day's eating is already done and the
+  // food cannot be un-eaten. So "fix" advice points at the NEXT few
+  // days, not the current evening, for over-cap metrics. Under-target
+  // metrics like protein / water / fiber CAN still be topped up tonight,
+  // so those keep an actionable suggestion.
+  const DAILY_CONSEQUENCES = {
+    kcal: (delta) => 'Today closed about ' + Math.round(delta) + ' kcal over the cap. You cannot undo today; the food is in. What you CAN do is run the next 3 to 4 days at the planned deficit (do not over-compensate by slashing tomorrow, that triggers rebound). One over-day in a week is noise; a streak is the issue, watch the Weight Δ tile in the Weekly Tracker.',
+    sf: (delta) => 'Today closed ' + delta.toFixed(1) + ' g over the sat-fat cap. One day is not damage; it is the 7-day running total that hits LDL. Can\'t reverse today, but tomorrow shift toward leaner protein (chicken breast, fish, egg whites, lean ground turkey).',
+    caffeine: (delta) => 'Today closed about ' + Math.round(delta) + ' mg past the caffeine cap. Half-life ~5 hours, so caffeine consumed after noon will degrade sleep tonight. Cannot remove it from your system; what you can do is hydrate, skip caffeine the rest of the evening, and accept the sleep hit. Adjust tomorrow\'s intake earlier in the day.',
+    sodium: (delta) => 'Today closed about ' + Math.round(delta) + ' mg over the sodium target. Expect water retention and possibly a morning weight bump. Drink an extra 500 ml water tonight. Tomorrow rebalance toward unprocessed foods. The 7-day average is what matters for blood pressure, single days are noise.',
+    p: (delta) => 'Protein is short by about ' + Math.round(-delta) + ' g vs target. This one IS actionable tonight: low-kcal high-protein options to top up are cottage cheese (Friendly Farms low-fat), Greek yogurt 0%, whey shake, Premier Protein latte, plain chicken breast, tuna in water.',
+    water: (delta) => 'Water is short by about ' + Math.round(-delta) + ' ml vs target. Actionable now: 500 ml glasses across the next 2 to 3 hours. Mild dehydration measurably degrades cognitive performance and lift quality.',
+    fiber: (delta) => 'Fiber is short by about ' + delta.toFixed(1) + ' g vs target. Actionable tonight: a side of beans or lentils, a vegetable, berries, or 1 tsp psyllium husk in water. One short day is fine; a streak slows transit and sharpens post-meal glucose.',
+  };
+
   // Render a per-metric "what staying out of range costs" block below
   // the Daily Tracker tiles, but ONLY between 20:00 and 02:00 (the
   // window when course-correction is still possible today). At other
-  // times the block stays empty. Uses the same data source as the
-  // Weekly Tracker (WARNING_CONSEQUENCES) - the daily lookup adapts
-  // each consequence to today's window.
+  // times the block stays empty. Skips any metric without a specific
+  // consequence string - no generic filler.
   function renderDailyConsequences(totals) {
     let el = document.getElementById('daily-consequences');
     const container = document.getElementById('checkout-totals');
@@ -7761,7 +7781,6 @@
     }
     const now = new Date();
     const hour = now.getHours();
-    // Window: 20:00 to 02:00 next day. At all other hours render nothing.
     const inWindow = (hour >= 20 || hour < 2);
     if (!inWindow) {
       el.hidden = true;
@@ -7769,22 +7788,29 @@
       return;
     }
     const entries = [];
-    // Check each goal-bearing nutrient against today's totals.
-    const checkHigh = (key, label, val, goal) => {
+    const addIfOver = (key, label, val, goal) => {
       if (!(goal > 0)) return;
-      if (val > goal) entries.push({ key, label, dir: 'over', consequence: WARNING_CONSEQUENCES[key] });
+      if (val > goal) {
+        const fn = DAILY_CONSEQUENCES[key];
+        if (!fn) return;
+        entries.push({ key, label, dir: 'over goal', text: fn(val - goal) });
+      }
     };
-    const checkLow = (key, label, val, goal) => {
+    const addIfUnder = (key, label, val, goal) => {
       if (!(goal > 0)) return;
-      if (val < goal) entries.push({ key, label, dir: 'under', consequence: WARNING_CONSEQUENCES[key] });
+      if (val < goal) {
+        const fn = DAILY_CONSEQUENCES[key];
+        if (!fn) return;
+        entries.push({ key, label, dir: 'under goal', text: fn(val - goal) });
+      }
     };
-    checkHigh('kcal', 'Calories', totals.kcal || 0, GOALS.kcal);
-    checkHigh('sf', 'Sat. Fat.', totals.sf || 0, GOALS.sf);
-    checkHigh('caffeine', 'Caffeine', totals.caffeine || 0, GOALS.caffeine);
-    checkHigh('sodium', 'Sodium', totals.sodium || 0, GOALS.sodium);
-    checkLow('p', 'Protein', totals.p || 0, GOALS.p);
-    checkLow('water', 'Water', totals.water || 0, GOALS.water);
-    checkLow('fiber', 'Fiber', totals.fiber || 0, GOALS.fiber);
+    addIfOver('kcal', 'Calories', totals.kcal || 0, GOALS.kcal);
+    addIfOver('sf', 'Sat. Fat.', totals.sf || 0, GOALS.sf);
+    addIfOver('caffeine', 'Caffeine', totals.caffeine || 0, GOALS.caffeine);
+    addIfOver('sodium', 'Sodium', totals.sodium || 0, GOALS.sodium);
+    addIfUnder('p', 'Protein', totals.p || 0, GOALS.p);
+    addIfUnder('water', 'Water', totals.water || 0, GOALS.water);
+    addIfUnder('fiber', 'Fiber', totals.fiber || 0, GOALS.fiber);
     if (!entries.length) {
       el.hidden = true;
       el.innerHTML = '';
@@ -7794,8 +7820,8 @@
     el.innerHTML = entries.map(e =>
       '<div class="warning-consequence">' +
         '<div class="warning-consequence-head">' + escapeHtml(e.label) +
-          ' <span class="warning-consequence-dir">' + (e.dir === 'over' ? 'over goal' : 'under goal') + '</span></div>' +
-        '<p>' + escapeHtml(e.consequence || 'Recheck the daily total; consider correcting before the day closes.') + '</p>' +
+          ' <span class="warning-consequence-dir">' + escapeHtml(e.dir) + '</span></div>' +
+        '<p>' + escapeHtml(e.text) + '</p>' +
       '</div>'
     ).join('');
   }
