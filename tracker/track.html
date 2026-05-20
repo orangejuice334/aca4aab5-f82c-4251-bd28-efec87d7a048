@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.35">
+<meta name="app-version" content="v6.5.36">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -146,7 +146,7 @@
     gap: 0;
     margin: 16px 0;
     border-top: 2px solid var(--ink);
-    border-bottom: 2px solid var(--ink);
+    border-bottom: none;
     padding: 18px 0;
     position: relative;
   }
@@ -1295,7 +1295,7 @@
     flex-wrap: wrap;
     gap: 0;
     border-top: 2px solid var(--ink);
-    border-bottom: 2px solid var(--ink);
+    border-bottom: none;
     background: transparent;
     position: relative;
     padding: 18px 0;
@@ -1486,7 +1486,7 @@
      no big number, no section-rule under-bar. */
   section.section-minimal {
     border-top: 2px solid var(--ink);
-    border-bottom: 2px solid var(--ink);
+    border-bottom: none;
     padding: 18px 0;
     margin: 16px 0;
     position: relative;
@@ -10181,10 +10181,12 @@
       delete item.ingredients;
       for (const k of STORED_NUTRIENT_KEYS) {
         const raw = get(k);
-        if (raw === '' || raw == null) {
-          delete item[k];
-          continue;
-        }
+        // Empty input means "don't touch" - keep whatever was stored.
+        // This prevents externally-backfilled fields (set via mutate.mjs
+        // or another agent) from being wiped just because the user
+        // opened the edit panel and saved without retyping every
+        // nutrient. To explicitly clear a field, the user must type 0.
+        if (raw === '' || raw == null) continue;
         const n = roundStorage(num(raw));
         if (n > 0) item[k] = n;
         else delete item[k];
@@ -11472,13 +11474,20 @@
         return;
       }
       // Group filter input — live filter rows in the closest .checkout-group.
+      // Also auto-expand the group while a filter is active so the user
+      // can SEE the matched rows; re-collapses when the box is cleared.
       const groupFilter = ev.target.closest('input[data-group-filter]');
       if (groupFilter) {
         const groupEl = groupFilter.closest('.checkout-group[data-group-key]');
         if (groupEl) {
           const k = groupEl.dataset.groupKey;
-          groupFilters[k] = groupFilter.value;
-          applyGroupFilter(groupEl, groupFilter.value);
+          const val = groupFilter.value;
+          groupFilters[k] = val;
+          applyGroupFilter(groupEl, val);
+          if (val.trim()) {
+            groupEl.classList.remove('collapsed');
+            if (state.collapsedGroups) delete state.collapsedGroups[k];
+          }
         }
         return;
       }

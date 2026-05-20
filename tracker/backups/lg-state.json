@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-20T13:51:56.018Z",
-  "_gistSavedAt": "2026-05-20T13:42:48.810Z",
+  "_backupTakenAt": "2026-05-20T18:28:28.233Z",
+  "_gistSavedAt": "2026-05-20T18:25:09.750Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -208,7 +208,8 @@
           "nigiri_pack_salmon_tuna_6pc": 0,
           "premier": 325,
           "yogurt_half": 453.5,
-          "protein_whey_dymatize_iso100_vanilla": 60
+          "protein_whey_dymatize_iso100_vanilla": 60,
+          "kcl_morton": 2.8
         },
         "customs": [
           {
@@ -218,6 +219,14 @@
             "p": 7,
             "count": 1,
             "lastModified": "2026-05-20T13:39:31.768Z"
+          },
+          {
+            "id": "8d8ce614-fea3-4c8c-9f7a-681ef59983f3",
+            "name": "kk",
+            "kcal": 250,
+            "p": 12,
+            "count": 1,
+            "lastModified": "2026-05-20T15:17:07.468Z"
           }
         ],
         "toggleMeta": {},
@@ -225,7 +234,8 @@
           "nigiri_pack_salmon_tuna_6pc": "2026-05-20T02:06:26+00:00",
           "premier": "2026-05-20T13:38:46.137Z",
           "yogurt_half": "2026-05-20T13:39:44.384Z",
-          "protein_whey_dymatize_iso100_vanilla": "2026-05-20T13:39:52.491Z"
+          "protein_whey_dymatize_iso100_vanilla": "2026-05-20T13:39:52.491Z",
+          "kcl_morton": "2026-05-20T18:23:22.267Z"
         }
       }
     },
@@ -306,7 +316,6 @@
       "section-density": true,
       "catalog-archive": true,
       "details-recipe-maker": true,
-      "details-checkout-history": true,
       "targets-daily": true,
       "section-weight-tracker": true,
       "details-profile-section": true,
@@ -1950,12 +1959,6 @@
           "notes": "Morton Salt Substitute, sodium-free. Label: 690mg potassium per 1/4 tsp (1.4g) = 492.86 mg K/g. Ingredients: Potassium Chloride, Fumaric Acid, Monocalcium Phosphate, Silicon Dioxide. Pure KCl is 52.4% K by mass; label value (493 mg/g) aligns well. Zero sodium. Functional equivalent of NoSalt brand. Protocol: 5 × 1/4 tsp/day = 3450mg supplemental potassium. Consult physician before high-dose use (kidney function dependency). 88.6g container = 63 servings.",
           "displayUnits": [
             {
-              "label": "Whole container (88.6 g)",
-              "amount": 88.6,
-              "unit": "g",
-              "multiplier": 88.6
-            },
-            {
               "label": "1 tsp (5.6 g)",
               "amount": 5.6,
               "unit": "g",
@@ -1979,7 +1982,37 @@
           "carbs": 0,
           "fiber": 0,
           "sugar": 0,
-          "cholesterol": 0
+          "cholesterol": 0,
+          "water": 0,
+          "caffeine": 0,
+          "omega3": 0,
+          "purines": 0,
+          "vitA": 0,
+          "vitC": 0,
+          "vitD": 0,
+          "vitE": 0,
+          "vitK": 0,
+          "b1": 0,
+          "b2": 0,
+          "b3": 0,
+          "b5": 0,
+          "b6": 0,
+          "b7": 0,
+          "b9": 0,
+          "b12": 0,
+          "choline": 0,
+          "calcium": 0,
+          "iron": 0,
+          "magnesium": 0,
+          "phosphorus": 0,
+          "zinc": 0,
+          "selenium": 0,
+          "copper": 0,
+          "manganese": 0,
+          "iodine": 0,
+          "chromium": 0,
+          "molybdenum": 0,
+          "mercury": 0
         },
         "ketchup_heinz_packet": {
           "name": "Ketchup tomato packet",
@@ -4581,7 +4614,6 @@
           "label": "Uncategorized"
         }
       ]
-    },
-    "totalsMode": "collapsed"
+    }
   }
 }
