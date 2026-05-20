@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.31">
+<meta name="app-version" content="v6.5.32">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -6031,7 +6031,11 @@
         const item = ITEMS[it.itemKey || it.key];
         if (item) {
           isSupp = true;
-          const totals = computeItemMacros(item);
+          // Scale per-native macros by THIS scheduled serving's
+          // multiplier so the chip line reads "400 mg caffeine" on a
+          // 2-capsule scheduled slot, not the per-1-capsule baseline.
+          const mult = (typeof it.amount === 'number' && it.amount > 0) ? it.amount : 1;
+          const totals = scaleByNative(item, mult);
           const parts = [];
           for (const def of NUTRIENT_DEFS) {
             if (def.computed) continue;

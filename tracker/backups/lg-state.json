@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-20T00:13:03.089Z",
-  "_gistSavedAt": "2026-05-20T00:12:07.041Z",
+  "_backupTakenAt": "2026-05-20T00:15:53.920Z",
+  "_gistSavedAt": "2026-05-20T00:15:51.167Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -142,7 +142,11 @@
           "water#12:30": true,
           "creatine#08:00": true,
           "omega3#12:30": true,
-          "water#16:00": true
+          "water#16:00": true,
+          "caffeine_anhydrous_200mg#08:00": true,
+          "water#19:00": true,
+          "4_doctor_s_best_magnesiu#19:00": true,
+          "omega3#19:00": true
         },
         "counters": {
           "protein_whey_dymatize_iso100_vanilla": 120,
@@ -174,7 +178,11 @@
           "water#12:30": "2026-05-19T20:31:31.139Z",
           "creatine#08:00": "2026-05-19T20:58:17.428Z",
           "omega3#12:30": "2026-05-19T20:58:44.519Z",
-          "water#16:00": "2026-05-19T20:58:50.427Z"
+          "water#16:00": "2026-05-19T20:58:50.427Z",
+          "caffeine_anhydrous_200mg#08:00": "2026-05-20T00:14:21.379Z",
+          "water#19:00": "2026-05-20T00:15:47.608Z",
+          "4_doctor_s_best_magnesiu#19:00": "2026-05-20T00:15:48.635Z",
+          "omega3#19:00": "2026-05-20T00:15:49.617Z"
         },
         "counterMeta": {
           "protein_whey_dymatize_iso100_vanilla": "2026-05-19T21:00:22.243Z",
@@ -257,7 +265,8 @@
         "water",
         "caffeine",
         "potassium",
-        "_kcal_per_p"
+        "_kcal_per_p",
+        "magnesium"
       ],
       "units": {
         "weight": "kg",
@@ -278,9 +287,10 @@
       "targets-daily": true,
       "section-weight-tracker": true,
       "details-profile-section": true,
-      "supplements-water": true,
       "details-add-new-item": true,
-      "targets-accumulation": true
+      "targets-accumulation": true,
+      "profile": true,
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
@@ -845,7 +855,13 @@
             {
               "label": "2 capsule",
               "multiplier": 2,
-              "time": "08:01",
+              "amount": 2,
+              "unit": "g"
+            },
+            {
+              "label": "2 capsule",
+              "multiplier": 2,
+              "time": "08:00",
               "frequency": "daily",
               "amount": 2,
               "unit": "g"
@@ -4454,7 +4470,6 @@
           "label": "Uncategorized"
         }
       ]
-    },
-    "totalsMode": "collapsed"
+    }
   }
 }
