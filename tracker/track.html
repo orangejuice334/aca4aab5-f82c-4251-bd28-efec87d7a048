@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.36">
+<meta name="app-version" content="v6.5.37">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -2360,6 +2360,24 @@
     grid-column: 2;
   }
 
+  /* Today's log rows are read-only summaries — no checkbox, no counter,
+     no edit panel. Override the default 100px-control / 1fr-content grid
+     so the name + macros line gets the full row width. Inline time stamp
+     sits at the right edge via margin-left: auto on the macros span. */
+  .today-log-row {
+    grid-template-columns: 1fr;
+  }
+  .today-log-row > div:not(:empty) {
+    grid-column: 1;
+  }
+  .today-log-row .checkout-item-macros {
+    display: flex;
+    gap: 12px;
+  }
+  .today-log-row .hd-time-inline {
+    margin-left: auto;
+  }
+
   .checkout-row.flagged {
     background: rgba(120, 50, 200, 0.34) !important;
     box-shadow: inset 0 0 0 1px rgba(90, 30, 170, 0.55);
@@ -4313,6 +4331,11 @@
   <h2>Catalog</h2>
 
   <div class="checkout">
+    <div class="checkout-group" id="today-log-group" data-group-key="today-log" style="display: none;">
+      <div class="checkout-group-header">Today's log</div>
+      <div id="today-log-rows"></div>
+    </div>
+
     <div class="checkout-group" data-group-key="supplements-water">
       <div class="checkout-group-header">Supplements and liquids</div>
       <div id="supplements-water-rows"></div>
@@ -4412,11 +4435,12 @@
   </details>
 
   <div class="checkout-warnings" id="checkout-warnings"></div>
+</section>
 
-  <details class="checkout-history" id="checkout-history">
-    <summary>History (logged days)</summary>
-    <div id="history-content"></div>
-  </details>
+<!-- ============ HISTORY ============ -->
+<section id="history-section" class="section-minimal" data-collapsible data-collapse-key="history">
+  <h2>History</h2>
+  <div id="history-content"></div>
 </section>
 
 <!-- ============ WEIGHT & BMI ============ -->
@@ -10454,6 +10478,161 @@
     });
   }
 
+  // Today's log — flat read-only summary of everything actually logged on
+  // state.activeDate: counters > 0 (food + ad-hoc supplements/water counted
+  // via counter), today's customs > 0, and any scheduled supplement/water
+  // toggle checked for the day. Sorted by last-modified time (most recent
+  // on top). Each row is name + brief macros line; clicking does nothing
+  // (mutation belongs on the counter / toggle rows in the catalog groups).
+  function renderTodayLog() {
+    const group = document.getElementById('today-log-group');
+    const container = document.getElementById('today-log-rows');
+    if (!group || !container) return;
+    const bucket = state.days && state.days[state.activeDate];
+    if (!bucket) {
+      group.style.display = 'none';
+      container.innerHTML = '';
+      return;
+    }
+    const counters = bucket.counters || {};
+    const customs = bucket.customs || [];
+    const counterMeta = bucket.counterMeta || {};
+    const toggleMeta = bucket.toggleMeta || {};
+    const entries = [];
+
+    for (const key in counters) {
+      const n = counters[key];
+      if (!n) continue;
+      const catItem = ITEMS[key];
+      const savedItem = !catItem ? (state.savedItems || []).find(s => s.key === key) : null;
+      const item = catItem || savedItem;
+      if (!item) continue;
+      // Skip scheduled-supplement counter rows: their consumption is
+      // already represented by the toggle below, and the counter is a
+      // mirror of the toggle (lockedCounterValueForDay). Avoids double
+      // listing the same serving as both "counter" and "toggle".
+      if (catItem && isCounterLocked(catItem, key)) continue;
+      const prim = (typeof primaryUnit === 'function') ? primaryUnit(catItem || item) : '';
+      const isRecipeItem = catItem && catItem.category === 'recipes' && Array.isArray(catItem.ingredients) && catItem.ingredients.length;
+      let countSuffix = '';
+      if (catItem) {
+        if (isRecipeItem) {
+          countSuffix = ' · ' + formatSize(n) + ' g';
+        } else {
+          countSuffix = ' · ' + formatSize(n) + ' ' + prim;
+        }
+      } else {
+        const u = (item && item.amount && item.amount.unit) || 'unit';
+        countSuffix = ' · ' + formatSize(n) + ' ' + u;
+      }
+      let m;
+      if (catItem) {
+        if (isRecipeItem) {
+          const canonUnits = recipeCanonicalGrams(catItem);
+          const batch = computeItemMacros(catItem);
+          const factor = canonUnits > 0 ? (n / canonUnits) : 0;
+          m = {};
+          for (const k of STORED_NUTRIENT_KEYS) m[k] = (batch[k] || 0) * factor;
+        } else {
+          m = scaleByNative(catItem, n);
+        }
+      } else {
+        m = { kcal: (item.kcal || 0) * n, p: (item.p || 0) * n, sf: (item.sf || 0) * n };
+      }
+      const macros =
+        Math.round(m.kcal || 0) + 'k · ' +
+        fmt(m.p || 0, 0) + 'P · ' +
+        fmt(m.sf || 0, 1) + 'SF';
+      entries.push({
+        name: formatItemDisplayName(catItem || item) || item.name || key,
+        suffix: countSuffix,
+        macros,
+        ts: counterMeta[key] || null,
+        sortTs: counterMeta[key] || '',
+      });
+    }
+
+    for (const c of customs) {
+      const n = (c.count !== undefined && c.count !== null) ? c.count : 1;
+      if (!n) continue;
+      const macros =
+        Math.round((c.kcal || 0) * n) + 'k · ' +
+        fmt((c.p || 0) * n, 0) + 'P · ' +
+        fmt((c.sf || 0) * n, 1) + 'SF';
+      entries.push({
+        name: (c.name || 'Custom') + ' (custom)',
+        suffix: ' ×' + (Math.round(n * 100) / 100).toString(),
+        macros,
+        ts: c.lastModified || null,
+        sortTs: c.lastModified || '',
+      });
+    }
+
+    for (const sup of getSupplementSchedule()) {
+      if (!sup.time) continue;
+      if (!bucket.toggles || !bucket.toggles[sup.key]) continue;
+      let supName = sup.name || sup.itemKey;
+      if (sup.label && sup.label !== supName) supName = supName + ' · ' + sup.label;
+      const amt = (sup.amount && sup.unit) ? (sup.amount + ' ' + sup.unit) : '';
+      entries.push({
+        name: supName,
+        suffix: amt ? ' · ' + amt : '',
+        macros: '',
+        ts: toggleMeta[sup.key] || null,
+        sortTs: toggleMeta[sup.key] || '',
+      });
+    }
+
+    for (const w of getWaterSchedule()) {
+      if (!w.time) continue;
+      if (!bucket.toggles || !bucket.toggles[w.key]) continue;
+      const ml = w.ml || WATER_DEFAULT_ML;
+      const wLabel = w.label || w.itemKey.replace(/^demo_/, '').replace(/^water_/, '').replace(/_/g, ' ');
+      entries.push({
+        name: 'Water · ' + wLabel,
+        suffix: ' · ' + ml + ' ml',
+        macros: '',
+        ts: toggleMeta[w.key] || null,
+        sortTs: toggleMeta[w.key] || '',
+      });
+    }
+
+    if (entries.length === 0) {
+      group.style.display = 'none';
+      container.innerHTML = '';
+      return;
+    }
+
+    // Most recently logged first; entries without a timestamp go to the
+    // bottom (likely backfilled / pre-stamping data).
+    entries.sort((a, b) => {
+      if (!a.sortTs && !b.sortTs) return 0;
+      if (!a.sortTs) return 1;
+      if (!b.sortTs) return -1;
+      return b.sortTs.localeCompare(a.sortTs);
+    });
+
+    group.style.display = '';
+    container.innerHTML = entries.map(e => {
+      const timeFrag = e.ts
+        ? '<span class="hd-time-inline">' + escapeHtml(fmtTime(e.ts)) + '</span>'
+        : '';
+      const macrosFrag = e.macros
+        ? '<span class="checkout-item-macros">' + escapeHtml(e.macros) + ' ' + timeFrag + '</span>'
+        : (timeFrag ? '<span class="checkout-item-macros">' + timeFrag + '</span>' : '');
+      return (
+        '<div class="checkout-row today-log-row">' +
+          '<div></div>' +
+          '<div>' +
+            '<span class="checkout-item-name">' + escapeHtml(e.name + e.suffix) + '</span>' +
+            macrosFrag +
+          '</div>' +
+          '<div></div>' +
+        '</div>'
+      );
+    }).join('');
+  }
+
   // Build the inner cells of #checkout-totals based on the user's selected
   // displayed nutrients. Each cell uses [data-total/pct/bar/marker="<key>"]
   // attributes so render() can update by querySelector. Computed metrics
@@ -10639,6 +10818,7 @@
 
     renderSavedItems();
     renderTodayCustoms();
+    renderTodayLog();
     renderDateStamp();
     renderWeightSection();
     renderSupplementWaterRows();

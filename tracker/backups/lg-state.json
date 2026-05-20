@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-20T18:28:28.233Z",
-  "_gistSavedAt": "2026-05-20T18:25:09.750Z",
+  "_backupTakenAt": "2026-05-20T18:40:19.062Z",
+  "_gistSavedAt": "2026-05-20T18:33:10.647Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -319,10 +319,11 @@
       "targets-daily": true,
       "section-weight-tracker": true,
       "details-profile-section": true,
-      "supplements-water": true,
       "profile": true,
-      "targets-accumulation": true,
-      "details-add-new-item": true
+      "details-add-new-item": true,
+      "catalog-ratio": true,
+      "supplements-water": true,
+      "today-customs": true
     },
     "userCatalog": {
       "items": {
