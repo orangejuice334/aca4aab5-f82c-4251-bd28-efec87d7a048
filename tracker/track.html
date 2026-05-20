@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.30">
+<meta name="app-version" content="v6.5.31">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -6252,45 +6252,24 @@
       const slot = btn.getAttribute('data-supp-slot') || '';
       const item = ITEMS[itemKey];
       if (!item) return;
-      // Count scheduled servings to decide between "remove this serving"
-      // and "delete the whole catalog item." Per-serving deletion fires when
-      // the item has more than one scheduled slot; full deletion fires when
-      // this is the last (or only) scheduled serving.
-      const allServings = getScheduledServings(item, itemKey);
-      const isLastServing = allServings.length <= 1;
-      const suppName = item.name || itemKey;
-      if (isLastServing) {
-        if (!confirm('Delete supplement "' + suppName + '"? This also clears its check-history across every day.')) return;
-        delete ITEMS[itemKey];
-        // Clear toggle state for the bare key AND any compound `${itemKey}#...` keys.
-        const compoundPrefix = itemKey + '#';
-        for (const dk in state.days) {
-          const togs = state.days[dk].toggles || {};
-          for (const tk of Object.keys(togs)) {
-            if (tk === itemKey || tk.startsWith(compoundPrefix)) delete togs[tk];
-          }
-        }
-      } else {
-        if (!confirm('Remove the ' + slot + ' serving of "' + suppName + '"? Other scheduled times keep their history; the ' + slot + ' toggle history is cleared.')) return;
-        // Remove just the matching scheduled-serving variant from displayUnits.
-        const variants = getDisplayUnits(item).slice();
-        const idx = variants.findIndex(v => v && v.time === slot);
-        if (idx >= 0) {
-          variants.splice(idx, 1);
-          // Strip the per-variant mirror fields so storage stays canonical.
-          for (const v of variants) { if (v) delete v.unitsPerServing; }
-          item.displayUnits = variants;
-          // Ensure exactly one default remains.
-          if (!variants.some(v => v && v.default) && variants.length > 0) {
-            variants[0].default = true;
-          }
-        }
-        // Clear toggle history for the compound key only.
-        const compoundKey = itemKey + '#' + slot;
-        for (const dk in state.days) {
-          if (state.days[dk].toggles && state.days[dk].toggles[compoundKey] !== undefined) {
-            delete state.days[dk].toggles[compoundKey];
-          }
+      // v6.5.31: the × button on the supps profile list only BLANKS the
+      // schedule on this variant - it never deletes the catalog item.
+      // The variant itself stays around so the item retains its serving
+      // sizes; the toggle history for the (now-unscheduled) compound key
+      // is cleared since that slot no longer surfaces in the schedule.
+      const variants = getDisplayUnits(item).slice();
+      const idx = variants.findIndex(v => v && v.time === slot);
+      if (idx >= 0) {
+        const variant = variants[idx];
+        delete variant.time;
+        delete variant.frequency;
+        for (const v of variants) { if (v) delete v.unitsPerServing; }
+        item.displayUnits = variants;
+      }
+      const compoundKey = itemKey + '#' + slot;
+      for (const dk in state.days) {
+        if (state.days[dk].toggles && state.days[dk].toggles[compoundKey] !== undefined) {
+          delete state.days[dk].toggles[compoundKey];
         }
       }
       saveState();
