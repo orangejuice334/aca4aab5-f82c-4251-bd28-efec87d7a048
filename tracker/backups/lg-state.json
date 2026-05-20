@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-19T23:58:52.301Z",
-  "_gistSavedAt": "2026-05-19T23:58:46.607Z",
+  "_backupTakenAt": "2026-05-20T00:03:25.007Z",
+  "_gistSavedAt": "2026-05-20T00:01:13.598Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -150,7 +150,7 @@
           "turkey_breast_smithfield": 140,
           "premier": 325,
           "spinach_fresh": 40,
-          "yogurt_oikos_pro_lemon": 0
+          "yogurt_oikos_pro_lemon": 150
         },
         "customs": [
           {
@@ -183,7 +183,7 @@
           "turkey_breast_smithfield": "2026-05-19T23:36:52.333Z",
           "premier": "2026-05-19T18:44:06.065Z",
           "spinach_fresh": "2026-05-19T20:59:07.151Z",
-          "yogurt_oikos_pro_lemon": "2026-05-19T23:58:44.955Z"
+          "yogurt_oikos_pro_lemon": "2026-05-19T23:59:04.395Z"
         },
         "neck": 43,
         "neckMeta": "2026-05-19T12:17:37.196Z",
@@ -280,9 +280,9 @@
       "targets-daily": true,
       "section-weight-tracker": true,
       "details-profile-section": true,
-      "targets-accumulation": true,
       "supplements-water": true,
       "details-add-new-item": true,
+      "section-checkout": true,
       "profile": true
     },
     "userCatalog": {
@@ -4348,13 +4348,13 @@
               "label": "2 containers",
               "amount": 300,
               "unit": "g",
-              "default": true,
               "multiplier": 300
             },
             {
               "label": "1 container",
               "amount": 150,
               "unit": "g",
+              "default": true,
               "multiplier": 150
             },
             {

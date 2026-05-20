@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.29">
+<meta name="app-version" content="v6.5.30">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -3104,6 +3104,21 @@
     border-radius: 2px;
     margin-left: 6px;
   }
+  /* Custom-row delete button sits at the far right of the name column
+     so it doesn't compete for space inside the narrow counter column
+     (which on customs was overflowing into col 2 and wrapping the ×
+     below the name). */
+  .custom-row > div:nth-child(2) {
+    position: relative;
+    padding-right: 32px;
+  }
+  .custom-row .custom-row-delete {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    margin: 0;
+  }
   .custom-delete-btn:hover {
     background: var(--rust);
     color: var(--paper);
@@ -3679,20 +3694,10 @@
      background, no chrome around the form. Collapsed = just the
      labeled rule; expanded = the rule with the form below + a closing
      bottom rule. */
-  #profile-section {
-    border: none;
-    border-radius: 0;
-    background: none;
-    padding: 18px 0;
-    margin: 16px 0;
-    border-top: 2px solid var(--ink);
-    border-bottom: 2px solid var(--ink);
-    position: relative;
-  }
-  /* Profile-section is now a regular <section class="section-minimal">
-     so it inherits the collapsed-state styling from .section-minimal.collapsed.
-     This per-id override is kept only for the legacy padding/margin
-     reset, which the shared rule also handles. */
+  /* #profile-section uses the shared section.section-minimal rules
+     for box, border, padding, margin. No per-id override needed. The
+     legacy rules here clashed with the collapsed-state border-bottom:
+     none, leaving a stray line under the collapsed profile bar. */
   .profile-form {
     margin-top: 12px;
     font-size: 13px;
@@ -6115,12 +6120,25 @@
     const sel = document.getElementById('supp-new-item');
     if (!sel) return;
     const prev = sel.value;
-    const supps = Object.entries(ITEMS || {})
-      .filter(([k, v]) => v && v.category === 'supplements' && !v.archived)
-      .map(([k, v]) => ({ key: k, name: v.name || k }))
-      .sort((a, b) => a.name.localeCompare(b.name));
+    // List each variant of every supplement as its own option, so the
+    // user can pick which specific serving size to schedule (e.g.
+    // caffeine 1 capsule vs caffeine 2 capsule). Option value encodes
+    // both the item key and the variant index, separated by `|`.
+    const supps = [];
+    for (const [k, v] of Object.entries(ITEMS || {})) {
+      if (!v || v.category !== 'supplements' || v.archived) continue;
+      const variants = getDisplayUnits(v);
+      variants.forEach((variant, idx) => {
+        const label = variant.label || ('variant ' + (idx + 1));
+        supps.push({
+          value: k + '|' + idx,
+          name: (v.name || k) + ' · ' + label,
+        });
+      });
+    }
+    supps.sort((a, b) => a.name.localeCompare(b.name));
     sel.innerHTML = '<option value="">— pick supplement —</option>' +
-      supps.map(s => '<option value="' + escapeHtml(s.key) + '">' + escapeHtml(s.name) + '</option>').join('');
+      supps.map(s => '<option value="' + escapeHtml(s.value) + '">' + escapeHtml(s.name) + '</option>').join('');
     if (prev && [...sel.options].some(o => o.value === prev)) sel.value = prev;
   }
 
@@ -6175,7 +6193,9 @@
         if (msg) { errBox.textContent = msg; errBox.hidden = false; }
         else { errBox.textContent = ''; errBox.hidden = true; }
       };
-      const itemKey = (itemEl && itemEl.value || '').trim();
+      const rawVal = (itemEl && itemEl.value || '').trim();
+      const [itemKey, variantIdxRaw] = rawVal.split('|');
+      const variantIdx = parseInt(variantIdxRaw, 10);
       const time = (timeEl && timeEl.value || '').trim();
       const frequency = (freqEl && freqEl.value) || 'daily';
       if (!itemKey || !ITEMS[itemKey]) {
@@ -6195,18 +6215,20 @@
         setErr(item.name + ' already has a scheduled serving at ' + time + '.');
         return;
       }
-      // Append a new scheduled-serving variant cloned from the default
-      // (so it inherits label / amount / unit). The user can tweak it
-      // afterwards via the catalog editor.
-      const def = variants.find(v => v && v.default) || variants[0] || {};
+      // Clone the SPECIFIC variant the user picked from the dropdown
+      // (not the default). Falls back to the default if the index is
+      // out of range.
+      const source = (Number.isInteger(variantIdx) && variants[variantIdx])
+        ? variants[variantIdx]
+        : (variants.find(v => v && v.default) || variants[0] || {});
       const newVariant = {
-        label: def.label || '1 serving',
-        multiplier: (def.multiplier ?? def.unitsPerServing) || 1,
+        label: source.label || '1 serving',
+        multiplier: (source.multiplier ?? source.unitsPerServing) || 1,
         time,
         frequency,
       };
-      if (def.amount) newVariant.amount = def.amount;
-      if (def.unit)   newVariant.unit = def.unit;
+      if (source.amount) newVariant.amount = source.amount;
+      if (source.unit)   newVariant.unit = source.unit;
       const merged = variants.concat([newVariant]);
       // Strip mirrored read-only `unitsPerServing` so storage stays canonical.
       for (const v of merged) { if (v) delete v.unitsPerServing; }
@@ -10345,6 +10367,7 @@
         <div>
           <span class="checkout-item-name">${escapeHtml(formatItemDisplayName(it))}</span>
           <span class="checkout-item-macros">${macroLine(it)}</span>
+          <button class="custom-delete-btn custom-row-delete" data-saved-delete="${it.key}" title="Remove from saved items">×</button>
         </div>
         <div class="counter-control">
           <div class="counter-flag-slot"></div>
@@ -10352,7 +10375,6 @@
             <button class="counter-btn" data-action="dec" data-key="${it.key}"${count === 0 ? ' disabled' : ''}>−</button>
             <input type="number" class="counter-value" data-value="${it.key}" min="0" step="0.1" value="${count}" inputmode="decimal" />
             <button class="counter-btn" data-action="inc" data-key="${it.key}">+</button>
-            <button class="custom-delete-btn" data-saved-delete="${it.key}" title="Remove from saved items">×</button>
           </div>
         </div>
       </div>
@@ -10402,6 +10424,7 @@
         <div>
           <span class="checkout-item-name">${escapeHtml(formatItemDisplayName(it))}</span>
           <span class="checkout-item-macros">${macroLine(it)}</span>
+          <button class="custom-delete-btn custom-row-delete" data-custom-delete="${idx}" title="Remove this entry">×</button>
         </div>
         <div class="counter-control">
           <div class="counter-flag-slot"></div>
@@ -10409,7 +10432,6 @@
             <button class="counter-btn" data-custom-action="dec" data-custom-idx="${idx}"${count === 0 ? ' disabled' : ''}>−</button>
             <input type="number" class="counter-value" data-custom-value-idx="${idx}" min="0" step="0.1" value="${count}" inputmode="decimal" />
             <button class="counter-btn" data-custom-action="inc" data-custom-idx="${idx}">+</button>
-            <button class="custom-delete-btn" data-custom-delete="${idx}" title="Remove this entry">×</button>
           </div>
         </div>
       </div>
