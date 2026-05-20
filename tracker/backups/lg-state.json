@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-20T00:15:53.920Z",
-  "_gistSavedAt": "2026-05-20T00:15:51.167Z",
+  "_backupTakenAt": "2026-05-20T00:43:36.389Z",
+  "_gistSavedAt": "2026-05-20T00:35:14.761Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -146,7 +146,8 @@
           "caffeine_anhydrous_200mg#08:00": true,
           "water#19:00": true,
           "4_doctor_s_best_magnesiu#19:00": true,
-          "omega3#19:00": true
+          "omega3#19:00": true,
+          "two_per_day#19:00": true
         },
         "counters": {
           "protein_whey_dymatize_iso100_vanilla": 120,
@@ -182,7 +183,8 @@
           "caffeine_anhydrous_200mg#08:00": "2026-05-20T00:14:21.379Z",
           "water#19:00": "2026-05-20T00:15:47.608Z",
           "4_doctor_s_best_magnesiu#19:00": "2026-05-20T00:15:48.635Z",
-          "omega3#19:00": "2026-05-20T00:15:49.617Z"
+          "omega3#19:00": "2026-05-20T00:15:49.616Z",
+          "two_per_day#19:00": "2026-05-20T00:15:50.390Z"
         },
         "counterMeta": {
           "protein_whey_dymatize_iso100_vanilla": "2026-05-19T21:00:22.243Z",
@@ -288,9 +290,10 @@
       "section-weight-tracker": true,
       "details-profile-section": true,
       "details-add-new-item": true,
-      "targets-accumulation": true,
+      "catalog-ratio": true,
+      "section-checkout": true,
       "profile": true,
-      "catalog-ratio": true
+      "targets-accumulation": true
     },
     "userCatalog": {
       "items": {

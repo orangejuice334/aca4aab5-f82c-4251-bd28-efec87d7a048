@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.32">
+<meta name="app-version" content="v6.5.33">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -1239,39 +1239,44 @@
     color: var(--ink);
     line-height: 1.5;
   }
+  /* Weekly Tracker tiles share the Daily Tracker tile look (flex column
+     cells, mono uppercase label, serif numeric value). Status background
+     tints + value color come from .warn / .danger / .ok modifiers. NO
+     vertical progress bars on the weekly view per spec. */
   .warnings-list {
     grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 0;
   }
   .warning-tile {
-    padding: 8px 10px;
-    border-right: 1px solid var(--rule);
-    border-top: 1px solid var(--rule);
+    flex: 1 1 160px;
+    padding: 12px 14px;
     text-align: center;
     background: var(--paper);
-    font-size: 11px;
+    display: flex;
+    flex-direction: column;
   }
   .warning-tile-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 9px;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--ink-faint);
+    margin-bottom: 6px;
   }
   .warning-tile-value {
     font-family: 'Fraunces', serif;
-    font-size: 16px;
+    font-size: 22px;
     font-weight: 600;
     color: var(--ink);
-    margin-top: 2px;
+    line-height: 1;
   }
   .warning-tile-bound {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
     color: var(--ink-soft);
-    margin-top: 2px;
+    margin-top: 4px;
   }
   .warning-tile.ok      { background: rgba(90, 107, 77, 0.08); }
   .warning-tile.warn    { background: rgba(212, 160, 23, 0.18); }
@@ -4287,7 +4292,7 @@
 </section>
 
 <section class="section-minimal band-tiles targets warnings-ribbon" data-collapsible data-collapse-key="targets-accumulation" aria-labelledby="warnings-heading" id="warnings-ribbon">
-  <h2 id="warnings-heading">Last 7 days · accumulation watch</h2>
+  <h2 id="warnings-heading">Weekly Tracker</h2>
   <!-- Tiles rendered dynamically by renderWarningsRibbon() based on
        WARNING_DEFS. Only entries currently warn/danger or worth flagging
        appear by default; use the toggle to see all tracked thresholds. -->
@@ -4298,7 +4303,7 @@
 <!-- Today's totals widget sits at the top of the page (above Catalog)
      so it stays glanceable regardless of which sections are open. -->
 <section class="section-minimal band-totals checkout-totals" id="checkout-totals" data-collapsible data-collapse-key="checkout-totals" title="Click to collapse / expand">
-  <h2>Today's totals</h2>
+  <h2>Daily Tracker</h2>
   <!-- Cells rendered dynamically by renderCheckoutTotalCells based on
        profile.displayedNutrients. -->
 </section>
@@ -7724,94 +7729,74 @@
   }
 
   function checkWarnings(totals) {
-    const warnings = [];
-    const now = nowMinutes();
-    // Suppress all pacing warnings before 9 AM (still ramping up the day)
-    const tooEarly = now < 9 * 60;
-    // Pacing warnings only make sense for today; backfilling/planning shouldn't show them
-    const isToday = state.activeDate === todayKey();
+    // v6.5.33: the legacy hand-written warning lines ("Consider skipping
+    // a turkey slice", "Behind on protein", etc.) were too speculative
+    // and assumed pre-planned eating which isn't how the user actually
+    // logs. Replaced by the Daily Tracker consequence block below the
+    // tiles (gated 20:00 to 02:00) plus the Weekly Tracker's
+    // always-on consequence cards.
+    if (typeof warningsEl !== 'undefined' && warningsEl) {
+      warningsEl.innerHTML = '';
+    }
+    // Daily Tracker consequence rendering happens via
+    // renderDailyConsequences() driven by computeTotals; called from
+    // renderCheckoutTotalCells / render(). The time gate lives there.
+  }
 
-    // -------- CALORIES --------
-    if (totals.kcal > GOALS.kcal) {
-      const over = totals.kcal - GOALS.kcal;
-      const skip = suggestSkip(state, over);
-      let suggestion = '';
-      if (skip) suggestion = ` Consider skipping a ${skip.item.name} (saves ${Math.round(skip.kcal)} kcal).`;
-      warnings.push({ type: 'warn', text: `Calories ${Math.round(over)} kcal over the ${GOALS.kcal.toLocaleString()} daily goal.${suggestion}` });
-    } else if (isToday && !tooEarly && now >= 18 * 60) {
-      // Past 6 PM — flag if calories well under goal (genuinely under-eating)
-      const expectedK = GOALS.kcal * pacingFraction('kcal');
-      const kBehind = expectedK - totals.kcal;
-      if (kBehind > 400) {
-        const sug = suggestForDeficit(kBehind, 0);
-        let suggestion = sug ? ` Try ${describeSuggestion(sug)}.` : '';
-        warnings.push({ type: 'warn', text: `Calories tracking ${Math.round(kBehind)} kcal under pace for this hour.${suggestion}` });
-      }
+  // Render a per-metric "what staying out of range costs" block below
+  // the Daily Tracker tiles, but ONLY between 20:00 and 02:00 (the
+  // window when course-correction is still possible today). At other
+  // times the block stays empty. Uses the same data source as the
+  // Weekly Tracker (WARNING_CONSEQUENCES) - the daily lookup adapts
+  // each consequence to today's window.
+  function renderDailyConsequences(totals) {
+    let el = document.getElementById('daily-consequences');
+    const container = document.getElementById('checkout-totals');
+    if (!container) return;
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'daily-consequences';
+      el.className = 'warnings-consequences daily-consequences';
+      container.appendChild(el);
     }
-
-    // -------- PROTEIN --------
-    if (isToday && !tooEarly) {
-      const expectedP = GOALS.p * pacingFraction('p');
-      const pBehind = expectedP - totals.p;
-      const pOver = totals.p - GOALS.p;
-      if (pBehind > 15) {
-        const kcalHeadroom = GOALS.kcal - totals.kcal;
-        const sug = suggestForDeficit(Math.max(kcalHeadroom * 0.4, 100), pBehind);
-        let suggestion = sug ? ` Try ${describeSuggestion(sug)}.` : '';
-        warnings.push({ type: 'warn', text: `Behind on protein by ~${Math.round(pBehind)} g vs. pacing.${suggestion}` });
-      } else if (pOver > 50) {
-        warnings.push({ type: 'warn', text: `Protein ${Math.round(pOver)} g over goal. No need to add more — stop logging more protein items.` });
-      }
-    } else if (!isToday) {
-      // For non-today dates, only show absolute over-goal warning
-      const pOver = totals.p - GOALS.p;
-      if (pOver > 50) {
-        warnings.push({ type: 'warn', text: `Protein ${Math.round(pOver)} g over goal.` });
-      }
+    const now = new Date();
+    const hour = now.getHours();
+    // Window: 20:00 to 02:00 next day. At all other hours render nothing.
+    const inWindow = (hour >= 20 || hour < 2);
+    if (!inWindow) {
+      el.hidden = true;
+      el.innerHTML = '';
+      return;
     }
-
-    // -------- SAT FAT (ceiling only — applies to any date) --------
-    if (totals.sf > GOALS.sf) {
-      warnings.push({ type: 'warn', text: `Saturated fat ${(totals.sf - GOALS.sf).toFixed(1)} g over the ${GOALS.sf} g daily ceiling.` });
+    const entries = [];
+    // Check each goal-bearing nutrient against today's totals.
+    const checkHigh = (key, label, val, goal) => {
+      if (!(goal > 0)) return;
+      if (val > goal) entries.push({ key, label, dir: 'over', consequence: WARNING_CONSEQUENCES[key] });
+    };
+    const checkLow = (key, label, val, goal) => {
+      if (!(goal > 0)) return;
+      if (val < goal) entries.push({ key, label, dir: 'under', consequence: WARNING_CONSEQUENCES[key] });
+    };
+    checkHigh('kcal', 'Calories', totals.kcal || 0, GOALS.kcal);
+    checkHigh('sf', 'Sat. Fat.', totals.sf || 0, GOALS.sf);
+    checkHigh('caffeine', 'Caffeine', totals.caffeine || 0, GOALS.caffeine);
+    checkHigh('sodium', 'Sodium', totals.sodium || 0, GOALS.sodium);
+    checkLow('p', 'Protein', totals.p || 0, GOALS.p);
+    checkLow('water', 'Water', totals.water || 0, GOALS.water);
+    checkLow('fiber', 'Fiber', totals.fiber || 0, GOALS.fiber);
+    if (!entries.length) {
+      el.hidden = true;
+      el.innerHTML = '';
+      return;
     }
-
-    // -------- WATER --------
-    if (isToday && !tooEarly) {
-      const expectedW = GOALS.water * pacingFraction('water');
-      const wBehind = expectedW - totals.water;
-      if (wBehind > 500) {
-        const glassesNeeded = Math.ceil(wBehind / 500);
-        warnings.push({ type: 'warn', text: `Behind on water by ~${Math.round(wBehind)} ml. Drink ${glassesNeeded} more 500-ml glass${glassesNeeded > 1 ? 'es' : ''}.` });
-      }
-    }
-    if (totals.water > 4500) {
-      warnings.push({ type: 'warn', text: `Water ${Math.round(totals.water - GOALS.water)} ml over goal. ${isToday ? 'Stop drinking water — over-hydration risks dilutional hyponatremia.' : ''}`.trim() });
-    }
-
-    // -------- CAFFEINE --------
-    if (totals.caffeine > GOALS.caffeine) {
-      warnings.push({ type: 'warn', text: `Caffeine ${Math.round(totals.caffeine - GOALS.caffeine)} mg over the ${GOALS.caffeine} mg daily cap.${isToday ? ' Hold off on coffee, tea, and caffeinated shakes for today.' : ''}` });
-    } else if (isToday && now >= 11 * 60 && now < 12 * 60 && totals.caffeine < 100) {
-      warnings.push({ type: 'warn', text: `Only ${Math.round(totals.caffeine)} mg caffeine before noon cutoff. Time for My Coffee, My Tea, or Premier Latte protein shake.` });
-    } else if (isToday && now >= 12 * 60 && now < 14 * 60 && totals.caffeine < 100) {
-      warnings.push({ type: 'warn', text: `Caffeine intake low for the day (${Math.round(totals.caffeine)} mg). Past noon cutoff so adding more would impact sleep.` });
-    }
-
-    // -------- GOOD --------
-    if (totals.water >= GOALS.water && totals.water <= 4500) {
-      warnings.push({ type: 'good', text: `Daily water target reached (${GOALS.water} ml).` });
-    }
-    if (totals.p >= GOALS.p && totals.p < GOALS.p + 50) {
-      warnings.push({ type: 'good', text: `Daily protein target reached (${GOALS.p} g).` });
-    }
-
-    // Warning text contains interpolated item names that originate in the
-    // user catalog — could include angle brackets if the user pasted weird
-    // input or imported via hash command. Escape the text on the way to
-    // innerHTML; the surrounding wrapper class is hardcoded so no template
-    // escaping needed there.
-    warningsEl.innerHTML = warnings.map(w =>
-      `<div class="checkout-warning${w.type === 'good' ? ' good' : ''}">${escapeHtml(w.text)}</div>`
+    el.hidden = false;
+    el.innerHTML = entries.map(e =>
+      '<div class="warning-consequence">' +
+        '<div class="warning-consequence-head">' + escapeHtml(e.label) +
+          ' <span class="warning-consequence-dir">' + (e.dir === 'over' ? 'over goal' : 'under goal') + '</span></div>' +
+        '<p>' + escapeHtml(e.consequence || 'Recheck the daily total; consider correcting before the day closes.') + '</p>' +
+      '</div>'
     ).join('');
   }
 
@@ -10557,7 +10542,7 @@
     // Preserve the static heading sitting above the dynamically-
     // rendered cells: prepend it back into the html before assigning
     // so the labeled top rule survives a re-render.
-    container.innerHTML = '<h2>Today\'s totals</h2>' + html;
+    container.innerHTML = '<h2>Daily Tracker</h2>' + html;
   }
 
   function render() {
@@ -10664,6 +10649,7 @@
     renderHistory();
     checkFlags();
     checkWarnings(totals);
+    renderDailyConsequences(totals);
   }
 
   // ============ WEIGHT & BMI ============
