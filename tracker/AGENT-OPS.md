@@ -335,35 +335,34 @@ ID=$(uuidgen)
 
 ### catalog_add: fully populated single-ingredient item
 
-Every stored nutrient field explicit. Use 0 for label-zero fields.
-Omitted fields render as 0 anyway, so unknown is acceptable, but
-prefer to record explicit zeros for label-derived facts.
+Every stored nutrient field explicit, most of them non-zero, sourced
+from USDA SR Legacy for cooked Atlantic salmon (per 100 g) converted
+to per-gram. Use a real reference table like this whenever the label
+or USDA entry gives a complete profile.
 
 ```
 {"ops":[
-  {"type":"catalog_add","key":"kcl_morton","item":{
-    "name":"Salt substitute potassium chloride",
-    "brand":"Morton",
+  {"type":"catalog_add","key":"salmon_atlantic_cooked","item":{
+    "name":"Salmon Atlantic, cooked dry heat",
     "category":"items",
     "defaultMeasuredIn":"g",
-    "kcal":0, "p":0, "carbs":0, "fiber":0, "sugar":0,
-    "fat":0, "sf":0, "transfat":0,
-    "cholesterol":0, "sodium":0, "water":0, "caffeine":0,
-    "omega3":0,
-    "vitA":0, "vitC":0, "vitD":0, "vitE":0, "vitK":0,
-    "b1":0, "b2":0, "b3":0, "b5":0, "b6":0, "b7":0, "b9":0, "b12":0,
-    "choline":0,
-    "calcium":0, "iron":0, "magnesium":0, "phosphorus":0,
-    "potassium":492.86,
-    "zinc":0, "selenium":0, "copper":0, "manganese":0,
-    "iodine":0, "chromium":0, "molybdenum":0,
-    "mercury":0, "purines":0,
+    "kcal":2.08, "p":0.221, "fat":0.124, "sf":0.030, "transfat":0,
+    "carbs":0, "fiber":0, "sugar":0,
+    "cholesterol":0.63, "sodium":0.59, "water":0.65, "caffeine":0,
+    "omega3":23,
+    "vitA":0.036, "vitC":0, "vitD":0.132, "vitE":0.0135, "vitK":0.007,
+    "b1":0.0023, "b2":0.0038, "b3":0.085, "b5":0.016, "b6":0.0065,
+    "b7":0.05, "b9":0.25, "b12":0.028, "choline":0.95,
+    "calcium":0.12, "iron":0.0034, "magnesium":0.30, "phosphorus":2.52,
+    "potassium":3.84, "zinc":0.0043, "selenium":0.38, "copper":0.0005,
+    "manganese":0.0002, "iodine":0.24, "chromium":0, "molybdenum":0,
+    "mercury":0.014, "purines":1.1,
     "displayUnits":[
-      {"label":"Whole container (88.6 g)","amount":88.6,"unit":"g","multiplier":88.6},
-      {"label":"1 tsp (5.6 g)","amount":5.6,"unit":"g","multiplier":5.6},
-      {"label":"1/4 tsp (1.4 g)","amount":1.4,"unit":"g","default":true,"multiplier":1.4}
+      {"label":"100 g","amount":100,"unit":"g","multiplier":100},
+      {"label":"1 fillet (170 g)","amount":170,"unit":"g","multiplier":170},
+      {"label":"3 oz portion","amount":85,"unit":"g","multiplier":85,"default":true}
     ],
-    "notes":"Morton Salt Substitute, sodium-free. Label: 690 mg potassium per 1/4 tsp (1.4 g) = 492.86 mg K/g. Ingredients: Potassium Chloride, Fumaric Acid, Monocalcium Phosphate, Silicon Dioxide. 88.6 g container = 63 servings."
+    "notes":"USDA SR Legacy 15076 (Fish, salmon, Atlantic, farmed, cooked, dry heat). Per-1-g derived by dividing per-100-g facts by 100, except omega3 which is mg/g. Mercury value is the FDA's average for farmed Atlantic salmon (~0.014 mg/kg = 0.014 μg/g)."
   }}
 ]}
 ```
