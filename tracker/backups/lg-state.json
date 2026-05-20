@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-20T01:02:31.659Z",
-  "_gistSavedAt": "2026-05-20T00:56:56.611Z",
+  "_backupTakenAt": "2026-05-20T13:51:56.018Z",
+  "_gistSavedAt": "2026-05-20T13:42:48.810Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -154,7 +154,8 @@
           "turkey_breast_smithfield": 140,
           "premier": 325,
           "spinach_fresh": 40,
-          "yogurt_oikos_pro_lemon": 150
+          "yogurt_oikos_pro_lemon": 150,
+          "nigiri_pack_salmon_tuna_6pc": 170
         },
         "customs": [
           {
@@ -191,7 +192,8 @@
           "turkey_breast_smithfield": "2026-05-19T23:36:52.333Z",
           "premier": "2026-05-19T18:44:06.065Z",
           "spinach_fresh": "2026-05-19T20:59:07.151Z",
-          "yogurt_oikos_pro_lemon": "2026-05-19T23:59:04.395Z"
+          "yogurt_oikos_pro_lemon": "2026-05-19T23:59:04.395Z",
+          "nigiri_pack_salmon_tuna_6pc": "2026-05-20T02:06:26+00:00"
         },
         "neck": 43,
         "neckMeta": "2026-05-19T12:17:37.196Z",
@@ -202,10 +204,29 @@
       },
       "2026-05-20": {
         "toggles": {},
-        "counters": {},
-        "customs": [],
+        "counters": {
+          "nigiri_pack_salmon_tuna_6pc": 0,
+          "premier": 325,
+          "yogurt_half": 453.5,
+          "protein_whey_dymatize_iso100_vanilla": 60
+        },
+        "customs": [
+          {
+            "id": "b7117c6a-be92-44ed-be4f-c4f08db30e0f",
+            "name": "bf",
+            "kcal": 150,
+            "p": 7,
+            "count": 1,
+            "lastModified": "2026-05-20T13:39:31.768Z"
+          }
+        ],
         "toggleMeta": {},
-        "counterMeta": {}
+        "counterMeta": {
+          "nigiri_pack_salmon_tuna_6pc": "2026-05-20T02:06:26+00:00",
+          "premier": "2026-05-20T13:38:46.137Z",
+          "yogurt_half": "2026-05-20T13:39:44.384Z",
+          "protein_whey_dymatize_iso100_vanilla": "2026-05-20T13:39:52.491Z"
+        }
       }
     },
     "savedItems": [],
@@ -289,10 +310,10 @@
       "targets-daily": true,
       "section-weight-tracker": true,
       "details-profile-section": true,
-      "details-add-new-item": true,
-      "catalog-ratio": true,
-      "section-checkout": true,
-      "profile": true
+      "supplements-water": true,
+      "profile": true,
+      "targets-accumulation": true,
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
@@ -305,9 +326,9 @@
               "label": "800 mg total",
               "amount": 4,
               "unit": "g",
-              "default": true,
               "time": "19:00",
               "frequency": "daily",
+              "default": true,
               "multiplier": 4
             }
           ],
@@ -431,7 +452,8 @@
               "multiplier": 80
             }
           ],
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "purines": 0.05
         },
         "avocado_half": {
           "name": "Avocado",
@@ -806,7 +828,8 @@
               "multiplier": 100
             }
           ],
-          "notes": "Generic fortified bran flakes (Post / Kellogg's style). Per-gram macros derived from a 30 g labelled serving; tweak per brand if needed."
+          "notes": "Generic fortified bran flakes (Post / Kellogg's style). Per-gram macros derived from a 30 g labelled serving; tweak per brand if needed.",
+          "purines": 0.5
         },
         "bran_flakes_with_soy_milk": {
           "name": "Bran flakes with soy milk",
@@ -868,7 +891,8 @@
               "amount": 2,
               "unit": "g"
             }
-          ]
+          ],
+          "purines": 0
         },
         "cali_medley": {
           "name": "California Medley",
@@ -1052,7 +1076,8 @@
               "default": true,
               "multiplier": 112
             }
-          ]
+          ],
+          "purines": 2.5
         },
         "crackers_50g": {
           "name": "Crackers",
@@ -1259,7 +1284,8 @@
             }
           ],
           "notes": "Giant Food egg substitute. Yellow carton, pasteurized egg whites + small gums + beta-carotene color + B-vitamin / mineral fortification. Container ~32 fl oz / ~920 g. Density ~1.022 g/ml (3 Tbsp = 45 ml = 46 g per label) so ml and g are interchangeable for cooking. Same protein/kcal as plain egg whites; difference is the added fortification - vit D, calcium 200 mg per serving (15% DV), B-complex (riboflavin 40% DV, B12 20% DV, biotin 25% DV) - and trace gums + salt (85 mg sodium per serving). Pick between this and plain egg whites on micronutrient-density vs ingredient-minimalism.",
-          "brand": "Giant"
+          "brand": "Giant",
+          "purines": 0.05
         },
         "egg_whites": {
           "name": "Egg whites",
@@ -1485,9 +1511,9 @@
               "label": "1 spray",
               "amount": 1,
               "unit": "g",
-              "default": true,
               "time": "08:00",
               "frequency": "daily",
+              "default": true,
               "multiplier": 1
             }
           ],
@@ -1917,6 +1943,44 @@
           ],
           "defaultMeasuredIn": "units"
         },
+        "kcl_morton": {
+          "name": "Salt substitute potassium chloride (Morton)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "notes": "Morton Salt Substitute, sodium-free. Label: 690mg potassium per 1/4 tsp (1.4g) = 492.86 mg K/g. Ingredients: Potassium Chloride, Fumaric Acid, Monocalcium Phosphate, Silicon Dioxide. Pure KCl is 52.4% K by mass; label value (493 mg/g) aligns well. Zero sodium. Functional equivalent of NoSalt brand. Protocol: 5 × 1/4 tsp/day = 3450mg supplemental potassium. Consult physician before high-dose use (kidney function dependency). 88.6g container = 63 servings.",
+          "displayUnits": [
+            {
+              "label": "Whole container (88.6 g)",
+              "amount": 88.6,
+              "unit": "g",
+              "multiplier": 88.6
+            },
+            {
+              "label": "1 tsp (5.6 g)",
+              "amount": 5.6,
+              "unit": "g",
+              "multiplier": 5.6
+            },
+            {
+              "label": "1/4 tsp (1.4 g)",
+              "amount": 1.4,
+              "unit": "g",
+              "default": true,
+              "multiplier": 1.4
+            }
+          ],
+          "potassium": 492.86,
+          "kcal": 0,
+          "p": 0,
+          "fat": 0,
+          "sf": 0,
+          "transfat": 0,
+          "sodium": 0,
+          "carbs": 0,
+          "fiber": 0,
+          "sugar": 0,
+          "cholesterol": 0
+        },
         "ketchup_heinz_packet": {
           "name": "Ketchup tomato packet",
           "category": "items",
@@ -2172,7 +2236,8 @@
               "multiplier": 14
             }
           ],
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "purines": 0.05
         },
         "moz_turkey_snack": {
           "name": "Mozzarella stick + turkey slice",
@@ -2233,7 +2298,8 @@
             }
           ],
           "notes": "Kraft fat-free shredded mozzarella. Bag ~7 servings × 28 g = 196 g. 9 g protein per 1/4 cup serving - k/g P ~5, well below your 8.0 protein-positive cutoff so a strong protein-dense topper. Sodium 280 mg per serving (12% DV) is the main watch-out. Ingredients: nonfat mozzarella (pasteurized skim milk, cheese culture, salt, vitamin yeast, vit-A palmitate, enzymes, artificial color), modified cornstarch (anti-caking), natamycin (mold inhibitor).",
-          "brand": "Kraft"
+          "brand": "Kraft",
+          "purines": 0.1
         },
         "mushrooms_pampa_jar": {
           "name": "Mushrooms pieces & stems jarred",
@@ -2349,7 +2415,8 @@
             }
           ],
           "defaultMeasuredIn": "g",
-          "brand": "Heinz"
+          "brand": "Heinz",
+          "purines": 0.1
         },
         "mycoffee": {
           "name": "My Coffee soy milk",
@@ -2406,7 +2473,8 @@
               }
             }
           ],
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "purines": 0.1
         },
         "mycowcoffee": {
           "name": "My Coffee cow milk",
@@ -2462,7 +2530,35 @@
               }
             }
           ],
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "purines": 0.1
+        },
+        "nigiri_pack_salmon_tuna_6pc": {
+          "name": "Nigiri sushi pack salmon tuna 6 pieces",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.171,
+          "p": 0.0882,
+          "sf": 0.0071,
+          "water": 0.588,
+          "sodium": 2.941,
+          "cholesterol": 0.235,
+          "notes": "LABEL-VERIFIED: 199 kcal, 15g protein per 6-piece pack. All other values estimated. Total weight est. 170g (6 × ~28g pieces). Fat est. 7.9g total (salmon ~2g/piece × 3, tuna ~0.5g/piece × 3, rice trace) → 71 kcal. Carbs est. 17g from sushi rice (6 pieces × ~15g cooked rice × 29g carbs/100g) → 68 kcal. Sat fat est. 1.2g (salmon has modest sat fat, tuna negligible). Sodium est. 500mg (sushi rice seasoned with salt+vinegar; packaged sushi typically 400–600mg/6 pieces). Cholesterol est. 40mg (~70g fish total; salmon 50mg/100g, tuna 40mg/100g). Fiber est. 0.5g (white rice minimal). Water est. 59% (cooked rice ~65%, raw fish ~70%). LOW CONFIDENCE: all fields except kcal and protein.",
+          "displayUnits": [
+            {
+              "label": "6-piece pack (170 g)",
+              "amount": 170,
+              "unit": "g",
+              "default": true,
+              "multiplier": 170
+            },
+            {
+              "label": "1 piece (28 g)",
+              "amount": 28,
+              "unit": "g",
+              "multiplier": 28
+            }
+          ]
         },
         "omega3": {
           "name": "Omega-3 (fish oil)",
@@ -2476,9 +2572,9 @@
               "label": "AM",
               "amount": 1,
               "unit": "g",
-              "default": true,
               "time": "08:00",
               "frequency": "daily",
+              "default": true,
               "multiplier": 1
             },
             {
@@ -2658,7 +2754,8 @@
               "multiplier": 28
             }
           ],
-          "notes": "Dry roasted peanuts, lightly salted (USDA reference per 100 g: 585 kcal · 23.7 g protein · 49.7 g fat · 21.5 g carbs · 8 g fiber · 410 mg sodium). Fistful weight estimated at 30 g (about 1 oz, ~25-35 peanuts). k/g P ~24.7 — calorie-dense, protein per calorie is poor. Strong vitE, niacin (b3), magnesium, potassium contributor. Sodium varies by brand; unsalted ~0.05 mg/g, heavily salted ~8 mg/g."
+          "notes": "Dry roasted peanuts, lightly salted (USDA reference per 100 g: 585 kcal · 23.7 g protein · 49.7 g fat · 21.5 g carbs · 8 g fiber · 410 mg sodium). Fistful weight estimated at 30 g (about 1 oz, ~25-35 peanuts). k/g P ~24.7 — calorie-dense, protein per calorie is poor. Strong vitE, niacin (b3), magnesium, potassium contributor. Sodium varies by brand; unsalted ~0.05 mg/g, heavily salted ~8 mg/g.",
+          "purines": 0.75
         },
         "pork_beans_halfcup": {
           "name": "Pork & beans",
@@ -2748,7 +2845,8 @@
             }
           ],
           "defaultMeasuredIn": "g",
-          "brand": "Premier"
+          "brand": "Premier",
+          "purines": 0.15
         },
         "premier_latte": {
           "name": "Protein shake latte",
@@ -2793,7 +2891,8 @@
             }
           ],
           "defaultMeasuredIn": "g",
-          "brand": "Premier"
+          "brand": "Premier",
+          "purines": 0.15
         },
         "preserves_blackberry_skinnygirl": {
           "name": "Preserves blackberry sugar-free",
@@ -2835,7 +2934,8 @@
           ],
           "notes": "Skinnygirl Sugar Free Preserves Blackberry. Net wt 10 oz (283 g), 16 servings of 17 g each. Ingredients: water, blackberries, maltodextrin, polydextrose, pectin, guar gum, citric acid, natural flavor, sucralose, potassium sorbate, sodium benzoate, calcium chloride, Red 40, Blue 1. The \"carb\" content is mostly polydextrose (a soluble fiber/bulking agent that registers as carb but yields ~1 kcal/g) and a trace of maltodextrin — that's where the 3 g fiber out of 5 g carb comes from. Net digestible carbs per tbsp: ~2 g. Sweetened with sucralose. Use case: calorie-cheap flavoring/sweetener for Greek yogurt, cottage cheese, oats, toast. NOT a protein or nutrient source — pure flavor + fiber.",
           "defaultMeasuredIn": "g",
-          "brand": "Skinnygirl"
+          "brand": "Skinnygirl",
+          "purines": 0.05
         },
         "protein_whey_dymatize_iso100_vanilla": {
           "name": "Protein powder whey isolate hydrolyzed vanilla (Dymatize ISO100)",
@@ -2867,7 +2967,8 @@
               "default": true,
               "multiplier": 30
             }
-          ]
+          ],
+          "purines": 0.9
         },
         "salmon_pink_canned": {
           "name": "Salmon pink canned",
@@ -2949,7 +3050,8 @@
               "default": true,
               "multiplier": 33
             }
-          ]
+          ],
+          "purines": 0.1
         },
         "sesame_chicken_100g": {
           "name": "Sesame chicken — takeout",
@@ -3037,7 +3139,8 @@
             }
           ],
           "notes": "Ocean's (Lidl) medium cooked shrimp, peeled & deveined, tail-off. Bag 12 oz / 340 g, 4 servings × 85 g. 71/91 count per pound (53-67 per bag). 14 g protein per 85 g serving — k/g P 4.3, very protein-dense. Cholesterol 165 mg per serving (56% DV) is the watch-out for any cardio-conscious diet; sodium 340 mg per serving (15% DV) reflects the salt-water cooking brine. ALREADY COOKED — fold in last during slab prep so the bake doesn't turn it rubbery; ~30 min at 375 F is the rubbery edge for shrimp.",
-          "brand": "Ocean's / Lidl"
+          "brand": "Ocean's / Lidl",
+          "purines": 1.5
         },
         "skim_milk": {
           "name": "Skim milk",
@@ -3079,7 +3182,8 @@
               "multiplier": 248
             }
           ],
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "purines": 0.15
         },
         "smoked_salmon_slice": {
           "name": "Smoked salmon",
@@ -3192,7 +3296,8 @@
               "default": true,
               "multiplier": 10
             }
-          ]
+          ],
+          "purines": 0.5
         },
         "strawberry": {
           "name": "Strawberry",
@@ -3328,7 +3433,8 @@
               "multiplier": 1
             }
           ],
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "purines": 0
         },
         "tofu_firm_half": {
           "name": "Tofu firm",
@@ -3519,7 +3625,8 @@
             }
           ],
           "notes": "Giant Food tomato paste. 12 oz (340 g) can, ~10 servings × 33 g per label. Same product family as the unbranded tomato_paste item (which is the 6 oz / 170 g size); kcal and macros are essentially identical per gram. Sodium unusually low (15 mg per 33 g serving = 4 mg/oz) - many tomato paste brands run 100-300 mg per serving, so this Giant SKU is a low-sodium win. Potassium 270 mg per 33 g serving (6% DV) - meaningful in a slab batch.",
-          "brand": "Giant"
+          "brand": "Giant",
+          "purines": 0.3
         },
         "tuna_can": {
           "name": "Tuna chunk light",
@@ -4098,9 +4205,9 @@
               "label": "AM (1 of 2)",
               "amount": 1,
               "unit": "g",
-              "default": true,
               "time": "08:00",
               "frequency": "daily",
+              "default": true,
               "multiplier": 1
             },
             {
@@ -4205,7 +4312,8 @@
           "amount": {
             "value": 0,
             "unit": "g"
-          }
+          },
+          "purines": 0
         },
         "wegovy": {
           "name": "Wegovy (oral semaglutide)",
@@ -4326,7 +4434,8 @@
               "multiplier": 226.8
             }
           ],
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "purines": 0.15
         },
         "yogurt_oikos_pro_lemon": {
           "name": "Yogurt Greek Pro Complete Protein lemon",
@@ -4472,6 +4581,7 @@
           "label": "Uncategorized"
         }
       ]
-    }
+    },
+    "totalsMode": "collapsed"
   }
 }

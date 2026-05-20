@@ -159,7 +159,7 @@ ID=$(uuidgen)
 ```
 
 ### catalog_add: FULLY populated single-ingredient item
-Every stored nutrient field set explicitly from the label, plus the optional `brand` field. Macros are per-1-native (per gram here since `defaultMeasuredIn:'g'`). Set `0` for fields the label genuinely shows as zero; OMIT a field only if the label gives no information (rare).
+Every stored nutrient field set explicitly from the label, plus the optional `brand` field. Macros are per-1-native (per gram here since `defaultMeasuredIn:'g'`). Set `0` for fields the label genuinely shows as zero. Most consumer-product labels OMIT vitamins, most minerals, omega-3, transfat, and purines - that is normal, not rare. For omitted fields, prefer to fill from USDA or brand databases when feasible; otherwise leave the field unset (which renders as 0 anyway) and note the gap in the item's `notes` so a later pass can backfill.
 ```
 {"ops":[
   {"type":"catalog_add","key":"kcl_morton","item":{

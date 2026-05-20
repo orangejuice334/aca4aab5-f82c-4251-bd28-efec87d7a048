@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.34">
+<meta name="app-version" content="v6.5.35">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -4804,50 +4804,28 @@
   // scaleFn(profile, def): optional function that returns
   // {warn?, danger?} overrides — used when a threshold should depend on
   // body weight or calorie goal.
+  // v6.5.33: trimmed down to critical-only entries. Concerns that take
+  // years to manifest (sat fat, sodium, cholesterol, sugar, fiber,
+  // omega-3, vit D, potassium, calcium, gout-trigger purines) were
+  // removed. What remains: cumulative toxicity (mercury, vit A, iron,
+  // selenium, zinc), no-safe-level dietary fats (trans fat), acute
+  // overdose risk (caffeine), and irreversible deficiency (B12).
   const WARNING_DEFS = [
-    // High-end caps — over the threshold is bad
-    {
-      key: 'sf', label: 'Sat. Fat.', days: 7, warn: 84, danger: 140, direction: 'high',
-      note: 'AHA: ≤7% kcal',
-      scaleFn: (p) => {
-        const kcal = (p && p.goals && p.goals.kcal) || 2000;
-        const dailyG = kcal * 0.07 / 9; // 7% kcal / 9 kcal-per-g
-        return { warn: Math.round(dailyG * 7), danger: Math.round(dailyG * 7 * 1.7) };
-      },
-    },
-    { key: 'sodium',      label: 'Sodium',        days: 7, warn: 16100, danger: 21000,  direction: 'high', note: 'FDA: 2300 mg/day' },
-    { key: 'cholesterol', label: 'Cholesterol',   days: 7, warn: 2100,  danger: 2800,   direction: 'high', note: 'historical 300 mg/day' },
     { key: 'transfat',    label: 'Trans Fat',     days: 7, warn: 5,     danger: 10,     direction: 'high', note: 'should be ~0' },
-    { key: 'sugar',       label: 'Added Sugar',   days: 7, warn: 350,   danger: 525,    direction: 'high', note: 'FDA: 50 g/day' },
-    { key: 'caffeine',    label: 'Caffeine',      days: 7, warn: 2800,  danger: 4200,   direction: 'high', note: 'FDA: 400 mg/day' },
+    { key: 'caffeine',    label: 'Caffeine',      days: 7, warn: 2800,  danger: 4200,   direction: 'high', note: 'FDA: 400 mg/day; acute toxic above ~1 g' },
     {
       key: 'mercury', label: 'Mercury', days: 7, warn: 49, danger: 70, direction: 'high',
-      note: 'EPA RfD: 0.1 μg/kg/day',
+      note: 'EPA RfD: 0.1 μg/kg/day - bioaccumulates',
       scaleFn: (p) => {
         const kg = (p && p.weightKg) || 70;
         return { warn: Math.round(0.1 * kg * 7), danger: Math.round(0.1 * kg * 7 * 1.4) };
       },
     },
-    { key: 'purines',     label: 'Purines (gout)',days: 7, warn: 2800,  danger: 4200,   direction: 'high', note: 'ACR low-purine diet' },
-    { key: 'vitA',        label: 'Vit A (UL)',    days: 7, warn: 21000, danger: 25000,  direction: 'high', note: 'preformed retinol UL 3000 μg/day' },
-    { key: 'iron',        label: 'Iron (UL)',     days: 7, warn: 315,   danger: 400,    direction: 'high', note: 'UL 45 mg/day' },
-    { key: 'selenium',    label: 'Selenium (UL)', days: 7, warn: 2800,  danger: 3500,   direction: 'high', note: 'UL 400 μg/day' },
-    { key: 'zinc',        label: 'Zinc (UL)',     days: 7, warn: 280,   danger: 350,    direction: 'high', note: 'UL 40 mg/day' },
-    // Low-end floors — under is bad
-    {
-      key: 'fiber', label: 'Fiber', days: 7, warn: 140, danger: 84, direction: 'low',
-      note: 'FDA: 14 g/1000 kcal',
-      scaleFn: (p) => {
-        const kcal = (p && p.goals && p.goals.kcal) || 2000;
-        const dailyG = (kcal / 1000) * 14;
-        return { warn: Math.round(dailyG * 7), danger: Math.round(dailyG * 7 * 0.6) };
-      },
-    },
-    { key: 'omega3',      label: 'Omega-3',       days: 7, warn: 7700,  danger: 4900,   direction: 'low',  note: '1100 mg/day baseline' },
-    { key: 'vitD',        label: 'Vit D',         days: 7, warn: 140,   danger: 84,     direction: 'low',  note: 'FDA: 20 μg/day' },
-    { key: 'b12',         label: 'B12',           days: 7, warn: 17,    danger: 10,     direction: 'low',  note: 'FDA: 2.4 μg/day' },
-    { key: 'potassium',   label: 'Potassium',     days: 7, warn: 32900, danger: 21000,  direction: 'low',  note: 'FDA: 4700 mg/day' },
-    { key: 'calcium',     label: 'Calcium',       days: 7, warn: 9100,  danger: 5600,   direction: 'low',  note: 'FDA: 1300 mg/day' },
+    { key: 'vitA',        label: 'Vit A (UL)',    days: 7, warn: 21000, danger: 25000,  direction: 'high', note: 'preformed retinol UL 3000 μg/day - liver toxicity' },
+    { key: 'iron',        label: 'Iron (UL)',     days: 7, warn: 315,   danger: 400,    direction: 'high', note: 'UL 45 mg/day - organ damage on chronic excess' },
+    { key: 'selenium',    label: 'Selenium (UL)', days: 7, warn: 2800,  danger: 3500,   direction: 'high', note: 'UL 400 μg/day - peripheral neuropathy' },
+    { key: 'zinc',        label: 'Zinc (UL)',     days: 7, warn: 280,   danger: 350,    direction: 'high', note: 'UL 40 mg/day - copper-deficiency anemia' },
+    { key: 'b12',         label: 'B12',           days: 7, warn: 17,    danger: 10,     direction: 'low',  note: 'FDA: 2.4 μg/day - chronic shortfall = irreversible neuropathy' },
   ];
 
   // Resolve effective warn/danger for a warning def given the active
@@ -4865,24 +4843,14 @@
   // accumulation window. Shown as a paragraph under the ribbon for every
   // currently-red tile. Plain English, leaves out the moralizing.
   const WARNING_CONSEQUENCES = {
-    sf:          'Sustained high saturated fat raises LDL cholesterol over months to years, accelerating arterial plaque buildup. A single 7-day window over the cap is a flag, not damage; persistent overage compounds lifetime risk of heart attack and stroke.',
-    sodium:      'High sodium intake drives chronic blood-pressure elevation, which over years quietly damages kidneys, heart, and brain vasculature. Short-term you may notice water retention, headaches, and rebound thirst.',
-    cholesterol: 'Dietary cholesterol affects LDL mainly in the ~15-25% of adults who are "hyper-responders" (each 100 mg/day shifts LDL ~2-5 mg/dL). For everyone else it has limited direct impact, but a 7-day overage is worth noticing if you have a family history of heart disease.',
     transfat:    'Industrial trans fat is the single most atherogenic dietary fat known: it raises LDL AND lowers HDL at the same time. WHO target is zero. Any sustained intake measurably increases cardiovascular event risk.',
-    sugar:       'Added sugar drives insulin resistance, easy fat-gain (low satiety per kcal), non-alcoholic fatty liver disease, and elevated triglycerides. On a cut, it also crowds out protein and fiber from the kcal budget. Dental: erodes enamel.',
-    caffeine:    'Over ~600 mg/day chronically: bone density loss (increased urinary calcium), elevated resting blood pressure, sleep disruption, anxiety. Acute over 1,000 mg can trigger cardiac arrhythmias. Tolerance builds fast but downside doesn\'t.',
-    mercury:     'Methylmercury is a cumulative neurotoxin (half-life ~70 days in blood, longer in brain tissue). Sustained excess causes tremor, peripheral numbness, cognitive issues. Healthy adults can tolerate brief overshoots; the danger is consistent high-mercury fish (tuna, swordfish, king mackerel) week after week.',
-    purines:     'Only matters if you\'re gout-prone. Purine-rich foods raise blood uric acid; in susceptible joints (commonly big toe) it crystallizes and triggers acute flares. Long-term gout also raises kidney-stone risk and can damage kidney function.',
-    vitA:        'Preformed retinol UL is 3,000 μg/day. Sustained excess causes liver damage, paradoxically thinner bones (raises fracture risk), hair loss, peeling skin, severe headaches. β-carotene from plants doesn\'t carry this risk; the warning is for animal-source retinol + fortified supplements stacking.',
+    caffeine:    'Over ~600 mg/day chronically: bone density loss (increased urinary calcium), elevated resting blood pressure, sleep disruption, anxiety. Acute over 1,000 mg can trigger cardiac arrhythmias; doses around 10 g are potentially fatal.',
+    mercury:     'Methylmercury is a cumulative neurotoxin (half-life ~70 days in blood, longer in brain tissue). Sustained excess causes tremor, peripheral numbness, cognitive issues. The danger is consistent high-mercury fish (tuna, swordfish, king mackerel) week after week.',
+    vitA:        'Preformed retinol UL is 3,000 μg/day. Sustained excess causes liver damage, paradoxically thinner bones (raises fracture risk), hair loss, peeling skin, severe headaches. β-carotene from plants does not carry this risk; the warning is for animal-source retinol + fortified supplements stacking.',
     iron:        'For non-iron-deficient adults, sustained high iron leads to liver damage, joint pain, and type-2 diabetes risk over years. Especially dangerous for the ~1 in 200 with hereditary hemochromatosis. Acute high doses cause GI distress within hours.',
     selenium:    'UL (400 μg/day) sits close to the RDA (55 μg), so overshoot is easy on a Brazil-nut-heavy diet. Sustained excess: hair and nail brittleness, garlic-breath odor, peripheral neuropathy, raised type-2 diabetes risk.',
     zinc:        'High zinc directly suppresses copper absorption, causing copper-deficiency anemia and neurological symptoms over months. Also reduces HDL. Acute very-high doses cause nausea + immune suppression.',
-    fiber:       'Low fiber drives constipation, sharper post-meal blood-sugar swings, reduced satiety (so you eat more for the same kcal), and a less-diverse gut microbiome. Long-term: elevated risk of colon cancer and cardiovascular disease.',
-    omega3:      'Persistent low EPA+DHA means higher triglycerides, mildly elevated systemic inflammation, worse cardiovascular outcomes in epidemiology, and possible cognitive/mood drift. Tissue saturation builds slowly (weeks); a single low week is noise but a chronic shortfall is real.',
-    vitD:        'Low vitamin D drives bone resorption (osteopenia → osteoporosis), muscle weakness, immune dysregulation (more frequent upper-respiratory infections), and is linked to seasonal mood drops. Common at Maryland latitude Oct-April since skin synthesis is shut off.',
-    b12:         'Body stores last months even at zero intake, so chronic shortfall builds quietly: megaloblastic anemia first, then peripheral neuropathy, then cognitive decline. Late-stage damage to the spinal cord can be permanent. Plant-only diets need a supplement.',
-    potassium:   'Western diets are routinely below the 4,700 mg target. Sustained shortfall: blood pressure runs higher (potassium normally balances sodium), muscle cramps, fatigue. Severe deficiency can cause cardiac arrhythmia.',
-    calcium:     'Below-target calcium accelerates bone density loss, especially under the metabolic stress of a calorie deficit. Years of low intake → osteoporosis and fracture risk later. Vitamin D + protein + weight-bearing exercise help retain bone but don\'t substitute for adequate calcium.',
+    b12:         'Body stores last months even at zero intake, so chronic shortfall builds quietly: megaloblastic anemia first, then peripheral neuropathy, then cognitive decline. Late-stage damage to the spinal cord can be permanent.',
   };
 
   const ACTIVITY_FACTORS = {
