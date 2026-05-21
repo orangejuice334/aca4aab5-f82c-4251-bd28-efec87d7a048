@@ -382,13 +382,22 @@ export default {
       'User-Agent': 'lzm-tracker-worker',
     };
 
+    // Gist version (history[0].version) is the optimistic-concurrency token.
+    // Clients echo it back as If-Match on /ops; the worker rejects with 412
+    // if it has moved since the client last read it. Exposed to the client
+    // via the X-Gist-Version response header on /state GET and /ops POST.
+    const gistVersion = (gist) => (gist && Array.isArray(gist.history) && gist.history[0] && gist.history[0].version) || '';
+    const corsAllowExpose = { ...corsHeaders, 'Access-Control-Expose-Headers': 'X-Gist-Version' };
+
     if (url.pathname === '/state') {
       if (request.method === 'GET') {
         const r = await fetch(gistApi, { headers: ghHeaders });
-        return new Response(r.body, {
-          status: r.status,
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        });
+        let bodyText = await r.text();
+        let version = '';
+        try { version = gistVersion(JSON.parse(bodyText)); } catch (e) {}
+        const headers = { ...corsAllowExpose, 'Content-Type': 'application/json' };
+        if (version) headers['X-Gist-Version'] = version;
+        return new Response(bodyText, { status: r.status, headers });
       }
 
       if (request.method === 'POST') {
@@ -401,17 +410,21 @@ export default {
           headers: { ...ghHeaders, 'Content-Type': 'application/json' },
           body: patchBody,
         });
-        return new Response(r.body, {
-          status: r.status,
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        });
+        let bodyText = await r.text();
+        let version = '';
+        try { version = gistVersion(JSON.parse(bodyText)); } catch (e) {}
+        const headers = { ...corsAllowExpose, 'Content-Type': 'application/json' };
+        if (version) headers['X-Gist-Version'] = version;
+        return new Response(bodyText, { status: r.status, headers });
       }
 
       return new Response('Method Not Allowed', { status: 405, headers: corsHeaders });
     }
 
-    // /ops — batch op apply. Single GET → mutate → PATCH per request.
-    // No multi-tab concurrency control; last write wins on the gist file.
+    // /ops — batch op apply. Single GET -> mutate -> PATCH per request.
+    // Optional optimistic concurrency: client sends If-Match: <gist version>;
+    // worker compares against the version it just read and returns 412 on
+    // mismatch so the client can re-sync before retrying.
     if (request.method !== 'POST') {
       return new Response('Method Not Allowed', { status: 405, headers: corsHeaders });
     }
@@ -432,12 +445,26 @@ export default {
       return jsonError(400, 'ops array too large (max 1000)');
     }
 
+    const ifMatch = (request.headers.get('If-Match') || '').replace(/^"|"$/g, '').trim();
+
     const getRes = await fetch(gistApi, { headers: ghHeaders });
     if (!getRes.ok) {
       const txt = await getRes.text().catch(() => '');
       return jsonError(getRes.status, 'gist GET failed: ' + txt.slice(0, 200));
     }
     const gist = await getRes.json();
+    const currentVersion = gistVersion(gist);
+
+    if (ifMatch && currentVersion && ifMatch !== currentVersion) {
+      const headers = { ...corsAllowExpose, 'Content-Type': 'application/json' };
+      if (currentVersion) headers['X-Gist-Version'] = currentVersion;
+      return new Response(JSON.stringify({
+        error: 'gist version moved',
+        expected: ifMatch,
+        current: currentVersion,
+      }), { status: 412, headers });
+    }
+
     const file = gist.files && gist.files[GIST_FILE];
     if (!file || typeof file.content !== 'string') {
       return jsonError(500, 'gist has no ' + GIST_FILE);
@@ -464,15 +491,21 @@ export default {
       const txt = await patchRes.text().catch(() => '');
       return jsonError(patchRes.status, 'gist PATCH failed: ' + txt.slice(0, 200));
     }
+    let newVersion = '';
+    try { newVersion = gistVersion(await patchRes.clone().json()); } catch (e) {}
+
+    const headers = { ...corsAllowExpose, 'Content-Type': 'application/json' };
+    if (newVersion) headers['X-Gist-Version'] = newVersion;
 
     return new Response(JSON.stringify({
       ok: result.errors.length === 0,
       applied: result.applied,
       errors: result.errors,
       _savedAt: wrapper._savedAt,
+      gistVersion: newVersion,
     }), {
       status: 200,
-      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      headers,
     });
   },
 };

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.47">
+<meta name="app-version" content="v6.5.48">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -5213,6 +5213,10 @@
   const LAST_SYNC_KEY = '19ff6f4d-3d5b-40e6-88e2-573f647f903f-last-sync-' + USER;
   const DATA_UPDATED_KEY = '19ff6f4d-3d5b-40e6-88e2-573f647f903f-data-updated-' + USER;
   let lastRemoteRevisionUrl = null;
+  // Latest gist version (history[0].version) the client has seen. Sent back
+  // as the If-Match header on /ops so the Worker can reject the batch with
+  // 412 if another tab / mutate.mjs landed a write in between.
+  let lastSeenGistVersion = null;
   let lastSyncAt = null;
   let dataUpdatedAt = null;
   let syncEnabled = true;
@@ -5273,20 +5277,47 @@
     const flushSize = opQueue.length;
     const batch = opQueue.slice(0, flushSize);
     try {
+      const reqHeaders = { 'Content-Type': 'application/json' };
+      if (lastSeenGistVersion) reqHeaders['If-Match'] = lastSeenGistVersion;
       const res = await fetch(withUser(OPS_URL), {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: reqHeaders,
         body: JSON.stringify({ ops: batch }),
       });
+      const respVersion = res.headers.get('X-Gist-Version');
+      if (res.status === 412) {
+        // Concurrent modification on the gist. Leave the batch queued, refresh
+        // from the gist, and the next flush will retry against the new version.
+        if (respVersion) lastSeenGistVersion = respVersion;
+        setSyncStatus('warn', 'gist moved — re-syncing');
+        showSyncError('save', 'Concurrent modification detected; re-syncing before retry.', { http_status: 412 });
+        const payload = await loadFromGist();
+        if (payload) {
+          applyRemotePayload(payload);
+          if (typeof render === 'function') render();
+          if (typeof renderHistory === 'function') renderHistory();
+        }
+        scheduleQueueFlush();
+        return;
+      }
       if (res.ok) {
         let data = null;
         try { data = await res.json(); } catch (e) {}
         const errors = (data && Array.isArray(data.errors)) ? data.errors : [];
+        const rejectedIdx = new Set(errors.map(e => e && e.index).filter(i => typeof i === 'number'));
         // Drop the entire batch from the queue regardless. Failed ops are
         // dropped on the floor (and logged via showSyncError) since retrying
         // a server-rejected op produces the same rejection forever.
         opQueue.splice(0, flushSize);
         persistQueue();
+        if (respVersion) lastSeenGistVersion = respVersion;
+        else if (data && data.gistVersion) lastSeenGistVersion = data.gistVersion;
+        // Mirror the applied ops onto lastKnownGistState so the next
+        // emitDiffOps doesn't re-emit them as redundant absolute-value ops.
+        if (lastKnownGistState) {
+          const applied = batch.filter((_, i) => !rejectedIdx.has(i));
+          applyOpsToSnapshot(lastKnownGistState, applied);
+        }
         if (errors.length) {
           setSyncStatus('error', 'sync error: ' + errors.length + ' op(s) rejected');
           showSyncError('save', 'Worker rejected ' + errors.length + ' op(s)', { errors });
@@ -5328,11 +5359,224 @@
 
   // ============ Diff-based gist sync ============
   // Reference snapshot of "what the gist contains" — captured after each
-  // successful loadFromGist and refreshed at the end of saveState() once the
-  // diff has been emitted. emitDiffOps() compares current state against this
-  // and pushes one op per changed key. Stays null until the first remote
-  // hydrate so we don't generate phantom ops from a stale localStorage cache.
+  // successful loadFromGist, refreshed by emitDiffOps and by applyOpsToSnapshot
+  // (called on every successful flush). emitDiffOps() compares current state
+  // against this and pushes one op per changed key. Stays null until the first
+  // remote hydrate so we don't generate phantom ops from a stale localStorage
+  // cache.
   let lastKnownGistState = null;
+
+  // Key-order-stable stringify so logically-identical objects with reordered
+  // keys (Object.assign rewrites, parse-then-stringify trips, etc.) compare
+  // equal. Plain JSON.stringify is key-order-sensitive and triggers spurious
+  // diffs that re-emit untouched catalog items on every cold-path save.
+  function stableStringify(v) {
+    if (v === null || typeof v !== 'object') return JSON.stringify(v);
+    if (Array.isArray(v)) return '[' + v.map(stableStringify).join(',') + ']';
+    const keys = Object.keys(v).sort();
+    return '{' + keys.map(k => JSON.stringify(k) + ':' + stableStringify(v[k])).join(',') + '}';
+  }
+
+  // Apply a list of ops to the snapshot the same way the Worker applies them
+  // to the gist. Called after every successful flush so lastKnownGistState
+  // stays in sync with the gist's actual contents — without this, the next
+  // cold-path emitDiffOps sees stale data and re-emits already-flushed
+  // hot-path mutations as redundant absolute-value ops.
+  function applyOpsToSnapshot(snap, ops) {
+    if (!snap || !Array.isArray(ops) || !ops.length) return;
+    const ensureDay = (date) => {
+      if (!snap.days) snap.days = {};
+      let d = snap.days[date];
+      if (!d) d = snap.days[date] = { toggles: {}, counters: {}, customs: [], toggleMeta: {}, counterMeta: {} };
+      if (!d.toggles) d.toggles = {};
+      if (!d.counters) d.counters = {};
+      if (!d.customs) d.customs = [];
+      if (!d.toggleMeta) d.toggleMeta = {};
+      if (!d.counterMeta) d.counterMeta = {};
+      return d;
+    };
+    const round4 = (n) => Math.round(n * 10000) / 10000;
+    const merge = (dst, src) => {
+      for (const k of Object.keys(src || {})) {
+        const v = src[k];
+        if (v && typeof v === 'object' && !Array.isArray(v) && dst[k] && typeof dst[k] === 'object' && !Array.isArray(dst[k])) {
+          merge(dst[k], v);
+        } else {
+          dst[k] = v;
+        }
+      }
+    };
+    for (const op of ops) {
+      if (!op || typeof op.type !== 'string') continue;
+      try {
+        switch (op.type) {
+          case 'counter_inc': {
+            const d = ensureDay(op.date);
+            const inc = (typeof op.servingSize === 'number' && op.servingSize > 0) ? op.servingSize : 1;
+            d.counters[op.key] = round4((d.counters[op.key] || 0) + inc);
+            if (op.ts) d.counterMeta[op.key] = op.ts;
+            if (op.recipeSnapshot && op.key) {
+              if (!d.recipeSnapshots) d.recipeSnapshots = {};
+              d.recipeSnapshots[op.key] = op.recipeSnapshot;
+            }
+            break;
+          }
+          case 'counter_dec': {
+            const d = ensureDay(op.date);
+            const dec = (typeof op.servingSize === 'number' && op.servingSize > 0) ? op.servingSize : 1;
+            d.counters[op.key] = Math.max(0, round4((d.counters[op.key] || 0) - dec));
+            if (op.ts) d.counterMeta[op.key] = op.ts;
+            if (op.recipeSnapshot && op.key) {
+              if (!d.recipeSnapshots) d.recipeSnapshots = {};
+              d.recipeSnapshots[op.key] = op.recipeSnapshot;
+            }
+            break;
+          }
+          case 'counter_set': {
+            const d = ensureDay(op.date);
+            d.counters[op.key] = Math.max(0, op.value);
+            if (op.ts) d.counterMeta[op.key] = op.ts;
+            if (op.recipeSnapshot && op.key) {
+              if (!d.recipeSnapshots) d.recipeSnapshots = {};
+              d.recipeSnapshots[op.key] = op.recipeSnapshot;
+            }
+            break;
+          }
+          case 'recipe_snapshot_set': {
+            const d = ensureDay(op.date);
+            if (!d.recipeSnapshots) d.recipeSnapshots = {};
+            d.recipeSnapshots[op.key] = op.recipe;
+            break;
+          }
+          case 'recipe_snapshot_clear': {
+            const d = ensureDay(op.date);
+            if (d.recipeSnapshots) delete d.recipeSnapshots[op.key];
+            break;
+          }
+          case 'toggle_set': {
+            const d = ensureDay(op.date);
+            d.toggles[op.key] = !!op.value;
+            if (op.ts) d.toggleMeta[op.key] = op.ts;
+            break;
+          }
+          case 'toggle_unset': {
+            const d = ensureDay(op.date);
+            delete d.toggles[op.key];
+            delete d.toggleMeta[op.key];
+            break;
+          }
+          case 'custom_add': {
+            const d = ensureDay(op.date);
+            if (!op.item || !op.item.id) break;
+            if (d.customs.some(c => c.id === op.item.id)) break;
+            const c = Object.assign({}, op.item);
+            if (c.count === undefined) c.count = 1;
+            if (!c.lastModified && op.ts) c.lastModified = op.ts;
+            d.customs.push(c);
+            break;
+          }
+          case 'custom_inc': {
+            const d = ensureDay(op.date);
+            const c = d.customs.find(x => x.id === op.id);
+            if (c) { c.count = (c.count || 1) + 1; if (op.ts) c.lastModified = op.ts; }
+            break;
+          }
+          case 'custom_dec': {
+            const d = ensureDay(op.date);
+            const c = d.customs.find(x => x.id === op.id);
+            if (c) { c.count = Math.max(0, (c.count || 1) - 1); if (op.ts) c.lastModified = op.ts; }
+            break;
+          }
+          case 'custom_remove': {
+            const d = ensureDay(op.date);
+            const i = d.customs.findIndex(x => x.id === op.id);
+            if (i >= 0) d.customs.splice(i, 1);
+            break;
+          }
+          case 'custom_set': {
+            const d = ensureDay(op.date);
+            const c = d.customs.find(x => x.id === op.id);
+            if (c) { c.count = Math.max(0, op.count); if (op.ts) c.lastModified = op.ts; }
+            break;
+          }
+          case 'weight_set':
+          case 'neck_set':
+          case 'waist_set': {
+            const d = ensureDay(op.date);
+            const fld = op.type.replace('_set', '');
+            d[fld] = op.value;
+            if (op.ts) d[fld + 'Meta'] = op.ts;
+            break;
+          }
+          case 'weight_clear':
+          case 'neck_clear':
+          case 'waist_clear': {
+            const d = ensureDay(op.date);
+            const fld = op.type.replace('_clear', '');
+            delete d[fld];
+            delete d[fld + 'Meta'];
+            break;
+          }
+          case 'day_delete': {
+            if (snap.days && snap.days[op.date]) delete snap.days[op.date];
+            break;
+          }
+          case 'catalog_add': {
+            if (!snap.ITEMS) snap.ITEMS = {};
+            snap.ITEMS[op.key] = op.item;
+            break;
+          }
+          case 'catalog_edit': {
+            if (snap.ITEMS && snap.ITEMS[op.key]) {
+              Object.assign(snap.ITEMS[op.key], op.fields || {});
+            }
+            break;
+          }
+          case 'catalog_delete': {
+            if (snap.ITEMS) delete snap.ITEMS[op.key];
+            break;
+          }
+          case 'catalog_categories_set': {
+            snap.CATEGORIES = Array.isArray(op.categories) ? op.categories.slice() : [];
+            break;
+          }
+          case 'saved_item_add': {
+            if (!Array.isArray(snap.savedItems)) snap.savedItems = [];
+            if (op.item && op.item.key && !snap.savedItems.some(s => s.key === op.item.key)) {
+              snap.savedItems.push(op.item);
+            }
+            break;
+          }
+          case 'saved_item_remove': {
+            if (Array.isArray(snap.savedItems)) {
+              snap.savedItems = snap.savedItems.filter(s => s.key !== op.key);
+            }
+            break;
+          }
+          case 'profile_update': {
+            if (!snap.profile) snap.profile = {};
+            merge(snap.profile, op.fields || {});
+            break;
+          }
+          case 'sort_mode_set': {
+            snap.sortMode = op.value;
+            break;
+          }
+          case 'totals_mode_set': {
+            if (op.value == null || op.value === 'defaults') delete snap.totalsMode;
+            else snap.totalsMode = op.value;
+            break;
+          }
+          case 'collapsed_group_set': {
+            if (!snap.collapsedGroups) snap.collapsedGroups = {};
+            if (op.collapsed) snap.collapsedGroups[op.key] = true;
+            else delete snap.collapsedGroups[op.key];
+            break;
+          }
+        }
+      } catch (e) { /* mirror best-effort; ignore individual failures */ }
+    }
+  }
 
   function captureSnapshot() {
     return {
@@ -5380,7 +5624,7 @@
       const old = snap.ITEMS[k];
       if (!old) {
         sendOp({ type: 'catalog_add', key: k, item: cur });
-      } else if (JSON.stringify(old) !== JSON.stringify(cur)) {
+      } else if (stableStringify(old) !== stableStringify(cur)) {
         sendOp({ type: 'catalog_add', key: k, item: cur });
       }
     }
@@ -5389,7 +5633,7 @@
     }
 
     // ---- Categories (wholesale replace if changed) ----
-    if (JSON.stringify(snap.CATEGORIES) !== JSON.stringify(CATEGORIES)) {
+    if (stableStringify(snap.CATEGORIES) !== stableStringify(CATEGORIES)) {
       sendOp({ type: 'catalog_categories_set', categories: CATEGORIES });
     }
 
@@ -5406,6 +5650,9 @@
         continue;
       }
       if (!cur) continue;
+      // Fast path: if the whole day bucket matches the snapshot, skip the
+      // per-field iteration entirely. Most days are inert on most saves.
+      if (old && stableStringify(cur) === stableStringify(old)) continue;
       // toggles
       const curT = cur.toggles || {};
       const oldT = (old && old.toggles) || {};
@@ -5477,7 +5724,7 @@
     }
 
     // ---- Profile (shallow diff → single profile_update) ----
-    if (JSON.stringify(snap.profile) !== JSON.stringify(state.profile)) {
+    if (stableStringify(snap.profile) !== stableStringify(state.profile)) {
       sendOp({ type: 'profile_update', fields: state.profile });
     }
 
@@ -5779,18 +6026,22 @@
   }
 
   // Replace the in-memory catalog with what came from cloud or local cache.
-  // Defensive: tolerate missing fields. Critically, only overrides when the
-  // incoming items/categories are non-empty — an empty `{}` items map (which
-  // can come from a stale localStorage cache or a fresh gist) must not wipe
-  // out the OFFLINE_DEMO_* defaults seeded at module init.
-  function hydrateCatalog(userCatalog) {
+  // `trustEmpty` distinguishes a fresh remote payload (which can legitimately
+  // hold an empty items map and should overwrite the demo seed) from a stale
+  // localStorage cache (which keeps the OFFLINE_DEMO_* defaults visible until
+  // the gist round-trips).
+  function hydrateCatalog(userCatalog, trustEmpty) {
     if (!userCatalog || typeof userCatalog !== 'object') return;
-    if (userCatalog.items && typeof userCatalog.items === 'object'
-        && Object.keys(userCatalog.items).length > 0) {
-      ITEMS = userCatalog.items;
+    if (userCatalog.items && typeof userCatalog.items === 'object') {
+      const itemCount = Object.keys(userCatalog.items).length;
+      if (itemCount > 0 || trustEmpty) {
+        ITEMS = userCatalog.items;
+      }
     }
-    if (Array.isArray(userCatalog.categories) && userCatalog.categories.length > 0) {
-      CATEGORIES = userCatalog.categories;
+    if (Array.isArray(userCatalog.categories)) {
+      if (userCatalog.categories.length > 0 || trustEmpty) {
+        CATEGORIES = userCatalog.categories;
+      }
     }
   }
 
@@ -7081,6 +7332,8 @@
       }
       const data = await res.json();
       lastRemoteRevisionUrl = (data.history && data.history[0] && data.history[0].url) || null;
+      lastSeenGistVersion = (res.headers.get('X-Gist-Version') ||
+        (data.history && data.history[0] && data.history[0].version) || null);
       const file = data.files && data.files[GIST_FILE];
       if (!file) {
         setSyncStatus('warn', 'gist file missing — will create on next save');
@@ -7142,7 +7395,7 @@
     state.sortMode = (remoteState.sortMode === 'alpha' || remoteState.sortMode === 'ratio') ? remoteState.sortMode : 'category';
     state.collapsedGroups = (remoteState.collapsedGroups && typeof remoteState.collapsedGroups === 'object') ? remoteState.collapsedGroups : {};
     state.totalsMode = (remoteState.totalsMode === 'all' || remoteState.totalsMode === 'collapsed') ? remoteState.totalsMode : undefined;
-    if (remoteState.userCatalog) hydrateCatalog(remoteState.userCatalog);
+    if (remoteState.userCatalog) hydrateCatalog(remoteState.userCatalog, true);
     // Snapshot the gist as it actually was. Snapshot must come AFTER
     // hydrateCatalog so ITEMS truly reflects the remote payload's catalog,
     // not the offline-demo defaults.
@@ -9780,7 +10033,12 @@
   // refreshes the view.
   function saveExpandedEdits(key, panel, options) {
     const item = ITEMS[key];
-    if (!item) return;
+    if (!item) {
+      if (typeof showCatalogBanner === 'function') {
+        showCatalogBanner('Item "' + key + '" was removed elsewhere; your edits were not saved.', 'error');
+      }
+      return;
+    }
     const get = (name) => {
       const el = panel.querySelector('[data-edit-field="' + name + '"]');
       return el ? el.value : '';
@@ -12952,11 +13210,29 @@
     const { key, ...changes } = patch;
     const before = { ...ITEMS[key] };
     Object.assign(ITEMS[key], changes);
-    const changedFields = Object.keys(changes).filter(k => before[k] !== changes[k]);
+    const isStructural = (v) => (v && typeof v === 'object');
+    const summarize = (v) => {
+      if (v == null) return String(v);
+      if (typeof v !== 'object') return String(v);
+      try {
+        const s = JSON.stringify(v);
+        return s.length > 40 ? s.slice(0, 37) + '...' : s;
+      } catch (e) { return '[object]'; }
+    };
+    const changedFields = Object.keys(changes).filter(k => {
+      const a = before[k], b = changes[k];
+      if (isStructural(a) || isStructural(b)) {
+        try { return JSON.stringify(a) !== JSON.stringify(b); }
+        catch (e) { return a !== b; }
+      }
+      return a !== b;
+    });
     if (!changedFields.length) {
       return { ok: true, message: ITEMS[key].name + ': no changes' };
     }
-    const summary = changedFields.map(f => f + ' ' + before[f] + '→' + changes[f]).join(', ');
+    const summary = changedFields
+      .map(f => f + ' ' + summarize(before[f]) + '->' + summarize(changes[f]))
+      .join(', ');
     return { ok: true, message: 'Updated ' + ITEMS[key].name + ' (' + summary + ')' };
   }
 
