@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.44">
+<meta name="app-version" content="v6.5.45">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -2080,11 +2080,15 @@
     border-radius: 2px;
   }
   .item-archive-btn:hover { background: var(--ink-soft); color: var(--paper); border-color: var(--ink-soft); }
-  /* Archive group at the bottom of the catalog. Read-only — no counters,
-     no edit panel — just an Unarchive button per row. */
+  /* Archive group at the bottom of the catalog. Read-only - no counters,
+     no edit panel - just an Unarchive button per row. The dimmer opacity
+     applies to the row body only so the header bar stays the same fully
+     black background as every other subsection. */
   .archive-group {
-    opacity: 0.7;
     margin-top: 16px;
+  }
+  .archive-group > .checkout-row {
+    opacity: 0.7;
   }
   .archive-row {
     background: rgba(0,0,0,0.02);
@@ -2125,30 +2129,37 @@
      the same red/green ratio gradient used on goal-relative catalog rows,
      and saves the result as a new userCatalog recipes-category item. */
   .recipe-maker {
-    border: 1px solid var(--rule);
-    border-radius: 2px;
+    border: 1px solid var(--ink);
     background: var(--paper);
     margin: 12px 0;
   }
   .recipe-maker summary {
     list-style: none;
     cursor: pointer;
-    padding: 10px 14px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+    padding: 10px 16px;
+    font-family: 'Fraunces', serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     user-select: none;
-    position: relative;
   }
   .recipe-maker summary::-webkit-details-marker { display: none; }
   .recipe-maker summary::before {
-    content: '+ ';
-    color: var(--rust);
-    margin-right: 4px;
+    content: '▾';
+    display: inline-block;
+    font-size: 11px;
+    line-height: 1;
+    opacity: 0.7;
+    transition: transform 120ms ease-out;
   }
-  .recipe-maker[open] summary::before { content: '− '; }
+  .recipe-maker:not([open]) summary::before {
+    transform: rotate(-90deg);
+  }
   .recipe-maker-body {
     padding: 0 14px 14px;
     border-top: 1px solid var(--rule);
@@ -2357,7 +2368,17 @@
   }
   .today-log-row .checkout-item-macros {
     display: flex;
-    gap: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 1px;
+  }
+  .today-log-row .checkout-item-name {
+    margin-top: 0;
+  }
+  /* Tighter row vertical padding (~30% off the default 10px each side)
+     and tighter horizontal padding for a denser at-a-glance log. */
+  .today-log-row {
+    padding: 7px 12px;
   }
   .today-log-row .hd-time-inline {
     margin-left: auto;
@@ -2975,18 +2996,23 @@
     color: var(--ink);
   }
   .custom-add {
-    border: 1px dashed var(--rule);
+    border: 1px solid var(--ink);
     background: var(--paper);
-    padding: 10px 14px;
+    padding: 0;
   }
 
   .custom-add summary {
     cursor: pointer;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    color: var(--ink-soft);
-    padding: 2px 0;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 10px 16px;
+    font-family: 'Fraunces', serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     list-style: none;
   }
 
@@ -2995,13 +3021,22 @@
   }
 
   .custom-add summary::before {
-    content: '+ ';
-    color: var(--rust);
-    font-weight: 600;
+    content: '▾';
+    display: inline-block;
+    font-size: 11px;
+    line-height: 1;
+    opacity: 0.7;
+    transition: transform 120ms ease-out;
   }
 
-  .custom-add[open] summary::before {
-    content: '− ';
+  .custom-add:not([open]) summary::before {
+    transform: rotate(-90deg);
+  }
+  .custom-add[data-custom-form] {
+    padding: 0 14px 14px;
+  }
+  .custom-add > div[data-custom-form] {
+    padding: 14px;
   }
 
   .custom-form {
@@ -4342,7 +4377,7 @@
 
   <div class="custom-add-separator"></div>
   <details class="custom-add custom-add-section" id="add-new-item">
-    <summary>Add new item</summary>
+    <summary>Add new catalog item</summary>
     <div data-custom-form="2">
       <div class="custom-form">
         <div class="custom-form-field wide">
@@ -10651,16 +10686,13 @@
           m = scaleByNative(catItem, n);
         }
       } else {
-        m = { kcal: (item.kcal || 0) * n, p: (item.p || 0) * n, sf: (item.sf || 0) * n };
+        m = {};
+        for (const k of STORED_NUTRIENT_KEYS) m[k] = (item[k] || 0) * n;
       }
-      const macros =
-        Math.round(m.kcal || 0) + 'k · ' +
-        fmt(m.p || 0, 0) + 'P · ' +
-        fmt(m.sf || 0, 1) + 'SF';
       entries.push({
         name: formatItemDisplayName(catItem || item) || item.name || key,
         suffix: countSuffix,
-        macros,
+        macrosHtml: formatLogMacroLine(m),
         ts: counterMeta[key] || null,
         sortTs: counterMeta[key] || '',
       });
@@ -10669,14 +10701,12 @@
     for (const c of customs) {
       const n = (c.count !== undefined && c.count !== null) ? c.count : 1;
       if (!n) continue;
-      const macros =
-        Math.round((c.kcal || 0) * n) + 'k · ' +
-        fmt((c.p || 0) * n, 0) + 'P · ' +
-        fmt((c.sf || 0) * n, 1) + 'SF';
+      const m = {};
+      for (const k of STORED_NUTRIENT_KEYS) m[k] = (c[k] || 0) * n;
       entries.push({
         name: (c.name || 'Custom') + ' (custom)',
         suffix: ' ×' + (Math.round(n * 100) / 100).toString(),
-        macros,
+        macrosHtml: formatLogMacroLine(m),
         ts: c.lastModified || null,
         sortTs: c.lastModified || '',
       });
@@ -10688,10 +10718,15 @@
       let supName = sup.name || sup.itemKey;
       if (sup.label && sup.label !== supName) supName = supName + ' · ' + sup.label;
       const amt = (sup.amount && sup.unit) ? (sup.amount + ' ' + sup.unit) : '';
+      const supItem = ITEMS[sup.itemKey];
+      const mult = (typeof sup.amount === 'number' && sup.amount > 0) ? sup.amount : 1;
+      const macrosHtml = supItem
+        ? formatLogMacroLine(scaleByNative(supItem, mult))
+        : '';
       entries.push({
         name: supName,
         suffix: amt ? ' · ' + amt : '',
-        macros: '',
+        macrosHtml,
         ts: toggleMeta[sup.key] || null,
         sortTs: toggleMeta[sup.key] || '',
       });
@@ -10705,7 +10740,7 @@
       entries.push({
         name: 'Water · ' + wLabel,
         suffix: ' · ' + ml + ' ml',
-        macros: '',
+        macrosHtml: formatLogMacroLine({ water: ml }),
         ts: toggleMeta[w.key] || null,
         sortTs: toggleMeta[w.key] || '',
       });
@@ -10731,9 +10766,10 @@
       const timeFrag = e.ts
         ? '<span class="hd-time-inline">' + escapeHtml(fmtTime(e.ts)) + '</span>'
         : '';
-      const macrosFrag = e.macros
-        ? '<span class="checkout-item-macros">' + escapeHtml(e.macros) + ' ' + timeFrag + '</span>'
-        : (timeFrag ? '<span class="checkout-item-macros">' + timeFrag + '</span>' : '');
+      const macrosBody = e.macrosHtml || '';
+      const macrosFrag = (macrosBody || timeFrag)
+        ? '<span class="checkout-item-macros">' + macrosBody + timeFrag + '</span>'
+        : '';
       return (
         '<div class="checkout-row today-log-row">' +
           '<div></div>' +
@@ -10745,6 +10781,38 @@
         '</div>'
       );
     }).join('');
+  }
+
+  // Format a macros object (already scaled to the consumed quantity) using
+  // the same displayedNutrients filtering and per-nutrient formatting as
+  // catalog rows. Returns innerHTML; each cell is a <span>.
+  function formatLogMacroLine(m) {
+    if (!m) return '';
+    const displayedRaw = (state.profile && Array.isArray(state.profile.displayedNutrients) && state.profile.displayedNutrients.length)
+      ? state.profile.displayedNutrients
+      : ['kcal', 'p', 'sf', 'water', 'caffeine'];
+    const PRIORITY = ['_kcal_per_p', 'kcal', 'p'];
+    const displayed = [
+      ...PRIORITY.filter(k => displayedRaw.includes(k)),
+      ...displayedRaw.filter(k => !PRIORITY.includes(k)),
+    ];
+    const cells = [];
+    for (const key of displayed) {
+      const def = NUTRIENT_BY_KEY[key];
+      if (!def) continue;
+      const value = def.computed ? computeDerivedNutrient(key, m) : (m[key] || 0);
+      if (!def.computed && !value) continue;
+      const formatted = dropTrailingZeros((Math.round(value * 10) / 10).toFixed(1));
+      let cell;
+      if (def.computed) cell = formatted + ' ' + def.label;
+      else if (key === 'kcal') cell = formatted + ' kcal';
+      else if (def.unit === 'g') cell = formatted + 'g ' + def.label;
+      else if (def.unit) cell = formatted + def.unit + ' ' + def.label.toLowerCase();
+      else cell = formatted + ' ' + def.label;
+      const cls = def.computed ? ' class="ratio"' : '';
+      cells.push('<span' + cls + '>' + escapeHtml(cell) + '</span>');
+    }
+    return cells.join('');
   }
 
   // Build the inner cells of #checkout-totals based on the user's selected
