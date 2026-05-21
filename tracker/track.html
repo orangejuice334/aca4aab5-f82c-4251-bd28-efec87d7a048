@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.37">
+<meta name="app-version" content="v6.5.38">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -7922,6 +7922,18 @@
     }[c]));
   }
 
+  // True when the user has live selected text whose anchor sits inside the
+  // given element. Used by row-click handlers so a mouseup that completed a
+  // drag-select doesn't immediately toggle the row and rebuild the DOM —
+  // which would wipe the selection and break Ctrl+C on the item name.
+  function hasActiveSelectionIn(el) {
+    const sel = window.getSelection && window.getSelection();
+    if (!sel || sel.isCollapsed || !sel.toString().trim()) return false;
+    if (!el || sel.rangeCount === 0) return false;
+    const node = sel.anchorNode;
+    return !!(node && el.contains(node));
+  }
+
   // Format any number for display: round to 1 decimal, drop trailing zero.
   // Used everywhere a numeric macro value is shown to the user — labels
   // never show "7.0", just "7"; "3.3" stays "3.3"; "12.55" → "12.6".
@@ -9039,6 +9051,9 @@
       row.classList.add('row-expandable');
       row.addEventListener('click', (ev) => {
         if (ev.target.closest('.counter-btn, .counter-value, [data-edit-panel]')) return;
+        // Bail when the click actually completed a text drag-select inside
+        // the row, so Ctrl+C still finds the highlighted name to copy.
+        if (hasActiveSelectionIn(row)) return;
         if (panel.hidden) {
           panel.hidden = false;
           row.classList.add('row-expanded');
@@ -9151,6 +9166,9 @@
     group.classList.add('row-expandable');
     group.addEventListener('click', (ev) => {
       if (ev.target.closest('.counter-btn, .counter-value, [data-edit-panel]')) return;
+      // Bail when the click was the mouseup that completed a text selection
+      // inside the group, so Ctrl+C still finds the highlighted name.
+      if (hasActiveSelectionIn(group)) return;
       // Single-click toggle: expand to show all variants AND the edit form,
       // or collapse back to just the primary. Commit pending edits when
       // collapsing.
@@ -12558,6 +12576,9 @@
       if (ev.target.closest('input[type="checkbox"], [data-edit-panel]')) return;
       const row = ev.target.closest('.checkout-row.row-expandable[data-toggle]:not([data-water-toggle])');
       if (!row) return;
+      // Bail when the user drag-selected text inside the row so Ctrl+C
+      // still finds the highlighted name.
+      if (hasActiveSelectionIn(row)) return;
       const panel = row.querySelector('[data-edit-panel]');
       if (!panel) return;
       const key = panel.dataset.editPanelKey;

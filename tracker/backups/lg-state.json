@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-20T18:40:19.062Z",
-  "_gistSavedAt": "2026-05-20T18:33:10.647Z",
+  "_backupTakenAt": "2026-05-21T14:52:42.638Z",
+  "_gistSavedAt": "2026-05-21T14:48:48.602Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -237,6 +237,42 @@
           "protein_whey_dymatize_iso100_vanilla": "2026-05-20T13:39:52.491Z",
           "kcl_morton": "2026-05-20T18:23:22.267Z"
         }
+      },
+      "2026-05-21": {
+        "toggles": {
+          "water#07:00": true,
+          "wegovy#07:30": true,
+          "d3#08:00": true,
+          "creatine#08:00": true,
+          "omega3#08:00": true,
+          "two_per_day#08:00": true,
+          "caffeine_anhydrous_200mg#08:00": true
+        },
+        "counters": {
+          "protein_whey_dymatize_iso100_vanilla": 30
+        },
+        "customs": [
+          {
+            "id": "fb73e752-f8d2-4e65-9276-c7ceb04dc55c",
+            "name": "bf",
+            "kcal": 150,
+            "p": 4,
+            "count": 1,
+            "lastModified": "2026-05-21T14:46:52.581Z"
+          }
+        ],
+        "toggleMeta": {
+          "water#07:00": "2026-05-21T14:45:49.107Z",
+          "wegovy#07:30": "2026-05-21T14:45:50.810Z",
+          "d3#08:00": "2026-05-21T14:45:51.867Z",
+          "creatine#08:00": "2026-05-21T14:45:52.625Z",
+          "omega3#08:00": "2026-05-21T14:45:56.045Z",
+          "two_per_day#08:00": "2026-05-21T14:45:59.391Z",
+          "caffeine_anhydrous_200mg#08:00": "2026-05-21T14:46:00.447Z"
+        },
+        "counterMeta": {
+          "protein_whey_dymatize_iso100_vanilla": "2026-05-21T14:47:11.279Z"
+        }
       }
     },
     "savedItems": [],
@@ -320,10 +356,10 @@
       "section-weight-tracker": true,
       "details-profile-section": true,
       "profile": true,
+      "today-customs": true,
+      "targets-accumulation": true,
       "details-add-new-item": true,
-      "catalog-ratio": true,
-      "supplements-water": true,
-      "today-customs": true
+      "supplements-water": true
     },
     "userCatalog": {
       "items": {
