@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.46">
+<meta name="app-version" content="v6.5.47">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -152,10 +152,10 @@
   }
 
   /* === Unified labeled-bar heading ===
-     Every collapsible bar is now a <section class="section-minimal">
-     so a single selector covers all of them. The heading sits
-     absolute-positioned on the band's top border so the paper-color
-     background visually cuts through the rule, like a fieldset legend. */
+     Every collapsible bar is a <section class="section-minimal">. The
+     heading sits absolute-positioned on the band's top border so the
+     paper-color background visually cuts through the rule, like a
+     fieldset legend. */
   section.section-minimal[data-collapsible] > h2 {
     position: absolute;
     top: -7px;
@@ -744,11 +744,9 @@
   }
 
   /* Multi-variant item group: groups all variant rows of one item.
-     v6.5.18: dropped the outer box border so a variant-group looks the
-     same as a single-variant catalog row from the outside. Consistent
-     row separators are now drawn by .checkout-group's child-sibling
-     border rule below, which fires between every row regardless of
-     whether the row is single or part of a multi-variant group. */
+     No outer box border — a variant-group looks the same as a
+     single-variant catalog row from the outside. Row separators come
+     from .checkout-group's child-sibling rule below. */
   .variant-group {
     border: none;
     border-radius: 0;
@@ -799,13 +797,6 @@
     pointer-events: none;
     z-index: 1;
   }
-  /* Legacy class retained in case any code path still references it. */
-  .variant-row-secondary {
-    color: var(--ink-soft);
-    font-size: 12px;
-    font-style: italic;
-  }
-
   /* === Edit-form Measurement variants editor === */
   .variant-edit-list {
     display: flex;
@@ -1273,9 +1264,8 @@
     /* Flex-wrap layout so the last row's cells grow to fill leftover width
        instead of leaving an empty grid track. Cells base-width 160 px,
        allowed to stretch (flex-grow 1) and shrink (flex-shrink 1).
-       v6.5.18: restyled to match the .targets band - 2 px top + bottom
-       ink rule with a small mono uppercase heading cutting through the
-       top rule, no boxed border, no background fill. */
+       Styled to match the .targets band: 2 px top + bottom ink rule with
+       a small mono uppercase heading cutting through the top rule. */
     display: flex;
     flex-wrap: wrap;
     gap: 0;
@@ -1843,8 +1833,7 @@
   }
 
   /* Amount-row inner widths: value gets fixed 80px, unit gets fixed 140px
-     (enough for the dropdown text). Was previously stretching the unit to
-     fill the entire row. */
+     (enough for the dropdown text). */
   .ingredient-edit-row .ing-amount-row .ing-field-labeled:first-child {
     flex: 0 0 80px;
   }
@@ -3730,9 +3719,7 @@
      labeled rule; expanded = the rule with the form below + a closing
      bottom rule. */
   /* #profile-section uses the shared section.section-minimal rules
-     for box, border, padding, margin. No per-id override needed. The
-     legacy rules here clashed with the collapsed-state border-bottom:
-     none, leaving a stray line under the collapsed profile bar. */
+     for box, border, padding, margin. No per-id override needed. */
   .profile-form {
     margin-top: 12px;
     font-size: 13px;
@@ -4657,8 +4644,8 @@
 
   // ===== NUTRIENT CATALOG =====
   // Every storable nutrient. Items can carry any subset; missing fields are
-  // treated as zero. The legacy fields (kcal, p, sf, water, caffeine) are
-  // first so old code paths continue to find them in their expected positions.
+  // treated as zero. The five macros (kcal, p, sf, water, caffeine) are
+  // listed first so display fallbacks find them.
   // `key` is the field name on items; `label` is the human display; `unit`
   // is the unit string; `dec` is decimal places for display; `group` is one
   // of 'macros' | 'vitamins' | 'minerals' | 'computed'. Computed entries
@@ -4724,7 +4711,7 @@
 
   // RDA-ish daily defaults (adult male, FDA Daily Values where applicable).
   // Used as goal fallbacks when profile doesn't override. Profile.goals takes
-  // precedence for the legacy keys (kcal, p, sf, water, caffeine).
+  // precedence for kcal, p, sf, water, caffeine.
   const NUTRIENT_GOAL_DEFAULTS = {
     kcal: 2000, p: 50, carbs: 275, fiber: 28, sugar: 50, fat: 78, sf: 20,
     transfat: 0, cholesterol: 300, sodium: 2300, water: 3000, caffeine: 400,
@@ -4737,10 +4724,10 @@
     chromium: 35, molybdenum: 45,
   };
 
-  // === v5 schema helpers ===
-  // Items are stored with PER-GRAM macros and a displayUnits array.
-  // Counter on each day bucket is grams consumed (not unit-counts).
-  // displayUnits = [{label, unitsPerServing}, ...] sorted ascending.
+  // === Item schema helpers ===
+  // Items are stored with PER-NATIVE-UNIT macros and a displayUnits array.
+  // Counter on each day bucket is in native units (grams for mass items,
+  // ml for volume items). displayUnits = [{label, unitsPerServing}, ...].
   // Strip a trailing ".0" / ".X0" / etc. from a fixed-decimal numeric string.
   // "5.0" → "5", "5.50" → "5.5", "5.55" → "5.55", "5" → "5".
   function dropTrailingZeros(s) {
@@ -4773,7 +4760,7 @@
       });
     }
     // Fallback for items without any displayUnits — synthesize a single
-    // variant from the legacy amount/defaultMeasuredIn fields.
+    // variant from the amount/defaultMeasuredIn fields.
     const measured = getDefaultMeasuredIn(item);
     const a = (item && item.amount) || {};
     const value = (typeof a.value === 'number') ? a.value : 1;
@@ -4799,9 +4786,8 @@
     return out;
   }
 
-  // Day-bucket counters are already stored in the item's native unit (per
-  // the live schema — counter == grams for mass items, ml for volume items).
-  // Helper kept as a clear seam for any future legacy-data resurrection.
+  // Day-bucket counters store native units (grams for mass items, ml for
+  // volume items). Stub helper for any future per-unit transform.
   function getCounterNative(item, counter) {
     return counter || 0;
   }
@@ -4839,12 +4825,9 @@
   // scaleFn(profile, def): optional function that returns
   // {warn?, danger?} overrides — used when a threshold should depend on
   // body weight or calorie goal.
-  // v6.5.33: trimmed down to critical-only entries. Concerns that take
-  // years to manifest (sat fat, sodium, cholesterol, sugar, fiber,
-  // omega-3, vit D, potassium, calcium, gout-trigger purines) were
-  // removed. What remains: cumulative toxicity (mercury, vit A, iron,
-  // selenium, zinc), no-safe-level dietary fats (trans fat), acute
-  // overdose risk (caffeine), and irreversible deficiency (B12).
+  // Critical-only: cumulative toxicity (mercury, vit A, iron, selenium,
+  // zinc), no-safe-level dietary fats (trans fat), acute overdose risk
+  // (caffeine), and irreversible deficiency (B12).
   const WARNING_DEFS = [
     { key: 'transfat',    label: 'Trans Fat',     days: 7, warn: 5,     danger: 10,     direction: 'high', note: 'should be ~0' },
     { key: 'caffeine',    label: 'Caffeine',      days: 7, warn: 2800,  danger: 4200,   direction: 'high', note: 'FDA: 400 mg/day; acute toxic above ~1 g' },
@@ -4979,9 +4962,8 @@
       frequency: 'daily',
       demo: true,
     },
-    // Demo water as a catalog item with category='water'. Replaces the legacy
-    // profile.waterSchedule path. Time set to 23:59 so the past-due flag
-    // never triggers during the same day.
+    // Demo water as a catalog item with category='water'. Time set to
+    // 23:59 so the past-due flag never triggers during the same day.
     demo_water_late: {
       name: 'Water · late',
       category: 'water',
@@ -5026,12 +5008,11 @@
   // `time` field for the schedule. WATER_DEFAULT_ML is the canonical pour.
   const WATER_DEFAULT_ML = 500;
 
-  // Returns one entry per scheduled serving of `item`. Schedule lives on each
-  // displayUnit's `time` field (per-serving scheduling, v6.5+); when no
-  // displayUnit carries a time, falls back to legacy item.time as a single
-  // virtual serving sized off the default variant. Toggle key for each
-  // scheduled serving = `${itemKey}#${time}` (or the bare item key for the
-  // legacy single-schedule case, so unmigrated past-day toggles still match).
+  // Returns one entry per scheduled serving of `item`. Schedule lives on
+  // each displayUnit's `time` field. Falls back to item.time as a single
+  // virtual serving sized off the default variant when no per-variant time
+  // is present. Toggle key = `<itemKey>#<time>`; falls back to the bare
+  // itemKey for the single-time case so old toggles still match.
   function getScheduledServings(item, itemKey) {
     if (!item) return [];
     const variants = getDisplayUnits(item);
@@ -5062,8 +5043,8 @@
         multiplier: ml,
         label: (def && def.label) || '',
         isDefault: true,
-        // Legacy single-time items keep the bare item key so older past-day
-        // toggles continue to match. Migrated items always use compound keys.
+        // Single-time items use the bare item key. Multi-time items use
+        // compound keys '<itemKey>#<time>'.
         fullKey: itemKey,
       });
     }
@@ -5118,8 +5099,8 @@
   function getWaterSchedule() {
     // One row per scheduled serving of any category='water' item. Each
     // serving's pour size comes from its own displayUnit.multiplier (ml).
-    // Backward compat: legacy water items with a single item-level time and
-    // a single default variant get one row sized off the default variant.
+    // Water items with a single item-level time and a single default
+    // variant get one row sized off the default variant.
     const rows = [];
     for (const [k, v] of Object.entries(ITEMS || {})) {
       if (!v || v.archived) continue;
@@ -5246,12 +5227,11 @@
   // of a successful loadFromGist that returned a parsed payload.
   let firstLoadCompleted = false;
 
-  // ============ Op queue (v3.4.0) ============
+  // ============ Op queue ============
   // Mutation-as-message pipeline. Each tracked mutation enqueues a small op
   // object; a debounced flush POSTs the batch to /ops and the Worker mutates
   // the gist in place. Per-click client→Worker payload is ~50–200 bytes,
-  // independent of accumulated history. This pass wires only counter_inc /
-  // counter_dec; other mutation sites still use saveState() (full /state POST).
+  // independent of accumulated history.
   const QUEUE_STORAGE_KEY = '19ff6f4d-3d5b-40e6-88e2-573f647f903f-queue-' + USER;
   const OPS_URL = WORKER_URL.replace('/state', '/ops');
   const FLUSH_DEBOUNCE_MS = 700;
@@ -5299,14 +5279,23 @@
         body: JSON.stringify({ ops: batch }),
       });
       if (res.ok) {
-        opQueue.splice(0, flushSize);
-        persistQueue();
         let data = null;
         try { data = await res.json(); } catch (e) {}
-        if (data && data._savedAt) captureDataUpdated(data._savedAt);
-        setSyncStatus('ok', 'saved');
-        markSyncSuccess();
-        hideSyncError();
+        const errors = (data && Array.isArray(data.errors)) ? data.errors : [];
+        // Drop the entire batch from the queue regardless. Failed ops are
+        // dropped on the floor (and logged via showSyncError) since retrying
+        // a server-rejected op produces the same rejection forever.
+        opQueue.splice(0, flushSize);
+        persistQueue();
+        if (errors.length) {
+          setSyncStatus('error', 'sync error: ' + errors.length + ' op(s) rejected');
+          showSyncError('save', 'Worker rejected ' + errors.length + ' op(s)', { errors });
+        } else {
+          if (data && data._savedAt) captureDataUpdated(data._savedAt);
+          setSyncStatus('ok', 'saved');
+          markSyncSuccess();
+          hideSyncError();
+        }
       } else {
         const bodyText = await res.text().catch(() => '(no body)');
         setSyncStatus('error', 'sync error: HTTP ' + res.status);
@@ -5337,7 +5326,7 @@
     } catch (e) {}
   }
 
-  // ============ Diff-based gist sync (v6.0.0) ============
+  // ============ Diff-based gist sync ============
   // Reference snapshot of "what the gist contains" — captured after each
   // successful loadFromGist and refreshed at the end of saveState() once the
   // diff has been emitted. emitDiffOps() compares current state against this
@@ -5464,12 +5453,14 @@
       for (const id in oldById) {
         if (!(id in curById)) sendOp({ type: 'custom_remove', date, id });
       }
-      // weight
-      const curW = cur.weight;
-      const oldW = old && old.weight;
-      if (curW !== oldW) {
-        if (curW == null) sendOp({ type: 'weight_clear', date });
-        else if (typeof curW === 'number') sendOp({ type: 'weight_set', date, value: curW, ts: cur && cur.weightMeta });
+      // weight / neck / waist — each follows the same pattern.
+      for (const fld of ['weight', 'neck', 'waist']) {
+        const curV = cur[fld];
+        const oldV = old && old[fld];
+        if (curV !== oldV) {
+          if (curV == null) sendOp({ type: fld + '_clear', date });
+          else if (typeof curV === 'number') sendOp({ type: fld + '_set', date, value: curV, ts: cur[fld + 'Meta'] });
+        }
       }
     }
 
@@ -5608,33 +5599,6 @@
     return 'cust_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
   }
 
-  // One-time migration: legacy customs (created before v3.5.0) have no `id`
-  // field. The op pipeline addresses customs by id, so missing-id customs
-  // can't be the target of custom_inc/dec/remove ops. This walk assigns an
-  // id to anything missing one. Per-device flag prevents re-walking on every
-  // page load. The migration writes via saveState() (full /state POST) since
-  // there's no op for "set custom id" — and acceptable as a one-time cost.
-  // If another device migrated already, this device will see ids on first
-  // remote apply and the walk will be a no-op except for the flag write.
-  const CUSTOMS_MIGRATED_KEY = '19ff6f4d-3d5b-40e6-88e2-573f647f903f-customs-migrated-v1';
-  function maybeMigrateCustoms() {
-    let alreadyMigrated = false;
-    try { alreadyMigrated = localStorage.getItem(CUSTOMS_MIGRATED_KEY) === '1'; } catch (e) {}
-    if (alreadyMigrated) return;
-    let assigned = 0;
-    for (const dk in state.days) {
-      const customs = state.days[dk].customs || [];
-      for (const c of customs) {
-        if (!c.id) {
-          c.id = generateCustomId();
-          assigned += 1;
-        }
-      }
-    }
-    if (assigned > 0) saveState();
-    try { localStorage.setItem(CUSTOMS_MIGRATED_KEY, '1'); } catch (e) {}
-  }
-
   const dateStampEl = document.getElementById('checkout-date');
   const warningsEl = document.getElementById('checkout-warnings');
   const historyEl = document.getElementById('history-content');
@@ -5738,10 +5702,8 @@
   }
 
   function loadState() {
-    // Demo mode (?demo=1): skip localStorage entirely. Caller's caches and
-    // any previously-saved schedules/profiles don't apply — the page hydrates
-    // from PROFILE_DEFAULTS + OFFLINE_DEMO_ITEMS (water lives there too as
-    // demo_water_late, with category='water').
+    // Demo mode (?demo=1): skip localStorage entirely; hydrate from
+    // PROFILE_DEFAULTS + OFFLINE_DEMO_ITEMS.
     if (FORCE_DEMO) {
       activateDate(todayKey());
       return;
@@ -5758,20 +5720,12 @@
       return;
     }
 
-    // Migrate old format if needed
-    if (parsed.date && (parsed.toggles || parsed.counters) && !parsed.days) {
-      state.days = {};
-      state.days[parsed.date] = { toggles: parsed.toggles || {}, counters: parsed.counters || {}, customs: [] };
-      state.activeDate = parsed.date;
-    } else {
-      state.days = parsed.days || {};
-      state.activeDate = parsed.activeDate || todayKey();
-    }
+    state.days = parsed.days || {};
+    state.activeDate = parsed.activeDate || todayKey();
     state.savedItems = parsed.savedItems || [];
     state.sortMode = (parsed.sortMode === 'alpha' || parsed.sortMode === 'ratio') ? parsed.sortMode : 'category';
     state.collapsedGroups = (parsed.collapsedGroups && typeof parsed.collapsedGroups === 'object') ? parsed.collapsedGroups : {};
     state.totalsMode = (parsed.totalsMode === 'all' || parsed.totalsMode === 'collapsed') ? parsed.totalsMode : undefined;
-    migrateTotalsModeFromCollapsedGroups();
     // Demo-mode detection: when cached userCatalog has no items, we'll be
     // showing OFFLINE_DEMO_ITEMS in the catalog. Reset cached profile
     // schedules too so the demo state stays consistent. User's real profile
@@ -5850,77 +5804,6 @@
     merged.goals = Object.assign({}, defaults.goals, incoming.goals || {});
     merged.units = Object.assign({}, defaults.units, incoming.units || {});
     merged.display = Object.assign({}, defaults.display, incoming.display || {});
-    // Supplements and water both live in the catalog now (category='supplements'
-    // and category='water'). The legacy profile.supplements and
-    // profile.waterSchedule arrays are migrated into ITEMS on first load and
-    // dropped from the profile.
-    //
-    // One-time migration: if the cached profile still carries supplements,
-    // copy them into ITEMS as catalog entries (idempotent — keys preserved)
-    // and drop the array. Macros default to zero unless the legacy entry
-    // had kcalEach > 0.
-    if (Array.isArray(incoming.supplements) && incoming.supplements.length) {
-      let migrated = 0;
-      for (const s of incoming.supplements) {
-        if (!s || !s.key) continue;
-        if (ITEMS[s.key]) continue;
-        ITEMS[s.key] = {
-          name: s.name || s.label || s.key,
-          category: 'supplements',
-          amount: (s.amount != null && s.unit)
-            ? { value: s.amount, unit: s.unit }
-            : { value: 1, unit: 'pill' },
-          kcal: s.kcalEach || 0,
-          p: 0, sf: 0, water: 0, caffeine: 0,
-          time: s.time || '08:00',
-          frequency: s.frequency || 'daily',
-        };
-        if (s.notes) ITEMS[s.key].notes = s.notes;
-        migrated++;
-      }
-      if (migrated > 0 && !CATEGORIES.some(c => c.key === 'supplements')) {
-        CATEGORIES.push({ key: 'supplements', label: 'Supplements' });
-      }
-    }
-    // Same migration pattern for water schedule entries. Each entry becomes
-    // a catalog item with basis='ml' so the water value (100 ml/100 ml) and
-    // the canonical pour amount stay consistent. Name format: "Water · <slot>".
-    if (Array.isArray(incoming.waterSchedule) && incoming.waterSchedule.length) {
-      let migrated = 0;
-      for (const w of incoming.waterSchedule) {
-        if (!w || !w.key) continue;
-        if (ITEMS[w.key]) continue;
-        const ml = (typeof w.ml === 'number' && w.ml > 0) ? w.ml : WATER_DEFAULT_ML;
-        ITEMS[w.key] = {
-          name: w.label ? ('Water · ' + w.label) : 'Water',
-          category: 'water',
-          defaultMeasuredIn: 'ml',
-          amount: { value: ml, unit: 'ml' },
-          kcal: 0, p: 0, sf: 0, water: 100, caffeine: 0,
-          time: w.time || '08:00',
-          frequency: w.frequency || 'daily',
-        };
-        migrated++;
-      }
-      if (migrated > 0 && !CATEGORIES.some(c => c.key === 'water')) {
-        CATEGORIES.push({ key: 'water', label: 'Water' });
-      }
-    }
-    delete merged.supplements;
-    delete merged.waterSchedule;
-    // One-time migration of displayedNutrients: drop _p_per_100kcal entirely,
-    // and replace fiber with potassium. Idempotent — subsequent loads no-op.
-    if (Array.isArray(merged.displayedNutrients)) {
-      let mutated = false;
-      const out = [];
-      for (const k of merged.displayedNutrients) {
-        if (k === '_p_per_100kcal') { mutated = true; continue; }
-        if (k === 'fiber') { out.push('potassium'); mutated = true; continue; }
-        out.push(k);
-      }
-      if (mutated) merged.displayedNutrients = out;
-    }
-    // Reserved categories stay present even after migrations.
     ensureReservedCategories();
     state.profile = merged;
     // Goals: profile-defined values override the RDA defaults. Every stored
@@ -6030,8 +5913,8 @@
       const waterAttr = it.type === 'water' ? ' data-water-toggle' : '';
       const k = escapeHtml(it.key);                 // compound toggle key (omega3#08:00)
       const ik = escapeHtml(it.itemKey || it.key); // catalog item key (omega3)
-      // v6.5.15: schedule time stays in storage + data-time for cluster
-      // coloring, but is no longer displayed inline next to the row.
+      // Schedule time stays in storage + data-time for cluster coloring;
+      // not displayed inline next to the row.
       const timeAttr = it.time ? ' data-time="' + escapeHtml(it.time) + '"' : '';
       const timeCell = '';
       const amountCell = it.amount
@@ -6272,11 +6155,11 @@
       const slot = btn.getAttribute('data-supp-slot') || '';
       const item = ITEMS[itemKey];
       if (!item) return;
-      // v6.5.31: the × button on the supps profile list only BLANKS the
-      // schedule on this variant - it never deletes the catalog item.
-      // The variant itself stays around so the item retains its serving
-      // sizes; the toggle history for the (now-unscheduled) compound key
-      // is cleared since that slot no longer surfaces in the schedule.
+      // The × button only BLANKS the schedule on this variant; it never
+      // deletes the catalog item. The variant itself stays around so the
+      // item retains its serving sizes; the toggle history for the
+      // (now-unscheduled) compound key is cleared since that slot no longer
+      // surfaces in the schedule.
       const variants = getDisplayUnits(item).slice();
       const idx = variants.findIndex(v => v && v.time === slot);
       if (idx >= 0) {
@@ -6307,10 +6190,8 @@
   function renderCatsList() {
     const list = document.getElementById('cats-list');
     if (!list) return;
-    // v6.5.29: Categories list is read-only on the profile page. No
-     // delete buttons, no add form (taken out of the HTML). Categories
-     // are added implicitly via the "Add new item" form's category
-     // picker.
+    // Categories list is read-only on the profile page. Categories are
+    // added implicitly via the "Add new item" form's category picker.
     list.innerHTML = CATEGORIES.map(c => {
       const itemCount = Object.values(ITEMS || {}).filter(v => v && v.category === c.key).length;
       return (
@@ -6321,64 +6202,6 @@
         '</div>'
       );
     }).join('');
-  }
-
-  let catsFormBound = false;
-  function bindCatsForm() {
-    if (catsFormBound) return;
-    const addBtn = document.getElementById('cats-add-btn');
-    const list = document.getElementById('cats-list');
-    if (!addBtn || !list) return;
-    addBtn.addEventListener('click', () => {
-      const nameEl = document.getElementById('cat-new-name');
-      if (!nameEl) return;
-      const name = (nameEl.value || '').trim();
-      if (!name) { nameEl.focus(); return; }
-      // Case-insensitive duplicate-label check.
-      if (CATEGORIES.some(c => (c.label || '').toLowerCase() === name.toLowerCase())) {
-        nameEl.focus();
-        nameEl.select();
-        // Lightweight inline error: outline red briefly.
-        nameEl.style.outline = '2px solid #c0392b';
-        setTimeout(() => { nameEl.style.outline = ''; }, 1200);
-        return;
-      }
-      // Slug key from the label.
-      let key = name.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
-      if (!key) key = 'cat_' + Date.now().toString(36);
-      while (CATEGORIES.some(c => c.key === key)) key = key + '_' + Date.now().toString(36).slice(-3);
-      CATEGORIES.push({ key, label: name });
-      nameEl.value = '';
-      saveState();
-      renderCatsList();
-      // Repopulate the Add new item form's category select so the new option
-      // is immediately available.
-      if (typeof populateCustomFormCategories === 'function') populateCustomFormCategories();
-      if (typeof renderCatalog === 'function') renderCatalog();
-    });
-    list.addEventListener('click', (ev) => {
-      const btn = ev.target.closest('[data-cat-delete]');
-      if (!btn) return;
-      const key = btn.getAttribute('data-cat-delete');
-      if (RESERVED_CATEGORY_KEYS.indexOf(key) !== -1) return; // locked
-      const idx = CATEGORIES.findIndex(c => c.key === key);
-      if (idx === -1) return;
-      // If items reference this category, reassign them to 'uncategorized'.
-      let reassigned = 0;
-      for (const k in ITEMS) {
-        if (ITEMS[k] && ITEMS[k].category === key) {
-          ITEMS[k].category = 'uncategorized';
-          reassigned++;
-        }
-      }
-      CATEGORIES.splice(idx, 1);
-      saveState();
-      renderCatsList();
-      if (typeof populateCustomFormCategories === 'function') populateCustomFormCategories();
-      if (typeof renderCatalog === 'function') renderCatalog();
-      if (typeof render === 'function') render();
-    });
-    catsFormBound = true;
   }
 
   // Nutrients checklist in the profile section. Renders one box per
@@ -7251,7 +7074,7 @@
         const bodyText = await res.text().catch(() => '(no body)');
         setSyncStatus('error', 'sync error: HTTP ' + res.status);
         showSyncError('load', 'HTTP ' + res.status + ' ' + res.statusText, { http_status: res.status, response_body: bodyText.slice(0, 500) });
-        // ANY load failure flips offline. Otherwise a subsequent saveToGist
+        // ANY load failure flips offline. Otherwise a subsequent flush
         // would push our stale local state and wipe whatever the gist holds.
         setSyncMode('offline');
         return null;
@@ -7306,27 +7129,6 @@
     }
   }
 
-  // Deprecated (v6.0.0): the gist no longer receives full-state POSTs.
-  // Save scheduling now flows through the op queue's own debounce
-  // (FLUSH_DEBOUNCE_MS). Kept as a thin alias so any remaining caller still
-  // triggers a flush — it should not normally fire because saveState() emits
-  // ops synchronously and sendOp() already schedules the flush.
-  function scheduleGistSave() {
-    scheduleQueueFlush();
-  }
-
-  // Deprecated (v6.0.0): full-state POST is gone — diff-based emitDiffOps
-  // through saveState() is the canonical path. Kept as a force-flush shim so
-  // legacy callers (manual sync button, beforeunload, retry banner) still do
-  // the right thing.
-  async function saveToGist() {
-    if (!syncEnabled) return;
-    if (syncMode !== 'normal') return;
-    if (!firstLoadCompleted) return;
-    emitDiffOps();
-    await flushQueue();
-  }
-
   // Apply a fetched gist payload into local state and history caches, then re-render
   function applyRemotePayload(payload) {
     if (!payload || typeof payload !== 'object') return;
@@ -7340,18 +7142,8 @@
     state.sortMode = (remoteState.sortMode === 'alpha' || remoteState.sortMode === 'ratio') ? remoteState.sortMode : 'category';
     state.collapsedGroups = (remoteState.collapsedGroups && typeof remoteState.collapsedGroups === 'object') ? remoteState.collapsedGroups : {};
     state.totalsMode = (remoteState.totalsMode === 'all' || remoteState.totalsMode === 'collapsed') ? remoteState.totalsMode : undefined;
-    migrateTotalsModeFromCollapsedGroups();
-    // ORDER MATTERS: hydrate catalog first, THEN apply profile. applyProfile's
-    // supplement-migration step writes into ITEMS; if hydrateCatalog ran after
-    // it, the gist's userCatalog.items would replace ITEMS and wipe the
-    // migrated supplements.
     if (remoteState.userCatalog) hydrateCatalog(remoteState.userCatalog);
-    const hadLegacySupps = !!(remoteState.profile && Array.isArray(remoteState.profile.supplements) && remoteState.profile.supplements.length);
-    const hadLegacyWater = !!(remoteState.profile && Array.isArray(remoteState.profile.waterSchedule) && remoteState.profile.waterSchedule.length);
-    // Snapshot the gist as it actually was — BEFORE applyProfile runs the
-    // legacy-supplement / water migration into ITEMS. Otherwise emitDiffOps
-    // diffs current state against a post-migration snapshot (they match) and
-    // the migration never reaches the gist. Snapshot must come AFTER
+    // Snapshot the gist as it actually was. Snapshot must come AFTER
     // hydrateCatalog so ITEMS truly reflects the remote payload's catalog,
     // not the offline-demo defaults.
     lastKnownGistState = captureSnapshot();
@@ -7381,14 +7173,6 @@
     updateSortToggleLabel();
     // Capture remote write time so we can show "data: 2m ago" and detect staleness
     if (payload._savedAt) captureDataUpdated(payload._savedAt);
-    // Migrate any customs that came in from remote without ids. Flag-gated:
-    // if this device already ran the migration, this no-ops.
-    maybeMigrateCustoms();
-    // If the legacy profile.supplements or .waterSchedule was just migrated
-    // into ITEMS, persist the new shape back to the gist via op diff.
-    if (hadLegacySupps || hadLegacyWater) {
-      saveState();
-    }
   }
 
   function computeTotals(s) {
@@ -7845,18 +7629,12 @@
   }
 
   function checkWarnings(totals) {
-    // v6.5.33: the legacy hand-written warning lines ("Consider skipping
-    // a turkey slice", "Behind on protein", etc.) were too speculative
-    // and assumed pre-planned eating which isn't how the user actually
-    // logs. Replaced by the Daily Tracker consequence block below the
-    // tiles (gated 20:00 to 02:00) plus the Weekly Tracker's
-    // always-on consequence cards.
-    if (typeof warningsEl !== 'undefined' && warningsEl) {
-      warningsEl.innerHTML = '';
-    }
     // Daily Tracker consequence rendering happens via
     // renderDailyConsequences() driven by computeTotals; called from
     // renderCheckoutTotalCells / render(). The time gate lives there.
+    if (typeof warningsEl !== 'undefined' && warningsEl) {
+      warningsEl.innerHTML = '';
+    }
   }
 
   // Per-metric DAILY consequence text. Each function takes the delta
@@ -8098,8 +7876,8 @@
     return { value: 1, unit: s };
   }
 
-  // Stringify a structured amount for display. Tolerates the legacy string
-  // shape so partial-migrated data still renders correctly.
+  // Stringify a structured amount for display. Tolerates a plain string
+  // for items that store amount as a bare label.
   function formatAmount(amt) {
     if (amt == null) return '';
     if (typeof amt === 'string') return amt;
@@ -8200,61 +7978,13 @@
     };
   }
 
-  // Total grams in one batch of a recipe — the sum of each ingredient's
-  // gram-equivalent weight. Used by the recipe custom-portion logger to
-  // convert "I ate 250 g" → fraction of a batch. Volume-measured ingredients
-  // convert via item.density_g_per_ml when set; otherwise they're skipped
-  // (a 0-density-volume ingredient can't be expressed in grams reliably).
-  // Discrete-unit ingredients (pills, cups, pieces) are skipped — they can't
-  // be summed as grams. Flat ingredients with a gram-unit amount contribute
-  // directly; flat ingredients without a usable unit are skipped.
-  function recipeBatchGrams(item) {
-    if (!item || item.category !== 'recipes') return 0;
-    if (!Array.isArray(item.ingredients) || !item.ingredients.length) return 0;
-    let total = 0;
-    for (const ing of item.ingredients) {
-      if (!ing) continue;
-      if (ing.itemKey) {
-        const src = ITEMS[ing.itemKey];
-        if (!src) continue;
-        const measure = getDefaultMeasuredIn(src);
-        let units = 0;
-        if (typeof ing.amount === 'number') units = ing.amount;
-        else if (typeof ing.multiplier === 'number') {
-          const canon = getDisplayUnits(src)[0];
-          units = ing.multiplier * (canon.unitsPerServing || 0);
-        }
-        if (units <= 0) continue;
-        if (measure === 'g') {
-          total += units;
-        } else if (measure === 'ml') {
-          const d = (typeof src.density_g_per_ml === 'number' && src.density_g_per_ml > 0)
-            ? src.density_g_per_ml : 1; // assume ~water density when unset
-          total += units * d;
-        }
-        // 'units' (discrete) ingredients can't be summed as grams — skip.
-        continue;
-      }
-      // Flat ingredient
-      const amt = ing.amount;
-      if (amt && typeof amt.value === 'number' && amt.value > 0) {
-        const unit = (amt.unit || '').toLowerCase();
-        if (unit === 'g')      total += amt.value;
-        else if (unit === 'oz') total += amt.value * 28.3495;
-        else if (unit === 'lb') total += amt.value * 453.592;
-        else if (unit === 'ml') total += amt.value;        // assume ≈1 g/ml
-        // other units (cup, tbsp, "to taste") have no gram conversion here.
-      }
-    }
-    return total;
-  }
-
   // Compute the nutrients for a single ingredient against the live ITEMS
-  // map. v5: ingredient.amount is in grams, source's macros are per-gram.
-  // Multiplier-shape ingredients (legacy) resolved against canonical amount.
-  // `seen` threads through the recipe → ingredient → recipe recursion so a
-  // self-referential or cyclic recipe (A ingredient B; B ingredient A) returns
-  // zero macros instead of blowing the stack.
+  // map. ingredient.amount is in native units (g for mass items, ml for
+  // volume items); source's macros are per-native-unit. Multiplier-shape
+  // ingredients resolve against the source's canonical amount. `seen`
+  // threads through the recipe → ingredient → recipe recursion so a
+  // self-referential or cyclic recipe (A ingredient B; B ingredient A)
+  // returns zero macros instead of blowing the stack.
   function computeIngredientMacros(ing, seen) {
     const z = zeroNutrients();
     if (!ing) return z;
@@ -8484,7 +8214,7 @@
 
   // Build the human-readable display string for an item. Composes:
   //   <name> (<brand>)                                  if brand set
-  //   <name> (<amount-parens>)                           if amount is set (legacy items)
+  //   <name> (<amount-parens>)                           if amount is set
   //   <name> (<brand> · <amount-parens>)                 brand + amount
   //   <recipe name> (<grams> g)                          recipes: total ingredient grams
   //   <recipe name> (<grams> g*)                         recipes with any volume-no-density ing
@@ -8497,11 +8227,9 @@
     if (brand) parts.push(brand);
 
     if (isRecipe) {
-      // v6.5.3: recipes now expose their DEFAULT serving in the parens
-      // (the size you eat: "200 g", "1 slice", etc.) instead of the full
-      // batch's gram count. The full batch lives as a separate
-      // displayUnit variant ("full recipe") for the rare time you want to
-      // log the whole thing.
+      // Recipes show their DEFAULT serving in the parens (e.g. "200 g",
+      // "1 slice"). The full batch lives as a separate locked
+      // "full recipe" displayUnit.
       const variants = getDisplayUnits(item);
       const def = variants.find(v => v && v.default) || variants[0] || null;
       if (def) {
@@ -8516,9 +8244,9 @@
     }
 
     const amt = item && item.amount;
-    // No useful amount info → name (+ brand if set). v5 items keep displayUnits
-    // and often only have `amount.unit` (e.g. 'g') as a defaultMeasuredIn
-    // shadow; that alone is meaningless for a label, so skip it too.
+    // No useful amount info → name (+ brand if set). Items often have only
+    // `amount.unit` (e.g. 'g') as a defaultMeasuredIn shadow; that alone
+    // is meaningless for a label, so skip it too.
     if (!amt || (!amt.value && !amt.label)) {
       return parts.length ? name + ' (' + parts.join(' · ') + ')' : name;
     }
@@ -8636,8 +8364,8 @@
     } else {
       body = cells.join('');
     }
-    // v6.5.15: time pill removed from catalog rows; schedule time still
-    // travels in the gist but isn't surfaced here.
+    // Schedule time is stored on the gist but not surfaced in the
+    // catalog macro line.
     return body + '<span></span>';
   }
 
@@ -8778,11 +8506,11 @@
     root.innerHTML = '';
     const targetRatio = (GOALS.p > 0) ? (GOALS.kcal / GOALS.p) : Infinity;
     // Water has its own dedicated schedule UI in renderSupplementWaterRows
-    // and is not shown in the main catalog. Supplements DO show in the
-    // catalog now (v6.5.13): scheduled ones have their counter mirrored
-    // from the toggles and disabled (interact via the supplements section
-    // up top); unscheduled ones (e.g. ad-hoc caffeine capsules) work like
-    // normal catalog rows.
+    // and is not shown in the main catalog. Supplements show in the
+    // catalog: scheduled ones have their counter mirrored from the toggles
+    // and disabled (interact via the supplements section up top);
+    // unscheduled ones (e.g. ad-hoc caffeine capsules) work like normal
+    // catalog rows.
     const isFoodCategory = (it) => it && it.category !== 'water' && !it.archived;
     // Non-preserve recipes behave like customs — only visible in the catalog
     // on days where they were logged (counter > 0 on activeDate). Preserved
@@ -8957,14 +8685,6 @@
     const g = _gcd(Math.abs(num), Math.abs(denom)) || 1;
     const n = num / g, d = denom / g;
     return (d === 1) ? String(n) : (n + '/' + d);
-  }
-  // Multiply the leading fraction in a variant label by a rational
-  // `mNum/mDenom` and emit a reduced ASCII label. Used by the legacy
-  // pre-button-rework call site (kept for compatibility).
-  function scaleVariantLabel(baseLabel, mNum, mDenom) {
-    const { num, denom, rest } = parseLeadingFraction(baseLabel);
-    const head = formatReducedFraction(num * (mNum || 1), denom * (mDenom || 1));
-    return rest ? (head + ' ' + rest) : head;
   }
   // Combined op for the modification buttons.
   //   op = 'mult':  new_label = current × (opNum/opDenom)
@@ -9367,12 +9087,9 @@
       new RegExp('value="' + unit.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&') + '"', 'i'),
       'value="' + unit + '" selected'
     );
-    // v6.5.15: schedule time + frequency stay on the gist (so existing
-    // scheduled servings keep their schedule) but are NOT rendered or
-    // editable in the variant editor. Time-only edits happen through the
-    // profile supplements picker. We still need to round-trip the values
-    // through the form so saveExpandedEdits doesn't lose them — carried
-    // as hidden data attributes on the row.
+    // Schedule time + frequency round-trip through the form via hidden
+    // data attributes. They are not editable here — time-only edits
+    // happen through the profile supplements picker.
     const rowTime = (variant && variant.time) ? variant.time : '';
     const rowFreq = (variant && variant.frequency) ? variant.frequency : '';
     const scheduleFields = '';
@@ -9467,15 +9184,12 @@
     // Supplements + water get per-serving schedule fields on each row.
     // Other categories edit the schedule (if any) at the item level.
     const showRowSchedule = (item.category === 'supplements' || item.category === 'water');
-    // Legacy fallback: if an unmigrated supplement still has item.time and
-    // none of its variants do, pre-fill the default variant's time/freq in
-    // the rendered form so the schedule isn't dropped when the user saves.
-    // The pre-fill only affects the rendered HTML — storage migrates once
-    // the user clicks save. Clone the variant first so we don't accidentally
-    // mutate the live ITEMS object before the user commits.
+    // Clone each variant so render-time tweaks don't mutate the live ITEMS object.
     for (let i = 0; i < variants.length; i++) {
       variants[i] = Object.assign({}, variants[i]);
     }
+    // Defensive: if a supplement carries item.time but none of its variants
+    // do, mirror the schedule onto the default variant so the editor renders it.
     if (showRowSchedule && item.time && !variants.some(v => v && v.time)) {
       const def = variants.find(v => v && v.default) || variants[0];
       if (def) {
@@ -9557,7 +9271,7 @@
     const hasDensity = (typeof item.density_g_per_ml === 'number' && item.density_g_per_ml > 0);
     const fmt = (u) => u.replace('_', ' ');
     // Recipes: mass-only (g, oz, lb). Logging "I ate 250 g of my turkey slab"
-    // converts to a fraction of one batch using recipeBatchGrams. No volume
+    // converts to a fraction of one batch using recipeCanonicalGrams. No volume
     // units, no per-variant options — the canonical "1 batch" already lives
     // on the row's +/- buttons.
     const genericNative = isRecipe
@@ -9583,7 +9297,7 @@
           escapeHtml(labelTxt) + ' (' + v.unitsPerServing + ' ' + prim + ')' +
         '</option>';
       }).join('');
-    const batchG = isRecipe ? recipeBatchGrams(item) : 0;
+    const batchG = isRecipe ? recipeCanonicalGrams(item) : 0;
     const recipeHint = isRecipe
       ? (batchG > 0
           ? ' <span class="edit-panel-hint">1 batch ≈ ' + formatSize(batchG) + ' g — logging X g adds X/' + formatSize(batchG) + ' of a batch.</span>'
@@ -9688,8 +9402,8 @@
       const sourceMeasure = source ? getDefaultMeasuredIn(source) : 'units';
       const sourceIsPer100 = (sourceMeasure === 'g' || sourceMeasure === 'ml');
       const resolved = resolveIngredient(ing) || { name: '(missing)', kcal: 0, p: 0, sf: 0, water: 0, caffeine: 0, broken: true };
-      // Source's default variant carries the canonical serving size + label
-      // in v5.17+. item.amount is just a stub now; pull serving info from
+      // Source's default variant carries the canonical serving size +
+      // label. item.amount is just a stub; pull serving info from
       // getDisplayUnits(source) and find the variant flagged default.
       const sourceVariants = source ? getDisplayUnits(source) : [];
       const sourceDefVar = sourceVariants.find(u => u && u.default) || sourceVariants[0] || {};
@@ -9919,15 +9633,15 @@
     // "preserve" flag (default true) — when false the recipe behaves like
     // a custom: visible only on the day it was logged and in that day's
     // history, hidden from the catalog on other days.
-    // v6.5+: supplement + water items schedule per-serving (via each
-    // displayUnit's time/frequency); the item-level schedule block is
-    // suppressed for those categories. Recipes/foods keep the item-level
-    // schedule for whole-day meal planning.
+    // Supplement + water items schedule per-serving via each displayUnit's
+    // time/frequency; the item-level schedule block is suppressed for those
+    // categories. Recipes/foods keep the item-level schedule for whole-day
+    // meal planning.
     const isSupplement = (item.category === 'supplements');
     const isWaterItem = (item.category === 'water');
-    // v6.5.15: schedule time is no longer surfaced in the edit panel for
-    // any category. It still lives in the gist; only the profile
-    // supplements picker exposes a time control going forward.
+    // Schedule time is not surfaced in the edit panel for any category.
+    // It still lives in the gist; only the profile supplements picker
+    // exposes a time control.
     const hasSchedule = false;
     const schedTime = item.time || '';
     const schedFreq = item.frequency || 'daily';
@@ -10089,15 +9803,14 @@
       else delete item.brand;
     }
 
-    // Measurement mode (g / ml / units). The parent-level top-amount-unit
-    // input was removed in v6.4.0 (those fields belong per-serving). Keep
-    // the existing defaultMeasuredIn; only force 'units' for recipes.
+    // Measurement mode (g / ml / units). Top-level measure unit fields
+    // belong per-serving; keep the existing defaultMeasuredIn here, only
+    // force 'units' for recipes.
     if (isRecipe) {
       item.defaultMeasuredIn = 'units';
     } else if (!item.defaultMeasuredIn) {
       item.defaultMeasuredIn = 'g';
     }
-    // Drop legacy basis field if present — mandatory rename.
     delete item.basis;
 
     // Variants editor: replace item.displayUnits with whatever's currently
@@ -10123,12 +9836,12 @@
           const labelEl  = row.querySelector('[data-variant-field="label"]');
           const amountEl = row.querySelector('[data-variant-field="amount"]');
           const unitEl   = row.querySelector('[data-variant-field="unit"]');
-          // Backwards compat: a legacy "size" field reads as Amount in native units.
+          // Fallback name: "size" reads as Amount in native units.
           const sizeEl   = row.querySelector('[data-variant-field="size"]');
           const radio   = row.querySelector('[data-variant-default-radio]');
-          // Time + frequency aren't editable from the variant editor any
-          // more (per v6.5.15 UI cleanup). They round-trip via hidden data
-          // attributes on the row so existing schedules survive a save.
+          // Time + frequency aren't editable from the variant editor; they
+          // round-trip via hidden data attributes on the row so existing
+          // schedules survive a save.
           const label   = labelEl  ? (labelEl.value || '').trim() : '';
           const rawAmt  = parseFloat((amountEl || sizeEl || {}).value);
           const unit    = unitEl ? (unitEl.value || '').trim().toLowerCase() : primaryUnit(item);
@@ -10171,7 +9884,7 @@
             unit,
           };
           if (radio && radio.checked) entry.default = true;
-          // v6.5+: per-serving schedule fields on supplement/water variants.
+          // Per-serving schedule fields on supplement/water variants.
           if (isScheduleCategory && rowTime) {
             entry.time = rowTime;
             entry.frequency = rowFreq;
@@ -10394,12 +10107,11 @@
       delete item.notes;
     }
 
-    // v6.5.15: schedule time + frequency are no longer editable from the
-    // edit panel for any category (per the time-UI cleanup). Existing
-    // item.time / item.frequency stay untouched here so the gist data
-    // survives a save. Supplement scheduling now happens exclusively via
-    // the profile supplements picker, and only mutates displayUnit-level
-    // time/frequency anyway.
+    // Schedule time + frequency are not editable from this panel for any
+    // category. Existing item.time / item.frequency stay untouched here so
+    // the gist data survives a save. Supplement scheduling happens via
+    // the profile supplements picker, which only mutates
+    // displayUnit-level time/frequency.
 
     // Recipes carry an optional `preserve` flag (default true). When false,
     // the recipe behaves like a custom — only visible on days where it was
@@ -10577,8 +10289,8 @@
         if (action === 'inc') c.count = Math.round((cur + 1) * 10) / 10;
         else c.count = Math.max(0, Math.round((cur - 1) * 10) / 10);
         stampCustom(idx);
-        // Op-routed if the custom has an id; legacy customs without an id
-        // fall back to full-state so they don't get stuck.
+        // Op-routed when the custom has an id. Defensive fallback to
+        // full-state diff for the rare id-less custom.
         if (c.id) {
           saveStateLocal();
           sendOp({
@@ -10824,22 +10536,6 @@
     if (m === undefined) delete state.totalsMode;
     else state.totalsMode = m;
   }
-  // One-shot migration: earlier builds (v5.10.x → v5.11.0) stuffed the
-  // totals-strip mode into state.collapsedGroups['checkout-totals'] (as
-  // either `true` or the string `'all'`). Drain that entry into the new
-  // dedicated state.totalsMode field so collapsedGroups returns to being a
-  // pure boolean map. Idempotent — no-ops once the legacy key is gone.
-  function migrateTotalsModeFromCollapsedGroups() {
-    if (!state.collapsedGroups) return;
-    const legacy = state.collapsedGroups['checkout-totals'];
-    if (legacy === undefined) return;
-    if (!state.totalsMode) {
-      if (legacy === true) state.totalsMode = 'collapsed';
-      else if (legacy === 'all') state.totalsMode = 'all';
-    }
-    delete state.collapsedGroups['checkout-totals'];
-  }
-
   function renderCheckoutTotalCells() {
     const container = document.getElementById('checkout-totals');
     if (!container) return;
@@ -11077,9 +10773,9 @@
 
   // Navy body-fat formula. Inputs in cm; height comes from
   // state.profile.heightCm. Male formula by default; female adds hips
-  // (currently not collected per-day, so female falls back to the legacy
-  // direct fatPercent until hips is wired up). Returns null when any
-  // input is missing or the geometry doesn't make sense (waist <= neck).
+  // (hips is not collected per-day, so the female branch falls back to a
+  // direct fatPercent reading until hips is wired up). Returns null when
+  // any input is missing or the geometry doesn't make sense (waist <= neck).
   function computeNavyBodyFat(neckCm, waistCm, heightCm, gender, hipsCm) {
     if (!(neckCm > 0) || !(waistCm > 0) || !(heightCm > 0)) return null;
     if (waistCm - neckCm <= 0) return null;
@@ -11105,8 +10801,8 @@
 
   // Returns the effective body-fat % for a given day's bucket, either by
   // running the Navy formula against neck + waist + height, or falling
-  // back to a legacy directly-entered fatPercent if no measurements are
-  // present. null when nothing usable is on the bucket.
+  // back to a directly-entered fatPercent if no measurements are present.
+  // null when nothing usable is on the bucket.
   function fatPercentForDay(bucket) {
     if (!bucket) return null;
     const h = state.profile && state.profile.heightCm;
@@ -11121,7 +10817,7 @@
   }
 
   // Body-fat series — mirror of collectWeightSeries against the per-day
-  // Navy-computed body fat (falls back to legacy fatPercent field).
+  // Navy-computed body fat (falls back to a directly-entered fatPercent).
   function collectFatPercentSeries() {
     const map = new Map();
     for (const dateKey in state.days) {
@@ -11745,11 +11441,9 @@
     // Recipes in the new schema are pure references — name + category +
     // ingredients (which carry name, amount, references). No cached macros.
     // computeItemMacros sums them on demand at render/sort/total time.
-    // v6.5.3: every recipe gets an initial "full recipe" serving variant
-    // representing the whole batch (sum of ingredient grams). It's marked
-    // `locked: true` so it can't be deleted from the variant editor — the
-    // user always has a way to log "I ate the whole thing." Additional
-    // per-serving variants are added in the editor afterwards.
+    // Every new recipe gets an initial locked "full recipe" variant
+    // (whole batch). The user always has a way to log "I ate the whole
+    // thing". Additional per-serving variants are added in the editor.
     const newRecipe = {
       name: name,
       category: 'recipes',
@@ -11966,9 +11660,8 @@
             }
             // Per-variant table: derive the new per-native-unit value and push
             // a fresh display into every <span data-macro-variant-display> for
-            // this nutrient key. Storage IS per native unit (per gram / per ml)
-            // — the canonical "per100" cell shows that value as-is despite the
-            // legacy label.
+            // this nutrient key. Storage is per native unit (per gram / per ml);
+            // the canonical "per100" cell shows that value as-is.
             const perNative = (which === 'per100') ? val : (val / factor);
             const variantSpans = panel.querySelectorAll('span[data-macro-variant-display][data-macro-key="' + key + '"]');
             variantSpans.forEach(span => {
@@ -12003,9 +11696,9 @@
         // Pre-populate from the source's default variant — recipe-side amount
         // and label start as the source's default serving (e.g. "whole
         // package" = 454 g), editable in the resulting row without affecting
-        // the source item. In the v5.17+ schema item.amount is just a stub;
-        // the real serving info lives on the displayUnits entry marked
-        // default (or the first variant if none is flagged).
+        // the source item. item.amount is just a stub; the real serving info
+        // lives on the displayUnits entry marked default (or the first
+        // variant if none is flagged).
         const sourceVariants = getDisplayUnits(source);
         const defaultVar = sourceVariants.find(v => v && v.default) || sourceVariants[0] || {};
         const defaultAmount = (typeof defaultVar.multiplier === 'number' && defaultVar.multiplier > 0)
@@ -12207,9 +11900,8 @@
       // Limits: amount must stay within [canonical/8, canonical×10].
       // Math buttons: take the DEFAULT serving-size row as the base, apply
       // the modifier (× or +), and INSERT a fresh row at the end of the
-      // list with the computed amount + label. Old behavior (modify the
-      // scratch fields) is gone because the scratch row was removed in
-      // v6.4.0. Each click adds one new row — no per-button-click cycling.
+      // list with the computed amount + label. Each click adds one new
+      // row — no per-button-click cycling.
       const variantOpBtn = ev.target.closest('[data-variant-op]');
       if (variantOpBtn) {
         const panel = variantOpBtn.closest('[data-edit-panel]');
@@ -12360,10 +12052,6 @@
         if (freqEl)   freqEl.value = 'daily';
         return;
       }
-      // (Old scratch-form `data-variant-add` handler removed in v6.4.0 —
-      // the bottom "Create new serving size" Amount/Unit/Label/Reset/Add
-      // form is gone. The math buttons and "+ blank" button above append
-      // new rows directly into the editor list.)
       // Density input change: re-enable/disable volume units in the custom-add
       // dropdown and refresh the hint. Listening via 'input' on document for
       // simplicity (the panel is rebuilt on each open so attach-once is fine).
@@ -12400,7 +12088,7 @@
                       : (unitVal === 'lb') ? amt * MASS_TO_G.lb
                       : NaN;
           if (!isFinite(grams) || grams <= 0) return;
-          const batchG = recipeBatchGrams(item);
+          const batchG = recipeCanonicalGrams(item);
           if (!isFinite(batchG) || batchG <= 0) return;
           addNative = grams / batchG;
         } else if (unitVal && unitVal.indexOf('__variant_') === 0) {
@@ -12561,13 +12249,10 @@
     }, true);
 
     // Live auto-save for ALL inputs / selects / radios inside an open edit
-    // panel. Previously edits only persisted when the panel was collapsed,
-    // so closing the browser mid-edit (or just refreshing) silently lost
-    // the changes — most visibly the "default" variant radio. Debounced
-    // 350ms for `input` (continuous typing), immediate on `change` (radios,
-    // selects, blur of typed fields). saveExpandedEdits called with
-    // skipCatalogRender so the panel doesn't get yanked out from under the
-    // user; full re-render still fires on panel collapse.
+    // panel. Debounced 350ms for `input` (continuous typing), immediate on
+    // `change` (radios, selects, blur of typed fields). saveExpandedEdits
+    // called with skipCatalogRender so the panel doesn't get yanked out
+    // from under the user; full re-render still fires on panel collapse.
     const editPanelSaveDebounce = new WeakMap();
     const liveSaveEditPanel = (panel, opts) => {
       if (!panel) return;
@@ -13324,7 +13009,6 @@
     applyProfile(null);
     bindProfileForm();
     bindSuppsForm();
-    bindCatsForm();
     bindNutrientsChecklist();
     bindWarningsChecklist();
     renderHowToHints();
@@ -13335,8 +13019,6 @@
     // sync work. If the previous session was killed mid-flush, those ops sit
     // here.
     restoreQueue();
-    // One-time customs UUID migration. No-op if already done on this device.
-    maybeMigrateCustoms();
     // Always reset to today on page load. Past days are read-only-ish via
     // history navigation; the natural entry point is "today".
     state.activeDate = todayKey();
@@ -13458,8 +13140,7 @@
         // (default → all-nutrients → collapsed → default). Mode lives in
         // state.totalsMode; collapsedGroups stays a clean boolean map.
         if (host.matches('.checkout-totals[data-collapsible]')) {
-          // v6.5.27: two-state toggle. The legacy "all nutrients" middle
-          // mode is gone; clicks now flip default <-> collapsed.
+          // Two-state toggle: clicks flip default <-> collapsed.
           const cur = getTotalsMode();
           const next = (cur === TOTALS_MODE.COLLAPSED) ? TOTALS_MODE.DEFAULT : TOTALS_MODE.COLLAPSED;
           setTotalsMode(next);
@@ -13498,7 +13179,7 @@
 
       // Save any pending changes when the page is being closed/hidden. The
       // op-queue beacon flush (registered earlier in this block) already
-      // covers pagehide; this is the legacy back-stop for browsers that fire
+      // covers pagehide; this is a back-stop for browsers that fire
       // beforeunload before pagehide.
       window.addEventListener('beforeunload', () => {
         emitDiffOps();

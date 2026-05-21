@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-21T15:57:47.196Z",
-  "_gistSavedAt": "2026-05-21T15:56:14.031Z",
+  "_backupTakenAt": "2026-05-21T16:32:06.158Z",
+  "_gistSavedAt": "2026-05-21T15:59:58.380Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -354,7 +354,6 @@
     "sortMode": "ratio",
     "collapsedGroups": {
       "section-density": true,
-      "details-recipe-maker": true,
       "targets-daily": true,
       "details-profile-section": true,
       "today-customs": true,
@@ -365,7 +364,8 @@
       "section-weight-tracker": true,
       "catalog-ratio": true,
       "catalog-archive": true,
-      "section-checkout": true
+      "details-recipe-maker": true,
+      "today-log": true
     },
     "userCatalog": {
       "items": {

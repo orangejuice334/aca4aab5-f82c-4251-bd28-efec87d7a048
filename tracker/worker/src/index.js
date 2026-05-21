@@ -53,12 +53,6 @@ function ensureDay(state, date) {
   return d;
 }
 
-// Optional recipe-def snapshot embedded in counter ops. Used to freeze
-// non-preserve recipe definitions on the day they were logged so historical
-// totals don't shift when the recipe is edited later. Overwrites if a
-// snapshot already exists for that key — the client is the source of truth
-// for "when is this day still mutable" (it only sends recipeSnapshot when
-// the user is editing on that same calendar day).
 // Deep-merge plain object `src` into `dst` in place. Arrays + primitives
 // overwrite; nested plain objects recurse. Used by profile_update so
 // `{goals: {fatPercent: 15}}` doesn't clobber the rest of `goals`.
@@ -86,7 +80,7 @@ const OPS = {
     // counters are stored in the item's native unit (g for mass items, ml for
     // volume); op.servingSize carries the variant's serving size in that unit
     // so one click adds the right amount (340 g for "1/2 tub" vs 170 g for
-    // "1/4 tub"). Default to 1 when missing (legacy "+1" semantics).
+    // "1/4 tub"). Default to 1 when missing.
     const inc = (typeof op.servingSize === 'number' && op.servingSize > 0) ? op.servingSize : 1;
     day.counters[op.key] = Math.round(((day.counters[op.key] || 0) + inc) * 10000) / 10000;
     if (op.ts) day.counterMeta[op.key] = op.ts;
@@ -214,22 +208,6 @@ const OPS = {
     delete day.weightMeta;
     return { ok: true };
   },
-  fatPercent_set(state, op) {
-    if (typeof op.value !== 'number' || !Number.isFinite(op.value)) {
-      return { ok: false, error: 'fatPercent_set requires numeric value' };
-    }
-    const day = ensureDay(state, op.date);
-    day.fatPercent = op.value;
-    if (op.ts) day.fatPercentMeta = op.ts;
-    return { ok: true };
-  },
-  fatPercent_clear(state, op) {
-    if (!op.date) return { ok: false, error: 'fatPercent_clear requires date' };
-    const day = ensureDay(state, op.date);
-    delete day.fatPercent;
-    delete day.fatPercentMeta;
-    return { ok: true };
-  },
   neck_set(state, op) {
     if (typeof op.value !== 'number' || !Number.isFinite(op.value)) {
       return { ok: false, error: 'neck_set requires numeric value' };
@@ -317,8 +295,7 @@ const OPS = {
     }
     if (!state.profile) state.profile = {};
     // Deep merge so nested objects (notably `goals`) aren't clobbered when
-    // a partial update arrives. AGENT-OPS.md has long documented this as
-    // "Deep-merged"; impl was shallow until v6.5.5.
+    // a partial update arrives.
     deepMerge(state.profile, op.fields);
     return { ok: true };
   },
