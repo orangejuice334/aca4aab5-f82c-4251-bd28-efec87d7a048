@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.41">
+<meta name="app-version" content="v6.5.42">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -5904,6 +5904,14 @@
     merged.goals = GOALS;
     HEIGHT_M = (merged.heightCm || 0) / 100;
     HEIGHT_M_SQ = HEIGHT_M * HEIGHT_M;
+    // Page H1 + browser tab title both follow the live profile displayName
+    // (falling back to the USER constant for fresh profiles). Same source of
+    // truth used by saveProfileFromForm so an edit and an initial hydrate
+    // land on the same string.
+    const initialDisplayName = merged.displayName || USER_DISPLAY[USER];
+    const h1OnApply = document.getElementById('page-h1');
+    if (h1OnApply) h1OnApply.textContent = initialDisplayName + ' Tracker';
+    document.title = initialDisplayName + ' Tracker';
     renderCheckoutTotalCells();
     renderTargetsBanner();
     renderSupplementWaterRows();
@@ -6565,9 +6573,15 @@
     if (typeof renderSupplementWaterRows === 'function') renderSupplementWaterRows();
     if (typeof renderRatioCutoff === 'function') renderRatioCutoff();
 
-    // Update display name in summary if it changed
+    // Update display name in summary, page H1, and browser tab title so a
+    // displayName edit (or any reset back to default) propagates everywhere
+    // on the same keystroke that committed the change.
+    const profileDisplayName = state.profile.displayName || USER_DISPLAY[USER];
     const nameEl = document.getElementById('profile-name');
-    if (nameEl) nameEl.textContent = state.profile.displayName || USER_DISPLAY[USER];
+    if (nameEl) nameEl.textContent = profileDisplayName;
+    const h1El = document.getElementById('page-h1');
+    if (h1El) h1El.textContent = profileDisplayName + ' Tracker';
+    document.title = profileDisplayName + ' Tracker';
 
     renderProfileDerived();
     renderBmiSubtitle();
