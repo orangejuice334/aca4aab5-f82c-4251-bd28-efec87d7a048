@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.43">
+<meta name="app-version" content="v6.5.44">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -6504,15 +6504,72 @@
   // through the existing debounced gist-save pipeline. The expensive UI re-render
   // (render()) is rAF-coalesced so rapid typing doesn't queue up redundant work.
   let profileSaveStatusTimer = null;
-  let profileRenderRafHandle = null;
-  function scheduleProfileRender() {
-    if (profileRenderRafHandle != null) return;
-    profileRenderRafHandle = requestAnimationFrame(() => {
-      profileRenderRafHandle = null;
-      if (typeof render === 'function') render();
-    });
+  // Heavy DOM rebuilds (catalog rows, scheduled-supplement rows) deferred
+  // off the per-keystroke path so the input stays responsive while the user
+  // is mid-edit. Heavy renders run 220 ms after the last keystroke, so a
+  // rapid burst collapses to a single rebuild on the trailing edge.
+  let profileHeavyRenderTimer = null;
+  function scheduleProfileHeavyRender() {
+    if (profileHeavyRenderTimer != null) clearTimeout(profileHeavyRenderTimer);
+    profileHeavyRenderTimer = setTimeout(() => {
+      profileHeavyRenderTimer = null;
+      if (typeof renderCatalog === 'function') renderCatalog();
+      if (typeof renderSupplementWaterRows === 'function') renderSupplementWaterRows();
+    }, 220);
   }
-  function saveProfileFromForm() {
+  // Targeted refresh of the daily-totals strip cells (values + bars + pct).
+  // Used by saveProfileFromForm when a goal field changes - rebuilding the
+  // whole page is wasteful since only the cells' goal/pct/bar visuals depend
+  // on the edited goal. Mirrors the loop inside render() so the visual output
+  // matches exactly, just without touching catalog rows / history / etc.
+  function refreshDailyTotalsStrip() {
+    if (typeof computeTotals !== 'function') return;
+    const totals = computeTotals(state);
+    const displayed = (state.profile && Array.isArray(state.profile.displayedNutrients) && state.profile.displayedNutrients.length)
+      ? state.profile.displayedNutrients
+      : ['kcal', 'p', 'sf', 'water', 'caffeine'];
+    for (const key of displayed) {
+      const def = NUTRIENT_BY_KEY[key];
+      if (!def) continue;
+      const value = def.computed ? computeDerivedNutrient(key, totals) : (totals[key] || 0);
+      const valEl = document.querySelector('[data-total="' + key + '"]');
+      if (valEl && valEl.firstChild) {
+        const formatted = (def.dec > 0)
+          ? dropTrailingZeros((Math.round(value * Math.pow(10, def.dec)) / Math.pow(10, def.dec)).toFixed(def.dec))
+          : Math.round(value).toString();
+        valEl.firstChild.textContent = formatted + (def.unit ? ' ' : '');
+      }
+      if (def.computed) {
+        if (key === '_kcal_per_p' && GOALS.kcal > 0 && GOALS.p > 0) {
+          const target = GOALS.kcal / GOALS.p;
+          const fillEl = document.querySelector('[data-bar="_kcal_per_p"]');
+          if (fillEl) {
+            fillEl.style.width = '100%';
+            fillEl.style.backgroundColor = kcalPerPBarColor(value, target);
+          }
+          updateMarker('_kcal_per_p');
+        }
+        continue;
+      }
+      const goal = GOALS[key] || 1;
+      const pctEl = document.querySelector('[data-pct="' + key + '"]');
+      if (pctEl) {
+        const pct = Math.round((value / goal) * 100);
+        const rem = goal - value;
+        const dec = def.dec || 0;
+        const fmtRem = (n) => dec ? n.toFixed(dec) : Math.round(n).toString();
+        let remStr;
+        if (rem > 0) remStr = '-' + fmtRem(rem);
+        else if (rem < 0) remStr = '+' + fmtRem(-rem);
+        else remStr = '0';
+        pctEl.textContent = '(' + pct + '% · ' + remStr + ')';
+        pctEl.style.color = barColor(key, value, goal);
+      }
+      updateBar(key, value, goal);
+      updateMarker(key);
+    }
+  }
+  function saveProfileFromForm(triggerInput) {
     if (!state.profile) return;
     const form = document.getElementById('profile-form');
     if (!form) return;
@@ -6524,9 +6581,6 @@
       if (input.type === 'number') {
         const raw = input.value.trim();
         if (raw === '') {
-          // Empty → skip the write entirely. Writing null would zero out goals
-          // or height and break downstream math (BMI/Infinity, bar percentages).
-          // The previous value stays. To "unset" a numeric goal, type 0.
           input.classList.remove('bad');
           return;
         }
@@ -6546,38 +6600,17 @@
       profileSet(state.profile, path, value);
     });
 
-    // Propagate side-effects. Merge profile-defined goals over RDA defaults
-    // so every nutrient has a target.
+    // Always update derived primitives (GOALS / HEIGHT_M) - cheap and other
+    // code paths read these directly.
     GOALS = Object.assign({}, NUTRIENT_GOAL_DEFAULTS, state.profile.goals || {});
     state.profile.goals = GOALS;
     HEIGHT_M = (state.profile.heightCm || 0) / 100;
     HEIGHT_M_SQ = HEIGHT_M * HEIGHT_M;
-    renderCheckoutTotalCells();
-    // Daily goal targets (the kcal/p/sf/water banner numbers) need to refresh
-    // whenever the user edits a goal — otherwise the bar percentages and the
-    // labels still show the old goal until a full reload.
-    if (typeof renderTargetsBanner === 'function') renderTargetsBanner();
-    // Catalog row colors depend on GOALS.kcal / GOALS.p (the target ratio)
-    // and on the displayedNutrients list. Rebuild both the catalog grid and
-    // the scheduled-row strip so colors + macro lines re-render with the
-    // new goals.
-    if (typeof renderCatalog === 'function') renderCatalog();
-    if (typeof renderSupplementWaterRows === 'function') renderSupplementWaterRows();
-    if (typeof renderRatioCutoff === 'function') renderRatioCutoff();
 
-    // Update display name in summary, page H1, and browser tab title so a
-    // displayName edit (or any reset back to default) propagates everywhere
-    // on the same keystroke that committed the change.
-    const profileDisplayName = state.profile.displayName || USER_DISPLAY[USER];
-    const nameEl = document.getElementById('profile-name');
-    if (nameEl) nameEl.textContent = profileDisplayName;
-    const h1El = document.getElementById('page-h1');
-    if (h1El) h1El.textContent = profileDisplayName + ' Tracker';
-    document.title = profileDisplayName + ' Tracker';
-
-    renderProfileDerived();
-    renderBmiSubtitle();
-    scheduleProfileRender();
+    // Dispatch DOM refreshes based on which field actually changed. The
+    // input event passes the originating element so we only touch the
+    // visuals tied to that field instead of rebuilding the whole page.
+    applyProfileFieldUI(triggerInput ? triggerInput.getAttribute('data-profile') : null);
 
     // Status indicator
     const statusEl = document.getElementById('profile-form-status');
@@ -6585,7 +6618,7 @@
       statusEl.classList.remove('saved');
       statusEl.classList.add('saving');
       statusEl.innerHTML = anyBad
-        ? '<em>Edits save automatically. <span style="color:var(--rust)">Some fields are invalid — fix them.</span></em>'
+        ? '<em>Edits save automatically. <span style="color:var(--rust)">Some fields are invalid - fix them.</span></em>'
         : '<em>Saving…</em>';
       if (profileSaveStatusTimer) clearTimeout(profileSaveStatusTimer);
       profileSaveStatusTimer = setTimeout(() => {
@@ -6595,12 +6628,86 @@
       }, SAVE_DEBOUNCE_MS + 200);
     }
 
-    // Op-routed (v3.5.0): full profile sent as `fields`. Worker shallow-merges
-    // into state.profile, which for this payload size and frequency is fine
-    // (~200 bytes per op, debounced; multiple ops in one flush all converge
-    // on last-writer-wins). Catalog stays separate — only profile here.
     saveStateLocal();
     sendOp({ type: 'profile_update', fields: state.profile });
+  }
+
+  // Map a profile field path to the minimum set of DOM updates it affects.
+  // Called per keystroke. No full page rebuild - each branch touches only
+  // the cells/sections whose displayed value depends on this exact field.
+  function applyProfileFieldUI(path) {
+    const refreshDisplayName = () => {
+      const n = state.profile.displayName || USER_DISPLAY[USER];
+      const nameEl = document.getElementById('profile-name');
+      if (nameEl) nameEl.textContent = n;
+      const h1El = document.getElementById('page-h1');
+      if (h1El) h1El.textContent = n + ' Tracker';
+      document.title = n + ' Tracker';
+    };
+    const refreshDerivedBlock = () => {
+      if (typeof renderProfileDerived === 'function') renderProfileDerived();
+    };
+
+    // Unknown trigger (initial bind, programmatic save): refresh enough
+    // that the whole profile-driven UI surface is consistent. Still no
+    // full render() - heavy work goes through the debounced timer.
+    if (!path) {
+      refreshDisplayName();
+      if (typeof renderCheckoutTotalCells === 'function') renderCheckoutTotalCells();
+      if (typeof renderTargetsBanner === 'function') renderTargetsBanner();
+      if (typeof renderRatioCutoff === 'function') renderRatioCutoff();
+      if (typeof renderBmiSubtitle === 'function') renderBmiSubtitle();
+      refreshDerivedBlock();
+      refreshDailyTotalsStrip();
+      if (typeof renderWarningsRibbon === 'function') renderWarningsRibbon();
+      scheduleProfileHeavyRender();
+      return;
+    }
+
+    if (path === 'displayName') { refreshDisplayName(); return; }
+    if (path === 'fullName') return;
+
+    if (path === 'heightCm') {
+      if (typeof renderBmiSubtitle === 'function') renderBmiSubtitle();
+      refreshDerivedBlock();
+      if (typeof renderWeightSection === 'function') renderWeightSection();
+      return;
+    }
+
+    if (path === 'sex' || path === 'ageYears' || path === 'activityLevel') {
+      refreshDerivedBlock();
+      return;
+    }
+
+    if (path === 'startWeightKg' || path === 'targetWeightKg') {
+      refreshDerivedBlock();
+      if (typeof renderWeightSection === 'function') renderWeightSection();
+      return;
+    }
+
+    if (path.indexOf('goals.') === 0) {
+      // Goal label, banner numbers, ratio-cutoff badge, bar pcts/colors.
+      if (typeof renderCheckoutTotalCells === 'function') renderCheckoutTotalCells();
+      if (typeof renderTargetsBanner === 'function') renderTargetsBanner();
+      if (typeof renderRatioCutoff === 'function') renderRatioCutoff();
+      refreshDailyTotalsStrip();
+      // Weekly tracker thresholds (sat fat / fiber) scale to kcal; mercury
+      // to body weight. Refresh the ribbon tiles when those goals move.
+      if (typeof renderWarningsRibbon === 'function') renderWarningsRibbon();
+      const goalKey = path.slice(6);
+      // Catalog row colors depend on the kcal/p ratio target. Defer that
+      // rebuild so rapid keystrokes don't lock the cursor.
+      if (goalKey === 'kcal' || goalKey === 'p') scheduleProfileHeavyRender();
+      return;
+    }
+
+    if (path.indexOf('display.') === 0) {
+      // Time/date formatters changed - refresh anything that prints either.
+      if (typeof renderDateStamp === 'function') renderDateStamp();
+      if (typeof renderHistory === 'function') renderHistory();
+      scheduleProfileHeavyRender();
+      return;
+    }
   }
 
   // Bind once at init. The 'input' event covers text, number, AND select
@@ -6612,7 +6719,7 @@
     const form = document.getElementById('profile-form');
     if (!form) return;
     form.addEventListener('input', e => {
-      if (e.target && e.target.matches('[data-profile]')) saveProfileFromForm();
+      if (e.target && e.target.matches('[data-profile]')) saveProfileFromForm(e.target);
     });
     profileFormBound = true;
   }
