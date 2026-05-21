@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.39">
+<meta name="app-version" content="v6.5.40">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -765,44 +765,28 @@
   }
   .variant-group .checkout-row {
     background: transparent;
-    border-bottom: 1px dashed var(--rule);
-  }
-  .variant-group .checkout-row:last-of-type {
-    border-bottom: none;
   }
   /* Secondary variants hidden by default; revealed when the group's expand
      state ≥ 1. */
   .variant-extras-wrap { display: none; }
   .variant-group.variants-shown .variant-extras-wrap { display: block; position: relative; }
-  /* When expanded, draw a dashed vertical line through the counter
-     column and a ↕ glyph indicating that all the variant counters are
-     linked (incrementing one variant updates all others). The line is
-     anchored on `.variant-extras-wrap` so it extends from the primary
-     row's counter (top: negative offset) through the last secondary
-     variant's counter, stopping before the edit panel. */
-  .variant-group.row-expanded .variant-extras-wrap::before {
-    content: '';
-    position: absolute;
-    left: 56px;
-    top: -42px;
-    bottom: 6px;
-    border-left: 1.5px dashed var(--ink-soft);
-    pointer-events: none;
-    z-index: 0;
-  }
-  .variant-group.row-expanded .variant-extras-wrap::after {
+  /* When expanded, draw a ↕ glyph centered between each pair of variant
+     rows (between primary and first secondary, then between each pair of
+     secondaries). The arrow indicates that all variant counters are
+     linked - incrementing one variant updates all others. */
+  .variant-group.row-expanded .variant-row { position: relative; }
+  .variant-group.row-expanded .variant-extras-wrap > .variant-row::before {
     content: '↕';
     position: absolute;
-    left: 49px;
-    top: -22px;
+    top: -8px;
+    left: 56px;
+    transform: translateX(-50%);
     font-family: 'JetBrains Mono', monospace;
-    font-size: 16px;
+    font-size: 14px;
     color: var(--ink-soft);
-    background: var(--paper);
-    padding: 0 3px;
+    line-height: 1;
     pointer-events: none;
     z-index: 1;
-    line-height: 1;
   }
   /* "+N more serving options · tap" hint sits on the primary row and only
      shows while the group is collapsed. */
