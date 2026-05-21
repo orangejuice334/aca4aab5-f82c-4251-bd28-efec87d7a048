@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.42">
+<meta name="app-version" content="v6.5.43">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -4280,9 +4280,9 @@
     </fieldset>
 
     <fieldset class="profile-fieldset profile-nutrients">
-      <legend>Accumulation watch (last 7 days)</legend>
+      <legend>Weekly tracker</legend>
       <div class="nutrients-checklist" id="warnings-checklist"></div>
-      <p class="supps-note">Toggle which multi-day risk metrics appear in the watch ribbon. Thresholds for sat fat / fiber scale to your kcal goal; mercury scales to body weight.</p>
+      <p class="supps-note">Toggle which multi-day risk metrics appear in the weekly tracker. Thresholds for sat fat / fiber scale to your kcal goal; mercury scales to body weight.</p>
     </fieldset>
 
     <div class="profile-derived">
@@ -6408,34 +6408,26 @@
     nutrientsCheckBound = true;
   }
 
-  // Multi-day accumulation watch checklist. profile.disabledWarnings is a
-  // blacklist (default empty = all enabled). Toggling re-renders the ribbon.
+  // Weekly tracker checklist. profile.disabledWarnings is a blacklist
+  // (default empty = all enabled). Floors and caps now share one flat
+  // list; direction is encoded on each WARNING_DEFS entry and surfaces
+  // separately in the ribbon tiles, so the profile picker doesn't need
+  // to split them into two groups.
   function renderWarningsChecklist() {
     const list = document.getElementById('warnings-checklist');
     if (!list) return;
     const disabled = new Set((state.profile && state.profile.disabledWarnings) || []);
-    const groups = [
-      { key: 'high', label: 'Caps · over the limit is bad' },
-      { key: 'low',  label: 'Floors · under the limit is bad' },
-    ];
-    let html = '';
-    for (const grp of groups) {
-      const defs = WARNING_DEFS.filter(d => d.direction === grp.key);
-      if (!defs.length) continue;
-      html += '<div class="nutrient-group">';
-      html += '<div class="nutrient-group-label">' + escapeHtml(grp.label) + '</div>';
-      html += '<div class="nutrient-group-items">';
-      for (const def of defs) {
-        const checked = disabled.has(def.key) ? '' : ' checked';
-        const noteFrag = def.note ? ' <em>' + escapeHtml(def.note) + '</em>' : '';
-        html +=
-          '<label class="nutrient-check" title="' + escapeHtml(def.note || '') + '">' +
-            '<input type="checkbox" data-warning-toggle="' + escapeHtml(def.key) + '"' + checked + ' />' +
-            '<span>' + escapeHtml(def.label) + noteFrag + '</span>' +
-          '</label>';
-      }
-      html += '</div></div>';
+    let html = '<div class="nutrient-group"><div class="nutrient-group-items">';
+    for (const def of WARNING_DEFS) {
+      const checked = disabled.has(def.key) ? '' : ' checked';
+      const noteFrag = def.note ? ' <em>' + escapeHtml(def.note) + '</em>' : '';
+      html +=
+        '<label class="nutrient-check" title="' + escapeHtml(def.note || '') + '">' +
+          '<input type="checkbox" data-warning-toggle="' + escapeHtml(def.key) + '"' + checked + ' />' +
+          '<span>' + escapeHtml(def.label) + noteFrag + '</span>' +
+        '</label>';
     }
+    html += '</div></div>';
     list.innerHTML = html;
   }
 
