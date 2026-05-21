@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.40">
+<meta name="app-version" content="v6.5.41">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -766,6 +766,13 @@
   .variant-group .checkout-row {
     background: transparent;
   }
+  /* Variant rows widen the gap between the counter column and the name
+     column by 50% (15px -> 22.5px) so the + button has more breathing
+     room from the name/macros text. */
+  .variant-row { column-gap: 22.5px; }
+  @media (max-width: 600px) {
+    .variant-row { column-gap: 19.5px; }
+  }
   /* Secondary variants hidden by default; revealed when the group's expand
      state ≥ 1. */
   .variant-extras-wrap { display: none; }
@@ -773,14 +780,18 @@
   /* When expanded, draw a ↕ glyph centered between each pair of variant
      rows (between primary and first secondary, then between each pair of
      secondaries). The arrow indicates that all variant counters are
-     linked - incrementing one variant updates all others. */
+     linked - incrementing one variant updates all others. scaleY stretches
+     the glyph vertically without widening it, so it reads as a taller
+     link between rows. left:62px = row padding (12) + half of counter
+     column (50) so the arrow sits exactly above the counter input center. */
   .variant-group.row-expanded .variant-row { position: relative; }
   .variant-group.row-expanded .variant-extras-wrap > .variant-row::before {
     content: '↕';
     position: absolute;
-    top: -8px;
-    left: 56px;
-    transform: translateX(-50%);
+    top: -10px;
+    left: 62px;
+    transform: translateX(-50%) scaleY(1.6);
+    transform-origin: center;
     font-family: 'JetBrains Mono', monospace;
     font-size: 14px;
     color: var(--ink-soft);
@@ -788,16 +799,6 @@
     pointer-events: none;
     z-index: 1;
   }
-  /* "+N more serving options · tap" hint sits on the primary row and only
-     shows while the group is collapsed. */
-  .variant-more-hint {
-    display: inline-block;
-    font-size: 11px;
-    color: var(--ink-soft);
-    font-style: italic;
-    margin-top: 4px;
-  }
-  .variant-group.variants-shown .variant-more-hint { display: none; }
   /* Legacy class retained in case any code path still references it. */
   .variant-row-secondary {
     color: var(--ink-soft);
@@ -9102,12 +9103,6 @@
       macrosSpan.className = 'checkout-item-macros';
       macrosSpan.innerHTML = macroLine(item, variant && variant.unitsPerServing);
       nameCol.appendChild(macrosSpan);
-      if (idx === 0 && variants.length > 1) {
-        const more = document.createElement('span');
-        more.className = 'variant-more-hint';
-        more.textContent = '+ ' + (variants.length - 1) + ' more serving option' + (variants.length - 1 === 1 ? '' : 's') + ' · tap';
-        nameCol.appendChild(more);
-      }
       row.appendChild(nameCol);
 
       const ctrl = document.createElement('div');

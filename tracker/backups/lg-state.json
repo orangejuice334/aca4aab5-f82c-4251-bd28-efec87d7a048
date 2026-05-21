@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-21T15:01:01.687Z",
-  "_gistSavedAt": "2026-05-21T14:48:48.602Z",
+  "_backupTakenAt": "2026-05-21T15:16:23.802Z",
+  "_gistSavedAt": "2026-05-21T15:15:27.655Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -355,7 +355,6 @@
       "targets-daily": true,
       "section-weight-tracker": true,
       "details-profile-section": true,
-      "profile": true,
       "today-customs": true,
       "targets-accumulation": true,
       "details-add-new-item": true,
