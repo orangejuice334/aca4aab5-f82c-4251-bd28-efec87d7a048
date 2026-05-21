@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.38">
+<meta name="app-version" content="v6.5.39">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -8309,12 +8309,16 @@
     const normLabel = norm(label);
     const sizeInName  = !!normSize  && normName.indexOf(normSize) >= 0;
     const labelInName = !!normLabel && normName.indexOf(normLabel) >= 0;
-    // Whole thing already in the title — no suffix.
+    // Whole thing already in the title - no suffix.
     if ((sizeInName && labelInName) || (sizeInName && !label)) return '';
     if (!label) return ' · ' + sizeStr;
-    // Variant label is literally the size+unit (auto-synthesized fallback) —
+    // Variant label is literally the size+unit (auto-synthesized fallback) -
     // show it once, but not twice.
     if (normLabel === normSize) return ' · ' + label;
+    // Label already contains the size verbatim (e.g. "1 scoop (30 g)") -
+    // don't append a duplicate "(30 g)" after it.
+    const sizeInLabel = normLabel.indexOf(normSize) >= 0;
+    if (sizeInLabel) return ' · ' + label;
     // Descriptive label + size both add value.
     return sizeInName ? ' · ' + label : ' · ' + label + ' (' + sizeStr + ')';
   }
