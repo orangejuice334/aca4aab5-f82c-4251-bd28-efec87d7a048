@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-21T15:29:33.963Z",
-  "_gistSavedAt": "2026-05-21T15:21:25.825Z",
+  "_backupTakenAt": "2026-05-21T15:57:47.196Z",
+  "_gistSavedAt": "2026-05-21T15:56:14.031Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -354,18 +354,18 @@
     "sortMode": "ratio",
     "collapsedGroups": {
       "section-density": true,
-      "catalog-archive": true,
       "details-recipe-maker": true,
       "targets-daily": true,
       "details-profile-section": true,
       "today-customs": true,
       "targets-accumulation": true,
-      "details-add-new-item": true,
       "supplements-water": true,
       "profile": true,
-      "section-checkout": true,
       "history": true,
-      "section-weight-tracker": true
+      "section-weight-tracker": true,
+      "catalog-ratio": true,
+      "catalog-archive": true,
+      "section-checkout": true
     },
     "userCatalog": {
       "items": {

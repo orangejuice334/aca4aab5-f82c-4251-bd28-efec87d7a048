@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.45">
+<meta name="app-version" content="v6.5.46">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -2085,7 +2085,7 @@
      applies to the row body only so the header bar stays the same fully
      black background as every other subsection. */
   .archive-group {
-    margin-top: 16px;
+    margin-top: 0;
   }
   .archive-group > .checkout-row {
     opacity: 0.7;
@@ -2131,7 +2131,7 @@
   .recipe-maker {
     border: 1px solid var(--ink);
     background: var(--paper);
-    margin: 12px 0;
+    margin: 0;
   }
   .recipe-maker summary {
     list-style: none;
@@ -2934,16 +2934,6 @@
   }
 
   /* ===== CUSTOM ITEM FORM ===== */
-  /* Visual separator between Today's Custom Items (inside the checkout
-     section) and the standalone "Add new item" details below. The
-     dashed-border on `.custom-add` already gives the form its own
-     surface; the separator + extra top margin make it read as a
-     different region. */
-  .custom-add-separator {
-    height: 1px;
-    margin: 28px 0 16px;
-    border-top: 1px solid var(--rule);
-  }
   .custom-add.custom-add-section {
     margin-top: 0;
   }
@@ -3066,7 +3056,8 @@
   }
 
   .custom-form-field input[type="text"],
-  .custom-form-field input[type="number"] {
+  .custom-form-field input[type="number"],
+  .custom-form-field select {
     border: 1px solid var(--rule);
     background: var(--paper);
     padding: 6px 8px;
@@ -3078,7 +3069,8 @@
     box-sizing: border-box;
   }
 
-  .custom-form-field input:focus {
+  .custom-form-field input:focus,
+  .custom-form-field select:focus {
     outline: none;
     border-color: var(--rust);
   }
@@ -4373,86 +4365,85 @@
       <div class="checkout-group-header">Today's Custom Items</div>
       <div id="today-customs-list"></div>
     </div>
-  </div>
 
-  <div class="custom-add-separator"></div>
-  <details class="custom-add custom-add-section" id="add-new-item">
-    <summary>Add new catalog item</summary>
-    <div data-custom-form="2">
-      <div class="custom-form">
-        <div class="custom-form-field wide">
-          <label>Name</label>
-          <input type="text" data-custom-input="name" placeholder="e.g. Pizza slice" />
-        </div>
-        <div class="custom-form-field">
-          <label>kcal *</label>
-          <input type="number" data-custom-input="kcal" min="0" step="1" />
-        </div>
-        <!-- Full nutrient grid (every STORED_NUTRIENT_KEYS except kcal,
-             which is the required field above). Populated by
-             renderCustomNutrientGrid() at bind time so the field set
-             stays in sync with NUTRIENT_DEFS. -->
-        <div class="custom-form-field wide" data-custom-nutrient-grid>
-        </div>
-        <div class="custom-form-field wide">
-          <label>Category</label>
-          <select data-custom-input="category" data-cat-select>
-            <!-- Options populated at render time from CATEGORIES; the
-                 trailing "+ Add new category" entry reveals the input below. -->
-          </select>
-          <input type="text" data-custom-input="newCategory" data-new-cat-input placeholder="New category name" style="display: none; margin-top: 6px;" />
-        </div>
-        <div class="custom-form-actions">
-          <label class="custom-form-store">
-            <input type="checkbox" data-custom-input="store" />
-            Store for later (saves as reusable item)
-          </label>
-          <button type="button" class="custom-form-submit" data-custom-submit>Add</button>
-        </div>
-        <div class="custom-form-error" data-custom-error style="display: none;"></div>
-      </div>
-    </div>
-  </details>
-
-  <details class="recipe-maker" id="recipe-maker">
-    <summary>Recipe maker</summary>
-    <div class="recipe-maker-body">
-      <div class="recipe-maker-fields">
-        <div class="custom-form-field wide">
-          <label>Recipe name</label>
-          <input type="text" data-recipe-name placeholder="e.g. Eggs & shrimp microwave bowl" />
-        </div>
-        <div class="custom-form-field wide">
-          <label>Key <span class="edit-panel-hint">auto-derived from name; edit if you want a custom slug</span></label>
-          <input type="text" data-recipe-key placeholder="(auto)" />
-        </div>
-      </div>
-
-      <div class="recipe-maker-ingredients" data-recipe-ing-list></div>
-      <button type="button" data-recipe-ing-add class="ing-add-btn">+ Add ingredient</button>
-
-      <template data-recipe-ing-template>
-        <div class="recipe-ing-row" data-recipe-ing-row>
-          <div class="recipe-ing-top">
-            <select data-recipe-ing-select class="recipe-ing-select"></select>
-            <button type="button" data-recipe-ing-delete class="ing-delete" aria-label="Remove ingredient">×</button>
+    <details class="custom-add custom-add-section" id="add-new-item">
+      <summary>Add new catalog item</summary>
+      <div data-custom-form="2">
+        <div class="custom-form">
+          <div class="custom-form-field wide">
+            <label>Name</label>
+            <input type="text" data-custom-input="name" placeholder="e.g. Pizza slice" />
           </div>
-          <div class="recipe-ing-variants" data-recipe-ing-variants></div>
-          <div class="recipe-ing-macros" data-recipe-ing-macros>—</div>
+          <div class="custom-form-field">
+            <label>kcal *</label>
+            <input type="number" data-custom-input="kcal" min="0" step="1" />
+          </div>
+          <!-- Full nutrient grid (every STORED_NUTRIENT_KEYS except kcal,
+               which is the required field above). Populated by
+               renderCustomNutrientGrid() at bind time so the field set
+               stays in sync with NUTRIENT_DEFS. -->
+          <div class="custom-form-field wide" data-custom-nutrient-grid>
+          </div>
+          <div class="custom-form-field wide">
+            <label>Category</label>
+            <select data-custom-input="category" data-cat-select>
+              <!-- Options populated at render time from CATEGORIES; the
+                   trailing "+ Add new category" entry reveals the input below. -->
+            </select>
+            <input type="text" data-custom-input="newCategory" data-new-cat-input placeholder="New category name" style="display: none; margin-top: 6px;" />
+          </div>
+          <div class="custom-form-actions">
+            <label class="custom-form-store">
+              <input type="checkbox" data-custom-input="store" />
+              Store for later (saves as reusable item)
+            </label>
+            <button type="button" class="custom-form-submit" data-custom-submit>Add</button>
+          </div>
+          <div class="custom-form-error" data-custom-error style="display: none;"></div>
         </div>
-      </template>
-
-      <div class="recipe-totals" data-recipe-totals>
-        <div class="recipe-totals-line"><strong>Totals:</strong> <span data-recipe-totals-text>0 kcal · 0 P · 0 SF · 0 ml · 0 caf</span></div>
-        <div class="recipe-totals-ratio"><strong>Ratio:</strong> <span data-recipe-totals-ratio>—</span></div>
       </div>
+    </details>
 
-      <div class="custom-form-error" data-recipe-error style="display: none;"></div>
-      <div class="recipe-maker-actions">
-        <button type="button" data-recipe-save class="custom-form-submit">Save recipe</button>
+    <details class="recipe-maker" id="recipe-maker">
+      <summary>Recipe maker</summary>
+      <div class="recipe-maker-body">
+        <div class="recipe-maker-fields">
+          <div class="custom-form-field wide">
+            <label>Recipe name</label>
+            <input type="text" data-recipe-name placeholder="e.g. Eggs & shrimp microwave bowl" />
+          </div>
+          <div class="custom-form-field wide">
+            <label>Key <span class="edit-panel-hint">auto-derived from name; edit if you want a custom slug</span></label>
+            <input type="text" data-recipe-key placeholder="(auto)" />
+          </div>
+        </div>
+
+        <div class="recipe-maker-ingredients" data-recipe-ing-list></div>
+        <button type="button" data-recipe-ing-add class="ing-add-btn">+ Add ingredient</button>
+
+        <template data-recipe-ing-template>
+          <div class="recipe-ing-row" data-recipe-ing-row>
+            <div class="recipe-ing-top">
+              <select data-recipe-ing-select class="recipe-ing-select"></select>
+              <button type="button" data-recipe-ing-delete class="ing-delete" aria-label="Remove ingredient">×</button>
+            </div>
+            <div class="recipe-ing-variants" data-recipe-ing-variants></div>
+            <div class="recipe-ing-macros" data-recipe-ing-macros>—</div>
+          </div>
+        </template>
+
+        <div class="recipe-totals" data-recipe-totals>
+          <div class="recipe-totals-line"><strong>Totals:</strong> <span data-recipe-totals-text>0 kcal · 0 P · 0 SF · 0 ml · 0 caf</span></div>
+          <div class="recipe-totals-ratio"><strong>Ratio:</strong> <span data-recipe-totals-ratio>—</span></div>
+        </div>
+
+        <div class="custom-form-error" data-recipe-error style="display: none;"></div>
+        <div class="recipe-maker-actions">
+          <button type="button" data-recipe-save class="custom-form-submit">Save recipe</button>
+        </div>
       </div>
-    </div>
-  </details>
+    </details>
+  </div>
 
   <div class="checkout-warnings" id="checkout-warnings"></div>
 </section>
