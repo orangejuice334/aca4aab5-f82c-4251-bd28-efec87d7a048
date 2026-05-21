@@ -32,8 +32,25 @@ State shape:
 Every food-log op needs `date: "YYYY-MM-DD"`. `ts` is the current ISO
 timestamp; it drives the row's "last touched at" badge.
 
+Response shape: `{ ok, applied, errors, _savedAt, gistVersion }`. The
+`X-Gist-Version` response header carries the same `gistVersion` for
+clients that prefer headers. `ok: false` means one or more ops failed
+validation; inspect `errors[].index` / `errors[].reason`.
+
 After any mutation, GET /state once to confirm. On HTTP 403 back off
 about 30 seconds; the underlying gist API is rate-limited.
+
+## Optimistic concurrency (optional)
+
+The Worker supports an `If-Match: <gistVersion>` request header on
+`/ops`. When the header is present and the gist's current version no
+longer matches, the Worker rejects the entire batch with HTTP 412 and
+returns `{ error, expected, current }` plus the `X-Gist-Version` header
+so the client can re-sync before retrying. Omit the header to disable
+the check (last writer wins).
+
+The browser app uses this to detect concurrent writes from other tabs
+or `mutate.mjs`. One-shot scripts that don't loop can skip it.
 
 ## Live clock requirement
 
@@ -126,8 +143,12 @@ Rules:
 
 Recipe counters are in fractions of one batch, not grams.
 
-1. Compute `batch_g = Σ ingredient.multiplier × ITEMS[ingredient.itemKey].defaultDisplayUnit.multiplier`.
-2. `servingSize = amount / batch_g` (e.g. 250 / 853 = 0.293).
+1. Compute one batch's native-unit total by summing every ingredient:
+   - If `ing.amount` is a positive number, add `ing.amount`.
+   - Otherwise if `ing.multiplier` is a positive number, add
+     `ing.multiplier * ITEMS[ing.itemKey].displayUnits[0].multiplier`.
+   - Flat ingredients (no `itemKey`, no numeric amount) contribute 0.
+2. `servingSize = amount / batch_total` (e.g. 250 / 853 = 0.293).
 3. `counter_inc` with that fraction. One whole batch = `servingSize: 1`.
 
 ### "I took my <supplement>" / "I drank my <water slot>"
