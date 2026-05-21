@@ -14,7 +14,8 @@ const GIST_FILE = 'tracker-state.json';
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+  'Access-Control-Allow-Headers': 'Content-Type, Authorization, If-Match',
+  'Access-Control-Expose-Headers': 'X-Gist-Version',
   'Access-Control-Max-Age': '86400',
 };
 
@@ -387,7 +388,6 @@ export default {
     // if it has moved since the client last read it. Exposed to the client
     // via the X-Gist-Version response header on /state GET and /ops POST.
     const gistVersion = (gist) => (gist && Array.isArray(gist.history) && gist.history[0] && gist.history[0].version) || '';
-    const corsAllowExpose = { ...corsHeaders, 'Access-Control-Expose-Headers': 'X-Gist-Version' };
 
     if (url.pathname === '/state') {
       if (request.method === 'GET') {
@@ -395,7 +395,7 @@ export default {
         let bodyText = await r.text();
         let version = '';
         try { version = gistVersion(JSON.parse(bodyText)); } catch (e) {}
-        const headers = { ...corsAllowExpose, 'Content-Type': 'application/json' };
+        const headers = { ...corsHeaders, 'Content-Type': 'application/json' };
         if (version) headers['X-Gist-Version'] = version;
         return new Response(bodyText, { status: r.status, headers });
       }
@@ -413,7 +413,7 @@ export default {
         let bodyText = await r.text();
         let version = '';
         try { version = gistVersion(JSON.parse(bodyText)); } catch (e) {}
-        const headers = { ...corsAllowExpose, 'Content-Type': 'application/json' };
+        const headers = { ...corsHeaders, 'Content-Type': 'application/json' };
         if (version) headers['X-Gist-Version'] = version;
         return new Response(bodyText, { status: r.status, headers });
       }
@@ -456,7 +456,7 @@ export default {
     const currentVersion = gistVersion(gist);
 
     if (ifMatch && currentVersion && ifMatch !== currentVersion) {
-      const headers = { ...corsAllowExpose, 'Content-Type': 'application/json' };
+      const headers = { ...corsHeaders, 'Content-Type': 'application/json' };
       if (currentVersion) headers['X-Gist-Version'] = currentVersion;
       return new Response(JSON.stringify({
         error: 'gist version moved',
@@ -494,7 +494,7 @@ export default {
     let newVersion = '';
     try { newVersion = gistVersion(await patchRes.clone().json()); } catch (e) {}
 
-    const headers = { ...corsAllowExpose, 'Content-Type': 'application/json' };
+    const headers = { ...corsHeaders, 'Content-Type': 'application/json' };
     if (newVersion) headers['X-Gist-Version'] = newVersion;
 
     return new Response(JSON.stringify({
