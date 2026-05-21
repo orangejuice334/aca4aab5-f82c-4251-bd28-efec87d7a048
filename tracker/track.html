@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.48">
+<meta name="app-version" content="v6.5.49">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -738,6 +738,16 @@
 
   /* ===== CHECKOUT LIST ===== */
   .checkout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  /* #catalog-groups is a sibling container of the other .checkout-group
+     bars; its children (All items / Archive / per-category groups) are
+     also .checkout-group bars and need the same 24 px separation as the
+     top-level flex children, otherwise they render flush against each
+     other with no visible gap. */
+  #catalog-groups {
     display: flex;
     flex-direction: column;
     gap: 24px;

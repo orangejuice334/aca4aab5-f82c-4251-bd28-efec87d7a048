@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-21T17:03:44.243Z",
-  "_gistSavedAt": "2026-05-21T16:44:31.750Z",
+  "_backupTakenAt": "2026-05-21T17:44:50.082Z",
+  "_gistSavedAt": "2026-05-21T17:44:01.661Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -248,10 +248,12 @@
           "creatine#08:00": true,
           "omega3#08:00": true,
           "two_per_day#08:00": true,
-          "caffeine_anhydrous_200mg#08:00": true
+          "caffeine_anhydrous_200mg#08:00": true,
+          "water#12:30": true
         },
         "counters": {
-          "protein_whey_dymatize_iso100_vanilla": 30
+          "protein_whey_dymatize_iso100_vanilla": 30,
+          "avocado_half": 65
         },
         "customs": [
           {
@@ -270,10 +272,12 @@
           "creatine#08:00": "2026-05-21T14:45:52.625Z",
           "omega3#08:00": "2026-05-21T14:45:56.045Z",
           "two_per_day#08:00": "2026-05-21T14:45:59.391Z",
-          "caffeine_anhydrous_200mg#08:00": "2026-05-21T14:46:00.447Z"
+          "caffeine_anhydrous_200mg#08:00": "2026-05-21T14:46:00.447Z",
+          "water#12:30": "2026-05-21T17:43:36.544Z"
         },
         "counterMeta": {
-          "protein_whey_dymatize_iso100_vanilla": "2026-05-21T14:47:11.279Z"
+          "protein_whey_dymatize_iso100_vanilla": "2026-05-21T14:47:11.279Z",
+          "avocado_half": "2026-05-21T17:42:10+00:00"
         },
         "weight": 99,
         "weightMeta": "2026-05-21T15:21:11.848Z"
@@ -358,13 +362,14 @@
       "details-profile-section": true,
       "today-customs": true,
       "targets-accumulation": true,
-      "supplements-water": true,
       "profile": true,
       "history": true,
       "section-weight-tracker": true,
       "catalog-ratio": true,
       "catalog-archive": true,
       "details-recipe-maker": true,
+      "details-add-new-item": true,
+      "supplements-water": true,
       "today-log": true
     },
     "userCatalog": {
@@ -4657,7 +4662,6 @@
           "label": "Uncategorized"
         }
       ]
-    },
-    "totalsMode": "collapsed"
+    }
   }
 }
