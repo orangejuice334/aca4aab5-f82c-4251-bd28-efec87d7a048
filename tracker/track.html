@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.50">
+<meta name="app-version" content="v6.5.51">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -4179,11 +4179,19 @@
     <input type="number" id="context-bar-weight" class="weight-input" step="0.1" min="0" placeholder="—" inputmode="decimal" data-weight-mirror>
     <span class="weight-input-unit">kg</span>
   </span>
-  <button id="sync-now" type="button" class="title-btn-secondary" title="Pull latest from the cloud and save any pending changes">Sync</button>
+  <span class="weight-input-wrapper">
+    <label class="weight-input-label" for="context-bar-neck">Neck</label>
+    <input type="number" id="context-bar-neck" class="weight-input" step="0.1" min="0" max="80" placeholder="—" inputmode="decimal" title="Neck circumference at the narrowest point, just below Adam's apple. cm.">
+    <span class="weight-input-unit">cm</span>
+  </span>
+  <span class="weight-input-wrapper">
+    <label class="weight-input-label" for="context-bar-waist">Waist</label>
+    <input type="number" id="context-bar-waist" class="weight-input" step="0.1" min="0" max="250" placeholder="—" inputmode="decimal" title="Waist circumference at navel level, end of a normal exhale. cm.">
+    <span class="weight-input-unit">cm</span>
+  </span>
   <button id="sort-toggle" type="button" class="title-btn-secondary sort-toggle" title="Toggle between category and alphabetical sort">Sort: by category</button>
   <span id="sync-status" class="sync-status" style="display: none;"></span>
   <span id="last-sync" class="last-sync" style="display: none;" title="Last successful sync"></span>
-  <span id="data-updated" class="last-sync data-updated" style="display: none;"></span>
 </div>
 
 
@@ -11121,10 +11129,22 @@
   function renderBfInlineFromInputs() {
     const el = document.getElementById('bf-inline');
     if (!el) return;
-    const neckEl = document.getElementById('checkout-neck');
-    const waistEl = document.getElementById('checkout-waist');
-    const neck = neckEl ? parseFloat(neckEl.value) : NaN;
-    const waist = waistEl ? parseFloat(waistEl.value) : NaN;
+    // Read from whichever mirror input the user is editing - prefer the
+    // currently focused one, fall back to the section copy, then the
+    // context-bar copy. Either commits to the same bucket.
+    const readField = (ids) => {
+      for (const id of ids) {
+        const node = document.getElementById(id);
+        if (node && document.activeElement === node) return parseFloat(node.value);
+      }
+      for (const id of ids) {
+        const node = document.getElementById(id);
+        if (node && node.value !== '') return parseFloat(node.value);
+      }
+      return NaN;
+    };
+    const neck = readField(['checkout-neck', 'context-bar-neck']);
+    const waist = readField(['checkout-waist', 'context-bar-waist']);
     const height = state.profile && state.profile.heightCm;
     const bf = computeNavyBodyFat(neck, waist, height, profileGender());
     if (typeof bf !== 'number' || !isFinite(bf) || bf <= 0 || bf >= 60) {
@@ -11143,10 +11163,12 @@
       if (!el || document.activeElement === el) return;
       el.value = (typeof val === 'number' && val > 0) ? val : '';
     };
-    syncInput('checkout-weight',   bucket && bucket.weight);
+    syncInput('checkout-weight',    bucket && bucket.weight);
     syncInput('context-bar-weight', bucket && bucket.weight);
-    syncInput('checkout-neck',     bucket && bucket.neck);
-    syncInput('checkout-waist',    bucket && bucket.waist);
+    syncInput('checkout-neck',      bucket && bucket.neck);
+    syncInput('context-bar-neck',   bucket && bucket.neck);
+    syncInput('checkout-waist',     bucket && bucket.waist);
+    syncInput('context-bar-waist',  bucket && bucket.waist);
     renderBfInlineFromInputs();
     renderWeightSummary();
     renderWeightChart();
@@ -12770,16 +12792,17 @@
       }
     }
 
-    // Neck + waist inputs — same debounced commit pattern as weight. Body
+    // Neck + waist inputs - same debounced commit pattern as weight. Both
+    // the always-visible context-bar copy and the Weight & BMI section copy
+    // share one debounce per field; either input is a valid source. Body
     // fat % is computed from neck + waist + profile height via the Navy
-    // method (see computeNavyBodyFat); no fatPercent input anymore. The
-    // computed value is shown inline next to the inputs and drives the
-    // body-fat chart.
-    function wireMeasurementInput(elId, fieldName, range, opType, clearOp) {
-      const inp = document.getElementById(elId);
-      if (!inp) return;
-      const commit = () => {
-        const raw = inp.value.trim();
+    // method (see computeNavyBodyFat).
+    function wireMeasurementInputs(ids, fieldName, range, opType, clearOp) {
+      const inputs = ids.map(id => document.getElementById(id)).filter(Boolean);
+      if (!inputs.length) return;
+      let debounce = null;
+      const commit = (source) => {
+        const raw = (source.value || '').trim();
         const bucket = ensureDayBucket(state.activeDate);
         if (raw === '') {
           delete bucket[fieldName];
@@ -12797,27 +12820,24 @@
         bucket[fieldName + 'Meta'] = ts;
         saveStateLocal();
         sendOp({ type: opType, date: state.activeDate, value: rounded, ts });
-        // Gap-fill missing-day interpolation for body-fat inputs too,
-        // since the body-fat chart reads from the live neck/waist series.
         const gapOps = fillGapsForMetric(fieldName, opType, state.activeDate, rounded);
         for (const op of gapOps) sendOp(op);
         renderWeightSection();
       };
-      let debounce = null;
-      inp.addEventListener('input', () => {
-        if (debounce) clearTimeout(debounce);
-        debounce = setTimeout(() => { debounce = null; commit(); }, 350);
-        // Update the inline BF readout live as the user types — no need to
-        // wait for debounce. Uses the current input values directly.
-        renderBfInlineFromInputs();
-      });
-      inp.addEventListener('blur', () => {
-        if (debounce) { clearTimeout(debounce); debounce = null; }
-        commit();
-      });
+      for (const inp of inputs) {
+        inp.addEventListener('input', () => {
+          if (debounce) clearTimeout(debounce);
+          debounce = setTimeout(() => { debounce = null; commit(inp); }, 350);
+          renderBfInlineFromInputs();
+        });
+        inp.addEventListener('blur', () => {
+          if (debounce) { clearTimeout(debounce); debounce = null; }
+          commit(inp);
+        });
+      }
     }
-    wireMeasurementInput('checkout-neck',  'neck',  [10, 80],  'neck_set',  'neck_clear');
-    wireMeasurementInput('checkout-waist', 'waist', [30, 250], 'waist_set', 'waist_clear');
+    wireMeasurementInputs(['checkout-neck',  'context-bar-neck'],  'neck',  [10, 80],  'neck_set',  'neck_clear');
+    wireMeasurementInputs(['checkout-waist', 'context-bar-waist'], 'waist', [30, 250], 'waist_set', 'waist_clear');
 
     // Date navigation
     dateNavPrev.addEventListener('click', () => {

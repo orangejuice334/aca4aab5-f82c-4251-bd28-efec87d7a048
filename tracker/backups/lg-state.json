@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-22T13:39:24.436Z",
-  "_gistSavedAt": "2026-05-22T13:33:57.134Z",
+  "_backupTakenAt": "2026-05-22T14:49:09.423Z",
+  "_gistSavedAt": "2026-05-22T14:47:42.267Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -301,7 +301,9 @@
           "ketchup_packet": "2026-05-22T13:26:50.013Z",
           "avocado_half": "2026-05-22T13:27:15.184Z",
           "soy_milk": "2026-05-22T13:29:45.767Z"
-        }
+        },
+        "weight": 98.5,
+        "weightMeta": "2026-05-22T14:47:32.978Z"
       }
     },
     "savedItems": [],
@@ -382,16 +384,15 @@
       "targets-daily": true,
       "details-profile-section": true,
       "today-customs": true,
-      "section-weight-tracker": true,
       "catalog-archive": true,
       "details-recipe-maker": true,
       "details-add-new-item": true,
       "today-log": true,
       "targets-accumulation": true,
-      "profile": true,
       "catalog-ratio": true,
       "section-checkout": true,
-      "history": true
+      "history": true,
+      "details-sync-error-banner": true
     },
     "userCatalog": {
       "items": {
@@ -4684,6 +4685,7 @@
           "label": "Uncategorized"
         }
       ]
-    }
+    },
+    "totalsMode": "collapsed"
   }
 }
