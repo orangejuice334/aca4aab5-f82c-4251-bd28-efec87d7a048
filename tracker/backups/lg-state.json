@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-22T14:58:56.899Z",
-  "_gistSavedAt": "2026-05-22T14:51:48.021Z",
+  "_backupTakenAt": "2026-05-22T16:07:24.333Z",
+  "_gistSavedAt": "2026-05-22T15:00:58.279Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -396,7 +396,6 @@
       "today-log": true,
       "targets-accumulation": true,
       "catalog-ratio": true,
-      "section-checkout": true,
       "details-sync-error-banner": true
     },
     "userCatalog": {
