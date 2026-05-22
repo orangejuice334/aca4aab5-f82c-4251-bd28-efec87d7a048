@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.51">
+<meta name="app-version" content="v6.5.52">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -11156,6 +11156,21 @@
     el.className = 'bf-inline has-value';
   }
 
+  // Most recent recorded value of a per-day metric across all logged days
+  // up to and including state.activeDate. Used by renderWeightSection to
+  // carry the neck measurement forward into new days - the Navy formula's
+  // neck term barely shifts day-to-day, so requiring the user to re-type
+  // it every morning adds friction for no real accuracy gain.
+  function mostRecentMetric(fieldName) {
+    if (!state.days) return null;
+    const dates = Object.keys(state.days).filter(d => d <= state.activeDate).sort();
+    for (let i = dates.length - 1; i >= 0; i--) {
+      const b = state.days[dates[i]];
+      if (b && typeof b[fieldName] === 'number' && b[fieldName] > 0) return b[fieldName];
+    }
+    return null;
+  }
+
   function renderWeightSection() {
     const bucket = state.days[state.activeDate];
     const syncInput = (id, val) => {
@@ -11163,10 +11178,16 @@
       if (!el || document.activeElement === el) return;
       el.value = (typeof val === 'number' && val > 0) ? val : '';
     };
+    // Carry neck forward: if today has no neck value, show the most recent
+    // prior day's neck reading. Any keystroke immediately overwrites today's
+    // bucket with the actual measurement (no separate remeasure button).
+    const neckCarried = (bucket && typeof bucket.neck === 'number' && bucket.neck > 0)
+      ? bucket.neck
+      : mostRecentMetric('neck');
     syncInput('checkout-weight',    bucket && bucket.weight);
     syncInput('context-bar-weight', bucket && bucket.weight);
-    syncInput('checkout-neck',      bucket && bucket.neck);
-    syncInput('context-bar-neck',   bucket && bucket.neck);
+    syncInput('checkout-neck',      neckCarried);
+    syncInput('context-bar-neck',   neckCarried);
     syncInput('checkout-waist',     bucket && bucket.waist);
     syncInput('context-bar-waist',  bucket && bucket.waist);
     renderBfInlineFromInputs();
@@ -11797,6 +11818,24 @@
 
   function bindEvents() {
     rmInit();
+
+    // Auto-select all text on focus for every text/number input in the
+    // page so the next keystroke replaces the current value instead of
+    // appending to it. Applied via delegated focusin so it catches
+    // dynamically-rendered catalog rows, edit panels, custom forms, etc.
+    document.addEventListener('focusin', (ev) => {
+      const t = ev.target;
+      if (!t || t.tagName !== 'INPUT') return;
+      const type = t.type;
+      if (type !== 'text' && type !== 'number' && type !== 'search') return;
+      // Defer past the focus event so the browser's own placement of the
+      // caret doesn't fight the selection.
+      setTimeout(() => {
+        if (document.activeElement === t && typeof t.select === 'function') {
+          try { t.select(); } catch (e) {}
+        }
+      }, 0);
+    });
 
     // Recipe maker — delegated handlers for dynamically-added rows.
     document.addEventListener('click', (ev) => {
@@ -12513,20 +12552,34 @@
       saveState();
       render();
     }
-    // Live debounced commits as the user types. Same effect as the existing
-    // 'change' path but doesn't wait for focus-loss. Catalog counter input
-    // only — customs would rebuild the list mid-type and lose focus, so
-    // those still commit on 'change' (blur).
-    const counterDebounce = new WeakMap();
+    // Live commits on every keystroke - the in-memory state.counters
+    // update + render() runs synchronously so daily totals, ratio colors,
+    // and per-row macros update in real time without waiting for a debounce
+    // or a gist round-trip. The op queue itself stays debounced
+    // (FLUSH_DEBOUNCE_MS = 700 ms) so network writes still batch.
     document.addEventListener('input', (ev) => {
       const inp = ev.target.closest('input.counter-value[data-value]');
-      if (!inp) return;
-      const prev = counterDebounce.get(inp);
-      if (prev) clearTimeout(prev);
-      counterDebounce.set(inp, setTimeout(() => {
-        counterDebounce.delete(inp);
+      if (inp) {
         commitCatalogCounter(inp);
-      }, 350));
+        return;
+      }
+      // Custom-item count input - same pattern: write state.customs[idx]
+      // immediately, schedule render, op queue debounces the gist write.
+      // Skip the renderTodayCustoms call mid-edit to avoid yanking focus;
+      // render() handles the totals strip + today-log refresh on its own.
+      const cusInput = ev.target.closest('input.counter-value[data-custom-value-idx]');
+      if (cusInput) {
+        const idx = parseInt(cusInput.dataset.customValueIdx, 10);
+        const c = state.customs[idx];
+        if (!c) return;
+        let v = parseFloat(cusInput.value);
+        if (isNaN(v) || v < 0) v = 0;
+        v = Math.round(v * 10) / 10;
+        c.count = v;
+        if (typeof stampCustom === 'function') stampCustom(idx);
+        saveState();
+        render();
+      }
     });
 
     // Schedule-time toggling: when a variant row's time input gains or
