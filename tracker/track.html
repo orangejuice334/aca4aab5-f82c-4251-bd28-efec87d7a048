@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.52">
+<meta name="app-version" content="v6.5.53">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -6638,18 +6638,13 @@
   // through the existing debounced gist-save pipeline. The expensive UI re-render
   // (render()) is rAF-coalesced so rapid typing doesn't queue up redundant work.
   let profileSaveStatusTimer = null;
-  // Heavy DOM rebuilds (catalog rows, scheduled-supplement rows) deferred
-  // off the per-keystroke path so the input stays responsive while the user
-  // is mid-edit. Heavy renders run 220 ms after the last keystroke, so a
-  // rapid burst collapses to a single rebuild on the trailing edge.
-  let profileHeavyRenderTimer = null;
+  // Rebuild catalog rows + scheduled-supplement rows immediately so the
+  // ratio colors and macro lines reflect the new goal numbers on the
+  // same keystroke. The user wanted no debounce on JS updates; gist
+  // sync stays debounced through the op queue.
   function scheduleProfileHeavyRender() {
-    if (profileHeavyRenderTimer != null) clearTimeout(profileHeavyRenderTimer);
-    profileHeavyRenderTimer = setTimeout(() => {
-      profileHeavyRenderTimer = null;
-      if (typeof renderCatalog === 'function') renderCatalog();
-      if (typeof renderSupplementWaterRows === 'function') renderSupplementWaterRows();
-    }, 220);
+    if (typeof renderCatalog === 'function') renderCatalog();
+    if (typeof renderSupplementWaterRows === 'function') renderSupplementWaterRows();
   }
   // Targeted refresh of the daily-totals strip cells (values + bars + pct).
   // Used by saveProfileFromForm when a goal field changes - rebuilding the
@@ -12624,7 +12619,7 @@
         if (opts.fullRender) {
           // Full save with catalog rebuild so the catalog rows reflect the
           // new variant labels / sizes immediately. Triggered on `change`
-          // (blur of typed fields, radio/select flips) — not on every
+          // (blur of typed fields, radio/select flips) - not on every
           // keystroke, so typing focus is preserved.
           saveExpandedEdits(key, panel);
           reopenEditPanelForKey(key);
@@ -12634,17 +12629,19 @@
       };
       const prev = editPanelSaveDebounce.get(panel);
       if (prev) clearTimeout(prev);
-      if (opts.immediate) fire();
-      else editPanelSaveDebounce.set(panel, setTimeout(fire, 350));
+      // No debounce - JS state update fires every keystroke; the catalog
+      // row rebuild is gated by `fullRender` (only on change/blur). The
+      // gist write rides the op queue's own 700 ms debounce.
+      fire();
     };
     document.addEventListener('input', (ev) => {
       const panel = ev.target.closest('[data-edit-panel]');
       if (!panel) return;
-      // Skip the variant-add scratch inputs (amount/unit/label) — those
+      // Skip the variant-add scratch inputs (amount/unit/label) - those
       // aren't part of the persisted item; they only feed the Add button.
       if (ev.target.closest('[data-variant-custom-add]')) return;
-      // Debounced, no catalog rebuild — preserves typing focus.
-      liveSaveEditPanel(panel, { immediate: false, fullRender: false });
+      // Immediate, no catalog rebuild - preserves typing focus.
+      liveSaveEditPanel(panel, { immediate: true, fullRender: false });
     });
     document.addEventListener('change', (ev) => {
       const panel = ev.target.closest('[data-edit-panel]');
@@ -12809,7 +12806,6 @@
       document.getElementById('context-bar-weight'),
     ].filter(Boolean);
     if (weightInputs.length) {
-      let weightDebounce = null;
       const commitWeight = (source) => {
         const raw = (source.value || '').trim();
         const bucket = ensureDayBucket(state.activeDate);
@@ -12832,16 +12828,11 @@
         for (const op of gapOps) sendOp(op);
         renderWeightSection();
       };
-      const scheduleCommit = (source) => {
-        if (weightDebounce) clearTimeout(weightDebounce);
-        weightDebounce = setTimeout(() => { weightDebounce = null; commitWeight(source); }, 350);
-      };
+      // JS update + render fire on every keystroke; the gist write is queued
+      // through sendOp and debounced by the op queue itself.
       for (const inp of weightInputs) {
-        inp.addEventListener('input', () => scheduleCommit(inp));
-        inp.addEventListener('blur', () => {
-          if (weightDebounce) { clearTimeout(weightDebounce); weightDebounce = null; }
-          commitWeight(inp);
-        });
+        inp.addEventListener('input', () => commitWeight(inp));
+        inp.addEventListener('blur', () => commitWeight(inp));
       }
     }
 
@@ -12853,7 +12844,6 @@
     function wireMeasurementInputs(ids, fieldName, range, opType, clearOp) {
       const inputs = ids.map(id => document.getElementById(id)).filter(Boolean);
       if (!inputs.length) return;
-      let debounce = null;
       const commit = (source) => {
         const raw = (source.value || '').trim();
         const bucket = ensureDayBucket(state.activeDate);
@@ -12877,16 +12867,14 @@
         for (const op of gapOps) sendOp(op);
         renderWeightSection();
       };
+      // Immediate per-keystroke commit; renderBfInlineFromInputs also runs
+      // live so the body-fat readout follows the cursor.
       for (const inp of inputs) {
         inp.addEventListener('input', () => {
-          if (debounce) clearTimeout(debounce);
-          debounce = setTimeout(() => { debounce = null; commit(inp); }, 350);
           renderBfInlineFromInputs();
-        });
-        inp.addEventListener('blur', () => {
-          if (debounce) { clearTimeout(debounce); debounce = null; }
           commit(inp);
         });
+        inp.addEventListener('blur', () => commit(inp));
       }
     }
     wireMeasurementInputs(['checkout-neck',  'context-bar-neck'],  'neck',  [10, 80],  'neck_set',  'neck_clear');
