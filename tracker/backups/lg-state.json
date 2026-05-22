@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-21T17:44:50.082Z",
-  "_gistSavedAt": "2026-05-21T17:44:01.661Z",
+  "_backupTakenAt": "2026-05-22T13:39:24.436Z",
+  "_gistSavedAt": "2026-05-22T13:33:57.134Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -281,6 +281,27 @@
         },
         "weight": 99,
         "weightMeta": "2026-05-21T15:21:11.848Z"
+      },
+      "2026-05-22": {
+        "toggles": {
+          "wegovy#07:30": true
+        },
+        "counters": {
+          "egg_substitute": 460,
+          "ketchup_packet": 18,
+          "avocado_half": 65,
+          "soy_milk": 150
+        },
+        "customs": [],
+        "toggleMeta": {
+          "wegovy#07:30": "2026-05-22T13:26:12.311Z"
+        },
+        "counterMeta": {
+          "egg_substitute": "2026-05-22T13:26:26.267Z",
+          "ketchup_packet": "2026-05-22T13:26:50.013Z",
+          "avocado_half": "2026-05-22T13:27:15.184Z",
+          "soy_milk": "2026-05-22T13:29:45.767Z"
+        }
       }
     },
     "savedItems": [],
@@ -361,16 +382,16 @@
       "targets-daily": true,
       "details-profile-section": true,
       "today-customs": true,
-      "targets-accumulation": true,
-      "profile": true,
-      "history": true,
       "section-weight-tracker": true,
-      "catalog-ratio": true,
       "catalog-archive": true,
       "details-recipe-maker": true,
       "details-add-new-item": true,
-      "supplements-water": true,
-      "today-log": true
+      "today-log": true,
+      "targets-accumulation": true,
+      "profile": true,
+      "catalog-ratio": true,
+      "section-checkout": true,
+      "history": true
     },
     "userCatalog": {
       "items": {
@@ -3345,13 +3366,14 @@
           "displayUnits": [
             {
               "label": "365 Whole Foods",
-              "amount": 247,
-              "unit": "g",
+              "amount": 100,
+              "unit": "ml",
               "default": true,
-              "multiplier": 247
+              "multiplier": 100
             }
           ],
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "density_g_per_ml": 1
         },
         "spinach_fresh": {
           "name": "Spinach fresh raw",

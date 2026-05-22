@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.49">
+<meta name="app-version" content="v6.5.50">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -737,10 +737,12 @@
   }
 
   /* ===== CHECKOUT LIST ===== */
+  /* 20% tighter than the prior 24px so the subsection bars sit visually
+     closer to each other inside the Catalog section. */
   .checkout {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 19px;
   }
   /* #catalog-groups is a sibling container of the other .checkout-group
      bars; its children (All items / Archive / per-category groups) are
@@ -750,7 +752,7 @@
   #catalog-groups {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 19px;
   }
 
   /* Multi-variant item group: groups all variant rows of one item.
@@ -1395,11 +1397,18 @@
   .checkout-group-header {
     background: var(--ink);
     color: var(--paper);
-    padding: 10px 16px;
-    font-family: 'Fraunces', serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
+    /* 15% shorter clickable area than the prior 10px vertical padding so
+       adjacent collapsed bars stop overlapping when the chevron is hit. */
+    padding: 8.5px 16px;
+    /* Subdued title style matching the section.section-minimal h2 tags
+       (mono uppercase, small letter-spacing) so the subsection bars feel
+       like quieter siblings of the parent section bar. */
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(247, 243, 234, 0.78);
     cursor: pointer;
     user-select: none;
     display: flex;
@@ -2136,12 +2145,13 @@
     list-style: none;
     cursor: pointer;
     background: var(--ink);
-    color: var(--paper);
-    padding: 10px 16px;
-    font-family: 'Fraunces', serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
+    color: rgba(247, 243, 234, 0.78);
+    padding: 8.5px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -2993,12 +3003,13 @@
   .custom-add summary {
     cursor: pointer;
     background: var(--ink);
-    color: var(--paper);
-    padding: 10px 16px;
-    font-family: 'Fraunces', serif;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
+    color: rgba(247, 243, 234, 0.78);
+    padding: 8.5px 16px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -4162,6 +4173,11 @@
     <button id="checkout-date-prev" type="button" class="date-nav-btn" aria-label="Previous day">‹</button>
     <span class="title-date" id="checkout-date"></span>
     <button id="checkout-date-next" type="button" class="date-nav-btn" aria-label="Next day">›</button>
+  </span>
+  <span class="weight-input-wrapper">
+    <label class="weight-input-label" for="context-bar-weight">Weight</label>
+    <input type="number" id="context-bar-weight" class="weight-input" step="0.1" min="0" placeholder="—" inputmode="decimal" data-weight-mirror>
+    <span class="weight-input-unit">kg</span>
   </span>
   <button id="sync-now" type="button" class="title-btn-secondary" title="Pull latest from the cloud and save any pending changes">Sync</button>
   <button id="sort-toggle" type="button" class="title-btn-secondary sort-toggle" title="Toggle between category and alphabetical sort">Sort: by category</button>
@@ -11127,9 +11143,10 @@
       if (!el || document.activeElement === el) return;
       el.value = (typeof val === 'number' && val > 0) ? val : '';
     };
-    syncInput('checkout-weight', bucket && bucket.weight);
-    syncInput('checkout-neck',   bucket && bucket.neck);
-    syncInput('checkout-waist',  bucket && bucket.waist);
+    syncInput('checkout-weight',   bucket && bucket.weight);
+    syncInput('context-bar-weight', bucket && bucket.weight);
+    syncInput('checkout-neck',     bucket && bucket.neck);
+    syncInput('checkout-waist',    bucket && bucket.waist);
     renderBfInlineFromInputs();
     renderWeightSummary();
     renderWeightChart();
@@ -12708,13 +12725,18 @@
       }
     });
 
-    // Weight input — commits live (debounced) as the user types instead of
-    // waiting for focus-loss. blur still fires a final commit so the value
-    // isn't lost if the debounce hasn't elapsed by the time the user moves on.
-    const weightInput = document.getElementById('checkout-weight');
-    if (weightInput) {
-      const commitWeight = () => {
-        const raw = weightInput.value.trim();
+    // Weight inputs - both the always-visible one in the context bar and
+    // the one inside the Weight & BMI section commit to the same bucket.
+    // Either input can be the source for the next commit; the other one is
+    // kept in sync by renderWeightSection.
+    const weightInputs = [
+      document.getElementById('checkout-weight'),
+      document.getElementById('context-bar-weight'),
+    ].filter(Boolean);
+    if (weightInputs.length) {
+      let weightDebounce = null;
+      const commitWeight = (source) => {
+        const raw = (source.value || '').trim();
         const bucket = ensureDayBucket(state.activeDate);
         if (raw === '') {
           delete bucket.weight;
@@ -12731,23 +12753,21 @@
         bucket.weightMeta = ts;
         saveStateLocal();
         sendOp({ type: 'weight_set', date: state.activeDate, value: rounded, ts });
-        // Gap-fill any missing days between the previous recorded weight
-        // and this one with a linear interpolation. Keeps the chart and
-        // rate-warning math from seeing a multi-day step.
         const gapOps = fillGapsForMetric('weight', 'weight_set', state.activeDate, rounded);
         for (const op of gapOps) sendOp(op);
         renderWeightSection();
       };
-      let weightDebounce = null;
-      const scheduleCommit = () => {
+      const scheduleCommit = (source) => {
         if (weightDebounce) clearTimeout(weightDebounce);
-        weightDebounce = setTimeout(() => { weightDebounce = null; commitWeight(); }, 350);
+        weightDebounce = setTimeout(() => { weightDebounce = null; commitWeight(source); }, 350);
       };
-      weightInput.addEventListener('input', scheduleCommit);
-      weightInput.addEventListener('blur', () => {
-        if (weightDebounce) { clearTimeout(weightDebounce); weightDebounce = null; }
-        commitWeight();
-      });
+      for (const inp of weightInputs) {
+        inp.addEventListener('input', () => scheduleCommit(inp));
+        inp.addEventListener('blur', () => {
+          if (weightDebounce) { clearTimeout(weightDebounce); weightDebounce = null; }
+          commitWeight(inp);
+        });
+      }
     }
 
     // Neck + waist inputs — same debounced commit pattern as weight. Body
