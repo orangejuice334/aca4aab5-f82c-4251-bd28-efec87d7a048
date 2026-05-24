@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-23T11:38:21.434Z",
-  "_gistSavedAt": "2026-05-22T15:00:58.279Z",
+  "_backupTakenAt": "2026-05-24T11:50:06.458Z",
+  "_gistSavedAt": "2026-05-23T19:29:56.823Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -310,6 +310,43 @@
         "weightMeta": "2026-05-22T14:47:32.978Z",
         "waist": 108,
         "waistMeta": "2026-05-22T14:50:11.551Z"
+      },
+      "2026-05-23": {
+        "toggles": {
+          "wegovy#07:30": true,
+          "water#07:00": true,
+          "d3#08:00": true,
+          "omega3#08:00": true,
+          "two_per_day#08:00": true
+        },
+        "counters": {
+          "roll_salmon_maki_6pc": 1,
+          "ham_steak_smithfield_hickory": 210,
+          "kcl_morton": 1.4,
+          "protein_whey_dymatize_iso100_vanilla": 60,
+          "fruit_blend_tropical_sc": 200,
+          "soy_milk": 300,
+          "spinach_fresh": 15
+        },
+        "customs": [],
+        "toggleMeta": {
+          "wegovy#07:30": "2026-05-23T14:25:32.397Z",
+          "water#07:00": "2026-05-23T19:22:17.591Z",
+          "d3#08:00": "2026-05-23T19:22:18.506Z",
+          "omega3#08:00": "2026-05-23T19:22:23.155Z",
+          "two_per_day#08:00": "2026-05-23T19:22:29.107Z"
+        },
+        "counterMeta": {
+          "roll_salmon_maki_6pc": "2026-05-23T18:53:20+00:00",
+          "ham_steak_smithfield_hickory": "2026-05-23T19:16:16+00:00",
+          "kcl_morton": "2026-05-23T19:16:16+00:00",
+          "protein_whey_dymatize_iso100_vanilla": "2026-05-23T19:16:16+00:00",
+          "fruit_blend_tropical_sc": "2026-05-23T19:16:16+00:00",
+          "soy_milk": "2026-05-23T19:23:17.582Z",
+          "spinach_fresh": "2026-05-23T19:29:49.525Z"
+        },
+        "weight": 100,
+        "weightMeta": "2026-05-23T14:25:20.034Z"
       }
     },
     "savedItems": [],
@@ -372,7 +409,8 @@
         "caffeine",
         "potassium",
         "_kcal_per_p",
-        "magnesium"
+        "magnesium",
+        "sodium"
       ],
       "units": {
         "weight": "kg",
@@ -393,10 +431,13 @@
       "catalog-archive": true,
       "details-recipe-maker": true,
       "details-add-new-item": true,
-      "today-log": true,
+      "details-sync-error-banner": true,
       "targets-accumulation": true,
-      "catalog-ratio": true,
-      "details-sync-error-banner": true
+      "history": true,
+      "section-weight-tracker": true,
+      "profile": true,
+      "today-log": true,
+      "supplements-water": true
     },
     "userCatalog": {
       "items": {
@@ -1658,6 +1699,75 @@
           "defaultMeasuredIn": "g",
           "brand": "Dietz & Watson"
         },
+        "fruit_blend_tropical_sc": {
+          "name": "Fruit blend tropical",
+          "brand": "Season's Choice",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.46053,
+          "p": 0.0065789,
+          "carbs": 0.125,
+          "fiber": 0.019737,
+          "sugar": 0.098684,
+          "fat": 0.00265,
+          "sf": 0.0003,
+          "transfat": 0,
+          "cholesterol": 0,
+          "sodium": 0.0275,
+          "water": 0.87,
+          "caffeine": 0,
+          "omega3": 0,
+          "vitA": 0.2625,
+          "vitC": 0.44737,
+          "vitD": 0,
+          "vitE": 0.003775,
+          "vitK": 0.02425,
+          "b1": 0.000385,
+          "b2": 0.000298,
+          "b3": 0.00478,
+          "b5": 0.001815,
+          "b6": 0.000945,
+          "b7": 0.01,
+          "b9": 0.305,
+          "b12": 0,
+          "choline": 0.06225,
+          "calcium": 0.13158,
+          "iron": 0.0032895,
+          "magnesium": 0.14,
+          "phosphorus": 0.14,
+          "potassium": 1.44737,
+          "zinc": 0.001075,
+          "selenium": 0.00425,
+          "copper": 0.0006,
+          "manganese": 0.00354,
+          "iodine": 0.01,
+          "chromium": 0,
+          "molybdenum": 0,
+          "mercury": 0,
+          "purines": 0.1,
+          "displayUnits": [
+            {
+              "label": "1¼ cups (152 g)",
+              "amount": 152,
+              "unit": "g",
+              "multiplier": 152,
+              "default": true
+            },
+            {
+              "label": "1 cup (~122 g)",
+              "amount": 122,
+              "unit": "g",
+              "multiplier": 122
+            },
+            {
+              "label": "Whole bag (~912 g)",
+              "amount": 912,
+              "unit": "g",
+              "multiplier": 912
+            }
+          ],
+          "notes": "Season's Choice Tropical Blend (ALDI). Pineapple, mango, strawberries, papaya. Label: 70 kcal / 152 g serving, ~6 servings/bag. fat=0 on label but USDA avg ~0.265g/serving (below 0.5g threshold) — corrected to 0.00265 g/g. sodium=0 on label but USDA avg ~4mg/serving (below 5mg threshold) — corrected to 0.0275 mg/g. sf estimated ~0.0003 g/g. Micronutrients (vitA, vitE, vitK, B-vitamins, choline, Mg, P, Zn, Mn, Se, Cu, iodine) estimated as unweighted average of USDA SR Legacy values for raw pineapple (09266), mango (09176), strawberry (09316), papaya (09226) — LOW CONFIDENCE, flag for later verification. Water ~87% estimated from macro balance. Bag total 912 g from 6×152 g."
+        },
         "guac_tbsp": {
           "name": "Guacamole",
           "category": "small_portions",
@@ -1762,6 +1872,69 @@
           "notes": "Wild caught Alaskan pink salmon, MSC-certified sustainable. Includes edible bones (calcium source). 14.75 oz can = 5 servings. Pink and sockeye are the LOW-mercury canned salmon picks (vs higher-mercury King/Chinook). Drain liquid before macro calculations apply; values are for drained weight.",
           "defaultMeasuredIn": "g",
           "brand": "Lidl"
+        },
+        "ham_steak_smithfield_hickory": {
+          "name": "Ham steak hickory smoked boneless (Smithfield)",
+          "brand": "Smithfield",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.30952,
+          "p": 0.17857,
+          "carbs": 0.059524,
+          "fiber": 0,
+          "sugar": 0.047619,
+          "fat": 0.029762,
+          "sf": 0.011905,
+          "transfat": 0.0002,
+          "cholesterol": 0.41667,
+          "sodium": 10.119,
+          "water": 0.63,
+          "caffeine": 0,
+          "omega3": 0.2,
+          "vitA": 0,
+          "vitC": 0,
+          "vitD": 0,
+          "vitE": 0.0015,
+          "vitK": 0,
+          "b1": 0.0058,
+          "b2": 0.0022,
+          "b3": 0.045,
+          "b5": 0.0065,
+          "b6": 0.0036,
+          "b7": 0.03,
+          "b9": 0.04,
+          "b12": 0.0088,
+          "choline": 0.8,
+          "calcium": 0.08,
+          "iron": 0.0087,
+          "magnesium": 0.17,
+          "phosphorus": 1.95,
+          "potassium": 2.85,
+          "zinc": 0.02,
+          "selenium": 0.22,
+          "copper": 0.00078,
+          "manganese": 0.00022,
+          "iodine": 0.09,
+          "chromium": 0,
+          "molybdenum": 0,
+          "mercury": 0,
+          "purines": 1.2,
+          "displayUnits": [
+            {
+              "label": "1 serving (84 g)",
+              "amount": 84,
+              "unit": "g",
+              "multiplier": 84,
+              "default": true
+            },
+            {
+              "label": "Whole package (210 g)",
+              "amount": 210,
+              "unit": "g",
+              "multiplier": 210
+            }
+          ],
+          "notes": "Smithfield Hickory Smoked Boneless Ham Steak. Label: 84g serving, 2.5 servings/container (210g total). Macros from label per-gram (÷84). transfat label shows 0g but real value ~0.02g/84g serving (CLA in pork) — corrected to 0.0002 g/g. Micronutrients from USDA SR Legacy cured smoked ham (approx. #10123/#10178) — LOW CONFIDENCE, flag for verification. Water ~63% estimated for cured smoked ham. Omega-3 ~0.20 mg/g (lean pork estimate). Purines ~120 mg/100g (moderate, cured pork)."
         },
         "harvest_snaps": {
           "name": "Harvest Snaps Tomato Basil",
@@ -3076,6 +3249,68 @@
             }
           ],
           "purines": 0.9
+        },
+        "roll_salmon_maki_6pc": {
+          "name": "Roll salmon maki 6-piece",
+          "category": "items",
+          "defaultMeasuredIn": "units",
+          "kcal": 195,
+          "p": 11,
+          "carbs": 26,
+          "fiber": 0.3,
+          "sugar": 2,
+          "fat": 4.5,
+          "sf": 1,
+          "transfat": 0,
+          "cholesterol": 22,
+          "sodium": 295,
+          "water": 78,
+          "caffeine": 0,
+          "omega3": 770,
+          "vitA": 0,
+          "vitC": 0,
+          "vitD": 0,
+          "vitE": 0,
+          "vitK": 0,
+          "b1": 0,
+          "b2": 0,
+          "b3": 0,
+          "b5": 0,
+          "b6": 0,
+          "b7": 0,
+          "b9": 0,
+          "b12": 0,
+          "choline": 0,
+          "calcium": 0,
+          "iron": 0,
+          "magnesium": 0,
+          "phosphorus": 0,
+          "potassium": 0,
+          "zinc": 0,
+          "selenium": 0,
+          "copper": 0,
+          "manganese": 0,
+          "iodine": 0,
+          "chromium": 0,
+          "molybdenum": 0,
+          "mercury": 0,
+          "purines": 0,
+          "displayUnits": [
+            {
+              "label": "1 roll (6 pieces)",
+              "amount": 1,
+              "unit": "roll",
+              "multiplier": 1,
+              "default": true
+            },
+            {
+              "label": "1 piece",
+              "amount": 1,
+              "unit": "piece",
+              "multiplier": 0.1667
+            }
+          ],
+          "notes": "Estimated: ~80g sushi rice (cooked, seasoned) + ~35g raw Atlantic salmon + ~2g nori = ~117g total. Macros from USDA SR Legacy averages. Micronutrients not populated — LOW CONFIDENCE on all values; kcal range is realistically 170–260 depending on restaurant rice portion and seasoning. Sodium especially variable. Cholesterol estimated at ~22mg (salmon ~63mg/100g × 35g)."
         },
         "salmon_pink_canned": {
           "name": "Salmon pink canned",
@@ -4689,7 +4924,6 @@
           "label": "Uncategorized"
         }
       ]
-    },
-    "totalsMode": "collapsed"
+    }
   }
 }
