@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-24T11:50:06.458Z",
-  "_gistSavedAt": "2026-05-23T19:29:56.823Z",
+  "_backupTakenAt": "2026-05-25T16:09:23.241Z",
+  "_gistSavedAt": "2026-05-25T16:01:02.374Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -326,7 +326,8 @@
           "protein_whey_dymatize_iso100_vanilla": 60,
           "fruit_blend_tropical_sc": 200,
           "soy_milk": 300,
-          "spinach_fresh": 15
+          "spinach_fresh": 15,
+          "strawberry_frozen_blb": 138
         },
         "customs": [],
         "toggleMeta": {
@@ -343,10 +344,60 @@
           "protein_whey_dymatize_iso100_vanilla": "2026-05-23T19:16:16+00:00",
           "fruit_blend_tropical_sc": "2026-05-23T19:16:16+00:00",
           "soy_milk": "2026-05-23T19:23:17.582Z",
-          "spinach_fresh": "2026-05-23T19:29:49.525Z"
+          "spinach_fresh": "2026-05-23T19:29:49.525Z",
+          "strawberry_frozen_blb": "2026-05-23T19:16:16+00:00"
         },
         "weight": 100,
         "weightMeta": "2026-05-23T14:25:20.034Z"
+      },
+      "2026-05-24": {
+        "toggles": {},
+        "counters": {
+          "protein_whey_dymatize_iso100_vanilla": 90,
+          "spinach_fresh": 40
+        },
+        "customs": [
+          {
+            "id": "3e759c74-e0bd-4544-9596-5545de6e6cfe",
+            "name": "r",
+            "kcal": 450,
+            "p": 10,
+            "count": 1,
+            "lastModified": "2026-05-24T21:01:32.245Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "protein_whey_dymatize_iso100_vanilla": "2026-05-24T21:01:47.533Z",
+          "spinach_fresh": "2026-05-24T21:02:16.326Z"
+        }
+      },
+      "2026-05-25": {
+        "toggles": {
+          "water#07:00": true,
+          "wegovy#07:30": true,
+          "d3#08:00": true
+        },
+        "counters": {
+          "turkey_bacon": 56,
+          "strawberry_frozen_blb": 138,
+          "yogurt_half": 226.8,
+          "spinach_fresh": 40,
+          "protein_whey_dymatize_iso100_vanilla": 60
+        },
+        "customs": [],
+        "toggleMeta": {
+          "water#07:00": "2026-05-25T16:01:00.644Z",
+          "wegovy#07:30": "2026-05-25T16:01:01.520Z",
+          "d3#08:00": "2026-05-25T16:01:02.413Z"
+        },
+        "counterMeta": {
+          "turkey_bacon": "2026-05-25T15:57:47.593Z",
+          "strawberry_frozen_blb": "2026-05-25T15:59:14.653Z",
+          "yogurt_half": "2026-05-25T15:59:44.050Z",
+          "spinach_fresh": "2026-05-25T16:00:06.626Z",
+          "protein_whey_dymatize_iso100_vanilla": "2026-05-25T16:00:19.747Z"
+        }
       }
     },
     "savedItems": [],
@@ -430,14 +481,13 @@
       "today-customs": true,
       "catalog-archive": true,
       "details-recipe-maker": true,
-      "details-add-new-item": true,
       "details-sync-error-banner": true,
       "targets-accumulation": true,
       "history": true,
       "section-weight-tracker": true,
       "profile": true,
       "today-log": true,
-      "supplements-water": true
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
@@ -3678,6 +3728,66 @@
             }
           ],
           "defaultMeasuredIn": "g"
+        },
+        "strawberry_frozen_blb": {
+          "name": "Strawberry frozen",
+          "brand": "Safeway",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.3623,
+          "p": 0.0072,
+          "carbs": 0.0942,
+          "fiber": 0.0217,
+          "sugar": 0.0435,
+          "fat": 0.002,
+          "sf": 0.0001,
+          "sodium": 0.0001,
+          "water": 0.91,
+          "vitA": 0.01,
+          "vitC": 0.413,
+          "vitE": 0.0029,
+          "vitK": 0.022,
+          "b1": 0.0002,
+          "b2": 0.0002,
+          "b3": 0.0039,
+          "b5": 0.0013,
+          "b6": 0.0005,
+          "b7": 0.03,
+          "b9": 0.24,
+          "choline": 0.057,
+          "calcium": 0.1449,
+          "iron": 0.0072,
+          "magnesium": 0.13,
+          "phosphorus": 0.24,
+          "potassium": 1.4493,
+          "zinc": 0.0014,
+          "selenium": 0.004,
+          "copper": 0.0005,
+          "manganese": 0.0039,
+          "iodine": 0.01,
+          "purines": 0.21,
+          "displayUnits": [
+            {
+              "label": "Whole bag (~1380 g)",
+              "amount": 1380,
+              "unit": "g",
+              "multiplier": 1380
+            },
+            {
+              "label": "1 cup (~145 g)",
+              "amount": 145,
+              "unit": "g",
+              "multiplier": 145
+            },
+            {
+              "label": "1 serving, 23 pieces (138 g)",
+              "amount": 138,
+              "unit": "g",
+              "default": true,
+              "multiplier": 138
+            }
+          ],
+          "notes": "Better Living Brands frozen strawberries (Pleasanton CA, ~10 servings/bag). Identified as strawberries from USDA cross-match: potassium 145mg/100g (USDA 09316: 148mg), vitC 41mg/100g (USDA: 40mg), calcium 14.5mg/100g (USDA: 16mg). Ingredient list cut off at SL... consistent with STRAWBERRIES. fat=0 on label but USDA 0.2g/100g (below 0.5g threshold) — corrected to 0.002 g/g. Micronutrients from USDA SR Legacy 09316 frozen unsweetened strawberries — MEDIUM CONFIDENCE. b7 is a rough estimate."
         },
         "string_cheese": {
           "name": "Mozzarella stick string cheese",
