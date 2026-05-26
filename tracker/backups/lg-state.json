@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-25T16:09:23.241Z",
-  "_gistSavedAt": "2026-05-25T16:01:02.374Z",
+  "_backupTakenAt": "2026-05-26T15:51:36.296Z",
+  "_gistSavedAt": "2026-05-26T15:50:47.757Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -370,7 +370,9 @@
         "counterMeta": {
           "protein_whey_dymatize_iso100_vanilla": "2026-05-24T21:01:47.533Z",
           "spinach_fresh": "2026-05-24T21:02:16.326Z"
-        }
+        },
+        "weight": 69.7,
+        "weightMeta": "2026-05-26T12:56:23.021Z"
       },
       "2026-05-25": {
         "toggles": {
@@ -397,7 +399,34 @@
           "yogurt_half": "2026-05-25T15:59:44.050Z",
           "spinach_fresh": "2026-05-25T16:00:06.626Z",
           "protein_whey_dymatize_iso100_vanilla": "2026-05-25T16:00:19.747Z"
-        }
+        },
+        "weight": 39.3,
+        "weightMeta": "2026-05-26T12:56:23.021Z"
+      },
+      "2026-05-26": {
+        "toggles": {
+          "water#07:00": true,
+          "wegovy#07:30": true,
+          "d3#08:00": true,
+          "creatine#08:00": true,
+          "flonase#08:00": true,
+          "omega3#08:00": true,
+          "two_per_day#08:00": true
+        },
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {
+          "water#07:00": "2026-05-26T12:56:40.262Z",
+          "wegovy#07:30": "2026-05-26T12:56:43.707Z",
+          "d3#08:00": "2026-05-26T12:56:44.625Z",
+          "creatine#08:00": "2026-05-26T12:56:45.953Z",
+          "flonase#08:00": "2026-05-26T12:56:49.233Z",
+          "omega3#08:00": "2026-05-26T12:56:52.018Z",
+          "two_per_day#08:00": "2026-05-26T12:56:52.971Z"
+        },
+        "counterMeta": {},
+        "weight": 98.4,
+        "weightMeta": "2026-05-26T12:56:30.509Z"
       }
     },
     "savedItems": [],
@@ -487,7 +516,8 @@
       "section-weight-tracker": true,
       "profile": true,
       "today-log": true,
-      "details-add-new-item": true
+      "details-add-new-item": true,
+      "supplements-water": true
     },
     "userCatalog": {
       "items": {
@@ -2751,11 +2781,11 @@
         "mycoffee": {
           "name": "My Coffee soy milk",
           "category": "liquids",
-          "kcal": 87,
-          "p": 7,
-          "sf": 0.5,
-          "water": 730,
-          "caffeine": 200,
+          "kcal": 0.263636,
+          "p": 0.021212,
+          "sf": 0.001515,
+          "water": 2.212121,
+          "caffeine": 0.606061,
           "displayUnits": [
             {
               "label": "1 unit",
@@ -2804,15 +2834,15 @@
             }
           ],
           "defaultMeasuredIn": "g",
-          "purines": 0.1
+          "purines": 0.000303
         },
         "mycowcoffee": {
           "name": "My Coffee cow milk",
           "category": "liquids",
-          "kcal": 107,
-          "p": 8,
-          "water": 730,
-          "caffeine": 200,
+          "kcal": 0.324242,
+          "p": 0.024242,
+          "water": 2.212121,
+          "caffeine": 0.606061,
           "displayUnits": [
             {
               "label": "1 unit",
@@ -2861,7 +2891,9 @@
             }
           ],
           "defaultMeasuredIn": "g",
-          "purines": 0.1
+          "purines": 0.000303,
+          "prevCategory": "liquids",
+          "archived": true
         },
         "nigiri_pack_salmon_tuna_6pc": {
           "name": "Nigiri sushi pack salmon tuna 6 pieces",
