@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-26T15:51:36.296Z",
-  "_gistSavedAt": "2026-05-26T15:50:47.757Z",
+  "_backupTakenAt": "2026-05-26T18:06:49.984Z",
+  "_gistSavedAt": "2026-05-26T17:57:33.459Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -143,7 +143,6 @@
           "creatine#08:00": true,
           "omega3#12:30": true,
           "water#16:00": true,
-          "caffeine_anhydrous_200mg#08:00": true,
           "water#19:00": true,
           "4_doctor_s_best_magnesiu#19:00": true,
           "omega3#19:00": true,
@@ -181,7 +180,6 @@
           "creatine#08:00": "2026-05-19T20:58:17.428Z",
           "omega3#12:30": "2026-05-19T20:58:44.519Z",
           "water#16:00": "2026-05-19T20:58:50.427Z",
-          "caffeine_anhydrous_200mg#08:00": "2026-05-20T00:14:21.379Z",
           "water#19:00": "2026-05-20T00:15:47.608Z",
           "4_doctor_s_best_magnesiu#19:00": "2026-05-20T00:15:48.635Z",
           "omega3#19:00": "2026-05-20T00:15:49.616Z",
@@ -250,7 +248,6 @@
           "creatine#08:00": true,
           "omega3#08:00": true,
           "two_per_day#08:00": true,
-          "caffeine_anhydrous_200mg#08:00": true,
           "water#12:30": true
         },
         "counters": {
@@ -274,7 +271,6 @@
           "creatine#08:00": "2026-05-21T14:45:52.625Z",
           "omega3#08:00": "2026-05-21T14:45:56.045Z",
           "two_per_day#08:00": "2026-05-21T14:45:59.391Z",
-          "caffeine_anhydrous_200mg#08:00": "2026-05-21T14:46:00.447Z",
           "water#12:30": "2026-05-21T17:43:36.544Z"
         },
         "counterMeta": {
@@ -411,10 +407,26 @@
           "creatine#08:00": true,
           "flonase#08:00": true,
           "omega3#08:00": true,
-          "two_per_day#08:00": true
+          "two_per_day#08:00": true,
+          "caffeine_anhydrous_200mg#08:00": true
         },
-        "counters": {},
-        "customs": [],
+        "counters": {
+          "mycoffee": 231,
+          "protein_whey_dymatize_iso100_vanilla": 60,
+          "strawberry_frozen_blb": 179.4,
+          "spinach_fresh": 50,
+          "yogurt_half": 589.55
+        },
+        "customs": [
+          {
+            "id": "7996b949-ecb3-43e7-881d-602db745b526",
+            "name": "200kcal 2p",
+            "kcal": 200,
+            "p": 2,
+            "count": 1,
+            "lastModified": "2026-05-26T17:54:12.812Z"
+          }
+        ],
         "toggleMeta": {
           "water#07:00": "2026-05-26T12:56:40.262Z",
           "wegovy#07:30": "2026-05-26T12:56:43.707Z",
@@ -422,11 +434,18 @@
           "creatine#08:00": "2026-05-26T12:56:45.953Z",
           "flonase#08:00": "2026-05-26T12:56:49.233Z",
           "omega3#08:00": "2026-05-26T12:56:52.018Z",
-          "two_per_day#08:00": "2026-05-26T12:56:52.971Z"
+          "two_per_day#08:00": "2026-05-26T12:56:52.971Z",
+          "caffeine_anhydrous_200mg#08:00": "2026-05-26T17:57:32.300Z"
         },
-        "counterMeta": {},
+        "counterMeta": {
+          "mycoffee": "2026-05-26T15:59:41.824Z",
+          "protein_whey_dymatize_iso100_vanilla": "2026-05-26T17:52:16.171Z",
+          "strawberry_frozen_blb": "2026-05-26T17:52:29.573Z",
+          "spinach_fresh": "2026-05-26T17:52:47.408Z",
+          "yogurt_half": "2026-05-26T17:53:48.939Z"
+        },
         "weight": 98.4,
-        "weightMeta": "2026-05-26T12:56:30.509Z"
+        "weightMeta": "2026-05-26T17:32:47.185Z"
       }
     },
     "savedItems": [],
@@ -514,10 +533,10 @@
       "targets-accumulation": true,
       "history": true,
       "section-weight-tracker": true,
-      "profile": true,
-      "today-log": true,
+      "catalog-ratio": true,
       "details-add-new-item": true,
-      "supplements-water": true
+      "today-log": true,
+      "profile": true
     },
     "userCatalog": {
       "items": {
@@ -1090,9 +1109,23 @@
             {
               "label": "2 capsule",
               "multiplier": 2,
+              "amount": 2,
+              "unit": "g"
+            },
+            {
+              "label": "1 capsule",
+              "multiplier": 1,
               "time": "08:00",
               "frequency": "daily",
-              "amount": 2,
+              "amount": 1,
+              "unit": "g"
+            },
+            {
+              "label": "1 capsule",
+              "multiplier": 1,
+              "time": "11:00",
+              "frequency": "daily",
+              "amount": 1,
               "unit": "g"
             }
           ],
@@ -5066,6 +5099,7 @@
           "label": "Uncategorized"
         }
       ]
-    }
+    },
+    "totalsMode": "collapsed"
   }
 }
