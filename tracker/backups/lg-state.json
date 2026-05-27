@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-27T15:12:13.827Z",
-  "_gistSavedAt": "2026-05-27T14:50:55.454Z",
+  "_backupTakenAt": "2026-05-27T18:07:56.875Z",
+  "_gistSavedAt": "2026-05-27T16:47:45.139Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -469,8 +469,8 @@
         "counterMeta": {},
         "weight": 98.5,
         "weightMeta": "2026-05-27T13:56:03.903Z",
-        "waist": 108,
-        "waistMeta": "2026-05-27T14:37:06.813Z"
+        "waist": 107.5,
+        "waistMeta": "2026-05-27T16:46:37.385Z"
       }
     },
     "savedItems": [],
@@ -558,7 +558,10 @@
       "history": true,
       "catalog-ratio": true,
       "profile": true,
-      "details-add-new-item": true
+      "details-add-new-item": true,
+      "section-checkout": true,
+      "chart-bmi-chart": true,
+      "section-weight-tracker": true
     },
     "userCatalog": {
       "items": {
