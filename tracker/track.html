@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.58">
+<meta name="app-version" content="v6.5.59">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -11463,12 +11463,16 @@
     });
 
     // Value labels above each point. Opt-in because BMI chart with its bands
-    // doesn't need them, but the weight chart benefits — you can read each
-    // weigh-in directly without having to read the y-axis.
+    // doesn't need them, but the weight chart benefits - you can read each
+    // weigh-in directly without having to read the y-axis. Capped at the
+    // same MAX_LABELS X positions so long series don't pile numbers on
+    // top of each other; every dot still renders, only the printed
+    // numeric labels get thinned.
     if (options.showPointLabels) {
       const decimals = options.yDecimals !== undefined ? options.yDecimals : 1;
       points.forEach((p, i) => {
         if (typeof p.y !== 'number') return;
+        if (!labelIndices.has(i)) return;
         const cx = xFor(i);
         const cy = yFor(p.y);
         // Default placement: 8px above the point. If too close to top edge,
