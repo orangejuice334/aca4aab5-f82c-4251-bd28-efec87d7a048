@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.53">
+<meta name="app-version" content="v6.5.54">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -11090,10 +11090,18 @@
   // running the Navy formula against neck + waist + height, or falling
   // back to a directly-entered fatPercent if no measurements are present.
   // null when nothing usable is on the bucket.
-  function fatPercentForDay(bucket) {
+  function fatPercentForDay(bucket, dateKey) {
     if (!bucket) return null;
     const h = state.profile && state.profile.heightCm;
-    const navy = computeNavyBodyFat(bucket.neck, bucket.waist, h, profileGender(), bucket.hips);
+    // Neck carries forward: if today never had its own neck entry, use
+    // the most recent prior recorded neck. Avoids the chart going blank
+    // when the user updates waist but never re-types neck (which barely
+    // moves with body composition changes).
+    let neck = bucket.neck;
+    if (!(typeof neck === 'number' && neck > 0) && dateKey) {
+      neck = mostRecentMetricUpTo('neck', dateKey);
+    }
+    const navy = computeNavyBodyFat(neck, bucket.waist, h, profileGender(), bucket.hips);
     if (typeof navy === 'number' && navy > 0 && navy < 60) {
       return Math.round(navy * 10) / 10;
     }
@@ -11103,12 +11111,26 @@
     return null;
   }
 
+  // Most recent recorded value of a per-day metric on or before the given
+  // dateKey. Used by fatPercentForDay so the body-fat chart reflects the
+  // carried-forward neck measurement on days where the user only typed
+  // waist. Returns null when no prior reading exists.
+  function mostRecentMetricUpTo(fieldName, dateKey) {
+    if (!state.days) return null;
+    const dates = Object.keys(state.days).filter(d => d <= dateKey).sort();
+    for (let i = dates.length - 1; i >= 0; i--) {
+      const b = state.days[dates[i]];
+      if (b && typeof b[fieldName] === 'number' && b[fieldName] > 0) return b[fieldName];
+    }
+    return null;
+  }
+
   // Body-fat series — mirror of collectWeightSeries against the per-day
   // Navy-computed body fat (falls back to a directly-entered fatPercent).
   function collectFatPercentSeries() {
     const map = new Map();
     for (const dateKey in state.days) {
-      const f = fatPercentForDay(state.days[dateKey]);
+      const f = fatPercentForDay(state.days[dateKey], dateKey);
       if (typeof f === 'number' && f > 0 && f < 60) map.set(dateKey, f);
     }
     const arr = [];
@@ -11157,13 +11179,7 @@
   // neck term barely shifts day-to-day, so requiring the user to re-type
   // it every morning adds friction for no real accuracy gain.
   function mostRecentMetric(fieldName) {
-    if (!state.days) return null;
-    const dates = Object.keys(state.days).filter(d => d <= state.activeDate).sort();
-    for (let i = dates.length - 1; i >= 0; i--) {
-      const b = state.days[dates[i]];
-      if (b && typeof b[fieldName] === 'number' && b[fieldName] > 0) return b[fieldName];
-    }
-    return null;
+    return mostRecentMetricUpTo(fieldName, state.activeDate);
   }
 
   function renderWeightSection() {

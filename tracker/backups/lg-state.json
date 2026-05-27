@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-26T18:06:49.984Z",
-  "_gistSavedAt": "2026-05-26T17:57:33.459Z",
+  "_backupTakenAt": "2026-05-27T13:57:33.888Z",
+  "_gistSavedAt": "2026-05-27T13:56:17.087Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -344,7 +344,9 @@
           "strawberry_frozen_blb": "2026-05-23T19:16:16+00:00"
         },
         "weight": 100,
-        "weightMeta": "2026-05-23T14:25:20.034Z"
+        "weightMeta": "2026-05-23T14:25:20.034Z",
+        "waist": 108.3,
+        "waistMeta": "2026-05-26T20:55:52.743Z"
       },
       "2026-05-24": {
         "toggles": {},
@@ -367,8 +369,8 @@
           "protein_whey_dymatize_iso100_vanilla": "2026-05-24T21:01:47.533Z",
           "spinach_fresh": "2026-05-24T21:02:16.326Z"
         },
-        "weight": 69.7,
-        "weightMeta": "2026-05-26T12:56:23.021Z"
+        "waist": 108.5,
+        "waistMeta": "2026-05-26T20:55:52.743Z"
       },
       "2026-05-25": {
         "toggles": {
@@ -396,8 +398,8 @@
           "spinach_fresh": "2026-05-25T16:00:06.626Z",
           "protein_whey_dymatize_iso100_vanilla": "2026-05-25T16:00:19.747Z"
         },
-        "weight": 39.3,
-        "weightMeta": "2026-05-26T12:56:23.021Z"
+        "waist": 108.8,
+        "waistMeta": "2026-05-26T20:55:52.743Z"
       },
       "2026-05-26": {
         "toggles": {
@@ -415,7 +417,8 @@
           "protein_whey_dymatize_iso100_vanilla": 60,
           "strawberry_frozen_blb": 179.4,
           "spinach_fresh": 50,
-          "yogurt_half": 589.55
+          "yogurt_half": 589.55,
+          "premier": 325
         },
         "customs": [
           {
@@ -425,6 +428,14 @@
             "p": 2,
             "count": 1,
             "lastModified": "2026-05-26T17:54:12.812Z"
+          },
+          {
+            "id": "4fcafe63-e751-4a39-ad77-45525ebbbaa7",
+            "name": "110kcal 10p",
+            "kcal": 110,
+            "p": 10,
+            "count": 1,
+            "lastModified": "2026-05-26T20:38:21.593Z"
           }
         ],
         "toggleMeta": {
@@ -442,10 +453,22 @@
           "protein_whey_dymatize_iso100_vanilla": "2026-05-26T17:52:16.171Z",
           "strawberry_frozen_blb": "2026-05-26T17:52:29.573Z",
           "spinach_fresh": "2026-05-26T17:52:47.408Z",
-          "yogurt_half": "2026-05-26T17:53:48.939Z"
+          "yogurt_half": "2026-05-26T17:53:48.939Z",
+          "premier": "2026-05-26T20:41:42.725Z"
         },
         "weight": 98.4,
-        "weightMeta": "2026-05-26T17:32:47.185Z"
+        "weightMeta": "2026-05-26T17:32:47.185Z",
+        "waist": 109,
+        "waistMeta": "2026-05-26T20:55:53.772Z"
+      },
+      "2026-05-27": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "weight": 98.5,
+        "weightMeta": "2026-05-27T13:56:03.903Z"
       }
     },
     "savedItems": [],
@@ -532,11 +555,10 @@
       "details-sync-error-banner": true,
       "targets-accumulation": true,
       "history": true,
-      "section-weight-tracker": true,
       "catalog-ratio": true,
+      "profile": true,
       "details-add-new-item": true,
-      "today-log": true,
-      "profile": true
+      "section-checkout": true
     },
     "userCatalog": {
       "items": {
