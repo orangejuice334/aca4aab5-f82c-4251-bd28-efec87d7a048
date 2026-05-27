@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.55">
+<meta name="app-version" content="v6.5.56">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -11317,7 +11317,9 @@
     }
 
     // Y-axis range. Filter null y values (sparse axis - dates with no
-    // recorded measurement on this chart's metric).
+    // recorded measurement on this chart's metric). Pad 10% top + bottom
+    // so the line traces ~80% of the inner chart height instead of
+    // hugging the edges (or worse: looking flat with a clinical range).
     const yVals = points.map(p => p.y).filter(v => typeof v === 'number');
     let yMin, yMax;
     if (options.yMin !== undefined && options.yMax !== undefined) {
@@ -11325,8 +11327,19 @@
     } else if (yVals.length) {
       yMin = Math.min.apply(null, yVals);
       yMax = Math.max.apply(null, yVals);
-      const range = yMax - yMin || 1;
-      yMin -= range * 0.1; yMax += range * 0.1;
+      // Single-value or near-flat series: give it a synthesized spread
+      // of 5% of the value (or 1 absolute unit) so it still gets shown
+      // as a horizontal line in the middle rather than pinned to the top.
+      let range = yMax - yMin;
+      if (range < 0.0001) {
+        const v = Math.abs(yMax) || 1;
+        range = Math.max(1, v * 0.1);
+        yMin -= range / 2;
+        yMax += range / 2;
+      } else {
+        yMin -= range * 0.125;
+        yMax += range * 0.125;
+      }
     } else {
       yMin = 0; yMax = 1;
     }
@@ -11380,15 +11393,17 @@
       svg.appendChild(label);
     }
 
-    // Line path - break into segments wherever y is null so gaps in the
-    // sparse axis don't pull a misleading line across missing days.
+    // Line path - connect every non-null point with a single continuous
+    // line. Null X positions (dates with no reading for this metric) are
+    // skipped without breaking the line; the line bridges across them to
+    // the next available point.
     if (n > 1) {
       let d = '';
-      let inSegment = false;
+      let started = false;
       points.forEach((p, i) => {
-        if (typeof p.y !== 'number') { inSegment = false; return; }
-        d += (inSegment ? 'L' : 'M') + xFor(i) + ',' + yFor(p.y) + ' ';
-        inSegment = true;
+        if (typeof p.y !== 'number') return;
+        d += (started ? 'L' : 'M') + xFor(i) + ',' + yFor(p.y) + ' ';
+        started = true;
       });
       if (d) {
         svg.appendChild(svgEl('path', {
@@ -11478,19 +11493,8 @@
     if (!svg) return;
     const dates = getSharedChartDates();
     const points = projectOntoSharedAxis(collectWeightSeries(), s => bmiFor(s.weight), dates);
-    // Pin BMI y-range to a sensible clinical span centered on user's data.
-    // Filter nulls (dates without weight readings on the shared axis).
-    let yMin = 16, yMax = 35;
-    const vals = points.map(p => p.y).filter(v => typeof v === 'number');
-    if (vals.length) {
-      const dataMin = Math.min.apply(null, vals);
-      const dataMax = Math.max.apply(null, vals);
-      yMin = Math.min(yMin, dataMin - 1);
-      yMax = Math.max(yMax, dataMax + 1);
-    }
     buildLineChart(svg, points, {
       color: '#5a6b4d',
-      yMin: yMin, yMax: yMax,
       yDecimals: 1,
       showPointLabels: true,
       bands: [
@@ -11529,17 +11533,8 @@
       }
       sub.textContent = parts.join(' · ');
     }
-    let yMin = 5, yMax = 30;
-    const vals = points.map(p => p.y).filter(v => typeof v === 'number');
-    if (vals.length) {
-      const dataMin = Math.min.apply(null, vals);
-      const dataMax = Math.max.apply(null, vals);
-      yMin = Math.min(yMin, Math.floor(dataMin) - 1);
-      yMax = Math.max(yMax, Math.ceil(dataMax) + 1);
-    }
     buildLineChart(svg, points, {
       color: '#b04a2e',
-      yMin: yMin, yMax: yMax,
       yDecimals: 1,
       showPointLabels: true,
       bands: [
