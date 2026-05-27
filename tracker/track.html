@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.56">
+<meta name="app-version" content="v6.5.57">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -11605,6 +11605,14 @@
     if (basis && !variants.some(v => (v.unitsPerServing || 0) === 1)) {
       variants.push({ label: '1 ' + native, unitsPerServing: 1 });
     }
+    // Display helper: at most 1 decimal in the input cell, trailing zero
+    // stripped (so "1" not "1.0"). Underlying precision lives on the row's
+    // data-native-units so macros keep their full math.
+    const fmtVariantDisplay = (n) => {
+      if (!isFinite(n)) return '0';
+      const rounded = Math.round(n * 10) / 10;
+      return (rounded === Math.floor(rounded)) ? String(Math.floor(rounded)) : rounded.toFixed(1);
+    };
     // For non-basis (units / supplements / recipes), expose a "× multiplier"
     // input directly so the math is "1 canonical batch × N".
     if (!basis) {
@@ -11612,10 +11620,12 @@
       const initial = (options && typeof options.nativeUnits === 'number')
         ? options.nativeUnits / (canon.unitsPerServing || 1)
         : 1;
+      const canonSize = canon.unitsPerServing || 1;
+      row.dataset.nativeUnits = String(initial * canonSize);
       container.innerHTML =
         '<div class="recipe-ing-variant">' +
           '<label>' + escapeHtml(canon.label || '× 1 batch') + '</label>' +
-          '<input type="number" class="recipe-ing-amt" data-recipe-variant-input data-serving-size="' + (canon.unitsPerServing || 1) + '" data-non-basis="1" value="' + escapeHtml(String(initial)) + '" min="0" step="0.1" inputmode="decimal" />' +
+          '<input type="number" class="recipe-ing-amt" data-recipe-variant-input data-serving-size="' + canonSize + '" data-non-basis="1" value="' + escapeHtml(fmtVariantDisplay(initial)) + '" min="0" step="0.1" inputmode="decimal" />' +
         '</div>';
       return;
     }
@@ -11625,14 +11635,15 @@
     const initialNative = (options && typeof options.nativeUnits === 'number')
       ? options.nativeUnits
       : (variants[0] ? (variants[0].unitsPerServing || 1) : 1);
+    row.dataset.nativeUnits = String(initialNative);
     const html = variants.map(v => {
       const servingSize = v.unitsPerServing || 1;
-      const val = Math.round((initialNative / servingSize) * 10000) / 10000;
+      const val = initialNative / servingSize;
       const labelText = v.label || (servingSize + ' ' + native);
       return (
         '<div class="recipe-ing-variant">' +
           '<label>' + escapeHtml(labelText) + '</label>' +
-          '<input type="number" class="recipe-ing-amt" data-recipe-variant-input data-serving-size="' + servingSize + '" value="' + val + '" min="0" step="0.1" inputmode="decimal" />' +
+          '<input type="number" class="recipe-ing-amt" data-recipe-variant-input data-serving-size="' + servingSize + '" value="' + escapeHtml(fmtVariantDisplay(val)) + '" min="0" step="0.1" inputmode="decimal" />' +
         '</div>'
       );
     }).join('');
@@ -11640,7 +11651,9 @@
   }
 
   // Sync helper: when one variant input changes, derive the native-unit total
-  // and propagate it into every other variant input in the same row.
+  // and propagate it into every other variant input in the same row. The
+  // full-precision native total is stored on the row via data-native-units;
+  // each input displays at most 1 decimal of the derived per-variant value.
   function recipeRowSyncFromInput(inp) {
     const row = inp.closest('[data-recipe-ing-row]');
     if (!row) return;
@@ -11648,20 +11661,33 @@
     const v = parseFloat(inp.value);
     if (isNaN(v) || v < 0) return;
     const nativeUnits = v * servingSize;
+    row.dataset.nativeUnits = String(nativeUnits);
+    const fmtVariantDisplay = (n) => {
+      if (!isFinite(n)) return '0';
+      const rounded = Math.round(n * 10) / 10;
+      return (rounded === Math.floor(rounded)) ? String(Math.floor(rounded)) : rounded.toFixed(1);
+    };
     const others = row.querySelectorAll('[data-recipe-variant-input]');
     others.forEach(o => {
       if (o === inp) return;
       if (document.activeElement === o) return;
       const og = parseFloat(o.dataset.servingSize) || 1;
       const ov = og > 0 ? nativeUnits / og : 0;
-      o.value = Math.round(ov * 10000) / 10000;
+      o.value = fmtVariantDisplay(ov);
     });
   }
 
-  // Read the row's current native-unit total. Reads from whichever input the
-  // user touched most recently; defaults to the first valid input.
+  // Read the row's current native-unit total. Prefers the precise value
+  // cached on data-native-units; falls back to recomputing from whichever
+  // input the user touched most recently when the cache is missing.
   function rmReadRowNativeUnits(row) {
+    const cached = row && row.dataset ? parseFloat(row.dataset.nativeUnits) : NaN;
     const inputs = row.querySelectorAll('[data-recipe-variant-input]');
+    const isNonBasis = inputs.length > 0 && inputs[0].dataset.nonBasis === '1';
+    const canonicalSize = inputs.length > 0 ? (parseFloat(inputs[0].dataset.servingSize) || 1) : 1;
+    if (!isNaN(cached) && cached > 0) {
+      return { nativeUnits: cached, isNonBasis, canonicalSize };
+    }
     for (const inp of inputs) {
       const v = parseFloat(inp.value);
       const g = parseFloat(inp.dataset.servingSize) || 1;

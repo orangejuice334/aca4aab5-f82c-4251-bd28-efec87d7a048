@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-27T14:40:17.527Z",
-  "_gistSavedAt": "2026-05-27T14:37:06.316Z",
+  "_backupTakenAt": "2026-05-27T14:52:24.207Z",
+  "_gistSavedAt": "2026-05-27T14:50:55.454Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -470,7 +470,7 @@
         "weight": 98.5,
         "weightMeta": "2026-05-27T13:56:03.903Z",
         "waist": 108,
-        "waistMeta": "2026-05-27T14:37:05.229Z"
+        "waistMeta": "2026-05-27T14:37:06.813Z"
       }
     },
     "savedItems": [],
@@ -553,14 +553,12 @@
       "details-profile-section": true,
       "today-customs": true,
       "catalog-archive": true,
-      "details-recipe-maker": true,
       "details-sync-error-banner": true,
       "targets-accumulation": true,
       "history": true,
       "catalog-ratio": true,
       "profile": true,
-      "details-add-new-item": true,
-      "section-checkout": true
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
@@ -3313,6 +3311,38 @@
           "brand": "Premier",
           "purines": 0.15
         },
+        "premier_smoothie": {
+          "name": "Premier smoothie",
+          "category": "recipes",
+          "ingredients": [
+            {
+              "itemKey": "protein_powder_whey_premier_chocolate",
+              "amount": 41
+            },
+            {
+              "itemKey": "spinach_fresh",
+              "amount": 40
+            },
+            {
+              "itemKey": "strawberry_frozen_blb",
+              "amount": 200
+            },
+            {
+              "itemKey": "yogurt_half",
+              "amount": 226.8
+            }
+          ],
+          "displayUnits": [
+            {
+              "label": "full recipe",
+              "multiplier": 507.8,
+              "amount": 507.8,
+              "unit": "g",
+              "default": true,
+              "locked": true
+            }
+          ]
+        },
         "preserves_blackberry_skinnygirl": {
           "name": "Preserves blackberry sugar-free",
           "category": "items",
@@ -3355,6 +3385,75 @@
           "defaultMeasuredIn": "g",
           "brand": "Skinnygirl",
           "purines": 0.05
+        },
+        "protein_powder_whey_premier_chocolate": {
+          "name": "Protein powder whey chocolate milkshake (Premier Protein)",
+          "brand": "Premier Protein",
+          "category": "supplements",
+          "defaultMeasuredIn": "g",
+          "kcal": 3.65854,
+          "p": 0.73171,
+          "carbs": 0.097561,
+          "fiber": 0.02439,
+          "sugar": 0.02439,
+          "fat": 0.04878,
+          "sf": 0.02439,
+          "transfat": 0,
+          "cholesterol": 1.21951,
+          "sodium": 4.14634,
+          "water": 0.04,
+          "caffeine": 0,
+          "omega3": 0,
+          "vitA": 0,
+          "vitC": 0,
+          "vitD": 0,
+          "vitE": 0,
+          "vitK": 0,
+          "b1": 0.00122,
+          "b2": 0.009756,
+          "b3": 0.012195,
+          "b5": 0.012195,
+          "b6": 0.002439,
+          "b7": 0,
+          "b9": 0.122,
+          "b12": 0.0122,
+          "choline": 1.2195,
+          "calcium": 3.90244,
+          "iron": 0.029268,
+          "magnesium": 0.85366,
+          "phosphorus": 6.09756,
+          "potassium": 6.58537,
+          "zinc": 0.036585,
+          "selenium": 0.41463,
+          "copper": 0.002439,
+          "manganese": 0,
+          "iodine": 0,
+          "chromium": 0,
+          "molybdenum": 0,
+          "mercury": 0,
+          "purines": 0.7,
+          "displayUnits": [
+            {
+              "label": "2 scoops (41 g)",
+              "amount": 41,
+              "unit": "g",
+              "multiplier": 41,
+              "default": true
+            },
+            {
+              "label": "1 scoop (~20.5 g)",
+              "amount": 20.5,
+              "unit": "g",
+              "multiplier": 20.5
+            },
+            {
+              "label": "Whole tub (1190 g)",
+              "amount": 1190,
+              "unit": "g",
+              "multiplier": 1190
+            }
+          ],
+          "notes": "Premier Protein 100% Whey Protein Powder, Chocolate Milkshake. 1190g tub, 29 servings. Macros and calcium/iron/potassium from label (÷41). Ingredients: whey protein isolate, whey protein concentrate, cocoa processed with alkali, chicory root fiber, sunflower lecithin, xanthan gum, salt, acesulfame potassium, sucralose. B-vitamins, magnesium, phosphorus, zinc, selenium, choline estimated from USDA whey protein isolate data — LOW CONFIDENCE, flag for verification. Purines estimated ~70mg/100g for concentrated whey — LOW CONFIDENCE."
         },
         "protein_whey_dymatize_iso100_vanilla": {
           "name": "Protein powder whey isolate hydrolyzed vanilla (Dymatize ISO100)",
