@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.57">
+<meta name="app-version" content="v6.5.58">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -3457,6 +3457,28 @@
     text-transform: uppercase;
     color: var(--ink-soft);
     margin-bottom: 6px;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .chart-title::before {
+    content: '▾';
+    display: inline-block;
+    font-size: 10px;
+    line-height: 1;
+    opacity: 0.6;
+    transition: transform 120ms ease-out;
+  }
+  .weight-chart-wrapper.collapsed > .chart-title::before {
+    transform: rotate(-90deg);
+  }
+  .weight-chart-wrapper.collapsed > *:not(.chart-title) {
+    display: none !important;
+  }
+  .weight-chart-wrapper.collapsed {
+    margin-bottom: 8px;
   }
   .chart-subtitle {
     font-size: 9px;
@@ -8709,6 +8731,15 @@
       if (getTotalsMode() === TOTALS_MODE.COLLAPSED) el.classList.add('collapsed');
       else el.classList.remove('collapsed');
     });
+    // Individual weight / BMI / fat % chart wrappers - keyed off the chart's
+    // SVG id so each can independently collapse from the parent section.
+    document.querySelectorAll('.weight-chart-wrapper').forEach(el => {
+      const svg = el.querySelector('svg[id]');
+      if (!svg) return;
+      const k = 'chart-' + svg.id;
+      if (map[k]) el.classList.add('collapsed');
+      else el.classList.remove('collapsed');
+    });
     // <details> elements with an id sync their open/closed state to the same
     // map. Closed (collapsed) => details NOT open. We don't add a class —
     // the <details>'s own `open` attribute controls visibility natively.
@@ -11381,10 +11412,20 @@
       svg.appendChild(label);
     }
 
-    // X-axis date labels - show ALL points (capped at 7 by the caller's
-    // shared-axis builder). Every X position gets its date label so the
-    // three charts line up vertically with the same tick set.
-    for (let i = 0; i < n; i++) {
+    // X-axis date labels - thin out to about 7 evenly-spaced ticks so
+    // long series (many weigh-ins) don't pile labels into illegible mush.
+    // The first and last dates are always shown; intermediate dates are
+    // sampled at floor(n/6) spacing.
+    const MAX_LABELS = 7;
+    const labelIndices = new Set();
+    if (n === 1) labelIndices.add(0);
+    else if (n <= MAX_LABELS) {
+      for (let i = 0; i < n; i++) labelIndices.add(i);
+    } else {
+      const step = (n - 1) / (MAX_LABELS - 1);
+      for (let k = 0; k < MAX_LABELS; k++) labelIndices.add(Math.round(k * step));
+    }
+    for (const i of labelIndices) {
       const label = svgEl('text', {
         x: xFor(i), y: pad.top + innerH + 14, 'text-anchor': 'middle',
         fill: '#8a8a8a', 'font-family': 'JetBrains Mono, monospace', 'font-size': '9',
@@ -11455,16 +11496,16 @@
     return el;
   }
 
-  // Shared X-axis across all three charts (weight / BMI / fat %). Returns
-  // up to 7 most-recent dates that appear in ANY of the three underlying
-  // series, sorted ascending. Each chart maps its own values onto this
-  // axis so the three plots line up vertically AND nothing scrolls past
-  // 7 X-axis positions.
+  // Shared X-axis across all three charts (weight / BMI / fat %). Spans
+  // every date that appears in either the weight series or the fat-percent
+  // series, sorted ascending, so the axis is as long as the longest data
+  // series. X-axis label density is thinned in buildLineChart so 30+
+  // points don't pile their date labels on top of each other.
   function getSharedChartDates() {
     const dates = new Set();
     for (const s of collectWeightSeries()) dates.add(s.date);
     for (const s of collectFatPercentSeries()) dates.add(s.date);
-    return Array.from(dates).sort().slice(-7);
+    return Array.from(dates).sort();
   }
 
   // Build a sparse points array on the shared date axis. Returns
@@ -13552,10 +13593,20 @@
         if (e.target.closest('button, input, select, textarea, [contenteditable], a, label')) return;
         if (!state.collapsedGroups) state.collapsedGroups = {};
         let k = null, host = null;
-        const grpHeader = e.target.closest('.checkout-group-header');
-        if (grpHeader) {
-          const group = grpHeader.closest('.checkout-group[data-group-key]');
-          if (group) { host = group; k = group.dataset.groupKey; }
+        // Chart title click - toggle the individual weight / BMI / fat %
+        // chart wrapper. Keyed off the SVG id ('chart-weight-chart' etc).
+        const chartTitle = e.target.closest('.weight-chart-wrapper > .chart-title');
+        if (chartTitle) {
+          const wrapper = chartTitle.parentElement;
+          const svg = wrapper.querySelector('svg[id]');
+          if (svg) { host = wrapper; k = 'chart-' + svg.id; }
+        }
+        if (!host) {
+          const grpHeader = e.target.closest('.checkout-group-header');
+          if (grpHeader) {
+            const group = grpHeader.closest('.checkout-group[data-group-key]');
+            if (group) { host = group; k = group.dataset.groupKey; }
+          }
         }
         if (!host) {
           const h2 = e.target.closest('h2');
