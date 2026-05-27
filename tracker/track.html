@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.54">
+<meta name="app-version" content="v6.5.55">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -11316,15 +11316,19 @@
       return;
     }
 
-    // Y-axis range
+    // Y-axis range. Filter null y values (sparse axis - dates with no
+    // recorded measurement on this chart's metric).
+    const yVals = points.map(p => p.y).filter(v => typeof v === 'number');
     let yMin, yMax;
     if (options.yMin !== undefined && options.yMax !== undefined) {
       yMin = options.yMin; yMax = options.yMax;
-    } else {
-      yMin = Math.min.apply(null, points.map(p => p.y));
-      yMax = Math.max.apply(null, points.map(p => p.y));
+    } else if (yVals.length) {
+      yMin = Math.min.apply(null, yVals);
+      yMax = Math.max.apply(null, yVals);
       const range = yMax - yMin || 1;
       yMin -= range * 0.1; yMax += range * 0.1;
+    } else {
+      yMin = 0; yMax = 1;
     }
     const yRange = yMax - yMin || 1;
 
@@ -11364,9 +11368,10 @@
       svg.appendChild(label);
     }
 
-    // X-axis date labels (first, middle, last)
-    const xLabels = n === 1 ? [0] : (n <= 3 ? Array.from({length: n}, (_, i) => i) : [0, Math.floor((n-1)/2), n-1]);
-    for (const i of xLabels) {
+    // X-axis date labels - show ALL points (capped at 7 by the caller's
+    // shared-axis builder). Every X position gets its date label so the
+    // three charts line up vertically with the same tick set.
+    for (let i = 0; i < n; i++) {
       const label = svgEl('text', {
         x: xFor(i), y: pad.top + innerH + 14, 'text-anchor': 'middle',
         fill: '#8a8a8a', 'font-family': 'JetBrains Mono, monospace', 'font-size': '9',
@@ -11375,16 +11380,26 @@
       svg.appendChild(label);
     }
 
-    // Line path
+    // Line path - break into segments wherever y is null so gaps in the
+    // sparse axis don't pull a misleading line across missing days.
     if (n > 1) {
-      const d = points.map((p, i) => (i === 0 ? 'M' : 'L') + xFor(i) + ',' + yFor(p.y)).join(' ');
-      svg.appendChild(svgEl('path', {
-        d: d, fill: 'none', stroke: options.color || '#b04a2e', 'stroke-width': '2',
-      }));
+      let d = '';
+      let inSegment = false;
+      points.forEach((p, i) => {
+        if (typeof p.y !== 'number') { inSegment = false; return; }
+        d += (inSegment ? 'L' : 'M') + xFor(i) + ',' + yFor(p.y) + ' ';
+        inSegment = true;
+      });
+      if (d) {
+        svg.appendChild(svgEl('path', {
+          d: d.trim(), fill: 'none', stroke: options.color || '#b04a2e', 'stroke-width': '2',
+        }));
+      }
     }
 
-    // Points
+    // Points - skip nulls.
     points.forEach((p, i) => {
+      if (typeof p.y !== 'number') return;
       svg.appendChild(svgEl('circle', {
         cx: xFor(i), cy: yFor(p.y), r: '3.5',
         fill: options.color || '#b04a2e', stroke: '#f7f3ea', 'stroke-width': '1.5',
@@ -11397,6 +11412,7 @@
     if (options.showPointLabels) {
       const decimals = options.yDecimals !== undefined ? options.yDecimals : 1;
       points.forEach((p, i) => {
+        if (typeof p.y !== 'number') return;
         const cx = xFor(i);
         const cy = yFor(p.y);
         // Default placement: 8px above the point. If too close to top edge,
@@ -11424,25 +11440,49 @@
     return el;
   }
 
+  // Shared X-axis across all three charts (weight / BMI / fat %). Returns
+  // up to 7 most-recent dates that appear in ANY of the three underlying
+  // series, sorted ascending. Each chart maps its own values onto this
+  // axis so the three plots line up vertically AND nothing scrolls past
+  // 7 X-axis positions.
+  function getSharedChartDates() {
+    const dates = new Set();
+    for (const s of collectWeightSeries()) dates.add(s.date);
+    for (const s of collectFatPercentSeries()) dates.add(s.date);
+    return Array.from(dates).sort().slice(-7);
+  }
+
+  // Build a sparse points array on the shared date axis. Returns
+  // {y, label, date} for each shared date; y is null if `series` has no
+  // value for that date (line breaks at nulls in buildLineChart).
+  function projectOntoSharedAxis(series, getY, dates) {
+    const byDate = new Map();
+    for (const s of series) byDate.set(s.date, getY(s));
+    return dates.map(d => ({
+      y: byDate.has(d) ? byDate.get(d) : null,
+      label: d.slice(5),
+      date: d,
+    }));
+  }
+
   function renderWeightChart() {
     const svg = document.getElementById('weight-chart');
     if (!svg) return;
-    const series = collectWeightSeries();
-    const points = series.map(s => ({ y: s.weight, label: s.date.slice(5), date: s.date }));
+    const dates = getSharedChartDates();
+    const points = projectOntoSharedAxis(collectWeightSeries(), s => s.weight, dates);
     buildLineChart(svg, points, { color: '#b04a2e', yDecimals: 1, showPointLabels: true });
   }
 
   function renderBmiChart() {
     const svg = document.getElementById('bmi-chart');
     if (!svg) return;
-    const series = collectWeightSeries();
-    const points = series
-      .map(s => ({ y: bmiFor(s.weight), label: s.date.slice(5), date: s.date }))
-      .filter(p => p.y != null);
-    // Pin BMI y-range to a sensible clinical span centered on user's data
+    const dates = getSharedChartDates();
+    const points = projectOntoSharedAxis(collectWeightSeries(), s => bmiFor(s.weight), dates);
+    // Pin BMI y-range to a sensible clinical span centered on user's data.
+    // Filter nulls (dates without weight readings on the shared axis).
     let yMin = 16, yMax = 35;
-    if (points.length) {
-      const vals = points.map(p => p.y);
+    const vals = points.map(p => p.y).filter(v => typeof v === 'number');
+    if (vals.length) {
       const dataMin = Math.min.apply(null, vals);
       const dataMax = Math.max.apply(null, vals);
       yMin = Math.min(yMin, dataMin - 1);
@@ -11468,12 +11508,16 @@
   function renderFatPercentChart() {
     const svg = document.getElementById('fat-pct-chart');
     if (!svg) return;
-    const series = collectFatPercentSeries();
-    const points = series.map(s => ({ y: s.fatPercent, label: s.date.slice(5), date: s.date }));
-    // Subtitle: current value + goal max + delta.
+    const dates = getSharedChartDates();
+    const points = projectOntoSharedAxis(collectFatPercentSeries(), s => s.fatPercent, dates);
+    // Subtitle: current value + goal max + delta. Uses the last non-null
+    // value on the shared axis (latest fat % reading the user has).
     const sub = document.getElementById('fat-pct-subtitle');
     if (sub) {
-      const latest = points.length ? points[points.length - 1].y : null;
+      let latest = null;
+      for (let i = points.length - 1; i >= 0; i--) {
+        if (typeof points[i].y === 'number') { latest = points[i].y; break; }
+      }
       const goal = state.profile && state.profile.goals && typeof state.profile.goals.fatPercent === 'number'
         ? state.profile.goals.fatPercent : null;
       const parts = [];
@@ -11486,8 +11530,8 @@
       sub.textContent = parts.join(' · ');
     }
     let yMin = 5, yMax = 30;
-    if (points.length) {
-      const vals = points.map(p => p.y);
+    const vals = points.map(p => p.y).filter(v => typeof v === 'number');
+    if (vals.length) {
       const dataMin = Math.min.apply(null, vals);
       const dataMax = Math.max.apply(null, vals);
       yMin = Math.min(yMin, Math.floor(dataMin) - 1);
