@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-28T02:03:28.296Z",
-  "_gistSavedAt": "2026-05-28T01:55:53.683Z",
+  "_backupTakenAt": "2026-05-28T18:21:13.829Z",
+  "_gistSavedAt": "2026-05-28T11:52:03.420Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -508,9 +508,31 @@
         "weightMeta": "2026-05-27T13:56:03.903Z",
         "waist": 107.5,
         "waistMeta": "2026-05-27T16:46:37.385Z"
+      },
+      "2026-05-28": {
+        "toggles": {},
+        "counters": {
+          "custom_1779969113576_ss76f": 1
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "custom_1779969113576_ss76f": "2026-05-28T11:51:53.576Z"
+        },
+        "weight": 97.6,
+        "weightMeta": "2026-05-28T11:48:59.725Z",
+        "waist": 107,
+        "waistMeta": "2026-05-28T11:48:54.965Z"
       }
     },
-    "savedItems": [],
+    "savedItems": [
+      {
+        "key": "custom_1779969113576_ss76f",
+        "name": "wash teeth",
+        "kcal": 0,
+        "category": "supplements"
+      }
+    ],
     "profile": {
       "displayName": "L.G.",
       "fullName": "Luis",
@@ -593,10 +615,10 @@
       "details-sync-error-banner": true,
       "targets-accumulation": true,
       "chart-bmi-chart": true,
-      "section-weight-tracker": true,
       "supplements-water": true,
-      "details-add-new-item": true,
-      "today-log": true
+      "today-log": true,
+      "history": true,
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
