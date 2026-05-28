@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.59">
+<meta name="app-version" content="v6.5.60">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -13189,17 +13189,41 @@
         const store = getInput('store').checked;
 
         if (store) {
-          // Generate a key, save to savedItems, increment today's counter by 1.
-          // Two ops in one enqueue → single batched flush.
-          const key = 'custom_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
-          const savedItem = { key, ...item };
-          state.savedItems.push(savedItem);
+          // "Store for later" promotes the entry to a full catalog item so
+          // it shows up in the main catalog list (state.userCatalog.items),
+          // not just the legacy state.savedItems group. Macros entered in
+          // this form are per-serving; the catalog item is stored as
+          // per-1-unit with multiplier=1 so one tap of +/- equals one
+          // entered serving. Today's counter still gets bumped by 1.
+          let baseKey = (name || 'custom').toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+          if (!baseKey) baseKey = 'custom';
+          let key = baseKey, n = 1;
+          while (ITEMS[key]) { key = baseKey + '_' + n; n++; }
+          const catalogItem = {
+            name,
+            category: category || 'uncategorized',
+            defaultMeasuredIn: 'units',
+            kcal,
+            p,
+            sf,
+            water,
+            caffeine,
+            displayUnits: [
+              { label: '1 serving', amount: 1, unit: 'ea', multiplier: 1, default: true },
+            ],
+          };
+          if (timeRaw) {
+            catalogItem.displayUnits[0].time = timeRaw;
+            catalogItem.displayUnits[0].frequency = frequency;
+          }
+          ITEMS[key] = catalogItem;
           state.counters[key] = 1;
           stampCounter(key);
           saveStateLocal();
           const ts = new Date().toISOString();
-          sendOp({ type: 'saved_item_add', item: savedItem });
+          sendOp({ type: 'catalog_add', key, item: catalogItem });
           sendOp({ type: 'counter_inc', key, date: state.activeDate, ts });
+          if (typeof renderCatalog === 'function') renderCatalog();
         } else {
           // Append as a one-off in today's customs. UUID at creation so any
           // subsequent inc/dec/remove can address it via custom_*.

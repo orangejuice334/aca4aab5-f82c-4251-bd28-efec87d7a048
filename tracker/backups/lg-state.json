@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-27T19:42:00.413Z",
-  "_gistSavedAt": "2026-05-27T19:41:42.696Z",
+  "_backupTakenAt": "2026-05-28T02:03:28.296Z",
+  "_gistSavedAt": "2026-05-28T01:55:53.683Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -462,11 +462,48 @@
         "waistMeta": "2026-05-26T20:55:53.772Z"
       },
       "2026-05-27": {
-        "toggles": {},
-        "counters": {},
-        "customs": [],
-        "toggleMeta": {},
-        "counterMeta": {},
+        "toggles": {
+          "water#07:00": true,
+          "wegovy#07:30": true,
+          "d3#08:00": true,
+          "flonase#08:00": true,
+          "creatine#08:00": true,
+          "omega3#08:00": true,
+          "two_per_day#08:00": true,
+          "caffeine_anhydrous_200mg#08:00": true
+        },
+        "counters": {
+          "wing_plain_bww": 215.46,
+          "orange_raw": 131,
+          "protein_powder_whey_premier_chocolate": 41,
+          "custom_1779933258101_uukrf": 1
+        },
+        "customs": [
+          {
+            "id": "04149335-b13a-4473-8d3b-b4d059e7d14e",
+            "name": "Wash teeth",
+            "kcal": 0,
+            "category": "supplements",
+            "count": 1,
+            "lastModified": "2026-05-28T01:53:48.276Z"
+          }
+        ],
+        "toggleMeta": {
+          "water#07:00": "2026-05-27T21:03:15.522Z",
+          "wegovy#07:30": "2026-05-27T21:03:17.650Z",
+          "d3#08:00": "2026-05-27T21:03:18.637Z",
+          "flonase#08:00": "2026-05-27T21:03:20.791Z",
+          "creatine#08:00": "2026-05-27T21:03:23.700Z",
+          "omega3#08:00": "2026-05-27T21:03:25.652Z",
+          "two_per_day#08:00": "2026-05-27T21:03:26.268Z",
+          "caffeine_anhydrous_200mg#08:00": "2026-05-27T21:03:27.160Z"
+        },
+        "counterMeta": {
+          "wing_plain_bww": "2026-05-27T21:03:47.063Z",
+          "orange_raw": "2026-05-27T21:07:21.421Z",
+          "protein_powder_whey_premier_chocolate": "2026-05-27T21:07:47.576Z",
+          "custom_1779933258101_uukrf": "2026-05-28T01:54:18.101Z"
+        },
         "weight": 98.5,
         "weightMeta": "2026-05-27T13:56:03.903Z",
         "waist": 107.5,
@@ -555,13 +592,11 @@
       "catalog-archive": true,
       "details-sync-error-banner": true,
       "targets-accumulation": true,
-      "history": true,
-      "catalog-ratio": true,
-      "profile": true,
-      "details-add-new-item": true,
-      "section-checkout": true,
       "chart-bmi-chart": true,
-      "section-weight-tracker": true
+      "section-weight-tracker": true,
+      "supplements-water": true,
+      "details-add-new-item": true,
+      "today-log": true
     },
     "userCatalog": {
       "items": {
@@ -3067,6 +3102,58 @@
             }
           ],
           "defaultMeasuredIn": "g"
+        },
+        "orange_raw": {
+          "name": "Orange",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.47,
+          "p": 0.0094,
+          "carbs": 0.1175,
+          "fiber": 0.024,
+          "sugar": 0.0935,
+          "fat": 0.0012,
+          "sf": 0.0001,
+          "water": 0.8675,
+          "omega3": 0.02,
+          "vitA": 0.11,
+          "vitC": 0.532,
+          "vitE": 0.0018,
+          "vitK": 0.001,
+          "b1": 0.0009,
+          "b2": 0.0004,
+          "b3": 0.0028,
+          "b5": 0.0025,
+          "b6": 0.0006,
+          "b7": 0.01,
+          "b9": 0.3,
+          "choline": 0.084,
+          "calcium": 0.4,
+          "iron": 0.001,
+          "magnesium": 0.1,
+          "phosphorus": 0.14,
+          "potassium": 1.81,
+          "zinc": 0.0007,
+          "selenium": 0.005,
+          "copper": 0.0005,
+          "manganese": 0.0003,
+          "purines": 0.19,
+          "displayUnits": [
+            {
+              "label": "1 large (184 g)",
+              "amount": 184,
+              "unit": "g",
+              "multiplier": 184
+            },
+            {
+              "label": "1 medium (131 g)",
+              "amount": 131,
+              "unit": "g",
+              "default": true,
+              "multiplier": 131
+            }
+          ],
+          "notes": "USDA SR Legacy 09202 (Oranges, raw, all commercial varieties). All values per gram of edible flesh (peel excluded). Medium = 131g edible, large = 184g edible per USDA standard size definitions. b7 is a rough estimate (~1 μg/100g)."
         },
         "pb2": {
           "name": "PB2",
