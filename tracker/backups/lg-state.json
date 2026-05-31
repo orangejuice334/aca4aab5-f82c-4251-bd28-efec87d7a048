@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-05-30T11:55:28.092Z",
-  "_gistSavedAt": "2026-05-28T19:14:20.742Z",
+  "_backupTakenAt": "2026-05-31T12:04:15.158Z",
+  "_gistSavedAt": "2026-05-30T18:32:15.913Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -523,6 +523,57 @@
         "weightMeta": "2026-05-28T11:48:59.725Z",
         "waist": 107,
         "waistMeta": "2026-05-28T11:48:54.965Z"
+      },
+      "2026-05-29": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {}
+      },
+      "2026-05-30": {
+        "toggles": {
+          "wegovy#07:30": true,
+          "d3#08:00": true,
+          "creatine#08:00": true,
+          "omega3#08:00": true,
+          "two_per_day#08:00": true
+        },
+        "counters": {
+          "egg_fried": 92,
+          "protein_powder_whey_premier_chocolate": 82
+        },
+        "customs": [
+          {
+            "id": "0f7cdc1c-3f89-4d36-9ce9-c4cc9c43a51c",
+            "name": "choc",
+            "kcal": 160,
+            "p": 1,
+            "count": 1,
+            "lastModified": "2026-05-30T15:59:56.587Z"
+          },
+          {
+            "id": "2c153b70-b4d4-4417-af6d-f32093b93e66",
+            "name": "200kcal 22p",
+            "kcal": 200,
+            "p": 22,
+            "count": 1,
+            "lastModified": "2026-05-30T18:32:14.871Z"
+          }
+        ],
+        "toggleMeta": {
+          "wegovy#07:30": "2026-05-30T13:49:34.412Z",
+          "d3#08:00": "2026-05-30T13:49:35.345Z",
+          "creatine#08:00": "2026-05-30T13:49:35.988Z",
+          "omega3#08:00": "2026-05-30T13:49:37.721Z",
+          "two_per_day#08:00": "2026-05-30T13:49:38.560Z"
+        },
+        "counterMeta": {
+          "egg_fried": "2026-05-30T15:59:00.235Z",
+          "protein_powder_whey_premier_chocolate": "2026-05-30T16:01:31.609Z"
+        },
+        "weight": 97.8,
+        "weightMeta": "2026-05-30T15:56:10.507Z"
       }
     },
     "savedItems": [
@@ -614,15 +665,13 @@
       "catalog-archive": true,
       "details-sync-error-banner": true,
       "targets-accumulation": true,
-      "chart-bmi-chart": true,
-      "supplements-water": true,
       "today-log": true,
       "history": true,
-      "details-add-new-item": true,
-      "profile": true,
-      "catalog-ratio": true,
+      "details-recipe-maker": true,
+      "chart-bmi-chart": true,
       "saved-customs": true,
-      "details-recipe-maker": true
+      "profile": true,
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
@@ -1556,6 +1605,74 @@
             }
           ],
           "defaultMeasuredIn": "g"
+        },
+        "egg_fried": {
+          "name": "Egg fried",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.96,
+          "p": 0.1361,
+          "carbs": 0.0083,
+          "fiber": 0,
+          "sugar": 0.0083,
+          "fat": 0.1484,
+          "sf": 0.04318,
+          "transfat": 0.00094,
+          "cholesterol": 4.01,
+          "sodium": 2.07,
+          "water": 0.6947,
+          "caffeine": 0,
+          "omega3": 0.94,
+          "vitA": 1.49,
+          "vitC": 0,
+          "vitD": 0.02,
+          "vitE": 0.0105,
+          "vitK": 0.005,
+          "b1": 0.0004,
+          "b2": 0.00369,
+          "b3": 0.00082,
+          "b5": 0.01489,
+          "b6": 0.00121,
+          "b7": 0.25,
+          "b9": 0.47,
+          "b12": 0.0111,
+          "choline": 2.72,
+          "calcium": 0.62,
+          "iron": 0.0189,
+          "magnesium": 0.12,
+          "phosphorus": 2.15,
+          "potassium": 1.52,
+          "zinc": 0.0129,
+          "selenium": 0.255,
+          "copper": 0.00012,
+          "manganese": 0.00012,
+          "iodine": 0.53,
+          "chromium": 0,
+          "molybdenum": 0,
+          "mercury": 0,
+          "purines": 0.43,
+          "displayUnits": [
+            {
+              "label": "1 large (46 g)",
+              "amount": 46,
+              "unit": "g",
+              "multiplier": 46,
+              "default": true
+            },
+            {
+              "label": "1 medium (40 g)",
+              "amount": 40,
+              "unit": "g",
+              "multiplier": 40
+            },
+            {
+              "label": "1 extra large (52 g)",
+              "amount": 52,
+              "unit": "g",
+              "multiplier": 52
+            }
+          ],
+          "notes": "USDA SR Legacy 01128 (Egg, whole, cooked, fried). All values per gram. transfat is naturally occurring from egg yolk (~0.094g/100g, below label threshold). Sodium 207mg/100g assumes standard preparation with added salt; unsalted fry is ~142mg/100g. Iodine ~53 μg/100g (eggs are primary dietary iodine source). b7 ~25 μg/100g (eggs are richest common food source of biotin)."
         },
         "egg_substitute": {
           "name": "Egg substitute",
@@ -5401,7 +5518,6 @@
           "label": "Uncategorized"
         }
       ]
-    },
-    "totalsMode": "collapsed"
+    }
   }
 }
