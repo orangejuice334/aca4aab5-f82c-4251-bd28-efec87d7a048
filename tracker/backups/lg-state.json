@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-01T15:34:31.135Z",
-  "_gistSavedAt": "2026-06-01T15:27:29.307Z",
+  "_backupTakenAt": "2026-06-01T15:59:35.372Z",
+  "_gistSavedAt": "2026-06-01T15:59:19.957Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -238,7 +238,9 @@
         "weight": 99.1,
         "weightMeta": "2026-05-21T15:21:08.657Z",
         "waist": 109.3,
-        "waistMeta": "2026-05-22T14:50:10.495Z"
+        "waistMeta": "2026-05-22T14:50:10.495Z",
+        "neck": 43,
+        "neckMeta": "2026-06-01T15:59:17.378Z"
       },
       "2026-05-21": {
         "toggles": {
@@ -280,7 +282,9 @@
         "weight": 99,
         "weightMeta": "2026-05-21T15:21:11.848Z",
         "waist": 108.7,
-        "waistMeta": "2026-05-22T14:50:10.495Z"
+        "waistMeta": "2026-05-22T14:50:10.495Z",
+        "neck": 43,
+        "neckMeta": "2026-06-01T15:59:17.378Z"
       },
       "2026-05-22": {
         "toggles": {
@@ -305,7 +309,9 @@
         "weight": 98.5,
         "weightMeta": "2026-05-22T14:47:32.978Z",
         "waist": 108,
-        "waistMeta": "2026-05-22T14:50:11.551Z"
+        "waistMeta": "2026-05-22T14:50:11.551Z",
+        "neck": 43,
+        "neckMeta": "2026-06-01T15:59:17.378Z"
       },
       "2026-05-23": {
         "toggles": {
@@ -346,7 +352,9 @@
         "weight": 100,
         "weightMeta": "2026-05-23T14:25:20.034Z",
         "waist": 108.3,
-        "waistMeta": "2026-05-26T20:55:52.743Z"
+        "waistMeta": "2026-05-26T20:55:52.743Z",
+        "neck": 43,
+        "neckMeta": "2026-06-01T15:59:17.378Z"
       },
       "2026-05-24": {
         "toggles": {},
@@ -370,7 +378,9 @@
           "spinach_fresh": "2026-05-24T21:02:16.326Z"
         },
         "waist": 108.5,
-        "waistMeta": "2026-05-26T20:55:52.743Z"
+        "waistMeta": "2026-05-26T20:55:52.743Z",
+        "neck": 43,
+        "neckMeta": "2026-06-01T15:59:17.378Z"
       },
       "2026-05-25": {
         "toggles": {
@@ -399,7 +409,9 @@
           "protein_whey_dymatize_iso100_vanilla": "2026-05-25T16:00:19.747Z"
         },
         "waist": 108.8,
-        "waistMeta": "2026-05-26T20:55:52.743Z"
+        "waistMeta": "2026-05-26T20:55:52.743Z",
+        "neck": 43,
+        "neckMeta": "2026-06-01T15:59:17.378Z"
       },
       "2026-05-26": {
         "toggles": {
@@ -459,7 +471,9 @@
         "weight": 98.4,
         "weightMeta": "2026-05-26T17:32:47.185Z",
         "waist": 109,
-        "waistMeta": "2026-05-26T20:55:53.772Z"
+        "waistMeta": "2026-05-26T20:55:53.772Z",
+        "neck": 43,
+        "neckMeta": "2026-06-01T15:59:17.378Z"
       },
       "2026-05-27": {
         "toggles": {
@@ -507,7 +521,9 @@
         "weight": 98.5,
         "weightMeta": "2026-05-27T13:56:03.903Z",
         "waist": 107.5,
-        "waistMeta": "2026-05-27T16:46:37.385Z"
+        "waistMeta": "2026-05-27T16:46:37.385Z",
+        "neck": 43,
+        "neckMeta": "2026-06-01T15:59:17.378Z"
       },
       "2026-05-28": {
         "toggles": {},
@@ -522,14 +538,18 @@
         "weight": 97.6,
         "weightMeta": "2026-05-28T11:48:59.725Z",
         "waist": 107,
-        "waistMeta": "2026-05-28T11:48:54.965Z"
+        "waistMeta": "2026-05-28T11:48:54.965Z",
+        "neck": 43,
+        "neckMeta": "2026-06-01T15:59:17.378Z"
       },
       "2026-05-29": {
         "toggles": {},
         "counters": {},
         "customs": [],
         "toggleMeta": {},
-        "counterMeta": {}
+        "counterMeta": {},
+        "neck": 43,
+        "neckMeta": "2026-06-01T15:59:17.378Z"
       },
       "2026-05-30": {
         "toggles": {
@@ -573,7 +593,9 @@
           "protein_powder_whey_premier_chocolate": "2026-05-30T16:01:31.609Z"
         },
         "weight": 97.8,
-        "weightMeta": "2026-05-30T15:56:10.507Z"
+        "weightMeta": "2026-05-30T15:56:10.507Z",
+        "neck": 43,
+        "neckMeta": "2026-06-01T15:59:17.378Z"
       },
       "2026-05-31": {
         "toggles": {},
@@ -582,7 +604,9 @@
         "toggleMeta": {},
         "counterMeta": {},
         "weight": 97.6,
-        "weightMeta": "2026-05-31T14:27:42.629Z"
+        "weightMeta": "2026-05-31T14:27:42.629Z",
+        "neck": 43,
+        "neckMeta": "2026-06-01T15:59:17.378Z"
       },
       "2026-06-01": {
         "toggles": {
@@ -617,7 +641,11 @@
           "yogurt_half": "2026-06-01T14:17:22.110Z",
           "spinach_fresh": "2026-06-01T14:17:39.342Z",
           "strawberry_frozen_blb": "2026-06-01T14:17:52.164Z"
-        }
+        },
+        "weight": 97.5,
+        "weightMeta": "2026-06-01T15:59:16.823Z",
+        "neck": 43,
+        "neckMeta": "2026-06-01T15:59:17.376Z"
       }
     },
     "savedItems": [],
@@ -707,6 +735,7 @@
       "details-recipe-maker": true,
       "chart-bmi-chart": true,
       "profile": true,
+      "catalog-ratio": true,
       "supplements-water": true
     },
     "userCatalog": {
@@ -3819,6 +3848,69 @@
             }
           ],
           "purines": 0.9
+        },
+        "protein_whey_isolate_nutricost_unflavored": {
+          "name": "Protein powder whey isolate unflavored (Nutricost)",
+          "brand": "Nutricost",
+          "category": "supplements",
+          "defaultMeasuredIn": "g",
+          "kcal": 3.93939,
+          "p": 0.90909,
+          "carbs": 0,
+          "fiber": 0,
+          "sugar": 0,
+          "fat": 0.015152,
+          "sf": 0,
+          "transfat": 0,
+          "cholesterol": 0.45152,
+          "sodium": 3.63939,
+          "water": 0.075758,
+          "caffeine": 0,
+          "omega3": 0,
+          "vitA": 0,
+          "vitC": 0,
+          "vitD": 0,
+          "vitE": 0,
+          "vitK": 0,
+          "b1": 0,
+          "b2": 0.006,
+          "b3": 0,
+          "b5": 0,
+          "b6": 0,
+          "b7": 0,
+          "b9": 0,
+          "b12": 0.012,
+          "choline": 1,
+          "calcium": 3.17879,
+          "iron": 0,
+          "magnesium": 0.3,
+          "phosphorus": 3,
+          "potassium": 3.42121,
+          "zinc": 0.012,
+          "selenium": 0.25,
+          "copper": 0,
+          "manganese": 0,
+          "iodine": 0,
+          "chromium": 0,
+          "molybdenum": 0,
+          "mercury": 0,
+          "purines": 0.7,
+          "displayUnits": [
+            {
+              "label": "1 scoop (33 g)",
+              "amount": 33,
+              "unit": "g",
+              "multiplier": 33,
+              "default": true
+            },
+            {
+              "label": "Whole tub (907 g)",
+              "amount": 907,
+              "unit": "g",
+              "multiplier": 907
+            }
+          ],
+          "notes": "Nutricost Whey Protein Isolate, Unflavored, 2 lb (907g) tub. Values from USDA Branded Food (UPC 702669933025) per 33g scoop: 130 kcal, 30g protein, 0.5g fat, 14.9mg cholesterol, 120mg sodium, calcium 105mg, iron 0, potassium 113mg, water 2.5g. Single ingredient: instantized whey protein isolate (whey protein, sunflower lecithin). Container marketed as 26 servings but label scoop is 33g (907/33 = ~27.5). Phosphorus, magnesium, b2, b12, zinc, selenium, choline are conservative estimates — isolate strips most minerals (USDA shows iron=0), so values kept low. LOW CONFIDENCE on all backfilled micros. Purines ~70mg/100g estimate."
         },
         "roll_salmon_maki_6pc": {
           "name": "Roll salmon maki 6-piece",

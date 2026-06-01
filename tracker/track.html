@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.61">
+<meta name="app-version" content="v6.5.62">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -13085,15 +13085,12 @@
 
         const nameRaw = (getInput('name').value || '').trim();
         const kcalRaw = getInput('kcal').value;
-        const kcal = parseFloat(kcalRaw);
-
-        // Validation — name is optional; kcal still required since the
-        // auto-name is derived from it.
-        if (kcalRaw === '' || isNaN(kcal) || kcal < 0) {
-          errorEl.textContent = 'Calories required (number ≥ 0).';
-          errorEl.style.display = '';
-          return;
-        }
+        // kcal is optional - blank or non-numeric defaults to 0 so the
+        // user can save items with no calorie value (water, supplements,
+        // 0-cal mixers). Negative numbers fall back to 0.
+        let kcalParsed = parseFloat(kcalRaw);
+        if (!isFinite(kcalParsed) || kcalParsed < 0) kcalParsed = 0;
+        const kcal = kcalParsed;
         errorEl.style.display = 'none';
 
         const numInput = (k) => {
