@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.66">
+<meta name="app-version" content="v6.5.67">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -164,10 +164,10 @@
     padding: 0 8px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 9px;
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--ink-soft);
+    color: var(--ink);
     line-height: 1;
     margin: 0;
     border: none;
@@ -742,7 +742,7 @@
   .checkout {
     display: flex;
     flex-direction: column;
-    gap: 19px;
+    gap: 20px;
   }
   /* #catalog-groups is a sibling container of the other .checkout-group
      bars; its children (All items / Archive / per-category groups) are
@@ -752,7 +752,7 @@
   #catalog-groups {
     display: flex;
     flex-direction: column;
-    gap: 19px;
+    gap: 20px;
   }
 
   /* Multi-variant item group: groups all variant rows of one item.
@@ -1394,7 +1394,7 @@
      (~5 letters) further to the right, so subsections nest visually
      under the parent label without looking like a separate section. */
   .checkout-group {
-    border-top: 2px solid var(--ink);
+    border-top: 2px solid #6a6a6a;
     border-bottom: none;
     padding: 18px 0;
     margin: 0;
@@ -1409,10 +1409,10 @@
     padding: 0 8px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 9px;
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--ink-soft);
+    color: var(--ink);
     line-height: 1;
     margin: 0;
     border: none;
@@ -1439,16 +1439,18 @@
   .checkout-group.collapsed {
     padding: 0;
   }
-  /* Filter input. Now sits inline next to the small mono label on the
-     section-style top rule, so it uses paper-toned colors instead of
-     the prior light-on-dark scheme. */
+  /* Filter input is a sibling of the header inside the .checkout-group
+     band so every group's filter lines up at the same X position
+     regardless of how long its label is. Paper background + dark-grey
+     border to match the subsection top-rule color. */
   .checkout-group-header .group-title { display: inline; }
-  .checkout-group-header .group-filter {
-    display: inline-block;
-    margin-left: 10px;
-    width: 110px;
-    padding: 1px 6px;
-    border: 1px solid var(--rule);
+  .checkout-group > .group-filter {
+    position: absolute;
+    top: -12px;
+    right: 16px;
+    width: 130px;
+    padding: 2px 6px;
+    border: 1px solid #6a6a6a;
     background: var(--paper);
     color: var(--ink);
     font-family: 'JetBrains Mono', monospace;
@@ -1456,12 +1458,12 @@
     letter-spacing: 0.06em;
     text-transform: none;
     border-radius: 2px;
-    vertical-align: baseline;
+    z-index: 5;
   }
-  .checkout-group-header .group-filter::placeholder { color: var(--ink-faint); }
-  .checkout-group-header .group-filter:focus { outline: none; border-color: var(--rust); background: var(--paper); }
+  .checkout-group > .group-filter::placeholder { color: var(--ink-faint); }
+  .checkout-group > .group-filter:focus { outline: none; border-color: var(--rust); background: var(--paper); }
   @media (max-width: 600px) {
-    .checkout-group-header .group-filter { width: 80px; }
+    .checkout-group > .group-filter { width: 100px; }
   }
   /* Hide rows / variant groups that don't match the current filter. JS sets
      data-filter-hidden="1" on the row/group; the row's children stay visible
@@ -1498,9 +1500,14 @@
     border-top: 2px solid var(--ink);
     border-bottom: none;
     padding: 18px 0;
-    margin: 16px 0;
+    margin: 17px 0 9px;
     position: relative;
     background: transparent;
+  }
+  /* Collapsed sections keep symmetrical 17 px margins; expanded ones halve
+     the bottom margin to 9 px so they sit closer to the next section. */
+  section.section-minimal.collapsed {
+    margin: 17px 0;
   }
   /* H2 heading inside .section-minimal uses the unified bar-heading
      ruleset near the top of the stylesheet. No per-section override
@@ -1536,7 +1543,7 @@
   section.section-minimal.collapsed {
     border-bottom: none;
     padding: 0;
-    margin: 16px 0;
+    margin: 17px 0;
   }
   /* .targets bands (Daily goals + accumulation watch) AND the checkout
      totals band share the same labeled-rule + chevron header. Chevron
@@ -2153,7 +2160,7 @@
      the same red/green ratio gradient used on goal-relative catalog rows,
      and saves the result as a new userCatalog recipes-category item. */
   .recipe-maker {
-    border-top: 2px solid var(--ink);
+    border-top: 2px solid #6a6a6a;
     border-bottom: none;
     background: transparent;
     margin: 0;
@@ -2167,11 +2174,11 @@
     top: -7px;
     left: 56px;
     background: var(--paper);
-    color: var(--ink-soft);
+    color: var(--ink);
     padding: 0 8px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 9px;
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     line-height: 1;
@@ -3021,7 +3028,7 @@
     color: var(--ink);
   }
   .custom-add {
-    border-top: 2px solid var(--ink);
+    border-top: 2px solid #6a6a6a;
     border-bottom: none;
     background: transparent;
     padding: 18px 0;
@@ -3034,11 +3041,11 @@
     top: -7px;
     left: 56px;
     background: var(--paper);
-    color: var(--ink-soft);
+    color: var(--ink);
     padding: 0 8px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 9px;
-    font-weight: 400;
+    font-weight: 700;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     line-height: 1;
@@ -4396,15 +4403,6 @@
   </form>
 </section>
 
-<section class="section-minimal band-tiles targets warnings-ribbon" data-collapsible data-collapse-key="targets-accumulation" aria-labelledby="warnings-heading" id="warnings-ribbon">
-  <h2 id="warnings-heading">Weekly Tracker</h2>
-  <!-- Tiles rendered dynamically by renderWarningsRibbon() based on
-       WARNING_DEFS. Only entries currently warn/danger or worth flagging
-       appear by default; use the toggle to see all tracked thresholds. -->
-  <div class="warnings-list" id="warnings-list"></div>
-  <div class="warnings-consequences" id="warnings-consequences" hidden></div>
-</section>
-
 <!-- Today's totals widget sits at the top of the page (above Catalog)
      so it stays glanceable regardless of which sections are open. -->
 <section class="section-minimal band-totals checkout-totals" id="checkout-totals" data-collapsible data-collapse-key="checkout-totals" title="Click to collapse / expand">
@@ -4515,6 +4513,16 @@
   </div>
 
   <div class="checkout-warnings" id="checkout-warnings"></div>
+</section>
+
+<!-- ============ WEEKLY TRACKER ============ -->
+<section class="section-minimal band-tiles targets warnings-ribbon" data-collapsible data-collapse-key="targets-accumulation" aria-labelledby="warnings-heading" id="warnings-ribbon">
+  <h2 id="warnings-heading">Weekly Tracker</h2>
+  <!-- Tiles rendered dynamically by renderWarningsRibbon() based on
+       WARNING_DEFS. Only entries currently warn/danger or worth flagging
+       appear by default; use the toggle to see all tracked thresholds. -->
+  <div class="warnings-list" id="warnings-list"></div>
+  <div class="warnings-consequences" id="warnings-consequences" hidden></div>
 </section>
 
 <!-- ============ HISTORY ============ -->
@@ -8801,20 +8809,27 @@
   // on the right. Filter values are preserved across re-renders via the
   // module-level `groupFilters` map keyed by the group's data-group-key.
   function buildGroupHeader(titleText) {
+    // Returns a DocumentFragment with TWO direct children of the .checkout-
+    // group band: the label header (positioned absolutely on the top rule)
+    // and a separate filter input (also absolute, pinned to the band's
+    // right edge so filter boxes align across groups regardless of label
+    // length).
+    const frag = document.createDocumentFragment();
     const header = document.createElement('div');
     header.className = 'checkout-group-header';
     const title = document.createElement('span');
     title.className = 'group-title';
     title.textContent = titleText;
     header.appendChild(title);
+    frag.appendChild(header);
     const filter = document.createElement('input');
     filter.type = 'text';
     filter.className = 'group-filter';
     filter.placeholder = 'filter…';
     filter.setAttribute('data-group-filter', '');
     filter.addEventListener('click', (e) => e.stopPropagation());
-    header.appendChild(filter);
-    return header;
+    frag.appendChild(filter);
+    return frag;
   }
 
   // Persisted-in-memory filter values keyed by group-key. Survives re-renders
