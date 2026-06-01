@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.65">
+<meta name="app-version" content="v6.5.66">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -1389,38 +1389,45 @@
     display: none;
   }
 
+  /* Subsection bars share the section.section-minimal "labeled top rule"
+     look. Only difference vs the parent section: the heading sits ~40 px
+     (~5 letters) further to the right, so subsections nest visually
+     under the parent label without looking like a separate section. */
   .checkout-group {
-    border: 1px solid var(--ink);
-    background: var(--paper);
+    border-top: 2px solid var(--ink);
+    border-bottom: none;
+    padding: 18px 0;
+    margin: 0;
+    position: relative;
+    background: transparent;
   }
-
   .checkout-group-header {
-    background: var(--ink);
-    color: var(--paper);
-    /* 15% shorter clickable area than the prior 10px vertical padding so
-       adjacent collapsed bars stop overlapping when the chevron is hit. */
-    padding: 8.5px 16px;
-    /* Subdued title style matching the section.section-minimal h2 tags
-       (mono uppercase, small letter-spacing) so the subsection bars feel
-       like quieter siblings of the parent section bar. */
+    position: absolute;
+    top: -7px;
+    left: 56px;
+    background: var(--paper);
+    padding: 0 8px;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: rgba(247, 243, 234, 0.78);
+    color: var(--ink-soft);
+    line-height: 1;
+    margin: 0;
+    border: none;
     cursor: pointer;
     user-select: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    z-index: 4;
+    display: inline-block;
   }
   .checkout-group-header::before {
     content: '▾';
     display: inline-block;
-    font-size: 11px;
+    margin: 0 8px 0 0;
+    font-size: 10px;
     line-height: 1;
-    opacity: 0.7;
+    opacity: 0.55;
     transition: transform 120ms ease-out;
   }
   .checkout-group.collapsed > .checkout-group-header::before {
@@ -1429,23 +1436,32 @@
   .checkout-group.collapsed > *:not(.checkout-group-header) {
     display: none !important;
   }
-  /* Filter input slot on the right side of the group header. */
-  .checkout-group-header .group-title { flex: 1 1 auto; }
-  .checkout-group-header .group-filter {
-    flex: 0 0 auto;
-    width: 140px;
-    padding: 3px 8px;
-    border: 1px solid var(--paper-warm);
-    background: rgba(255, 255, 255, 0.08);
-    color: var(--paper);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    border-radius: 2px;
+  .checkout-group.collapsed {
+    padding: 0;
   }
-  .checkout-group-header .group-filter::placeholder { color: rgba(247, 243, 234, 0.5); }
-  .checkout-group-header .group-filter:focus { outline: none; border-color: var(--paper); background: rgba(255, 255, 255, 0.16); }
+  /* Filter input. Now sits inline next to the small mono label on the
+     section-style top rule, so it uses paper-toned colors instead of
+     the prior light-on-dark scheme. */
+  .checkout-group-header .group-title { display: inline; }
+  .checkout-group-header .group-filter {
+    display: inline-block;
+    margin-left: 10px;
+    width: 110px;
+    padding: 1px 6px;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    text-transform: none;
+    border-radius: 2px;
+    vertical-align: baseline;
+  }
+  .checkout-group-header .group-filter::placeholder { color: var(--ink-faint); }
+  .checkout-group-header .group-filter:focus { outline: none; border-color: var(--rust); background: var(--paper); }
   @media (max-width: 600px) {
-    .checkout-group-header .group-filter { width: 100px; }
+    .checkout-group-header .group-filter { width: 80px; }
   }
   /* Hide rows / variant groups that don't match the current filter. JS sets
      data-filter-hidden="1" on the row/group; the row's children stay visible
@@ -2137,37 +2153,47 @@
      the same red/green ratio gradient used on goal-relative catalog rows,
      and saves the result as a new userCatalog recipes-category item. */
   .recipe-maker {
-    border: 1px solid var(--ink);
-    background: var(--paper);
+    border-top: 2px solid var(--ink);
+    border-bottom: none;
+    background: transparent;
     margin: 0;
+    padding: 18px 0;
+    position: relative;
   }
   .recipe-maker summary {
     list-style: none;
     cursor: pointer;
-    background: var(--ink);
-    color: rgba(247, 243, 234, 0.78);
-    padding: 8.5px 16px;
+    position: absolute;
+    top: -7px;
+    left: 56px;
+    background: var(--paper);
+    color: var(--ink-soft);
+    padding: 0 8px;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    line-height: 1;
+    display: inline-block;
     user-select: none;
+    z-index: 4;
   }
   .recipe-maker summary::-webkit-details-marker { display: none; }
   .recipe-maker summary::before {
     content: '▾';
     display: inline-block;
-    font-size: 11px;
+    margin: 0 8px 0 0;
+    font-size: 10px;
     line-height: 1;
-    opacity: 0.7;
+    opacity: 0.55;
     transition: transform 120ms ease-out;
   }
   .recipe-maker:not([open]) summary::before {
     transform: rotate(-90deg);
+  }
+  .recipe-maker:not([open]) {
+    padding: 0;
   }
   .recipe-maker-body {
     padding: 0 14px 14px;
@@ -2995,25 +3021,30 @@
     color: var(--ink);
   }
   .custom-add {
-    border: 1px solid var(--ink);
-    background: var(--paper);
-    padding: 0;
+    border-top: 2px solid var(--ink);
+    border-bottom: none;
+    background: transparent;
+    padding: 18px 0;
+    position: relative;
   }
 
   .custom-add summary {
     cursor: pointer;
-    background: var(--ink);
-    color: rgba(247, 243, 234, 0.78);
-    padding: 8.5px 16px;
+    position: absolute;
+    top: -7px;
+    left: 56px;
+    background: var(--paper);
+    color: var(--ink-soft);
+    padding: 0 8px;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    line-height: 1;
+    display: inline-block;
     list-style: none;
+    z-index: 4;
   }
 
   .custom-add summary::-webkit-details-marker {
@@ -3023,17 +3054,18 @@
   .custom-add summary::before {
     content: '▾';
     display: inline-block;
-    font-size: 11px;
+    margin: 0 8px 0 0;
+    font-size: 10px;
     line-height: 1;
-    opacity: 0.7;
+    opacity: 0.55;
     transition: transform 120ms ease-out;
   }
 
   .custom-add:not([open]) summary::before {
     transform: rotate(-90deg);
   }
-  .custom-add[data-custom-form] {
-    padding: 0 14px 14px;
+  .custom-add:not([open]) {
+    padding: 0;
   }
   .custom-add > div[data-custom-form] {
     padding: 14px;
