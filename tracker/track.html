@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.63">
+<meta name="app-version" content="v6.5.64">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -11492,15 +11492,15 @@
         const fp = points[firstIdx], lp = points[lastIdx];
         const x1 = xFor(firstIdx), y1 = yFor(fp.y);
         const x2 = xFor(lastIdx),  y2 = yFor(lp.y);
+        const lineColor = options.trendLine.color || '#c8c4b5';
+        const labelColor = options.trendLine.labelColor || '#4a4a4a';
         svg.appendChild(svgEl('line', {
           x1, y1, x2, y2,
-          stroke: options.trendLine.color || '#1f4e8a',
+          stroke: lineColor,
           'stroke-width': '1.5',
           'stroke-dasharray': '4,4',
           'pointer-events': 'none',
         }));
-        // Convert the first/last point dates to a day delta so we can
-        // express the slope per 7 days. Dates are 'YYYY-MM-DD'.
         const dayMs = 24 * 60 * 60 * 1000;
         const d1 = Date.parse(fp.date + 'T00:00:00Z');
         const d2 = Date.parse(lp.date + 'T00:00:00Z');
@@ -11508,19 +11508,21 @@
         if (isFinite(d1) && isFinite(d2) && d2 > d1) {
           const days = (d2 - d1) / dayMs;
           const perWeek = (lp.y - fp.y) * (7 / days);
-          const abs = Math.abs(perWeek);
-          const verb = perWeek < 0 ? 'lost' : (perWeek > 0 ? 'gained' : 'no change');
           const unit = options.trendLine.unit || 'kg';
-          labelText = perWeek === 0
-            ? 'no change per week'
-            : abs.toFixed(2) + ' ' + unit + ' ' + verb + ' per week';
+          const sign = perWeek >= 0 ? '+' : '-';
+          labelText = sign + Math.abs(perWeek).toFixed(1) + ' ' + unit + '/week';
         }
         if (labelText) {
           const mx = (x1 + x2) / 2;
-          const my = (y1 + y2) / 2;
+          // Anchor the label above whichever endpoint sits higher (lower y
+          // in SVG space) so it never crosses the trend or data line.
+          // Extra 14 px lift keeps it clear of the point-value labels that
+          // sit 8 px above each weigh-in dot.
+          const topY = Math.min(y1, y2);
+          const ty = Math.max(pad.top + 10, topY - 14);
           const trendLabel = svgEl('text', {
-            x: mx, y: my - 6, 'text-anchor': 'middle',
-            fill: options.trendLine.color || '#1f4e8a',
+            x: mx, y: ty, 'text-anchor': 'middle',
+            fill: labelColor,
             'font-family': 'JetBrains Mono, monospace',
             'font-size': '10', 'font-weight': '600',
             stroke: '#f7f3ea', 'stroke-width': '3', 'paint-order': 'stroke',
