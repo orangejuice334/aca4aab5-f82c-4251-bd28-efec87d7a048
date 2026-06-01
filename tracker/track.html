@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.64">
+<meta name="app-version" content="v6.5.65">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -11514,12 +11514,12 @@
         }
         if (labelText) {
           const mx = (x1 + x2) / 2;
-          // Anchor the label above whichever endpoint sits higher (lower y
-          // in SVG space) so it never crosses the trend or data line.
-          // Extra 14 px lift keeps it clear of the point-value labels that
-          // sit 8 px above each weigh-in dot.
+          // Anchor the label just above whichever endpoint sits higher
+          // (lower y in SVG space) so it never crosses the trend or data
+          // line. 5 px lift keeps it kissing the upper endpoint without
+          // floating up to the chart ceiling.
           const topY = Math.min(y1, y2);
-          const ty = Math.max(pad.top + 10, topY - 14);
+          const ty = Math.max(pad.top + 10, topY - 5);
           const trendLabel = svgEl('text', {
             x: mx, y: ty, 'text-anchor': 'middle',
             fill: labelColor,
