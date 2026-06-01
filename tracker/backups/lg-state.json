@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-01T12:31:12.447Z",
-  "_gistSavedAt": "2026-05-31T14:29:47.639Z",
+  "_backupTakenAt": "2026-06-01T15:34:31.135Z",
+  "_gistSavedAt": "2026-06-01T15:27:29.307Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -512,7 +512,7 @@
       "2026-05-28": {
         "toggles": {},
         "counters": {
-          "custom_1779969113576_ss76f": 1
+          "custom_1779969113576_ss76f": 0
         },
         "customs": [],
         "toggleMeta": {},
@@ -583,16 +583,44 @@
         "counterMeta": {},
         "weight": 97.6,
         "weightMeta": "2026-05-31T14:27:42.629Z"
+      },
+      "2026-06-01": {
+        "toggles": {
+          "water#07:00": true,
+          "wegovy#07:30": true,
+          "d3#08:00": true,
+          "creatine#08:00": true,
+          "flonase#08:00": true,
+          "omega3#08:00": true,
+          "two_per_day#08:00": true,
+          "caffeine_anhydrous_200mg#08:00": true
+        },
+        "counters": {
+          "protein_whey_animal_strawberry": 64,
+          "yogurt_half": 272.16,
+          "spinach_fresh": 40,
+          "strawberry_frozen_blb": 138
+        },
+        "customs": [],
+        "toggleMeta": {
+          "water#07:00": "2026-06-01T13:43:00.680Z",
+          "wegovy#07:30": "2026-06-01T13:43:01.857Z",
+          "d3#08:00": "2026-06-01T13:43:02.908Z",
+          "creatine#08:00": "2026-06-01T13:43:03.667Z",
+          "flonase#08:00": "2026-06-01T13:43:04.566Z",
+          "omega3#08:00": "2026-06-01T13:43:06.006Z",
+          "two_per_day#08:00": "2026-06-01T13:43:06.538Z",
+          "caffeine_anhydrous_200mg#08:00": "2026-06-01T14:18:26.138Z"
+        },
+        "counterMeta": {
+          "protein_whey_animal_strawberry": "2026-06-01T14:17:06.388Z",
+          "yogurt_half": "2026-06-01T14:17:22.110Z",
+          "spinach_fresh": "2026-06-01T14:17:39.342Z",
+          "strawberry_frozen_blb": "2026-06-01T14:17:52.164Z"
+        }
       }
     },
-    "savedItems": [
-      {
-        "key": "custom_1779969113576_ss76f",
-        "name": "wash teeth",
-        "kcal": 0,
-        "category": "supplements"
-      }
-    ],
+    "savedItems": [],
     "profile": {
       "displayName": "L.G.",
       "fullName": "Luis",
@@ -678,9 +706,8 @@
       "history": true,
       "details-recipe-maker": true,
       "chart-bmi-chart": true,
-      "saved-customs": true,
       "profile": true,
-      "details-add-new-item": true
+      "supplements-water": true
     },
     "userCatalog": {
       "items": {
@@ -3696,6 +3723,69 @@
             }
           ],
           "notes": "Premier Protein 100% Whey Protein Powder, Chocolate Milkshake. 1190g tub, 29 servings. Macros and calcium/iron/potassium from label (÷41). Ingredients: whey protein isolate, whey protein concentrate, cocoa processed with alkali, chicory root fiber, sunflower lecithin, xanthan gum, salt, acesulfame potassium, sucralose. B-vitamins, magnesium, phosphorus, zinc, selenium, choline estimated from USDA whey protein isolate data — LOW CONFIDENCE, flag for verification. Purines estimated ~70mg/100g for concentrated whey — LOW CONFIDENCE."
+        },
+        "protein_whey_animal_strawberry": {
+          "name": "Protein powder whey isolate strawberry (Animal)",
+          "brand": "Animal",
+          "category": "supplements",
+          "defaultMeasuredIn": "g",
+          "kcal": 3.75,
+          "p": 0.78125,
+          "carbs": 0.0625,
+          "fiber": 0,
+          "sugar": 0.03125,
+          "fat": 0.03125,
+          "sf": 0.015625,
+          "transfat": 0,
+          "cholesterol": 0.78125,
+          "sodium": 4.6875,
+          "water": 0.04,
+          "caffeine": 0,
+          "omega3": 0,
+          "vitA": 0,
+          "vitC": 0,
+          "vitD": 0,
+          "vitE": 0,
+          "vitK": 0,
+          "b1": 0,
+          "b2": 0.0125,
+          "b3": 0,
+          "b5": 0.01,
+          "b6": 0,
+          "b7": 0,
+          "b9": 0,
+          "b12": 0.01,
+          "choline": 1,
+          "calcium": 4.375,
+          "iron": 0.009375,
+          "magnesium": 0.625,
+          "phosphorus": 2.8125,
+          "potassium": 4.375,
+          "zinc": 0.02,
+          "selenium": 0.3,
+          "copper": 0,
+          "manganese": 0,
+          "iodine": 0,
+          "chromium": 0,
+          "molybdenum": 0,
+          "mercury": 0,
+          "purines": 0.7,
+          "displayUnits": [
+            {
+              "label": "1 scoop (32 g)",
+              "amount": 32,
+              "unit": "g",
+              "multiplier": 32,
+              "default": true
+            },
+            {
+              "label": "Whole tub (1814 g)",
+              "amount": 1814,
+              "unit": "g",
+              "multiplier": 1814
+            }
+          ],
+          "notes": "Animal Whey Isolate Loaded Protein Powder, Strawberry, 4 lb tub (1814g), 57 servings. Ingredients: whey protein isolate, ultra-filtered whey protein concentrate, digestive enzyme blend (papain, bromelain), artificial flavors, lecithin, gum blend, xanthan gum, carrageenan, sodium chloride, natural strawberry pieces, beet root powder, acesulfame potassium, sucralose. Macros and calcium/iron/potassium/phosphorus/magnesium from label (÷32). Label also lists Chloride 135mg/serving (not a tracked field). b2, b5, b12, choline, zinc, selenium estimated from USDA whey isolate data — LOW CONFIDENCE. Purines ~70mg/100g estimated for concentrated whey — LOW CONFIDENCE."
         },
         "protein_whey_dymatize_iso100_vanilla": {
           "name": "Protein powder whey isolate hydrolyzed vanilla (Dymatize ISO100)",

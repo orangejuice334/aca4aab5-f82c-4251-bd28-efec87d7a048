@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.60">
+<meta name="app-version" content="v6.5.61">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -4398,12 +4398,6 @@
 
     <div id="catalog-groups"></div>
 
-
-    <div class="checkout-group" id="saved-customs-group" data-group-key="saved-customs" style="display: none;">
-      <div class="checkout-group-header">Saved Custom Items</div>
-      <div id="saved-customs-list"></div>
-    </div>
-
     <div class="checkout-group" id="today-customs-group" data-group-key="today-customs" style="display: none;">
       <div class="checkout-group-header">Today's Custom Items</div>
       <div id="today-customs-list"></div>
@@ -7755,6 +7749,12 @@
     _kcal_per_p:   { start: 7 * 60,  end: 21 * 60 },
   };
 
+  // Default eating window (used as fallback for any metric without an
+  // explicit entry in WINDOWS). 7:00 - 21:00 = the typical waking eating
+  // window, so vitamins / minerals / micros get the same time-of-day
+  // marker as the main macros without each one needing its own line.
+  const DEFAULT_WINDOW = { start: 7 * 60, end: 21 * 60 };
+
   function updateMarker(metric) {
     const el = document.querySelector('[data-marker="' + metric + '"]');
     if (!el) return;
@@ -7762,11 +7762,7 @@
       el.classList.add('hidden');
       return;
     }
-    const win = WINDOWS[metric];
-    if (!win) {
-      el.classList.add('hidden');
-      return;
-    }
+    const win = WINDOWS[metric] || DEFAULT_WINDOW;
     const now = nowMinutes();
     let pct;
     if (now < win.start) {
@@ -10509,58 +10505,45 @@
   function renderSavedItems() {
     const group = document.getElementById('saved-customs-group');
     const list = document.getElementById('saved-customs-list');
-    if (!group || !list) return;
-    const items = state.savedItems || [];
-    if (items.length === 0) {
-      group.style.display = 'none';
-      list.innerHTML = '';
-      return;
+    // The "Saved Custom Items" UI is gone - permanent custom items now go
+    // straight into the main catalog. Migrate any legacy state.savedItems
+    // entries into ITEMS so they keep rendering inside their category
+    // group. Migration is idempotent: rerunning skips keys that already
+    // exist in ITEMS, and clears state.savedItems on success so the next
+    // sync drops the legacy field.
+    if (group) group.style.display = 'none';
+    if (list) list.innerHTML = '';
+    const legacy = state.savedItems || [];
+    if (!legacy.length) return;
+    let migrated = 0;
+    for (const it of legacy) {
+      if (!it || !it.key) continue;
+      if (ITEMS[it.key]) continue;
+      const promoted = {
+        name: it.name || it.key,
+        category: it.category || 'uncategorized',
+        defaultMeasuredIn: 'units',
+        kcal: it.kcal || 0,
+        p: it.p || 0,
+        sf: it.sf || 0,
+        water: it.water || 0,
+        caffeine: it.caffeine || 0,
+        displayUnits: [{ label: '1 serving', amount: 1, unit: 'ea', multiplier: 1, default: true }],
+      };
+      if (it.time) {
+        promoted.displayUnits[0].time = it.time;
+        promoted.displayUnits[0].frequency = it.frequency || 'daily';
+      }
+      ITEMS[it.key] = promoted;
+      sendOp({ type: 'catalog_add', key: it.key, item: promoted });
+      sendOp({ type: 'saved_item_remove', key: it.key });
+      migrated++;
     }
-    group.style.display = '';
-    list.innerHTML = items.map(it => {
-      const count = state.counters[it.key] || 0;
-      return `
-      <div class="checkout-row custom-row" data-row="${it.key}" data-counter data-key="${it.key}" data-saved-key="${it.key}">
-        <div></div>
-        <div>
-          <span class="checkout-item-name">${escapeHtml(formatItemDisplayName(it))}</span>
-          <span class="checkout-item-macros">${macroLine(it)}</span>
-          <button class="custom-delete-btn custom-row-delete" data-saved-delete="${it.key}" title="Remove from saved items">×</button>
-        </div>
-        <div class="counter-control">
-          <div class="counter-flag-slot"></div>
-          <div class="counter-buttons">
-            <button class="counter-btn" data-action="dec" data-key="${it.key}"${count === 0 ? ' disabled' : ''}>−</button>
-            <input type="number" class="counter-value" data-value="${it.key}" min="0" step="0.1" value="${count}" inputmode="decimal" />
-            <button class="counter-btn" data-action="inc" data-key="${it.key}">+</button>
-          </div>
-        </div>
-      </div>
-    `;
-    }).join('');
-
-    // Counter buttons (inc/dec) for saved items use the same data-action/data-key
-    // pattern as catalog rows, so they're handled by the document-level delegation
-    // in bindEvents. No per-button binding needed here.
-
-    // Bind saved-item delete buttons
-    list.querySelectorAll('[data-saved-delete]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const key = btn.dataset.savedDelete;
-        state.savedItems = state.savedItems.filter(x => x.key !== key);
-        // Optimistic local cleanup of day counters that referenced this saved
-        // item. Worker should mirror via saved_item_remove; if it doesn't, the
-        // next remote refresh would reconcile.
-        for (const dk in state.days) {
-          if (state.days[dk].counters && state.days[dk].counters[key] !== undefined) {
-            delete state.days[dk].counters[key];
-          }
-        }
-        saveStateLocal();
-        sendOp({ type: 'saved_item_remove', key });
-        render();
-      });
-    });
+    if (migrated) {
+      state.savedItems = [];
+      saveStateLocal();
+      if (typeof renderCatalog === 'function') renderCatalog();
+    }
   }
 
   function renderTodayCustoms() {
