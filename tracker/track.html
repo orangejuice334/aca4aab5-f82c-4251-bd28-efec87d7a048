@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.67">
+<meta name="app-version" content="v6.5.68">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -1446,10 +1446,10 @@
   .checkout-group-header .group-title { display: inline; }
   .checkout-group > .group-filter {
     position: absolute;
-    top: -12px;
+    top: -13px;
     right: 16px;
     width: 130px;
-    padding: 2px 6px;
+    padding: 3px 6px;
     border: 1px solid #6a6a6a;
     background: var(--paper);
     color: var(--ink);
@@ -1459,6 +1459,11 @@
     text-transform: none;
     border-radius: 2px;
     z-index: 5;
+  }
+  /* Filter box stays visible when the band is collapsed - it sits on the
+     top rule, not inside the body, so collapsing should not hide it. */
+  .checkout-group.collapsed > .group-filter {
+    display: block !important;
   }
   .checkout-group > .group-filter::placeholder { color: var(--ink-faint); }
   .checkout-group > .group-filter:focus { outline: none; border-color: var(--rust); background: var(--paper); }

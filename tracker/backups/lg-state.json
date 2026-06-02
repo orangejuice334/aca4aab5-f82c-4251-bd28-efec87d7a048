@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-02T11:13:49.753Z",
-  "_gistSavedAt": "2026-06-01T16:56:06.054Z",
+  "_backupTakenAt": "2026-06-02T17:47:18.257Z",
+  "_gistSavedAt": "2026-06-02T17:46:41.545Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -549,7 +549,9 @@
         "toggleMeta": {},
         "counterMeta": {},
         "neck": 43,
-        "neckMeta": "2026-06-01T15:59:17.378Z"
+        "neckMeta": "2026-06-01T15:59:17.378Z",
+        "waist": 105,
+        "waistMeta": "2026-06-02T17:41:59.103Z"
       },
       "2026-05-30": {
         "toggles": {
@@ -595,7 +597,9 @@
         "weight": 97.8,
         "weightMeta": "2026-05-30T15:56:10.507Z",
         "neck": 43,
-        "neckMeta": "2026-06-01T15:59:17.378Z"
+        "neckMeta": "2026-06-01T15:59:17.378Z",
+        "waist": 103,
+        "waistMeta": "2026-06-02T17:41:59.103Z"
       },
       "2026-05-31": {
         "toggles": {},
@@ -606,7 +610,9 @@
         "weight": 97.6,
         "weightMeta": "2026-05-31T14:27:42.629Z",
         "neck": 43,
-        "neckMeta": "2026-06-01T15:59:17.378Z"
+        "neckMeta": "2026-06-01T15:59:17.378Z",
+        "waist": 101,
+        "waistMeta": "2026-06-02T17:41:59.103Z"
       },
       "2026-06-01": {
         "toggles": {
@@ -645,7 +651,30 @@
         "weight": 97.5,
         "weightMeta": "2026-06-01T15:59:16.823Z",
         "neck": 43,
-        "neckMeta": "2026-06-01T15:59:17.376Z"
+        "neckMeta": "2026-06-01T15:59:17.376Z",
+        "waist": 99,
+        "waistMeta": "2026-06-02T17:41:59.103Z"
+      },
+      "2026-06-02": {
+        "toggles": {},
+        "counters": {
+          "mycoffee": 0
+        },
+        "customs": [
+          {
+            "id": "b1ae25c6-06bf-494d-a9fa-5744058262ff",
+            "name": "230kcal",
+            "kcal": 230,
+            "count": 1,
+            "lastModified": "2026-06-02T17:43:55.577Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "mycoffee": "2026-06-02T17:44:43.929Z"
+        },
+        "weight": 97.9,
+        "weightMeta": "2026-06-02T17:42:08.974Z"
       }
     },
     "savedItems": [],
@@ -732,13 +761,10 @@
       "targets-accumulation": true,
       "chart-bmi-chart": true,
       "profile": true,
-      "catalog-ratio": true,
-      "supplements-water": true,
-      "details-add-new-item": true,
       "today-log": true,
       "details-recipe-maker": true,
       "history": true,
-      "section-checkout": true
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
@@ -5711,7 +5737,6 @@
           "label": "Uncategorized"
         }
       ]
-    },
-    "totalsMode": "collapsed"
+    }
   }
 }
