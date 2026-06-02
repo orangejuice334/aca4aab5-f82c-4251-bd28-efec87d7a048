@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-01T16:23:51.315Z",
-  "_gistSavedAt": "2026-06-01T16:19:39.205Z",
+  "_backupTakenAt": "2026-06-02T11:13:49.753Z",
+  "_gistSavedAt": "2026-06-01T16:56:06.054Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -737,6 +737,7 @@
       "details-add-new-item": true,
       "today-log": true,
       "details-recipe-maker": true,
+      "history": true,
       "section-checkout": true
     },
     "userCatalog": {
