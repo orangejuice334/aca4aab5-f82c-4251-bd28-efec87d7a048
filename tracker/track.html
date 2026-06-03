@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.68">
+<meta name="app-version" content="v6.5.69">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -13086,8 +13086,10 @@
         bucket[fieldName + 'Meta'] = ts;
         saveStateLocal();
         sendOp({ type: opType, date: state.activeDate, value: rounded, ts });
-        const gapOps = fillGapsForMetric(fieldName, opType, state.activeDate, rounded);
-        for (const op of gapOps) sendOp(op);
+        // Neck and waist are body-composition measurements taken less
+        // often than weight; auto-interpolating across missing days
+        // fabricates readings the user never took. Gap-fill stays on
+        // for weight only (handled in the weight commit path).
         renderWeightSection();
       };
       // Immediate per-keystroke commit; renderBfInlineFromInputs also runs

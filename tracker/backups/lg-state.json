@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-03T11:51:47.500Z",
-  "_gistSavedAt": "2026-06-02T17:46:41.545Z",
+  "_backupTakenAt": "2026-06-03T15:21:14.248Z",
+  "_gistSavedAt": "2026-06-03T15:20:02.813Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -549,9 +549,7 @@
         "toggleMeta": {},
         "counterMeta": {},
         "neck": 43,
-        "neckMeta": "2026-06-01T15:59:17.378Z",
-        "waist": 105,
-        "waistMeta": "2026-06-02T17:41:59.103Z"
+        "neckMeta": "2026-06-01T15:59:17.378Z"
       },
       "2026-05-30": {
         "toggles": {
@@ -597,9 +595,7 @@
         "weight": 97.8,
         "weightMeta": "2026-05-30T15:56:10.507Z",
         "neck": 43,
-        "neckMeta": "2026-06-01T15:59:17.378Z",
-        "waist": 103,
-        "waistMeta": "2026-06-02T17:41:59.103Z"
+        "neckMeta": "2026-06-01T15:59:17.378Z"
       },
       "2026-05-31": {
         "toggles": {},
@@ -610,9 +606,7 @@
         "weight": 97.6,
         "weightMeta": "2026-05-31T14:27:42.629Z",
         "neck": 43,
-        "neckMeta": "2026-06-01T15:59:17.378Z",
-        "waist": 101,
-        "waistMeta": "2026-06-02T17:41:59.103Z"
+        "neckMeta": "2026-06-01T15:59:17.378Z"
       },
       "2026-06-01": {
         "toggles": {
@@ -651,9 +645,7 @@
         "weight": 97.5,
         "weightMeta": "2026-06-01T15:59:16.823Z",
         "neck": 43,
-        "neckMeta": "2026-06-01T15:59:17.376Z",
-        "waist": 99,
-        "waistMeta": "2026-06-02T17:41:59.103Z"
+        "neckMeta": "2026-06-01T15:59:17.376Z"
       },
       "2026-06-02": {
         "toggles": {},
@@ -675,6 +667,34 @@
         },
         "weight": 97.9,
         "weightMeta": "2026-06-02T17:42:08.974Z"
+      },
+      "2026-06-03": {
+        "toggles": {
+          "water#07:00": true,
+          "wegovy#07:30": true,
+          "d3#08:00": true,
+          "omega3#08:00": true,
+          "two_per_day#08:00": true
+        },
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {
+          "water#07:00": "2026-06-03T15:10:49.499Z",
+          "wegovy#07:30": "2026-06-03T15:10:50.301Z",
+          "d3#08:00": "2026-06-03T15:10:51.074Z",
+          "omega3#08:00": "2026-06-03T15:10:55.013Z",
+          "two_per_day#08:00": "2026-06-03T15:10:57.037Z"
+        },
+        "counterMeta": {},
+        "weight": 96.9,
+        "weightMeta": "2026-06-03T15:15:20.247Z"
+      },
+      "2026-06-04": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {}
       }
     },
     "savedItems": [],
