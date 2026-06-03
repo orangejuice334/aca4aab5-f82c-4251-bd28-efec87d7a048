@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-03T15:21:14.248Z",
-  "_gistSavedAt": "2026-06-03T15:20:02.813Z",
+  "_backupTakenAt": "2026-06-03T17:28:24.676Z",
+  "_gistSavedAt": "2026-06-03T16:14:59.556Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -674,18 +674,37 @@
           "wegovy#07:30": true,
           "d3#08:00": true,
           "omega3#08:00": true,
-          "two_per_day#08:00": true
+          "two_per_day#08:00": true,
+          "water#12:30": true
         },
-        "counters": {},
-        "customs": [],
+        "counters": {
+          "protein_powder_whey_premier_chocolate": 0,
+          "protein_whey_animal_strawberry": 64,
+          "spinach_fresh": 50
+        },
+        "customs": [
+          {
+            "id": "384163fb-a2f4-4a78-be25-172879663368",
+            "name": "450kcal 12p",
+            "kcal": 450,
+            "p": 12,
+            "count": 1,
+            "lastModified": "2026-06-03T15:45:49.274Z"
+          }
+        ],
         "toggleMeta": {
           "water#07:00": "2026-06-03T15:10:49.499Z",
           "wegovy#07:30": "2026-06-03T15:10:50.301Z",
           "d3#08:00": "2026-06-03T15:10:51.074Z",
           "omega3#08:00": "2026-06-03T15:10:55.013Z",
-          "two_per_day#08:00": "2026-06-03T15:10:57.037Z"
+          "two_per_day#08:00": "2026-06-03T15:10:57.037Z",
+          "water#12:30": "2026-06-03T16:14:56.947Z"
         },
-        "counterMeta": {},
+        "counterMeta": {
+          "protein_powder_whey_premier_chocolate": "2026-06-03T16:10:08.599Z",
+          "protein_whey_animal_strawberry": "2026-06-03T16:10:12.093Z",
+          "spinach_fresh": "2026-06-03T16:14:36.057Z"
+        },
         "weight": 96.9,
         "weightMeta": "2026-06-03T15:15:20.247Z"
       },
@@ -1618,6 +1637,25 @@
           ],
           "notes": "Nature's Wonder Creatine, 5 g (use scoop, or ~1.5 level tsp). Strength and lean mass preservation on a cut. The most-studied performance supplement in existence — ~1,000+ trials. Saturates muscle phosphocreatine stores over 3–4 weeks, then maintains with daily 5 g. Especially valuable on a calorie deficit where lifts tend to drop; creatine helps them hold. Note: 1 level tsp ≈ 3 g, not 5 g — use the scoop that came with the tub or measure ~1.5 tsp. Avoid hot acidic liquids (slow degradation). Timing isn't critical once saturated — total daily dose is what matters.",
           "defaultMeasuredIn": "g"
+        },
+        "custom_1779969113576_ss76f": {
+          "name": "wash teeth",
+          "category": "supplements",
+          "defaultMeasuredIn": "units",
+          "kcal": 0,
+          "p": 0,
+          "sf": 0,
+          "water": 0,
+          "caffeine": 0,
+          "displayUnits": [
+            {
+              "label": "1 serving",
+              "amount": 1,
+              "unit": "ea",
+              "multiplier": 1,
+              "default": true
+            }
+          ]
         },
         "d3": {
           "name": "NatureWise D3 5000 IU",

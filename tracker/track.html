@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.69">
+<meta name="app-version" content="v6.5.70">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -13047,8 +13047,10 @@
         bucket.weightMeta = ts;
         saveStateLocal();
         sendOp({ type: 'weight_set', date: state.activeDate, value: rounded, ts });
-        const gapOps = fillGapsForMetric('weight', 'weight_set', state.activeDate, rounded);
-        for (const op of gapOps) sendOp(op);
+        // No gap-fill writes - the chart already draws a continuous line
+        // across days without a reading (null y values are skipped in the
+        // line path), so visual continuity does not require fabricating
+        // bucket.weight values the user never typed.
         renderWeightSection();
       };
       // JS update + render fire on every keystroke; the gist write is queued
