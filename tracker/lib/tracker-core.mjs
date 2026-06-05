@@ -178,10 +178,29 @@ export function computeIngredientMacros(ing, items, seen) {
   if (typeof ing.amount === 'number') {
     units = ing.amount;
   } else if (typeof ing.multiplier === 'number') {
-    const canon = getDisplayUnits(item)[0];
-    units = ing.multiplier * (canon.unitsPerServing || 0);
+    // Canon = default variant when one exists, else first listed.
+    // Using the default makes the multiplier interpretation stable
+    // across re-ordering of displayUnits.
+    const all = getDisplayUnits(item);
+    const canon = all.find(u => u && u.default) || all[0];
+    units = ing.multiplier * ((canon && canon.unitsPerServing) || 0);
   }
   return scaleByNative(item, units);
+}
+
+// Recipe-maker dropdown options. Mirrors the catalog row "Name (Brand)"
+// format so the same physical item across multiple brand variants is
+// distinguishable. Filters out water (the dedicated hydration item).
+export function recipeCatalogOptions(items) {
+  return Object.entries(items || {})
+    .filter(([k]) => k !== 'water')
+    .map(([k, item]) => {
+      const brand = (item && typeof item.brand === 'string' && item.brand.trim()) ? item.brand.trim() : '';
+      const baseName = (item && item.name) || k;
+      const label = brand ? (baseName + ' (' + brand + ')') : baseName;
+      return { key: k, label };
+    })
+    .sort((a, b) => a.label.localeCompare(b.label));
 }
 
 export function computeItemMacros(item, items, seen) {

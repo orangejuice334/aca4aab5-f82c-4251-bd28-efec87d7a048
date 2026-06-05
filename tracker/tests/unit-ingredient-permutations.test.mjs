@@ -58,14 +58,12 @@ test('doubling the amount/multiplier doubles the kcal (linearity check)', () => 
   }
 });
 
-test('per-100 amount-form and multiplier-form agree when scaled equivalently', () => {
+test('per-100 amount-form and multiplier-form agree when scaled against the DEFAULT variant', () => {
   const items = mkCatalog();
-  // 50 g of salmon vs multiplier-form expressed against canonical 100 g variant
-  // canonical (first displayUnit) is "100 g" multiplier 100, so multiplier 0.5 = 50 g
-  // Note: order of displayUnits matters for canon lookup (without orderVariantsForCatalog).
-  // salmon canonical = first displayUnit = "100 g"
-  const a = computeIngredientMacros({ itemKey: 'salmon_atlantic_cooked', amount: 50 }, items);
-  const b = computeIngredientMacros({ itemKey: 'salmon_atlantic_cooked', multiplier: 0.5 }, items);
+  // salmon's DEFAULT variant is "3 oz portion" (85 g). multiplier=1
+  // resolves against the default, so 1 × 85 = 85 g. Match with amount=85.
+  const a = computeIngredientMacros({ itemKey: 'salmon_atlantic_cooked', amount: 85 }, items);
+  const b = computeIngredientMacros({ itemKey: 'salmon_atlantic_cooked', multiplier: 1 }, items);
   assert.ok(Math.abs(a.kcal - b.kcal) < 0.01);
 });
 
