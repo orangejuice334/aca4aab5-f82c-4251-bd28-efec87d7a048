@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.74">
+<meta name="app-version" content="v6.5.75">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -815,6 +815,21 @@
     flex-direction: column;
     gap: 4px;
     margin-bottom: 8px;
+  }
+  .variant-edit-row-auto input[readonly],
+  .variant-edit-row-auto select[disabled] {
+    background: var(--paper-warm, #efe9d6);
+    color: var(--ink-soft);
+    cursor: default;
+  }
+  .variant-edit-auto-hint {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: var(--ink-faint);
+    font-style: italic;
+    margin-left: 6px;
+    align-self: center;
+    flex: 0 0 auto;
   }
   .variant-edit-row {
     display: flex;
@@ -4843,13 +4858,15 @@
 
   function getDisplayUnits(item) {
     const measuredForUnit = getDefaultMeasuredIn(item);
+    const isRecipeItem = !!(item && item.category === 'recipes' && Array.isArray(item.ingredients));
     // Every g/ml item gets a synthetic "1 g" or "1 ml" trailing variant
     // so the catalog row + recipe-maker + ingredient editor always
-    // expose a raw native-unit input. Units-measured items (capsules,
-    // discrete) skip this since "1 unit" is already the canonical
-    // serving for them by definition.
-    const wantSynthetic = (measuredForUnit === 'g' || measuredForUnit === 'ml');
-    const oneNativeLabel = '1 ' + measuredForUnit;
+    // expose a raw native-unit input. Recipes also get a "1 g" trailer
+    // (so a recipe can be used as a gram-measured ingredient in another
+    // recipe). Units-measured non-recipe items (capsules, discrete) skip
+    // this since "1 unit" is already the canonical serving for them.
+    const wantSynthetic = (measuredForUnit === 'g' || measuredForUnit === 'ml' || isRecipeItem);
+    const oneNativeLabel = '1 ' + (isRecipeItem && measuredForUnit === 'units' ? 'g' : measuredForUnit);
     if (item && Array.isArray(item.displayUnits) && item.displayUnits.length) {
       const out = item.displayUnits.map(v => {
         if (!v) return v;
@@ -9469,26 +9486,41 @@
     const lockedAttr = isLocked ? ' data-variant-locked' : '';
     const timeAttr = rowTime ? ' data-variant-original-time="' + escapeHtml(rowTime) + '"' : '';
     const freqAttr = rowFreq ? ' data-variant-original-frequency="' + escapeHtml(rowFreq) + '"' : '';
+    // The recipe "full recipe" / locked variant is the sum of its
+    // ingredients - the user shouldn't be able to override it by hand,
+    // so its amount/unit/label inputs render read-only with a hint.
+    // saveExpandedEdits keeps recomputing the amount from ingredient
+    // gram totals on every save so the read-only value stays current.
+    const autoFromIngredients = !!(opts && opts.autoFromIngredients);
+    const amountReadonly = autoFromIngredients ? ' readonly data-auto-from-ingredients' : '';
+    const unitReadonly = autoFromIngredients ? ' disabled data-auto-from-ingredients' : '';
+    const labelReadonly = autoFromIngredients ? ' readonly data-auto-from-ingredients' : '';
+    const autoHint = autoFromIngredients
+      ? '<span class="variant-edit-auto-hint">auto from ingredients</span>'
+      : '';
     return (
-      '<div class="' + rowClass + '" data-variant-row' + lockedAttr + timeAttr + freqAttr + '>' +
+      '<div class="' + rowClass + (autoFromIngredients ? ' variant-edit-row-auto' : '') + '" data-variant-row' + lockedAttr + timeAttr + freqAttr + '>' +
         '<label class="variant-edit-default-wrap" title="Pick the default serving (the one shown when the row is collapsed)">' +
           '<input type="radio" name="' + escapeHtml(defaultGroup || 'variant-default') + '" data-variant-default-radio' + (isDefault ? ' checked' : '') + ' />' +
           '<span class="variant-edit-default-label">default</span>' +
         '</label>' +
         '<div class="variant-edit-field" style="flex:0 1 90px;">' +
           '<label class="variant-edit-fieldlabel">Amount</label>' +
-          '<input type="number" data-variant-field="amount" min="0" step="0.1" inputmode="decimal" value="' + escapeHtml(amount > 0 ? formatSize(amount) : '') + '" />' +
+          '<input type="number" data-variant-field="amount" min="0" step="0.1" inputmode="decimal"' + amountReadonly + ' value="' + escapeHtml(amount > 0 ? formatSize(amount) : '') + '" />' +
         '</div>' +
         '<div class="variant-edit-field" style="flex:0 1 120px;">' +
           '<label class="variant-edit-fieldlabel">Unit</label>' +
-          '<select data-variant-field="unit">' + optsForRow + '</select>' +
+          '<select data-variant-field="unit"' + unitReadonly + '>' + optsForRow + '</select>' +
         '</div>' +
         '<div class="variant-edit-field" style="flex:0 1 130px;">' +
           '<label class="variant-edit-fieldlabel">Label</label>' +
-          '<input type="text" data-variant-field="label" placeholder="e.g. 1/2 tub, medium size" value="' + escapeHtml(label) + '" />' +
+          '<input type="text" data-variant-field="label" placeholder="e.g. 1/2 tub, medium size"' + labelReadonly + ' value="' + escapeHtml(label) + '" />' +
         '</div>' +
         scheduleFields +
-        '<button type="button" class="variant-delete" data-variant-delete aria-label="Remove serving size">×</button>' +
+        autoHint +
+        (autoFromIngredients
+          ? '<span class="variant-delete" aria-hidden="true" style="visibility:hidden">×</span>'
+          : '<button type="button" class="variant-delete" data-variant-delete aria-label="Remove serving size">×</button>') +
       '</div>'
     );
   }
@@ -9571,9 +9603,15 @@
         if (item.frequency) def.frequency = item.frequency;
       }
     }
+    const isRecipeItem = item && item.category === 'recipes' && Array.isArray(item.ingredients);
     const rowOpts = { showSchedule: showRowSchedule };
-    // Now that optHtml exists, build the per-row HTML using it.
-    const rowsHtml = variants.map(v => variantEditRow(v, prim, defGroup, optHtml, rowOpts)).join('');
+    const rowsHtml = variants.map(v => {
+      // For recipes, the "full recipe" or locked variant is auto from
+      // ingredient gram totals - render its row read-only with a hint.
+      const autoFromIngredients = isRecipeItem &&
+        (/full recipe/i.test(v && v.label || '') || (v && v.locked));
+      return variantEditRow(v, prim, defGroup, optHtml, Object.assign({}, rowOpts, { autoFromIngredients }));
+    }).join('');
     // Always-visible "Add new serving" pending row beneath the math
     // buttons. Starts empty — the math buttons (½, ⅓, ×2, etc.) and the
     // user's own typing populate it. Carries `data-variant-pending-row` so
@@ -9853,15 +9891,22 @@
         return lbl + ' (' + sizeStr + ')';
       };
       const variantPrimaryUnit = sourceIsPer100 ? sourceMeasure : (sourceMeasure || 'unit');
-      // The "amount" (per-100 source) / "multiplier" (non-basis source)
-      // data-ing-field anchor goes on the SIZE-1 native-unit input - that
-      // input always equals the native total, so the legacy save path
-      // (saveExpandedEdits, the linked-amount macro recompute) reads the
-      // correct value regardless of which variant the user typed in.
-      // Pick the index whose serving size is exactly 1, falling back to
-      // the first input if none is found.
-      let primaryIdx = sourceVariantsForGrid.findIndex(v => v && (v.unitsPerServing || 0) === 1);
-      if (primaryIdx === -1) primaryIdx = 0;
+      // Anchor the canonical data-ing-field input:
+      //  - per-100 sources store an "amount" in native units (g/ml), so
+      //    anchor to the size-1 synthetic input whose value IS the
+      //    native total.
+      //  - non-basis sources (recipes, discrete-unit) store a
+      //    "multiplier" of the canonical (default) serving, so anchor
+      //    to the default/canonical variant - its value as typed IS
+      //    the multiplier (fraction of canonical batch).
+      let primaryIdx;
+      if (sourceIsPer100) {
+        primaryIdx = sourceVariantsForGrid.findIndex(v => v && (v.unitsPerServing || 0) === 1);
+        if (primaryIdx === -1) primaryIdx = 0;
+      } else {
+        primaryIdx = sourceVariantsForGrid.findIndex(v => v && v.default);
+        if (primaryIdx === -1) primaryIdx = 0;
+      }
       const variantsHtml = sourceVariantsForGrid.map((v, idx) => {
         const servingSize = v.unitsPerServing || 1;
         const val = currentNative / servingSize;
