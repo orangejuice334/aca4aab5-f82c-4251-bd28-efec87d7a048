@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-05T13:16:21.612Z",
-  "_gistSavedAt": "2026-06-05T13:10:13.154Z",
+  "_backupTakenAt": "2026-06-05T18:53:19.254Z",
+  "_gistSavedAt": "2026-06-05T18:48:35.504Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -745,7 +745,15 @@
         }
       },
       "2026-06-05": {
-        "toggles": {},
+        "toggles": {
+          "water#07:00": true,
+          "creatine#08:00": true,
+          "d3#08:00": true,
+          "wegovy#07:30": true,
+          "omega3#08:00": true,
+          "two_per_day#08:00": true,
+          "flonase#08:00": true
+        },
         "counters": {
           "premier": 325,
           "soy_milk": 130
@@ -760,7 +768,15 @@
             "lastModified": "2026-06-05T13:07:55.874Z"
           }
         ],
-        "toggleMeta": {},
+        "toggleMeta": {
+          "water#07:00": "2026-06-05T18:46:04.066Z",
+          "creatine#08:00": "2026-06-05T18:46:06.428Z",
+          "d3#08:00": "2026-06-05T18:46:07.883Z",
+          "wegovy#07:30": "2026-06-05T18:46:08.530Z",
+          "omega3#08:00": "2026-06-05T18:46:10.748Z",
+          "two_per_day#08:00": "2026-06-05T18:46:12.443Z",
+          "flonase#08:00": "2026-06-05T18:46:14.340Z"
+        },
         "counterMeta": {
           "premier": "2026-06-05T13:09:29.392Z",
           "soy_milk": "2026-06-05T13:10:11.507Z"
@@ -854,9 +870,10 @@
       "chart-bmi-chart": true,
       "profile": true,
       "today-log": true,
-      "details-recipe-maker": true,
       "history": true,
-      "details-add-new-item": true
+      "details-add-new-item": true,
+      "section-weight-tracker": true,
+      "supplements-water": true
     },
     "userCatalog": {
       "items": {
@@ -4196,6 +4213,34 @@
           ],
           "purines": 0.1
         },
+        "scrambled_feggs": {
+          "name": "Scrambled feggs",
+          "category": "recipes",
+          "ingredients": [
+            {
+              "itemKey": "string_cheese",
+              "amount": 84
+            },
+            {
+              "itemKey": "turkey_oven_classic",
+              "multiplier": 10
+            },
+            {
+              "itemKey": "egg_substitute",
+              "amount": 828
+            }
+          ],
+          "displayUnits": [
+            {
+              "label": "full recipe",
+              "multiplier": 1472,
+              "amount": 1472,
+              "unit": "g",
+              "default": true,
+              "locked": true
+            }
+          ]
+        },
         "sesame_chicken_100g": {
           "name": "Sesame chicken — takeout",
           "category": "items",
@@ -5848,6 +5893,7 @@
           "label": "Uncategorized"
         }
       ]
-    }
+    },
+    "totalsMode": "collapsed"
   }
 }

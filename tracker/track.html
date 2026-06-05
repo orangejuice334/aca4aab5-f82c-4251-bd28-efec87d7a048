@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.71">
+<meta name="app-version" content="v6.5.72">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -11689,9 +11689,17 @@
   // ingredients array storing the catalog item names + amount tags.
 
   function rmCatalogOptions() {
+    // Include brand in the dropdown label so multiple items with the same
+    // base name (e.g. several turkey breasts from different brands) are
+    // distinguishable. Format mirrors the catalog row: "Name (Brand)".
     return Object.entries(ITEMS)
       .filter(([k]) => k !== 'water')
-      .map(([k, item]) => ({ key: k, label: item.name }))
+      .map(([k, item]) => {
+        const brand = (item && typeof item.brand === 'string' && item.brand.trim())
+          ? item.brand.trim() : '';
+        const label = brand ? (item.name + ' (' + brand + ')') : item.name;
+        return { key: k, label };
+      })
       .sort((a, b) => a.label.localeCompare(b.label));
   }
 
@@ -11747,8 +11755,47 @@
       const rounded = Math.round(n * 10) / 10;
       return (rounded === Math.floor(rounded)) ? String(Math.floor(rounded)) : rounded.toFixed(1);
     };
-    // For non-basis (units / supplements / recipes), expose a "× multiplier"
-    // input directly so the math is "1 canonical batch × N".
+    // Append the native size hint to the variant label so a label like
+    // "1 stick" reads as "1 stick (21 g)" - matches the catalog row look
+    // and tells the user exactly how much one of these is. Suppresses
+    // the suffix when the label already contains the size string (e.g.
+    // "100 g") to avoid "100 g (100 g)" duplication.
+    const labelWithSize = (v, primaryUnitStr) => {
+      const lbl = (v && v.label) ? String(v.label) : '';
+      const size = v && typeof v.unitsPerServing === 'number' ? v.unitsPerServing : 0;
+      if (!size || size <= 0) return lbl || ('1 ' + primaryUnitStr);
+      const sizeStr = fmtVariantDisplay(size) + ' ' + primaryUnitStr;
+      if (!lbl) return sizeStr;
+      const norm = (s) => s.replace(/\s+/g, '').toLowerCase();
+      if (norm(lbl).indexOf(norm(sizeStr)) >= 0) return lbl;
+      return lbl + ' (' + sizeStr + ')';
+    };
+    // Recipes-as-ingredients: surface their full set of saved variants
+    // (1 serving, full recipe, etc.) the same way mass/volume items do,
+    // so the user can pick the same servings the catalog row exposes.
+    // Native unit is grams for recipes; one canonical batch = the
+    // recipe's first variant multiplier.
+    if (!basis && item.category === 'recipes' && variants.length) {
+      const canonBatchSize = (variants[0] && variants[0].unitsPerServing) || 1;
+      const initialNativeR = (options && typeof options.nativeUnits === 'number')
+        ? options.nativeUnits
+        : canonBatchSize;
+      row.dataset.nativeUnits = String(initialNativeR);
+      const htmlR = variants.map(v => {
+        const servingSize = v.unitsPerServing || 1;
+        const val = initialNativeR / servingSize;
+        return (
+          '<div class="recipe-ing-variant">' +
+            '<label>' + escapeHtml(labelWithSize(v, 'g')) + '</label>' +
+            '<input type="number" class="recipe-ing-amt" data-recipe-variant-input data-serving-size="' + servingSize + '" value="' + escapeHtml(fmtVariantDisplay(val)) + '" min="0" step="0.1" inputmode="decimal" />' +
+          '</div>'
+        );
+      }).join('');
+      container.innerHTML = htmlR;
+      return;
+    }
+    // For other non-basis (discrete supplements / pills), expose a
+    // "× multiplier" input directly so the math is "1 canonical batch × N".
     if (!basis) {
       const canon = variants[0] || { label: '× multiplier', unitsPerServing: 1 };
       const initial = (options && typeof options.nativeUnits === 'number')
@@ -11773,10 +11820,9 @@
     const html = variants.map(v => {
       const servingSize = v.unitsPerServing || 1;
       const val = initialNative / servingSize;
-      const labelText = v.label || (servingSize + ' ' + native);
       return (
         '<div class="recipe-ing-variant">' +
-          '<label>' + escapeHtml(labelText) + '</label>' +
+          '<label>' + escapeHtml(labelWithSize(v, native)) + '</label>' +
           '<input type="number" class="recipe-ing-amt" data-recipe-variant-input data-serving-size="' + servingSize + '" value="' + escapeHtml(fmtVariantDisplay(val)) + '" min="0" step="0.1" inputmode="decimal" />' +
         '</div>'
       );
