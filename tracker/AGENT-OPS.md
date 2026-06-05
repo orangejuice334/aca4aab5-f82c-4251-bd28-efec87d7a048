@@ -3,6 +3,17 @@
 A read-from-scratch reference. No history, no migration notes, just the
 current schema and how to drive it.
 
+## Tests (mandatory)
+
+Run before every commit that touches `tracker/`:
+
+    node tracker/tests/run-tests.mjs
+
+Every change to a pure function in `track.html` whose twin lives in
+`tracker/lib/tracker-core.mjs` MUST update both copies AND add a test in
+`tracker/tests/*.test.mjs`. See `tracker/tests/README.md` for the layout
+and coverage targets. No commit may land with a red suite.
+
 Endpoint: `https://19ff6f4d-3d5b-40e6-88e2-573f647f903f.orangejuice9137.workers.dev`
 User: this document is scoped to `?user=lg` (Luis). Every read and write
 in here assumes that query string. Do not act on any other user from this
