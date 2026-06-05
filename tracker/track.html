@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.72">
+<meta name="app-version" content="v6.5.73">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -4842,25 +4842,34 @@
   }
 
   function getDisplayUnits(item) {
+    const measuredForUnit = getDefaultMeasuredIn(item);
+    // Every g/ml item gets a synthetic "1 g" or "1 ml" trailing variant
+    // so the catalog row + recipe-maker + ingredient editor always
+    // expose a raw native-unit input. Units-measured items (capsules,
+    // discrete) skip this since "1 unit" is already the canonical
+    // serving for them by definition.
+    const wantSynthetic = (measuredForUnit === 'g' || measuredForUnit === 'ml');
+    const oneNativeLabel = '1 ' + measuredForUnit;
     if (item && Array.isArray(item.displayUnits) && item.displayUnits.length) {
-      // Canonical native unit (1 g or 1 ml) is implicit; each variant's
-      // `multiplier` IS its native-unit serving size. Downstream code reads
-      // `unitsPerServing`, so we mirror multiplier into that field on read.
-      return item.displayUnits.map(v => {
+      const out = item.displayUnits.map(v => {
         if (!v) return v;
         if (typeof v.multiplier === 'number' && v.multiplier > 0) {
           return Object.assign({}, v, { unitsPerServing: v.multiplier });
         }
         return v;
       });
+      if (wantSynthetic && !out.some(v => v && (v.unitsPerServing || v.multiplier) === 1)) {
+        out.push({ label: oneNativeLabel, unitsPerServing: 1, multiplier: 1, synthetic: true });
+      }
+      return out;
     }
-    // Fallback for items without any displayUnits — synthesize a single
-    // variant from the amount/defaultMeasuredIn fields.
-    const measured = getDefaultMeasuredIn(item);
+    // Fallback for items without any displayUnits.
     const a = (item && item.amount) || {};
     const value = (typeof a.value === 'number') ? a.value : 1;
-    const label = a.label || (value + ' ' + (a.unit || (measured === 'units' ? 'unit' : measured)));
-    return [{ label, unitsPerServing: value, multiplier: value }];
+    const label = a.label || (value + ' ' + (a.unit || (measuredForUnit === 'units' ? 'unit' : measuredForUnit)));
+    const head = { label, unitsPerServing: value, multiplier: value };
+    if (!wantSynthetic || value === 1) return [head];
+    return [head, { label: oneNativeLabel, unitsPerServing: 1, multiplier: 1, synthetic: true }];
   }
 
   // Synthesize a default canonical amount object for code that still reads
@@ -9517,7 +9526,10 @@
     const prim = primaryUnit(item);
     // Use getDisplayUnits so variants come back with unitsPerServing mirrored
     // from their stored multiplier (the canonical "1 native unit" is implicit).
-    const variants = getDisplayUnits(item).slice();
+    // Filter out the synthetic "1 g/ml" trailer because the variant editor
+    // is for managing PERSISTED variants only - the synthetic exists only
+    // for rendering catalog/recipe rows, not for the user to edit/delete.
+    const variants = getDisplayUnits(item).slice().filter(v => !(v && v.synthetic));
     variants.sort((a, b) => (b.unitsPerServing || 0) - (a.unitsPerServing || 0));
     const defGroup = 'variant-default-' + (key || 'item');
     // Precompute the unit dropdown once; variantEditRow marks the selected
@@ -9802,21 +9814,77 @@
       const labelFracMatch = labelVal && labelVal.match(/^(\d+)\/(\d+)/);
       const onThirds = !!(labelFracMatch && labelFracMatch[2] === '3' && parseInt(labelFracMatch[1], 10) < 3);
       const thirdBtnText = onThirds ? '+1/3' : '1/3';
+      // Build the variant grid: one numeric input per source displayUnit,
+      // all linked through data-native-units on the row. Source's native
+      // unit (g/ml for basis sources, 1 for discrete) drives the math.
+      // The single amount/multiplier input we used to render is replaced
+      // by this grid so the user can pick which serving they're typing
+      // for, and every other linked input updates synchronously.
+      // getDisplayUnits already appends the synthetic "1 g" / "1 ml"
+      // trailer for every basis item, so no extra inject needed here.
+      const sourceVariantsForGrid = source ? orderVariantsForCatalog(getDisplayUnits(source)).slice() : [];
+      // Compute current native total. For per-100 sources, ing.amount IS
+      // the native count. For multiplier sources, multiplier * default-
+      // variant-size = native. Default to one canonical serving when the
+      // ingredient has neither field set.
+      let currentNative;
+      if (sourceIsPer100) {
+        if (typeof ing.amount === 'number') currentNative = ing.amount;
+        else if (typeof ing.multiplier === 'number' && sourceDefVarSize > 0) currentNative = ing.multiplier * sourceDefVarSize;
+        else currentNative = sourceDefVarSize > 0 ? sourceDefVarSize : 100;
+      } else {
+        const mult = (typeof ing.multiplier === 'number') ? ing.multiplier
+                   : (typeof ing.amount === 'number') ? ing.amount : 1;
+        currentNative = mult * (sourceDefVarSize > 0 ? sourceDefVarSize : 1);
+      }
+      const fmtV = (n) => {
+        if (!isFinite(n)) return '0';
+        const r = Math.round(n * 10) / 10;
+        return (r === Math.floor(r)) ? String(Math.floor(r)) : r.toFixed(1);
+      };
+      const labelWithSize = (v, primaryUnitStr) => {
+        const lbl = (v && v.label) ? String(v.label) : '';
+        const sz = v && typeof v.unitsPerServing === 'number' ? v.unitsPerServing : 0;
+        if (!sz || sz <= 0) return lbl || ('1 ' + primaryUnitStr);
+        const sizeStr = fmtV(sz) + ' ' + primaryUnitStr;
+        if (!lbl) return sizeStr;
+        const norm = (s) => s.replace(/\s+/g, '').toLowerCase();
+        if (norm(lbl).indexOf(norm(sizeStr)) >= 0) return lbl;
+        return lbl + ' (' + sizeStr + ')';
+      };
+      const variantPrimaryUnit = sourceIsPer100 ? sourceMeasure : (sourceMeasure || 'unit');
+      // First input still carries the legacy data-ing-field name so the
+      // existing save path (reads f('amount') or f('multiplier')) keeps
+      // working without a separate save-side change. Sibling inputs
+      // share data-recipe-variant-input which the existing input handler
+      // already syncs through recipeRowSyncFromInput.
+      const variantsHtml = sourceVariantsForGrid.map((v, idx) => {
+        const servingSize = v.unitsPerServing || 1;
+        const val = currentNative / servingSize;
+        // The first input is the "canonical" amount field that
+        // saveExpandedEdits already reads, with data-ing-field intact.
+        // Per-100 sources store gram amount; non-per-100 store multiplier.
+        let primaryAttr = '';
+        if (idx === 0) {
+          if (sourceIsPer100) primaryAttr = ' data-ing-field="amount"';
+          else primaryAttr = ' data-ing-field="multiplier" data-non-basis="1"';
+        }
+        const labelHtml = labelWithSize(v, variantPrimaryUnit);
+        return (
+          '<div class="recipe-ing-variant">' +
+            '<label>' + escapeHtml(labelHtml) + '</label>' +
+            '<input type="number" class="ing-amount-value recipe-ing-amt" data-recipe-variant-input data-serving-size="' + servingSize + '"' + primaryAttr + ' min="0" step="0.1" value="' + escapeHtml(fmtV(val)) + '" inputmode="decimal" />' +
+          '</div>'
+        );
+      }).join('');
       return (
-        '<div class="ingredient-edit-row" data-ing-row data-ing-linked="true" data-ing-itemkey="' + escapeHtml(ing.itemKey) + '" data-ing-source-measure="' + escapeHtml(sourceMeasure) + '" data-ing-source-value="' + escapeHtml(String(sourceDefaultValue)) + '" data-ing-source-label="' + escapeHtml(sourceDefaultLabel) + '">' +
+        '<div class="ingredient-edit-row" data-ing-row data-ing-linked="true" data-ing-itemkey="' + escapeHtml(ing.itemKey) + '" data-ing-source-measure="' + escapeHtml(sourceMeasure) + '" data-ing-source-basis="' + (sourceIsPer100 ? '1' : '') + '" data-ing-source-value="' + escapeHtml(String(sourceDefaultValue)) + '" data-ing-source-label="' + escapeHtml(sourceDefaultLabel) + '" data-native-units="' + escapeHtml(String(currentNative)) + '">' +
           '<div class="ing-linked-header' + (resolved.broken ? ' broken' : '') + '">' +
             '<span class="ing-linked-name">' + escapeHtml(resolved.name) + '</span>' +
             '<button type="button" class="ing-delete" data-ing-delete aria-label="Remove ingredient">×</button>' +
           '</div>' +
+          '<div class="recipe-ing-variants">' + variantsHtml + '</div>' +
           '<div class="ing-amount-row">' +
-            '<div class="ing-field-labeled">' +
-              '<label>Amount</label>' +
-              '<input type="number" class="ing-amount-value" data-ing-field="' + amountFieldName + '" placeholder="' + (sourceIsPer100 ? '100' : '1') + '" min="0" step="0.1" value="' + escapeHtml(String(amountFieldValue)) + '" inputmode="decimal" />' +
-            '</div>' +
-            '<div class="ing-field-labeled">' +
-              '<label>Unit</label>' +
-              '<span class="ing-mult-label">' + escapeHtml(amountUnitHint) + '</span>' +
-            '</div>' +
             '<div class="ing-field-labeled">' +
               '<label>Label</label>' +
               '<input type="text" class="ing-amount-unit" data-ing-field="label" placeholder="e.g. 1/2 medium" value="' + escapeHtml(labelVal) + '" />' +
@@ -11739,14 +11807,9 @@
     }
     const basis = isPer100(item);
     const native = getDefaultMeasuredIn(item);
-    const allVariants = orderVariantsForCatalog(getDisplayUnits(item));
-    // Add a "1 <native>" row when the item is mass/volume measured AND no
-    // existing variant has servingSize = 1. Lets the user type the raw native count
-    // ("325 ml of premier shake") side-by-side with the labelled servings.
-    let variants = allVariants.slice();
-    if (basis && !variants.some(v => (v.unitsPerServing || 0) === 1)) {
-      variants.push({ label: '1 ' + native, unitsPerServing: 1 });
-    }
+    // getDisplayUnits already appends a synthetic "1 g" / "1 ml" trailer
+    // for every basis item, so the raw native-unit input is built-in.
+    const variants = orderVariantsForCatalog(getDisplayUnits(item)).slice();
     // Display helper: at most 1 decimal in the input cell, trailing zero
     // stripped (so "1" not "1.0"). Underlying precision lives on the row's
     // data-native-units so macros keep their full math.
@@ -11835,7 +11898,11 @@
   // full-precision native total is stored on the row via data-native-units;
   // each input displays at most 1 decimal of the derived per-variant value.
   function recipeRowSyncFromInput(inp) {
-    const row = inp.closest('[data-recipe-ing-row]');
+    // Recipe-maker rows use [data-recipe-ing-row]; the catalog-edit-panel
+    // ingredient rows use [data-ing-row]. Both host a sibling group of
+    // [data-recipe-variant-input] inputs that should stay in sync, so
+    // pick whichever wrapper this input belongs to.
+    const row = inp.closest('[data-recipe-ing-row], [data-ing-row]');
     if (!row) return;
     const servingSize = parseFloat(inp.dataset.servingSize) || 1;
     const v = parseFloat(inp.value);

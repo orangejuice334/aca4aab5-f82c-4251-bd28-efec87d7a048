@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-05T18:53:19.254Z",
-  "_gistSavedAt": "2026-06-05T18:48:35.504Z",
+  "_backupTakenAt": "2026-06-05T19:04:00.813Z",
+  "_gistSavedAt": "2026-06-05T19:00:04.906Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -756,7 +756,8 @@
         },
         "counters": {
           "premier": 325,
-          "soy_milk": 130
+          "soy_milk": 130,
+          "salsa_casa_mamita_chunky": 99
         },
         "customs": [
           {
@@ -779,7 +780,8 @@
         },
         "counterMeta": {
           "premier": "2026-06-05T13:09:29.392Z",
-          "soy_milk": "2026-06-05T13:10:11.507Z"
+          "soy_milk": "2026-06-05T13:10:11.507Z",
+          "salsa_casa_mamita_chunky": "2026-06-05T18:58:52.832Z"
         },
         "weight": 97.4,
         "weightMeta": "2026-06-05T13:08:40.018Z"
@@ -864,16 +866,15 @@
       "targets-daily": true,
       "details-profile-section": true,
       "today-customs": true,
-      "catalog-archive": true,
       "details-sync-error-banner": true,
       "targets-accumulation": true,
       "chart-bmi-chart": true,
       "profile": true,
-      "today-log": true,
       "history": true,
       "details-add-new-item": true,
       "section-weight-tracker": true,
-      "supplements-water": true
+      "supplements-water": true,
+      "today-log": true
     },
     "userCatalog": {
       "items": {
