@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-05T19:16:19.032Z",
-  "_gistSavedAt": "2026-06-05T19:06:47.292Z",
+  "_backupTakenAt": "2026-06-05T19:20:24.113Z",
+  "_gistSavedAt": "2026-06-05T19:18:00.883Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -4220,7 +4220,7 @@
           "ingredients": [
             {
               "itemKey": "string_cheese",
-              "amount": 4
+              "amount": 84
             },
             {
               "itemKey": "turkey_oven_classic",
@@ -4234,11 +4234,11 @@
           "displayUnits": [
             {
               "label": "full recipe",
-              "amount": 1472,
+              "amount": 644.9,
               "unit": "g",
               "default": true,
               "locked": true,
-              "multiplier": 1472
+              "multiplier": 644.9
             }
           ],
           "defaultMeasuredIn": "units"

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.75">
+<meta name="app-version" content="v6.5.76">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -8328,8 +8328,13 @@
       } else if (ing.multiplier != null) {
         displayAmount = { value: ing.multiplier, unit: '×' };
       }
+      // Display name includes the brand the same way catalog rows do, so
+      // a recipe ingredient row reads "Turkey breast oven roasted
+      // (Smithfield Safeway)" instead of just the bare name.
+      const ingBrand = (typeof item.brand === 'string' && item.brand.trim()) ? item.brand.trim() : '';
+      const displayName = ingBrand ? (item.name + ' (' + ingBrand + ')') : item.name;
       return {
-        name: item.name,
+        name: displayName,
         amount: displayAmount,
         kcal: macros.kcal, p: macros.p, sf: macros.sf,
         water: macros.water, caffeine: macros.caffeine,
@@ -8368,6 +8373,38 @@
     }
     const item = ITEMS[ing.itemKey];
     if (!item) return z;
+    // Recipes-as-ingredients carry no per-native macros (saveExpandedEdits
+    // strips them, deferring to ingredient sum). Compute the source recipe
+    // batch macros and scale by the fraction of canonical batch the
+    // ingredient represents.
+    if (item.category === 'recipes' && Array.isArray(item.ingredients) && item.ingredients.length) {
+      const visited = seen || new Set();
+      if (visited.has(item)) {
+        console.warn('[tracker] recipe ingredient cycle detected at', ing.itemKey, '- returning zero macros');
+        return z;
+      }
+      visited.add(item);
+      const batch = computeItemMacros(item, visited);
+      visited.delete(item);
+      // Resolve "how many batches" of the source recipe this ingredient
+      // represents:
+      //   ing.multiplier: already a fraction of canonical batch.
+      //   ing.amount:     gram count; divide by the canonical batch's
+      //                   total grams (the "full recipe" variant's
+      //                   multiplier, falling back to first displayUnit).
+      let batchFraction = 0;
+      if (typeof ing.multiplier === 'number') {
+        batchFraction = ing.multiplier;
+      } else if (typeof ing.amount === 'number') {
+        const canon = getDisplayUnits(item).find(u => u && (/full recipe/i.test(u.label || '') || u.locked))
+                    || getDisplayUnits(item)[0];
+        const batchGrams = canon && (canon.multiplier || canon.unitsPerServing) || 1;
+        batchFraction = batchGrams > 0 ? (ing.amount / batchGrams) : 0;
+      }
+      const out = {};
+      for (const k of STORED_NUTRIENT_KEYS) out[k] = (batch[k] || 0) * batchFraction;
+      return out;
+    }
     let units = 0;
     if (typeof ing.amount === 'number') {
       units = ing.amount;
@@ -8375,28 +8412,6 @@
       // Multiplier × source's canonical unitsPerServing.
       const canon = getDisplayUnits(item)[0];
       units = ing.multiplier * (canon.unitsPerServing || 0);
-    }
-    // Recipes-as-ingredients carry no per-native macros (saveExpandedEdits
-    // strips them, deferring to ingredient sum). scaleByNative would yield
-    // zero. Instead compute the source-recipe batch macros and scale by
-    // (units / batch_grams) — same logic computeTotals uses for top-level
-    // recipe counters. Always treat a recipe's canonical batch as "1 batch"
-    // regardless of any stored displayUnits, so the user's `counter` stays
-    // in fractional-batch units across saves.
-    if (item.category === 'recipes' && Array.isArray(item.ingredients) && item.ingredients.length) {
-      const visited = seen || new Set();
-      if (visited.has(item)) {
-        console.warn('[tracker] recipe ingredient cycle detected at', ing.itemKey, '— returning zero macros');
-        return z;
-      }
-      visited.add(item);
-      const canonUnits = 1;
-      const batch = computeItemMacros(item, visited);
-      visited.delete(item);
-      const factor = units / canonUnits;
-      const out = {};
-      for (const k of STORED_NUTRIENT_KEYS) out[k] = (batch[k] || 0) * factor;
-      return out;
     }
     return scaleByNative(item, units);
   }
