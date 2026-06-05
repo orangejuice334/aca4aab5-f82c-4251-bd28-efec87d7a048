@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-04T10:35:46.977Z",
-  "_gistSavedAt": "2026-06-03T17:30:34.226Z",
+  "_backupTakenAt": "2026-06-05T10:42:20.413Z",
+  "_gistSavedAt": "2026-06-05T03:35:57.426Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -711,11 +711,38 @@
         "weightMeta": "2026-06-03T15:15:20.247Z"
       },
       "2026-06-04": {
-        "toggles": {},
-        "counters": {},
-        "customs": [],
-        "toggleMeta": {},
-        "counterMeta": {}
+        "toggles": {
+          "water#07:00": true,
+          "wegovy#07:30": true,
+          "d3#08:00": true,
+          "omega3#08:00": true,
+          "two_per_day#08:00": true
+        },
+        "counters": {
+          "yogurt_half": 453.5,
+          "protein_whey_animal_strawberry": 64
+        },
+        "customs": [
+          {
+            "id": "9b45f741-e5b7-44f7-8e24-581d730dfa9f",
+            "name": "400kcal 10p",
+            "kcal": 400,
+            "p": 10,
+            "count": 1,
+            "lastModified": "2026-06-04T19:21:16.258Z"
+          }
+        ],
+        "toggleMeta": {
+          "water#07:00": "2026-06-04T17:29:18.500Z",
+          "wegovy#07:30": "2026-06-04T17:29:19.722Z",
+          "d3#08:00": "2026-06-04T17:29:23.458Z",
+          "omega3#08:00": "2026-06-04T17:29:25.400Z",
+          "two_per_day#08:00": "2026-06-04T17:29:27.574Z"
+        },
+        "counterMeta": {
+          "yogurt_half": "2026-06-04T19:20:48.399Z",
+          "protein_whey_animal_strawberry": "2026-06-04T19:20:57.602Z"
+        }
       }
     },
     "savedItems": [],
