@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.73">
+<meta name="app-version" content="v6.5.74">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -9853,19 +9853,20 @@
         return lbl + ' (' + sizeStr + ')';
       };
       const variantPrimaryUnit = sourceIsPer100 ? sourceMeasure : (sourceMeasure || 'unit');
-      // First input still carries the legacy data-ing-field name so the
-      // existing save path (reads f('amount') or f('multiplier')) keeps
-      // working without a separate save-side change. Sibling inputs
-      // share data-recipe-variant-input which the existing input handler
-      // already syncs through recipeRowSyncFromInput.
+      // The "amount" (per-100 source) / "multiplier" (non-basis source)
+      // data-ing-field anchor goes on the SIZE-1 native-unit input - that
+      // input always equals the native total, so the legacy save path
+      // (saveExpandedEdits, the linked-amount macro recompute) reads the
+      // correct value regardless of which variant the user typed in.
+      // Pick the index whose serving size is exactly 1, falling back to
+      // the first input if none is found.
+      let primaryIdx = sourceVariantsForGrid.findIndex(v => v && (v.unitsPerServing || 0) === 1);
+      if (primaryIdx === -1) primaryIdx = 0;
       const variantsHtml = sourceVariantsForGrid.map((v, idx) => {
         const servingSize = v.unitsPerServing || 1;
         const val = currentNative / servingSize;
-        // The first input is the "canonical" amount field that
-        // saveExpandedEdits already reads, with data-ing-field intact.
-        // Per-100 sources store gram amount; non-per-100 store multiplier.
         let primaryAttr = '';
-        if (idx === 0) {
+        if (idx === primaryIdx) {
           if (sourceIsPer100) primaryAttr = ' data-ing-field="amount"';
           else primaryAttr = ' data-ing-field="multiplier" data-non-basis="1"';
         }
@@ -10468,6 +10469,42 @@
       else delete item.ingredients;
       delete item.kcal; delete item.p; delete item.sf;
       delete item.water; delete item.caffeine;
+      // Auto-recompute the recipe's "full recipe" variant size from the
+      // current ingredient gram total so the displayed batch size stays
+      // in sync with what the ingredients actually weigh. Linked
+      // ingredients contribute their native units; multiplier-form
+      // ingredients contribute multiplier * source default size; flat
+      // ingredients with a numeric amount in g/ml contribute that.
+      if (Array.isArray(item.displayUnits) && item.displayUnits.length) {
+        let totalNative = 0;
+        for (const ing of ingredients) {
+          if (ing.itemKey) {
+            const src = ITEMS[ing.itemKey];
+            if (!src) continue;
+            if (typeof ing.amount === 'number' && ing.amount > 0) {
+              totalNative += ing.amount;
+            } else if (typeof ing.multiplier === 'number' && ing.multiplier > 0) {
+              const srcDef = getDisplayUnits(src).find(u => u && u.default) || getDisplayUnits(src)[0];
+              const srcSize = (srcDef && (srcDef.multiplier || srcDef.unitsPerServing)) || 0;
+              if (srcSize > 0) totalNative += ing.multiplier * srcSize;
+            }
+          } else if (ing.amount && typeof ing.amount.value === 'number' && ing.amount.value > 0) {
+            const u = (ing.amount.unit || '').toLowerCase();
+            if (u === 'g' || u === 'ml') totalNative += ing.amount.value;
+          }
+        }
+        if (totalNative > 0) {
+          const fullRecipeVar = item.displayUnits.find(v => v && /full recipe/i.test(v.label || ''))
+                              || item.displayUnits.find(v => v && v.locked)
+                              || item.displayUnits[0];
+          if (fullRecipeVar) {
+            const rounded = Math.round(totalNative * 10) / 10;
+            fullRecipeVar.multiplier = rounded;
+            fullRecipeVar.amount = rounded;
+            fullRecipeVar.unit = 'g';
+          }
+        }
+      }
     } else if (ingredients.length > 0) {
       // Non-recipe item with sub-ingredients: re-sum totals so the cached
       // top-level macros stay consistent with the components. All stored
@@ -11922,6 +11959,27 @@
       const ov = og > 0 ? nativeUnits / og : 0;
       o.value = fmtVariantDisplay(ov);
     });
+    // For ingredient-edit-rows, the macros readout is recomputed by a
+    // separate input handler keyed off [data-ing-field="amount"] /
+    // ["multiplier"]. When the user types into a sibling variant, that
+    // handler doesn't see an input event on the canonical input, so
+    // re-run the macro probe inline here (dispatching an Event would
+    // re-enter this sync function and recurse).
+    if (row.matches('[data-ing-row][data-ing-linked="true"]')) {
+      const itemKey = row.dataset.ingItemkey;
+      const sourceBasis = row.dataset.ingSourceBasis;
+      const canonical = row.querySelector('[data-ing-field="amount"], [data-ing-field="multiplier"]');
+      const cv = canonical ? parseFloat(canonical.value) : NaN;
+      const safeV = (isNaN(cv) || cv < 0) ? 0 : cv;
+      const probe = sourceBasis ? { itemKey, amount: safeV } : { itemKey, multiplier: safeV };
+      if (itemKey && typeof resolveIngredient === 'function') {
+        const r = resolveIngredient(probe);
+        const out = row.querySelector('[data-ing-computed]');
+        if (out && r) {
+          out.textContent = fmt1(r.kcal) + ' kcal · ' + fmt1(r.p) + ' P · ' + fmt1(r.sf) + ' SF · ' + fmt1(r.water) + ' ml water';
+        }
+      }
+    }
   }
 
   // Read the row's current native-unit total. Prefers the precise value

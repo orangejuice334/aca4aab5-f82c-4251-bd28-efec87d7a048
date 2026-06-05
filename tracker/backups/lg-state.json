@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-05T19:04:00.813Z",
-  "_gistSavedAt": "2026-06-05T19:00:04.906Z",
+  "_backupTakenAt": "2026-06-05T19:12:25.701Z",
+  "_gistSavedAt": "2026-06-05T19:06:47.292Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -4215,12 +4215,12 @@
           "purines": 0.1
         },
         "scrambled_feggs": {
-          "name": "Scrambled feggs",
+          "name": "Feggs scrambled",
           "category": "recipes",
           "ingredients": [
             {
               "itemKey": "string_cheese",
-              "amount": 84
+              "amount": 4
             },
             {
               "itemKey": "turkey_oven_classic",
@@ -4228,19 +4228,20 @@
             },
             {
               "itemKey": "egg_substitute",
-              "amount": 828
+              "amount": 0.9
             }
           ],
           "displayUnits": [
             {
               "label": "full recipe",
-              "multiplier": 1472,
               "amount": 1472,
               "unit": "g",
               "default": true,
-              "locked": true
+              "locked": true,
+              "multiplier": 1472
             }
-          ]
+          ],
+          "defaultMeasuredIn": "units"
         },
         "sesame_chicken_100g": {
           "name": "Sesame chicken — takeout",
