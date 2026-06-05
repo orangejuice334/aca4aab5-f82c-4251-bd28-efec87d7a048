@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-05T19:38:39.019Z",
-  "_gistSavedAt": "2026-06-05T19:18:00.883Z",
+  "_backupTakenAt": "2026-06-05T20:38:08.292Z",
+  "_gistSavedAt": "2026-06-05T20:37:02.572Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5273,13 +5273,29 @@
           "purines": 1.5,
           "displayUnits": [
             {
+              "label": "1 pkg",
+              "amount": 224,
+              "unit": "g",
+              "multiplier": 224
+            },
+            {
               "label": "2 slices",
-              "default": true,
-              "multiplier": 56
+              "amount": 56,
+              "unit": "g",
+              "multiplier": 56,
+              "default": true
+            },
+            {
+              "label": "1 slice",
+              "amount": 28,
+              "unit": "g",
+              "multiplier": 28
             }
           ],
           "notes": "Bought at Aldi.",
-          "archived": true
+          "archived": true,
+          "brand": "Smithfield Safeway",
+          "defaultMeasuredIn": "g"
         },
         "turkey_salmon_black_bean_slab": {
           "name": "Turkey salmon black bean slab",
