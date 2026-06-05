@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-05T10:42:20.413Z",
-  "_gistSavedAt": "2026-06-05T03:35:57.426Z",
+  "_backupTakenAt": "2026-06-05T13:16:21.612Z",
+  "_gistSavedAt": "2026-06-05T13:10:13.154Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -743,6 +743,30 @@
           "yogurt_half": "2026-06-04T19:20:48.399Z",
           "protein_whey_animal_strawberry": "2026-06-04T19:20:57.602Z"
         }
+      },
+      "2026-06-05": {
+        "toggles": {},
+        "counters": {
+          "premier": 325,
+          "soy_milk": 130
+        },
+        "customs": [
+          {
+            "id": "6760e0ec-ca16-40a9-b432-831bc927f164",
+            "name": "240kcal 12p",
+            "kcal": 240,
+            "p": 12,
+            "count": 1,
+            "lastModified": "2026-06-05T13:07:55.874Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "premier": "2026-06-05T13:09:29.392Z",
+          "soy_milk": "2026-06-05T13:10:11.507Z"
+        },
+        "weight": 97.4,
+        "weightMeta": "2026-06-05T13:08:40.018Z"
       }
     },
     "savedItems": [],
@@ -3197,11 +3221,11 @@
         "mycoffee": {
           "name": "My Coffee soy milk",
           "category": "liquids",
-          "kcal": 0.263636,
-          "p": 0.021212,
-          "sf": 0.001515,
-          "water": 2.212121,
-          "caffeine": 0.606061,
+          "kcal": 87,
+          "p": 7,
+          "sf": 0.5,
+          "water": 730,
+          "caffeine": 200,
           "displayUnits": [
             {
               "label": "1 unit",

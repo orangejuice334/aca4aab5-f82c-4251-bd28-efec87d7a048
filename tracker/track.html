@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.70">
+<meta name="app-version" content="v6.5.71">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -6730,15 +6730,8 @@
         valEl.firstChild.textContent = formatted + (def.unit ? ' ' : '');
       }
       if (def.computed) {
-        if (key === '_kcal_per_p' && GOALS.kcal > 0 && GOALS.p > 0) {
-          const target = GOALS.kcal / GOALS.p;
-          const fillEl = document.querySelector('[data-bar="_kcal_per_p"]');
-          if (fillEl) {
-            fillEl.style.width = '100%';
-            fillEl.style.backgroundColor = kcalPerPBarColor(value, target);
-          }
-          updateMarker('_kcal_per_p');
-        }
+        // kcal/p tile has no bar / marker DOM anymore; the value alone
+        // is the indicator, so no extra work to color or position here.
         continue;
       }
       const goal = GOALS[key] || 1;
@@ -7726,9 +7719,13 @@
     }
     const isToday = state.activeDate === todayKey();
     let target = goal;
-    if (isToday && WINDOWS[metric]) {
+    // Every metric (kcal/p/water/caffeine AND every micronutrient like
+    // potassium / magnesium / sodium) is graded against the same daily
+    // eating window: under 5 % into the window = neutral, otherwise
+    // ratio-against-pacing. Past days fall back to whole-day comparison.
+    if (isToday) {
       const pacing = pacingFraction(metric);
-      if (pacing < 0.05) return 'hsl(120, 25%, 60%)'; // neutral before/early in window
+      if (pacing < 0.05) return 'hsl(120, 25%, 60%)';
       target = goal * pacing;
     }
     const ratio = value / target;
@@ -7965,7 +7962,11 @@
   }
 
   function pacingFraction(metric) {
-    const win = WINDOWS[metric];
+    // Falls back to the default eating window (DEFAULT_WINDOW) for any
+    // metric without an explicit entry in WINDOWS, so micronutrient bars
+    // (potassium, magnesium, sodium, etc.) get the same time-of-day
+    // pacing as the headline macros.
+    const win = WINDOWS[metric] || DEFAULT_WINDOW;
     if (!win) return 0;
     const now = nowMinutes();
     if (now < win.start) return 0;
@@ -10912,9 +10913,10 @@
         // color-coded bar with a time-of-day marker so the widget visually
         // matches the other daily-totals tiles.
         const cellLabel = (key === '_kcal_per_p') ? "Today's kcal/p" : def.label;
-        const barHtml = (key === '_kcal_per_p')
-          ? '<div class="checkout-bar"><div class="checkout-bar-fill" data-bar="' + key + '" style="width: 100%"></div><div class="checkout-bar-marker hidden" data-marker="' + key + '" style="left: 0%"></div></div>'
-          : '';
+        // kcal/p has no progress indicator - it is a ratio, not a daily
+        // cumulative target, so a pacing bar would be misleading. The
+        // numeric value alone carries the signal.
+        const barHtml = '';
         html +=
           '<div class="checkout-total" data-nutrient="' + key + '">' +
             '<div class="checkout-total-label">' + escapeHtml(cellLabel) + '</div>' +
@@ -10975,18 +10977,8 @@
         valEl.firstChild.textContent = formatted + (def.unit ? ' ' : '');
       }
       if (def.computed) {
-        // Computed nutrients have no goal/pct/over-fill semantics, but the
-        // kcal/p widget gets a full-width color-coded bar so it visually
-        // matches the others. Color = ratio of current vs target cutoff.
-        if (key === '_kcal_per_p' && GOALS.kcal > 0 && GOALS.p > 0) {
-          const target = GOALS.kcal / GOALS.p;
-          const fillEl = document.querySelector('[data-bar="_kcal_per_p"]');
-          if (fillEl) {
-            fillEl.style.width = '100%';
-            fillEl.style.backgroundColor = kcalPerPBarColor(value, target);
-          }
-          updateMarker('_kcal_per_p');
-        }
+        // kcal/p has no bar or marker DOM; the numeric readout is the
+        // entire indicator. No coloring or pacing work needed here.
         continue;
       }
       const goal = GOALS[key] || 1;
