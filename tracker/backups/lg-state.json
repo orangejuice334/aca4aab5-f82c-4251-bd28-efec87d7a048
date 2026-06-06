@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-06T09:21:15.273Z",
-  "_gistSavedAt": "2026-06-06T00:01:14.754Z",
+  "_backupTakenAt": "2026-06-06T20:17:23.193Z",
+  "_gistSavedAt": "2026-06-06T20:00:26.762Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -785,6 +785,23 @@
         },
         "neck": 43,
         "neckMeta": "2026-06-05T22:12:17.806Z"
+      },
+      "2026-06-06": {
+        "toggles": {},
+        "counters": {
+          "miso_soup": 372,
+          "cheese_parmesan_grated_reggano": 5,
+          "pork_loin_lean_broiled": 70
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "miso_soup": "2026-06-06T19:59:16+00:00",
+          "cheese_parmesan_grated_reggano": "2026-06-06T19:59:16+00:00",
+          "pork_loin_lean_broiled": "2026-06-06T19:59:16+00:00"
+        },
+        "weight": 97.8,
+        "weightMeta": "2026-06-06T14:54:40.515Z"
       }
     },
     "savedItems": [],
@@ -867,14 +884,13 @@
       "details-profile-section": true,
       "today-customs": true,
       "details-sync-error-banner": true,
-      "targets-accumulation": true,
       "chart-bmi-chart": true,
       "profile": true,
-      "history": true,
       "details-add-new-item": true,
-      "section-weight-tracker": true,
       "supplements-water": true,
-      "today-log": true
+      "today-log": true,
+      "targets-accumulation": true,
+      "history": true
     },
     "userCatalog": {
       "items": {
@@ -1625,6 +1641,75 @@
           ],
           "defaultMeasuredIn": "g",
           "brand": "Giant"
+        },
+        "cheese_parmesan_grated_reggano": {
+          "name": "Cheese parmesan grated (Reggano)",
+          "brand": "Reggano",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 4,
+          "p": 0.4,
+          "carbs": 0,
+          "fiber": 0,
+          "sugar": 0,
+          "fat": 0.3,
+          "sf": 0.2,
+          "transfat": 0,
+          "cholesterol": 0.88,
+          "sodium": 18,
+          "water": 0.18,
+          "caffeine": 0,
+          "omega3": 0,
+          "vitA": 2.07,
+          "vitC": 0,
+          "vitD": 0,
+          "vitE": 0.0022,
+          "vitK": 0.017,
+          "b1": 0.0004,
+          "b2": 0.0033,
+          "b3": 0.0027,
+          "b5": 0.0045,
+          "b6": 0.0009,
+          "b7": 0.02,
+          "b9": 0.07,
+          "b12": 0.012,
+          "choline": 0.15,
+          "calcium": 11,
+          "iron": 0,
+          "magnesium": 0.44,
+          "phosphorus": 7,
+          "potassium": 1.8,
+          "zinc": 0.028,
+          "selenium": 0.22,
+          "copper": 0.0003,
+          "manganese": 0.0002,
+          "iodine": 0.3,
+          "chromium": 0,
+          "molybdenum": 0,
+          "mercury": 0,
+          "purines": 0.08,
+          "displayUnits": [
+            {
+              "label": "2 tsp (5 g)",
+              "amount": 5,
+              "unit": "g",
+              "multiplier": 5,
+              "default": true
+            },
+            {
+              "label": "1 tbsp (7.5 g)",
+              "amount": 7.5,
+              "unit": "g",
+              "multiplier": 7.5
+            },
+            {
+              "label": "Whole container (227 g)",
+              "amount": 227,
+              "unit": "g",
+              "multiplier": 227
+            }
+          ],
+          "notes": "Reggano Grated Parmesan Cheese (ALDI), 8 oz (227g), 45 servings. Label per 5g (2 tsp): 20 kcal, 2g protein, 1.5g fat, 1g sat fat, <5mg cholesterol, 90mg sodium, 0 carbs, calcium 55mg, iron 0, potassium 9mg. Ingredients: parmesan cheese (part-skim cow milk, cultures, salt, enzymes), powdered cellulose (anti-caking), potassium sorbate. Cholesterol estimated at 0.88 mg/g (USDA grated parmesan ~88mg/100g, consistent with label <5mg). Vitamins, phosphorus (high in hard cheese), magnesium, zinc, selenium from USDA grated parmesan — MEDIUM CONFIDENCE."
         },
         "chicken_livers_bell_evans": {
           "name": "Chicken livers organic (Bell and Evans)",
@@ -3057,6 +3142,68 @@
           "defaultMeasuredIn": "g",
           "purines": 0.05
         },
+        "miso_soup": {
+          "name": "Miso soup (restaurant side)",
+          "category": "liquids",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.27688,
+          "p": 0.019355,
+          "carbs": 0.033333,
+          "fiber": 0.0056452,
+          "sugar": 0.0083333,
+          "fat": 0.0083333,
+          "sf": 0.0018817,
+          "transfat": 0,
+          "cholesterol": 0.0080645,
+          "sodium": 3.8898,
+          "water": 0.91,
+          "caffeine": 0,
+          "omega3": 0,
+          "vitA": 0,
+          "vitC": 0,
+          "vitD": 0,
+          "vitE": 0,
+          "vitK": 0.032258,
+          "b1": 0.0003,
+          "b2": 0.0005,
+          "b3": 0.005,
+          "b5": 0.0008,
+          "b6": 0.0005,
+          "b7": 0,
+          "b9": 0.05,
+          "b12": 0.00026882,
+          "choline": 0.040323,
+          "calcium": 0.16129,
+          "iron": 0.0040323,
+          "magnesium": 0.080645,
+          "phosphorus": 0.18817,
+          "potassium": 0.48387,
+          "zinc": 0.0016129,
+          "selenium": 0.010753,
+          "copper": 0.00016129,
+          "manganese": 0.0010753,
+          "iodine": 0.43011,
+          "chromium": 0,
+          "molybdenum": 0,
+          "mercury": 0,
+          "purines": 0.094086,
+          "displayUnits": [
+            {
+              "label": "1 bowl (372 g)",
+              "amount": 372,
+              "unit": "g",
+              "multiplier": 372,
+              "default": true
+            },
+            {
+              "label": "1 cup (240 g)",
+              "amount": 240,
+              "unit": "g",
+              "multiplier": 240
+            }
+          ],
+          "notes": "ESTIMATE, LOW CONFIDENCE. Restaurant miso soup: cloudy (dissolved miso paste), small tofu cubes, wakame (large pieces, sparse), scallion, dashi broth. Macros scaled from a ~180g side estimate (50 kcal, 3.5g P, 6g C, 1.5g F, 700mg Na) to 372g actual bowl weight (×2.067). Sodium is the dominant and most variable figure — 1447mg for this bowl is at the high end of the realistic 930-1450mg range; each tbsp of miso adds ~600mg. Iodine (~160 μg/bowl) comes almost entirely from wakame and is highly variable with seaweed quantity. All micronutrients estimated from typical miso/tofu/wakame/dashi composition — verify if precision matters."
+        },
         "moz_turkey_snack": {
           "name": "Mozzarella stick + turkey slice",
           "category": "recipes",
@@ -3673,6 +3820,74 @@
             }
           ],
           "defaultMeasuredIn": "g"
+        },
+        "pork_loin_lean_broiled": {
+          "name": "Pork loin center-cut lean broiled",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.11,
+          "p": 0.295,
+          "carbs": 0,
+          "fiber": 0,
+          "sugar": 0,
+          "fat": 0.0962,
+          "sf": 0.0343,
+          "transfat": 0.0004,
+          "cholesterol": 0.82,
+          "sodium": 0.57,
+          "water": 0.594,
+          "caffeine": 0,
+          "omega3": 0.3,
+          "vitA": 0.02,
+          "vitC": 0,
+          "vitD": 0.007,
+          "vitE": 0.0018,
+          "vitK": 0,
+          "b1": 0.0083,
+          "b2": 0.003,
+          "b3": 0.05,
+          "b5": 0.0065,
+          "b6": 0.0053,
+          "b7": 0.05,
+          "b9": 0.02,
+          "b12": 0.0065,
+          "choline": 0.9,
+          "calcium": 0.05,
+          "iron": 0.009,
+          "magnesium": 0.26,
+          "phosphorus": 2.46,
+          "potassium": 4.23,
+          "zinc": 0.021,
+          "selenium": 0.38,
+          "copper": 0.0005,
+          "manganese": 0.0001,
+          "iodine": 0,
+          "chromium": 0,
+          "molybdenum": 0,
+          "mercury": 0,
+          "purines": 1.5,
+          "displayUnits": [
+            {
+              "label": "1 steak (35 g)",
+              "amount": 35,
+              "unit": "g",
+              "multiplier": 35,
+              "default": true
+            },
+            {
+              "label": "2 steaks (70 g)",
+              "amount": 70,
+              "unit": "g",
+              "multiplier": 70
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Guessed cut: center-cut pork loin (lean), the leanest pork commonly sold as flat steaks/chops. USDA SR Legacy Pork, fresh, loin, whole, separable lean only, cooked, broiled, per 100g: 211 kcal, 29.5g protein, 9.6g fat, 3.4g sat fat, 82mg cholesterol, 57mg sodium, 423mg potassium. Broiled plain, no added salt/fat. transfat ~0.04g/100g naturally occurring. Pork is very high in thiamin (B1 ~0.83mg/100g) and selenium. Purines ~150mg/100g (moderate-high). If the actual cut was tenderloin it would be ~30% leaner (~143 kcal/100g); loin assumed per the steak description."
         },
         "premier": {
           "name": "Protein shake",

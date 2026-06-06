@@ -203,6 +203,22 @@ export function recipeCatalogOptions(items) {
     .sort((a, b) => a.label.localeCompare(b.label));
 }
 
+// Add-ingredient picker for a recipe item's edit panel. Same shape as
+// recipeCatalogOptions but additionally excludes the recipe currently
+// being edited (no self-reference). Recipes ARE included so the user
+// can pick a recipe as an ingredient of another recipe.
+export function ingredientPickerOptions(items, currentKey) {
+  return Object.entries(items || {})
+    .filter(([k]) => k !== 'water' && k !== currentKey)
+    .map(([k, item]) => {
+      const brand = (item && typeof item.brand === 'string' && item.brand.trim()) ? item.brand.trim() : '';
+      const baseName = (item && item.name) || k;
+      const label = brand ? (baseName + ' (' + brand + ')') : baseName;
+      return { key: k, label };
+    })
+    .sort((a, b) => a.label.localeCompare(b.label));
+}
+
 export function computeItemMacros(item, items, seen) {
   if (!item) return zeroNutrients();
   if (item.category === 'recipes' && Array.isArray(item.ingredients) && item.ingredients.length) {

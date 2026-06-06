@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.80">
+<meta name="app-version" content="v6.5.81">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -10219,10 +10219,18 @@
                 '<label>Add ingredient</label>' +
                 '<select data-ing-add-source>' +
                   '<option value="">— pick item —</option>' +
-                  Object.keys(ITEMS)
-                    .filter(k => ITEMS[k].category !== 'recipes' && k !== key)
-                    .sort((a, b) => (ITEMS[a].name || a).localeCompare(ITEMS[b].name || b))
-                    .map(k => '<option value="' + escapeHtml(k) + '">' + escapeHtml(ITEMS[k].name || k) + '</option>')
+                  // Picker mirrors tracker-core ingredientPickerOptions:
+                  // keep recipes (so recipe-as-ingredient works), drop
+                  // water + self, append brand suffix in label.
+                  Object.entries(ITEMS)
+                    .filter(([k]) => k !== 'water' && k !== key)
+                    .map(([k, it]) => {
+                      const brand = (it && typeof it.brand === 'string' && it.brand.trim()) ? it.brand.trim() : '';
+                      const base = (it && it.name) || k;
+                      return { key: k, label: brand ? (base + ' (' + brand + ')') : base };
+                    })
+                    .sort((a, b) => a.label.localeCompare(b.label))
+                    .map(o => '<option value="' + escapeHtml(o.key) + '">' + escapeHtml(o.label) + '</option>')
                     .join('') +
                 '</select>' +
               '</div>' +
