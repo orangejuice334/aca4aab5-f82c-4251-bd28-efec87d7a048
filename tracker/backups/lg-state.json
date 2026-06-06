@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-05T20:49:19.278Z",
-  "_gistSavedAt": "2026-06-05T20:45:32.086Z",
+  "_backupTakenAt": "2026-06-06T00:01:40.181Z",
+  "_gistSavedAt": "2026-06-06T00:01:14.754Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -783,8 +783,8 @@
           "soy_milk": "2026-06-05T13:10:11.507Z",
           "salsa_casa_mamita_chunky": "2026-06-05T18:58:52.832Z"
         },
-        "weight": 97.4,
-        "weightMeta": "2026-06-05T13:08:40.018Z"
+        "neck": 43,
+        "neckMeta": "2026-06-05T22:12:17.806Z"
       }
     },
     "savedItems": [],
@@ -874,8 +874,7 @@
       "details-add-new-item": true,
       "section-weight-tracker": true,
       "supplements-water": true,
-      "today-log": true,
-      "catalog-archive": true
+      "today-log": true
     },
     "userCatalog": {
       "items": {
@@ -3071,12 +3070,11 @@
           "ingredients": [
             {
               "itemKey": "string_cheese",
-              "multiplier": 1,
-              "label": "1 stick"
+              "amount": 21
             },
             {
-              "itemKey": "turkey_oven_classic",
-              "multiplier": 28,
+              "itemKey": "turkey_breast_smithfield",
+              "amount": 28,
               "label": "1 slice"
             }
           ],
@@ -4225,17 +4223,17 @@
             },
             {
               "itemKey": "egg_substitute",
-              "amount": 0
+              "amount": 828
             }
           ],
           "displayUnits": [
             {
               "label": "full recipe",
-              "amount": 84,
+              "amount": 912,
               "unit": "g",
               "default": true,
               "locked": true,
-              "multiplier": 84
+              "multiplier": 912
             }
           ],
           "defaultMeasuredIn": "units"
@@ -5015,6 +5013,56 @@
           ],
           "defaultMeasuredIn": "units"
         },
+        "turkey_breast_smithfield": {
+          "name": "Turkey breast oven roasted",
+          "brand": "Smithfield Safeway",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.8929,
+          "p": 0.2143,
+          "fat": 0.0089,
+          "cholesterol": 0.1786,
+          "sodium": 9.2857,
+          "carbs": 0.0179,
+          "sugar": 0.0089,
+          "water": 0.7402,
+          "vitE": 0.0007,
+          "b1": 0.0003,
+          "b2": 0.0008,
+          "b3": 0.07,
+          "b5": 0.005,
+          "b6": 0.005,
+          "b7": 0.02,
+          "b9": 0.04,
+          "b12": 0.004,
+          "choline": 0.5,
+          "iron": 0.0064,
+          "magnesium": 0.2,
+          "phosphorus": 2.1,
+          "potassium": 1.6,
+          "zinc": 0.014,
+          "selenium": 0.27,
+          "copper": 0.0003,
+          "iodine": 0.05,
+          "omega3": 0.04,
+          "purines": 0.65,
+          "displayUnits": [
+            {
+              "label": "1 pkg",
+              "amount": 224,
+              "unit": "g",
+              "multiplier": 224
+            },
+            {
+              "label": "1 slice",
+              "amount": 28,
+              "unit": "g",
+              "multiplier": 28,
+              "default": true
+            }
+          ],
+          "notes": "Bought at Safeway. Smithfield brand, oven roasted turkey breast deli slices. Net wt 8 oz (~224 g), about 4 servings."
+        },
         "turkey_ground_99": {
           "name": "Turkey ground 99/1 breast",
           "category": "items",
@@ -5188,62 +5236,6 @@
           ],
           "defaultMeasuredIn": "g"
         },
-        "turkey_oven_classic": {
-          "name": "Turkey breast oven classic",
-          "category": "small_portions",
-          "kcal": 1.07143,
-          "p": 0.23214,
-          "fat": 0.014,
-          "sf": 0.00357,
-          "cholesterol": 0.5,
-          "sodium": 8,
-          "water": 0.69643,
-          "vitD": 0.004,
-          "vitE": 0.0013,
-          "vitK": 0.001,
-          "b1": 0.0006,
-          "b2": 0.0016,
-          "b3": 0.08,
-          "b5": 0.01,
-          "b6": 0.005,
-          "b7": 0.045,
-          "b9": 0.06,
-          "b12": 0.004,
-          "choline": 0.7,
-          "phosphorus": 1.8,
-          "zinc": 0.015,
-          "selenium": 0.22,
-          "copper": 0.00067,
-          "manganese": 0.00012,
-          "iodine": 0.09,
-          "molybdenum": 0.01,
-          "purines": 1.5,
-          "displayUnits": [
-            {
-              "label": "2 slices",
-              "amount": 56,
-              "unit": "g",
-              "multiplier": 56,
-              "default": true
-            },
-            {
-              "label": "1 pkg",
-              "amount": 224,
-              "unit": "g",
-              "multiplier": 224
-            },
-            {
-              "label": "1 slice",
-              "amount": 28,
-              "unit": "g",
-              "multiplier": 28
-            }
-          ],
-          "notes": "Bought at Aldi.",
-          "archived": true,
-          "brand": "Smithfield Safeway",
-          "defaultMeasuredIn": "g"
-        },
         "turkey_salmon_black_bean_slab": {
           "name": "Turkey salmon black bean slab",
           "category": "recipes",
@@ -5362,8 +5354,8 @@
           "category": "recipes",
           "ingredients": [
             {
-              "itemKey": "turkey_oven_classic",
-              "multiplier": 1,
+              "itemKey": "turkey_breast_smithfield",
+              "amount": 56,
               "label": "2 slices (56 g)"
             }
           ],
