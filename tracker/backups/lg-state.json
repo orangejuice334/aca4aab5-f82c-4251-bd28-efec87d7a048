@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-06T20:17:23.193Z",
-  "_gistSavedAt": "2026-06-06T20:00:26.762Z",
+  "_backupTakenAt": "2026-06-06T23:33:27.952Z",
+  "_gistSavedAt": "2026-06-06T23:27:24.022Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -4439,16 +4439,21 @@
             {
               "itemKey": "egg_substitute",
               "amount": 828
+            },
+            {
+              "itemKey": "turkey_breast_smithfield",
+              "amount": 224,
+              "label": "1 slice"
             }
           ],
           "displayUnits": [
             {
               "label": "full recipe",
-              "amount": 912,
+              "amount": 1136,
               "unit": "g",
               "default": true,
               "locked": true,
-              "multiplier": 912
+              "multiplier": 1136
             }
           ],
           "defaultMeasuredIn": "units"

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.83">
+<meta name="app-version" content="v6.5.84">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -4859,14 +4859,16 @@
   function getDisplayUnits(item) {
     const measuredForUnit = getDefaultMeasuredIn(item);
     const isRecipeItem = !!(item && item.category === 'recipes' && Array.isArray(item.ingredients));
-    // Every g/ml item gets a synthetic "1 g" or "1 ml" trailing variant
-    // so the catalog row + recipe-maker + ingredient editor always
-    // expose a raw native-unit input. Recipes also get a "1 g" trailer
-    // (so a recipe can be used as a gram-measured ingredient in another
-    // recipe). Units-measured non-recipe items (capsules, discrete) skip
-    // this since "1 unit" is already the canonical serving for them.
-    const wantSynthetic = (measuredForUnit === 'g' || measuredForUnit === 'ml' || isRecipeItem);
-    const oneNativeLabel = '1 ' + (isRecipeItem && measuredForUnit === 'units' ? 'g' : measuredForUnit);
+    // EVERY catalog item gets a synthetic size-1 trailer so the picker
+    // can always offer a raw native-unit input. Recipes default to "1 g"
+    // (their ingredients sum in grams); mass/volume items use their own
+    // native unit; discrete-unit items use "1 unit". Items that already
+    // contain a size-1 variant skip the synthetic to avoid duplicates.
+    const oneNativeLabel = isRecipeItem
+      ? '1 g'
+      : (measuredForUnit === 'g' || measuredForUnit === 'ml')
+        ? '1 ' + measuredForUnit
+        : '1 unit';
     if (item && Array.isArray(item.displayUnits) && item.displayUnits.length) {
       const out = item.displayUnits.map(v => {
         if (!v) return v;
@@ -4875,7 +4877,7 @@
         }
         return v;
       });
-      if (wantSynthetic && !out.some(v => v && (v.unitsPerServing || v.multiplier) === 1)) {
+      if (!out.some(v => v && (v.unitsPerServing || v.multiplier) === 1)) {
         out.push({ label: oneNativeLabel, unitsPerServing: 1, multiplier: 1, synthetic: true });
       }
       return out;
@@ -4885,7 +4887,7 @@
     const value = (typeof a.value === 'number') ? a.value : 1;
     const label = a.label || (value + ' ' + (a.unit || (measuredForUnit === 'units' ? 'unit' : measuredForUnit)));
     const head = { label, unitsPerServing: value, multiplier: value };
-    if (!wantSynthetic || value === 1) return [head];
+    if (value === 1) return [head];
     return [head, { label: oneNativeLabel, unitsPerServing: 1, multiplier: 1, synthetic: true }];
   }
 

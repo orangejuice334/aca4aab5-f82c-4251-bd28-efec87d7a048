@@ -26,17 +26,18 @@ for (const m of measures) {
           assert.equal(v.unitsPerServing, v.multiplier);
         }
       }
-      // For g/ml items, the size-1 synthetic must be present whenever
-      // no explicit size-1 variant exists.
-      const wantSynthetic = (m === 'g' || m === 'ml');
+      // Every item gets a size-1 entry: either an explicit variant
+      // (multiplier === 1) or a synthetic trailer appended at the end.
       const explicitSize1 = dus.some(v => (v.multiplier || 0) === 1);
-      if (wantSynthetic && dus.length > 0 && !explicitSize1) {
+      if (dus.length > 0 && !explicitSize1) {
         const synth = out.find(v => v.synthetic);
-        assert.ok(synth, 'expected synthetic 1-' + m + ' variant');
+        const expectedLabel = (m === 'g' || m === 'ml') ? '1 ' + m : '1 unit';
+        assert.ok(synth, 'expected synthetic ' + expectedLabel + ' variant');
         assert.equal(synth.unitsPerServing, 1);
+        assert.equal(synth.label, expectedLabel);
       }
-      if (m === 'units' && dus.length > 0) {
-        // No synthetic for plain units items
+      if (dus.length > 0 && explicitSize1) {
+        // No duplicate synthetic when a real size-1 variant already exists.
         assert.ok(!out.some(v => v.synthetic));
       }
     });

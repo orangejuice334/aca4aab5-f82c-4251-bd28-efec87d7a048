@@ -97,8 +97,16 @@ export function primaryUnit(item) {
 export function getDisplayUnits(item) {
   const measuredForUnit = getDefaultMeasuredIn(item);
   const isRecipeItem = !!(item && item.category === 'recipes' && Array.isArray(item.ingredients));
-  const wantSynthetic = (measuredForUnit === 'g' || measuredForUnit === 'ml' || isRecipeItem);
-  const oneNativeLabel = '1 ' + (isRecipeItem && measuredForUnit === 'units' ? 'g' : measuredForUnit);
+  // EVERY catalog item gets a synthetic size-1 trailer so the picker
+  // can always offer a raw native-unit input. Recipes default to grams
+  // (since their ingredients sum in grams); mass/volume items use their
+  // own native unit; discrete-unit items use "1 unit". Items that
+  // already have a size-1 variant skip the synthetic to avoid dupes.
+  const oneNativeUnitLabel = isRecipeItem
+    ? '1 g'
+    : (measuredForUnit === 'g' || measuredForUnit === 'ml')
+      ? '1 ' + measuredForUnit
+      : '1 unit';
   if (item && Array.isArray(item.displayUnits) && item.displayUnits.length) {
     const out = item.displayUnits.map(v => {
       if (!v) return v;
@@ -107,8 +115,8 @@ export function getDisplayUnits(item) {
       }
       return v;
     });
-    if (wantSynthetic && !out.some(v => v && (v.unitsPerServing || v.multiplier) === 1)) {
-      out.push({ label: oneNativeLabel, unitsPerServing: 1, multiplier: 1, synthetic: true });
+    if (!out.some(v => v && (v.unitsPerServing || v.multiplier) === 1)) {
+      out.push({ label: oneNativeUnitLabel, unitsPerServing: 1, multiplier: 1, synthetic: true });
     }
     return out;
   }
@@ -116,8 +124,8 @@ export function getDisplayUnits(item) {
   const value = (typeof a.value === 'number') ? a.value : 1;
   const label = a.label || (value + ' ' + (a.unit || (measuredForUnit === 'units' ? 'unit' : measuredForUnit)));
   const head = { label, unitsPerServing: value, multiplier: value };
-  if (!wantSynthetic || value === 1) return [head];
-  return [head, { label: oneNativeLabel, unitsPerServing: 1, multiplier: 1, synthetic: true }];
+  if (value === 1) return [head];
+  return [head, { label: oneNativeUnitLabel, unitsPerServing: 1, multiplier: 1, synthetic: true }];
 }
 
 export function orderVariantsForCatalog(displayUnits) {
