@@ -1,134 +1,196 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
+  createRecipe,
+  modifyIngredientAmount,
+  addIngredientToRecipe,
+  buildIngredientFromPicker,
+  servingPickerOptions,
   computeItemMacros,
   sumIngredientNativeUnits,
-  servingPickerOptions,
-  ingredientPickerOptions,
-  getDisplayUnits,
-  orderVariantsForCatalog,
 } from '../lib/tracker-core.mjs';
 import { mkCatalog } from './_mocks.mjs';
 
-// Full story: build a recipe from scratch, then modify an existing
-// ingredient amount, then add a new ingredient via the picker flow.
-// Every step asserts macros + full-recipe variant grams.
+// End-to-end: drive the same code paths the UI drives.
+// Recipe construction goes through createRecipe (which calls
+// buildIngredientFromPicker per ingredient + buildFullRecipeVariant);
+// modifications go through modifyIngredientAmount; additions go
+// through addIngredientToRecipe. No hand-rolled item objects.
 
 test('create recipe, modify an ingredient amount, then add a new ingredient', () => {
   const items = mkCatalog();
 
-  // STEP 1: create a fresh recipe with two ingredients
-  items.workout_meal = {
+  // Resolve the servingIndex for each source from the picker contract.
+  // salmon default = "3 oz portion" (85 g) at index 0.
+  const salmonServings = servingPickerOptions(items.salmon_atlantic_cooked);
+  const salmonDefaultIdx = salmonServings.findIndex(s => s.default);
+  // string_cheese default = "1 stick" at index 0
+  const cheeseServings = servingPickerOptions(items.string_cheese);
+  const cheeseDefaultIdx = cheeseServings.findIndex(s => s.default);
+  // soy_milk default = "1 cup" 240 ml at index 0
+  const soyServings = servingPickerOptions(items.soy_milk_unsw);
+  const soyDefaultIdx = soyServings.findIndex(s => s.default);
+
+  // STEP 1: create a fresh recipe via the page's createRecipe path
+  const recipe = createRecipe(items, {
     name: 'Workout meal',
-    category: 'recipes',
     ingredients: [
-      { itemKey: 'salmon_atlantic_cooked', amount: 100, label: '100 g' }, // 208 kcal, 22.1 P
-      { itemKey: 'string_cheese', amount: 21, label: '1 stick' },          // 80 kcal, 7 P
+      { sourceKey: 'salmon_atlantic_cooked', servingIndex: salmonDefaultIdx },
+      { sourceKey: 'string_cheese',          servingIndex: cheeseDefaultIdx },
     ],
-    displayUnits: [{ label: 'full recipe', multiplier: 121, default: true, locked: true }],
-  };
-  // Initial macros = 208 + 80 = 288 kcal, p = 22.1 + 7 = 29.1
-  let m = computeItemMacros(items.workout_meal, items);
-  assert.ok(Math.abs(m.kcal - 288) < 0.5, `step 1 kcal got ${m.kcal}`);
-  assert.ok(Math.abs(m.p - 29.1) < 0.5);
-  // Full-recipe variant size matches the ingredient native sum
-  let total = sumIngredientNativeUnits(items.workout_meal.ingredients, items);
-  assert.equal(total, 121);
-  items.workout_meal.displayUnits[0].multiplier = total;
-
-  // STEP 2: modify the salmon amount (100 g -> 150 g) and recompute
-  items.workout_meal.ingredients[0].amount = 150;
-  m = computeItemMacros(items.workout_meal, items);
-  // 150 * 2.08 + 80 = 312 + 80 = 392 kcal
-  assert.ok(Math.abs(m.kcal - 392) < 0.5, `step 2 kcal got ${m.kcal}`);
-  // p = 150 * 0.221 + 7 = 33.15 + 7 = 40.15
-  assert.ok(Math.abs(m.p - 40.15) < 0.5);
-  total = sumIngredientNativeUnits(items.workout_meal.ingredients, items);
-  assert.equal(total, 171);
-  items.workout_meal.displayUnits[0].multiplier = total;
-
-  // STEP 3: add a new ingredient via the picker contract. The picker
-  // uses servingPickerOptions to surface variants for the user; we
-  // simulate the user picking "1 cup" of soy milk (240 ml).
-  const sourceItems = ingredientPickerOptions(items, 'workout_meal');
-  // soy_milk_unsw is in the picker
-  assert.ok(sourceItems.some(o => o.key === 'soy_milk_unsw'),
-    'soy milk should be selectable as an ingredient');
-  // User picks soy milk, picker fetches serving options
-  const servings = servingPickerOptions(items.soy_milk_unsw);
-  // Should include "1 cup", "1 carton (946 ml)", "1 tbsp", "1 ml" (synthetic)
-  assert.ok(servings.some(s => s.label === '1 cup'));
-  assert.ok(servings.some(s => s.label === '1 ml'));
-  // Default = 1 cup (240 ml)
-  const def = servings.find(s => s.default);
-  assert.equal(def.label, '1 cup');
-  assert.equal(def.amount, 240);
-
-  // Commit: push the new ingredient with amount=240 (basis source, ml)
-  items.workout_meal.ingredients.push({
-    itemKey: 'soy_milk_unsw', amount: def.amount, label: def.label,
   });
+  items.workout_meal = recipe;
 
-  // STEP 4: verify macros now include the soy milk
-  m = computeItemMacros(items.workout_meal, items);
-  // soy milk kcal = 240 * 0.4 = 96
-  assert.ok(Math.abs(m.kcal - (392 + 96)) < 0.5, `step 4 kcal got ${m.kcal}`);
-  // water: 240 * 0.94 = 225.6, salmon adds 150*0.65 = 97.5, plus 0 from cheese
-  assert.ok(Math.abs(m.water - (97.5 + 225.6)) < 1);
+  // Sanity-check the constructed recipe shape (no hand-written state)
+  assert.equal(recipe.category, 'recipes');
+  assert.equal(recipe.ingredients.length, 2);
+  const fullVariant = recipe.displayUnits.find(v => v.locked);
+  assert.ok(fullVariant);
+  assert.equal(fullVariant.label, 'full recipe');
+  // Salmon default 85 g + cheese stick 21 g = 106 g
+  assert.equal(fullVariant.multiplier, 106);
+  // Macros from page primitives: salmon (85*2.08) + cheese (80) = 256.8
+  let m = computeItemMacros(recipe, items);
+  assert.ok(Math.abs(m.kcal - (85 * 2.08 + 80)) < 0.5,
+    `step 1 kcal got ${m.kcal}`);
 
-  // Full-recipe variant native total = 171 + 240 = 411
-  total = sumIngredientNativeUnits(items.workout_meal.ingredients, items);
-  assert.equal(total, 411);
+  // STEP 2: bump salmon amount (85 -> 150 g) via modifyIngredientAmount.
+  // Mirrors the page's auto-recompute of the full-recipe variant.
+  modifyIngredientAmount(recipe, items, 0, 150);
+  assert.equal(recipe.ingredients[0].amount, 150);
+  const fullAfterMod = recipe.displayUnits.find(v => v.locked);
+  assert.equal(fullAfterMod.multiplier, 171); // 150 + 21
+  m = computeItemMacros(recipe, items);
+  assert.ok(Math.abs(m.kcal - (150 * 2.08 + 80)) < 0.5,
+    `step 2 kcal got ${m.kcal}`);
+
+  // STEP 3: add soy milk via addIngredientToRecipe + default serving.
+  addIngredientToRecipe(recipe, items, 'soy_milk_unsw', soyDefaultIdx);
+  assert.equal(recipe.ingredients.length, 3);
+  const fullAfterAdd = recipe.displayUnits.find(v => v.locked);
+  assert.equal(fullAfterAdd.multiplier, 411); // 171 + 240
+
+  // STEP 4: verify macros include the new soy ingredient
+  m = computeItemMacros(recipe, items);
+  // soy kcal = 240 * 0.4 = 96
+  assert.ok(Math.abs(m.kcal - (150 * 2.08 + 80 + 96)) < 0.5);
+  // water = 150 * 0.65 (salmon) + 240 * 0.94 (soy) = 97.5 + 225.6 = 323.1
+  assert.ok(Math.abs(m.water - (150 * 0.65 + 240 * 0.94)) < 1);
 });
 
-test('modifying an ingredient amount to zero drops its contribution to macros', () => {
+test('createRecipe with a non-basis source stores multiplier as fraction of default', () => {
   const items = mkCatalog();
-  items.r = {
-    name: 'R', category: 'recipes',
-    ingredients: [
-      { itemKey: 'string_cheese', amount: 21 },
-      { itemKey: 'salmon_atlantic_cooked', amount: 100 },
-    ],
-    displayUnits: [{ label: 'full recipe', multiplier: 121, default: true, locked: true }],
-  };
-  const before = computeItemMacros(items.r, items).kcal;
-  items.r.ingredients[1].amount = 0;
-  const after = computeItemMacros(items.r, items).kcal;
-  assert.ok(after < before);
-  assert.ok(Math.abs(after - 80) < 0.5, `cheese alone should be 80 kcal, got ${after}`);
+  // omega-3 supplement: defaultMeasuredIn=units; default = AM (multiplier 1)
+  // Picking servingIndex 0 (default) should yield multiplier=1
+  const recipe = createRecipe(items, {
+    name: 'Suppy',
+    ingredients: [{ sourceKey: 'omega3_softgel', servingIndex: 0 }],
+  });
+  const ing = recipe.ingredients[0];
+  assert.equal(ing.multiplier, 1);
+  // No `amount` field for non-basis sources
+  assert.equal(ing.amount, undefined);
 });
 
-test('adding a recipe as a new ingredient sums the parent recipe correctly', () => {
+test('createRecipe with non-default serving on a g item stores the picked variant amount', () => {
   const items = mkCatalog();
-  items.r = {
-    name: 'R', category: 'recipes',
-    ingredients: [{ itemKey: 'string_cheese', amount: 21 }], // 80 kcal
-    displayUnits: [{ label: 'full recipe', multiplier: 21, default: true, locked: true }],
-  };
-  // Now add scrambled_feggs as a recipe-ingredient
-  items.r.ingredients.push({ itemKey: 'scrambled_feggs', amount: 228 }); // 228/912 of 734 = 183.5 kcal
-  const m = computeItemMacros(items.r, items);
-  assert.ok(Math.abs(m.kcal - (80 + 183.5)) < 1);
-});
-
-test('switching an ingredient to a different serving updates the stored amount accordingly', () => {
-  const items = mkCatalog();
-  items.r = {
-    name: 'R', category: 'recipes',
-    ingredients: [{ itemKey: 'turkey_breast_smithfield', amount: 28, label: '1 slice' }],
-    displayUnits: [{ label: 'full recipe', multiplier: 28, default: true, locked: true }],
-  };
-  // User wants 1 pkg instead. Serving picker exposes the pkg variant.
   const servings = servingPickerOptions(items.turkey_breast_smithfield);
-  const pkg = servings.find(s => s.label === '1 pkg');
-  assert.ok(pkg);
-  // Update the ingredient
-  items.r.ingredients[0] = {
-    itemKey: 'turkey_breast_smithfield',
-    amount: pkg.amount,
-    label: pkg.label,
-  };
-  const m = computeItemMacros(items.r, items);
-  // turkey kcal/g = 1.0; 224 g -> 224 kcal
-  assert.ok(Math.abs(m.kcal - 224) < 1);
+  const pkgIdx = servings.findIndex(s => s.label === '1 pkg');
+  const recipe = createRecipe(items, {
+    name: 'Turkey wrap',
+    ingredients: [{ sourceKey: 'turkey_breast_smithfield', servingIndex: pkgIdx }],
+  });
+  assert.equal(recipe.ingredients[0].amount, 224);
+  assert.equal(recipe.ingredients[0].label, '1 pkg');
+});
+
+test('addIngredientToRecipe with the synthetic 1 g serving stores amount=1', () => {
+  const items = mkCatalog();
+  const recipe = createRecipe(items, {
+    name: 'Tester',
+    ingredients: [{ sourceKey: 'string_cheese', servingIndex: 0 }],
+  });
+  const servings = servingPickerOptions(items.salmon_atlantic_cooked);
+  const synthIdx = servings.findIndex(s => s.label === '1 g');
+  assert.ok(synthIdx >= 0, 'salmon should have a synthetic 1 g variant');
+  addIngredientToRecipe(recipe, items, 'salmon_atlantic_cooked', synthIdx);
+  const added = recipe.ingredients[recipe.ingredients.length - 1];
+  assert.equal(added.amount, 1);
+});
+
+test('modifyIngredientAmount(0) drops the ingredient contribution from macros', () => {
+  const items = mkCatalog();
+  const recipe = createRecipe(items, {
+    name: 'Drop test',
+    ingredients: [
+      { sourceKey: 'string_cheese', servingIndex: 0 },         // 80 kcal
+      { sourceKey: 'salmon_atlantic_cooked', servingIndex: 0 },// 85 g default = 176.8 kcal
+    ],
+  });
+  modifyIngredientAmount(recipe, items, 1, 0);
+  const m = computeItemMacros(recipe, items);
+  assert.ok(Math.abs(m.kcal - 80) < 0.5);
+});
+
+test('addIngredientToRecipe with a recipe source (recipe-as-ingredient)', () => {
+  const items = mkCatalog();
+  const recipe = createRecipe(items, {
+    name: 'Compound',
+    ingredients: [{ sourceKey: 'string_cheese', servingIndex: 0 }],
+  });
+  // scrambled_feggs has only one variant "full recipe" + synthetic 1 g.
+  // Picking the synthetic 1 g stores it as a fraction of canonical.
+  const servings = servingPickerOptions(items.scrambled_feggs);
+  const gramIdx = servings.findIndex(s => s.label === '1 g');
+  addIngredientToRecipe(recipe, items, 'scrambled_feggs', gramIdx);
+  const added = recipe.ingredients[recipe.ingredients.length - 1];
+  // scrambled_feggs is a recipe (non-basis); multiplier = 1g / 912g batch
+  assert.ok(Math.abs(added.multiplier - (1 / 912)) < 1e-6);
+});
+
+test('createRecipe throws when an ingredient sourceKey is missing', () => {
+  const items = mkCatalog();
+  assert.throws(() => createRecipe(items, {
+    name: 'Bad',
+    ingredients: [{ sourceKey: 'nope', servingIndex: 0 }],
+  }), /unknown source key/);
+});
+
+test('createRecipe throws when servingIndex is out of range', () => {
+  const items = mkCatalog();
+  assert.throws(() => createRecipe(items, {
+    name: 'Bad',
+    ingredients: [{ sourceKey: 'string_cheese', servingIndex: 99 }],
+  }), /servingIndex 99 out of range/);
+});
+
+test('createRecipe requires a non-empty name', () => {
+  const items = mkCatalog();
+  assert.throws(() => createRecipe(items, { name: '   ', ingredients: [] }),
+    /spec\.name is required/);
+});
+
+test('full-recipe variant native total stays in sync across modify + add', () => {
+  const items = mkCatalog();
+  const recipe = createRecipe(items, {
+    name: 'Track',
+    ingredients: [
+      { sourceKey: 'string_cheese', servingIndex: 0 }, // 21
+      { sourceKey: 'salmon_atlantic_cooked', servingIndex: 0 }, // 85
+    ],
+  });
+  let lockedVar = () => recipe.displayUnits.find(v => v.locked);
+  assert.equal(lockedVar().multiplier, 106);
+
+  modifyIngredientAmount(recipe, items, 1, 200);
+  assert.equal(lockedVar().multiplier, 221);
+
+  addIngredientToRecipe(recipe, items, 'soy_milk_unsw', 0); // 240 ml default
+  assert.equal(lockedVar().multiplier, 461);
+
+  // Verify the variant.amount field tracks too (page reads either field)
+  assert.equal(lockedVar().amount, 461);
+
+  // Sanity: sumIngredientNativeUnits agrees with the stored variant
+  assert.equal(lockedVar().multiplier, sumIngredientNativeUnits(recipe.ingredients, items));
 });

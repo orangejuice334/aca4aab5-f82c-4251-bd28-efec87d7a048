@@ -247,6 +247,134 @@ export function servingPickerOptions(item) {
   }));
 }
 
+// Build a single ingredient entry from a (sourceKey, servingIndex) pair
+// using the SAME shape the page commits via the add-ingredient picker:
+// per-100 sources (g/ml) store native-unit amount; non-basis sources
+// (units, recipes) store the multiplier as a fraction of canonical
+// (default) batch. Returns the ingredient object ready to push into
+// recipe.ingredients[]. Throws when source is missing or servingIndex
+// is out of range so test failures are loud, not silent zeros.
+export function buildIngredientFromPicker(items, sourceKey, servingIndex) {
+  const source = items && items[sourceKey];
+  if (!source) throw new Error('buildIngredientFromPicker: unknown source key ' + sourceKey);
+  const servings = servingPickerOptions(source);
+  if (!servings.length) throw new Error('buildIngredientFromPicker: no servings for ' + sourceKey);
+  const idx = (servingIndex == null) ? 0 : servingIndex;
+  if (idx < 0 || idx >= servings.length) {
+    throw new Error('buildIngredientFromPicker: servingIndex ' + idx + ' out of range for ' + sourceKey);
+  }
+  const variant = servings[idx];
+  const label = variant.label || '';
+  const size = variant.amount;
+  if (isPer100(source)) {
+    const ing = { itemKey: sourceKey, amount: size };
+    if (label) ing.label = label;
+    return ing;
+  }
+  // Non-basis: store multiplier as fraction of default variant size
+  const defaultEntry = servings.find(s => s.default) || servings[0];
+  const defaultSize = defaultEntry ? defaultEntry.amount : 1;
+  const ing = {
+    itemKey: sourceKey,
+    multiplier: defaultSize > 0 ? (size / defaultSize) : 1,
+  };
+  if (label) ing.label = label;
+  return ing;
+}
+
+// Build the canonical "full recipe" displayUnit for a recipe from its
+// current ingredients. Mirrors saveExpandedEdits's auto-recompute path:
+// total native units = sumIngredientNativeUnits, rounded to 1 decimal.
+// Returns a single variant: { label: 'full recipe', multiplier, amount,
+// unit: 'g', default: true, locked: true }.
+export function buildFullRecipeVariant(ingredients, items) {
+  const total = sumIngredientNativeUnits(ingredients, items);
+  return {
+    label: 'full recipe',
+    multiplier: total,
+    amount: total,
+    unit: 'g',
+    default: true,
+    locked: true,
+  };
+}
+
+// Create a fresh recipe item from a spec: { name, ingredients:
+// [{ sourceKey, servingIndex }] }. Each ingredient entry is resolved
+// via buildIngredientFromPicker; the full-recipe variant is computed
+// via buildFullRecipeVariant. The result has the same shape the page
+// produces when the user clicks "Save recipe" in the recipe-maker.
+export function createRecipe(items, spec) {
+  if (!spec || typeof spec.name !== 'string' || !spec.name.trim()) {
+    throw new Error('createRecipe: spec.name is required');
+  }
+  const ingredients = (spec.ingredients || []).map(e =>
+    buildIngredientFromPicker(items, e.sourceKey, e.servingIndex));
+  const recipe = {
+    name: spec.name.trim(),
+    category: 'recipes',
+    ingredients,
+    displayUnits: [buildFullRecipeVariant(ingredients, items)],
+  };
+  if (spec.brand) recipe.brand = spec.brand;
+  if (spec.notes) recipe.notes = spec.notes;
+  return recipe;
+}
+
+// Mutate `recipe.ingredients[index]` and refresh the full-recipe variant
+// to match the new gram total. Mirrors the page flow when the user
+// edits an ingredient amount in the catalog edit panel and the
+// saveExpandedEdits auto-recompute runs.
+export function modifyIngredientAmount(recipe, items, index, newAmount) {
+  if (!recipe || !Array.isArray(recipe.ingredients)) {
+    throw new Error('modifyIngredientAmount: recipe has no ingredients');
+  }
+  const ing = recipe.ingredients[index];
+  if (!ing) throw new Error('modifyIngredientAmount: index out of range');
+  if (typeof newAmount !== 'number' || newAmount < 0) {
+    throw new Error('modifyIngredientAmount: newAmount must be a non-negative number');
+  }
+  // For per-100 sources we set amount; for non-basis we set multiplier
+  // computed against canonical default size, mirroring the picker logic.
+  const source = items && items[ing.itemKey];
+  if (source && isPer100(source)) {
+    ing.amount = newAmount;
+  } else if (source) {
+    const variants = servingPickerOptions(source);
+    const def = variants.find(s => s.default) || variants[0];
+    const defaultSize = (def && def.amount) || 1;
+    ing.multiplier = defaultSize > 0 ? (newAmount / defaultSize) : 1;
+  } else {
+    // Source missing: just stash amount for the test to assert against.
+    ing.amount = newAmount;
+  }
+  // Refresh the full-recipe variant
+  const ix = (recipe.displayUnits || []).findIndex(v => v && (/full recipe/i.test(v.label || '') || v.locked));
+  if (ix >= 0) {
+    const fresh = buildFullRecipeVariant(recipe.ingredients, items);
+    recipe.displayUnits[ix] = Object.assign(recipe.displayUnits[ix], fresh);
+  }
+  return recipe;
+}
+
+// Append a new ingredient via the page's two-step picker flow
+// (sourceKey + servingIndex), then refresh the full-recipe variant.
+// Returns the mutated recipe for fluency in tests.
+export function addIngredientToRecipe(recipe, items, sourceKey, servingIndex) {
+  if (!recipe) throw new Error('addIngredientToRecipe: recipe is required');
+  recipe.ingredients = Array.isArray(recipe.ingredients) ? recipe.ingredients : [];
+  recipe.ingredients.push(buildIngredientFromPicker(items, sourceKey, servingIndex));
+  const ix = (recipe.displayUnits || []).findIndex(v => v && (/full recipe/i.test(v.label || '') || v.locked));
+  if (ix >= 0) {
+    recipe.displayUnits[ix] = Object.assign(recipe.displayUnits[ix],
+      buildFullRecipeVariant(recipe.ingredients, items));
+  } else {
+    recipe.displayUnits = recipe.displayUnits || [];
+    recipe.displayUnits.push(buildFullRecipeVariant(recipe.ingredients, items));
+  }
+  return recipe;
+}
+
 // Add-ingredient picker for a recipe item's edit panel. Same shape as
 // recipeCatalogOptions but additionally excludes the recipe currently
 // being edited (no self-reference). Recipes ARE included so the user
