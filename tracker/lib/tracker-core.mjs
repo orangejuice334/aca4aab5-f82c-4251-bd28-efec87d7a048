@@ -227,6 +227,26 @@ export function isEditPanelScratchTarget(target, closestFn) {
   return false;
 }
 
+// Serving options for the second dropdown in the add-ingredient picker.
+// Given a source item, return the list of variants the user can pick:
+// default variant first, then descending by size, then the synthetic
+// "1 g" / "1 ml" trailer (for g/ml items + recipes). Each entry carries
+// enough info for the picker to commit a sensible {amount or multiplier,
+// label} pair when the user clicks Add.
+export function servingPickerOptions(item) {
+  if (!item) return [];
+  const variants = orderVariantsForCatalog(getDisplayUnits(item));
+  return variants.map((v, idx) => ({
+    index: idx,
+    label: v.label || '',
+    amount: (typeof v.multiplier === 'number' && v.multiplier > 0) ? v.multiplier
+          : (typeof v.unitsPerServing === 'number' ? v.unitsPerServing : 0),
+    multiplier: (typeof v.multiplier === 'number') ? v.multiplier : (v.unitsPerServing || 0),
+    synthetic: !!v.synthetic,
+    default: !!v.default,
+  }));
+}
+
 // Add-ingredient picker for a recipe item's edit panel. Same shape as
 // recipeCatalogOptions but additionally excludes the recipe currently
 // being edited (no self-reference). Recipes ARE included so the user

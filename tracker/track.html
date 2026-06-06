@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.82">
+<meta name="app-version" content="v6.5.83">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -10219,9 +10219,6 @@
                 '<label>Add ingredient</label>' +
                 '<select data-ing-add-source>' +
                   '<option value="">— pick item —</option>' +
-                  // Picker mirrors tracker-core ingredientPickerOptions:
-                  // keep recipes (so recipe-as-ingredient works), drop
-                  // water + self, append brand suffix in label.
                   Object.entries(ITEMS)
                     .filter(([k]) => k !== 'water' && k !== key)
                     .map(([k, it]) => {
@@ -10234,7 +10231,13 @@
                     .join('') +
                 '</select>' +
               '</div>' +
-              '<button type="button" data-ing-add-confirm class="ing-add-btn">Add</button>' +
+              '<div class="ing-field-labeled">' +
+                '<label>Serving</label>' +
+                '<select data-ing-add-serving disabled>' +
+                  '<option value="">— pick item first —</option>' +
+                '</select>' +
+              '</div>' +
+              '<button type="button" data-ing-add-confirm class="ing-add-btn" disabled>Add</button>' +
             '</div>' +
           '</div>'
         : (ingredients.length
@@ -12481,6 +12484,7 @@
     document.addEventListener('click', (ev) => {
       const addConfirm = ev.target.closest('[data-ing-add-confirm]');
       if (addConfirm) {
+        if (addConfirm.disabled) return;
         const panel = addConfirm.closest('[data-edit-panel]');
         if (!panel) return;
         const key = panel.dataset.editPanelKey;
@@ -12488,34 +12492,40 @@
         if (!item) return;
         const picker = addConfirm.closest('[data-ing-add-picker]');
         const sourceSel = picker && picker.querySelector('[data-ing-add-source]');
+        const servingSel = picker && picker.querySelector('[data-ing-add-serving]');
         const itemKey = sourceSel && sourceSel.value;
         if (!itemKey || !ITEMS[itemKey]) return;
         const source = ITEMS[itemKey];
-        // Pre-populate from the source's default variant — recipe-side amount
-        // and label start as the source's default serving (e.g. "whole
-        // package" = 454 g), editable in the resulting row without affecting
-        // the source item. item.amount is just a stub; the real serving info
-        // lives on the displayUnits entry marked default (or the first
-        // variant if none is flagged).
-        const sourceVariants = getDisplayUnits(source);
-        const defaultVar = sourceVariants.find(v => v && v.default) || sourceVariants[0] || {};
-        const defaultAmount = (typeof defaultVar.multiplier === 'number' && defaultVar.multiplier > 0)
-          ? defaultVar.multiplier
-          : 100;
-        const defaultLabel = defaultVar.label || '';
-        const ing = isPer100(source)
-          ? { itemKey, amount: defaultAmount }
-          : { itemKey, multiplier: 1 };
-        if (defaultLabel) ing.label = defaultLabel;
-        // Commit any in-flight edits in the panel before mutating, so other
-        // typed-but-unsaved fields aren't lost on re-render.
+        // Picked serving = index into orderVariantsForCatalog(getDisplayUnits(source)).
+        // If the user never touched the serving select, fall back to the
+        // default variant (index 0 after ordering).
+        const sourceVariants = (typeof orderVariantsForCatalog === 'function')
+          ? orderVariantsForCatalog(getDisplayUnits(source))
+          : getDisplayUnits(source);
+        const idxRaw = servingSel && servingSel.value;
+        const pickedIdx = (idxRaw === '' || idxRaw == null) ? 0 : parseInt(idxRaw, 10);
+        const variant = sourceVariants[pickedIdx] || sourceVariants[0] || {};
+        const variantSize = (typeof variant.multiplier === 'number' && variant.multiplier > 0)
+          ? variant.multiplier
+          : (typeof variant.unitsPerServing === 'number' && variant.unitsPerServing > 0 ? variant.unitsPerServing : 100);
+        const variantLabel = variant.label || '';
+        // Per-100 sources (g/ml) store amount in native units.
+        // Non-basis sources (units / recipes) store fraction of canonical.
+        let ing;
+        if (isPer100(source)) {
+          ing = { itemKey, amount: variantSize };
+        } else {
+          // Canonical (default) variant size for the non-basis source
+          const defaultVar = sourceVariants.find(v => v && v.default) || sourceVariants[0] || {};
+          const defaultSize = (defaultVar.multiplier || defaultVar.unitsPerServing) || 1;
+          ing = { itemKey, multiplier: defaultSize > 0 ? (variantSize / defaultSize) : 1 };
+        }
+        if (variantLabel) ing.label = variantLabel;
         saveExpandedEdits(key, panel);
         item.ingredients = Array.isArray(item.ingredients) ? item.ingredients : [];
         item.ingredients.push(ing);
         saveState();
         if (typeof renderCatalog === 'function') renderCatalog();
-        // renderCatalog rebuilt the row + a hidden panel — re-open it so the
-        // user can see the new ingredient row instead of the panel collapsing.
         reopenEditPanelForKey(key);
         if (typeof render === 'function') render();
         return;
@@ -13101,6 +13111,49 @@
       // Immediate, no catalog rebuild - preserves typing focus.
       liveSaveEditPanel(panel, { immediate: true, fullRender: false });
     });
+    // Add-ingredient picker source select: when user picks an item,
+    // populate the serving dropdown with that item's variants (default
+    // first, then descending by size, then synthetic 1 g) and enable
+    // the Add button. Lives ABOVE the panel-wide change handler that
+    // short-circuits inside the picker.
+    document.addEventListener('change', (ev) => {
+      const srcSel = ev.target.closest('[data-ing-add-source]');
+      if (!srcSel) return;
+      const picker = srcSel.closest('[data-ing-add-picker]');
+      if (!picker) return;
+      const servingSel = picker.querySelector('[data-ing-add-serving]');
+      const addBtn = picker.querySelector('[data-ing-add-confirm]');
+      const itemKey = srcSel.value;
+      const source = itemKey && ITEMS[itemKey];
+      if (!source) {
+        if (servingSel) {
+          servingSel.disabled = true;
+          servingSel.innerHTML = '<option value="">— pick item first —</option>';
+        }
+        if (addBtn) addBtn.disabled = true;
+        return;
+      }
+      // Build the serving options. getDisplayUnits adds the synthetic
+      // "1 g" / "1 ml" trailer for g/ml items + recipes;
+      // orderVariantsForCatalog puts the default variant first.
+      const variants = orderVariantsForCatalog(getDisplayUnits(source));
+      const opts = variants.map((v, idx) => {
+        const size = (typeof v.multiplier === 'number' && v.multiplier > 0)
+          ? v.multiplier
+          : (typeof v.unitsPerServing === 'number' ? v.unitsPerServing : 0);
+        const unit = primaryUnit(source);
+        const sizeStr = size > 0 ? (' (' + (Math.round(size * 10) / 10) + ' ' + unit + ')') : '';
+        const lbl = (v.label || '') + sizeStr;
+        return '<option value="' + idx + '">' + escapeHtml(lbl) + '</option>';
+      }).join('');
+      if (servingSel) {
+        servingSel.innerHTML = opts;
+        servingSel.disabled = false;
+        servingSel.value = '0'; // default variant
+      }
+      if (addBtn) addBtn.disabled = false;
+    });
+
     document.addEventListener('change', (ev) => {
       const panel = ev.target.closest('[data-edit-panel]');
       if (!panel) return;
