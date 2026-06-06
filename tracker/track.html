@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.81">
+<meta name="app-version" content="v6.5.82">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -13094,18 +13094,24 @@
     document.addEventListener('input', (ev) => {
       const panel = ev.target.closest('[data-edit-panel]');
       if (!panel) return;
-      // Skip the variant-add scratch inputs (amount/unit/label) - those
-      // aren't part of the persisted item; they only feed the Add button.
+      // Skip scratch inputs: variant-add row and add-ingredient picker.
+      // These don't persist on their own; they feed an explicit Add button.
       if (ev.target.closest('[data-variant-custom-add]')) return;
+      if (ev.target.closest('[data-ing-add-picker]')) return;
       // Immediate, no catalog rebuild - preserves typing focus.
       liveSaveEditPanel(panel, { immediate: true, fullRender: false });
     });
     document.addEventListener('change', (ev) => {
       const panel = ev.target.closest('[data-edit-panel]');
       if (!panel) return;
+      // Scratch inputs (variant-custom-add row, add-ingredient picker)
+      // must NOT trigger a panel rebuild because that wipes the user's
+      // in-progress selection. Mirror tracker-core's
+      // EDIT_PANEL_SCRATCH_SELECTORS list.
       if (ev.target.closest('[data-variant-custom-add]')) return;
+      if (ev.target.closest('[data-ing-add-picker]')) return;
       // The top-amount-unit handler below already does its own save +
-      // panel rebuild — don't double-fire here.
+      // panel rebuild - don't double-fire here.
       if (ev.target.closest('[data-edit-field="top-amount-unit"]')) return;
       // Flipping the default-radio also refreshes the New-Serving-Size
       // scratch inputs to the newly-chosen variant's values, so chaining

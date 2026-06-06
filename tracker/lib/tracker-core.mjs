@@ -203,6 +203,30 @@ export function recipeCatalogOptions(items) {
     .sort((a, b) => a.label.localeCompare(b.label));
 }
 
+// Selectors for "scratch" inputs inside an edit panel - controls that
+// the user pokes at but whose change events MUST NOT trigger a full
+// catalog rebuild / panel re-render (which would wipe the user's
+// in-progress selection). The single source of truth for the change
+// handler in track.html; tests assert this list contains the entries
+// that matter.
+export const EDIT_PANEL_SCRATCH_SELECTORS = [
+  '[data-variant-custom-add]',  // "New serving size" amount/unit/label scratch row
+  '[data-ing-add-picker]',      // Add-ingredient picker (select + Add button)
+];
+
+// Predicate: should the edit-panel change handler SKIP this event?
+// `target` is the change event's target; the second argument is a
+// function that takes a selector and returns truthy if the target (or
+// any of its ancestors) matches that selector. In browsers that is
+// element.closest; in tests a tiny mock provides the same shape.
+export function isEditPanelScratchTarget(target, closestFn) {
+  if (!target || typeof closestFn !== 'function') return false;
+  for (const sel of EDIT_PANEL_SCRATCH_SELECTORS) {
+    if (closestFn.call(target, sel)) return true;
+  }
+  return false;
+}
+
 // Add-ingredient picker for a recipe item's edit panel. Same shape as
 // recipeCatalogOptions but additionally excludes the recipe currently
 // being edited (no self-reference). Recipes ARE included so the user
