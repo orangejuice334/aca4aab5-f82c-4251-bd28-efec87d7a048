@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-06T23:33:27.952Z",
-  "_gistSavedAt": "2026-06-06T23:27:24.022Z",
+  "_backupTakenAt": "2026-06-07T09:56:41.422Z",
+  "_gistSavedAt": "2026-06-07T01:16:16.619Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -791,14 +791,24 @@
         "counters": {
           "miso_soup": 372,
           "cheese_parmesan_grated_reggano": 5,
-          "pork_loin_lean_broiled": 70
+          "pork_loin_lean_broiled": 70,
+          "scrambled_feggs": 175,
+          "protein_whey_animal_strawberry": 64,
+          "egg_whites": 0,
+          "cc_giant_ff": 170,
+          "protein_casein_dymatize_elite_cookies_cream": 34
         },
         "customs": [],
         "toggleMeta": {},
         "counterMeta": {
           "miso_soup": "2026-06-06T19:59:16+00:00",
           "cheese_parmesan_grated_reggano": "2026-06-06T19:59:16+00:00",
-          "pork_loin_lean_broiled": "2026-06-06T19:59:16+00:00"
+          "pork_loin_lean_broiled": "2026-06-06T19:59:16+00:00",
+          "scrambled_feggs": "2026-06-07T00:49:14.145Z",
+          "protein_whey_animal_strawberry": "2026-06-07T00:49:34.141Z",
+          "egg_whites": "2026-06-07T00:49:31.568Z",
+          "cc_giant_ff": "2026-06-07T01:02:10.955Z",
+          "protein_casein_dymatize_elite_cookies_cream": "2026-06-07T01:14:48.128Z"
         },
         "weight": 97.8,
         "weightMeta": "2026-06-06T14:54:40.515Z"
@@ -885,12 +895,16 @@
       "today-customs": true,
       "details-sync-error-banner": true,
       "chart-bmi-chart": true,
-      "profile": true,
       "details-add-new-item": true,
       "supplements-water": true,
-      "today-log": true,
+      "history": true,
       "targets-accumulation": true,
-      "history": true
+      "section-weight-tracker": true,
+      "catalog-archive": true,
+      "profile": true,
+      "today-log": true,
+      "catalog-ratio": true,
+      "details-recipe-maker": true
     },
     "userCatalog": {
       "items": {
@@ -4054,6 +4068,75 @@
           "defaultMeasuredIn": "g",
           "brand": "Skinnygirl",
           "purines": 0.05
+        },
+        "protein_casein_dymatize_elite_cookies_cream": {
+          "name": "Protein powder casein micellar cookies and cream (Dymatize Elite)",
+          "brand": "Dymatize",
+          "category": "supplements",
+          "defaultMeasuredIn": "g",
+          "kcal": 3.82353,
+          "p": 0.735294,
+          "carbs": 0.058824,
+          "fiber": 0,
+          "sugar": 0,
+          "fat": 0.044118,
+          "sf": 0,
+          "transfat": 0,
+          "cholesterol": 0.588235,
+          "sodium": 4.117647,
+          "water": 0.05,
+          "caffeine": 0,
+          "omega3": 0,
+          "vitA": 0,
+          "vitC": 0,
+          "vitD": 0,
+          "vitE": 0,
+          "vitK": 0,
+          "b1": 0,
+          "b2": 0.0088,
+          "b3": 0,
+          "b5": 0.0088,
+          "b6": 0,
+          "b7": 0,
+          "b9": 0,
+          "b12": 0.021,
+          "choline": 1.18,
+          "calcium": 17.05882,
+          "iron": 0.0147059,
+          "magnesium": 0.735,
+          "phosphorus": 8,
+          "potassium": 6.764706,
+          "zinc": 0.029,
+          "selenium": 0.44,
+          "copper": 0,
+          "manganese": 0,
+          "iodine": 0,
+          "chromium": 0,
+          "molybdenum": 0,
+          "mercury": 0,
+          "purines": 0.3,
+          "displayUnits": [
+            {
+              "label": "2 scoops (34 g)",
+              "amount": 34,
+              "unit": "g",
+              "multiplier": 34,
+              "default": true
+            },
+            {
+              "label": "1 scoop (17 g)",
+              "amount": 17,
+              "unit": "g",
+              "multiplier": 17
+            },
+            {
+              "label": "Whole tub (1814 g)",
+              "amount": 1814,
+              "unit": "g",
+              "multiplier": 1814
+            }
+          ],
+          "notes": "Dymatize Elite Casein, Cookies & Cream, 100% micellar casein, 4 lb (1814g), 53 servings. Label per 34g (2 scoops): 130 kcal, 25g protein, 1.5g fat, 0 sat fat, 20mg cholesterol, 140mg sodium, 2g carb, calcium 580mg, iron 0.5mg, potassium 230mg. Ingredients: micellar casein, sunflower creamer (sunflower oil, maltodextrin, micellar casein, soy lecithin, sodium citrate, tricalcium phosphate), cocoa, salt, sucralose, ace-K, KCl, cellulose gum, xanthan gum, stevia. Contains milk and soy. Calcium very high (580mg) from micellar casein + added tricalcium phosphate. Per-serving amino profile (label): 5.3g BCAAs, 2.3g leucine, 5.1g glutamine. Phosphorus (~8 mg/g), magnesium, b2, b5, b12, zinc, selenium, choline estimated from casein reference — LOW CONFIDENCE. Casein is low-purine (~0.3 mg/g estimate). As a casein product, slow-digesting — note ~30% MPS downgrade does NOT apply (that is collagen-specific; casein is a complete protein)."
         },
         "protein_powder_whey_premier_chocolate": {
           "name": "Protein powder whey chocolate milkshake (Premier Protein)",
