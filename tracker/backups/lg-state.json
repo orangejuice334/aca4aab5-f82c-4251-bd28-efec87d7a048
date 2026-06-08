@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-08T11:51:38.088Z",
-  "_gistSavedAt": "2026-06-08T02:59:29.793Z",
+  "_backupTakenAt": "2026-06-08T15:13:30.480Z",
+  "_gistSavedAt": "2026-06-08T15:12:24.255Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -848,6 +848,21 @@
         "weightMeta": "2026-06-07T20:03:55.230Z",
         "waist": 107,
         "waistMeta": "2026-06-07T20:03:55.199Z"
+      },
+      "2026-06-08": {
+        "toggles": {},
+        "counters": {
+          "yogurt_oikos_triple_zero_lemon": 150,
+          "string_cheese": 21,
+          "smoked_salmon_slice": 14
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "yogurt_oikos_triple_zero_lemon": "2026-06-08T13:22:26.795Z",
+          "string_cheese": "2026-06-08T13:22:39.636Z",
+          "smoked_salmon_slice": "2026-06-08T13:23:20.682Z"
+        }
       }
     },
     "savedItems": [],
@@ -936,7 +951,6 @@
       "targets-accumulation": true,
       "catalog-archive": true,
       "profile": true,
-      "catalog-ratio": true,
       "section-weight-tracker": true,
       "details-add-new-item": true
     },
@@ -1357,7 +1371,7 @@
           "brand": "Explore Cuisine"
         },
         "black_beans_dry_goya": {
-          "name": "Black beans Goya (dry)",
+          "name": "Black beans (dry)",
           "category": "items",
           "defaultMeasuredIn": "g",
           "kcal": 2.8571,
@@ -1416,7 +1430,8 @@
               "multiplier": 35
             }
           ],
-          "notes": "Goya dry black beans. Label per 1/4 cup (35 g): 80 kcal · 10 g P · 19 g carb · 11 g fiber · 530 mg K · 5 mg Na · 0.5 g fat. CATALOG USES CORRECTED kcal = 100 (Goya treats fiber as 0 kcal; fermentable fiber adds back ~2 kcal/g = +22 kcal). Real k/g P ~10, not the label-implied 8. When boiled at home, mass triples (35 g dry → ~100 g cooked); kcal and protein transfer 1:1. Goya canned shows k/g P 14 because canned label uses standard fiber=4kcal/g accounting — same beans, different label convention."
+          "notes": "Goya dry black beans. Label per 1/4 cup (35 g): 80 kcal · 10 g P · 19 g carb · 11 g fiber · 530 mg K · 5 mg Na · 0.5 g fat. CATALOG USES CORRECTED kcal = 100 (Goya treats fiber as 0 kcal; fermentable fiber adds back ~2 kcal/g = +22 kcal). Real k/g P ~10, not the label-implied 8. When boiled at home, mass triples (35 g dry → ~100 g cooked); kcal and protein transfer 1:1. Goya canned shows k/g P 14 because canned label uses standard fiber=4kcal/g accounting — same beans, different label convention.",
+          "brand": "Goya"
         },
         "bran_flakes": {
           "name": "Bran flakes",
@@ -1691,7 +1706,7 @@
           "brand": "Giant"
         },
         "cheese_parmesan_grated_reggano": {
-          "name": "Cheese parmesan grated (Reggano)",
+          "name": "Cheese parmesan grated",
           "brand": "Reggano",
           "category": "items",
           "defaultMeasuredIn": "g",
@@ -1760,7 +1775,7 @@
           "notes": "Reggano Grated Parmesan Cheese (ALDI), 8 oz (227g), 45 servings. Label per 5g (2 tsp): 20 kcal, 2g protein, 1.5g fat, 1g sat fat, <5mg cholesterol, 90mg sodium, 0 carbs, calcium 55mg, iron 0, potassium 9mg. Ingredients: parmesan cheese (part-skim cow milk, cultures, salt, enzymes), powdered cellulose (anti-caking), potassium sorbate. Cholesterol estimated at 0.88 mg/g (USDA grated parmesan ~88mg/100g, consistent with label <5mg). Vitamins, phosphorus (high in hard cheese), magnesium, zinc, selenium from USDA grated parmesan — MEDIUM CONFIDENCE."
         },
         "chicken_livers_bell_evans": {
-          "name": "Chicken livers organic (Bell and Evans)",
+          "name": "Chicken livers organic",
           "category": "items",
           "defaultMeasuredIn": "g",
           "kcal": 0.9821,
@@ -1785,7 +1800,8 @@
               "multiplier": 112
             }
           ],
-          "purines": 2.5
+          "purines": 2.5,
+          "brand": "Bell and Evans"
         },
         "crackers_50g": {
           "name": "Crackers",
@@ -2545,7 +2561,7 @@
           "brand": "Lidl"
         },
         "ham_steak_smithfield_hickory": {
-          "name": "Ham steak hickory smoked boneless (Smithfield)",
+          "name": "Ham steak hickory smoked boneless",
           "brand": "Smithfield",
           "category": "items",
           "defaultMeasuredIn": "g",
@@ -2871,7 +2887,7 @@
           "defaultMeasuredIn": "units"
         },
         "kcl_morton": {
-          "name": "Salt substitute potassium chloride (Morton)",
+          "name": "Salt substitute potassium chloride",
           "category": "items",
           "defaultMeasuredIn": "g",
           "notes": "Morton Salt Substitute, sodium-free. Label: 690mg potassium per 1/4 tsp (1.4g) = 492.86 mg K/g. Ingredients: Potassium Chloride, Fumaric Acid, Monocalcium Phosphate, Silicon Dioxide. Pure KCl is 52.4% K by mass; label value (493 mg/g) aligns well. Zero sodium. Functional equivalent of NoSalt brand. Protocol: 5 × 1/4 tsp/day = 3450mg supplemental potassium. Consult physician before high-dose use (kidney function dependency). 88.6g container = 63 servings.",
@@ -2930,7 +2946,8 @@
           "iodine": 0,
           "chromium": 0,
           "molybdenum": 0,
-          "mercury": 0
+          "mercury": 0,
+          "brand": "Morton"
         },
         "ketchup_heinz_packet": {
           "name": "Ketchup tomato packet",
@@ -4104,8 +4121,8 @@
           "purines": 0.05
         },
         "protein_casein_dymatize_elite_cookies_cream": {
-          "name": "Protein powder casein micellar cookies and cream (Dymatize Elite)",
-          "brand": "Dymatize",
+          "name": "Protein powder casein micellar cookies and cream",
+          "brand": "Dymatize Elite",
           "category": "supplements",
           "defaultMeasuredIn": "g",
           "kcal": 3.82353,
@@ -4173,7 +4190,7 @@
           "notes": "Dymatize Elite Casein, Cookies & Cream, 100% micellar casein, 4 lb (1814g), 53 servings. Label per 34g (2 scoops): 130 kcal, 25g protein, 1.5g fat, 0 sat fat, 20mg cholesterol, 140mg sodium, 2g carb, calcium 580mg, iron 0.5mg, potassium 230mg. Ingredients: micellar casein, sunflower creamer (sunflower oil, maltodextrin, micellar casein, soy lecithin, sodium citrate, tricalcium phosphate), cocoa, salt, sucralose, ace-K, KCl, cellulose gum, xanthan gum, stevia. Contains milk and soy. Calcium very high (580mg) from micellar casein + added tricalcium phosphate. Per-serving amino profile (label): 5.3g BCAAs, 2.3g leucine, 5.1g glutamine. Phosphorus (~8 mg/g), magnesium, b2, b5, b12, zinc, selenium, choline estimated from casein reference — LOW CONFIDENCE. Casein is low-purine (~0.3 mg/g estimate). As a casein product, slow-digesting — note ~30% MPS downgrade does NOT apply (that is collagen-specific; casein is a complete protein)."
         },
         "protein_powder_whey_premier_chocolate": {
-          "name": "Protein powder whey chocolate milkshake (Premier Protein)",
+          "name": "Protein powder whey chocolate milkshake",
           "brand": "Premier Protein",
           "category": "supplements",
           "defaultMeasuredIn": "g",
@@ -4242,7 +4259,7 @@
           "notes": "Premier Protein 100% Whey Protein Powder, Chocolate Milkshake. 1190g tub, 29 servings. Macros and calcium/iron/potassium from label (÷41). Ingredients: whey protein isolate, whey protein concentrate, cocoa processed with alkali, chicory root fiber, sunflower lecithin, xanthan gum, salt, acesulfame potassium, sucralose. B-vitamins, magnesium, phosphorus, zinc, selenium, choline estimated from USDA whey protein isolate data — LOW CONFIDENCE, flag for verification. Purines estimated ~70mg/100g for concentrated whey — LOW CONFIDENCE."
         },
         "protein_whey_animal_strawberry": {
-          "name": "Protein powder whey isolate strawberry (Animal)",
+          "name": "Protein powder whey isolate strawberry",
           "brand": "Animal",
           "category": "supplements",
           "defaultMeasuredIn": "g",
@@ -4305,7 +4322,7 @@
           "notes": "Animal Whey Isolate Loaded Protein Powder, Strawberry, 4 lb tub (1814g), 57 servings. Ingredients: whey protein isolate, ultra-filtered whey protein concentrate, digestive enzyme blend (papain, bromelain), artificial flavors, lecithin, gum blend, xanthan gum, carrageenan, sodium chloride, natural strawberry pieces, beet root powder, acesulfame potassium, sucralose. Macros and calcium/iron/potassium/phosphorus/magnesium from label (÷32). Label also lists Chloride 135mg/serving (not a tracked field). b2, b5, b12, choline, zinc, selenium estimated from USDA whey isolate data — LOW CONFIDENCE. Purines ~70mg/100g estimated for concentrated whey — LOW CONFIDENCE."
         },
         "protein_whey_dymatize_iso100_vanilla": {
-          "name": "Protein powder whey isolate hydrolyzed vanilla (Dymatize ISO100)",
+          "name": "Protein powder whey isolate hydrolyzed vanilla",
           "category": "items",
           "defaultMeasuredIn": "g",
           "kcal": 3.6667,
@@ -4335,10 +4352,11 @@
               "multiplier": 30
             }
           ],
-          "purines": 0.9
+          "purines": 0.9,
+          "brand": "Dymatize ISO100"
         },
         "protein_whey_isolate_nutricost_unflavored": {
-          "name": "Protein powder whey isolate unflavored (Nutricost)",
+          "name": "Protein powder whey isolate unflavored",
           "brand": "Nutricost",
           "category": "supplements",
           "defaultMeasuredIn": "g",
@@ -4521,7 +4539,7 @@
           "brand": "Nixe / Lidl"
         },
         "salsa_casa_mamita_chunky": {
-          "name": "Salsa chunky medium (Casa Mamita / ALDI)",
+          "name": "Salsa chunky medium",
           "category": "items",
           "defaultMeasuredIn": "g",
           "kcal": 0.303,
@@ -4543,7 +4561,8 @@
               "multiplier": 33
             }
           ],
-          "purines": 0.1
+          "purines": 0.1,
+          "brand": "Casa Mamita / ALDI"
         },
         "scrambled_feggs": {
           "name": "Feggs scrambled",
@@ -5849,7 +5868,7 @@
           "purines": 0
         },
         "wegovy": {
-          "name": "Wegovy (oral semaglutide)",
+          "name": "Oral semaglutide",
           "category": "supplements",
           "displayUnits": [
             {
@@ -5863,7 +5882,8 @@
             }
           ],
           "notes": "Oral semaglutide. Strict admin protocol per FDA label:\n• Take on empty stomach with up to 100-120 mL plain water.\n• Wait 30 min before food, other liquids, or any other oral medications/supplements.\n• 4-week dose escalation: 1.5 mg → 4 mg → 9 mg → 25 mg target.\n• If miss a dose: skip it and resume the next day. Do not double up.\n\nGI side effects (nausea, constipation) most common in first 1-2 weeks of each dose step.\nConstipation: psyllium husk + extra water is the standard fix.",
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "brand": "Wegovy"
         },
         "wing_plain_bww": {
           "name": "Classic wing plain",
