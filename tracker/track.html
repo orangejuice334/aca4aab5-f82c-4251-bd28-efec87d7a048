@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.84">
+<meta name="app-version" content="v6.5.85">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -959,7 +959,7 @@
   }
   .variant-edit-row input:focus {
     outline: none;
-    border-color: var(--rust);
+    border-color: var(--ink-soft);
   }
   /* Strip the native number-input spinner chrome from every number input
      inside an edit panel — variant editor, density companions, macro
@@ -1481,7 +1481,7 @@
     display: block !important;
   }
   .checkout-group > .group-filter::placeholder { color: var(--ink-faint); }
-  .checkout-group > .group-filter:focus { outline: none; border-color: var(--rust); background: var(--paper); }
+  .checkout-group > .group-filter:focus { outline: none; border-color: var(--ink-soft); background: var(--paper); }
   @media (max-width: 600px) {
     .checkout-group > .group-filter { width: 100px; }
   }
@@ -1707,7 +1707,7 @@
   .edit-panel-row input:focus,
   .edit-panel-row textarea:focus,
   .edit-panel-row select:focus,
-  .edit-panel-grid input:focus { outline: none; border-color: var(--rust); }
+  .edit-panel-grid input:focus { outline: none; border-color: var(--ink-soft); }
 
   /* Standalone selects in the edit panel (frequency, category, etc.). The
      ing-amount-row scoped rule above handles selects inside that flex group;
@@ -1829,11 +1829,11 @@
   .ingredient-edit-row .ing-amount-value:focus,
   .ingredient-edit-row .ing-amount-unit:focus {
     outline: none;
-    border-color: var(--rust);
+    border-color: var(--ink-soft);
   }
   .ingredient-edit-row .ing-name:focus {
     outline: none;
-    border-color: var(--rust);
+    border-color: var(--ink-soft);
   }
   .ingredient-edit-row .ing-macros-edit {
     display: flex;
@@ -1856,7 +1856,7 @@
   }
   .ingredient-edit-row .ing-num:focus {
     outline: none;
-    border-color: var(--rust);
+    border-color: var(--ink-soft);
   }
   /* Labeled field wrapper: tiny mono label above the input. Used for amount
      value/unit and the macro inputs so the user knows which is kcal vs P vs
@@ -2261,7 +2261,7 @@
   }
   .recipe-ing-select:focus {
     outline: none;
-    border-color: var(--rust);
+    border-color: var(--ink-soft);
   }
   .recipe-ing-macros {
     flex: 1 1 100%;
@@ -2314,7 +2314,7 @@
   }
   .recipe-ing-variant input.recipe-ing-amt:focus {
     outline: none;
-    border-color: var(--rust);
+    border-color: var(--ink-soft);
   }
   .recipe-ing-empty {
     font-family: 'JetBrains Mono', monospace;
@@ -2575,7 +2575,7 @@
   .counter-value:hover { border-color: var(--ink-soft); }
   .counter-value:focus {
     outline: none;
-    border-color: var(--rust);
+    border-color: var(--ink-soft);
   }
 
   .checkout-item-name {
@@ -3141,7 +3141,7 @@
   .custom-form-field input:focus,
   .custom-form-field select:focus {
     outline: none;
-    border-color: var(--rust);
+    border-color: var(--ink-soft);
   }
 
   .custom-form-actions {
@@ -3978,10 +3978,6 @@
     outline: none;
     border-color: var(--ink-soft);
   }
-  .profile-field input.bad {
-    border-color: var(--rust);
-    background: rgba(176,74,46,0.06);
-  }
   .profile-derived {
     display: flex;
     flex-wrap: wrap;
@@ -4108,7 +4104,7 @@
     box-sizing: border-box;
     min-width: 0;
   }
-  .supps-add input:focus, .supps-add select:focus { outline: none; border-color: var(--rust); }
+  .supps-add input:focus, .supps-add select:focus { outline: none; border-color: var(--ink-soft); }
   .supps-add-btn {
     background: var(--rust);
     color: var(--paper);
@@ -6785,29 +6781,23 @@
     const form = document.getElementById('profile-form');
     if (!form) return;
     const inputs = form.querySelectorAll('[data-profile]');
-    let anyBad = false;
     inputs.forEach(input => {
       const path = input.getAttribute('data-profile');
       let value;
       if (input.type === 'number') {
         const raw = input.value.trim();
-        if (raw === '') {
-          input.classList.remove('bad');
-          return;
-        }
+        if (raw === '') return;
         const n = Number(raw);
-        if (!Number.isFinite(n) || n < 0) {
-          input.classList.add('bad');
-          anyBad = true;
-          return;
-        }
+        // Intermediate invalid values (typing a leading minus, partial decimal,
+        // etc.) are silently ignored - no red border flash, no UI churn. The
+        // next valid keystroke commits the new value.
+        if (!Number.isFinite(n) || n < 0) return;
         value = n;
       } else {
         value = input.value;
         if (typeof value === 'string') value = value.trim();
         if (value === '') value = null;
       }
-      input.classList.remove('bad');
       profileSet(state.profile, path, value);
     });
 
@@ -6828,9 +6818,7 @@
     if (statusEl) {
       statusEl.classList.remove('saved');
       statusEl.classList.add('saving');
-      statusEl.innerHTML = anyBad
-        ? '<em>Edits save automatically. <span style="color:var(--rust)">Some fields are invalid - fix them.</span></em>'
-        : '<em>Saving…</em>';
+      statusEl.innerHTML = '<em>Saving…</em>';
       if (profileSaveStatusTimer) clearTimeout(profileSaveStatusTimer);
       profileSaveStatusTimer = setTimeout(() => {
         statusEl.classList.remove('saving');
@@ -9030,6 +9018,79 @@
       const v = groupFilters[k] || '';
       if (input) input.value = v;
       applyGroupFilter(groupEl, v);
+    });
+  }
+
+  // Targeted in-place catalog-row patch. Called on every edit-panel keystroke
+  // (replaces the prior change-event fullRender path) so the visible row
+  // tracks the user's typing immediately, without the cost of rebuilding the
+  // catalog and re-opening the panel. Patches only the spans + data-attrs
+  // that depend on the item's mutable fields: name display, macros line,
+  // counter serving-size, ratio-driven background color.
+  //
+  // Structural changes (adding/removing variants, switching base unit) still
+  // route through renderCatalog because the row COUNT may change - this
+  // helper only refreshes the existing rows in place.
+  function updateCatalogRowInPlace(key) {
+    if (!key) return;
+    const item = (typeof ITEMS !== 'undefined') && ITEMS[key];
+    if (!item) return;
+    const variants = orderVariantsForCatalog(getDisplayUnits(item));
+    const targetRatio = (GOALS.p > 0) ? (GOALS.kcal / GOALS.p) : Infinity;
+    const ratio = ratioFor(item);
+    // CSS.escape may not exist in older jsdom snapshots; fall back to a
+    // hand-built attribute matcher when missing.
+    const sel = (typeof CSS !== 'undefined' && CSS.escape)
+      ? '.checkout-row[data-key="' + CSS.escape(key) + '"]'
+      : '.checkout-row[data-key="' + key.replace(/"/g, '\\"') + '"]';
+    const rows = document.querySelectorAll(sel);
+    if (!rows.length) return;
+    // If variant COUNT has changed since the catalog was rendered, fall back
+    // to a full renderCatalog + reopen so layout structure is correct.
+    // Skip rows tied to scheduled supplement keys (they carry "#HH:MM" suffix
+    // and have only one variant view).
+    const groupCounts = new Map();
+    rows.forEach(r => {
+      const group = r.closest('.variant-group');
+      const gkey = group ? group.dataset.itemKey : r.dataset.key;
+      groupCounts.set(gkey, (groupCounts.get(gkey) || 0) + (r.dataset.variantIdx != null ? 1 : 1));
+    });
+    // Detect mismatch only on rows that have a variantIdx set; scheduled
+    // supplements (data-row contains '#') are excluded from the count check.
+    const variantRows = [...rows].filter(r => r.dataset.variantIdx != null && !(r.dataset.row || '').includes('#'));
+    if (variantRows.length && variantRows.length !== variants.length) {
+      if (typeof renderCatalog === 'function') {
+        renderCatalog();
+        if (typeof reopenEditPanelForKey === 'function') reopenEditPanelForKey(key);
+      }
+      return;
+    }
+    rows.forEach((row) => {
+      const variantIdx = (row.dataset.variantIdx != null)
+        ? parseInt(row.dataset.variantIdx, 10)
+        : 0;
+      const variant = variants[variantIdx] || variants[0] || { unitsPerServing: 1, multiplier: 1 };
+
+      const nameSpan = row.querySelector('.checkout-item-name');
+      if (nameSpan) {
+        nameSpan.textContent = formatItemDisplayName(item) + variantRowTitleSuffix(item, variant);
+      }
+      const macrosSpan = row.querySelector('.checkout-item-macros');
+      if (macrosSpan && key !== 'water' && !macrosSpan.classList.contains('plain')) {
+        macrosSpan.innerHTML = macroLine(item, variant && variant.unitsPerServing);
+      }
+
+      const servingSize = (typeof variant.unitsPerServing === 'number' && variant.unitsPerServing > 0)
+        ? variant.unitsPerServing
+        : (variant.multiplier || 1);
+      row.querySelectorAll('.counter-btn[data-action]').forEach(btn => {
+        btn.dataset.servingSize = String(servingSize);
+      });
+      row.querySelectorAll('.counter-value').forEach(inp => {
+        inp.dataset.servingSize = String(servingSize);
+      });
+      // Ratio-tinted row background may shift when macros change.
+      try { row.style.backgroundColor = ratioBackground(ratio, targetRatio); } catch (_) {}
     });
   }
 
@@ -13083,25 +13144,13 @@
       opts = opts || {};
       const key = panel.dataset.editPanelKey;
       if (!key || !ITEMS[key]) return;
-      const fire = () => {
-        editPanelSaveDebounce.delete(panel);
-        if (opts.fullRender) {
-          // Full save with catalog rebuild so the catalog rows reflect the
-          // new variant labels / sizes immediately. Triggered on `change`
-          // (blur of typed fields, radio/select flips) - not on every
-          // keystroke, so typing focus is preserved.
-          saveExpandedEdits(key, panel);
-          reopenEditPanelForKey(key);
-        } else {
-          saveExpandedEdits(key, panel, { skipCatalogRender: true });
-        }
-      };
-      const prev = editPanelSaveDebounce.get(panel);
-      if (prev) clearTimeout(prev);
-      // No debounce - JS state update fires every keystroke; the catalog
-      // row rebuild is gated by `fullRender` (only on change/blur). The
-      // gist write rides the op queue's own 700 ms debounce.
-      fire();
+      // Persist the edit straight into ITEMS (skipCatalogRender so we don't
+      // yank focus by rebuilding the whole catalog), then surgically patch
+      // the visible catalog row in place. This is the keystroke-fast path:
+      // state save + targeted DOM patch + sendOp's own queue all fire on
+      // every event, with NO 'wait for blur'.
+      saveExpandedEdits(key, panel, { skipCatalogRender: true });
+      if (typeof updateCatalogRowInPlace === 'function') updateCatalogRowInPlace(key);
     };
     document.addEventListener('input', (ev) => {
       const panel = ev.target.closest('[data-edit-panel]');
@@ -13110,8 +13159,7 @@
       // These don't persist on their own; they feed an explicit Add button.
       if (ev.target.closest('[data-variant-custom-add]')) return;
       if (ev.target.closest('[data-ing-add-picker]')) return;
-      // Immediate, no catalog rebuild - preserves typing focus.
-      liveSaveEditPanel(panel, { immediate: true, fullRender: false });
+      liveSaveEditPanel(panel);
     });
     // Add-ingredient picker source select: when user picks an item,
     // populate the serving dropdown with that item's variants (default
@@ -13174,11 +13222,11 @@
       if (ev.target.matches('[data-variant-default-radio]')) {
         resetVariantScratchToDefault(panel);
       }
-      // `change` fires on blur of typed inputs and on radio/select flips.
-      // Trigger a full catalog refresh so the catalog rows reflect the new
-      // variant labels / sizes immediately. fullRender=true rebuilds the
-      // catalog and re-opens this panel post-render.
-      liveSaveEditPanel(panel, { immediate: true, fullRender: true });
+      // Radio / select flips also route through the keystroke-fast path:
+      // state save + targeted row patch. `input` fires on selects in modern
+      // browsers; this `change` is a back-stop for radio toggles plus
+      // ancient browsers that miss `input` on select.
+      liveSaveEditPanel(panel);
     });
     document.addEventListener('change', (ev) => {
       // Top-level unit change inside an edit panel: basis is derived from the

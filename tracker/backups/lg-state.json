@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-08T15:13:30.480Z",
-  "_gistSavedAt": "2026-06-08T15:12:24.255Z",
+  "_backupTakenAt": "2026-06-08T17:26:00.182Z",
+  "_gistSavedAt": "2026-06-08T17:05:54.048Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -854,14 +854,18 @@
         "counters": {
           "yogurt_oikos_triple_zero_lemon": 150,
           "string_cheese": 21,
-          "smoked_salmon_slice": 14
+          "smoked_salmon_slice": 14,
+          "jacklinks_turkey": 40,
+          "soy_milk_original": 180.25
         },
         "customs": [],
         "toggleMeta": {},
         "counterMeta": {
           "yogurt_oikos_triple_zero_lemon": "2026-06-08T13:22:26.795Z",
           "string_cheese": "2026-06-08T13:22:39.636Z",
-          "smoked_salmon_slice": "2026-06-08T13:23:20.682Z"
+          "smoked_salmon_slice": "2026-06-08T13:23:20.682Z",
+          "jacklinks_turkey": "2026-06-08T15:49:44.657Z",
+          "soy_milk_original": "2026-06-08T11:56:49-04:00"
         }
       }
     },
@@ -950,7 +954,6 @@
       "history": true,
       "targets-accumulation": true,
       "catalog-archive": true,
-      "profile": true,
       "section-weight-tracker": true,
       "details-add-new-item": true
     },
@@ -4814,6 +4817,63 @@
           "defaultMeasuredIn": "g",
           "density_g_per_ml": 1
         },
+        "soy_milk_original": {
+          "name": "Soy milk original",
+          "brand": "Simply Nature Aldi",
+          "category": "liquids",
+          "defaultMeasuredIn": "g",
+          "density_g_per_ml": 1.03,
+          "kcal": 0.4045,
+          "p": 0.0283,
+          "carbs": 0.0324,
+          "fiber": 0.004,
+          "sugar": 0.0243,
+          "fat": 0.0162,
+          "sf": 0.002,
+          "sodium": 0.3439,
+          "water": 0.92,
+          "omega3": 0.3,
+          "vitD": 0.0202,
+          "calcium": 1.2136,
+          "iron": 0.004,
+          "potassium": 1.1327,
+          "vitA": 0.0049,
+          "vitE": 0.001,
+          "vitK": 0.0097,
+          "b1": 0.0006,
+          "b2": 0.0017,
+          "b3": 0.0039,
+          "b5": 0.0029,
+          "b6": 0.0004,
+          "b9": 0.1748,
+          "b12": 0.0117,
+          "choline": 0.2233,
+          "selenium": 0.0126,
+          "copper": 0.001,
+          "manganese": 0.0019,
+          "iodine": 0.0097,
+          "molybdenum": 0.0485,
+          "purines": 0.0485,
+          "magnesium": 0.25,
+          "phosphorus": 0.52,
+          "zinc": 0.0025,
+          "displayUnits": [
+            {
+              "label": "Half gallon (1.89 L)",
+              "amount": 1947,
+              "unit": "g",
+              "multiplier": 1947
+            },
+            {
+              "label": "1 cup (240 ml)",
+              "amount": 247,
+              "unit": "g",
+              "default": true,
+              "multiplier": 247
+            }
+          ],
+          "notes": "Simply Nature (ALDI) Organic Original Soy, sweetened. Label per 1 cup (8 fl oz / 240 ml), assumed 1.03 g/ml -> 247.2 g/serving: 100 kcal, 7 P, 8 C, 1 fiber, 6 sugar (all added), 4 fat, 0.5 SF, 0 trans, 0 chol, 85 Na, 5 ug D, 300 Ca, 1 Fe, 280 K. Ingredients: organic soy beverage, organic cane sugar, calcium carbonate, natural flavor, sea salt, gellan + locust bean gum, vit A palmitate, D2, B2, B12. Soybean-base micros (A, E, K, B1-B12, choline, Se, Cu, Mn, I, Mo, purines) carried from the unsweetened soy_milk entry (same fortified-soy profile). LOW CONFIDENCE / estimated, verify if it matters: Mg 0.25, P 0.52, Zn 0.0025 mg/g (USDA soy beverage); omega3 0.3 mg/g ALA; water 0.92 ml/g. A/B2/B12 fortification amounts not quantified on label (carried over, not label-confirmed)."
+        },
         "spinach_fresh": {
           "name": "Spinach fresh raw",
           "category": "items",
@@ -5599,62 +5659,62 @@
           "ingredients": [
             {
               "itemKey": "turkey_ground_safeway",
-              "multiplier": 1,
+              "amount": 448,
               "label": "1 pkg"
             },
             {
               "itemKey": "salmon_pink_canned",
-              "multiplier": 1,
+              "amount": 418,
               "label": "1 can"
             },
             {
               "itemKey": "black_beans_dry_goya",
-              "multiplier": 1,
+              "amount": 35,
               "label": "1/2 bag (≈650 g cooked)"
             },
             {
               "itemKey": "egg_substitute",
-              "multiplier": 1,
+              "amount": 920,
               "label": "2 cups"
             },
             {
               "itemKey": "yogurt_half",
-              "multiplier": 1,
+              "amount": 453.5,
               "label": "1/4 tub"
             },
             {
               "itemKey": "mozzarella_ff_shred",
-              "multiplier": 1,
+              "amount": 196,
               "label": "1 bag"
             },
             {
               "itemKey": "mushrooms_pampa_jar",
-              "multiplier": 1,
+              "amount": 207,
               "label": "2 jars drained"
             },
             {
               "itemKey": "tomato_paste_giant",
-              "multiplier": 1,
+              "amount": 340,
               "label": "100 g"
             },
             {
               "itemKey": "veggies_bag",
-              "multiplier": 1,
+              "amount": 170,
               "label": "1 bag (steamed + drained)"
             },
             {
               "itemKey": "shrimp_oceans_cooked",
-              "multiplier": 1,
+              "amount": 340,
               "label": "1 pkg (whole, fold in last)"
             }
           ],
           "displayUnits": [
             {
               "label": "full recipe",
-              "amount": 4117,
+              "amount": 3527.5,
               "unit": "g",
               "locked": true,
-              "multiplier": 4117
+              "multiplier": 3527.5
             },
             {
               "label": "1 serving",
