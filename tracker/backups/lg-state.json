@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-07T09:56:41.422Z",
-  "_gistSavedAt": "2026-06-07T01:16:16.619Z",
+  "_backupTakenAt": "2026-06-08T11:51:38.088Z",
+  "_gistSavedAt": "2026-06-08T02:59:29.793Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -812,6 +812,42 @@
         },
         "weight": 97.8,
         "weightMeta": "2026-06-06T14:54:40.515Z"
+      },
+      "2026-06-07": {
+        "toggles": {},
+        "counters": {
+          "protein_casein_dymatize_elite_cookies_cream": 51,
+          "pork_loin_lean_broiled": 70,
+          "turkey_bacon": 84
+        },
+        "customs": [
+          {
+            "id": "65d0b504-3cc6-4cfa-ac3c-297af68ba81b",
+            "name": "350kcal 4p",
+            "kcal": 350,
+            "p": 4,
+            "count": 1,
+            "lastModified": "2026-06-07T17:48:15.058Z"
+          },
+          {
+            "id": "4ce0e57d-53c8-4ec9-bea0-592abd232949",
+            "name": "250kcal 25p",
+            "kcal": 250,
+            "p": 25,
+            "count": 1,
+            "lastModified": "2026-06-07T18:01:32.812Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "protein_casein_dymatize_elite_cookies_cream": "2026-06-07T17:46:27.211Z",
+          "pork_loin_lean_broiled": "2026-06-07T17:48:51.283Z",
+          "turkey_bacon": "2026-06-07T17:49:04.215Z"
+        },
+        "weight": 96.5,
+        "weightMeta": "2026-06-07T20:03:55.230Z",
+        "waist": 107,
+        "waistMeta": "2026-06-07T20:03:55.199Z"
       }
     },
     "savedItems": [],
@@ -895,16 +931,14 @@
       "today-customs": true,
       "details-sync-error-banner": true,
       "chart-bmi-chart": true,
-      "details-add-new-item": true,
       "supplements-water": true,
       "history": true,
       "targets-accumulation": true,
-      "section-weight-tracker": true,
       "catalog-archive": true,
       "profile": true,
-      "today-log": true,
       "catalog-ratio": true,
-      "details-recipe-maker": true
+      "section-weight-tracker": true,
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
@@ -6143,7 +6177,6 @@
           "label": "Uncategorized"
         }
       ]
-    },
-    "totalsMode": "collapsed"
+    }
   }
 }
