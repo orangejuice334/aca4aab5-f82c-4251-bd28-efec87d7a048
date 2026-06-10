@@ -78,7 +78,7 @@ PowerShell) in a shell AT THE MOMENT of building the op so `date` and
 ```
 {
   name: "Salt substitute potassium chloride",
-  brand: "Morton",                                  // optional, renders as "Name (Brand)"
+  brand: "Morton",                                  // set it with item brand if is known, if not known, set it as Generic
   category: "items" | "recipes" | "small_portions" | "liquids" |
             "supplements" | "water" | "uncategorized",
   defaultMeasuredIn: "g" | "ml" | "units",

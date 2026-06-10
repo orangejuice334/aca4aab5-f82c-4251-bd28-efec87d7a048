@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-10T10:51:32.815Z",
-  "_gistSavedAt": "2026-06-10T00:17:23.379Z",
+  "_backupTakenAt": "2026-06-10T18:34:11.673Z",
+  "_gistSavedAt": "2026-06-10T18:28:12.572Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -915,6 +915,33 @@
           "protein_powder_whey_premier_chocolate": "2026-06-09T14:46:56.082Z",
           "soy_milk": "2026-06-09T14:47:47.115Z"
         }
+      },
+      "2026-06-10": {
+        "toggles": {},
+        "counters": {
+          "banana": 118,
+          "protein_soy_isolate_myvegan_chocolate": 60,
+          "beef_kabob_grassfed_broiled": 15,
+          "soy_milk": 200
+        },
+        "customs": [
+          {
+            "id": "24f325e4-6df4-42db-9157-21d69fd281a1",
+            "name": "50kcal",
+            "kcal": 50,
+            "count": 1,
+            "lastModified": "2026-06-10T18:28:01.327Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "banana": "2026-06-10T13:04:59.254Z",
+          "protein_soy_isolate_myvegan_chocolate": "2026-06-10T13:35:22.778Z",
+          "beef_kabob_grassfed_broiled": "2026-06-10T13:36:12.772Z",
+          "soy_milk": "2026-06-10T13:36:38.315Z"
+        },
+        "weight": 96.1,
+        "weightMeta": "2026-06-10T18:26:42.974Z"
       }
     },
     "savedItems": [],
@@ -1003,8 +1030,8 @@
       "targets-accumulation": true,
       "catalog-archive": true,
       "profile": true,
-      "today-log": true,
-      "details-add-new-item": true
+      "details-add-new-item": true,
+      "today-log": true
     },
     "userCatalog": {
       "items": {
@@ -4491,6 +4518,59 @@
             }
           ],
           "notes": "Premier Protein 100% Whey Protein Powder, Chocolate Milkshake. 1190g tub, 29 servings. Macros and calcium/iron/potassium from label (÷41). Ingredients: whey protein isolate, whey protein concentrate, cocoa processed with alkali, chicory root fiber, sunflower lecithin, xanthan gum, salt, acesulfame potassium, sucralose. B-vitamins, magnesium, phosphorus, zinc, selenium, choline estimated from USDA whey protein isolate data — LOW CONFIDENCE, flag for verification. Purines estimated ~70mg/100g for concentrated whey — LOW CONFIDENCE."
+        },
+        "protein_soy_isolate_myvegan_chocolate": {
+          "name": "Protein powder soy isolate chocolate",
+          "brand": "Myvegan",
+          "category": "supplements",
+          "defaultMeasuredIn": "g",
+          "kcal": 4,
+          "p": 0.8667,
+          "carbs": 0.0333,
+          "fiber": 0.0067,
+          "fat": 0.01,
+          "sf": 0.0017,
+          "sodium": 7.3333,
+          "omega3": 0.1,
+          "b1": 0.0018,
+          "b2": 0.001,
+          "b3": 0.0144,
+          "b5": 0.0006,
+          "b6": 0.001,
+          "b9": 1.76,
+          "choline": 1.9,
+          "calcium": 7.3333,
+          "iron": 0.12,
+          "magnesium": 0.39,
+          "phosphorus": 7.76,
+          "potassium": 0.81,
+          "zinc": 0.0403,
+          "selenium": 0.008,
+          "copper": 0.016,
+          "manganese": 0.0149,
+          "purines": 1.2,
+          "displayUnits": [
+            {
+              "label": "1 bag (1 kg)",
+              "amount": 1000,
+              "unit": "g",
+              "multiplier": 1000
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            },
+            {
+              "label": "1 scoop (30 g)",
+              "amount": 1,
+              "unit": "g",
+              "default": true,
+              "multiplier": 1
+            }
+          ],
+          "notes": "MyVegan (Myprotein) Soy Protein Isolate, chocolate flavour. Macros from product label per 30 g scoop (33 scoops / 1 kg bag): 26 g protein, 1 g carb, 0 g fat/SF/trans/sugar/fibre, 220 mg sodium, calcium 22% DV, iron 20% DV. kcal set to 120 per user (label printed 110); at 120 kcal that is 4.0 kcal/g, slightly above the ~3.7 kcal/g of the whey isolates and not fully reconcilable via Atwater with 0 g fat. Calcium/iron back-calculated on the OLD FDA Daily Values (calcium 1000 mg, iron 18 mg) because this is the pre-2016 label format -> 220 mg calcium and 3.6 mg iron per scoop. Fat/SF printed 0 g (sub-threshold); estimated 0.3 g fat / 0.05 g SF per scoop. Off-label minerals (Mg, P, K, Zn, Cu, Mn, Se) backfilled from USDA SR Legacy 16122 Soy protein isolate (sodium type, consistent with the high label sodium). B-vitamins, folate (B9), and choline estimated from the same USDA entry -- LOW CONFIDENCE. Purines ~1.2 mg/g (~36 mg/scoop) estimated from soy purine literature (soyfoods 50-150 mg/100 g; USDA does not track purines) -- LOW CONFIDENCE, though the per-serving load is low for uric-acid purposes. Omega-3 trace (defatted isolate). Iodine, chromium, molybdenum, biotin (B7) unknown, left at 0."
         },
         "protein_whey_animal_strawberry": {
           "name": "Protein powder whey isolate strawberry",

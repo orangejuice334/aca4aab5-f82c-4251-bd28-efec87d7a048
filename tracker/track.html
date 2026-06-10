@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.85">
+<meta name="app-version" content="v6.5.86">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -11151,19 +11151,20 @@
       if (def.computed) {
         // Special-case the kcal/p widget label so it's clearly the live
         // CURRENT-intake number (vs. the static `kcal/p` cutoff badge in the
-        // header, which shows goals.kcal / goals.p). Also render a full-width
-        // color-coded bar with a time-of-day marker so the widget visually
-        // matches the other daily-totals tiles.
+        // header, which shows goals.kcal / goals.p).
         const cellLabel = (key === '_kcal_per_p') ? "Today's kcal/p" : def.label;
-        // kcal/p has no progress indicator - it is a ratio, not a daily
-        // cumulative target, so a pacing bar would be misleading. The
-        // numeric value alone carries the signal.
-        const barHtml = '';
+        // Always-full color-coded bar (no marker). kcal/p is a ratio, not a
+        // cumulative target, so the bar shows ONLY the current colour (under
+        // = green, over = orange→red) at full width. The directional goal
+        // line below gives the same signal in words.
+        const barHtml = '<div class="checkout-bar">' +
+          '<div class="checkout-bar-fill" data-bar="' + key + '" style="width: 100%"></div>' +
+        '</div>';
         html +=
           '<div class="checkout-total" data-nutrient="' + key + '">' +
             '<div class="checkout-total-label">' + escapeHtml(cellLabel) + '</div>' +
             '<div class="checkout-total-value" data-total="' + key + '">0' + unitFrag + '</div>' +
-            '<div class="checkout-total-goal">&nbsp;</div>' +
+            '<div class="checkout-total-goal" data-goal-line="' + key + '">&nbsp;</div>' +
             barHtml +
           '</div>';
       } else {
@@ -11219,8 +11220,36 @@
         valEl.firstChild.textContent = formatted + (def.unit ? ' ' : '');
       }
       if (def.computed) {
-        // kcal/p has no bar or marker DOM; the numeric readout is the
-        // entire indicator. No coloring or pacing work needed here.
+        if (key === '_kcal_per_p') {
+          // Directional goal line + always-full color-coded bar. Target =
+          // goals.kcal / goals.p (e.g. 2000/180 = 11.1). When the current
+          // ratio is below the target, the user is on protein-density track;
+          // above means they ate more calories per gram of protein than the
+          // target allows.
+          const target = (GOALS.p > 0) ? (GOALS.kcal / GOALS.p) : 0;
+          const goalLine = document.querySelector('[data-goal-line="' + key + '"]');
+          if (goalLine) {
+            if (!isFinite(target) || target <= 0) {
+              goalLine.textContent = ' ';
+              goalLine.style.color = '';
+            } else {
+              let direction;
+              if (!isFinite(value) || value <= 0) direction = 'at goal';
+              else if (Math.abs(value - target) < 0.05) direction = 'at goal';
+              else if (value < target) direction = 'below goal';
+              else direction = 'above goal';
+              const targetText = dropTrailingZeros(target.toFixed(1));
+              goalLine.textContent = direction + ' ' + targetText;
+              goalLine.style.color = kcalPerPBarColor(value > 0 ? value : target, target);
+            }
+          }
+          const barEl = document.querySelector('[data-bar="' + key + '"]');
+          if (barEl) {
+            barEl.style.width = '100%';
+            barEl.style.backgroundColor = kcalPerPBarColor(value > 0 ? value : target, target);
+            barEl.classList.remove('over');
+          }
+        }
         continue;
       }
       const goal = GOALS[key] || 1;
