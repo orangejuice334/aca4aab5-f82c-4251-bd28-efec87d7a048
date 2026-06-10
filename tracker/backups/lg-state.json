@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-09T10:30:52.420Z",
-  "_gistSavedAt": "2026-06-08T22:41:42.920Z",
+  "_backupTakenAt": "2026-06-10T10:51:32.815Z",
+  "_gistSavedAt": "2026-06-10T00:17:23.379Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -883,6 +883,38 @@
           "garlic_powder": "2026-06-08T18:26:12-04:00",
           "soy_milk": "2026-06-08T22:41:42.472Z"
         }
+      },
+      "2026-06-09": {
+        "toggles": {},
+        "counters": {
+          "yogurt_oikos_triple_zero_lemon": 150,
+          "protein_powder_whey_premier_chocolate": 41,
+          "soy_milk": 325
+        },
+        "customs": [
+          {
+            "id": "39a08cca-b134-4f78-9854-8c73bbc8407d",
+            "name": "350kcal 5p",
+            "kcal": 350,
+            "p": 5,
+            "count": 1,
+            "lastModified": "2026-06-09T14:48:05.961Z"
+          },
+          {
+            "id": "5754c7d4-63ba-4cbb-a668-8641921beeed",
+            "name": "sardins",
+            "kcal": 325,
+            "p": 21,
+            "count": 1,
+            "lastModified": "2026-06-09T14:48:35.840Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "yogurt_oikos_triple_zero_lemon": "2026-06-09T14:46:37.228Z",
+          "protein_powder_whey_premier_chocolate": "2026-06-09T14:46:56.082Z",
+          "soy_milk": "2026-06-09T14:47:47.115Z"
+        }
       }
     },
     "savedItems": [],
@@ -970,9 +1002,9 @@
       "history": true,
       "targets-accumulation": true,
       "catalog-archive": true,
-      "section-weight-tracker": true,
-      "details-add-new-item": true,
-      "profile": true
+      "profile": true,
+      "today-log": true,
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
