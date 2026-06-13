@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-12T10:57:44.966Z",
-  "_gistSavedAt": "2026-06-10T18:28:12.572Z",
+  "_backupTakenAt": "2026-06-13T09:53:23.672Z",
+  "_gistSavedAt": "2026-06-12T16:47:41.620Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -942,6 +942,15 @@
         },
         "weight": 96.1,
         "weightMeta": "2026-06-10T18:26:42.974Z"
+      },
+      "2026-06-12": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "weight": 96.1,
+        "weightMeta": "2026-06-12T16:47:39.895Z"
       }
     },
     "savedItems": [],
@@ -1031,7 +1040,10 @@
       "catalog-archive": true,
       "profile": true,
       "details-add-new-item": true,
-      "today-log": true
+      "today-log": true,
+      "details-recipe-maker": true,
+      "catalog-ratio": true,
+      "section-weight-tracker": true
     },
     "userCatalog": {
       "items": {
