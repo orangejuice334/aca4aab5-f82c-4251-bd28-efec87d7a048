@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-15T13:09:00.946Z",
-  "_gistSavedAt": "2026-06-13T13:42:00.882Z",
+  "_backupTakenAt": "2026-06-16T12:06:53.152Z",
+  "_gistSavedAt": "2026-06-15T13:36:04.325Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -971,6 +971,28 @@
         "counterMeta": {
           "banana": "2026-06-13T13:41:59.746Z"
         }
+      },
+      "2026-06-15": {
+        "toggles": {},
+        "counters": {
+          "protein_powder_whey_premier_chocolate": 55
+        },
+        "customs": [
+          {
+            "id": "909a5050-0cd5-46bb-ae79-1c27979bb6c2",
+            "name": "230kcal 3p",
+            "kcal": 230,
+            "p": 3,
+            "count": 1,
+            "lastModified": "2026-06-15T13:35:43.370Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "protein_powder_whey_premier_chocolate": "2026-06-15T13:35:59.889Z"
+        },
+        "weight": 96.6,
+        "weightMeta": "2026-06-15T13:35:24.004Z"
       }
     },
     "savedItems": [],
@@ -1058,10 +1080,10 @@
       "history": true,
       "targets-accumulation": true,
       "catalog-archive": true,
-      "profile": true,
       "today-log": true,
       "details-recipe-maker": true,
       "section-weight-tracker": true,
+      "profile": true,
       "details-add-new-item": true
     },
     "userCatalog": {
@@ -4486,66 +4508,52 @@
           "brand": "Premier Protein",
           "category": "supplements",
           "defaultMeasuredIn": "g",
-          "kcal": 3.65854,
-          "p": 0.73171,
-          "carbs": 0.097561,
-          "fiber": 0.02439,
-          "sugar": 0.02439,
-          "fat": 0.04878,
-          "sf": 0.02439,
-          "transfat": 0,
-          "cholesterol": 1.21951,
-          "sodium": 4.14634,
+          "kcal": 3.6585,
+          "p": 0.7317,
+          "carbs": 0.0976,
+          "fiber": 0.0244,
+          "sugar": 0.0244,
+          "fat": 0.0488,
+          "sf": 0.0244,
+          "cholesterol": 1.2195,
+          "sodium": 4.1463,
           "water": 0.04,
-          "caffeine": 0,
-          "omega3": 0,
-          "vitA": 0,
-          "vitC": 0,
-          "vitD": 0,
-          "vitE": 0,
-          "vitK": 0,
-          "b1": 0.00122,
-          "b2": 0.009756,
-          "b3": 0.012195,
-          "b5": 0.012195,
-          "b6": 0.002439,
-          "b7": 0,
+          "b1": 0.0012,
+          "b2": 0.0098,
+          "b3": 0.0122,
+          "b5": 0.0122,
+          "b6": 0.0024,
           "b9": 0.122,
           "b12": 0.0122,
           "choline": 1.2195,
-          "calcium": 3.90244,
-          "iron": 0.029268,
-          "magnesium": 0.85366,
-          "phosphorus": 6.09756,
-          "potassium": 6.58537,
-          "zinc": 0.036585,
-          "selenium": 0.41463,
-          "copper": 0.002439,
-          "manganese": 0,
-          "iodine": 0,
-          "chromium": 0,
-          "molybdenum": 0,
-          "mercury": 0,
+          "calcium": 3.9024,
+          "iron": 0.0293,
+          "magnesium": 0.8537,
+          "phosphorus": 6.0976,
+          "potassium": 6.5854,
+          "zinc": 0.0366,
+          "selenium": 0.4146,
+          "copper": 0.0024,
           "purines": 0.7,
           "displayUnits": [
+            {
+              "label": "Whole tub (1190 g)",
+              "amount": 1190,
+              "unit": "g",
+              "multiplier": 1190
+            },
             {
               "label": "2 scoops (41 g)",
               "amount": 41,
               "unit": "g",
-              "multiplier": 41,
-              "default": true
+              "default": true,
+              "multiplier": 41
             },
             {
               "label": "1 scoop (~20.5 g)",
               "amount": 20.5,
               "unit": "g",
               "multiplier": 20.5
-            },
-            {
-              "label": "Whole tub (1190 g)",
-              "amount": 1190,
-              "unit": "g",
-              "multiplier": 1190
             }
           ],
           "notes": "Premier Protein 100% Whey Protein Powder, Chocolate Milkshake. 1190g tub, 29 servings. Macros and calcium/iron/potassium from label (÷41). Ingredients: whey protein isolate, whey protein concentrate, cocoa processed with alkali, chicory root fiber, sunflower lecithin, xanthan gum, salt, acesulfame potassium, sucralose. B-vitamins, magnesium, phosphorus, zinc, selenium, choline estimated from USDA whey protein isolate data — LOW CONFIDENCE, flag for verification. Purines estimated ~70mg/100g for concentrated whey — LOW CONFIDENCE."
