@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-18T11:06:16.258Z",
-  "_gistSavedAt": "2026-06-15T13:36:04.325Z",
+  "_backupTakenAt": "2026-06-19T11:15:16.091Z",
+  "_gistSavedAt": "2026-06-18T17:57:47.344Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -993,6 +993,32 @@
         },
         "weight": 96.6,
         "weightMeta": "2026-06-15T13:35:24.004Z"
+      },
+      "2026-06-18": {
+        "toggles": {},
+        "counters": {
+          "jacklinks_turkey": 18,
+          "protein_whey_animal_strawberry": 64
+        },
+        "customs": [
+          {
+            "id": "de8eed80-3ff1-4b83-ac79-095d31c64428",
+            "name": "250kcal 15p",
+            "kcal": 250,
+            "p": 15,
+            "count": 1,
+            "lastModified": "2026-06-18T14:28:35.703Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "jacklinks_turkey": "2026-06-18T17:55:11.306Z",
+          "protein_whey_animal_strawberry": "2026-06-18T17:55:26.337Z"
+        },
+        "weight": 95.8,
+        "weightMeta": "2026-06-18T11:39:38.120Z",
+        "waist": 106.5,
+        "waistMeta": "2026-06-18T17:57:47.098Z"
       }
     },
     "savedItems": [],
@@ -1075,16 +1101,16 @@
       "details-profile-section": true,
       "today-customs": true,
       "details-sync-error-banner": true,
-      "chart-bmi-chart": true,
       "supplements-water": true,
-      "history": true,
       "targets-accumulation": true,
       "catalog-archive": true,
       "today-log": true,
       "details-recipe-maker": true,
-      "section-weight-tracker": true,
       "profile": true,
-      "details-add-new-item": true
+      "chart-bmi-chart": true,
+      "details-add-new-item": true,
+      "history": true,
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
