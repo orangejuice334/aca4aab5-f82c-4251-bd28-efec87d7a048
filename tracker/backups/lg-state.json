@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-21T10:26:15.909Z",
-  "_gistSavedAt": "2026-06-20T03:20:48.243Z",
+  "_backupTakenAt": "2026-06-22T12:44:42.809Z",
+  "_gistSavedAt": "2026-06-22T12:18:04.930Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1026,6 +1026,49 @@
         "customs": [],
         "toggleMeta": {},
         "counterMeta": {}
+      },
+      "2026-06-21": {
+        "toggles": {},
+        "counters": {
+          "protein_casein_dymatize_elite_cookies_cream": 129.2,
+          "tj_dried_mango": 35,
+          "jacklinks_turkey": 28.8,
+          "tj_ab_pretzel_nuggets": 7.75,
+          "egg_substitute": 552,
+          "ketchup_packet": 90,
+          "watermelon": 200
+        },
+        "customs": [
+          {
+            "id": "ac38dfd8-7da5-4999-82af-b703fc98f8ab",
+            "name": "50kcal 3p",
+            "kcal": 50,
+            "p": 3,
+            "count": 1,
+            "lastModified": "2026-06-21T18:27:57.841Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "protein_casein_dymatize_elite_cookies_cream": "2026-06-21T17:05:32.537Z",
+          "tj_dried_mango": "2026-06-21T17:05:56.463Z",
+          "jacklinks_turkey": "2026-06-21T17:06:10.859Z",
+          "tj_ab_pretzel_nuggets": "2026-06-21T17:06:50.655Z",
+          "egg_substitute": "2026-06-21T18:28:32.826Z",
+          "ketchup_packet": "2026-06-21T19:40:26.583Z",
+          "watermelon": "2026-06-21T15:40:32-04:00"
+        },
+        "weight": 97.7,
+        "weightMeta": "2026-06-21T15:16:57.432Z"
+      },
+      "2026-06-22": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "weight": 96.5,
+        "weightMeta": "2026-06-22T12:18:04.834Z"
       }
     },
     "savedItems": [],
@@ -1039,8 +1082,8 @@
       "startWeightKg": 102,
       "targetWeightKg": 88,
       "goals": {
-        "kcal": 1650,
-        "p": 184,
+        "kcal": 1200,
+        "p": 190,
         "carbs": 275,
         "fiber": 28,
         "sugar": 50,
@@ -1108,14 +1151,13 @@
       "details-sync-error-banner": true,
       "supplements-water": true,
       "targets-accumulation": true,
-      "catalog-archive": true,
       "today-log": true,
       "details-recipe-maker": true,
-      "profile": true,
       "chart-bmi-chart": true,
-      "details-add-new-item": true,
       "history": true,
-      "catalog-ratio": true
+      "profile": true,
+      "catalog-archive": true,
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
@@ -4470,66 +4512,44 @@
           "brand": "Dymatize Elite",
           "category": "supplements",
           "defaultMeasuredIn": "g",
-          "kcal": 3.82353,
-          "p": 0.735294,
-          "carbs": 0.058824,
-          "fiber": 0,
-          "sugar": 0,
-          "fat": 0.044118,
-          "sf": 0,
-          "transfat": 0,
-          "cholesterol": 0.588235,
-          "sodium": 4.117647,
+          "kcal": 3.8235,
+          "p": 0.7353,
+          "carbs": 0.0588,
+          "fat": 0.0441,
+          "cholesterol": 0.5882,
+          "sodium": 4.1176,
           "water": 0.05,
-          "caffeine": 0,
-          "omega3": 0,
-          "vitA": 0,
-          "vitC": 0,
-          "vitD": 0,
-          "vitE": 0,
-          "vitK": 0,
-          "b1": 0,
           "b2": 0.0088,
-          "b3": 0,
           "b5": 0.0088,
-          "b6": 0,
-          "b7": 0,
-          "b9": 0,
           "b12": 0.021,
           "choline": 1.18,
-          "calcium": 17.05882,
-          "iron": 0.0147059,
+          "calcium": 17.0588,
+          "iron": 0.0147,
           "magnesium": 0.735,
           "phosphorus": 8,
-          "potassium": 6.764706,
+          "potassium": 6.7647,
           "zinc": 0.029,
           "selenium": 0.44,
-          "copper": 0,
-          "manganese": 0,
-          "iodine": 0,
-          "chromium": 0,
-          "molybdenum": 0,
-          "mercury": 0,
           "purines": 0.3,
           "displayUnits": [
+            {
+              "label": "Whole tub (1814 g)",
+              "amount": 1814,
+              "unit": "g",
+              "multiplier": 1814
+            },
             {
               "label": "2 scoops (34 g)",
               "amount": 34,
               "unit": "g",
-              "multiplier": 34,
-              "default": true
+              "default": true,
+              "multiplier": 34
             },
             {
               "label": "1 scoop (17 g)",
               "amount": 17,
               "unit": "g",
               "multiplier": 17
-            },
-            {
-              "label": "Whole tub (1814 g)",
-              "amount": 1814,
-              "unit": "g",
-              "multiplier": 1814
             }
           ],
           "notes": "Dymatize Elite Casein, Cookies & Cream, 100% micellar casein, 4 lb (1814g), 53 servings. Label per 34g (2 scoops): 130 kcal, 25g protein, 1.5g fat, 0 sat fat, 20mg cholesterol, 140mg sodium, 2g carb, calcium 580mg, iron 0.5mg, potassium 230mg. Ingredients: micellar casein, sunflower creamer (sunflower oil, maltodextrin, micellar casein, soy lecithin, sodium citrate, tricalcium phosphate), cocoa, salt, sucralose, ace-K, KCl, cellulose gum, xanthan gum, stevia. Contains milk and soy. Calcium very high (580mg) from micellar casein + added tricalcium phosphate. Per-serving amino profile (label): 5.3g BCAAs, 2.3g leucine, 5.1g glutamine. Phosphorus (~8 mg/g), magnesium, b2, b5, b12, zinc, selenium, choline estimated from casein reference — LOW CONFIDENCE. Casein is low-purine (~0.3 mg/g estimate). As a casein product, slow-digesting — note ~30% MPS downgrade does NOT apply (that is collagen-specific; casein is a complete protein)."
@@ -5479,6 +5499,95 @@
           "defaultMeasuredIn": "g",
           "purines": 0
         },
+        "tj_ab_pretzel_nuggets": {
+          "name": "Trader Joe's Almond Butter Filled Pretzel Nuggets",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 4.5161,
+          "p": 0.129,
+          "carbs": 0.6129,
+          "fiber": 0.0645,
+          "sugar": 0.129,
+          "addedSugar": 0.0968,
+          "fat": 0.1935,
+          "sf": 0.0161,
+          "transFat": 0,
+          "cholesterol": 0,
+          "sodium": 7.7419,
+          "calcium": 0.9677,
+          "iron": 0.0387,
+          "potassium": 3.2258,
+          "vitD": 0,
+          "vitE": 0.01,
+          "b1": 0.004,
+          "b2": 0.002,
+          "b3": 0.04,
+          "b9": 0.8,
+          "magnesium": 0.5,
+          "phosphorus": 1.2,
+          "zinc": 0.01,
+          "selenium": 0.3,
+          "copper": 0.002,
+          "manganese": 0.008,
+          "choline": 0.05,
+          "water": 0.05,
+          "purines": 0.15,
+          "displayUnits": [
+            {
+              "label": "8 pieces",
+              "default": true,
+              "multiplier": 31
+            },
+            {
+              "label": "1 piece",
+              "multiplier": 3.875
+            },
+            {
+              "label": "1 bag (12 oz)",
+              "multiplier": 340
+            }
+          ],
+          "notes": "Label-derived (high confidence): kcal, macros, sodium (240mg/serving = high from coarse salt + NaOH processing), Ca, Fe (enriched flour fortification, 1.2mg/serving), K, fiber, added sugar (3g/serving). Estimated from USDA wheat flour + almond butter blend composition (lower confidence): B-vitamins (enrichment), Mg, P, Zn, Se, Cu, Mn, vit E (from almond), purines, water content (~5% moisture). Ingredients: unbleached enriched wheat flour, almond butter (almonds, sugar, salt), malted barley extract, coarse salt, canola oil, sodium hydroxide (processing aid). Contains: wheat, almond."
+        },
+        "tj_dried_mango": {
+          "name": "Trader Joe's Soft & Juicy Dried Mango",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 3.4286,
+          "p": 0.0143,
+          "carbs": 0.8286,
+          "fiber": 0.0286,
+          "sugar": 0.6,
+          "addedSugar": 0.2571,
+          "fat": 0,
+          "sf": 0,
+          "transFat": 0,
+          "cholesterol": 0,
+          "sodium": 0.7143,
+          "calcium": 2,
+          "iron": 0.0057,
+          "potassium": 2,
+          "vitC": 0.1,
+          "vitA": 1.5,
+          "water": 0.18,
+          "purines": 0.5,
+          "displayUnits": [
+            {
+              "label": "3 pieces",
+              "default": true,
+              "multiplier": 35
+            },
+            {
+              "label": "1 piece",
+              "multiplier": 11.7
+            },
+            {
+              "label": "1 bag (6 oz)",
+              "multiplier": 170
+            }
+          ],
+          "notes": "Label-derived (high confidence): kcal, macros, sodium, sugar (incl 9g added/35g serving), fiber, Ca, Fe, K. Ingredients: mango, sugar, glycerin, mango juice, sulfur dioxide (preservative). Estimated from USDA dried mango profile (lower confidence): vit A (carotenoids), vit C, water content (~18% moisture for soft-and-juicy variant), purines (low, ~50 mg/100g). HIGH-FRUCTOSE food — flag for gout management; minimize during flares and as regular snack given elevated baseline uric acid."
+        },
         "tofu_firm_half": {
           "name": "Tofu firm",
           "category": "items",
@@ -6307,6 +6416,59 @@
             "unit": "g"
           },
           "purines": 0
+        },
+        "watermelon": {
+          "name": "Watermelon (fresh, raw)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.3,
+          "p": 0.0061,
+          "carbs": 0.0755,
+          "fiber": 0.004,
+          "sugar": 0.062,
+          "fat": 0.0015,
+          "sf": 0,
+          "transFat": 0,
+          "cholesterol": 0,
+          "sodium": 0.01,
+          "potassium": 1.12,
+          "calcium": 0.07,
+          "magnesium": 0.1,
+          "phosphorus": 0.11,
+          "iron": 0.0024,
+          "zinc": 0.001,
+          "copper": 0.00042,
+          "manganese": 0.00038,
+          "selenium": 0.004,
+          "vitC": 0.081,
+          "vitA": 0.28,
+          "vitE": 0.0005,
+          "vitK": 0.001,
+          "b1": 0.00033,
+          "b2": 0.00021,
+          "b3": 0.00178,
+          "b5": 0.00221,
+          "b6": 0.00045,
+          "b9": 0.03,
+          "choline": 0.041,
+          "water": 0.9145,
+          "purines": 0.1,
+          "displayUnits": [
+            {
+              "label": "100 g serving",
+              "default": true,
+              "multiplier": 100
+            },
+            {
+              "label": "1 cup diced",
+              "multiplier": 152
+            },
+            {
+              "label": "1 wedge (1/16 melon, ~286g)",
+              "multiplier": 286
+            }
+          ],
+          "notes": "USDA SR Legacy values for raw watermelon, per-gram (high confidence). 91.45% water content. Lycopene ~4.5 mg/100g (main carotenoid, similar to tomato). Citrulline ~250 mg/100g (amino acid, mild blood pressure effects per RCTs). Total sugars ~6.2g/100g — mostly fructose+glucose+sucrose in roughly equal parts; lower fructose per gram than most fruits. Low purines (~10 mg/100g) — gout-safe. Vit A as RAE (mcg)."
         },
         "wegovy": {
           "name": "Oral semaglutide",
