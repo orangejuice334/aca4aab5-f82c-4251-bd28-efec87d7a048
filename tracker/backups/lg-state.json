@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-22T12:44:42.809Z",
-  "_gistSavedAt": "2026-06-22T12:18:04.930Z",
+  "_backupTakenAt": "2026-06-23T10:31:10.248Z",
+  "_gistSavedAt": "2026-06-22T22:21:15.278Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1018,7 +1018,7 @@
         "weight": 95.8,
         "weightMeta": "2026-06-18T11:39:38.120Z",
         "waist": 106.5,
-        "waistMeta": "2026-06-18T17:57:47.098Z"
+        "waistMeta": "2026-06-18T18:16:02.198Z"
       },
       "2026-06-20": {
         "toggles": {},
@@ -1063,12 +1063,32 @@
       },
       "2026-06-22": {
         "toggles": {},
-        "counters": {},
+        "counters": {
+          "ff_greek_tropical": 150,
+          "soy_milk_original": 247,
+          "sea_queen_shrimp": 113.05,
+          "ketchup_heinz_packet": 30,
+          "egg_substitute": 184,
+          "ham_black_forest_aldi": 28,
+          "nutricost_casein_vanilla": 38.4,
+          "watermelon": 343.2,
+          "ff_super_zero_vanilla": 340
+        },
         "customs": [],
         "toggleMeta": {},
-        "counterMeta": {},
+        "counterMeta": {
+          "ff_greek_tropical": "2026-06-22T09:04:53-04:00",
+          "soy_milk_original": "2026-06-22T13:06:39.595Z",
+          "sea_queen_shrimp": "2026-06-22T20:27:33.283Z",
+          "ketchup_heinz_packet": "2026-06-22T12:41:09-04:00",
+          "egg_substitute": "2026-06-22T20:28:17.823Z",
+          "ham_black_forest_aldi": "2026-06-22T16:34:02-04:00",
+          "nutricost_casein_vanilla": "2026-06-22T16:44:32-04:00",
+          "watermelon": "2026-06-22T22:21:00.195Z",
+          "ff_super_zero_vanilla": "2026-06-22T18:20:52-04:00"
+        },
         "weight": 96.5,
-        "weightMeta": "2026-06-22T12:18:04.834Z"
+        "weightMeta": "2026-06-22T20:32:18.064Z"
       }
     },
     "savedItems": [],
@@ -1151,7 +1171,6 @@
       "details-sync-error-banner": true,
       "supplements-water": true,
       "targets-accumulation": true,
-      "today-log": true,
       "details-recipe-maker": true,
       "chart-bmi-chart": true,
       "history": true,
@@ -2425,58 +2444,6 @@
           "brand": "Giant",
           "purines": 0.05
         },
-        "egg_whites": {
-          "name": "Egg whites",
-          "category": "items",
-          "kcal": 0.52,
-          "p": 0.109,
-          "fat": 0.0017,
-          "sodium": 1.66,
-          "carbs": 0.0073,
-          "sugar": 0.0071,
-          "water": 0.88,
-          "b2": 0.0044,
-          "b3": 0.0011,
-          "b5": 0.0019,
-          "b6": 0.0001,
-          "b7": 0.0007,
-          "b9": 0.04,
-          "b12": 0.0009,
-          "choline": 0.011,
-          "calcium": 0.07,
-          "iron": 0.0008,
-          "magnesium": 0.11,
-          "phosphorus": 0.15,
-          "potassium": 1.63,
-          "zinc": 0.0003,
-          "selenium": 0.2,
-          "manganese": 0.0001,
-          "iodine": 0.06,
-          "purines": 0.05,
-          "displayUnits": [
-            {
-              "label": "1 cup",
-              "amount": 243,
-              "unit": "g",
-              "default": true,
-              "multiplier": 243
-            },
-            {
-              "label": "100 g",
-              "amount": 100,
-              "unit": "g",
-              "multiplier": 100
-            },
-            {
-              "label": "1 large",
-              "amount": 33,
-              "unit": "g",
-              "multiplier": 33
-            }
-          ],
-          "notes": "From whole eggs, separated. ~1 large egg yields ~33 g of whites. Carton egg whites (e.g., Egg Beaters) have similar macros. Excellent k/g P (kcal per gram of protein) ≈ 4.77 — high-volume protein with negligible fat.",
-          "defaultMeasuredIn": "g"
-        },
         "eggs_shrimp_edamame_bowl": {
           "name": "Eggs, shrimp & edamame microwave bowl",
           "category": "recipes",
@@ -2640,6 +2607,114 @@
             }
           ],
           "defaultMeasuredIn": "g"
+        },
+        "ff_greek_tropical": {
+          "name": "Friendly Farms Nonfat Greek Yogurt Tropical Fruit",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.6667,
+          "p": 0.0867,
+          "carbs": 0.0667,
+          "fiber": 0.0033,
+          "sugar": 0.0467,
+          "addedSugar": 0.0133,
+          "fat": 0,
+          "sf": 0,
+          "transFat": 0,
+          "cholesterol": 0.0333,
+          "sodium": 0.4333,
+          "calcium": 0.8667,
+          "iron": 0,
+          "potassium": 1.2533,
+          "vitD": 0,
+          "vitA": 0.1,
+          "vitE": 0.01,
+          "vitK": 0.001,
+          "b1": 0.0003,
+          "b2": 0.0028,
+          "b3": 0.0007,
+          "b5": 0.0033,
+          "b6": 0.0006,
+          "b9": 0.07,
+          "b12": 0.0075,
+          "choline": 0.15,
+          "magnesium": 0.11,
+          "phosphorus": 1.35,
+          "zinc": 0.005,
+          "selenium": 0.097,
+          "copper": 0.0003,
+          "manganese": 0.001,
+          "iodine": 0.5,
+          "water": 0.8,
+          "purines": 0.1,
+          "displayUnits": [
+            {
+              "label": "1 container",
+              "default": true,
+              "multiplier": 150
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Label-derived (high confidence): kcal, macros, sodium, sugar (incl 2g added/container), Ca (10% DV), K (4% DV), cholesterol. Estimated from USDA nonfat Greek yogurt + fruit blend composition (lower confidence): B-vitamins (B12 ~0.0075 mcg/g notable), Mg, P, Zn, Se, Cu, Mn, iodine (high in dairy ~0.5 mcg/g), choline, water (~80%), purines (low). Contains live active cultures: S. thermophilus, L. bulgaricus, L. acidophilus, Bifidus. Ingredients: cultured nonfat milk, water, pineapple, mango, fructose, modified corn starch, sugar, natural flavors, passion fruit juice concentrate, fruit juice concentrate for color, fruit pectin, acesulfame K, sucralose, citric acid, malic acid. Dual sweetened (sucralose + ace-K)."
+        },
+        "ff_super_zero_vanilla": {
+          "name": "Friendly Farms Super Zero Yogurt Vanilla nonfat Greek (Aldi)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.5882,
+          "p": 0.1,
+          "carbs": 0.04118,
+          "fiber": 0,
+          "sugar": 0.02941,
+          "addedSugar": 0,
+          "fat": 0,
+          "sf": 0,
+          "transFat": 0,
+          "cholesterol": 0.0588,
+          "sodium": 0.3235,
+          "calcium": 0.9412,
+          "iron": 0,
+          "potassium": 1.4118,
+          "vitD": 0,
+          "vitA": 0.05,
+          "vitE": 0.01,
+          "vitK": 0.001,
+          "b1": 0.0003,
+          "b2": 0.0028,
+          "b3": 0.0007,
+          "b5": 0.0033,
+          "b6": 0.0006,
+          "b9": 0.07,
+          "b12": 0.0075,
+          "choline": 0.15,
+          "magnesium": 0.11,
+          "phosphorus": 1.35,
+          "zinc": 0.005,
+          "selenium": 0.097,
+          "copper": 0.0003,
+          "manganese": 0.001,
+          "iodine": 0.5,
+          "water": 0.85,
+          "purines": 0.1,
+          "displayUnits": [
+            {
+              "label": "2/3 cup serving",
+              "default": true,
+              "multiplier": 170
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            },
+            {
+              "label": "1 container (30 oz)",
+              "multiplier": 850
+            }
+          ],
+          "notes": "Label-derived (high confidence): kcal, macros, sodium, sugar (5g/170g all from natural milk lactose — 0g added), Ca (10% DV), K (6% DV), cholesterol. Sweetened with stevia (steviol glycosides) only — no artificial sweeteners. Estimated from USDA nonfat Greek yogurt composition (high confidence): B12 (~0.0075 mcg/g notable), iodine (high in dairy ~0.5 mcg/g), choline, Mg, P (~1.35 mg/g), Zn, Se. Modified corn starch added for body/texture (replaces fat-derived mouthfeel). Live active cultures (typical Greek strains). Water ~85% (slightly higher than typical Greek due to starch dilution). Ingredients: cultured pasteurized milk, modified corn starch, natural flavors, concentrate, steviol glycosides. Contains milk. Product of Canada."
         },
         "flonase": {
           "name": "Flonase",
@@ -2884,6 +2959,63 @@
             }
           ],
           "defaultMeasuredIn": "g"
+        },
+        "ham_black_forest_aldi": {
+          "name": "Ham Black Forest deli sliced (Aldi)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.8929,
+          "p": 0.1786,
+          "carbs": 0.0179,
+          "fiber": 0,
+          "sugar": 0.0179,
+          "addedSugar": 0.0089,
+          "fat": 0.0179,
+          "sf": 0.0089,
+          "transFat": 0,
+          "cholesterol": 0.5357,
+          "sodium": 7.8571,
+          "calcium": 0,
+          "iron": 0.0064,
+          "potassium": 1.57,
+          "vitD": 0,
+          "vitA": 0,
+          "vitC": 0,
+          "vitE": 0.002,
+          "vitK": 0.001,
+          "b1": 0.005,
+          "b2": 0.0022,
+          "b3": 0.045,
+          "b5": 0.0055,
+          "b6": 0.003,
+          "b9": 0.02,
+          "b12": 0.0065,
+          "choline": 0.7,
+          "magnesium": 0.14,
+          "phosphorus": 1.9,
+          "zinc": 0.02,
+          "selenium": 0.3,
+          "copper": 0.0007,
+          "manganese": 0.0002,
+          "iodine": 0.05,
+          "water": 0.72,
+          "purines": 1.5,
+          "displayUnits": [
+            {
+              "label": "2 slices",
+              "default": true,
+              "multiplier": 56
+            },
+            {
+              "label": "1 slice",
+              "multiplier": 28
+            },
+            {
+              "label": "1 package (8 oz)",
+              "multiplier": 224
+            }
+          ],
+          "notes": "Label-derived (high confidence): kcal, macros, sodium (440mg/56g = HIGH at 7.86 mg/g), cholesterol, iron. Estimated from USDA cooked ham composition (high confidence — well-characterized): pork excellent in thiamine (B1 ~0.5 mg/100g, one of best dietary sources), niacin (B3 ~4.5 mg/100g), B12, selenium, phosphorus, choline. Water ~72% (highly hydrated due to phosphate brining). Purines moderate ~150 mg/100g. Ingredients: ham, water, less than 2% of sea salt, organic sugar, dextrose, sodium phosphate, dried vinegar, sodium erythorbate (antioxidant — reduces nitrosamine formation from nitrite), sodium nitrite (preservative), spice extracts. PROCESSED MEAT — WHO IARC Group 1 carcinogen (colorectal cancer association at ≥50g/day chronic intake). Sodium-dense; flag for gout management given moderate purine content + documented prior history."
         },
         "ham_serrano_lidl": {
           "name": "Ham serrano dry-cured",
@@ -3978,6 +4110,58 @@
             }
           ]
         },
+        "nutricost_casein_vanilla": {
+          "name": "Nutricost Casein Protein Vanilla (micellar)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 3.4375,
+          "p": 0.78125,
+          "carbs": 0.03125,
+          "fiber": 0,
+          "sugar": 0.03125,
+          "addedSugar": 0.03125,
+          "fat": 0,
+          "sf": 0,
+          "transFat": 0,
+          "cholesterol": 0.625,
+          "sodium": 5.9375,
+          "calcium": 18.125,
+          "iron": 0.009375,
+          "potassium": 4.375,
+          "vitD": 0,
+          "vitA": 0.05,
+          "vitE": 0.005,
+          "vitK": 0.0005,
+          "b1": 0.0005,
+          "b2": 0.003,
+          "b3": 0.001,
+          "b5": 0.01,
+          "b6": 0.002,
+          "b9": 0.05,
+          "b12": 0.015,
+          "choline": 0.3,
+          "magnesium": 0.2,
+          "phosphorus": 6,
+          "zinc": 0.03,
+          "selenium": 0.3,
+          "copper": 0.001,
+          "manganese": 0.001,
+          "iodine": 0.5,
+          "water": 0.05,
+          "purines": 0.075,
+          "displayUnits": [
+            {
+              "label": "1 scoop",
+              "default": true,
+              "multiplier": 32
+            },
+            {
+              "label": "1 container (2 lb)",
+              "multiplier": 907
+            }
+          ],
+          "notes": "Label-derived (high confidence): kcal, macros, sodium, cholesterol, Ca (VERY HIGH at 18.125 mg/g — 580mg/scoop = 45% DV), K, Fe. Estimated from USDA micellar casein composition (high confidence): phosphorus very high (~6 mg/g — casein binds phosphate), B12 (~0.015 mcg/g, decent), iodine (~0.5 mcg/g — dairy is excellent iodine source), choline, selenium, Mg. Purines LOW (~7.5 mg/100g — dairy proteins are gout-protective per Choi 2004). Ingredients: Micellar casein (casein protein, sunflower lecithin, instantized), natural and artificial flavors, salt (sodium chloride), sucralose. Contains milk. CASEIN-SPECIFIC PROPERTIES: slow-digesting (4–6h amino acid release vs whey's 1–2h), forms gastric gel = high satiety + slower delivery, ideal for pre-bed or long fasting windows. Leucine ~9% of protein (slightly lower than whey at ~11% but still effective for MPS). Mouthfeel thicker/chalkier than whey or soy."
+        },
         "omega3": {
           "name": "Omega-3 (fish oil)",
           "category": "supplements",
@@ -4997,6 +5181,61 @@
             }
           ],
           "defaultMeasuredIn": "units"
+        },
+        "sea_queen_shrimp": {
+          "name": "Shrimp Sea Queen cooked medium peeled (Aldi)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.9412,
+          "p": 0.2235,
+          "carbs": 0,
+          "fiber": 0,
+          "sugar": 0,
+          "fat": 0.0059,
+          "sf": 0,
+          "transFat": 0,
+          "cholesterol": 1.8824,
+          "sodium": 2.9412,
+          "calcium": 0.7294,
+          "iron": 0,
+          "potassium": 0.9059,
+          "vitD": 0,
+          "vitA": 0.16,
+          "vitE": 0.0105,
+          "vitK": 0.003,
+          "b1": 0.0002,
+          "b2": 0.0005,
+          "b3": 0.0255,
+          "b5": 0.0045,
+          "b6": 0.0013,
+          "b9": 0.03,
+          "b12": 0.0186,
+          "choline": 0.8,
+          "magnesium": 0.34,
+          "phosphorus": 2.05,
+          "zinc": 0.0134,
+          "selenium": 0.38,
+          "copper": 0.0021,
+          "manganese": 0.0005,
+          "iodine": 0.35,
+          "water": 0.77,
+          "purines": 1.85,
+          "displayUnits": [
+            {
+              "label": "1 serving (~17 shrimp)",
+              "default": true,
+              "multiplier": 85
+            },
+            {
+              "label": "1 bag (12 oz, ~68 shrimp)",
+              "multiplier": 340
+            },
+            {
+              "label": "1 shrimp",
+              "multiplier": 5
+            }
+          ],
+          "notes": "Label-derived (high confidence): kcal, macros, sodium (250mg/85g — added salt + sodium tripolyphosphate), high cholesterol (160mg/85g = 53% DV), Ca, K. Estimated from USDA cooked shrimp composition (high confidence — well-characterized): excellent selenium (~0.38 mcg/g), B12 (~0.019 mcg/g), choline (~0.8 mg/g — very high), phosphorus, iodine. Astaxanthin ~1mg/100g (anti-inflammatory carotenoid, source of pink color). Modest omega-3 (~0.4 g EPA+DHA per 100g). PURINE CONTENT: ~135–235 mg/100g (sources vary; using midpoint ~185 mg/100g = 1.85 mg/g) — MODERATE-HIGH, flag for gout management given documented prior history. Ingredients: shrimp (Litopenaeus vannamei), salt, sodium tripolyphosphate (moisture retention). Farm-raised Vietnam. Contains crustacean shellfish."
         },
         "sesame_chicken_100g": {
           "name": "Sesame chicken — takeout",
