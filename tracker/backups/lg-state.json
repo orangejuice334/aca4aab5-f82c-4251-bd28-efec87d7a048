@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-23T10:31:10.248Z",
-  "_gistSavedAt": "2026-06-22T22:21:15.278Z",
+  "_backupTakenAt": "2026-06-24T10:16:32.594Z",
+  "_gistSavedAt": "2026-06-23T19:15:49.157Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1089,6 +1089,27 @@
         },
         "weight": 96.5,
         "weightMeta": "2026-06-22T20:32:18.064Z"
+      },
+      "2026-06-23": {
+        "toggles": {},
+        "counters": {
+          "turkey_slices_oven_roasted": 0,
+          "mayo_packet": 14,
+          "ketchup_packet": 72,
+          "egg_substitute": 368,
+          "ff_greek_tropical": 150,
+          "nutricost_casein_vanilla": 38.4
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "turkey_slices_oven_roasted": "2026-06-23T18:10:44.351Z",
+          "mayo_packet": "2026-06-23T19:14:48.848Z",
+          "ketchup_packet": "2026-06-23T19:15:00.814Z",
+          "egg_substitute": "2026-06-23T19:15:12.039Z",
+          "ff_greek_tropical": "2026-06-23T19:15:28.371Z",
+          "nutricost_casein_vanilla": "2026-06-23T19:15:43.860Z"
+        }
       }
     },
     "savedItems": [],
@@ -1171,12 +1192,12 @@
       "details-sync-error-banner": true,
       "supplements-water": true,
       "targets-accumulation": true,
-      "details-recipe-maker": true,
       "chart-bmi-chart": true,
       "history": true,
       "profile": true,
       "catalog-archive": true,
-      "details-add-new-item": true
+      "details-add-new-item": true,
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
@@ -3016,6 +3037,30 @@
             }
           ],
           "notes": "Label-derived (high confidence): kcal, macros, sodium (440mg/56g = HIGH at 7.86 mg/g), cholesterol, iron. Estimated from USDA cooked ham composition (high confidence — well-characterized): pork excellent in thiamine (B1 ~0.5 mg/100g, one of best dietary sources), niacin (B3 ~4.5 mg/100g), B12, selenium, phosphorus, choline. Water ~72% (highly hydrated due to phosphate brining). Purines moderate ~150 mg/100g. Ingredients: ham, water, less than 2% of sea salt, organic sugar, dextrose, sodium phosphate, dried vinegar, sodium erythorbate (antioxidant — reduces nitrosamine formation from nitrite), sodium nitrite (preservative), spice extracts. PROCESSED MEAT — WHO IARC Group 1 carcinogen (colorectal cancer association at ≥50g/day chronic intake). Sodium-dense; flag for gout management given moderate purine content + documented prior history."
+        },
+        "ham_roll": {
+          "name": "ham roll",
+          "category": "recipes",
+          "ingredients": [
+            {
+              "itemKey": "string_cheese",
+              "amount": 21
+            },
+            {
+              "itemKey": "ham_black_forest_aldi",
+              "amount": 56
+            }
+          ],
+          "displayUnits": [
+            {
+              "label": "full recipe",
+              "multiplier": 77,
+              "amount": 77,
+              "unit": "g",
+              "default": true,
+              "locked": true
+            }
+          ]
         },
         "ham_serrano_lidl": {
           "name": "Ham serrano dry-cured",
