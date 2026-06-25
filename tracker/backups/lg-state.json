@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-24T10:16:32.594Z",
-  "_gistSavedAt": "2026-06-23T19:15:49.157Z",
+  "_backupTakenAt": "2026-06-25T10:12:50.195Z",
+  "_gistSavedAt": "2026-06-24T21:01:34.780Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1110,6 +1110,36 @@
           "ff_greek_tropical": "2026-06-23T19:15:28.371Z",
           "nutricost_casein_vanilla": "2026-06-23T19:15:43.860Z"
         }
+      },
+      "2026-06-24": {
+        "toggles": {},
+        "counters": {
+          "yogurt_half": 362.8,
+          "nutricost_casein_vanilla": 38.4,
+          "psd_snackpack_hummus_pretzels": 99,
+          "chefs_cupboard_ramen": 71,
+          "ham_roll": 77
+        },
+        "customs": [
+          {
+            "id": "27aedb34-44dd-4bf2-8fb3-750cfa1f2244",
+            "name": "160kcal 2p",
+            "kcal": 160,
+            "p": 2,
+            "count": 1,
+            "lastModified": "2026-06-24T16:30:44.665Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "yogurt_half": "2026-06-24T13:57:18.245Z",
+          "nutricost_casein_vanilla": "2026-06-24T13:58:47.038Z",
+          "psd_snackpack_hummus_pretzels": "2026-06-24T12:40:46-04:00",
+          "chefs_cupboard_ramen": "2026-06-24T13:03:35-04:00",
+          "ham_roll": "2026-06-24T20:24:33.865Z"
+        },
+        "weight": 95.2,
+        "weightMeta": "2026-06-24T14:44:12.485Z"
       }
     },
     "savedItems": [],
@@ -1189,15 +1219,14 @@
       "targets-daily": true,
       "details-profile-section": true,
       "today-customs": true,
-      "details-sync-error-banner": true,
       "supplements-water": true,
       "targets-accumulation": true,
-      "chart-bmi-chart": true,
       "history": true,
       "profile": true,
       "catalog-archive": true,
-      "details-add-new-item": true,
-      "catalog-ratio": true
+      "details-sync-error-banner": true,
+      "details-recipe-maker": true,
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
@@ -2140,6 +2169,58 @@
             }
           ],
           "notes": "Reggano Grated Parmesan Cheese (ALDI), 8 oz (227g), 45 servings. Label per 5g (2 tsp): 20 kcal, 2g protein, 1.5g fat, 1g sat fat, <5mg cholesterol, 90mg sodium, 0 carbs, calcium 55mg, iron 0, potassium 9mg. Ingredients: parmesan cheese (part-skim cow milk, cultures, salt, enzymes), powdered cellulose (anti-caking), potassium sorbate. Cholesterol estimated at 0.88 mg/g (USDA grated parmesan ~88mg/100g, consistent with label <5mg). Vitamins, phosphorus (high in hard cheese), magnesium, zinc, selenium from USDA grated parmesan — MEDIUM CONFIDENCE."
+        },
+        "chefs_cupboard_ramen": {
+          "name": "Chef's Cupboard Ramen cup beef style (Aldi)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 4.507,
+          "p": 0.2817,
+          "carbs": 0.3662,
+          "fiber": 0.0282,
+          "sugar": 0.0423,
+          "addedSugar": 0.0141,
+          "fat": 0.1972,
+          "sf": 0.0211,
+          "transFat": 0,
+          "cholesterol": 0,
+          "sodium": 15.9155,
+          "calcium": 0.9718,
+          "iron": 0.0423,
+          "potassium": 2.662,
+          "vitD": 0,
+          "vitA": 0.5,
+          "vitE": 0.04,
+          "vitK": 0.005,
+          "b1": 0.005,
+          "b2": 0.003,
+          "b3": 0.04,
+          "b5": 0.004,
+          "b6": 0.0005,
+          "b9": 1,
+          "b12": 0,
+          "choline": 0.05,
+          "magnesium": 0.3,
+          "phosphorus": 1.2,
+          "zinc": 0.008,
+          "selenium": 0.2,
+          "copper": 0.0015,
+          "manganese": 0.005,
+          "iodine": 0.02,
+          "water": 0.05,
+          "purines": 0.5,
+          "displayUnits": [
+            {
+              "label": "1 cup (package)",
+              "default": true,
+              "multiplier": 71
+            },
+            {
+              "label": "½ cup",
+              "multiplier": 35.5
+            }
+          ],
+          "notes": "Label-derived (high confidence): kcal, macros, sodium (1,130mg/cup = 49% DV — extreme), fiber, iron (3mg = 17% DV from fortification), Ca, K. Estimated from USDA instant ramen + pea-protein-enriched composition (lower confidence): B-vitamins (B9 high from folic acid fortification, B1/B2/B3 from enrichment), Mg, P, Zn, Se. Vit B12 = 0 (no animal source). Purines low (~50 mg/100g). Per-gram values for DRY product as labeled. Ingredients: enriched organic unbleached flour (wheat, niacin, reduced iron, thiamine mononitrate, riboflavin, folic acid), organic sunflower oil, organic pea protein, seasoning blend (maltodextrin, brown sugar, salt, yeast extract, autolyzed yeast, dehydrated vegetable powder [onion, garlic, chives], caramelized sugar, caramel color, disodium inosinate & disodium guanylate, paprika extract, spices, hydrolyzed soy & corn protein, natural beef style flavor), dried red bell pepper, dried carrot, salt, dried onion, dried peas, dried corn, ≤2% mix tocopherol, potassium carbonate, soda ash, guar gum, sodium tripolyphosphate. Contains wheat, soy. Contains NO beef (despite 'beef style flavor')."
         },
         "chicken_livers_bell_evans": {
           "name": "Chicken livers organic",
@@ -5050,6 +5131,57 @@
             }
           ],
           "notes": "Nutricost Whey Protein Isolate, Unflavored, 2 lb tub, 26 servings. Values from ACTUAL PRODUCT LABEL per 35g scoop (1/3 cup): 130 kcal, 30g protein, 0.5g fat, 0g sat fat, 15mg cholesterol, 85mg sodium, 1g carb, 1g sugar, calcium 110mg, iron 0, potassium 120mg. Single ingredient: instantized whey protein isolate (whey protein, sunflower lecithin). Contains milk. Note: USDA Branded Food entry (UPC 702669933025) listed 33g scoop and 120mg sodium — superseded by actual label (35g, 85mg). Tub 26×35=910g. Phosphorus, magnesium, b2, b12, zinc, selenium, choline are conservative estimates (isolate strips most minerals, iron=0 on label) — LOW CONFIDENCE. Purines ~70mg/100g estimate."
+        },
+        "psd_snackpack_hummus_pretzels": {
+          "name": "Park Street Deli Snack Pack Classic Hummus with pretzels (Aldi)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.3232,
+          "p": 0.0505,
+          "carbs": 0.3232,
+          "fiber": 0.0303,
+          "sugar": 0.0202,
+          "addedSugar": 0,
+          "fat": 0.0909,
+          "sf": 0.0101,
+          "transFat": 0,
+          "cholesterol": 0,
+          "sodium": 5.6566,
+          "calcium": 0.2626,
+          "iron": 0.0273,
+          "potassium": 0.9495,
+          "vitD": 0.004,
+          "vitA": 0.05,
+          "vitE": 0.04,
+          "vitK": 0.02,
+          "b1": 0.003,
+          "b2": 0.002,
+          "b3": 0.03,
+          "b5": 0.005,
+          "b6": 0.002,
+          "b9": 0.6,
+          "choline": 0.05,
+          "magnesium": 0.4,
+          "phosphorus": 1.1,
+          "zinc": 0.012,
+          "selenium": 0.2,
+          "copper": 0.002,
+          "manganese": 0.012,
+          "iodine": 0.02,
+          "water": 0.41,
+          "purines": 0.4,
+          "displayUnits": [
+            {
+              "label": "1 pack (3.5 oz)",
+              "default": true,
+              "multiplier": 99
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Label-derived (high confidence) for full pack: kcal, macros, sodium (560mg/pack = HIGH), fiber (3g/pack), iron (15% DV from enriched flour), Ca, K, vit D. Combined hummus + pretzels — single SKU snack pack. Estimated from USDA chickpea + sesame + enriched wheat composition (lower confidence): B-vitamins (B9 high from enrichment), Mg, P, Zn, Se, vit E (from sunflower oil + tahini), water content (~41% — hummus ~65% water, pretzels ~5%, ratio ~60/40 by weight). Purines moderate (~0.4 mg/g — chickpeas contribute most). Hummus ingredients: chickpeas, water, sunflower oil, sesame tahini, sea salt, citric acid, garlic, guar gum, cumin. Pretzel ingredients: enriched wheat flour (iron as ferrous sulfate, niacin, thiamine mononitrate, riboflavin, folic acid), salt, sunflower/canola/rice oil, corn syrup, malt syrup, yeast. Contains wheat, sesame."
         },
         "roll_salmon_maki_6pc": {
           "name": "Roll salmon maki 6-piece",
