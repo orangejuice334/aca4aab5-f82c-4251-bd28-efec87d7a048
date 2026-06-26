@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-25T10:12:50.195Z",
-  "_gistSavedAt": "2026-06-24T21:01:34.780Z",
+  "_backupTakenAt": "2026-06-26T10:17:46.127Z",
+  "_gistSavedAt": "2026-06-25T22:13:06.225Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1140,6 +1140,33 @@
         },
         "weight": 95.2,
         "weightMeta": "2026-06-24T14:44:12.485Z"
+      },
+      "2026-06-25": {
+        "toggles": {},
+        "counters": {
+          "nutricost_casein_vanilla": 19.2,
+          "string_cheese": 42,
+          "ketchup_packet": 72,
+          "egg_substitute": 460,
+          "elevation_protein_puffs_jalapeno": 60,
+          "simms_jerky_blackpepper": 19.6,
+          "mama_cozzi_turkey_pepperoni": 30,
+          "loven_fresh_protein_everything_bagel": 55
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "nutricost_casein_vanilla": "2026-06-25T16:58:24.069Z",
+          "string_cheese": "2026-06-25T16:58:39.776Z",
+          "ketchup_packet": "2026-06-25T21:52:44.472Z",
+          "egg_substitute": "2026-06-25T21:53:07.243Z",
+          "elevation_protein_puffs_jalapeno": "2026-06-25T17:53:10-04:00",
+          "simms_jerky_blackpepper": "2026-06-25T22:06:49.162Z",
+          "mama_cozzi_turkey_pepperoni": "2026-06-25T17:53:12-04:00",
+          "loven_fresh_protein_everything_bagel": "2026-06-25T17:53:13-04:00"
+        },
+        "weight": 95.2,
+        "weightMeta": "2026-06-25T21:52:10.130Z"
       }
     },
     "savedItems": [],
@@ -2687,6 +2714,58 @@
           ],
           "defaultMeasuredIn": "units"
         },
+        "elevation_protein_puffs_jalapeno": {
+          "name": "Elevation Protein Puffs Jalapeño Cheddar (Aldi)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 3.6667,
+          "p": 0.7,
+          "carbs": 0.0667,
+          "fiber": 0,
+          "sugar": 0.0333,
+          "addedSugar": 0.0333,
+          "fat": 0.1,
+          "sf": 0.0167,
+          "transFat": 0,
+          "cholesterol": 0.6667,
+          "sodium": 11.3333,
+          "calcium": 1.4667,
+          "iron": 0,
+          "potassium": 7.7,
+          "vitD": 0,
+          "vitA": 0.02,
+          "vitE": 0.01,
+          "vitK": 0.001,
+          "b1": 0.001,
+          "b2": 0.003,
+          "b3": 0.005,
+          "b5": 0.005,
+          "b6": 0.001,
+          "b9": 0.1,
+          "b12": 0.007,
+          "choline": 0.5,
+          "magnesium": 0.25,
+          "phosphorus": 4,
+          "zinc": 0.02,
+          "selenium": 0.1,
+          "copper": 0.0005,
+          "manganese": 0.001,
+          "iodine": 0.3,
+          "water": 0.03,
+          "purines": 0.1,
+          "displayUnits": [
+            {
+              "label": "1 cup",
+              "default": true,
+              "multiplier": 30
+            },
+            {
+              "label": "1 bag",
+              "multiplier": 60
+            }
+          ],
+          "notes": "Label-derived (high confidence): kcal, macros, sodium (340mg/30g = HIGH), cholesterol, Ca (44mg/30g), K (231mg/30g excellent for snack), high protein density (21g/30g). Estimated from milk protein isolate composition (high confidence — dairy whey base): B12 (~0.007 mcg/g), phosphorus very high (~4 mg/g from dairy), iodine, choline, selenium. Purines low (~10 mg/100g — dairy gout-protective). Ingredients: milk protein isolate, sunflower oil, dextrose, salt, skim milk, <1% of onion, garlic, jalapeño, tomato, whey, whey protein concentrate, sour cream solids, buttermilk, milk, cheese cultures, enzymes, yeast extract, natural flavors, spice and color, citric acid, silicon dioxide, disodium phosphate, lactic acid. Contains milk. Label shows full amino acid profile (full essential AA spectrum including 2,130 mg leucine and 1,840 mg lysine per 30g serving)."
+        },
         "evoo_tsp": {
           "name": "Olive oil extra virgin",
           "category": "small_portions",
@@ -3776,6 +3855,120 @@
             }
           ],
           "defaultMeasuredIn": "g"
+        },
+        "loven_fresh_protein_everything_bagel": {
+          "name": "L'Oven Fresh Protein Everything Bagel (Aldi)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.4545,
+          "p": 0.2,
+          "carbs": 0.3727,
+          "fiber": 0.0364,
+          "sugar": 0.0545,
+          "addedSugar": 0.0364,
+          "fat": 0.0318,
+          "sf": 0.0045,
+          "transFat": 0,
+          "polyunsat": 0.0182,
+          "monounsat": 0.0045,
+          "cholesterol": 0,
+          "sodium": 4.2727,
+          "calcium": 2.1818,
+          "iron": 0.0373,
+          "potassium": 4.1818,
+          "vitD": 0,
+          "vitA": 0.02,
+          "vitE": 0.01,
+          "vitK": 0.002,
+          "b1": 0.005,
+          "b2": 0.003,
+          "b3": 0.05,
+          "b5": 0.005,
+          "b6": 0.002,
+          "b9": 1.5,
+          "b12": 0,
+          "choline": 0.3,
+          "magnesium": 0.5,
+          "phosphorus": 1.5,
+          "zinc": 0.015,
+          "selenium": 0.3,
+          "copper": 0.002,
+          "manganese": 0.01,
+          "iodine": 0.02,
+          "water": 0.3,
+          "purines": 0.15,
+          "displayUnits": [
+            {
+              "label": "1 bagel",
+              "default": true,
+              "multiplier": 110
+            },
+            {
+              "label": "½ bagel",
+              "multiplier": 55
+            },
+            {
+              "label": "1 pack (4 bagels)",
+              "multiplier": 440
+            }
+          ],
+          "notes": "Label-derived (high confidence): kcal, macros (22g protein/110g bagel — boosted via pea protein isolate addition), sodium (470mg/bagel = HIGH), fiber (4g), sugar (6g total/4g added), Ca (240mg/22% DV — high for bread, from calcium propionate preservative + flour), Fe (4.1mg/25% DV — fortified), K (460mg). Estimated from USDA bagel + pea protein composition (medium confidence): B9 high from folic acid fortification, Mg, P, Zn, Se, B-vitamins from enrichment, water ~30%. Vit B12 = 0 (plant-based). Purines low (~15 mg/100g). Ingredients: enriched flour (wheat flour, malted barley flour, niacin, iron, thiamine mononitrate, folic acid), water, pea protein isolate, wheat gluten, sugar, <2% of: seeds, dehydrated onion, salt, calcium propionate preservative, oil, poppy seeds, citric acid preservative, dehydrated garlic, maltodextrin, yellow corn meal, mono- and diglycerides, sorbic acid preservative, sodium stearoyl lactylate, hydrogenated palm oil, distilled monoglycerides, silicon dioxide, ascorbic acid, phosphoric acid preservative, propionic acid preservative, microcrystalline cellulose, corn starch. Contains: sesame, wheat. Contains bioengineered food ingredients."
+        },
+        "mama_cozzi_turkey_pepperoni": {
+          "name": "Mama Cozzi's Turkey Pepperoni (Aldi)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.6667,
+          "p": 0.3,
+          "carbs": 0,
+          "fiber": 0,
+          "sugar": 0,
+          "addedSugar": 0,
+          "fat": 0.1667,
+          "sf": 0.05,
+          "transFat": 0,
+          "cholesterol": 2,
+          "sodium": 18.333,
+          "calcium": 0,
+          "iron": 0.024,
+          "potassium": 3.13,
+          "vitD": 0,
+          "vitA": 0.1,
+          "vitE": 0.005,
+          "vitK": 0.001,
+          "b1": 0.001,
+          "b2": 0.002,
+          "b3": 0.05,
+          "b5": 0.005,
+          "b6": 0.005,
+          "b9": 0.05,
+          "b12": 0.01,
+          "choline": 0.6,
+          "magnesium": 0.25,
+          "phosphorus": 2,
+          "zinc": 0.02,
+          "selenium": 0.25,
+          "copper": 0.001,
+          "manganese": 0.001,
+          "iodine": 0.05,
+          "water": 0.3,
+          "purines": 1.2,
+          "displayUnits": [
+            {
+              "label": "17 slices",
+              "default": true,
+              "multiplier": 30
+            },
+            {
+              "label": "1 slice",
+              "multiplier": 1.76
+            },
+            {
+              "label": "1 bag (5 oz)",
+              "multiplier": 142
+            }
+          ],
+          "notes": "Label-derived (high confidence): kcal, macros, sodium (550mg/30g = EXTREME 18.3 mg/g), cholesterol (60mg/30g), Fe (4% DV), K (2% DV). Estimated from USDA turkey deli meat + paprika oleoresin composition (medium confidence): B12 (~0.01 mcg/g), niacin (B3 high from turkey ~0.05 mg/g), B6, choline, selenium, water ~30%. Purines moderate-high (~120 mg/100g — flag for gout). Ingredients: turkey, salt, spices, <2% dextrose, water, flavoring, smoke flavoring, lactic acid starter culture, oleoresin of paprika, garlic powder, SODIUM NITRITE (preservative), citric acid, BHA, BHT (synthetic antioxidant preservatives — chronic intake safety debated). PROCESSED MEAT — WHO IARC Group 1 carcinogen association. Marketed as 60% less fat than original pepperoni."
         },
         "mandarin": {
           "name": "Mandarin",
@@ -5502,6 +5695,62 @@
           "notes": "Ocean's (Lidl) medium cooked shrimp, peeled & deveined, tail-off. Bag 12 oz / 340 g, 4 servings × 85 g. 71/91 count per pound (53-67 per bag). 14 g protein per 85 g serving — k/g P 4.3, very protein-dense. Cholesterol 165 mg per serving (56% DV) is the watch-out for any cardio-conscious diet; sodium 340 mg per serving (15% DV) reflects the salt-water cooking brine. ALREADY COOKED — fold in last during slab prep so the bake doesn't turn it rubbery; ~30 min at 375 F is the rubbery edge for shrimp.",
           "brand": "Ocean's / Lidl",
           "purines": 1.5
+        },
+        "simms_jerky_blackpepper": {
+          "name": "Simms Zero Sugar Black Pepper Beef Jerky (Aldi)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.5,
+          "p": 0.5,
+          "carbs": 0,
+          "fiber": 0,
+          "sugar": 0,
+          "addedSugar": 0,
+          "fat": 0.0536,
+          "sf": 0.0179,
+          "transFat": 0,
+          "cholesterol": 1.0714,
+          "sodium": 17.857,
+          "calcium": 0.9286,
+          "iron": 0.0386,
+          "potassium": 5,
+          "vitD": 0,
+          "vitA": 0.05,
+          "vitE": 0.005,
+          "vitK": 0.002,
+          "b1": 0.0005,
+          "b2": 0.001,
+          "b3": 0.05,
+          "b5": 0.005,
+          "b6": 0.005,
+          "b9": 0.05,
+          "b12": 0.05,
+          "choline": 1,
+          "magnesium": 0.5,
+          "phosphorus": 4,
+          "zinc": 0.1,
+          "selenium": 0.5,
+          "copper": 0.001,
+          "manganese": 0.002,
+          "iodine": 0.05,
+          "water": 0.25,
+          "purines": 1,
+          "displayUnits": [
+            {
+              "label": "1 oz serving",
+              "default": true,
+              "multiplier": 28
+            },
+            {
+              "label": "1 g",
+              "multiplier": 1
+            },
+            {
+              "label": "1 bag (~3.25 oz)",
+              "multiplier": 92
+            }
+          ],
+          "notes": "Label-derived (high confidence): kcal, macros, sodium (500mg/28g = EXTREME 17.9 mg/g), cholesterol, Ca (2% DV), Fe (6% DV). Estimated from USDA dried beef composition (high confidence): zinc very high (~0.1 mg/g — beef concentrated), B12 (~0.05 mcg/g excellent), selenium, choline, phosphorus, magnesium. Water ~25% (jerky concentrates beef). Purines MODERATE-HIGH (~100 mg/100g — flag for gout history). Ingredients: beef, gluten-free soy sauce (water, soybeans, rice, salt), beef broth, <2% flavorings, black pepper, vinegar, cultured celery powder (cultured celery powder + sea salt — natural nitrite source, chemically equivalent to added sodium nitrite), granulated garlic, salt. Contains soy. Marketed as no added nitrites/MSG/artificial sweeteners + gluten-free."
         },
         "skim_milk": {
           "name": "Skim milk",
