@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-26T10:17:46.127Z",
-  "_gistSavedAt": "2026-06-25T22:13:06.225Z",
+  "_backupTakenAt": "2026-06-27T09:25:07.615Z",
+  "_gistSavedAt": "2026-06-26T22:14:40.015Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1167,6 +1167,29 @@
         },
         "weight": 95.2,
         "weightMeta": "2026-06-25T21:52:10.130Z"
+      },
+      "2026-06-26": {
+        "toggles": {},
+        "counters": {
+          "loven_fresh_protein_everything_bagel": 110,
+          "mama_cozzi_turkey_pepperoni": 30,
+          "soy_milk_original": 154,
+          "string_cheese": 21,
+          "mayo_packet": 12,
+          "goldhen_egg_whites": 453.5,
+          "ketchup_heinz_packet": 27
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "loven_fresh_protein_everything_bagel": "2026-06-26T22:14:05.198Z",
+          "mama_cozzi_turkey_pepperoni": "2026-06-26T12:13:05-04:00",
+          "soy_milk_original": "2026-06-26T12:13:05-04:00",
+          "string_cheese": "2026-06-26T12:13:05-04:00",
+          "mayo_packet": "2026-06-26T14:34:22-04:00",
+          "goldhen_egg_whites": "2026-06-26T14:34:23-04:00",
+          "ketchup_heinz_packet": "2026-06-26T14:34:24-04:00"
+        }
       }
     },
     "savedItems": [],
@@ -3097,6 +3120,70 @@
             }
           ],
           "notes": "USDA garlic powder, per 100 g: 331 kcal, 16.55 P, 0.73 fat, 72.73 C, 9 fiber, 2.43 sugar, 60 Na, 1193 K, 414 P-phos, 79 Ca. Micros are USDA estimates (LOW CONFIDENCE), and iron/copper especially vary between USDA entries. 1 tbsp taken as 9 g (level ~8.4 g McCormick to ~9.7 g USDA; packing varies). No container size known (added from text, not a label). Trace vitamins / purines left at 0."
+        },
+        "goldhen_egg_whites": {
+          "name": "Goldhen Liquid Egg Whites (Aldi)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.5435,
+          "p": 0.1087,
+          "carbs": 0,
+          "fiber": 0,
+          "sugar": 0,
+          "addedSugar": 0,
+          "fat": 0,
+          "sf": 0,
+          "transFat": 0,
+          "cholesterol": 0,
+          "sodium": 1.6304,
+          "calcium": 0,
+          "iron": 0,
+          "potassium": 1.5217,
+          "vitD": 0,
+          "vitA": 0,
+          "vitE": 0,
+          "vitK": 0,
+          "b1": 0.00004,
+          "b2": 0.00439,
+          "b3": 0.00105,
+          "b5": 0.0019,
+          "b6": 0.00005,
+          "b9": 0.04,
+          "b12": 0.0009,
+          "choline": 0.011,
+          "magnesium": 0.11,
+          "phosphorus": 0.15,
+          "zinc": 0.0003,
+          "selenium": 0.2,
+          "copper": 0.00023,
+          "manganese": 0.00011,
+          "iodine": 0.03,
+          "water": 0.88,
+          "purines": 0.05,
+          "displayUnits": [
+            {
+              "label": "3 Tbsp (label)",
+              "default": true,
+              "multiplier": 46
+            },
+            {
+              "label": "1 carton (32 oz)",
+              "multiplier": 907
+            },
+            {
+              "label": "½ carton",
+              "multiplier": 453.5
+            },
+            {
+              "label": "1 cup",
+              "multiplier": 243
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Pure pasteurized egg whites — no fortification, no gums, no color. INGREDIENTS: egg whites (only). Contains: eggs. Gluten free, lactose free. Container 32 oz (907 g) = 'whites of 27 eggs' per label. Label values per 3 Tbsp (46 g): 25 kcal, 5g protein, 0g fat, 75mg sodium, 70mg potassium, 0 cholesterol. USDA SR Legacy composition fills micros: riboflavin (B2) ~0.44 mg/100g — egg whites are a moderate B2 source; selenium ~20 mcg/100g; choline very low ~1.1 mg/100g (yolk holds all the choline); water ~88%. Purines very low ~5 mg/100g. Differs from Giant 'egg_substitute' which is fortified with vit D, calcium, B-complex + contains gums — this is just pure whites. Will not whip up for meringues/angel food due to pasteurization."
         },
         "guac_tbsp": {
           "name": "Guacamole",
