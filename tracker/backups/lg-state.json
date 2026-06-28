@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-27T09:25:07.615Z",
-  "_gistSavedAt": "2026-06-26T22:14:40.015Z",
+  "_backupTakenAt": "2026-06-28T09:54:51.233Z",
+  "_gistSavedAt": "2026-06-27T12:28:24.925Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1190,6 +1190,15 @@
           "goldhen_egg_whites": "2026-06-26T14:34:23-04:00",
           "ketchup_heinz_packet": "2026-06-26T14:34:24-04:00"
         }
+      },
+      "2026-06-27": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "weight": 94.8,
+        "weightMeta": "2026-06-27T12:27:48.376Z"
       }
     },
     "savedItems": [],
@@ -1276,7 +1285,8 @@
       "catalog-archive": true,
       "details-sync-error-banner": true,
       "details-recipe-maker": true,
-      "details-add-new-item": true
+      "details-add-new-item": true,
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
