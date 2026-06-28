@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.87">
+<meta name="app-version" content="v6.5.88">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -8860,14 +8860,12 @@
   // Build a group header with a title-span on the left and a filter textbox
   // on the right. Filter values are preserved across re-renders via the
   // module-level `groupFilters` map keyed by the group's data-group-key.
-  function buildGroupHeader(titleText, includeFilter) {
+  function buildGroupHeader(titleText) {
     // Returns a DocumentFragment with TWO direct children of the .checkout-
     // group band: the label header (positioned absolutely on the top rule)
     // and a separate filter input (also absolute, pinned to the band's
     // right edge so filter boxes align across groups regardless of label
-    // length). `includeFilter` defaults to true; pass false from the
-    // archive renderer (the archive list is short, the filter UI is noise).
-    if (includeFilter === undefined) includeFilter = true;
+    // length).
     const frag = document.createDocumentFragment();
     const header = document.createElement('div');
     header.className = 'checkout-group-header';
@@ -8876,17 +8874,13 @@
     title.textContent = titleText;
     header.appendChild(title);
     frag.appendChild(header);
-    // Archive groups skip the filter input: archived item lists are short
-    // and the filter chrome would just add visual noise.
-    if (includeFilter) {
-      const filter = document.createElement('input');
-      filter.type = 'text';
-      filter.className = 'group-filter';
-      filter.placeholder = 'filter…';
-      filter.setAttribute('data-group-filter', '');
-      filter.addEventListener('click', (e) => e.stopPropagation());
-      frag.appendChild(filter);
-    }
+    const filter = document.createElement('input');
+    filter.type = 'text';
+    filter.className = 'group-filter';
+    filter.placeholder = 'filter…';
+    filter.setAttribute('data-group-filter', '');
+    filter.addEventListener('click', (e) => e.stopPropagation());
+    frag.appendChild(filter);
     return frag;
   }
 
@@ -9149,7 +9143,7 @@
     group.className = 'checkout-group archive-group';
     group.dataset.groupKey = 'catalog-archive';
     const titleText = 'Archive · ' + archived.length + ' item' + (archived.length === 1 ? '' : 's');
-    group.appendChild(buildGroupHeader(titleText, false));
+    group.appendChild(buildGroupHeader(titleText));
     archived.forEach(({ key, item }) => {
       const row = document.createElement('div');
       row.className = 'checkout-row archive-row';

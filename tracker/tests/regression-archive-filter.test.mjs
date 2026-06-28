@@ -3,9 +3,8 @@ import assert from 'node:assert/strict';
 import { loadTracker } from './_dom-harness.mjs';
 import { mkCatalog } from './_mocks.mjs';
 
-// Luis's rule: the Archive group must NOT have a filter input. Archived
-// items are typically few and the visual chrome of a filter box doesn't
-// pay rent there.
+// Archive group keeps its filter input like every other catalog group
+// (Luis reverted the no-filter choice).
 
 function seedWithArchived() {
   const items = mkCatalog();
@@ -39,17 +38,13 @@ test('Archive group is rendered when there are archived items', async () => {
   } finally { h.teardown(); }
 });
 
-test('Archive group has NO filter input', async () => {
+test('Archive group has its filter input like every other group', async () => {
   const h = await loadTracker({ seedState: seedWithArchived() });
   try {
     const archive = h.doc.querySelector('.checkout-group.archive-group');
     assert.ok(archive, 'archive group rendered');
     const filter = archive.querySelector('input[data-group-filter]');
-    assert.equal(filter, null,
-      'archive group must not include a [data-group-filter] input');
-    const filterByClass = archive.querySelector('input.group-filter');
-    assert.equal(filterByClass, null,
-      'archive group must not include an .group-filter input');
+    assert.ok(filter, 'archive group must include a [data-group-filter] input');
   } finally { h.teardown(); }
 });
 
