@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-28T09:54:51.233Z",
-  "_gistSavedAt": "2026-06-27T12:28:24.925Z",
+  "_backupTakenAt": "2026-06-28T15:57:19.130Z",
+  "_gistSavedAt": "2026-06-28T15:48:17.955Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1199,6 +1199,25 @@
         "counterMeta": {},
         "weight": 94.8,
         "weightMeta": "2026-06-27T12:27:48.376Z"
+      },
+      "2026-06-28": {
+        "toggles": {},
+        "counters": {
+          "protein_whey_animal_strawberry": 64,
+          "psd_snackpack_hummus_pretzels": 0,
+          "loven_fresh_protein_everything_bagel": 55,
+          "mama_cozzi_turkey_pepperoni": 24
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "protein_whey_animal_strawberry": "2026-06-28T15:32:59.958Z",
+          "psd_snackpack_hummus_pretzels": "2026-06-28T15:33:06.564Z",
+          "loven_fresh_protein_everything_bagel": "2026-06-28T15:46:17.689Z",
+          "mama_cozzi_turkey_pepperoni": "2026-06-28T15:47:37.826Z"
+        },
+        "weight": 94,
+        "weightMeta": "2026-06-28T14:14:25.386Z"
       }
     },
     "savedItems": [],
@@ -1279,14 +1298,12 @@
       "details-profile-section": true,
       "today-customs": true,
       "supplements-water": true,
-      "targets-accumulation": true,
       "history": true,
-      "profile": true,
-      "catalog-archive": true,
       "details-sync-error-banner": true,
+      "catalog-archive": true,
       "details-recipe-maker": true,
-      "details-add-new-item": true,
-      "catalog-ratio": true
+      "targets-accumulation": true,
+      "section-weight-tracker": true
     },
     "userCatalog": {
       "items": {

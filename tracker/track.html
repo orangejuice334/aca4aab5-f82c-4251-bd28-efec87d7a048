@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.86">
+<meta name="app-version" content="v6.5.87">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -4659,6 +4659,15 @@
 <!-- ============ SECTION 4 (Supplements reference cards) removed.
      Per-supplement notes now live as catalog item fields in the gist. ============ -->
 
+<!-- ============ ARCHIVE SECTION ============
+     Lives at the very bottom of the page, after Weight & BMI. Only renders
+     content when the catalog has archived items. renderArchiveGroup() owns
+     the container and clears it on each refresh. -->
+<section id="archive-section" class="section-minimal" data-collapsible>
+  <h2>Archive</h2>
+  <div id="catalog-archive-container"></div>
+</section>
+
 </main>
 <script>
 // === CHECKOUT LIST ===
@@ -6221,6 +6230,7 @@
   // Display format mirrors food items: bare name + amount appended in faint
   // text, demo items get a "(demo)" badge.
   function renderSupplementWaterRows() {
+    if (typeof window !== 'undefined' && window.__perfCounts) window.__perfCounts.suppWater = (window.__perfCounts.suppWater || 0) + 1;
     const container = document.getElementById('supplements-water-rows');
     if (!container) return;
     const items = [];
@@ -7626,6 +7636,7 @@
   // entry becomes a tile colored by status (ok / warn / danger). Direction
   // 'high' = over threshold is bad; 'low' = under threshold is bad.
   function renderWarningsRibbon() {
+    if (typeof window !== 'undefined' && window.__perfCounts) window.__perfCounts.warnings = (window.__perfCounts.warnings || 0) + 1;
     const list = document.getElementById('warnings-list');
     if (!list) return;
     const profile = state.profile || {};
@@ -8083,6 +8094,7 @@
   }
 
   function renderHistory() {
+    if (typeof window !== 'undefined' && window.__perfCounts) window.__perfCounts.history = (window.__perfCounts.history || 0) + 1;
     const history = getHistory();
 
     if (!history.length) {
@@ -8848,12 +8860,14 @@
   // Build a group header with a title-span on the left and a filter textbox
   // on the right. Filter values are preserved across re-renders via the
   // module-level `groupFilters` map keyed by the group's data-group-key.
-  function buildGroupHeader(titleText) {
+  function buildGroupHeader(titleText, includeFilter) {
     // Returns a DocumentFragment with TWO direct children of the .checkout-
     // group band: the label header (positioned absolutely on the top rule)
     // and a separate filter input (also absolute, pinned to the band's
     // right edge so filter boxes align across groups regardless of label
-    // length).
+    // length). `includeFilter` defaults to true; pass false from the
+    // archive renderer (the archive list is short, the filter UI is noise).
+    if (includeFilter === undefined) includeFilter = true;
     const frag = document.createDocumentFragment();
     const header = document.createElement('div');
     header.className = 'checkout-group-header';
@@ -8862,13 +8876,17 @@
     title.textContent = titleText;
     header.appendChild(title);
     frag.appendChild(header);
-    const filter = document.createElement('input');
-    filter.type = 'text';
-    filter.className = 'group-filter';
-    filter.placeholder = 'filter…';
-    filter.setAttribute('data-group-filter', '');
-    filter.addEventListener('click', (e) => e.stopPropagation());
-    frag.appendChild(filter);
+    // Archive groups skip the filter input: archived item lists are short
+    // and the filter chrome would just add visual noise.
+    if (includeFilter) {
+      const filter = document.createElement('input');
+      filter.type = 'text';
+      filter.className = 'group-filter';
+      filter.placeholder = 'filter…';
+      filter.setAttribute('data-group-filter', '');
+      filter.addEventListener('click', (e) => e.stopPropagation());
+      frag.appendChild(filter);
+    }
     return frag;
   }
 
@@ -8899,6 +8917,15 @@
   function renderCatalog() {
     const root = document.getElementById('catalog-groups');
     if (!root) return;
+    // Today-log lives at the TOP of .checkout by default, but in alpha/ratio
+    // sort mode we reparent it INSIDE the All Items group below. Detach it
+    // back to .checkout (position 0) BEFORE we wipe #catalog-groups so the
+    // node survives the rebuild.
+    const checkoutContainer = root.parentElement;
+    const todayLogGroup = document.getElementById('today-log-group');
+    if (todayLogGroup && checkoutContainer && todayLogGroup.parentElement !== checkoutContainer) {
+      checkoutContainer.insertBefore(todayLogGroup, checkoutContainer.firstChild);
+    }
     root.innerHTML = '';
     const targetRatio = (GOALS.p > 0) ? (GOALS.kcal / GOALS.p) : Infinity;
     // Water has its own dedicated schedule UI in renderSupplementWaterRows
@@ -8959,8 +8986,12 @@
           group.appendChild(buildCatalogRow(entry.key, entry.item, entry.ratio, targetRatio));
         });
         root.appendChild(group);
+        // In alpha/ratio mode, nest Today's Log inside the All Items group
+        // so it sits right under the catalog the user pulls from.
+        const todayLog = document.getElementById('today-log-group');
+        if (todayLog) group.appendChild(todayLog);
       }
-      renderArchiveGroup(root);
+      renderArchiveGroup();
       applyCollapsedGroups();
       restoreGroupFilters();
       return;
@@ -9004,7 +9035,7 @@
 
       root.appendChild(group);
     });
-    renderArchiveGroup(root);
+    renderArchiveGroup();
     applyCollapsedGroups();
     restoreGroupFilters();
   }
@@ -9094,21 +9125,31 @@
     });
   }
 
-  // Render the Archive group at the bottom of the catalog. Each archived
-  // row is a one-line read-only entry with an Unarchive button — no edit
-  // panel, no counter. Restoring an item moves it back to its original
-  // category (preserved on archive in `prevCategory`).
-  function renderArchiveGroup(root) {
+  // Render the Archive group in its own section at the bottom of the page,
+  // below Weight & BMI. Each archived row is a one-line read-only entry
+  // with an Unarchive button — no edit panel, no counter. Restoring an
+  // item moves it back to its original category (preserved on archive in
+  // `prevCategory`).
+  function renderArchiveGroup() {
+    const host = document.getElementById('catalog-archive-container');
+    const section = document.getElementById('archive-section');
+    if (!host) return;
+    host.innerHTML = '';
     const archived = Object.keys(ITEMS)
       .filter(k => ITEMS[k] && ITEMS[k].archived)
       .map(k => ({ key: k, item: ITEMS[k] }))
       .sort((a, b) => (a.item.name || a.key).localeCompare(b.item.name || b.key));
-    if (!archived.length) return;
+    if (!archived.length) {
+      // Hide the whole section header when there's nothing to show.
+      if (section) section.hidden = true;
+      return;
+    }
+    if (section) section.hidden = false;
     const group = document.createElement('div');
     group.className = 'checkout-group archive-group';
     group.dataset.groupKey = 'catalog-archive';
     const titleText = 'Archive · ' + archived.length + ' item' + (archived.length === 1 ? '' : 's');
-    group.appendChild(buildGroupHeader(titleText));
+    group.appendChild(buildGroupHeader(titleText, false));
     archived.forEach(({ key, item }) => {
       const row = document.createElement('div');
       row.className = 'checkout-row archive-row';
@@ -9121,7 +9162,7 @@
         '<div><button type="button" class="item-unarchive-btn" data-item-unarchive="' + escapeHtml(key) + '">Unarchive</button></div>';
       group.appendChild(row);
     });
-    root.appendChild(group);
+    host.appendChild(group);
   }
 
   // Build the catalog row(s) for a single item. v5 multi-variant model:
@@ -9352,7 +9393,7 @@
       '<div class="counter-flag-slot"></div>' +
       '<div class="counter-buttons">' +
         '<button class="counter-btn" data-action="dec" data-key="' + safeKey + '" data-serving-size="' + servingSize + '">−</button>' +
-        '<input type="number" class="counter-value" data-value="' + safeKey + '" data-serving-size="' + servingSize + '" min="0" step="0.1" value="0" inputmode="decimal" />' +
+        '<input type="number" class="counter-value" data-value="' + safeKey + '" data-serving-size="' + servingSize + '" min="0" step="0.01" value="0" inputmode="decimal" />' +
         '<button class="counter-btn" data-action="inc" data-key="' + safeKey + '" data-serving-size="' + servingSize + '">+</button>' +
       '</div>';
     row.appendChild(ctrl);
@@ -9441,7 +9482,7 @@
         '<div class="counter-flag-slot"></div>' +
         '<div class="counter-buttons">' +
           '<button class="counter-btn" data-action="dec" data-key="' + safeKey + '" data-serving-size="' + servingSize + '">−</button>' +
-          '<input type="number" class="counter-value" data-value="' + safeKey + '" data-serving-size="' + servingSize + '" min="0" step="0.1" value="0" inputmode="decimal" />' +
+          '<input type="number" class="counter-value" data-value="' + safeKey + '" data-serving-size="' + servingSize + '" min="0" step="0.01" value="0" inputmode="decimal" />' +
           '<button class="counter-btn" data-action="inc" data-key="' + safeKey + '" data-serving-size="' + servingSize + '">+</button>' +
         '</div>';
       row.appendChild(ctrl);
@@ -10866,7 +10907,7 @@
           <div class="counter-flag-slot"></div>
           <div class="counter-buttons">
             <button class="counter-btn" data-custom-action="dec" data-custom-idx="${idx}"${count === 0 ? ' disabled' : ''}>−</button>
-            <input type="number" class="counter-value" data-custom-value-idx="${idx}" min="0" step="0.1" value="${count}" inputmode="decimal" />
+            <input type="number" class="counter-value" data-custom-value-idx="${idx}" min="0" step="0.01" value="${count}" inputmode="decimal" />
             <button class="counter-btn" data-custom-action="inc" data-custom-idx="${idx}">+</button>
           </div>
         </div>
@@ -11187,6 +11228,155 @@
     container.innerHTML = '<h2>Daily Tracker</h2>' + html;
   }
 
+  // Patch the totals strip + bars + markers + kcal/p goal line for the
+  // current `totals` snapshot. Extracted from render() so the counter
+  // fast path can call ONLY this targeted DOM work without triggering
+  // the heavy downstream renderers.
+  function applyTotalsAndBars(totals, displayed) {
+    const setPct = (key, val, goal, dec) => {
+      const el = document.querySelector('[data-pct="' + key + '"]');
+      if (!el) return;
+      const pct = Math.round((val / goal) * 100);
+      const rem = goal - val;
+      const fmtRem = (n) => dec ? n.toFixed(dec) : Math.round(n).toString();
+      let remStr;
+      if (rem > 0) remStr = '-' + fmtRem(rem);
+      else if (rem < 0) remStr = '+' + fmtRem(-rem);
+      else remStr = '0';
+      el.textContent = '(' + pct + '% · ' + remStr + ')';
+      el.style.color = barColor(key, val, goal);
+    };
+    for (const key of displayed) {
+      const def = NUTRIENT_BY_KEY[key];
+      if (!def) continue;
+      const value = def.computed ? computeDerivedNutrient(key, totals) : (totals[key] || 0);
+      const valEl = document.querySelector('[data-total="' + key + '"]');
+      if (valEl && valEl.firstChild) {
+        const formatted = (def.dec > 0)
+          ? dropTrailingZeros((Math.round(value * Math.pow(10, def.dec)) / Math.pow(10, def.dec)).toFixed(def.dec))
+          : Math.round(value).toString();
+        valEl.firstChild.textContent = formatted + (def.unit ? ' ' : '');
+      }
+      if (def.computed) {
+        if (key === '_kcal_per_p') {
+          const target = (GOALS.p > 0) ? (GOALS.kcal / GOALS.p) : 0;
+          const goalLine = document.querySelector('[data-goal-line="' + key + '"]');
+          if (goalLine) {
+            if (!isFinite(target) || target <= 0) {
+              goalLine.textContent = ' ';
+              goalLine.style.color = '';
+            } else {
+              let direction;
+              if (!isFinite(value) || value <= 0) direction = 'at goal';
+              else if (Math.abs(value - target) < 0.05) direction = 'at goal';
+              else if (value < target) direction = 'below goal';
+              else direction = 'above goal';
+              const targetText = dropTrailingZeros(target.toFixed(1));
+              goalLine.textContent = direction + ' ' + targetText;
+              goalLine.style.color = kcalPerPBarColor(value > 0 ? value : target, target);
+            }
+          }
+          const barEl = document.querySelector('[data-bar="' + key + '"]');
+          if (barEl) {
+            barEl.style.width = '100%';
+            barEl.style.backgroundColor = kcalPerPBarColor(value > 0 ? value : target, target);
+            barEl.classList.remove('over');
+          }
+        }
+        continue;
+      }
+      const goal = GOALS[key] || 1;
+      setPct(key, value, goal, def.dec);
+      updateBar(key, value, goal);
+      updateMarker(key);
+    }
+  }
+
+  // Sync the +/- buttons and counter input for ONE catalog item. Used by
+  // the fast path so a +1 tap only touches the affected row's triplet,
+  // not every catalog row's. Mirrors the per-key body of the legacy
+  // getCounterKeys() sweep.
+  function updateCatalogCounterDisplay(key) {
+    const item = ITEMS[key];
+    if (!item) return;
+    const activeDay = state.days && state.days[state.activeDate];
+    const locked = isCounterLocked(item, key);
+    const native = locked
+      ? lockedCounterValueForDay(item, key, activeDay)
+      : (state.counters[key] || 0);
+    const sel = (typeof CSS !== 'undefined' && CSS.escape) ? CSS.escape(key) : key.replace(/"/g, '\\"');
+    document.querySelectorAll('[data-value="' + sel + '"]').forEach(valEl => {
+      if (document.activeElement === valEl) return;
+      const servingSize = parseFloat(valEl.dataset.servingSize) || 1;
+      const display = servingSize > 0 ? native / servingSize : 0;
+      const rounded = Math.round(display * 100) / 100;
+      if ('value' in valEl) valEl.value = rounded;
+      else valEl.textContent = rounded;
+    });
+    document.querySelectorAll('.counter-btn[data-action="dec"][data-key="' + sel + '"]').forEach(b => {
+      b.disabled = locked || !native;
+    });
+    if (locked) {
+      document.querySelectorAll('.counter-btn[data-action="inc"][data-key="' + sel + '"]').forEach(b => {
+        b.disabled = true;
+      });
+    }
+  }
+
+  function updateAllCatalogCounterDisplays() {
+    for (const key of getCounterKeys()) updateCatalogCounterDisplay(key);
+  }
+
+  function updateToggleCheckboxes() {
+    for (const key of getToggleKeys()) {
+      const cb = document.querySelector('input[data-check="' + key + '"]');
+      if (cb) cb.checked = !!state.toggles[key];
+    }
+    for (const key of getWaterToggleKeys()) {
+      const cb = document.querySelector('input[data-check="' + key + '"]');
+      if (cb) cb.checked = !!state.toggles[key];
+    }
+  }
+
+  // Debounced rebuild of the truly-heavy renderers. Counter +/- taps only
+  // affect today's totals row of the history table and the warnings ribbon
+  // (which folds today's contribution into N-day rolling windows). Past
+  // history rows don't change. Re-running these in full after every tap
+  // is wasteful, but the user does eventually need them current - so we
+  // schedule the rebuild for ~800ms after the LAST tap.
+  let _heavyRefreshTimer = null;
+  function scheduleHeavyRefresh() {
+    if (_heavyRefreshTimer) clearTimeout(_heavyRefreshTimer);
+    _heavyRefreshTimer = setTimeout(() => {
+      _heavyRefreshTimer = null;
+      try { renderWarningsRibbon(); } catch (_) {}
+      try { renderHistory(); } catch (_) {}
+    }, 800);
+  }
+
+  // Fast path used by the counter +/- click handler and by the
+  // typing-into-the-counter-input commit. Touches ONLY:
+  //   - the totals strip (kcal / p / sf / water / caffeine / kcal-p)
+  //   - the bars / markers / % cells for those nutrients
+  //   - the affected row's counter triplet (input + dec/inc disabled)
+  //   - today's log rebuild (small)
+  //   - date stamp + daily consequences (single-element work)
+  // Skips: renderSupplementWaterRows, renderWeightSection (charts!),
+  // renderSavedItems, renderTodayCustoms, checkFlags (clock-only).
+  // Defers: renderWarningsRibbon + renderHistory via scheduleHeavyRefresh.
+  function renderCounterDelta(key) {
+    const totals = computeTotals(state);
+    const displayed = (state.profile && Array.isArray(state.profile.displayedNutrients) && state.profile.displayedNutrients.length)
+      ? state.profile.displayedNutrients
+      : ['kcal', 'p', 'sf', 'water', 'caffeine'];
+    applyTotalsAndBars(totals, displayed);
+    if (key) updateCatalogCounterDisplay(key);
+    try { renderTodayLog(); } catch (_) {}
+    try { renderDateStamp(); } catch (_) {}
+    try { renderDailyConsequences(totals); } catch (_) {}
+    scheduleHeavyRefresh();
+  }
+
   function render() {
     const totals = computeTotals(state);
     const displayed = (state.profile && Array.isArray(state.profile.displayedNutrients) && state.profile.displayedNutrients.length)
@@ -11277,7 +11467,7 @@
         if (document.activeElement === valEl) return;
         const servingSize = parseFloat(valEl.dataset.servingSize) || 1;
         const display = servingSize > 0 ? native / servingSize : 0;
-        const rounded = Math.round(display * 10) / 10;
+        const rounded = Math.round(display * 100) / 100;
         if ('value' in valEl) valEl.value = rounded;
         else valEl.textContent = rounded;
       });
@@ -11512,6 +11702,7 @@
   }
 
   function renderWeightSection() {
+    if (typeof window !== 'undefined' && window.__perfCounts) window.__perfCounts.weight = (window.__perfCounts.weight || 0) + 1;
     const bucket = state.days[state.activeDate];
     const syncInput = (id, val) => {
       const el = document.getElementById(id);
@@ -13104,7 +13295,10 @@
       state.counters[key] = grams;
       if (typeof stampCounter === 'function') stampCounter(key);
       saveState();
-      render();
+      // Fast path: touch only this key's row + the totals strip. The heavy
+      // renderers (history, warnings ribbon) refresh on the 800ms debounce
+      // after the user stops typing.
+      renderCounterDelta(key);
     }
     // Live commits on every keystroke - the in-memory state.counters
     // update + render() runs synchronously so daily totals, ratio colors,
@@ -13128,11 +13322,14 @@
         if (!c) return;
         let v = parseFloat(cusInput.value);
         if (isNaN(v) || v < 0) v = 0;
-        v = Math.round(v * 10) / 10;
+        v = Math.round(v * 100) / 100;
         c.count = v;
         if (typeof stampCustom === 'function') stampCustom(idx);
         saveState();
-        render();
+        // Customs aren't keyed into ITEMS so updateCatalogCounterDisplay is
+        // a no-op for them; renderCounterDelta still patches totals + the
+        // today log row.
+        renderCounterDelta();
       }
     });
 
@@ -13290,7 +13487,7 @@
         if (!c) return;
         let v = parseFloat(cusInput.value);
         if (isNaN(v) || v < 0) v = 0;
-        v = Math.round(v * 10) / 10;
+        v = Math.round(v * 100) / 100;
         c.count = v;
         cusInput.value = v;
         if (typeof stampCustom === 'function') stampCustom(idx);
@@ -13355,7 +13552,10 @@
       };
       attachRecipeSnapshotIfApplicable(counterOp, key);
       sendOp(counterOp);
-      render();
+      // Fast path: only touch this row's counter triplet + totals strip +
+      // today log. The heavy renderers (history, warnings ribbon) refresh
+      // on the 800ms debounce in scheduleHeavyRefresh().
+      renderCounterDelta(key);
     });
 
     // Supplement row expansion. Catalog rows have per-row listeners attached
