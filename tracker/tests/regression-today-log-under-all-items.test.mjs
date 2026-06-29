@@ -44,23 +44,53 @@ test('today-log-group element exists and is initially placed somewhere', async (
   } finally { h.teardown(); }
 });
 
-test('alpha sort mode: today-log-group nested inside the All items group', async () => {
+test('alpha sort mode: today-log-group sits as a SIBLING after the All items group', async () => {
   const h = await loadTracker({ seedState: seed('alpha') });
   try {
     const allItems = h.doc.querySelector('.checkout-group[data-group-key="catalog-alpha"]');
     assert.ok(allItems, 'all-items (alpha) group must render');
-    const today = allItems.querySelector('#today-log-group');
-    assert.ok(today, 'today-log-group must be nested inside the all-items group in alpha sort mode');
+    const today = h.doc.getElementById('today-log-group');
+    assert.ok(today, 'today-log-group must exist');
+    // Must NOT be a descendant of the all-items group (would get collapsed
+    // when the group is collapsed).
+    assert.ok(!allItems.contains(today),
+      'today-log-group must NOT be nested inside the all-items group');
+    // Must be a direct sibling of the all-items group, immediately after.
+    assert.equal(today.parentElement, allItems.parentElement,
+      'today-log-group must share a parent with the all-items group');
+    assert.equal(allItems.nextElementSibling, today,
+      'today-log-group must come directly AFTER the all-items group');
   } finally { h.teardown(); }
 });
 
-test('ratio sort mode: today-log-group nested inside the All items group', async () => {
+test('ratio sort mode: today-log-group sits as a SIBLING after the All items group', async () => {
   const h = await loadTracker({ seedState: seed('ratio') });
   try {
     const allItems = h.doc.querySelector('.checkout-group[data-group-key="catalog-ratio"]');
     assert.ok(allItems, 'all-items (ratio) group must render');
-    const today = allItems.querySelector('#today-log-group');
-    assert.ok(today, 'today-log-group must be nested inside the all-items group in ratio sort mode');
+    const today = h.doc.getElementById('today-log-group');
+    assert.ok(today, 'today-log-group must exist');
+    assert.ok(!allItems.contains(today),
+      'today-log-group must NOT be nested inside the all-items group');
+    assert.equal(today.parentElement, allItems.parentElement);
+    assert.equal(allItems.nextElementSibling, today,
+      'today-log-group must come directly AFTER the all-items group');
+  } finally { h.teardown(); }
+});
+
+test('alpha mode: collapsing the All Items group does NOT hide today-log', async () => {
+  const h = await loadTracker({ seedState: seed('alpha') });
+  try {
+    const allItems = h.doc.querySelector('.checkout-group[data-group-key="catalog-alpha"]');
+    const today = h.doc.getElementById('today-log-group');
+    assert.ok(allItems && today);
+    // Simulate a user collapse on the All Items group.
+    allItems.classList.add('collapsed');
+    // Today log lives OUTSIDE that group, so it must not be affected.
+    assert.ok(!allItems.contains(today),
+      'after collapse, today-log must still live outside the all-items group');
+    assert.ok(!today.classList.contains('collapsed'),
+      'today-log must not inherit the .collapsed class');
   } finally { h.teardown(); }
 });
 

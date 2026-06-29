@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-29T11:54:00.367Z",
-  "_gistSavedAt": "2026-06-29T01:23:21.808Z",
+  "_backupTakenAt": "2026-06-29T16:24:21.156Z",
+  "_gistSavedAt": "2026-06-29T16:20:21.705Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1241,6 +1241,21 @@
         },
         "weight": 94,
         "weightMeta": "2026-06-29T01:21:02.583Z"
+      },
+      "2026-06-29": {
+        "toggles": {},
+        "counters": {
+          "turkey_salmon_black_bean_slab": 200,
+          "mayo_packet": 14,
+          "ketchup_packet": 18
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "turkey_salmon_black_bean_slab": "2026-06-29T16:19:50.023Z",
+          "mayo_packet": "2026-06-29T16:19:58.873Z",
+          "ketchup_packet": "2026-06-29T16:20:05.203Z"
+        }
       }
     },
     "savedItems": [],
@@ -1328,7 +1343,9 @@
       "section-weight-tracker": true,
       "details-add-new-item": true,
       "today-log": true,
-      "catalog-ratio": true
+      "profile": true,
+      "catalog-ratio": true,
+      "details-recipe-maker": true
     },
     "userCatalog": {
       "items": {
@@ -7740,7 +7757,6 @@
           "label": "Uncategorized"
         }
       ]
-    },
-    "totalsMode": "collapsed"
+    }
   }
 }

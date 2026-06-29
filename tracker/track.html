@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.88">
+<meta name="app-version" content="v6.5.89">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -8980,10 +8980,11 @@
           group.appendChild(buildCatalogRow(entry.key, entry.item, entry.ratio, targetRatio));
         });
         root.appendChild(group);
-        // In alpha/ratio mode, nest Today's Log inside the All Items group
-        // so it sits right under the catalog the user pulls from.
+        // In alpha/ratio mode, place Today's Log as a SIBLING right after
+        // the All Items group so it sits visually below the catalog without
+        // being collapsed when the group is collapsed.
         const todayLog = document.getElementById('today-log-group');
-        if (todayLog) group.appendChild(todayLog);
+        if (todayLog) root.appendChild(todayLog);
       }
       renderArchiveGroup();
       applyCollapsedGroups();
