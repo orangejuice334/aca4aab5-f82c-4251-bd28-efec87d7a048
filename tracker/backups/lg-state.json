@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-28T16:22:42.573Z",
-  "_gistSavedAt": "2026-06-28T15:48:17.955Z",
+  "_backupTakenAt": "2026-06-29T11:54:00.367Z",
+  "_gistSavedAt": "2026-06-29T01:23:21.808Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1206,18 +1206,41 @@
           "protein_whey_animal_strawberry": 64,
           "psd_snackpack_hummus_pretzels": 0,
           "loven_fresh_protein_everything_bagel": 55,
-          "mama_cozzi_turkey_pepperoni": 24
+          "mama_cozzi_turkey_pepperoni": 24,
+          "tj_dolmas": 84,
+          "tj_beef_kebabs": 112,
+          "protein_whey_dymatize_iso100_vanilla": 36
         },
-        "customs": [],
+        "customs": [
+          {
+            "id": "64aaae17-956d-428e-b930-e9dfff97ef9a",
+            "name": "250kcal 1p",
+            "kcal": 250,
+            "p": 1,
+            "count": 1,
+            "lastModified": "2026-06-28T18:25:31.689Z"
+          },
+          {
+            "id": "14325611-5f88-46af-88b1-52283d2eb9a3",
+            "name": "50kcal 1p",
+            "kcal": 50,
+            "p": 1,
+            "count": 1,
+            "lastModified": "2026-06-28T18:26:26.376Z"
+          }
+        ],
         "toggleMeta": {},
         "counterMeta": {
           "protein_whey_animal_strawberry": "2026-06-28T15:32:59.958Z",
           "psd_snackpack_hummus_pretzels": "2026-06-28T15:33:06.564Z",
           "loven_fresh_protein_everything_bagel": "2026-06-28T15:46:17.689Z",
-          "mama_cozzi_turkey_pepperoni": "2026-06-28T15:47:37.826Z"
+          "mama_cozzi_turkey_pepperoni": "2026-06-28T15:47:37.826Z",
+          "tj_dolmas": "2026-06-28T14:21:53-04:00",
+          "tj_beef_kebabs": "2026-06-28T14:21:54-04:00",
+          "protein_whey_dymatize_iso100_vanilla": "2026-06-28T18:25:23.203Z"
         },
         "weight": 94,
-        "weightMeta": "2026-06-28T14:14:25.386Z"
+        "weightMeta": "2026-06-29T01:21:02.583Z"
       }
     },
     "savedItems": [],
@@ -1301,9 +1324,11 @@
       "history": true,
       "details-sync-error-banner": true,
       "catalog-archive": true,
-      "details-recipe-maker": true,
       "targets-accumulation": true,
-      "section-weight-tracker": true
+      "section-weight-tracker": true,
+      "details-add-new-item": true,
+      "today-log": true,
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
@@ -6328,6 +6353,118 @@
           ],
           "notes": "Label-derived (high confidence): kcal, macros, sodium (240mg/serving = high from coarse salt + NaOH processing), Ca, Fe (enriched flour fortification, 1.2mg/serving), K, fiber, added sugar (3g/serving). Estimated from USDA wheat flour + almond butter blend composition (lower confidence): B-vitamins (enrichment), Mg, P, Zn, Se, Cu, Mn, vit E (from almond), purines, water content (~5% moisture). Ingredients: unbleached enriched wheat flour, almond butter (almonds, sugar, salt), malted barley extract, coarse salt, canola oil, sodium hydroxide (processing aid). Contains: wheat, almond."
         },
+        "tj_beef_kebabs": {
+          "name": "Trader Joe's Middle Eastern Style Kebabs (seasoned beef patties)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.9643,
+          "p": 0.1696,
+          "carbs": 0.0536,
+          "fiber": 0.0045,
+          "sugar": 0.0089,
+          "addedSugar": 0,
+          "fat": 0.125,
+          "sf": 0.0446,
+          "transFat": 0.0089,
+          "cholesterol": 0.7589,
+          "sodium": 5.0893,
+          "calcium": 0.3571,
+          "iron": 0.0161,
+          "potassium": 2.1429,
+          "vitD": 0.0027,
+          "vitA": 0.05,
+          "vitE": 0.01,
+          "vitK": 0.002,
+          "b1": 0.0005,
+          "b2": 0.002,
+          "b3": 0.04,
+          "b5": 0.005,
+          "b6": 0.003,
+          "b9": 0.05,
+          "b12": 0.02,
+          "choline": 0.7,
+          "magnesium": 0.18,
+          "phosphorus": 1.6,
+          "zinc": 0.04,
+          "selenium": 0.15,
+          "copper": 0.0007,
+          "manganese": 0.0008,
+          "iodine": 0.02,
+          "water": 0.6,
+          "purines": 0.9,
+          "displayUnits": [
+            {
+              "label": "2 pieces (4 oz)",
+              "default": true,
+              "multiplier": 112
+            },
+            {
+              "label": "1 piece",
+              "multiplier": 56
+            },
+            {
+              "label": "1 package (3 servings)",
+              "multiplier": 336
+            }
+          ],
+          "notes": "Label-derived (high confidence): kcal, macros, sodium (570mg/112g = HIGH), cholesterol (85mg), trans fat 1g/serving (natural ruminant trans from beef + possible breadcrumb), sat fat 5g, fiber <1g, Fe (10% DV), K (240mg), Ca, vit D. Estimated from USDA ground beef + breadcrumb composition (high confidence): B12 (~0.02 mcg/g excellent), zinc high (~0.04 mg/g — beef), choline, phosphorus, selenium, water ~60%. Purines moderate (~90 mg/100g — beef). Ingredients: ground beef, onions, eggs (eggs, citric acid for color), breadcrumbs (unbleached wheat flour, sugar, salt, yeast), parsley, salt, paprika, garlic powder, spices. Contains wheat, egg. Frozen seasoned beef patties, Middle Eastern spice profile."
+        },
+        "tj_dolmas": {
+          "name": "Trader Joe's Dolmas (stuffed vine leaves)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.4286,
+          "p": 0.0238,
+          "carbs": 0.1429,
+          "fiber": 0.0238,
+          "sugar": 0.0119,
+          "addedSugar": 0,
+          "fat": 0.0714,
+          "sf": 0.0119,
+          "transFat": 0,
+          "cholesterol": 0,
+          "sodium": 5,
+          "calcium": 0.476,
+          "iron": 0.0086,
+          "potassium": 1,
+          "vitD": 0,
+          "vitA": 0.3,
+          "vitC": 0.02,
+          "vitE": 0.05,
+          "vitK": 0.5,
+          "b1": 0.0008,
+          "b2": 0.0004,
+          "b3": 0.006,
+          "b5": 0.002,
+          "b6": 0.001,
+          "b9": 0.1,
+          "choline": 0.05,
+          "magnesium": 0.15,
+          "phosphorus": 0.4,
+          "zinc": 0.003,
+          "selenium": 0.05,
+          "copper": 0.0008,
+          "manganese": 0.05,
+          "iodine": 0.005,
+          "water": 0.68,
+          "purines": 0.15,
+          "displayUnits": [
+            {
+              "label": "3 pieces",
+              "default": true,
+              "multiplier": 84
+            },
+            {
+              "label": "1 piece",
+              "multiplier": 28
+            },
+            {
+              "label": "1 can (9.86 oz)",
+              "multiplier": 280
+            }
+          ],
+          "notes": "Label-derived (high confidence): kcal, macros, sodium (420mg/84g = HIGH 5 mg/g), fiber, Ca (4% DV), Fe (4% DV), K (2% DV), 0 cholesterol. Vegan. Estimated from rice + grape leaf + olive oil composition (medium confidence): vit K high (grape leaves are rich source ~108 mcg/100g), manganese (rice), vit A (grape leaves), water ~68%. Purines low (~15 mg/100g). Ingredients (partial, from can): vine leaves, rice, olive/soybean oil, acid (acidulant), vine leaves cured. Contains soy. Product of (Greece/Turkey typical for TJ dolmas). Ready to serve. Rice-and-herb stuffed grape leaves, no meat."
+        },
         "tj_dried_mango": {
           "name": "Trader Joe's Soft & Juicy Dried Mango",
           "category": "items",
@@ -6462,6 +6599,30 @@
           "prevCategory": "items",
           "archived": true,
           "defaultMeasuredIn": "g"
+        },
+        "tomate_frito": {
+          "name": "tomate frito",
+          "category": "recipes",
+          "ingredients": [
+            {
+              "itemKey": "tomato_paste",
+              "amount": 170
+            },
+            {
+              "itemKey": "evoo_tsp",
+              "amount": 30
+            }
+          ],
+          "displayUnits": [
+            {
+              "label": "full recipe",
+              "multiplier": 200,
+              "amount": 200,
+              "unit": "g",
+              "default": true,
+              "locked": true
+            }
+          ]
         },
         "tomato_paste": {
           "name": "Tomato paste",
@@ -7579,6 +7740,7 @@
           "label": "Uncategorized"
         }
       ]
-    }
+    },
+    "totalsMode": "collapsed"
   }
 }
