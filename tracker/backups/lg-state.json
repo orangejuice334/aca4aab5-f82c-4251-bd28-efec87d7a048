@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-29T16:24:21.156Z",
-  "_gistSavedAt": "2026-06-29T16:20:21.705Z",
+  "_backupTakenAt": "2026-06-30T10:28:24.325Z",
+  "_gistSavedAt": "2026-06-29T20:14:24.775Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1247,14 +1247,22 @@
         "counters": {
           "turkey_salmon_black_bean_slab": 200,
           "mayo_packet": 14,
-          "ketchup_packet": 18
+          "ketchup_packet": 18,
+          "soy_milk": 140,
+          "hero_plain_bagel": 75,
+          "protein_powder_whey_premier_chocolate": 0,
+          "ff_super_zero_vanilla": 340
         },
         "customs": [],
         "toggleMeta": {},
         "counterMeta": {
           "turkey_salmon_black_bean_slab": "2026-06-29T16:19:50.023Z",
           "mayo_packet": "2026-06-29T16:19:58.873Z",
-          "ketchup_packet": "2026-06-29T16:20:05.203Z"
+          "ketchup_packet": "2026-06-29T16:20:05.203Z",
+          "soy_milk": "2026-06-29T20:07:56.559Z",
+          "hero_plain_bagel": "2026-06-29T13:51:00-04:00",
+          "protein_powder_whey_premier_chocolate": "2026-06-29T20:09:42.296Z",
+          "ff_super_zero_vanilla": "2026-06-29T20:09:42.921Z"
         }
       }
     },
@@ -1342,10 +1350,8 @@
       "targets-accumulation": true,
       "section-weight-tracker": true,
       "details-add-new-item": true,
-      "today-log": true,
       "profile": true,
-      "catalog-ratio": true,
-      "details-recipe-maker": true
+      "today-log": true
     },
     "userCatalog": {
       "items": {
@@ -3544,6 +3550,63 @@
             }
           ],
           "defaultMeasuredIn": "g"
+        },
+        "hero_plain_bagel": {
+          "name": "Hero Classic Plain Bagels",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.8667,
+          "p": 0.2533,
+          "carbs": 0.3333,
+          "fiber": 0.28,
+          "sugar": 0,
+          "addedSugar": 0,
+          "fat": 0.0533,
+          "sf": 0.00667,
+          "transFat": 0,
+          "cholesterol": 0,
+          "sodium": 6.1333,
+          "calcium": 0.2667,
+          "iron": 0.04,
+          "potassium": 0.4,
+          "vitD": 0,
+          "vitA": 0,
+          "vitC": 0,
+          "vitE": 0.01,
+          "vitK": 0.002,
+          "b1": 0.005,
+          "b2": 0.002,
+          "b3": 0.02,
+          "b5": 0.005,
+          "b6": 0.002,
+          "b9": 1,
+          "b12": 0,
+          "choline": 0.1,
+          "magnesium": 0.5,
+          "phosphorus": 1.5,
+          "zinc": 0.02,
+          "selenium": 0.3,
+          "copper": 0.002,
+          "manganese": 0.02,
+          "iodine": 0.005,
+          "water": 0.3,
+          "purines": 0.15,
+          "displayUnits": [
+            {
+              "label": "1 bagel",
+              "default": true,
+              "multiplier": 75
+            },
+            {
+              "label": "½ bagel",
+              "multiplier": 37.5
+            },
+            {
+              "label": "1 pack (4 bagels)",
+              "multiplier": 300
+            }
+          ],
+          "notes": "Label per 1 bagel (75g): 130 kcal LABEL, 19g protein (front-panel confirmed; side-panel '10g' was glare misread), 4g fat, 0.5g sat, 25g carb, 21g fiber, 0g sugar, 460mg sodium, 0 cholesterol, Ca 20mg, Iron 3mg (15% DV), K 30mg. Net carb = 4g. KCAL CORRECTION (revised): stored at 140 kcal/bagel (1.8667 kcal/g). Fiber is 'resistant wheat starch' = almost certainly RS4 (chemically phosphated/cross-linked wheat starch, e.g. Fibersym). RS4 is the LEAST fermentable resistant starch type — caloric availability ~0-1 kcal/g, NOT the ~2 kcal/g of readily-fermentable RS2/RS3. So the standard 'add back 2 kcal/g' fiber rule does NOT cleanly apply here. Added back only ~0.5 kcal/g over the ~21g fiber = ~10 kcal over label's 130 = 140 total. Real value plausibly 135-150. (Earlier stored 162 was an over-correction that wrongly treated this as readily-fermentable fiber.) Estimated micros from wheat gluten + fava bean protein composition (medium confidence): folate (B9) elevated from fava (~1 mcg/g), selenium (wheat ~0.3 mcg/g), manganese, phosphorus, Mg. B12=0 (plant). Protein blend: vital wheat gluten + fava bean protein (complementary lysine). Ingredients: water, resistant wheat starch, wheat protein, fava bean protein, [remainder obscured]. Contains wheat. High-protein/high-fiber/low-net-carb marketed bagel."
         },
         "hummus": {
           "name": "Hummus",
