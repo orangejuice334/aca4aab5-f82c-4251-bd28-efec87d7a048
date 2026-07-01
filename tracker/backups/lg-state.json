@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-06-30T10:28:24.325Z",
-  "_gistSavedAt": "2026-06-29T20:14:24.775Z",
+  "_backupTakenAt": "2026-07-01T10:41:54.327Z",
+  "_gistSavedAt": "2026-06-30T14:08:18.705Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1263,6 +1263,21 @@
           "hero_plain_bagel": "2026-06-29T13:51:00-04:00",
           "protein_powder_whey_premier_chocolate": "2026-06-29T20:09:42.296Z",
           "ff_super_zero_vanilla": "2026-06-29T20:09:42.921Z"
+        }
+      },
+      "2026-06-30": {
+        "toggles": {},
+        "counters": {
+          "ff_super_zero_vanilla": 255,
+          "protein_whey_animal_strawberry": 44.8,
+          "soy_milk": 200
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "ff_super_zero_vanilla": "2026-06-30T14:07:47.523Z",
+          "protein_whey_animal_strawberry": "2026-06-30T14:07:56.117Z",
+          "soy_milk": "2026-06-30T14:08:16.654Z"
         }
       }
     },
