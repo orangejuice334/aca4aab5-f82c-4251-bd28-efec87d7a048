@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-01T10:41:54.327Z",
-  "_gistSavedAt": "2026-06-30T14:08:18.705Z",
+  "_backupTakenAt": "2026-07-02T09:55:39.156Z",
+  "_gistSavedAt": "2026-07-01T21:14:26.074Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1263,7 +1263,11 @@
           "hero_plain_bagel": "2026-06-29T13:51:00-04:00",
           "protein_powder_whey_premier_chocolate": "2026-06-29T20:09:42.296Z",
           "ff_super_zero_vanilla": "2026-06-29T20:09:42.921Z"
-        }
+        },
+        "neck": 43,
+        "neckMeta": "2026-06-30T02:08:40.552Z",
+        "weight": 94,
+        "weightMeta": "2026-06-30T02:08:40.489Z"
       },
       "2026-06-30": {
         "toggles": {},
@@ -1279,6 +1283,15 @@
           "protein_whey_animal_strawberry": "2026-06-30T14:07:56.117Z",
           "soy_milk": "2026-06-30T14:08:16.654Z"
         }
+      },
+      "2026-07-01": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "neck": 43,
+        "neckMeta": "2026-07-01T20:24:32.665Z"
       }
     },
     "savedItems": [],
@@ -1364,7 +1377,6 @@
       "catalog-archive": true,
       "targets-accumulation": true,
       "section-weight-tracker": true,
-      "details-add-new-item": true,
       "profile": true,
       "today-log": true
     },
@@ -1733,25 +1745,16 @@
           "brand": "Nature's Promise",
           "category": "items",
           "defaultMeasuredIn": "g",
-          "kcal": 1.071429,
-          "p": 0.241071,
-          "fat": 0.013393,
-          "sf": 0.004464,
-          "transfat": 0,
-          "cholesterol": 0.669643,
-          "sodium": 0.491071,
-          "carbs": 0,
-          "fiber": 0,
-          "sugar": 0,
-          "iron": 0.024107,
-          "potassium": 3.357143,
+          "kcal": 1.0714,
+          "p": 0.2411,
+          "fat": 0.0134,
+          "sf": 0.0045,
+          "cholesterol": 0.6696,
+          "sodium": 0.4911,
+          "iron": 0.0241,
+          "potassium": 3.3571,
           "calcium": 0.12,
-          "vitD": 0,
-          "vitA": 0,
-          "vitC": 0,
-          "vitK": 0,
           "water": 0.72,
-          "caffeine": 0,
           "omega3": 0.6,
           "vitE": 0.004,
           "b1": 0.0005,
@@ -1767,67 +1770,50 @@
           "selenium": 0.22,
           "copper": 0.0008,
           "manganese": 0.0001,
-          "iodine": 0,
-          "chromium": 0,
-          "molybdenum": 0,
-          "mercury": 0,
           "purines": 1.1,
           "displayUnits": [
-            {
-              "label": "4 oz (112 g)",
-              "amount": 112,
-              "unit": "g",
-              "multiplier": 112,
-              "default": true
-            },
             {
               "label": "Whole package (453 g)",
               "amount": 453,
               "unit": "g",
               "multiplier": 453
+            },
+            {
+              "label": "4 oz (112 g)",
+              "amount": 112,
+              "unit": "g",
+              "default": true,
+              "multiplier": 112
             }
           ],
           "notes": "Nature's Promise 100% Grass Fed Beef, Kabob Meat (product of New Zealand, Halal; UPC 688267572593). Label per 4 oz (112 g): 120 kcal, 27 P, 1.5 fat, 0.5 SF, 0 trans, 75 chol, 55 Na, 0 carb/fiber/sugar; Iron 15% DV (=2.7 mg), Potassium 8% DV (=376 mg); Vit D & Calcium 0% DV. Ingredient: beef only. Very lean (~95% lean). LOW CONFIDENCE / estimated USDA lean-beef micros (verify if it matters): B12 0.021, zinc 0.04, Se 0.22, P 2.0, Mg 0.22, B-vitamins, choline 0.9, Cu/Mn — all mg/g unless noted. Grass-fed raises omega3 (~0.6 mg/g ~ 67 mg/serving) and vit E vs grain-fed. Purines ~1.1 mg/g (~123 mg/serving) — moderate, relevant to uric acid. Water 0.72 ml/g RAW basis (cooked concentrates it). Calcium ~0.12 mg/g rounds to 0% DV."
         },
         "beef_kabob_grassfed_broiled": {
-          "kcal": 1.488096,
-          "p": 0.334821,
-          "fat": 0.018601,
+          "kcal": 1.4881,
+          "p": 0.3348,
+          "fat": 0.0186,
           "sf": 0.0062,
-          "transfat": 0,
-          "cholesterol": 0.93006,
-          "sodium": 0.682043,
-          "carbs": 0,
-          "fiber": 0,
-          "sugar": 0,
-          "iron": 0.033482,
-          "potassium": 4.662699,
-          "calcium": 0.166667,
-          "vitD": 0,
-          "vitA": 0,
-          "vitC": 0,
-          "vitE": 0.005556,
-          "vitK": 0,
-          "omega3": 0.833333,
-          "b1": 0.000694,
-          "b2": 0.002083,
-          "b3": 0.069444,
-          "b5": 0.008333,
-          "b6": 0.006944,
-          "b12": 0.029167,
+          "cholesterol": 0.9301,
+          "sodium": 0.682,
+          "iron": 0.0335,
+          "potassium": 4.6627,
+          "calcium": 0.1667,
+          "vitE": 0.0056,
+          "omega3": 0.8333,
+          "b1": 0.0007,
+          "b2": 0.0021,
+          "b3": 0.0694,
+          "b5": 0.0083,
+          "b6": 0.0069,
+          "b12": 0.0292,
           "choline": 1.25,
-          "magnesium": 0.305556,
-          "phosphorus": 2.777778,
-          "zinc": 0.055556,
-          "selenium": 0.305556,
-          "copper": 0.001111,
-          "manganese": 0.000139,
-          "iodine": 0,
-          "chromium": 0,
-          "molybdenum": 0,
-          "mercury": 0,
-          "purines": 1.527778,
-          "caffeine": 0,
+          "magnesium": 0.3056,
+          "phosphorus": 2.7778,
+          "zinc": 0.0556,
+          "selenium": 0.3056,
+          "copper": 0.0011,
+          "manganese": 0.0001,
+          "purines": 1.5278,
           "water": 0.58,
           "name": "Beef kabob meat, grass-fed, broiled",
           "brand": "Nature's Promise",
@@ -1835,17 +1821,17 @@
           "defaultMeasuredIn": "g",
           "displayUnits": [
             {
-              "label": "100 g",
-              "amount": 100,
-              "unit": "g",
-              "multiplier": 100,
-              "default": true
-            },
-            {
               "label": "Whole pkg broiled (~326 g)",
               "amount": 326,
               "unit": "g",
               "multiplier": 326
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "default": true,
+              "multiplier": 100
             }
           ],
           "notes": "Broiled version of beef_kabob_grassfed. Concentrated the raw label by an assumed 28% cook loss (yield 0.72, factor 1.389) on retained nutrients; water set to 0.58 ml/g (cooked ~58% water). Per 100 g cooked: ~149 kcal, ~33.5 P, ~1.9 fat, ~93 chol, ~68 Na, iron ~3.3, K ~466. LOW CONFIDENCE: yield is generic (weigh raw vs cooked to pin exact); potassium concentrated but leaches into drippings (likely overstated); B1/B6/B12 degrade with heat (not downgraded); no added salt assumed; raw-side micros were already estimates."
@@ -2248,20 +2234,12 @@
           "defaultMeasuredIn": "g",
           "kcal": 4,
           "p": 0.4,
-          "carbs": 0,
-          "fiber": 0,
-          "sugar": 0,
           "fat": 0.3,
           "sf": 0.2,
-          "transfat": 0,
           "cholesterol": 0.88,
           "sodium": 18,
           "water": 0.18,
-          "caffeine": 0,
-          "omega3": 0,
           "vitA": 2.07,
-          "vitC": 0,
-          "vitD": 0,
           "vitE": 0.0022,
           "vitK": 0.017,
           "b1": 0.0004,
@@ -2274,7 +2252,6 @@
           "b12": 0.012,
           "choline": 0.15,
           "calcium": 11,
-          "iron": 0,
           "magnesium": 0.44,
           "phosphorus": 7,
           "potassium": 1.8,
@@ -2283,17 +2260,13 @@
           "copper": 0.0003,
           "manganese": 0.0002,
           "iodine": 0.3,
-          "chromium": 0,
-          "molybdenum": 0,
-          "mercury": 0,
           "purines": 0.08,
           "displayUnits": [
             {
-              "label": "2 tsp (5 g)",
-              "amount": 5,
+              "label": "Whole container (227 g)",
+              "amount": 227,
               "unit": "g",
-              "multiplier": 5,
-              "default": true
+              "multiplier": 227
             },
             {
               "label": "1 tbsp (7.5 g)",
@@ -2302,10 +2275,11 @@
               "multiplier": 7.5
             },
             {
-              "label": "Whole container (227 g)",
-              "amount": 227,
+              "label": "2 tsp (5 g)",
+              "amount": 5,
               "unit": "g",
-              "multiplier": 227
+              "default": true,
+              "multiplier": 5
             }
           ],
           "notes": "Reggano Grated Parmesan Cheese (ALDI), 8 oz (227g), 45 servings. Label per 5g (2 tsp): 20 kcal, 2g protein, 1.5g fat, 1g sat fat, <5mg cholesterol, 90mg sodium, 0 carbs, calcium 55mg, iron 0, potassium 9mg. Ingredients: parmesan cheese (part-skim cow milk, cultures, salt, enzymes), powdered cellulose (anti-caking), potassium sorbate. Cholesterol estimated at 0.88 mg/g (USDA grated parmesan ~88mg/100g, consistent with label <5mg). Vitamins, phosphorus (high in hard cheese), magnesium, zinc, selenium from USDA grated parmesan — MEDIUM CONFIDENCE."
@@ -2323,12 +2297,10 @@
           "fat": 0.1972,
           "sf": 0.0211,
           "transFat": 0,
-          "cholesterol": 0,
           "sodium": 15.9155,
           "calcium": 0.9718,
           "iron": 0.0423,
           "potassium": 2.662,
-          "vitD": 0,
           "vitA": 0.5,
           "vitE": 0.04,
           "vitK": 0.005,
@@ -2338,7 +2310,6 @@
           "b5": 0.004,
           "b6": 0.0005,
           "b9": 1,
-          "b12": 0,
           "choline": 0.05,
           "magnesium": 0.3,
           "phosphorus": 1.2,
@@ -2352,11 +2323,15 @@
           "displayUnits": [
             {
               "label": "1 cup (package)",
+              "amount": 71,
+              "unit": "g",
               "default": true,
               "multiplier": 71
             },
             {
               "label": "½ cup",
+              "amount": 35.5,
+              "unit": "g",
               "multiplier": 35.5
             }
           ],
@@ -2572,26 +2547,23 @@
           "kcal": 1.96,
           "p": 0.1361,
           "carbs": 0.0083,
-          "fiber": 0,
           "sugar": 0.0083,
           "fat": 0.1484,
-          "sf": 0.04318,
-          "transfat": 0.00094,
+          "sf": 0.0432,
+          "transfat": 0.0009,
           "cholesterol": 4.01,
           "sodium": 2.07,
           "water": 0.6947,
-          "caffeine": 0,
           "omega3": 0.94,
           "vitA": 1.49,
-          "vitC": 0,
           "vitD": 0.02,
           "vitE": 0.0105,
           "vitK": 0.005,
           "b1": 0.0004,
-          "b2": 0.00369,
-          "b3": 0.00082,
-          "b5": 0.01489,
-          "b6": 0.00121,
+          "b2": 0.0037,
+          "b3": 0.0008,
+          "b5": 0.0149,
+          "b6": 0.0012,
           "b7": 0.25,
           "b9": 0.47,
           "b12": 0.0111,
@@ -2603,32 +2575,29 @@
           "potassium": 1.52,
           "zinc": 0.0129,
           "selenium": 0.255,
-          "copper": 0.00012,
-          "manganese": 0.00012,
+          "copper": 0.0001,
+          "manganese": 0.0001,
           "iodine": 0.53,
-          "chromium": 0,
-          "molybdenum": 0,
-          "mercury": 0,
           "purines": 0.43,
           "displayUnits": [
+            {
+              "label": "1 extra large (52 g)",
+              "amount": 52,
+              "unit": "g",
+              "multiplier": 52
+            },
             {
               "label": "1 large (46 g)",
               "amount": 46,
               "unit": "g",
-              "multiplier": 46,
-              "default": true
+              "default": true,
+              "multiplier": 46
             },
             {
               "label": "1 medium (40 g)",
               "amount": 40,
               "unit": "g",
               "multiplier": 40
-            },
-            {
-              "label": "1 extra large (52 g)",
-              "amount": 52,
-              "unit": "g",
-              "multiplier": 52
             }
           ],
           "notes": "USDA SR Legacy 01128 (Egg, whole, cooked, fried). All values per gram. transfat is naturally occurring from egg yolk (~0.094g/100g, below label threshold). Sodium 207mg/100g assumes standard preparation with added salt; unsalted fry is ~142mg/100g. Iodine ~53 μg/100g (eggs are primary dietary iodine source). b7 ~25 μg/100g (eggs are richest common food source of biotin)."
@@ -2765,10 +2734,10 @@
           "displayUnits": [
             {
               "label": "1 serving",
-              "amount": 200,
+              "amount": 100,
               "unit": "g",
               "default": true,
-              "multiplier": 200
+              "multiplier": 100
             }
           ],
           "ingredients": [
@@ -2834,7 +2803,6 @@
           "kcal": 3.6667,
           "p": 0.7,
           "carbs": 0.0667,
-          "fiber": 0,
           "sugar": 0.0333,
           "addedSugar": 0.0333,
           "fat": 0.1,
@@ -2843,9 +2811,7 @@
           "cholesterol": 0.6667,
           "sodium": 11.3333,
           "calcium": 1.4667,
-          "iron": 0,
           "potassium": 7.7,
-          "vitD": 0,
           "vitA": 0.02,
           "vitE": 0.01,
           "vitK": 0.001,
@@ -2868,13 +2834,17 @@
           "purines": 0.1,
           "displayUnits": [
             {
-              "label": "1 cup",
-              "default": true,
-              "multiplier": 30
+              "label": "1 bag",
+              "amount": 60,
+              "unit": "g",
+              "multiplier": 60
             },
             {
-              "label": "1 bag",
-              "multiplier": 60
+              "label": "1 cup",
+              "amount": 30,
+              "unit": "g",
+              "default": true,
+              "multiplier": 30
             }
           ],
           "notes": "Label-derived (high confidence): kcal, macros, sodium (340mg/30g = HIGH), cholesterol, Ca (44mg/30g), K (231mg/30g excellent for snack), high protein density (21g/30g). Estimated from milk protein isolate composition (high confidence — dairy whey base): B12 (~0.007 mcg/g), phosphorus very high (~4 mg/g from dairy), iodine, choline, selenium. Purines low (~10 mg/100g — dairy gout-protective). Ingredients: milk protein isolate, sunflower oil, dextrose, salt, skim milk, <1% of onion, garlic, jalapeño, tomato, whey, whey protein concentrate, sour cream solids, buttermilk, milk, cheese cultures, enzymes, yeast extract, natural flavors, spice and color, citric acid, silicon dioxide, disodium phosphate, lactic acid. Contains milk. Label shows full amino acid profile (full essential AA spectrum including 2,130 mg leucine and 1,840 mg lysine per 30g serving)."
@@ -2912,15 +2882,11 @@
           "fiber": 0.0033,
           "sugar": 0.0467,
           "addedSugar": 0.0133,
-          "fat": 0,
-          "sf": 0,
           "transFat": 0,
           "cholesterol": 0.0333,
           "sodium": 0.4333,
           "calcium": 0.8667,
-          "iron": 0,
           "potassium": 1.2533,
-          "vitD": 0,
           "vitA": 0.1,
           "vitE": 0.01,
           "vitK": 0.001,
@@ -2944,11 +2910,15 @@
           "displayUnits": [
             {
               "label": "1 container",
+              "amount": 150,
+              "unit": "g",
               "default": true,
               "multiplier": 150
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             }
           ],
@@ -2960,19 +2930,14 @@
           "defaultMeasuredIn": "g",
           "kcal": 0.5882,
           "p": 0.1,
-          "carbs": 0.04118,
-          "fiber": 0,
-          "sugar": 0.02941,
+          "carbs": 0.0412,
+          "sugar": 0.0294,
           "addedSugar": 0,
-          "fat": 0,
-          "sf": 0,
           "transFat": 0,
           "cholesterol": 0.0588,
           "sodium": 0.3235,
           "calcium": 0.9412,
-          "iron": 0,
           "potassium": 1.4118,
-          "vitD": 0,
           "vitA": 0.05,
           "vitE": 0.01,
           "vitK": 0.001,
@@ -2995,17 +2960,23 @@
           "purines": 0.1,
           "displayUnits": [
             {
+              "label": "1 container (30 oz)",
+              "amount": 850,
+              "unit": "g",
+              "multiplier": 850
+            },
+            {
               "label": "2/3 cup serving",
+              "amount": 170,
+              "unit": "g",
               "default": true,
               "multiplier": 170
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
-            },
-            {
-              "label": "1 container (30 oz)",
-              "multiplier": 850
             }
           ],
           "notes": "Label-derived (high confidence): kcal, macros, sodium, sugar (5g/170g all from natural milk lactose — 0g added), Ca (10% DV), K (6% DV), cholesterol. Sweetened with stevia (steviol glycosides) only — no artificial sweeteners. Estimated from USDA nonfat Greek yogurt composition (high confidence): B12 (~0.0075 mcg/g notable), iodine (high in dairy ~0.5 mcg/g), choline, Mg, P (~1.35 mg/g), Zn, Se. Modified corn starch added for body/texture (replaces fat-derived mouthfeel). Live active cultures (typical Greek strains). Water ~85% (slightly higher than typical Greek due to starch dilution). Ingredients: cultured pasteurized milk, modified corn starch, natural flavors, concentrate, steviol glycosides. Contains milk. Product of Canada."
@@ -3159,8 +3130,6 @@
           "p": 0.1655,
           "fat": 0.0073,
           "sf": 0.0013,
-          "transfat": 0,
-          "cholesterol": 0,
           "carbs": 0.7273,
           "fiber": 0.09,
           "sugar": 0.0243,
@@ -3175,32 +3144,20 @@
           "copper": 0.03,
           "manganese": 0.0166,
           "water": 0.065,
-          "caffeine": 0,
           "vitC": 0.012,
           "b1": 0.0043,
           "b2": 0.0014,
           "b3": 0.008,
           "b5": 0.0074,
-          "b6": 0.01235,
+          "b6": 0.0124,
           "b9": 0.47,
-          "vitA": 0,
-          "vitD": 0,
-          "vitE": 0,
-          "vitK": 0,
-          "choline": 0,
-          "iodine": 0,
-          "chromium": 0,
-          "molybdenum": 0,
-          "mercury": 0,
-          "omega3": 0,
-          "purines": 0,
           "displayUnits": [
             {
               "label": "1 tbsp (9 g)",
               "amount": 9,
               "unit": "g",
-              "multiplier": 9,
-              "default": true
+              "default": true,
+              "multiplier": 9
             },
             {
               "label": "1 tsp (3 g)",
@@ -3217,27 +3174,14 @@
           "defaultMeasuredIn": "g",
           "kcal": 0.5435,
           "p": 0.1087,
-          "carbs": 0,
-          "fiber": 0,
-          "sugar": 0,
           "addedSugar": 0,
-          "fat": 0,
-          "sf": 0,
           "transFat": 0,
-          "cholesterol": 0,
           "sodium": 1.6304,
-          "calcium": 0,
-          "iron": 0,
           "potassium": 1.5217,
-          "vitD": 0,
-          "vitA": 0,
-          "vitE": 0,
-          "vitK": 0,
-          "b1": 0.00004,
-          "b2": 0.00439,
-          "b3": 0.00105,
+          "b2": 0.0044,
+          "b3": 0.0011,
           "b5": 0.0019,
-          "b6": 0.00005,
+          "b6": 0.0001,
           "b9": 0.04,
           "b12": 0.0009,
           "choline": 0.011,
@@ -3245,35 +3189,45 @@
           "phosphorus": 0.15,
           "zinc": 0.0003,
           "selenium": 0.2,
-          "copper": 0.00023,
-          "manganese": 0.00011,
+          "copper": 0.0002,
+          "manganese": 0.0001,
           "iodine": 0.03,
           "water": 0.88,
           "purines": 0.05,
           "displayUnits": [
             {
-              "label": "3 Tbsp (label)",
-              "default": true,
-              "multiplier": 46
-            },
-            {
               "label": "1 carton (32 oz)",
+              "amount": 907,
+              "unit": "g",
               "multiplier": 907
             },
             {
               "label": "½ carton",
+              "amount": 453.5,
+              "unit": "g",
               "multiplier": 453.5
             },
             {
               "label": "1 cup",
+              "amount": 243,
+              "unit": "g",
               "multiplier": 243
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
+            },
+            {
+              "label": "3 Tbsp (label)",
+              "amount": 46,
+              "unit": "g",
+              "default": true,
+              "multiplier": 46
             }
           ],
-          "notes": "Pure pasteurized egg whites — no fortification, no gums, no color. INGREDIENTS: egg whites (only). Contains: eggs. Gluten free, lactose free. Container 32 oz (907 g) = 'whites of 27 eggs' per label. Label values per 3 Tbsp (46 g): 25 kcal, 5g protein, 0g fat, 75mg sodium, 70mg potassium, 0 cholesterol. USDA SR Legacy composition fills micros: riboflavin (B2) ~0.44 mg/100g — egg whites are a moderate B2 source; selenium ~20 mcg/100g; choline very low ~1.1 mg/100g (yolk holds all the choline); water ~88%. Purines very low ~5 mg/100g. Differs from Giant 'egg_substitute' which is fortified with vit D, calcium, B-complex + contains gums — this is just pure whites. Will not whip up for meringues/angel food due to pasteurization."
+          "notes": "Label-derived (high confidence): kcal, macros, sodium (500mg/28g = EXTREME 17.9 mg/g), cholesterol, Ca (2% DV), Fe (6% DV). Estimated from USDA dried beef composition (high confidence): zinc very high (~0.1 mg/g — beef concentrated), B12 (~0.05 mcg/g excellent), selenium, choline, phosphorus, magnesium. Water ~25% (jerky concentrates beef). Purines MODERATE-HIGH (~100 mg/100g — flag for gout history). Ingredients: beef, gluten-free soy sauce (water, soybeans, rice, salt), beef broth, <2% flavorings, black pepper, vinegar, cultured celery powder (cultured celery powder + sea salt — natural nitrite source, chemically equivalent to added sodium nitrite), granulated garlic, salt. Contains soy. Marketed as no added nitrites/MSG/artificial sweeteners + gluten-free."
         },
         "guac_tbsp": {
           "name": "Guacamole",
@@ -3325,7 +3279,6 @@
           "kcal": 0.8929,
           "p": 0.1786,
           "carbs": 0.0179,
-          "fiber": 0,
           "sugar": 0.0179,
           "addedSugar": 0.0089,
           "fat": 0.0179,
@@ -3333,12 +3286,8 @@
           "transFat": 0,
           "cholesterol": 0.5357,
           "sodium": 7.8571,
-          "calcium": 0,
           "iron": 0.0064,
           "potassium": 1.57,
-          "vitD": 0,
-          "vitA": 0,
-          "vitC": 0,
           "vitE": 0.002,
           "vitK": 0.001,
           "b1": 0.005,
@@ -3360,17 +3309,23 @@
           "purines": 1.5,
           "displayUnits": [
             {
+              "label": "1 package (8 oz)",
+              "amount": 224,
+              "unit": "g",
+              "multiplier": 224
+            },
+            {
               "label": "2 slices",
+              "amount": 56,
+              "unit": "g",
               "default": true,
               "multiplier": 56
             },
             {
               "label": "1 slice",
+              "amount": 28,
+              "unit": "g",
               "multiplier": 28
-            },
-            {
-              "label": "1 package (8 oz)",
-              "multiplier": 224
             }
           ],
           "notes": "Label-derived (high confidence): kcal, macros, sodium (440mg/56g = HIGH at 7.86 mg/g), cholesterol, iron. Estimated from USDA cooked ham composition (high confidence — well-characterized): pork excellent in thiamine (B1 ~0.5 mg/100g, one of best dietary sources), niacin (B3 ~4.5 mg/100g), B12, selenium, phosphorus, choline. Water ~72% (highly hydrated due to phosphate brining). Purines moderate ~150 mg/100g. Ingredients: ham, water, less than 2% of sea salt, organic sugar, dextrose, sodium phosphate, dried vinegar, sodium erythorbate (antioxidant — reduces nitrosamine formation from nitrite), sodium nitrite (preservative), spice extracts. PROCESSED MEAT — WHO IARC Group 1 carcinogen (colorectal cancer association at ≥50g/day chronic intake). Sodium-dense; flag for gout management given moderate purine content + documented prior history."
@@ -3391,13 +3346,14 @@
           "displayUnits": [
             {
               "label": "full recipe",
-              "multiplier": 77,
               "amount": 77,
               "unit": "g",
               "default": true,
-              "locked": true
+              "locked": true,
+              "multiplier": 77
             }
-          ]
+          ],
+          "defaultMeasuredIn": "units"
         },
         "ham_serrano_lidl": {
           "name": "Ham serrano dry-cured",
@@ -3466,24 +3422,18 @@
           "brand": "Smithfield",
           "category": "items",
           "defaultMeasuredIn": "g",
-          "kcal": 1.30952,
-          "p": 0.17857,
-          "carbs": 0.059524,
-          "fiber": 0,
-          "sugar": 0.047619,
-          "fat": 0.029762,
-          "sf": 0.011905,
+          "kcal": 1.3095,
+          "p": 0.1786,
+          "carbs": 0.0595,
+          "sugar": 0.0476,
+          "fat": 0.0298,
+          "sf": 0.0119,
           "transfat": 0.0002,
-          "cholesterol": 0.41667,
+          "cholesterol": 0.4167,
           "sodium": 10.119,
           "water": 0.63,
-          "caffeine": 0,
           "omega3": 0.2,
-          "vitA": 0,
-          "vitC": 0,
-          "vitD": 0,
           "vitE": 0.0015,
-          "vitK": 0,
           "b1": 0.0058,
           "b2": 0.0022,
           "b3": 0.045,
@@ -3500,26 +3450,23 @@
           "potassium": 2.85,
           "zinc": 0.02,
           "selenium": 0.22,
-          "copper": 0.00078,
-          "manganese": 0.00022,
+          "copper": 0.0008,
+          "manganese": 0.0002,
           "iodine": 0.09,
-          "chromium": 0,
-          "molybdenum": 0,
-          "mercury": 0,
           "purines": 1.2,
           "displayUnits": [
-            {
-              "label": "1 serving (84 g)",
-              "amount": 84,
-              "unit": "g",
-              "multiplier": 84,
-              "default": true
-            },
             {
               "label": "Whole package (210 g)",
               "amount": 210,
               "unit": "g",
               "multiplier": 210
+            },
+            {
+              "label": "1 serving (84 g)",
+              "amount": 84,
+              "unit": "g",
+              "default": true,
+              "multiplier": 84
             }
           ],
           "notes": "Smithfield Hickory Smoked Boneless Ham Steak. Label: 84g serving, 2.5 servings/container (210g total). Macros from label per-gram (÷84). transfat label shows 0g but real value ~0.02g/84g serving (CLA in pork) — corrected to 0.0002 g/g. Micronutrients from USDA SR Legacy cured smoked ham (approx. #10123/#10178) — LOW CONFIDENCE, flag for verification. Water ~63% estimated for cured smoked ham. Omega-3 ~0.20 mg/g (lean pork estimate). Purines ~120 mg/100g (moderate, cured pork)."
@@ -3574,19 +3521,14 @@
           "p": 0.2533,
           "carbs": 0.3333,
           "fiber": 0.28,
-          "sugar": 0,
           "addedSugar": 0,
           "fat": 0.0533,
-          "sf": 0.00667,
+          "sf": 0.0067,
           "transFat": 0,
-          "cholesterol": 0,
           "sodium": 6.1333,
           "calcium": 0.2667,
           "iron": 0.04,
           "potassium": 0.4,
-          "vitD": 0,
-          "vitA": 0,
-          "vitC": 0,
           "vitE": 0.01,
           "vitK": 0.002,
           "b1": 0.005,
@@ -3595,7 +3537,6 @@
           "b5": 0.005,
           "b6": 0.002,
           "b9": 1,
-          "b12": 0,
           "choline": 0.1,
           "magnesium": 0.5,
           "phosphorus": 1.5,
@@ -3608,17 +3549,23 @@
           "purines": 0.15,
           "displayUnits": [
             {
+              "label": "1 pack (4 bagels)",
+              "amount": 300,
+              "unit": "g",
+              "multiplier": 300
+            },
+            {
               "label": "1 bagel",
+              "amount": 75,
+              "unit": "g",
               "default": true,
               "multiplier": 75
             },
             {
               "label": "½ bagel",
+              "amount": 37.5,
+              "unit": "g",
               "multiplier": 37.5
-            },
-            {
-              "label": "1 pack (4 bagels)",
-              "multiplier": 300
             }
           ],
           "notes": "Label per 1 bagel (75g): 130 kcal LABEL, 19g protein (front-panel confirmed; side-panel '10g' was glare misread), 4g fat, 0.5g sat, 25g carb, 21g fiber, 0g sugar, 460mg sodium, 0 cholesterol, Ca 20mg, Iron 3mg (15% DV), K 30mg. Net carb = 4g. KCAL CORRECTION (revised): stored at 140 kcal/bagel (1.8667 kcal/g). Fiber is 'resistant wheat starch' = almost certainly RS4 (chemically phosphated/cross-linked wheat starch, e.g. Fibersym). RS4 is the LEAST fermentable resistant starch type — caloric availability ~0-1 kcal/g, NOT the ~2 kcal/g of readily-fermentable RS2/RS3. So the standard 'add back 2 kcal/g' fiber rule does NOT cleanly apply here. Added back only ~0.5 kcal/g over the ~21g fiber = ~10 kcal over label's 130 = 140 total. Real value plausibly 135-150. (Earlier stored 162 was an over-correction that wrongly treated this as readily-fermentable fiber.) Estimated micros from wheat gluten + fava bean protein composition (medium confidence): folate (B9) elevated from fava (~1 mcg/g), selenium (wheat ~0.3 mcg/g), manganese, phosphorus, Mg. B12=0 (plant). Protein blend: vital wheat gluten + fava bean protein (complementary lysine). Ingredients: water, resistant wheat starch, wheat protein, fava bean protein, [remainder obscured]. Contains wheat. High-protein/high-fiber/low-net-carb marketed bagel."
@@ -3824,21 +3771,21 @@
           "displayUnits": [
             {
               "label": "1 bowl",
-              "amount": 405,
+              "amount": 161,
               "unit": "g",
               "default": true,
-              "multiplier": 405
+              "multiplier": 161
             }
           ],
           "ingredients": [
             {
               "itemKey": "kashi_berry_fruitful",
-              "multiplier": 1,
+              "amount": 61,
               "label": "200 g cereal"
             },
             {
               "itemKey": "soy_milk",
-              "multiplier": 1,
+              "amount": 100,
               "label": "200 ml soy milk"
             }
           ],
@@ -4105,12 +4052,10 @@
           "transFat": 0,
           "polyunsat": 0.0182,
           "monounsat": 0.0045,
-          "cholesterol": 0,
           "sodium": 4.2727,
           "calcium": 2.1818,
           "iron": 0.0373,
           "potassium": 4.1818,
-          "vitD": 0,
           "vitA": 0.02,
           "vitE": 0.01,
           "vitK": 0.002,
@@ -4120,7 +4065,6 @@
           "b5": 0.005,
           "b6": 0.002,
           "b9": 1.5,
-          "b12": 0,
           "choline": 0.3,
           "magnesium": 0.5,
           "phosphorus": 1.5,
@@ -4133,17 +4077,23 @@
           "purines": 0.15,
           "displayUnits": [
             {
+              "label": "1 pack (4 bagels)",
+              "amount": 440,
+              "unit": "g",
+              "multiplier": 440
+            },
+            {
               "label": "1 bagel",
+              "amount": 110,
+              "unit": "g",
               "default": true,
               "multiplier": 110
             },
             {
               "label": "½ bagel",
+              "amount": 55,
+              "unit": "g",
               "multiplier": 55
-            },
-            {
-              "label": "1 pack (4 bagels)",
-              "multiplier": 440
             }
           ],
           "notes": "Label-derived (high confidence): kcal, macros (22g protein/110g bagel — boosted via pea protein isolate addition), sodium (470mg/bagel = HIGH), fiber (4g), sugar (6g total/4g added), Ca (240mg/22% DV — high for bread, from calcium propionate preservative + flour), Fe (4.1mg/25% DV — fortified), K (460mg). Estimated from USDA bagel + pea protein composition (medium confidence): B9 high from folic acid fortification, Mg, P, Zn, Se, B-vitamins from enrichment, water ~30%. Vit B12 = 0 (plant-based). Purines low (~15 mg/100g). Ingredients: enriched flour (wheat flour, malted barley flour, niacin, iron, thiamine mononitrate, folic acid), water, pea protein isolate, wheat gluten, sugar, <2% of: seeds, dehydrated onion, salt, calcium propionate preservative, oil, poppy seeds, citric acid preservative, dehydrated garlic, maltodextrin, yellow corn meal, mono- and diglycerides, sorbic acid preservative, sodium stearoyl lactylate, hydrogenated palm oil, distilled monoglycerides, silicon dioxide, ascorbic acid, phosphoric acid preservative, propionic acid preservative, microcrystalline cellulose, corn starch. Contains: sesame, wheat. Contains bioengineered food ingredients."
@@ -4154,19 +4104,14 @@
           "defaultMeasuredIn": "g",
           "kcal": 2.6667,
           "p": 0.3,
-          "carbs": 0,
-          "fiber": 0,
-          "sugar": 0,
           "addedSugar": 0,
           "fat": 0.1667,
           "sf": 0.05,
           "transFat": 0,
           "cholesterol": 2,
           "sodium": 18.333,
-          "calcium": 0,
           "iron": 0.024,
           "potassium": 3.13,
-          "vitD": 0,
           "vitA": 0.1,
           "vitE": 0.005,
           "vitK": 0.001,
@@ -4189,17 +4134,23 @@
           "purines": 1.2,
           "displayUnits": [
             {
+              "label": "1 bag (5 oz)",
+              "amount": 142,
+              "unit": "g",
+              "multiplier": 142
+            },
+            {
               "label": "17 slices",
+              "amount": 30,
+              "unit": "g",
               "default": true,
               "multiplier": 30
             },
             {
               "label": "1 slice",
-              "multiplier": 1.76
-            },
-            {
-              "label": "1 bag (5 oz)",
-              "multiplier": 142
+              "amount": 1.8,
+              "unit": "g",
+              "multiplier": 1.8
             }
           ],
           "notes": "Label-derived (high confidence): kcal, macros, sodium (550mg/30g = EXTREME 18.3 mg/g), cholesterol (60mg/30g), Fe (4% DV), K (2% DV). Estimated from USDA turkey deli meat + paprika oleoresin composition (medium confidence): B12 (~0.01 mcg/g), niacin (B3 high from turkey ~0.05 mg/g), B6, choline, selenium, water ~30%. Purines moderate-high (~120 mg/100g — flag for gout). Ingredients: turkey, salt, spices, <2% dextrose, water, flavoring, smoke flavoring, lactic acid starter culture, oleoresin of paprika, garlic powder, SODIUM NITRITE (preservative), citric acid, BHA, BHT (synthetic antioxidant preservatives — chronic intake safety debated). PROCESSED MEAT — WHO IARC Group 1 carcinogen association. Marketed as 60% less fat than original pepperoni."
@@ -4283,54 +4234,43 @@
           "name": "Miso soup (restaurant side)",
           "category": "liquids",
           "defaultMeasuredIn": "g",
-          "kcal": 0.27688,
-          "p": 0.019355,
-          "carbs": 0.033333,
-          "fiber": 0.0056452,
-          "sugar": 0.0083333,
-          "fat": 0.0083333,
-          "sf": 0.0018817,
-          "transfat": 0,
-          "cholesterol": 0.0080645,
+          "kcal": 0.2769,
+          "p": 0.0194,
+          "carbs": 0.0333,
+          "fiber": 0.0056,
+          "sugar": 0.0083,
+          "fat": 0.0083,
+          "sf": 0.0019,
+          "cholesterol": 0.0081,
           "sodium": 3.8898,
           "water": 0.91,
-          "caffeine": 0,
-          "omega3": 0,
-          "vitA": 0,
-          "vitC": 0,
-          "vitD": 0,
-          "vitE": 0,
-          "vitK": 0.032258,
+          "vitK": 0.0323,
           "b1": 0.0003,
           "b2": 0.0005,
           "b3": 0.005,
           "b5": 0.0008,
           "b6": 0.0005,
-          "b7": 0,
           "b9": 0.05,
-          "b12": 0.00026882,
-          "choline": 0.040323,
-          "calcium": 0.16129,
-          "iron": 0.0040323,
-          "magnesium": 0.080645,
-          "phosphorus": 0.18817,
-          "potassium": 0.48387,
-          "zinc": 0.0016129,
-          "selenium": 0.010753,
-          "copper": 0.00016129,
-          "manganese": 0.0010753,
-          "iodine": 0.43011,
-          "chromium": 0,
-          "molybdenum": 0,
-          "mercury": 0,
-          "purines": 0.094086,
+          "b12": 0.0003,
+          "choline": 0.0403,
+          "calcium": 0.1613,
+          "iron": 0.004,
+          "magnesium": 0.0806,
+          "phosphorus": 0.1882,
+          "potassium": 0.4839,
+          "zinc": 0.0016,
+          "selenium": 0.0108,
+          "copper": 0.0002,
+          "manganese": 0.0011,
+          "iodine": 0.4301,
+          "purines": 0.0941,
           "displayUnits": [
             {
               "label": "1 bowl (372 g)",
               "amount": 372,
               "unit": "g",
-              "multiplier": 372,
-              "default": true
+              "default": true,
+              "multiplier": 372
             },
             {
               "label": "1 cup (240 g)",
@@ -4668,20 +4608,16 @@
           "category": "items",
           "defaultMeasuredIn": "g",
           "kcal": 3.4375,
-          "p": 0.78125,
-          "carbs": 0.03125,
-          "fiber": 0,
-          "sugar": 0.03125,
+          "p": 0.7813,
+          "carbs": 0.0313,
+          "sugar": 0.0313,
           "addedSugar": 0.03125,
-          "fat": 0,
-          "sf": 0,
           "transFat": 0,
           "cholesterol": 0.625,
           "sodium": 5.9375,
           "calcium": 18.125,
-          "iron": 0.009375,
+          "iron": 0.0094,
           "potassium": 4.375,
-          "vitD": 0,
           "vitA": 0.05,
           "vitE": 0.005,
           "vitK": 0.0005,
@@ -4704,13 +4640,17 @@
           "purines": 0.075,
           "displayUnits": [
             {
-              "label": "1 scoop",
-              "default": true,
-              "multiplier": 32
+              "label": "1 container (2 lb)",
+              "amount": 907,
+              "unit": "g",
+              "multiplier": 907
             },
             {
-              "label": "1 container (2 lb)",
-              "multiplier": 907
+              "label": "1 scoop",
+              "amount": 32,
+              "unit": "g",
+              "default": true,
+              "multiplier": 32
             }
           ],
           "notes": "Label-derived (high confidence): kcal, macros, sodium, cholesterol, Ca (VERY HIGH at 18.125 mg/g — 580mg/scoop = 45% DV), K, Fe. Estimated from USDA micellar casein composition (high confidence): phosphorus very high (~6 mg/g — casein binds phosphate), B12 (~0.015 mcg/g, decent), iodine (~0.5 mcg/g — dairy is excellent iodine source), choline, selenium, Mg. Purines LOW (~7.5 mg/100g — dairy proteins are gout-protective per Choi 2004). Ingredients: Micellar casein (casein protein, sunflower lecithin, instantized), natural and artificial flavors, salt (sodium chloride), sucralose. Contains milk. CASEIN-SPECIFIC PROPERTIES: slow-digesting (4–6h amino acid release vs whey's 1–2h), forms gastric gel = high satiety + slower delivery, ideal for pre-bed or long fasting windows. Leucine ~9% of protein (slightly lower than whey at ~11% but still effective for MPS). Mouthfeel thicker/chalkier than whey or soy."
@@ -5016,22 +4956,16 @@
           "defaultMeasuredIn": "g",
           "kcal": 2.11,
           "p": 0.295,
-          "carbs": 0,
-          "fiber": 0,
-          "sugar": 0,
           "fat": 0.0962,
           "sf": 0.0343,
           "transfat": 0.0004,
           "cholesterol": 0.82,
           "sodium": 0.57,
           "water": 0.594,
-          "caffeine": 0,
           "omega3": 0.3,
           "vitA": 0.02,
-          "vitC": 0,
           "vitD": 0.007,
           "vitE": 0.0018,
-          "vitK": 0,
           "b1": 0.0083,
           "b2": 0.003,
           "b3": 0.05,
@@ -5050,18 +4984,13 @@
           "selenium": 0.38,
           "copper": 0.0005,
           "manganese": 0.0001,
-          "iodine": 0,
-          "chromium": 0,
-          "molybdenum": 0,
-          "mercury": 0,
           "purines": 1.5,
           "displayUnits": [
             {
-              "label": "1 steak (35 g)",
-              "amount": 35,
+              "label": "100 g",
+              "amount": 100,
               "unit": "g",
-              "multiplier": 35,
-              "default": true
+              "multiplier": 100
             },
             {
               "label": "2 steaks (70 g)",
@@ -5070,10 +4999,11 @@
               "multiplier": 70
             },
             {
-              "label": "100 g",
-              "amount": 100,
+              "label": "1 steak (35 g)",
+              "amount": 35,
               "unit": "g",
-              "multiplier": 100
+              "default": true,
+              "multiplier": 35
             }
           ],
           "notes": "Guessed cut: center-cut pork loin (lean), the leanest pork commonly sold as flat steaks/chops. USDA SR Legacy Pork, fresh, loin, whole, separable lean only, cooked, broiled, per 100g: 211 kcal, 29.5g protein, 9.6g fat, 3.4g sat fat, 82mg cholesterol, 57mg sodium, 423mg potassium. Broiled plain, no added salt/fat. transfat ~0.04g/100g naturally occurring. Pork is very high in thiamin (B1 ~0.83mg/100g) and selenium. Purines ~150mg/100g (moderate-high). If the actual cut was tenderloin it would be ~30% leaner (~143 kcal/100g); loin assumed per the steak description."
@@ -5193,13 +5123,14 @@
           "displayUnits": [
             {
               "label": "full recipe",
-              "multiplier": 507.8,
               "amount": 507.8,
               "unit": "g",
               "default": true,
-              "locked": true
+              "locked": true,
+              "multiplier": 507.8
             }
-          ]
+          ],
+          "defaultMeasuredIn": "units"
         },
         "preserves_blackberry_skinnygirl": {
           "name": "Preserves blackberry sugar-free",
@@ -5405,59 +5336,39 @@
           "category": "supplements",
           "defaultMeasuredIn": "g",
           "kcal": 3.75,
-          "p": 0.78125,
+          "p": 0.7813,
           "carbs": 0.0625,
-          "fiber": 0,
-          "sugar": 0.03125,
-          "fat": 0.03125,
-          "sf": 0.015625,
-          "transfat": 0,
-          "cholesterol": 0.78125,
+          "sugar": 0.0313,
+          "fat": 0.0313,
+          "sf": 0.0156,
+          "cholesterol": 0.7813,
           "sodium": 4.6875,
           "water": 0.04,
-          "caffeine": 0,
-          "omega3": 0,
-          "vitA": 0,
-          "vitC": 0,
-          "vitD": 0,
-          "vitE": 0,
-          "vitK": 0,
-          "b1": 0,
           "b2": 0.0125,
-          "b3": 0,
           "b5": 0.01,
-          "b6": 0,
-          "b7": 0,
-          "b9": 0,
           "b12": 0.01,
           "choline": 1,
           "calcium": 4.375,
-          "iron": 0.009375,
+          "iron": 0.0094,
           "magnesium": 0.625,
           "phosphorus": 2.8125,
           "potassium": 4.375,
           "zinc": 0.02,
           "selenium": 0.3,
-          "copper": 0,
-          "manganese": 0,
-          "iodine": 0,
-          "chromium": 0,
-          "molybdenum": 0,
-          "mercury": 0,
           "purines": 0.7,
           "displayUnits": [
-            {
-              "label": "1 scoop (32 g)",
-              "amount": 32,
-              "unit": "g",
-              "multiplier": 32,
-              "default": true
-            },
             {
               "label": "Whole tub (1814 g)",
               "amount": 1814,
               "unit": "g",
               "multiplier": 1814
+            },
+            {
+              "label": "1 scoop (32 g)",
+              "amount": 32,
+              "unit": "g",
+              "default": true,
+              "multiplier": 32
             }
           ],
           "notes": "Animal Whey Isolate Loaded Protein Powder, Strawberry, 4 lb tub (1814g), 57 servings. Ingredients: whey protein isolate, ultra-filtered whey protein concentrate, digestive enzyme blend (papain, bromelain), artificial flavors, lecithin, gum blend, xanthan gum, carrageenan, sodium chloride, natural strawberry pieces, beet root powder, acesulfame potassium, sucralose. Macros and calcium/iron/potassium/phosphorus/magnesium from label (÷32). Label also lists Chloride 135mg/serving (not a tracked field). b2, b5, b12, choline, zinc, selenium estimated from USDA whey isolate data — LOW CONFIDENCE. Purines ~70mg/100g estimated for concentrated whey — LOW CONFIDENCE."
@@ -5501,60 +5412,37 @@
           "brand": "Nutricost",
           "category": "supplements",
           "defaultMeasuredIn": "g",
-          "kcal": 3.71429,
-          "p": 0.857143,
-          "carbs": 0.0285714,
-          "fiber": 0,
-          "sugar": 0.0285714,
-          "fat": 0.0142857,
-          "sf": 0,
-          "transfat": 0,
-          "cholesterol": 0.428571,
-          "sodium": 2.428571,
+          "kcal": 3.7143,
+          "p": 0.8571,
+          "carbs": 0.0286,
+          "sugar": 0.0286,
+          "fat": 0.0143,
+          "cholesterol": 0.4286,
+          "sodium": 2.4286,
           "water": 0.076,
-          "caffeine": 0,
-          "omega3": 0,
-          "vitA": 0,
-          "vitC": 0,
-          "vitD": 0,
-          "vitE": 0,
-          "vitK": 0,
-          "b1": 0,
-          "b2": 0.00571,
-          "b3": 0,
-          "b5": 0,
-          "b6": 0,
-          "b7": 0,
-          "b9": 0,
-          "b12": 0.01429,
+          "b2": 0.0057,
+          "b12": 0.0143,
           "choline": 1.429,
-          "calcium": 3.142857,
-          "iron": 0,
+          "calcium": 3.1429,
           "magnesium": 0.286,
           "phosphorus": 2.857,
-          "potassium": 3.428571,
-          "zinc": 0.01429,
+          "potassium": 3.4286,
+          "zinc": 0.0143,
           "selenium": 0.286,
-          "copper": 0,
-          "manganese": 0,
-          "iodine": 0,
-          "chromium": 0,
-          "molybdenum": 0,
-          "mercury": 0,
           "purines": 0.7,
           "displayUnits": [
-            {
-              "label": "1 scoop, 1/3 cup (35 g)",
-              "amount": 35,
-              "unit": "g",
-              "multiplier": 35,
-              "default": true
-            },
             {
               "label": "Whole tub (910 g)",
               "amount": 910,
               "unit": "g",
               "multiplier": 910
+            },
+            {
+              "label": "1 scoop, 1/3 cup (35 g)",
+              "amount": 35,
+              "unit": "g",
+              "default": true,
+              "multiplier": 35
             }
           ],
           "notes": "Nutricost Whey Protein Isolate, Unflavored, 2 lb tub, 26 servings. Values from ACTUAL PRODUCT LABEL per 35g scoop (1/3 cup): 130 kcal, 30g protein, 0.5g fat, 0g sat fat, 15mg cholesterol, 85mg sodium, 1g carb, 1g sugar, calcium 110mg, iron 0, potassium 120mg. Single ingredient: instantized whey protein isolate (whey protein, sunflower lecithin). Contains milk. Note: USDA Branded Food entry (UPC 702669933025) listed 33g scoop and 120mg sodium — superseded by actual label (35g, 85mg). Tub 26×35=910g. Phosphorus, magnesium, b2, b12, zinc, selenium, choline are conservative estimates (isolate strips most minerals, iron=0 on label) — LOW CONFIDENCE. Purines ~70mg/100g estimate."
@@ -5792,18 +5680,12 @@
           "defaultMeasuredIn": "g",
           "kcal": 0.9412,
           "p": 0.2235,
-          "carbs": 0,
-          "fiber": 0,
-          "sugar": 0,
           "fat": 0.0059,
-          "sf": 0,
           "transFat": 0,
           "cholesterol": 1.8824,
           "sodium": 2.9412,
           "calcium": 0.7294,
-          "iron": 0,
           "potassium": 0.9059,
-          "vitD": 0,
           "vitA": 0.16,
           "vitE": 0.0105,
           "vitK": 0.003,
@@ -5826,16 +5708,22 @@
           "purines": 1.85,
           "displayUnits": [
             {
+              "label": "1 bag (12 oz, ~68 shrimp)",
+              "amount": 340,
+              "unit": "g",
+              "multiplier": 340
+            },
+            {
               "label": "1 serving (~17 shrimp)",
+              "amount": 85,
+              "unit": "g",
               "default": true,
               "multiplier": 85
             },
             {
-              "label": "1 bag (12 oz, ~68 shrimp)",
-              "multiplier": 340
-            },
-            {
               "label": "1 shrimp",
+              "amount": 5,
+              "unit": "g",
               "multiplier": 5
             }
           ],
@@ -5936,9 +5824,6 @@
           "defaultMeasuredIn": "g",
           "kcal": 2.5,
           "p": 0.5,
-          "carbs": 0,
-          "fiber": 0,
-          "sugar": 0,
           "addedSugar": 0,
           "fat": 0.0536,
           "sf": 0.0179,
@@ -5948,7 +5833,6 @@
           "calcium": 0.9286,
           "iron": 0.0386,
           "potassium": 5,
-          "vitD": 0,
           "vitA": 0.05,
           "vitE": 0.005,
           "vitK": 0.002,
@@ -5971,17 +5855,23 @@
           "purines": 1,
           "displayUnits": [
             {
+              "label": "1 bag (~3.25 oz)",
+              "amount": 92,
+              "unit": "g",
+              "multiplier": 92
+            },
+            {
               "label": "1 oz serving",
+              "amount": 28,
+              "unit": "g",
               "default": true,
               "multiplier": 28
             },
             {
               "label": "1 g",
+              "amount": 1,
+              "unit": "g",
               "multiplier": 1
-            },
-            {
-              "label": "1 bag (~3.25 oz)",
-              "multiplier": 92
             }
           ],
           "notes": "Label-derived (high confidence): kcal, macros, sodium (500mg/28g = EXTREME 17.9 mg/g), cholesterol, Ca (2% DV), Fe (6% DV). Estimated from USDA dried beef composition (high confidence): zinc very high (~0.1 mg/g — beef concentrated), B12 (~0.05 mcg/g excellent), selenium, choline, phosphorus, magnesium. Water ~25% (jerky concentrates beef). Purines MODERATE-HIGH (~100 mg/100g — flag for gout history). Ingredients: beef, gluten-free soy sauce (water, soybeans, rice, salt), beef broth, <2% flavorings, black pepper, vinegar, cultured celery powder (cultured celery powder + sea salt — natural nitrite source, chemically equivalent to added sodium nitrite), granulated garlic, salt. Contains soy. Marketed as no added nitrites/MSG/artificial sweeteners + gluten-free."
@@ -6489,17 +6379,23 @@
           "purines": 0.9,
           "displayUnits": [
             {
+              "label": "1 package (3 servings)",
+              "amount": 336,
+              "unit": "g",
+              "multiplier": 336
+            },
+            {
               "label": "2 pieces (4 oz)",
+              "amount": 112,
+              "unit": "g",
               "default": true,
               "multiplier": 112
             },
             {
               "label": "1 piece",
+              "amount": 56,
+              "unit": "g",
               "multiplier": 56
-            },
-            {
-              "label": "1 package (3 servings)",
-              "multiplier": 336
             }
           ],
           "notes": "Label-derived (high confidence): kcal, macros, sodium (570mg/112g = HIGH), cholesterol (85mg), trans fat 1g/serving (natural ruminant trans from beef + possible breadcrumb), sat fat 5g, fiber <1g, Fe (10% DV), K (240mg), Ca, vit D. Estimated from USDA ground beef + breadcrumb composition (high confidence): B12 (~0.02 mcg/g excellent), zinc high (~0.04 mg/g — beef), choline, phosphorus, selenium, water ~60%. Purines moderate (~90 mg/100g — beef). Ingredients: ground beef, onions, eggs (eggs, citric acid for color), breadcrumbs (unbleached wheat flour, sugar, salt, yeast), parsley, salt, paprika, garlic powder, spices. Contains wheat, egg. Frozen seasoned beef patties, Middle Eastern spice profile."
@@ -6924,31 +6820,31 @@
           "displayUnits": [
             {
               "label": "1 serving",
-              "amount": 200,
+              "amount": 823,
               "unit": "g",
               "default": true,
-              "multiplier": 200
+              "multiplier": 823
             }
           ],
           "ingredients": [
             {
               "itemKey": "turkey_ground_99",
-              "multiplier": 1,
+              "amount": 448,
               "label": "1 serving (112 g)"
             },
             {
               "itemKey": "black_bean_pasta",
-              "multiplier": 1,
+              "amount": 200,
               "label": "1 serving (56 g)"
             },
             {
               "itemKey": "tomato_paste",
-              "multiplier": 1,
+              "amount": 170,
               "label": "30 g (~2 Tbsp)"
             },
             {
               "itemKey": "evoo_tsp",
-              "multiplier": 1,
+              "amount": 5,
               "label": "1 tsp"
             }
           ],
@@ -7304,10 +7200,10 @@
           "displayUnits": [
             {
               "label": "1 serving",
-              "amount": 70,
+              "amount": 56,
               "unit": "g",
               "default": true,
-              "multiplier": 70
+              "multiplier": 56
             }
           ]
         },
@@ -7525,63 +7421,29 @@
         },
         "wing_plain_bww": {
           "name": "Classic wing plain",
-          "brand": null,
           "category": "items",
           "defaultMeasuredIn": "g",
-          "kcal": 2.923977,
-          "p": 0.324886,
-          "fat": 0.162443,
-          "sf": 0.048733,
-          "transfat": 0,
-          "carbs": 0,
-          "fiber": 0,
-          "sugar": 0,
-          "cholesterol": 1.461988,
-          "sodium": 0.974659,
-          "water": 0,
-          "caffeine": 0,
-          "omega3": 0,
-          "vitA": 0,
-          "vitC": 0,
-          "vitD": 0,
-          "vitE": 0,
-          "vitK": 0,
-          "b1": 0,
-          "b2": 0,
-          "b3": 0,
-          "b5": 0,
-          "b6": 0,
-          "b7": 0,
-          "b9": 0,
-          "b12": 0,
-          "choline": 0,
-          "calcium": 0.259909,
-          "iron": 0,
-          "magnesium": 0,
-          "phosphorus": 0,
-          "potassium": 2.59909,
-          "zinc": 0,
-          "selenium": 0,
-          "copper": 0,
-          "manganese": 0,
-          "iodine": 0,
-          "chromium": 0,
-          "molybdenum": 0,
-          "mercury": 0,
-          "purines": 0,
+          "kcal": 2.924,
+          "p": 0.3249,
+          "fat": 0.1624,
+          "sf": 0.0487,
+          "cholesterol": 1.462,
+          "sodium": 0.9747,
+          "calcium": 0.2599,
+          "potassium": 2.5991,
           "displayUnits": [
-            {
-              "label": "1 ea (30.78 g)",
-              "amount": 1,
-              "unit": "ea",
-              "multiplier": 30.78,
-              "default": true
-            },
             {
               "label": "6 ea (~185 g)",
               "amount": 6,
-              "unit": "ea",
-              "multiplier": 184.68
+              "unit": "g",
+              "multiplier": 6
+            },
+            {
+              "label": "1 ea (30.78 g)",
+              "amount": 1,
+              "unit": "g",
+              "default": true,
+              "multiplier": 1
             }
           ],
           "notes": "Classic wing plain, 1 ea = 30.78 g. Per-1-g values derived from per-serving facts (kcal, fat, sf, cholesterol, sodium, protein, calcium, potassium). Label omits vitamins and most minerals; fields not on the label are zero, fill from USDA chicken-wing data if better accuracy needed."
