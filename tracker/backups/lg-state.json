@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-02T09:55:39.156Z",
-  "_gistSavedAt": "2026-07-01T21:14:26.074Z",
+  "_backupTakenAt": "2026-07-03T09:52:08.131Z",
+  "_gistSavedAt": "2026-07-02T18:12:58.524Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1292,6 +1292,25 @@
         "counterMeta": {},
         "neck": 43,
         "neckMeta": "2026-07-01T20:24:32.665Z"
+      },
+      "2026-07-02": {
+        "toggles": {},
+        "counters": {
+          "protein_powder_whey_premier_chocolate": 0,
+          "premier": 325,
+          "black_bean_pasta": 70,
+          "ff_super_zero_vanilla": 136,
+          "david_bar_choc_chip_cookie_dough": 62
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "protein_powder_whey_premier_chocolate": "2026-07-02T18:06:30.298Z",
+          "premier": "2026-07-02T18:06:34.603Z",
+          "black_bean_pasta": "2026-07-02T18:08:11.285Z",
+          "ff_super_zero_vanilla": "2026-07-02T18:12:00.969Z",
+          "david_bar_choc_chip_cookie_dough": "2026-07-02T14:12:00-04:00"
+        }
       }
     },
     "savedItems": [],
@@ -2457,6 +2476,62 @@
           ],
           "notes": "NatureWise D3 5,000 IU. Vitamin D supplementation. Maryland latitude (~39°N) means winter sun is too low-angle for skin synthesis Oct–April. Earlier bloodwork showed low-normal D; supplementation targets the 40–60 ng/mL range for bone, immune, and muscle support on a deficit. Every other day (~17,500 IU/week) is the sweet spot for someone your size — daily 5,000 IU long-term over-saturates. With breakfast because it's fat-soluble; needs dietary fat to absorb.",
           "defaultMeasuredIn": "g"
+        },
+        "david_bar_choc_chip_cookie_dough": {
+          "name": "David Protein Bar Chocolate Chip Cookie Dough",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.4194,
+          "p": 0.4516,
+          "carbs": 0.1935,
+          "fiber": 0.0161,
+          "addedSugar": 0,
+          "sugarAlcohol": 0.1129,
+          "fat": 0.0323,
+          "sf": 0.0242,
+          "transFat": 0,
+          "cholesterol": 0.1613,
+          "sodium": 2.5806,
+          "calcium": 2.2581,
+          "iron": 0.0065,
+          "potassium": 1.7742,
+          "vitA": 0.02,
+          "vitE": 0.01,
+          "vitK": 0.001,
+          "b1": 0.0005,
+          "b2": 0.003,
+          "b3": 0.002,
+          "b5": 0.005,
+          "b6": 0.001,
+          "b9": 0.05,
+          "b12": 0.005,
+          "choline": 0.3,
+          "magnesium": 0.3,
+          "phosphorus": 2,
+          "zinc": 0.02,
+          "selenium": 0.2,
+          "copper": 0.001,
+          "manganese": 0.001,
+          "iodine": 0.2,
+          "water": 0.08,
+          "purines": 0.1,
+          "displayUnits": [
+            {
+              "label": "1 box (12 bars)",
+              "amount": 744,
+              "unit": "g",
+              "multiplier": 744
+            },
+            {
+              "label": "1 bar",
+              "amount": 62,
+              "unit": "g",
+              "default": true,
+              "multiplier": 62
+            }
+          ],
+          "notes": "Label per 1 bar (62g): 150 kcal, 28g protein, 2g fat (1.5g sat), 12g carb, 1g fiber, 0g sugar, 7g sugar alcohol, 160mg sodium, 10mg cholesterol, Ca 140mg (10% DV), Fe 0.4mg, K 110mg. PDCAAS 1.0 claimed; '75% CFP' (calories from protein) claimed. KCAL: label 150 stored as-is (accurate) — the low calorie count is achieved via EPG (Esterified Propoxylated Glycerol, 'modified plant fat'), a fat replacer that is largely non-absorbed (~0.7 kcal/g vs 9 for real fat); the 2g fat figure already reflects EPG's reduced caloric contribution. Sugar-alcohol (7g: maltitol + allulose + glycerin) calories already baked into the 150. PROTEIN CAVEAT: 28g is total protein but the 'protein system' is milk protein isolate + COLLAGEN (#2 ingredient) + whey concentrate + egg white. Collagen is an incomplete, low-leucine protein (~2.5% leucine vs whey ~11%) that contributes little to muscle protein synthesis. Collagen fraction is undisclosed by David; MPS/leucine-effective protein is therefore somewhat below the 28g label (rough est ~22-26g effective), though milk isolate + whey + egg white carry most of the load. PDCAAS 1.0 can mask this (caps at 1.0; DIAAS would be more revealing). EPG note: novel fat replacer, FDA GRAS; at high intakes can cause olestra-like GI effects (claimed better tolerated). Estimated micros from dairy-protein blend (medium confidence): phosphorus high (~2 mg/g, dairy), iodine + B12 (dairy), choline. Ingredients: protein system (milk protein isolate, collagen, whey protein concentrate, egg white), binding system (maltitol, allulose, glycerin, soluble corn fiber, tapioca starch, soy lecithin), fat system (modified plant fat [EPG], coconut oil), flavor system (unsweetened chocolate, dutch process cocoa, natural & artificial flavor, salt, sucralose, acesulfame K). Contains milk, egg, soy. May contain peanut, sesame, tree nuts. Gluten free.",
+          "brand": "David"
         },
         "drink_performx_strawberry_banana": {
           "name": "Drink hydration strawberry-banana",
