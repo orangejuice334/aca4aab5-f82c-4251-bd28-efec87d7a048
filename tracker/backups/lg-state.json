@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-06T11:23:50.744Z",
-  "_gistSavedAt": "2026-07-05T01:44:55.786Z",
+  "_backupTakenAt": "2026-07-06T14:42:12.368Z",
+  "_gistSavedAt": "2026-07-06T14:37:19.845Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1312,6 +1312,13 @@
           "david_bar_choc_chip_cookie_dough": "2026-07-02T14:12:00-04:00"
         }
       },
+      "2026-07-03": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {}
+      },
       "2026-07-04": {
         "toggles": {},
         "counters": {},
@@ -1320,6 +1327,37 @@
         "counterMeta": {},
         "neck": 43,
         "neckMeta": "2026-07-05T01:44:56.659Z"
+      },
+      "2026-07-05": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {}
+      },
+      "2026-07-06": {
+        "toggles": {},
+        "counters": {
+          "david_bar_choc_chip_cookie_dough": 62,
+          "mama_cozzi_turkey_pepperoni": 30
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "david_bar_choc_chip_cookie_dough": "2026-07-06T14:36:53.395Z",
+          "mama_cozzi_turkey_pepperoni": "2026-07-06T14:37:12.867Z"
+        },
+        "weight": 95.1,
+        "weightMeta": "2026-07-06T11:42:58.630Z",
+        "waist": 104,
+        "waistMeta": "2026-07-06T11:47:42.577Z"
+      },
+      "2026-07-07": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {}
       }
     },
     "savedItems": [],
@@ -1403,10 +1441,11 @@
       "history": true,
       "details-sync-error-banner": true,
       "catalog-archive": true,
-      "targets-accumulation": true,
-      "section-weight-tracker": true,
       "profile": true,
-      "today-log": true
+      "today-log": true,
+      "details-add-new-item": true,
+      "details-recipe-maker": true,
+      "targets-accumulation": true
     },
     "userCatalog": {
       "items": {

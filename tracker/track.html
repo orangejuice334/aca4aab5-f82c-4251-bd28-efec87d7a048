@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.89">
+<meta name="app-version" content="v6.5.90">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -4266,6 +4266,11 @@
     <input type="number" id="context-bar-waist" class="weight-input" step="0.1" min="0" max="250" placeholder="—" inputmode="decimal" title="Waist circumference at navel level, end of a normal exhale. cm.">
     <span class="weight-input-unit">cm</span>
   </span>
+  <span class="weight-input-wrapper">
+    <label class="weight-input-label" for="context-bar-mood">Mood</label>
+    <input type="number" id="context-bar-mood" class="weight-input" step="0.1" min="0" max="10" placeholder="—" inputmode="decimal" title="Mood on a 0-10 scale. 0 = worst, 10 = best.">
+    <span class="weight-input-unit">/10</span>
+  </span>
   <button id="sort-toggle" type="button" class="title-btn-secondary sort-toggle" title="Toggle between category and alphabetical sort">Sort: by category</button>
   <span id="sync-status" class="sync-status" style="display: none;"></span>
   <span id="last-sync" class="last-sync" style="display: none;" title="Last successful sync"></span>
@@ -4654,6 +4659,30 @@
       </ul>
     </div>
   </details>
+</section>
+
+<!-- ============ MOOD TRACKER ============
+     Same shape as the Weight & BMI section: per-day input (0-10 scale) +
+     a line chart of historical mood values. Colored bands demarcate low
+     (0-3, red), neutral (3-7, amber), and good (7-10, green) ranges. -->
+<section id="mood-tracker" class="section-minimal" data-collapsible>
+  <h2>Mood</h2>
+  <div class="measurement-row">
+    <span class="weight-input-wrapper">
+      <label class="weight-input-label" for="checkout-mood">Mood</label>
+      <input type="number" id="checkout-mood" class="weight-input" step="0.1" min="0" max="10" placeholder="—" inputmode="decimal" title="How you feel today, 0-10 scale. 0 = worst, 10 = best.">
+      <span class="weight-input-unit">/10</span>
+    </span>
+  </div>
+  <div class="weight-chart-wrapper">
+    <div class="chart-title">Mood (0-10)</div>
+    <svg id="mood-chart" class="weight-chart" preserveAspectRatio="none"></svg>
+    <div class="bmi-legend">
+      <span class="bmi-legend-band" style="background:hsla(15, 70%, 60%, 0.35);"></span>low 0-3
+      <span class="bmi-legend-band" style="background:hsla(40, 80%, 65%, 0.35);"></span>neutral 3-7
+      <span class="bmi-legend-band" style="background:hsla(135, 60%, 60%, 0.35);"></span>good 7-10
+    </div>
+  </div>
 </section>
 
 <!-- ============ SECTION 4 (Supplements reference cards) removed.
@@ -11699,10 +11728,13 @@
   function renderWeightSection() {
     if (typeof window !== 'undefined' && window.__perfCounts) window.__perfCounts.weight = (window.__perfCounts.weight || 0) + 1;
     const bucket = state.days[state.activeDate];
-    const syncInput = (id, val) => {
+    const syncInput = (id, val, allowZero) => {
       const el = document.getElementById(id);
       if (!el || document.activeElement === el) return;
-      el.value = (typeof val === 'number' && val > 0) ? val : '';
+      const has = allowZero
+        ? (typeof val === 'number' && val >= 0)
+        : (typeof val === 'number' && val > 0);
+      el.value = has ? val : '';
     };
     // Carry neck forward: if today has no neck value, show the most recent
     // prior day's neck reading. Any keystroke immediately overwrites today's
@@ -11716,11 +11748,53 @@
     syncInput('context-bar-neck',   neckCarried);
     syncInput('checkout-waist',     bucket && bucket.waist);
     syncInput('context-bar-waist',  bucket && bucket.waist);
+    // Mood is per-day only (no carry-forward — today's mood is today's).
+    // allowZero=true because 0 is a valid mood reading, not an empty slot.
+    syncInput('checkout-mood',      bucket && bucket.mood, true);
+    syncInput('context-bar-mood',   bucket && bucket.mood, true);
     renderBfInlineFromInputs();
     renderWeightSummary();
     renderWeightChart();
     renderBmiChart();
     renderFatPercentChart();
+    renderMoodChart();
+  }
+
+  // Mood history: same shape as collectWeightSeries. Union of history +
+  // active state.days, only entries with a numeric mood field.
+  function collectMoodSeries() {
+    const map = new Map();
+    for (const h of getHistory()) {
+      if (typeof h.mood === 'number') map.set(h.date, h.mood);
+    }
+    for (const dateKey in state.days) {
+      const m = state.days[dateKey].mood;
+      if (typeof m === 'number') map.set(dateKey, m);
+    }
+    const arr = [];
+    for (const [date, mood] of map) arr.push({ date, mood });
+    arr.sort((a, b) => a.date.localeCompare(b.date));
+    return arr;
+  }
+
+  // Mood chart: 0-10 line with color bands for low / neutral / good ranges.
+  function renderMoodChart() {
+    const svg = document.getElementById('mood-chart');
+    if (!svg) return;
+    const dates = getSharedChartDates();
+    const points = projectOntoSharedAxis(collectMoodSeries(), s => s.mood, dates);
+    buildLineChart(svg, points, {
+      color: '#5a6b4d',
+      yDecimals: 1,
+      yMin: 0,
+      yMax: 10,
+      showPointLabels: true,
+      bands: [
+        { min: 0, max: 3,  color: 'hsla(15, 70%, 60%, 0.18)' },
+        { min: 3, max: 7,  color: 'hsla(40, 80%, 65%, 0.18)' },
+        { min: 7, max: 10, color: 'hsla(135, 60%, 60%, 0.15)' },
+      ],
+    });
   }
 
   // Compute the weight-change tile shown in the accumulation watch ribbon.
@@ -13673,6 +13747,8 @@
     }
     wireMeasurementInputs(['checkout-neck',  'context-bar-neck'],  'neck',  [10, 80],  'neck_set',  'neck_clear');
     wireMeasurementInputs(['checkout-waist', 'context-bar-waist'], 'waist', [30, 250], 'waist_set', 'waist_clear');
+    // Mood: 0-10 scale, allows 0 (unlike weight/neck/waist which require > 0).
+    wireMeasurementInputs(['checkout-mood',  'context-bar-mood'],  'mood',  [0, 10],   'mood_set',  'mood_clear');
 
     // Date navigation
     dateNavPrev.addEventListener('click', () => {

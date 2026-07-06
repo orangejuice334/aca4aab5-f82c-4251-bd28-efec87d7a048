@@ -241,6 +241,22 @@ const OPS = {
     delete day.waistMeta;
     return { ok: true };
   },
+  mood_set(state, op) {
+    if (typeof op.value !== 'number' || !Number.isFinite(op.value)) {
+      return { ok: false, error: 'mood_set requires numeric value' };
+    }
+    const day = ensureDay(state, op.date);
+    day.mood = op.value;
+    if (op.ts) day.moodMeta = op.ts;
+    return { ok: true };
+  },
+  mood_clear(state, op) {
+    if (!op.date) return { ok: false, error: 'mood_clear requires date' };
+    const day = ensureDay(state, op.date);
+    delete day.mood;
+    delete day.moodMeta;
+    return { ok: true };
+  },
   day_delete(state, op) {
     if (!op.date) return { ok: false, error: 'day_delete requires date' };
     if (state.days && state.days[op.date]) delete state.days[op.date];
