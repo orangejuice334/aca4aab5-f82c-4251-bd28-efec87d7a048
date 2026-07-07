@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-06T14:42:12.368Z",
-  "_gistSavedAt": "2026-07-06T14:37:19.845Z",
+  "_backupTakenAt": "2026-07-07T10:19:52.910Z",
+  "_gistSavedAt": "2026-07-07T01:08:24.162Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1338,19 +1338,35 @@
       "2026-07-06": {
         "toggles": {},
         "counters": {
-          "david_bar_choc_chip_cookie_dough": 62,
-          "mama_cozzi_turkey_pepperoni": 30
+          "david_bar_choc_chip_cookie_dough": 124,
+          "mama_cozzi_turkey_pepperoni": 30,
+          "soy_milk": 150,
+          "protein_whey_dymatize_iso100_vanilla": 66,
+          "strawberry": 0,
+          "strawberry_frozen_blb": 194,
+          "spinach_fresh": 55,
+          "string_cheese": 10.5
         },
         "customs": [],
         "toggleMeta": {},
         "counterMeta": {
-          "david_bar_choc_chip_cookie_dough": "2026-07-06T14:36:53.395Z",
-          "mama_cozzi_turkey_pepperoni": "2026-07-06T14:37:12.867Z"
+          "david_bar_choc_chip_cookie_dough": "2026-07-06T23:28:18.066Z",
+          "mama_cozzi_turkey_pepperoni": "2026-07-06T14:37:12.867Z",
+          "soy_milk": "2026-07-06T17:20:04.197Z",
+          "protein_whey_dymatize_iso100_vanilla": "2026-07-06T18:18:49.436Z",
+          "strawberry": "2026-07-06T18:19:07.005Z",
+          "strawberry_frozen_blb": "2026-07-06T18:19:21.155Z",
+          "spinach_fresh": "2026-07-06T18:20:20.177Z",
+          "string_cheese": "2026-07-06T18:32:39.871Z"
         },
         "weight": 95.1,
-        "weightMeta": "2026-07-06T11:42:58.630Z",
+        "weightMeta": "2026-07-07T01:08:12.621Z",
         "waist": 104,
-        "waistMeta": "2026-07-06T11:47:42.577Z"
+        "waistMeta": "2026-07-07T01:08:12.514Z",
+        "mood": 5,
+        "moodMeta": "2026-07-06T15:45:56.082Z",
+        "neck": 43,
+        "neckMeta": "2026-07-07T01:08:12.722Z"
       },
       "2026-07-07": {
         "toggles": {},
@@ -1439,13 +1455,16 @@
       "today-customs": true,
       "supplements-water": true,
       "history": true,
-      "details-sync-error-banner": true,
       "catalog-archive": true,
-      "profile": true,
       "today-log": true,
       "details-add-new-item": true,
       "details-recipe-maker": true,
-      "targets-accumulation": true
+      "targets-accumulation": true,
+      "profile": true,
+      "section-weight-tracker": true,
+      "details-sync-error-banner": true,
+      "section-archive-section": true,
+      "section-mood-tracker": true
     },
     "userCatalog": {
       "items": {
