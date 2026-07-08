@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.90">
+<meta name="app-version" content="v6.5.91">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -2444,6 +2444,38 @@
   }
   .today-log-row .hd-time-inline {
     margin-left: auto;
+  }
+  /* Recipe-log breakdown: each ingredient renders on its own line under the
+     recipe header, followed by an <hr> separator, followed by the standard
+     totals line (the outer .checkout-item-macros). */
+  .today-log-row .today-log-ingredients {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 4px;
+    padding-left: 14px;
+    border-left: 2px solid var(--rule);
+  }
+  .today-log-row .today-log-ingredient {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  .today-log-row .today-log-ingredient-name {
+    font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+    font-size: 13px;
+    color: var(--ink);
+  }
+  .today-log-row .today-log-ingredient .checkout-item-macros {
+    font-size: 10px;
+    color: var(--ink-faint);
+    margin-top: 0;
+  }
+  .today-log-row hr.today-log-totals-sep {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 4px 0 2px 0;
+    width: 100%;
   }
 
   .checkout-row.flagged {
@@ -8031,95 +8063,18 @@
   }
 
   function checkWarnings(totals) {
-    // Daily Tracker consequence rendering happens via
-    // renderDailyConsequences() driven by computeTotals; called from
-    // renderCheckoutTotalCells / render(). The time gate lives there.
     if (typeof warningsEl !== 'undefined' && warningsEl) {
       warningsEl.innerHTML = '';
     }
   }
 
-  // Per-metric DAILY consequence text. Each function takes the delta
-  // (val - goal, positive = over, negative = under) and returns the
-  // human-readable consequence string. Metrics without an entry don't
-  // produce a card - no generic fallback. Tone matches the Weekly
-  // Tracker consequences but scoped to "what you can do today".
-  // Daily consequences. Tone is honest: by the time the user sees this
-  // (20:00 to 02:00), most of the day's eating is already done and the
-  // food cannot be un-eaten. So "fix" advice points at the NEXT few
-  // days, not the current evening, for over-cap metrics. Under-target
-  // metrics like protein / water / fiber CAN still be topped up tonight,
-  // so those keep an actionable suggestion.
-  const DAILY_CONSEQUENCES = {
-    kcal: (delta) => 'Today closed about ' + Math.round(delta) + ' kcal over the cap. You cannot undo today; the food is in. What you CAN do is run the next 3 to 4 days at the planned deficit (do not over-compensate by slashing tomorrow, that triggers rebound). One over-day in a week is noise; a streak is the issue, watch the Weight Δ tile in the Weekly Tracker.',
-    sf: (delta) => 'Today closed ' + delta.toFixed(1) + ' g over the sat-fat cap. One day is not damage; it is the 7-day running total that hits LDL. Can\'t reverse today, but tomorrow shift toward leaner protein (chicken breast, fish, egg whites, lean ground turkey).',
-    caffeine: (delta) => 'Today closed about ' + Math.round(delta) + ' mg past the caffeine cap. Half-life ~5 hours, so caffeine consumed after noon will degrade sleep tonight. Cannot remove it from your system; what you can do is hydrate, skip caffeine the rest of the evening, and accept the sleep hit. Adjust tomorrow\'s intake earlier in the day.',
-    sodium: (delta) => 'Today closed about ' + Math.round(delta) + ' mg over the sodium target. Expect water retention and possibly a morning weight bump. Drink an extra 500 ml water tonight. Tomorrow rebalance toward unprocessed foods. The 7-day average is what matters for blood pressure, single days are noise.',
-    p: (delta) => 'Protein is short by about ' + Math.round(-delta) + ' g vs target. This one IS actionable tonight: low-kcal high-protein options to top up are cottage cheese (Friendly Farms low-fat), Greek yogurt 0%, whey shake, Premier Protein latte, plain chicken breast, tuna in water.',
-    water: (delta) => 'Water is short by about ' + Math.round(-delta) + ' ml vs target. Actionable now: 500 ml glasses across the next 2 to 3 hours. Mild dehydration measurably degrades cognitive performance and lift quality.',
-    fiber: (delta) => 'Fiber is short by about ' + delta.toFixed(1) + ' g vs target. Actionable tonight: a side of beans or lentils, a vegetable, berries, or 1 tsp psyllium husk in water. One short day is fine; a streak slows transit and sharpens post-meal glucose.',
-  };
-
-  // Render a per-metric "what staying out of range costs" block below
-  // the Daily Tracker tiles, but ONLY between 20:00 and 02:00 (the
-  // window when course-correction is still possible today). At other
-  // times the block stays empty. Skips any metric without a specific
-  // consequence string - no generic filler.
-  function renderDailyConsequences(totals) {
-    let el = document.getElementById('daily-consequences');
-    const container = document.getElementById('checkout-totals');
-    if (!container) return;
-    if (!el) {
-      el = document.createElement('div');
-      el.id = 'daily-consequences';
-      el.className = 'warnings-consequences daily-consequences';
-      container.appendChild(el);
-    }
-    const now = new Date();
-    const hour = now.getHours();
-    const inWindow = (hour >= 20 || hour < 2);
-    if (!inWindow) {
-      el.hidden = true;
-      el.innerHTML = '';
-      return;
-    }
-    const entries = [];
-    const addIfOver = (key, label, val, goal) => {
-      if (!(goal > 0)) return;
-      if (val > goal) {
-        const fn = DAILY_CONSEQUENCES[key];
-        if (!fn) return;
-        entries.push({ key, label, dir: 'over goal', text: fn(val - goal) });
-      }
-    };
-    const addIfUnder = (key, label, val, goal) => {
-      if (!(goal > 0)) return;
-      if (val < goal) {
-        const fn = DAILY_CONSEQUENCES[key];
-        if (!fn) return;
-        entries.push({ key, label, dir: 'under goal', text: fn(val - goal) });
-      }
-    };
-    addIfOver('kcal', 'Calories', totals.kcal || 0, GOALS.kcal);
-    addIfOver('sf', 'Sat. Fat.', totals.sf || 0, GOALS.sf);
-    addIfOver('caffeine', 'Caffeine', totals.caffeine || 0, GOALS.caffeine);
-    addIfOver('sodium', 'Sodium', totals.sodium || 0, GOALS.sodium);
-    addIfUnder('p', 'Protein', totals.p || 0, GOALS.p);
-    addIfUnder('water', 'Water', totals.water || 0, GOALS.water);
-    addIfUnder('fiber', 'Fiber', totals.fiber || 0, GOALS.fiber);
-    if (!entries.length) {
-      el.hidden = true;
-      el.innerHTML = '';
-      return;
-    }
-    el.hidden = false;
-    el.innerHTML = entries.map(e =>
-      '<div class="warning-consequence">' +
-        '<div class="warning-consequence-head">' + escapeHtml(e.label) +
-          ' <span class="warning-consequence-dir">' + escapeHtml(e.dir) + '</span></div>' +
-        '<p>' + escapeHtml(e.text) + '</p>' +
-      '</div>'
-    ).join('');
+  // Daily-consequences block removed 2026-07-07 (Luis: "I don't use them").
+  // Kept as a no-op stub so any lingering call site is harmless. The old
+  // block used to print per-metric "over goal / under goal" advisory text
+  // between 20:00 and 02:00.
+  function renderDailyConsequences(_totals) {
+    const el = document.getElementById('daily-consequences');
+    if (el && el.parentNode) el.parentNode.removeChild(el);
   }
 
   function renderHistory() {
@@ -11039,6 +10994,7 @@
         countSuffix = ' · ' + formatSize(n) + ' ' + u;
       }
       let m;
+      let ingredientsBreakdown = null;
       if (catItem) {
         if (isRecipeItem) {
           const canonUnits = recipeCanonicalGrams(catItem);
@@ -11046,6 +11002,32 @@
           const factor = canonUnits > 0 ? (n / canonUnits) : 0;
           m = {};
           for (const k of STORED_NUTRIENT_KEYS) m[k] = (batch[k] || 0) * factor;
+          // Per-ingredient breakdown, scaled by the same factor. resolveIngredient
+          // gives us full-batch macros per ingredient; we multiply by `factor` so
+          // partial-recipe consumption shows partial ingredient consumption.
+          ingredientsBreakdown = catItem.ingredients.map(ing => {
+            const r = resolveIngredient(ing) || { name: '(unknown)', kcal: 0, p: 0, sf: 0, water: 0, caffeine: 0 };
+            const scaled = {};
+            for (const k of STORED_NUTRIENT_KEYS) scaled[k] = (r[k] || 0) * factor;
+            // Suffix mirrors the recipe-editor "amount" display: prefer label,
+            // then the numeric amount (scaled), then the multiplier fraction.
+            let suffix = '';
+            if (r.amount) {
+              const av = r.amount.value;
+              const au = r.amount.unit || '';
+              if (typeof av === 'number' && av > 0) {
+                const scaledAv = Math.round(av * factor * 10) / 10;
+                suffix = ' · ' + scaledAv + (au ? ' ' + au : '');
+              } else if (au) {
+                suffix = ' · ' + au;
+              }
+            }
+            return {
+              name: r.name || '(unknown)',
+              suffix,
+              macrosHtml: formatLogMacroLine(scaled),
+            };
+          });
         } else {
           m = scaleByNative(catItem, n);
         }
@@ -11057,6 +11039,7 @@
         name: formatItemDisplayName(catItem || item) || item.name || key,
         suffix: countSuffix,
         macrosHtml: formatLogMacroLine(m),
+        ingredientsBreakdown,
         ts: counterMeta[key] || null,
         sortTs: counterMeta[key] || '',
       });
@@ -11119,10 +11102,23 @@
     // Most recently logged first; entries without a timestamp go to the
     // bottom (likely backfilled / pre-stamping data).
     entries.sort((a, b) => {
-      if (!a.sortTs && !b.sortTs) return 0;
-      if (!a.sortTs) return 1;
-      if (!b.sortTs) return -1;
-      return b.sortTs.localeCompare(a.sortTs);
+      // Earliest first. Robust against mixed sortTs shapes (ISO strings,
+      // numeric ms, junk) by normalizing everything to a numeric Date
+      // milliseconds value. NaN (unparseable / missing) sinks to the bottom.
+      const toMs = (v) => {
+        if (v == null || v === '') return NaN;
+        if (typeof v === 'number' && isFinite(v)) return v;
+        const t = Date.parse(String(v));
+        return isFinite(t) ? t : NaN;
+      };
+      const ta = toMs(a.sortTs);
+      const tb = toMs(b.sortTs);
+      const aBad = isNaN(ta);
+      const bBad = isNaN(tb);
+      if (aBad && bBad) return 0;
+      if (aBad) return 1;
+      if (bBad) return -1;
+      return ta - tb;
     });
 
     group.style.display = '';
@@ -11134,11 +11130,26 @@
       const macrosFrag = (macrosBody || timeFrag)
         ? '<span class="checkout-item-macros">' + macrosBody + timeFrag + '</span>'
         : '';
+      // Recipe entries: emit per-ingredient rows (each with its own scaled
+      // macros line) inside the same row's name column, then a horizontal
+      // rule, then the recipe totals as the standard macros line at the
+      // bottom. Non-recipe entries render just the standard line.
+      let ingredientsFrag = '';
+      if (Array.isArray(e.ingredientsBreakdown) && e.ingredientsBreakdown.length) {
+        const ingRows = e.ingredientsBreakdown.map(ing =>
+          '<div class="today-log-ingredient">' +
+            '<span class="today-log-ingredient-name">' + escapeHtml((ing.name || '') + (ing.suffix || '')) + '</span>' +
+            '<span class="checkout-item-macros">' + (ing.macrosHtml || '') + '</span>' +
+          '</div>'
+        ).join('');
+        ingredientsFrag = '<div class="today-log-ingredients">' + ingRows + '<hr class="today-log-totals-sep"></div>';
+      }
       return (
-        '<div class="checkout-row today-log-row">' +
+        '<div class="checkout-row today-log-row' + (ingredientsFrag ? ' today-log-row-recipe' : '') + '">' +
           '<div></div>' +
           '<div>' +
             '<span class="checkout-item-name">' + escapeHtml(e.name + e.suffix) + '</span>' +
+            ingredientsFrag +
             macrosFrag +
           '</div>' +
           '<div></div>' +
@@ -13446,6 +13457,18 @@
       // every event, with NO 'wait for blur'.
       saveExpandedEdits(key, panel, { skipCatalogRender: true });
       if (typeof updateCatalogRowInPlace === 'function') updateCatalogRowInPlace(key);
+      // Recipes: the top-amount input reflects the sum of ingredient native
+      // units (a computed field, not user-typed). Keep it in sync live so
+      // an ingredient edit / add / remove immediately updates the displayed
+      // AMOUNT above the ingredients list.
+      const editedItem = ITEMS[key];
+      if (editedItem && editedItem.category === 'recipes') {
+        const topAmt = panel.querySelector('input[data-edit-field="top-amount-value"]');
+        if (topAmt && document.activeElement !== topAmt) {
+          const canon = (typeof recipeCanonicalGrams === 'function') ? recipeCanonicalGrams(editedItem) : 0;
+          topAmt.value = canon > 0 ? (Math.round(canon * 10) / 10) : '';
+        }
+      }
     };
     document.addEventListener('input', (ev) => {
       const panel = ev.target.closest('[data-edit-panel]');

@@ -11,15 +11,27 @@ import { loadTracker, typeInto, waitMs } from './_dom-harness.mjs';
 //   - state.days[date].mood + moodMeta, backed by mood_set / mood_clear ops
 //   - context-bar input mirrors the checkout-mood input (like weight)
 
+// Boot always resets activeDate to todayKey() (see track.html "reset to
+// today on page load"), so tests must seed today's bucket dynamically.
+// track.html builds todayKey from LOCAL date components (getFullYear /
+// getMonth / getDate) so we mirror that here rather than toISOString(),
+// which is UTC and can straddle a day boundary from the local clock.
+const TODAY = (() => {
+  const d = new Date();
+  return d.getFullYear() + '-' +
+         String(d.getMonth() + 1).padStart(2, '0') + '-' +
+         String(d.getDate()).padStart(2, '0');
+})();
+
 function seedWithHistory() {
   return {
     state: {
-      activeDate: '2026-07-06',
+      activeDate: TODAY,
       days: {
         '2026-07-01': { mood: 7,   moodMeta: '2026-07-01T09:00:00Z', counters: {}, customs: [], toggles: {}, counterMeta: {} },
         '2026-07-02': { mood: 8,   moodMeta: '2026-07-02T09:00:00Z', counters: {}, customs: [], toggles: {}, counterMeta: {} },
         '2026-07-03': { mood: 5,   moodMeta: '2026-07-03T09:00:00Z', counters: {}, customs: [], toggles: {}, counterMeta: {} },
-        '2026-07-06': { counters: {}, customs: [], toggles: {}, counterMeta: {} },
+        [TODAY]: { counters: {}, customs: [], toggles: {}, counterMeta: {} },
       },
       customs: [],
       profile: { sex: 'M', ageYears: 35, heightCm: 175 },
@@ -57,9 +69,11 @@ test('mood-tracker section exists as its own <section>', async () => {
 
 test('seeded mood value hydrates into today\'s input on boot', async () => {
   const withToday = seedWithHistory();
-  withToday.state.days['2026-07-06'].mood = 6;
+  withToday.state.days[TODAY].mood = 6;
   const h = await loadTracker({ seedState: withToday });
   try {
+    // Let the async loadFromGist chain + render() settle.
+    await waitMs(200);
     // The generic renderWeightSection-style syncInput populates both mirrors.
     const ctxMood  = h.doc.getElementById('context-bar-mood');
     const sectMood = h.doc.getElementById('checkout-mood');
@@ -106,8 +120,8 @@ test('mood_set op handler is present in the Worker source', () => {
 
 test('clearing the mood input fires a mood_clear op', async () => {
   const withToday = seedWithHistory();
-  withToday.state.days['2026-07-06'].mood = 5;
-  withToday.state.days['2026-07-06'].moodMeta = '2026-07-06T09:00:00Z';
+  withToday.state.days[TODAY].mood = 5;
+  withToday.state.days[TODAY].moodMeta = '2026-07-06T09:00:00Z';
   const h = await loadTracker({ seedState: withToday });
   try {
     const input = h.doc.getElementById('checkout-mood');

@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-07T10:19:52.910Z",
-  "_gistSavedAt": "2026-07-07T01:08:24.162Z",
+  "_backupTakenAt": "2026-07-08T00:55:02.728Z",
+  "_gistSavedAt": "2026-07-08T00:40:41.812Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1370,10 +1370,41 @@
       },
       "2026-07-07": {
         "toggles": {},
-        "counters": {},
-        "customs": [],
+        "counters": {
+          "soy_milk": 250,
+          "premier_latte": 357.5,
+          "strawberry_smoothy": 525,
+          "larabar": 45,
+          "loven_fresh_protein_everything_bagel": 55,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "chobani_protein_raspberry_lemon": 190
+        },
+        "customs": [
+          {
+            "id": "830d4b61-2b7b-42de-af5d-18b0ac7831d5",
+            "name": "250kcal 5p",
+            "kcal": 250,
+            "p": 5,
+            "count": 1,
+            "lastModified": "2026-07-07T13:48:21.798Z"
+          }
+        ],
         "toggleMeta": {},
-        "counterMeta": {}
+        "counterMeta": {
+          "soy_milk": "2026-07-07T13:47:55.164Z",
+          "premier_latte": "2026-07-07T13:48:38.883Z",
+          "strawberry_smoothy": "2026-07-07T21:53:20.001Z",
+          "larabar": "2026-07-07T21:53:33.734Z",
+          "loven_fresh_protein_everything_bagel": "2026-07-07T21:53:51.071Z",
+          "david_bar_choc_chip_cookie_dough": "2026-07-07T21:54:07.206Z",
+          "chobani_protein_raspberry_lemon": "2026-07-07T20:35:37-04:00"
+        },
+        "mood": 5,
+        "moodMeta": "2026-07-07T22:14:59.126Z",
+        "weight": 94.6,
+        "weightMeta": "2026-07-07T22:14:59.048Z",
+        "neck": 43,
+        "neckMeta": "2026-07-07T22:14:59.204Z"
       }
     },
     "savedItems": [],
@@ -1456,15 +1487,13 @@
       "supplements-water": true,
       "history": true,
       "catalog-archive": true,
-      "today-log": true,
-      "details-add-new-item": true,
-      "details-recipe-maker": true,
       "targets-accumulation": true,
       "profile": true,
-      "section-weight-tracker": true,
       "details-sync-error-banner": true,
       "section-archive-section": true,
-      "section-mood-tracker": true
+      "details-add-new-item": true,
+      "details-recipe-maker": true,
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
@@ -2451,6 +2480,59 @@
           ],
           "purines": 2.5,
           "brand": "Bell and Evans"
+        },
+        "chobani_protein_raspberry_lemon": {
+          "name": "Chobani Protein Raspberry Lemon (20g, zero added sugar)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.7368,
+          "p": 0.1053,
+          "carbs": 0.0421,
+          "fiber": 0.0053,
+          "sugar": 0.0316,
+          "addedSugar": 0,
+          "fat": 0.0158,
+          "sf": 0.0105,
+          "transFat": 0,
+          "cholesterol": 0.1053,
+          "sodium": 0.7368,
+          "calcium": 1.0263,
+          "iron": 0,
+          "potassium": 1.5789,
+          "vitD": 0,
+          "vitA": 0.05,
+          "vitC": 0,
+          "vitE": 0.01,
+          "vitK": 0.001,
+          "b1": 0.0003,
+          "b2": 0.003,
+          "b3": 0.0007,
+          "b5": 0.003,
+          "b6": 0.0005,
+          "b9": 0.05,
+          "b12": 0.0221,
+          "choline": 0.15,
+          "magnesium": 0.11,
+          "phosphorus": 1.4,
+          "zinc": 0.005,
+          "selenium": 0.1,
+          "copper": 0.0003,
+          "manganese": 0.001,
+          "iodine": 0.5,
+          "water": 0.8,
+          "purines": 0.1,
+          "displayUnits": [
+            {
+              "label": "1 container",
+              "default": true,
+              "multiplier": 190
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Label per 1 container (190g): 140 kcal, 20g protein, 3g fat (2g sat), 8g carb, 1g fiber, 6g total sugars (0g added — all from milk lactose... though marketed lactose-free, residual milk sugar remains), 140mg sodium, 20mg cholesterol, Ca 15% DV, K 6% DV, B12 70% DV (very high). Lactose free. Zero added sugar (stevia/monk-style sweetened typical for Chobani zero-sugar line). Estimated micros from strained Greek yogurt composition (high confidence): B12 exceptional (~0.022 mcg/g, label-confirmed 70% DV), iodine (dairy ~0.5 mcg/g), phosphorus (~1.4 mg/g), choline. Purines low (~10 mg/100g). Ingredients: lowfat yogurt (cultured pasteurized lowfat milk, lactase enzyme), water, raspberry/lemon fruit base, natural flavors, fruit/veg juice concentrate (color), stevia/monk fruit. Contains milk. Live active cultures. USWNT/USMNT (US Soccer) promotional packaging."
         },
         "crackers_50g": {
           "name": "Crackers",
@@ -6329,6 +6411,44 @@
             }
           ],
           "notes": "Better Living Brands frozen strawberries (Pleasanton CA, ~10 servings/bag). Identified as strawberries from USDA cross-match: potassium 145mg/100g (USDA 09316: 148mg), vitC 41mg/100g (USDA: 40mg), calcium 14.5mg/100g (USDA: 16mg). Ingredient list cut off at SL... consistent with STRAWBERRIES. fat=0 on label but USDA 0.2g/100g (below 0.5g threshold) — corrected to 0.002 g/g. Micronutrients from USDA SR Legacy 09316 frozen unsweetened strawberries — MEDIUM CONFIDENCE. b7 is a rough estimate."
+        },
+        "strawberry_smoothy": {
+          "name": "strawberry smoothie",
+          "category": "recipes",
+          "ingredients": [
+            {
+              "itemKey": "strawberry_frozen_blb",
+              "amount": 276
+            },
+            {
+              "itemKey": "yogurt_half",
+              "amount": 170
+            },
+            {
+              "itemKey": "protein_whey_dymatize_iso100_vanilla",
+              "amount": 33
+            },
+            {
+              "itemKey": "spinach_fresh",
+              "amount": 40
+            },
+            {
+              "itemKey": "sucralose",
+              "amount": 1,
+              "label": "1 packet"
+            }
+          ],
+          "displayUnits": [
+            {
+              "label": "full recipe",
+              "amount": 520,
+              "unit": "g",
+              "default": true,
+              "locked": true,
+              "multiplier": 520
+            }
+          ],
+          "defaultMeasuredIn": "units"
         },
         "string_cheese": {
           "name": "Mozzarella stick string cheese",
