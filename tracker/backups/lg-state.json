@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-08T09:22:05.687Z",
-  "_gistSavedAt": "2026-07-08T02:25:20.861Z",
+  "_backupTakenAt": "2026-07-08T21:42:08.645Z",
+  "_gistSavedAt": "2026-07-08T21:18:09.557Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1413,6 +1413,33 @@
         "weightMeta": "2026-07-08T00:55:56.927Z",
         "neck": 43,
         "neckMeta": "2026-07-08T00:55:57.080Z"
+      },
+      "2026-07-08": {
+        "toggles": {},
+        "counters": {
+          "chobani_protein_raspberry_lemon": 190,
+          "loven_fresh_protein_everything_bagel": 55,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "edamame_half": 170,
+          "nutricost_casein_vanilla": 70.4,
+          "soy_milk": 300,
+          "hero_plain_bagel": 75
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "chobani_protein_raspberry_lemon": "2026-07-08T14:11:25.383Z",
+          "loven_fresh_protein_everything_bagel": "2026-07-08T14:11:41.198Z",
+          "david_bar_choc_chip_cookie_dough": "2026-07-08T14:11:53.255Z",
+          "edamame_half": "2026-07-08T16:09:13-04:00",
+          "nutricost_casein_vanilla": "2026-07-08T20:48:58.780Z",
+          "soy_milk": "2026-07-08T21:12:26.400Z",
+          "hero_plain_bagel": "2026-07-08T21:12:36.438Z"
+        },
+        "mood": 5,
+        "moodMeta": "2026-07-08T14:10:39.977Z",
+        "weight": 93.5,
+        "weightMeta": "2026-07-08T21:15:18.442Z"
       }
     },
     "savedItems": [],
@@ -1426,7 +1453,7 @@
       "startWeightKg": 102,
       "targetWeightKg": 88,
       "goals": {
-        "kcal": 1200,
+        "kcal": 1600,
         "p": 190,
         "carbs": 275,
         "fiber": 28,
@@ -1470,11 +1497,13 @@
       "displayedNutrients": [
         "kcal",
         "p",
-        "sf",
         "water",
         "caffeine",
         "potassium",
-        "_kcal_per_p"
+        "_kcal_per_p",
+        "sodium",
+        "fat",
+        "fiber"
       ],
       "units": {
         "weight": "kg",
@@ -1491,17 +1520,16 @@
       "section-density": true,
       "targets-daily": true,
       "details-profile-section": true,
-      "supplements-water": true,
-      "history": true,
       "catalog-archive": true,
-      "profile": true,
       "details-sync-error-banner": true,
       "section-archive-section": true,
-      "details-recipe-maker": true,
       "today-customs": true,
       "details-add-new-item": true,
       "targets-accumulation": true,
-      "catalog-ratio": true
+      "section-mood-tracker": true,
+      "details-recipe-maker": true,
+      "supplements-water": true,
+      "profile": true
     },
     "userCatalog": {
       "items": {
@@ -1521,7 +1549,8 @@
             }
           ],
           "notes": "Doctor's Best Magnesium Glycinate, 4 tablets (800 mg magnesium total). Multiple reasons:\n\n• Sleep quality — glycinate contains glycine, an inhibitory neurotransmitter that promotes calm.\n• Cramps and recovery — heavy lifting + sweating + a deficit all increase magnesium demand; calf cramps are often magnesium-adjacent.\n• Cardiovascular — mild blood pressure lowering, modest insulin sensitivity.\n• Constipation prevention — lower food intake + high protein slows transit.\n\nGlycinate specifically because it's highly bioavailable AND non-laxative, unlike oxide (poorly absorbed) or citrate (loose stools at higher doses). Dinner timing keeps it away from caffeine (which antagonizes magnesium) and lets the calming effect help sleep.",
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "brand": "Doctor's Best"
         },
         "almond_powder_tbsp": {
           "name": "Almond powder defatted",
@@ -1809,7 +1838,8 @@
               "multiplier": 48
             }
           ],
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "brand": "LUNA"
         },
         "beef_bulgogi_100g": {
           "name": "Beef bulgogi seasoned rib-eye",
@@ -2458,7 +2488,8 @@
               "multiplier": 35.5
             }
           ],
-          "notes": "Label-derived (high confidence): kcal, macros, sodium (1,130mg/cup = 49% DV — extreme), fiber, iron (3mg = 17% DV from fortification), Ca, K. Estimated from USDA instant ramen + pea-protein-enriched composition (lower confidence): B-vitamins (B9 high from folic acid fortification, B1/B2/B3 from enrichment), Mg, P, Zn, Se. Vit B12 = 0 (no animal source). Purines low (~50 mg/100g). Per-gram values for DRY product as labeled. Ingredients: enriched organic unbleached flour (wheat, niacin, reduced iron, thiamine mononitrate, riboflavin, folic acid), organic sunflower oil, organic pea protein, seasoning blend (maltodextrin, brown sugar, salt, yeast extract, autolyzed yeast, dehydrated vegetable powder [onion, garlic, chives], caramelized sugar, caramel color, disodium inosinate & disodium guanylate, paprika extract, spices, hydrolyzed soy & corn protein, natural beef style flavor), dried red bell pepper, dried carrot, salt, dried onion, dried peas, dried corn, ≤2% mix tocopherol, potassium carbonate, soda ash, guar gum, sodium tripolyphosphate. Contains wheat, soy. Contains NO beef (despite 'beef style flavor')."
+          "notes": "Label-derived (high confidence): kcal, macros, sodium (1,130mg/cup = 49% DV — extreme), fiber, iron (3mg = 17% DV from fortification), Ca, K. Estimated from USDA instant ramen + pea-protein-enriched composition (lower confidence): B-vitamins (B9 high from folic acid fortification, B1/B2/B3 from enrichment), Mg, P, Zn, Se. Vit B12 = 0 (no animal source). Purines low (~50 mg/100g). Per-gram values for DRY product as labeled. Ingredients: enriched organic unbleached flour (wheat, niacin, reduced iron, thiamine mononitrate, riboflavin, folic acid), organic sunflower oil, organic pea protein, seasoning blend (maltodextrin, brown sugar, salt, yeast extract, autolyzed yeast, dehydrated vegetable powder [onion, garlic, chives], caramelized sugar, caramel color, disodium inosinate & disodium guanylate, paprika extract, spices, hydrolyzed soy & corn protein, natural beef style flavor), dried red bell pepper, dried carrot, salt, dried onion, dried peas, dried corn, ≤2% mix tocopherol, potassium carbonate, soda ash, guar gum, sodium tripolyphosphate. Contains wheat, soy. Contains NO beef (despite 'beef style flavor').",
+          "brand": "Chef's Cupboard (Aldi)"
         },
         "chicken_livers_bell_evans": {
           "name": "Chicken livers organic",
@@ -2540,7 +2571,8 @@
               "multiplier": 100
             }
           ],
-          "notes": "Label per 1 container (190g): 140 kcal, 20g protein, 3g fat (2g sat), 8g carb, 1g fiber, 6g total sugars (0g added — all from milk lactose... though marketed lactose-free, residual milk sugar remains), 140mg sodium, 20mg cholesterol, Ca 15% DV, K 6% DV, B12 70% DV (very high). Lactose free. Zero added sugar (stevia/monk-style sweetened typical for Chobani zero-sugar line). Estimated micros from strained Greek yogurt composition (high confidence): B12 exceptional (~0.022 mcg/g, label-confirmed 70% DV), iodine (dairy ~0.5 mcg/g), phosphorus (~1.4 mg/g), choline. Purines low (~10 mg/100g). Ingredients: lowfat yogurt (cultured pasteurized lowfat milk, lactase enzyme), water, raspberry/lemon fruit base, natural flavors, fruit/veg juice concentrate (color), stevia/monk fruit. Contains milk. Live active cultures. USWNT/USMNT (US Soccer) promotional packaging."
+          "notes": "Label per 1 container (190g): 140 kcal, 20g protein, 3g fat (2g sat), 8g carb, 1g fiber, 6g total sugars (0g added — all from milk lactose... though marketed lactose-free, residual milk sugar remains), 140mg sodium, 20mg cholesterol, Ca 15% DV, K 6% DV, B12 70% DV (very high). Lactose free. Zero added sugar (stevia/monk-style sweetened typical for Chobani zero-sugar line). Estimated micros from strained Greek yogurt composition (high confidence): B12 exceptional (~0.022 mcg/g, label-confirmed 70% DV), iodine (dairy ~0.5 mcg/g), phosphorus (~1.4 mg/g), choline. Purines low (~10 mg/100g). Ingredients: lowfat yogurt (cultured pasteurized lowfat milk, lactase enzyme), water, raspberry/lemon fruit base, natural flavors, fruit/veg juice concentrate (color), stevia/monk fruit. Contains milk. Live active cultures. USWNT/USMNT (US Soccer) promotional packaging.",
+          "brand": "Chobani"
         },
         "crackers_50g": {
           "name": "Crackers",
@@ -2632,7 +2664,8 @@
             }
           ],
           "notes": "NatureWise D3 5,000 IU. Vitamin D supplementation. Maryland latitude (~39°N) means winter sun is too low-angle for skin synthesis Oct–April. Earlier bloodwork showed low-normal D; supplementation targets the 40–60 ng/mL range for bone, immune, and muscle support on a deficit. Every other day (~17,500 IU/week) is the sweet spot for someone your size — daily 5,000 IU long-term over-saturates. With breakfast because it's fat-soluble; needs dietary fat to absorb.",
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "brand": "NatureWise"
         },
         "david_bar_choc_chip_cookie_dough": {
           "name": "David Protein Bar Chocolate Chip Cookie Dough",
@@ -2731,14 +2764,14 @@
         "edamame_half": {
           "name": "Edamame shelled",
           "category": "items",
-          "kcal": 1.322,
-          "p": 0.1062,
-          "carbs": 0.09,
-          "fiber": 0.052,
-          "sugar": 0.022,
-          "fat": 0.05,
-          "sf": 0.0062,
-          "sodium": 0.06,
+          "kcal": 1.0588,
+          "p": 0.1176,
+          "carbs": 0.0706,
+          "fiber": 0.0471,
+          "sugar": 0.0235,
+          "fat": 0.0471,
+          "sf": 0,
+          "sodium": 0.0588,
           "water": 0.6608,
           "vitC": 0.06,
           "vitE": 0.007,
@@ -2751,10 +2784,10 @@
           "b7": 0.02,
           "b9": 3.11,
           "choline": 0.56,
-          "calcium": 0.63,
-          "iron": 0.023,
+          "calcium": 0.5882,
+          "iron": 0.0212,
           "magnesium": 0.64,
-          "potassium": 4.36,
+          "potassium": 4.8235,
           "zinc": 0.014,
           "selenium": 0.008,
           "copper": 0.0034,
@@ -2763,14 +2796,26 @@
           "purines": 1.7,
           "displayUnits": [
             {
-              "label": "1/2 bag",
-              "amount": 227,
-              "unit": "g",
+              "label": "1/2 cup (85g)",
               "default": true,
-              "multiplier": 227
+              "multiplier": 85
+            },
+            {
+              "label": "1 cup",
+              "multiplier": 170
+            },
+            {
+              "label": "1 bag (~5 servings)",
+              "multiplier": 425
             }
           ],
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "brand": "Season's Choice (Aldi)",
+          "transFat": 0,
+          "cholesterol": 0,
+          "addedSugar": 0,
+          "vitD": 0,
+          "notes": "Season's Choice shelled edamame (Aldi), product of China. Label per 1/2 cup (85g): 90 kcal, 10g protein, 4g fat, 6g carb, 4g fiber, 2g sugar, 5mg sodium, Ca 50mg, Fe 1.8mg (10% DV), K 410mg (8% DV). MACROS updated to this real label (was generic USDA estimate at 1.322 kcal/g / 12.4 kcal-per-g-protein; real label is 1.059 kcal/g / 9.0 kcal-per-g-protein — leaner). Deep-researched micros KEPT from USDA edamame (label omits them): folate (B9) very high ~3.1 mcg/g, vit K ~0.26 mcg/g, magnesium ~0.64 mg/g, phosphorus, choline ~0.56 mg/g, zinc, Mn, Cu, selenium, biotin (B7), molybdenum. Purines moderate (~170 mg/100g soybean-based — flag for gout at large quantities). Ingredients: soybeans. Contains soy."
         },
         "egg_fried": {
           "name": "Egg fried",
@@ -3079,7 +3124,8 @@
               "multiplier": 30
             }
           ],
-          "notes": "Label-derived (high confidence): kcal, macros, sodium (340mg/30g = HIGH), cholesterol, Ca (44mg/30g), K (231mg/30g excellent for snack), high protein density (21g/30g). Estimated from milk protein isolate composition (high confidence — dairy whey base): B12 (~0.007 mcg/g), phosphorus very high (~4 mg/g from dairy), iodine, choline, selenium. Purines low (~10 mg/100g — dairy gout-protective). Ingredients: milk protein isolate, sunflower oil, dextrose, salt, skim milk, <1% of onion, garlic, jalapeño, tomato, whey, whey protein concentrate, sour cream solids, buttermilk, milk, cheese cultures, enzymes, yeast extract, natural flavors, spice and color, citric acid, silicon dioxide, disodium phosphate, lactic acid. Contains milk. Label shows full amino acid profile (full essential AA spectrum including 2,130 mg leucine and 1,840 mg lysine per 30g serving)."
+          "notes": "Label-derived (high confidence): kcal, macros, sodium (340mg/30g = HIGH), cholesterol, Ca (44mg/30g), K (231mg/30g excellent for snack), high protein density (21g/30g). Estimated from milk protein isolate composition (high confidence — dairy whey base): B12 (~0.007 mcg/g), phosphorus very high (~4 mg/g from dairy), iodine, choline, selenium. Purines low (~10 mg/100g — dairy gout-protective). Ingredients: milk protein isolate, sunflower oil, dextrose, salt, skim milk, <1% of onion, garlic, jalapeño, tomato, whey, whey protein concentrate, sour cream solids, buttermilk, milk, cheese cultures, enzymes, yeast extract, natural flavors, spice and color, citric acid, silicon dioxide, disodium phosphate, lactic acid. Contains milk. Label shows full amino acid profile (full essential AA spectrum including 2,130 mg leucine and 1,840 mg lysine per 30g serving).",
+          "brand": "Elevation (Aldi)"
         },
         "evoo_tsp": {
           "name": "Olive oil extra virgin",
@@ -3154,7 +3200,8 @@
               "multiplier": 100
             }
           ],
-          "notes": "Label-derived (high confidence): kcal, macros, sodium, sugar (incl 2g added/container), Ca (10% DV), K (4% DV), cholesterol. Estimated from USDA nonfat Greek yogurt + fruit blend composition (lower confidence): B-vitamins (B12 ~0.0075 mcg/g notable), Mg, P, Zn, Se, Cu, Mn, iodine (high in dairy ~0.5 mcg/g), choline, water (~80%), purines (low). Contains live active cultures: S. thermophilus, L. bulgaricus, L. acidophilus, Bifidus. Ingredients: cultured nonfat milk, water, pineapple, mango, fructose, modified corn starch, sugar, natural flavors, passion fruit juice concentrate, fruit juice concentrate for color, fruit pectin, acesulfame K, sucralose, citric acid, malic acid. Dual sweetened (sucralose + ace-K)."
+          "notes": "Label-derived (high confidence): kcal, macros, sodium, sugar (incl 2g added/container), Ca (10% DV), K (4% DV), cholesterol. Estimated from USDA nonfat Greek yogurt + fruit blend composition (lower confidence): B-vitamins (B12 ~0.0075 mcg/g notable), Mg, P, Zn, Se, Cu, Mn, iodine (high in dairy ~0.5 mcg/g), choline, water (~80%), purines (low). Contains live active cultures: S. thermophilus, L. bulgaricus, L. acidophilus, Bifidus. Ingredients: cultured nonfat milk, water, pineapple, mango, fructose, modified corn starch, sugar, natural flavors, passion fruit juice concentrate, fruit juice concentrate for color, fruit pectin, acesulfame K, sucralose, citric acid, malic acid. Dual sweetened (sucralose + ace-K).",
+          "brand": "Friendly Farms (Aldi)"
         },
         "ff_super_zero_vanilla": {
           "name": "Friendly Farms Super Zero Yogurt Vanilla nonfat Greek (Aldi)",
@@ -3211,7 +3258,8 @@
               "multiplier": 100
             }
           ],
-          "notes": "Label-derived (high confidence): kcal, macros, sodium, sugar (5g/170g all from natural milk lactose — 0g added), Ca (10% DV), K (6% DV), cholesterol. Sweetened with stevia (steviol glycosides) only — no artificial sweeteners. Estimated from USDA nonfat Greek yogurt composition (high confidence): B12 (~0.0075 mcg/g notable), iodine (high in dairy ~0.5 mcg/g), choline, Mg, P (~1.35 mg/g), Zn, Se. Modified corn starch added for body/texture (replaces fat-derived mouthfeel). Live active cultures (typical Greek strains). Water ~85% (slightly higher than typical Greek due to starch dilution). Ingredients: cultured pasteurized milk, modified corn starch, natural flavors, concentrate, steviol glycosides. Contains milk. Product of Canada."
+          "notes": "Label-derived (high confidence): kcal, macros, sodium, sugar (5g/170g all from natural milk lactose — 0g added), Ca (10% DV), K (6% DV), cholesterol. Sweetened with stevia (steviol glycosides) only — no artificial sweeteners. Estimated from USDA nonfat Greek yogurt composition (high confidence): B12 (~0.0075 mcg/g notable), iodine (high in dairy ~0.5 mcg/g), choline, Mg, P (~1.35 mg/g), Zn, Se. Modified corn starch added for body/texture (replaces fat-derived mouthfeel). Live active cultures (typical Greek strains). Water ~85% (slightly higher than typical Greek due to starch dilution). Ingredients: cultured pasteurized milk, modified corn starch, natural flavors, concentrate, steviol glycosides. Contains milk. Product of Canada.",
+          "brand": "Friendly Farms (Aldi)"
         },
         "flonase": {
           "name": "Flonase",
@@ -3459,7 +3507,8 @@
               "multiplier": 46
             }
           ],
-          "notes": "Label-derived (high confidence): kcal, macros, sodium (500mg/28g = EXTREME 17.9 mg/g), cholesterol, Ca (2% DV), Fe (6% DV). Estimated from USDA dried beef composition (high confidence): zinc very high (~0.1 mg/g — beef concentrated), B12 (~0.05 mcg/g excellent), selenium, choline, phosphorus, magnesium. Water ~25% (jerky concentrates beef). Purines MODERATE-HIGH (~100 mg/100g — flag for gout history). Ingredients: beef, gluten-free soy sauce (water, soybeans, rice, salt), beef broth, <2% flavorings, black pepper, vinegar, cultured celery powder (cultured celery powder + sea salt — natural nitrite source, chemically equivalent to added sodium nitrite), granulated garlic, salt. Contains soy. Marketed as no added nitrites/MSG/artificial sweeteners + gluten-free."
+          "notes": "Label-derived (high confidence): kcal, macros, sodium (500mg/28g = EXTREME 17.9 mg/g), cholesterol, Ca (2% DV), Fe (6% DV). Estimated from USDA dried beef composition (high confidence): zinc very high (~0.1 mg/g — beef concentrated), B12 (~0.05 mcg/g excellent), selenium, choline, phosphorus, magnesium. Water ~25% (jerky concentrates beef). Purines MODERATE-HIGH (~100 mg/100g — flag for gout history). Ingredients: beef, gluten-free soy sauce (water, soybeans, rice, salt), beef broth, <2% flavorings, black pepper, vinegar, cultured celery powder (cultured celery powder + sea salt — natural nitrite source, chemically equivalent to added sodium nitrite), granulated garlic, salt. Contains soy. Marketed as no added nitrites/MSG/artificial sweeteners + gluten-free.",
+          "brand": "Goldhen (Aldi)"
         },
         "guac_tbsp": {
           "name": "Guacamole",
@@ -3560,7 +3609,8 @@
               "multiplier": 28
             }
           ],
-          "notes": "Label-derived (high confidence): kcal, macros, sodium (440mg/56g = HIGH at 7.86 mg/g), cholesterol, iron. Estimated from USDA cooked ham composition (high confidence — well-characterized): pork excellent in thiamine (B1 ~0.5 mg/100g, one of best dietary sources), niacin (B3 ~4.5 mg/100g), B12, selenium, phosphorus, choline. Water ~72% (highly hydrated due to phosphate brining). Purines moderate ~150 mg/100g. Ingredients: ham, water, less than 2% of sea salt, organic sugar, dextrose, sodium phosphate, dried vinegar, sodium erythorbate (antioxidant — reduces nitrosamine formation from nitrite), sodium nitrite (preservative), spice extracts. PROCESSED MEAT — WHO IARC Group 1 carcinogen (colorectal cancer association at ≥50g/day chronic intake). Sodium-dense; flag for gout management given moderate purine content + documented prior history."
+          "notes": "Label-derived (high confidence): kcal, macros, sodium (440mg/56g = HIGH at 7.86 mg/g), cholesterol, iron. Estimated from USDA cooked ham composition (high confidence — well-characterized): pork excellent in thiamine (B1 ~0.5 mg/100g, one of best dietary sources), niacin (B3 ~4.5 mg/100g), B12, selenium, phosphorus, choline. Water ~72% (highly hydrated due to phosphate brining). Purines moderate ~150 mg/100g. Ingredients: ham, water, less than 2% of sea salt, organic sugar, dextrose, sodium phosphate, dried vinegar, sodium erythorbate (antioxidant — reduces nitrosamine formation from nitrite), sodium nitrite (preservative), spice extracts. PROCESSED MEAT — WHO IARC Group 1 carcinogen (colorectal cancer association at ≥50g/day chronic intake). Sodium-dense; flag for gout management given moderate purine content + documented prior history.",
+          "brand": "Aldi"
         },
         "ham_roll": {
           "name": "ham roll",
@@ -3743,7 +3793,8 @@
               "multiplier": 50
             }
           ],
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "brand": "Harvest Snaps"
         },
         "hero_plain_bagel": {
           "name": "Hero Classic Plain Bagels",
@@ -3800,7 +3851,8 @@
               "multiplier": 37.5
             }
           ],
-          "notes": "Label per 1 bagel (75g): 130 kcal LABEL, 19g protein (front-panel confirmed; side-panel '10g' was glare misread), 4g fat, 0.5g sat, 25g carb, 21g fiber, 0g sugar, 460mg sodium, 0 cholesterol, Ca 20mg, Iron 3mg (15% DV), K 30mg. Net carb = 4g. KCAL CORRECTION (revised): stored at 140 kcal/bagel (1.8667 kcal/g). Fiber is 'resistant wheat starch' = almost certainly RS4 (chemically phosphated/cross-linked wheat starch, e.g. Fibersym). RS4 is the LEAST fermentable resistant starch type — caloric availability ~0-1 kcal/g, NOT the ~2 kcal/g of readily-fermentable RS2/RS3. So the standard 'add back 2 kcal/g' fiber rule does NOT cleanly apply here. Added back only ~0.5 kcal/g over the ~21g fiber = ~10 kcal over label's 130 = 140 total. Real value plausibly 135-150. (Earlier stored 162 was an over-correction that wrongly treated this as readily-fermentable fiber.) Estimated micros from wheat gluten + fava bean protein composition (medium confidence): folate (B9) elevated from fava (~1 mcg/g), selenium (wheat ~0.3 mcg/g), manganese, phosphorus, Mg. B12=0 (plant). Protein blend: vital wheat gluten + fava bean protein (complementary lysine). Ingredients: water, resistant wheat starch, wheat protein, fava bean protein, [remainder obscured]. Contains wheat. High-protein/high-fiber/low-net-carb marketed bagel."
+          "notes": "Label per 1 bagel (75g): 130 kcal LABEL, 19g protein (front-panel confirmed; side-panel '10g' was glare misread), 4g fat, 0.5g sat, 25g carb, 21g fiber, 0g sugar, 460mg sodium, 0 cholesterol, Ca 20mg, Iron 3mg (15% DV), K 30mg. Net carb = 4g. KCAL CORRECTION (revised): stored at 140 kcal/bagel (1.8667 kcal/g). Fiber is 'resistant wheat starch' = almost certainly RS4 (chemically phosphated/cross-linked wheat starch, e.g. Fibersym). RS4 is the LEAST fermentable resistant starch type — caloric availability ~0-1 kcal/g, NOT the ~2 kcal/g of readily-fermentable RS2/RS3. So the standard 'add back 2 kcal/g' fiber rule does NOT cleanly apply here. Added back only ~0.5 kcal/g over the ~21g fiber = ~10 kcal over label's 130 = 140 total. Real value plausibly 135-150. (Earlier stored 162 was an over-correction that wrongly treated this as readily-fermentable fiber.) Estimated micros from wheat gluten + fava bean protein composition (medium confidence): folate (B9) elevated from fava (~1 mcg/g), selenium (wheat ~0.3 mcg/g), manganese, phosphorus, Mg. B12=0 (plant). Protein blend: vital wheat gluten + fava bean protein (complementary lysine). Ingredients: water, resistant wheat starch, wheat protein, fava bean protein, [remainder obscured]. Contains wheat. High-protein/high-fiber/low-net-carb marketed bagel.",
+          "brand": "Hero"
         },
         "hummus": {
           "name": "Hummus",
@@ -3895,7 +3947,8 @@
               "multiplier": 18
             }
           ],
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "brand": "Jack Link's"
         },
         "kashi_berry_fruitful": {
           "name": "Kashi Organic Berry Fruitful",
@@ -3935,7 +3988,8 @@
               "multiplier": 61
             }
           ],
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "brand": "Kashi"
         },
         "kashi_blueberry_clusters": {
           "name": "Kashi Organic Blueberry Clusters",
@@ -3995,7 +4049,8 @@
             }
           ],
           "defaultMeasuredIn": "g",
-          "notes": "Label-derived (high confidence): kcal, p, carbs, fiber, sugar, fat, polyunsat, monounsat, sodium, iron (fortified via ferric phosphate, 80% DV/serving), potassium, calcium. Sat fat label 0g but contains canola oil; est ~0.1g/serving (sub-threshold rounding). Estimated from USDA whole oats + rice + blueberry composition (lower confidence): B-vitamins, choline, Mg, P, Zn, Se, Cu, Mn, iodine, Mo, purines, water content. Ingredients: whole oats, rice, blueberry granola clusters, cane sugar, canola oil, blueberries, elderberry juice (color), salt, natural flavors, iron (ferric phosphate), mixed tocopherols (vit E)."
+          "notes": "Label-derived (high confidence): kcal, p, carbs, fiber, sugar, fat, polyunsat, monounsat, sodium, iron (fortified via ferric phosphate, 80% DV/serving), potassium, calcium. Sat fat label 0g but contains canola oil; est ~0.1g/serving (sub-threshold rounding). Estimated from USDA whole oats + rice + blueberry composition (lower confidence): B-vitamins, choline, Mg, P, Zn, Se, Cu, Mn, iodine, Mo, purines, water content. Ingredients: whole oats, rice, blueberry granola clusters, cane sugar, canola oil, blueberries, elderberry juice (color), salt, natural flavors, iron (ferric phosphate), mixed tocopherols (vit E).",
+          "brand": "Kashi"
         },
         "kashi_soymilk_bowl": {
           "name": "Kashi cereal bowl with soy milk",
@@ -4223,7 +4278,8 @@
               "multiplier": 45
             }
           ],
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "brand": "Larabar"
         },
         "large_egg": {
           "name": "Egg",
@@ -4328,7 +4384,8 @@
               "multiplier": 55
             }
           ],
-          "notes": "Label-derived (high confidence): kcal, macros (22g protein/110g bagel — boosted via pea protein isolate addition), sodium (470mg/bagel = HIGH), fiber (4g), sugar (6g total/4g added), Ca (240mg/22% DV — high for bread, from calcium propionate preservative + flour), Fe (4.1mg/25% DV — fortified), K (460mg). Estimated from USDA bagel + pea protein composition (medium confidence): B9 high from folic acid fortification, Mg, P, Zn, Se, B-vitamins from enrichment, water ~30%. Vit B12 = 0 (plant-based). Purines low (~15 mg/100g). Ingredients: enriched flour (wheat flour, malted barley flour, niacin, iron, thiamine mononitrate, folic acid), water, pea protein isolate, wheat gluten, sugar, <2% of: seeds, dehydrated onion, salt, calcium propionate preservative, oil, poppy seeds, citric acid preservative, dehydrated garlic, maltodextrin, yellow corn meal, mono- and diglycerides, sorbic acid preservative, sodium stearoyl lactylate, hydrogenated palm oil, distilled monoglycerides, silicon dioxide, ascorbic acid, phosphoric acid preservative, propionic acid preservative, microcrystalline cellulose, corn starch. Contains: sesame, wheat. Contains bioengineered food ingredients."
+          "notes": "Label-derived (high confidence): kcal, macros (22g protein/110g bagel — boosted via pea protein isolate addition), sodium (470mg/bagel = HIGH), fiber (4g), sugar (6g total/4g added), Ca (240mg/22% DV — high for bread, from calcium propionate preservative + flour), Fe (4.1mg/25% DV — fortified), K (460mg). Estimated from USDA bagel + pea protein composition (medium confidence): B9 high from folic acid fortification, Mg, P, Zn, Se, B-vitamins from enrichment, water ~30%. Vit B12 = 0 (plant-based). Purines low (~15 mg/100g). Ingredients: enriched flour (wheat flour, malted barley flour, niacin, iron, thiamine mononitrate, folic acid), water, pea protein isolate, wheat gluten, sugar, <2% of: seeds, dehydrated onion, salt, calcium propionate preservative, oil, poppy seeds, citric acid preservative, dehydrated garlic, maltodextrin, yellow corn meal, mono- and diglycerides, sorbic acid preservative, sodium stearoyl lactylate, hydrogenated palm oil, distilled monoglycerides, silicon dioxide, ascorbic acid, phosphoric acid preservative, propionic acid preservative, microcrystalline cellulose, corn starch. Contains: sesame, wheat. Contains bioengineered food ingredients.",
+          "brand": "L'Oven Fresh (Aldi)"
         },
         "mama_cozzi_turkey_pepperoni": {
           "name": "Mama Cozzi's Turkey Pepperoni (Aldi)",
@@ -4385,7 +4442,8 @@
               "multiplier": 1.8
             }
           ],
-          "notes": "Label-derived (high confidence): kcal, macros, sodium (550mg/30g = EXTREME 18.3 mg/g), cholesterol (60mg/30g), Fe (4% DV), K (2% DV). Estimated from USDA turkey deli meat + paprika oleoresin composition (medium confidence): B12 (~0.01 mcg/g), niacin (B3 high from turkey ~0.05 mg/g), B6, choline, selenium, water ~30%. Purines moderate-high (~120 mg/100g — flag for gout). Ingredients: turkey, salt, spices, <2% dextrose, water, flavoring, smoke flavoring, lactic acid starter culture, oleoresin of paprika, garlic powder, SODIUM NITRITE (preservative), citric acid, BHA, BHT (synthetic antioxidant preservatives — chronic intake safety debated). PROCESSED MEAT — WHO IARC Group 1 carcinogen association. Marketed as 60% less fat than original pepperoni."
+          "notes": "Label-derived (high confidence): kcal, macros, sodium (550mg/30g = EXTREME 18.3 mg/g), cholesterol (60mg/30g), Fe (4% DV), K (2% DV). Estimated from USDA turkey deli meat + paprika oleoresin composition (medium confidence): B12 (~0.01 mcg/g), niacin (B3 high from turkey ~0.05 mg/g), B6, choline, selenium, water ~30%. Purines moderate-high (~120 mg/100g — flag for gout). Ingredients: turkey, salt, spices, <2% dextrose, water, flavoring, smoke flavoring, lactic acid starter culture, oleoresin of paprika, garlic powder, SODIUM NITRITE (preservative), citric acid, BHA, BHT (synthetic antioxidant preservatives — chronic intake safety debated). PROCESSED MEAT — WHO IARC Group 1 carcinogen association. Marketed as 60% less fat than original pepperoni.",
+          "brand": "Mama Cozzi's (Aldi)"
         },
         "mandarin": {
           "name": "Mandarin",
@@ -4885,7 +4943,8 @@
               "multiplier": 32
             }
           ],
-          "notes": "Label-derived (high confidence): kcal, macros, sodium, cholesterol, Ca (VERY HIGH at 18.125 mg/g — 580mg/scoop = 45% DV), K, Fe. Estimated from USDA micellar casein composition (high confidence): phosphorus very high (~6 mg/g — casein binds phosphate), B12 (~0.015 mcg/g, decent), iodine (~0.5 mcg/g — dairy is excellent iodine source), choline, selenium, Mg. Purines LOW (~7.5 mg/100g — dairy proteins are gout-protective per Choi 2004). Ingredients: Micellar casein (casein protein, sunflower lecithin, instantized), natural and artificial flavors, salt (sodium chloride), sucralose. Contains milk. CASEIN-SPECIFIC PROPERTIES: slow-digesting (4–6h amino acid release vs whey's 1–2h), forms gastric gel = high satiety + slower delivery, ideal for pre-bed or long fasting windows. Leucine ~9% of protein (slightly lower than whey at ~11% but still effective for MPS). Mouthfeel thicker/chalkier than whey or soy."
+          "notes": "Label-derived (high confidence): kcal, macros, sodium, cholesterol, Ca (VERY HIGH at 18.125 mg/g — 580mg/scoop = 45% DV), K, Fe. Estimated from USDA micellar casein composition (high confidence): phosphorus very high (~6 mg/g — casein binds phosphate), B12 (~0.015 mcg/g, decent), iodine (~0.5 mcg/g — dairy is excellent iodine source), choline, selenium, Mg. Purines LOW (~7.5 mg/100g — dairy proteins are gout-protective per Choi 2004). Ingredients: Micellar casein (casein protein, sunflower lecithin, instantized), natural and artificial flavors, salt (sodium chloride), sucralose. Contains milk. CASEIN-SPECIFIC PROPERTIES: slow-digesting (4–6h amino acid release vs whey's 1–2h), forms gastric gel = high satiety + slower delivery, ideal for pre-bed or long fasting windows. Leucine ~9% of protein (slightly lower than whey at ~11% but still effective for MPS). Mouthfeel thicker/chalkier than whey or soy.",
+          "brand": "Nutricost"
         },
         "omega3": {
           "name": "Omega-3 (fish oil)",
@@ -5074,7 +5133,8 @@
               "multiplier": 1
             }
           ],
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "brand": "PB2"
         },
         "peanuts_fistful": {
           "name": "Peanuts dry roasted (lightly salted)",
@@ -5728,7 +5788,8 @@
               "multiplier": 100
             }
           ],
-          "notes": "Label-derived (high confidence) for full pack: kcal, macros, sodium (560mg/pack = HIGH), fiber (3g/pack), iron (15% DV from enriched flour), Ca, K, vit D. Combined hummus + pretzels — single SKU snack pack. Estimated from USDA chickpea + sesame + enriched wheat composition (lower confidence): B-vitamins (B9 high from enrichment), Mg, P, Zn, Se, vit E (from sunflower oil + tahini), water content (~41% — hummus ~65% water, pretzels ~5%, ratio ~60/40 by weight). Purines moderate (~0.4 mg/g — chickpeas contribute most). Hummus ingredients: chickpeas, water, sunflower oil, sesame tahini, sea salt, citric acid, garlic, guar gum, cumin. Pretzel ingredients: enriched wheat flour (iron as ferrous sulfate, niacin, thiamine mononitrate, riboflavin, folic acid), salt, sunflower/canola/rice oil, corn syrup, malt syrup, yeast. Contains wheat, sesame."
+          "notes": "Label-derived (high confidence) for full pack: kcal, macros, sodium (560mg/pack = HIGH), fiber (3g/pack), iron (15% DV from enriched flour), Ca, K, vit D. Combined hummus + pretzels — single SKU snack pack. Estimated from USDA chickpea + sesame + enriched wheat composition (lower confidence): B-vitamins (B9 high from enrichment), Mg, P, Zn, Se, vit E (from sunflower oil + tahini), water content (~41% — hummus ~65% water, pretzels ~5%, ratio ~60/40 by weight). Purines moderate (~0.4 mg/g — chickpeas contribute most). Hummus ingredients: chickpeas, water, sunflower oil, sesame tahini, sea salt, citric acid, garlic, guar gum, cumin. Pretzel ingredients: enriched wheat flour (iron as ferrous sulfate, niacin, thiamine mononitrate, riboflavin, folic acid), salt, sunflower/canola/rice oil, corn syrup, malt syrup, yeast. Contains wheat, sesame.",
+          "brand": "Park Street Deli (Aldi)"
         },
         "roll_salmon_maki_6pc": {
           "name": "Roll salmon maki 6-piece",
@@ -5959,7 +6020,8 @@
               "multiplier": 5
             }
           ],
-          "notes": "Label-derived (high confidence): kcal, macros, sodium (250mg/85g — added salt + sodium tripolyphosphate), high cholesterol (160mg/85g = 53% DV), Ca, K. Estimated from USDA cooked shrimp composition (high confidence — well-characterized): excellent selenium (~0.38 mcg/g), B12 (~0.019 mcg/g), choline (~0.8 mg/g — very high), phosphorus, iodine. Astaxanthin ~1mg/100g (anti-inflammatory carotenoid, source of pink color). Modest omega-3 (~0.4 g EPA+DHA per 100g). PURINE CONTENT: ~135–235 mg/100g (sources vary; using midpoint ~185 mg/100g = 1.85 mg/g) — MODERATE-HIGH, flag for gout management given documented prior history. Ingredients: shrimp (Litopenaeus vannamei), salt, sodium tripolyphosphate (moisture retention). Farm-raised Vietnam. Contains crustacean shellfish."
+          "notes": "Label-derived (high confidence): kcal, macros, sodium (250mg/85g — added salt + sodium tripolyphosphate), high cholesterol (160mg/85g = 53% DV), Ca, K. Estimated from USDA cooked shrimp composition (high confidence — well-characterized): excellent selenium (~0.38 mcg/g), B12 (~0.019 mcg/g), choline (~0.8 mg/g — very high), phosphorus, iodine. Astaxanthin ~1mg/100g (anti-inflammatory carotenoid, source of pink color). Modest omega-3 (~0.4 g EPA+DHA per 100g). PURINE CONTENT: ~135–235 mg/100g (sources vary; using midpoint ~185 mg/100g = 1.85 mg/g) — MODERATE-HIGH, flag for gout management given documented prior history. Ingredients: shrimp (Litopenaeus vannamei), salt, sodium tripolyphosphate (moisture retention). Farm-raised Vietnam. Contains crustacean shellfish.",
+          "brand": "Sea Queen (Aldi)"
         },
         "sesame_chicken_100g": {
           "name": "Sesame chicken — takeout",
@@ -6106,7 +6168,8 @@
               "multiplier": 1
             }
           ],
-          "notes": "Label-derived (high confidence): kcal, macros, sodium (500mg/28g = EXTREME 17.9 mg/g), cholesterol, Ca (2% DV), Fe (6% DV). Estimated from USDA dried beef composition (high confidence): zinc very high (~0.1 mg/g — beef concentrated), B12 (~0.05 mcg/g excellent), selenium, choline, phosphorus, magnesium. Water ~25% (jerky concentrates beef). Purines MODERATE-HIGH (~100 mg/100g — flag for gout history). Ingredients: beef, gluten-free soy sauce (water, soybeans, rice, salt), beef broth, <2% flavorings, black pepper, vinegar, cultured celery powder (cultured celery powder + sea salt — natural nitrite source, chemically equivalent to added sodium nitrite), granulated garlic, salt. Contains soy. Marketed as no added nitrites/MSG/artificial sweeteners + gluten-free."
+          "notes": "Label-derived (high confidence): kcal, macros, sodium (500mg/28g = EXTREME 17.9 mg/g), cholesterol, Ca (2% DV), Fe (6% DV). Estimated from USDA dried beef composition (high confidence): zinc very high (~0.1 mg/g — beef concentrated), B12 (~0.05 mcg/g excellent), selenium, choline, phosphorus, magnesium. Water ~25% (jerky concentrates beef). Purines MODERATE-HIGH (~100 mg/100g — flag for gout history). Ingredients: beef, gluten-free soy sauce (water, soybeans, rice, salt), beef broth, <2% flavorings, black pepper, vinegar, cultured celery powder (cultured celery powder + sea salt — natural nitrite source, chemically equivalent to added sodium nitrite), granulated garlic, salt. Contains soy. Marketed as no added nitrites/MSG/artificial sweeteners + gluten-free.",
+          "brand": "Simms (Aldi)"
         },
         "simms_jerky_original": {
           "name": "Simms Zero Sugar Original Beef Jerky (Aldi)",
@@ -6163,7 +6226,8 @@
               "multiplier": 112
             }
           ],
-          "notes": "Nutritionally IDENTICAL to simms_jerky_blackpepper (same manufacturer/formulation, Original vs Black Pepper flavor). Label per 1 oz (28g): 70 kcal, 14g protein, 1.5g fat (0.5g sat), 30mg cholesterol, 500mg sodium (extreme, 17.9 mg/g), 0 carb/fiber/sugar, Ca 2% DV, Fe 6% DV. Estimated micros from USDA dried beef (high confidence): zinc very high (~0.1 mg/g), B12 (~0.05 mcg/g), selenium, choline, phosphorus. Water ~25%. Purines moderate-high (~100 mg/100g). Ingredients: beef, gluten-free soy sauce (water, soybeans, rice, salt), beef broth, <2% flavorings, vinegar, cultured celery powder (cultured celery powder + sea salt — natural nitrite source, chemically equivalent to added nitrite in-gut), granulated garlic, salt. Contains soy. Marketed no-added-nitrites/no-MSG/no-artificial-sweeteners, gluten-free."
+          "notes": "Nutritionally IDENTICAL to simms_jerky_blackpepper (same manufacturer/formulation, Original vs Black Pepper flavor). Label per 1 oz (28g): 70 kcal, 14g protein, 1.5g fat (0.5g sat), 30mg cholesterol, 500mg sodium (extreme, 17.9 mg/g), 0 carb/fiber/sugar, Ca 2% DV, Fe 6% DV. Estimated micros from USDA dried beef (high confidence): zinc very high (~0.1 mg/g), B12 (~0.05 mcg/g), selenium, choline, phosphorus. Water ~25%. Purines moderate-high (~100 mg/100g). Ingredients: beef, gluten-free soy sauce (water, soybeans, rice, salt), beef broth, <2% flavorings, vinegar, cultured celery powder (cultured celery powder + sea salt — natural nitrite source, chemically equivalent to added nitrite in-gut), granulated garlic, salt. Contains soy. Marketed no-added-nitrites/no-MSG/no-artificial-sweeteners, gluten-free.",
+          "brand": "Simms (Aldi)"
         },
         "skim_milk": {
           "name": "Skim milk",
@@ -6596,7 +6660,8 @@
               "multiplier": 113
             }
           ],
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "brand": "Subway"
         },
         "sucralose": {
           "name": "Sucralose",
@@ -6663,7 +6728,8 @@
               "multiplier": 340
             }
           ],
-          "notes": "Label-derived (high confidence): kcal, macros, sodium (240mg/serving = high from coarse salt + NaOH processing), Ca, Fe (enriched flour fortification, 1.2mg/serving), K, fiber, added sugar (3g/serving). Estimated from USDA wheat flour + almond butter blend composition (lower confidence): B-vitamins (enrichment), Mg, P, Zn, Se, Cu, Mn, vit E (from almond), purines, water content (~5% moisture). Ingredients: unbleached enriched wheat flour, almond butter (almonds, sugar, salt), malted barley extract, coarse salt, canola oil, sodium hydroxide (processing aid). Contains: wheat, almond."
+          "notes": "Label-derived (high confidence): kcal, macros, sodium (240mg/serving = high from coarse salt + NaOH processing), Ca, Fe (enriched flour fortification, 1.2mg/serving), K, fiber, added sugar (3g/serving). Estimated from USDA wheat flour + almond butter blend composition (lower confidence): B-vitamins (enrichment), Mg, P, Zn, Se, Cu, Mn, vit E (from almond), purines, water content (~5% moisture). Ingredients: unbleached enriched wheat flour, almond butter (almonds, sugar, salt), malted barley extract, coarse salt, canola oil, sodium hydroxide (processing aid). Contains: wheat, almond.",
+          "brand": "Trader Joe's"
         },
         "tj_beef_kebabs": {
           "name": "Trader Joe's Middle Eastern Style Kebabs (seasoned beef patties)",
@@ -6725,7 +6791,8 @@
               "multiplier": 56
             }
           ],
-          "notes": "Label-derived (high confidence): kcal, macros, sodium (570mg/112g = HIGH), cholesterol (85mg), trans fat 1g/serving (natural ruminant trans from beef + possible breadcrumb), sat fat 5g, fiber <1g, Fe (10% DV), K (240mg), Ca, vit D. Estimated from USDA ground beef + breadcrumb composition (high confidence): B12 (~0.02 mcg/g excellent), zinc high (~0.04 mg/g — beef), choline, phosphorus, selenium, water ~60%. Purines moderate (~90 mg/100g — beef). Ingredients: ground beef, onions, eggs (eggs, citric acid for color), breadcrumbs (unbleached wheat flour, sugar, salt, yeast), parsley, salt, paprika, garlic powder, spices. Contains wheat, egg. Frozen seasoned beef patties, Middle Eastern spice profile."
+          "notes": "Label-derived (high confidence): kcal, macros, sodium (570mg/112g = HIGH), cholesterol (85mg), trans fat 1g/serving (natural ruminant trans from beef + possible breadcrumb), sat fat 5g, fiber <1g, Fe (10% DV), K (240mg), Ca, vit D. Estimated from USDA ground beef + breadcrumb composition (high confidence): B12 (~0.02 mcg/g excellent), zinc high (~0.04 mg/g — beef), choline, phosphorus, selenium, water ~60%. Purines moderate (~90 mg/100g — beef). Ingredients: ground beef, onions, eggs (eggs, citric acid for color), breadcrumbs (unbleached wheat flour, sugar, salt, yeast), parsley, salt, paprika, garlic powder, spices. Contains wheat, egg. Frozen seasoned beef patties, Middle Eastern spice profile.",
+          "brand": "Trader Joe's"
         },
         "tj_dolmas": {
           "name": "Trader Joe's Dolmas (stuffed vine leaves)",
@@ -6781,7 +6848,8 @@
               "multiplier": 280
             }
           ],
-          "notes": "Label-derived (high confidence): kcal, macros, sodium (420mg/84g = HIGH 5 mg/g), fiber, Ca (4% DV), Fe (4% DV), K (2% DV), 0 cholesterol. Vegan. Estimated from rice + grape leaf + olive oil composition (medium confidence): vit K high (grape leaves are rich source ~108 mcg/100g), manganese (rice), vit A (grape leaves), water ~68%. Purines low (~15 mg/100g). Ingredients (partial, from can): vine leaves, rice, olive/soybean oil, acid (acidulant), vine leaves cured. Contains soy. Product of (Greece/Turkey typical for TJ dolmas). Ready to serve. Rice-and-herb stuffed grape leaves, no meat."
+          "notes": "Label-derived (high confidence): kcal, macros, sodium (420mg/84g = HIGH 5 mg/g), fiber, Ca (4% DV), Fe (4% DV), K (2% DV), 0 cholesterol. Vegan. Estimated from rice + grape leaf + olive oil composition (medium confidence): vit K high (grape leaves are rich source ~108 mcg/100g), manganese (rice), vit A (grape leaves), water ~68%. Purines low (~15 mg/100g). Ingredients (partial, from can): vine leaves, rice, olive/soybean oil, acid (acidulant), vine leaves cured. Contains soy. Product of (Greece/Turkey typical for TJ dolmas). Ready to serve. Rice-and-herb stuffed grape leaves, no meat.",
+          "brand": "Trader Joe's"
         },
         "tj_dried_mango": {
           "name": "Trader Joe's Soft & Juicy Dried Mango",
@@ -6820,7 +6888,8 @@
               "multiplier": 170
             }
           ],
-          "notes": "Label-derived (high confidence): kcal, macros, sodium, sugar (incl 9g added/35g serving), fiber, Ca, Fe, K. Ingredients: mango, sugar, glycerin, mango juice, sulfur dioxide (preservative). Estimated from USDA dried mango profile (lower confidence): vit A (carotenoids), vit C, water content (~18% moisture for soft-and-juicy variant), purines (low, ~50 mg/100g). HIGH-FRUCTOSE food — flag for gout management; minimize during flares and as regular snack given elevated baseline uric acid."
+          "notes": "Label-derived (high confidence): kcal, macros, sodium, sugar (incl 9g added/35g serving), fiber, Ca, Fe, K. Ingredients: mango, sugar, glycerin, mango juice, sulfur dioxide (preservative). Estimated from USDA dried mango profile (lower confidence): vit A (carotenoids), vit C, water content (~18% moisture for soft-and-juicy variant), purines (low, ~50 mg/100g). HIGH-FRUCTOSE food — flag for gout management; minimize during flares and as regular snack given elevated baseline uric acid.",
+          "brand": "Trader Joe's"
         },
         "tofu_firm_half": {
           "name": "Tofu firm",
@@ -6923,7 +6992,7 @@
           "category": "recipes",
           "ingredients": [
             {
-              "itemKey": "tomato_paste",
+              "itemKey": "tomato_paste_giant",
               "amount": 170
             },
             {
@@ -6941,65 +7010,6 @@
               "locked": true
             }
           ]
-        },
-        "tomato_paste": {
-          "name": "Tomato paste",
-          "category": "items",
-          "kcal": 0.82,
-          "p": 0.0429,
-          "fat": 0.0047,
-          "sf": 0.0012,
-          "sodium": 0.59,
-          "carbs": 0.189,
-          "fiber": 0.0412,
-          "sugar": 0.122,
-          "water": 0.7353,
-          "omega3": 0.12,
-          "vitA": 0.42,
-          "vitC": 0.219,
-          "vitE": 0.043,
-          "vitK": 0.098,
-          "b1": 0.0005,
-          "b2": 0.0018,
-          "b3": 0.031,
-          "b5": 0.013,
-          "b6": 0.0022,
-          "b9": 0.14,
-          "choline": 0.08,
-          "calcium": 0.36,
-          "iron": 0.0298,
-          "magnesium": 0.42,
-          "phosphorus": 0.83,
-          "potassium": 10.14,
-          "zinc": 0.0063,
-          "selenium": 0.044,
-          "copper": 0.005,
-          "manganese": 0.0023,
-          "iodine": 0.04,
-          "molybdenum": 0.05,
-          "purines": 0.4,
-          "displayUnits": [
-            {
-              "label": "1 can",
-              "amount": 170,
-              "unit": "g",
-              "default": true,
-              "multiplier": 170
-            },
-            {
-              "label": "100 g",
-              "amount": 100,
-              "unit": "g",
-              "multiplier": 100
-            },
-            {
-              "label": "1 tbsp",
-              "amount": 16,
-              "unit": "g",
-              "multiplier": 16
-            }
-          ],
-          "defaultMeasuredIn": "g"
         },
         "tomato_paste_giant": {
           "name": "Tomato paste",
@@ -7165,7 +7175,7 @@
               "label": "1 serving (56 g)"
             },
             {
-              "itemKey": "tomato_paste",
+              "itemKey": "tomato_paste_giant",
               "amount": 170,
               "label": "30 g (~2 Tbsp)"
             },
@@ -7580,7 +7590,8 @@
             }
           ],
           "notes": "Life Extension Two-Per-Day. Multivitamin baseline — covers micronutrients you might miss on a 1,650 kcal diet (limited variety = small deficiency risk). Notable inclusions: zinc 25 mg, B-complex, K2, lutein. Split AM (with breakfast) + PM (with dinner): the iron + zinc + B-vitamin load is gentler on the stomach split, and B-vitamin absorption saturates per dose so spreading captures more.",
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "brand": "Life Extension"
         },
         "veggies_bag": {
           "name": "Vegetables mixed steamable",
@@ -7773,7 +7784,8 @@
               "multiplier": 1
             }
           ],
-          "notes": "Classic wing plain, 1 ea = 30.78 g. Per-1-g values derived from per-serving facts (kcal, fat, sf, cholesterol, sodium, protein, calcium, potassium). Label omits vitamins and most minerals; fields not on the label are zero, fill from USDA chicken-wing data if better accuracy needed."
+          "notes": "Classic wing plain, 1 ea = 30.78 g. Per-1-g values derived from per-serving facts (kcal, fat, sf, cholesterol, sodium, protein, calcium, potassium). Label omits vitamins and most minerals; fields not on the label are zero, fill from USDA chicken-wing data if better accuracy needed.",
+          "brand": "Buffalo Wild Wings"
         },
         "yogurt_bowl_apricot_almond": {
           "name": "Yogurt bowl Greek + apricot + almond",

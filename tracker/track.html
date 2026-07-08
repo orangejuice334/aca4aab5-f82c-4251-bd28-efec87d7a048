@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.91">
+<meta name="app-version" content="v6.5.92">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -2481,6 +2481,18 @@
   .checkout-row.flagged {
     background: rgba(120, 50, 200, 0.34) !important;
     box-shadow: inset 0 0 0 1px rgba(90, 30, 170, 0.55);
+  }
+
+  /* Today-log rows that map to a catalog item are clickable - clicking
+     surfaces the item in the catalog filter to bump its amount. */
+  .today-log-row-clickable { cursor: pointer; }
+  .today-log-row-clickable:hover { background: rgba(176, 74, 46, 0.06); }
+  @keyframes catalog-row-surface-flash {
+    0%   { background-color: rgba(176, 74, 46, 0.28); }
+    100% { background-color: transparent; }
+  }
+  .catalog-row-surfaced {
+    animation: catalog-row-surface-flash 1.6s ease-out;
   }
 
   /* Small mono pill showing the scheduled time on a catalog row. Sits next
@@ -11040,6 +11052,10 @@
         suffix: countSuffix,
         macrosHtml: formatLogMacroLine(m),
         ingredientsBreakdown,
+        // Catalog key so clicking the log row surfaces that item in the
+        // catalog filter (see surfaceCatalogItem) - for the "ate half now,
+        // half later" flow where the user wants to bump the amount.
+        catalogKey: catItem ? key : null,
         ts: counterMeta[key] || null,
         sortTs: counterMeta[key] || '',
       });
@@ -11144,8 +11160,16 @@
         ).join('');
         ingredientsFrag = '<div class="today-log-ingredients">' + ingRows + '<hr class="today-log-totals-sep"></div>';
       }
+      // Clickable when the entry maps to a catalog item: clicking surfaces
+      // that item in the catalog filter so the user can bump its amount.
+      const cls = 'checkout-row today-log-row'
+        + (ingredientsFrag ? ' today-log-row-recipe' : '')
+        + (e.catalogKey ? ' today-log-row-clickable' : '');
+      const keyAttr = e.catalogKey
+        ? ' data-log-key="' + escapeHtml(e.catalogKey) + '" title="Click to find this item in the catalog and update its amount"'
+        : '';
       return (
-        '<div class="checkout-row today-log-row' + (ingredientsFrag ? ' today-log-row-recipe' : '') + '">' +
+        '<div class="' + cls + '"' + keyAttr + '>' +
           '<div></div>' +
           '<div>' +
             '<span class="checkout-item-name">' + escapeHtml(e.name + e.suffix) + '</span>' +
@@ -11156,6 +11180,44 @@
         '</div>'
       );
     }).join('');
+  }
+
+  // Surface a catalog item from a today-log click: populate the item's
+  // catalog group filter box with the item name so the row shows up, expand
+  // the catalog section + that group, scroll the row into view, and flash a
+  // brief highlight. Purpose: the user logged "half a bagel" earlier and now
+  // wants to find that exact catalog row to bump the amount for the other
+  // half, without hunting the list.
+  function surfaceCatalogItem(key) {
+    const item = (typeof ITEMS !== 'undefined') && ITEMS[key];
+    if (!item) return;
+    const section = document.getElementById('checkout');
+    if (section && section.classList.contains('collapsed')) {
+      section.classList.remove('collapsed');
+      if (state.collapsedGroups) delete state.collapsedGroups['section-checkout'];
+    }
+    const sel = (typeof CSS !== 'undefined' && CSS.escape)
+      ? '.checkout-row[data-key="' + CSS.escape(key) + '"]'
+      : '.checkout-row[data-key="' + key.replace(/"/g, '\\"') + '"]';
+    const row = document.querySelector(sel);
+    if (!row) return;
+    const groupEl = row.closest('.checkout-group[data-group-key]');
+    const filterText = formatItemDisplayName(item) || item.name || key;
+    if (groupEl) {
+      const input = groupEl.querySelector('input[data-group-filter]');
+      if (input) {
+        input.value = filterText;
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+      } else {
+        if (typeof groupFilters === 'object') groupFilters[groupEl.dataset.groupKey] = filterText;
+        applyGroupFilter(groupEl, filterText);
+        groupEl.classList.remove('collapsed');
+        if (state.collapsedGroups) delete state.collapsedGroups[groupEl.dataset.groupKey];
+      }
+    }
+    try { row.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (e) { try { row.scrollIntoView(); } catch (e2) {} }
+    row.classList.add('catalog-row-surfaced');
+    setTimeout(() => { row.classList.remove('catalog-row-surfaced'); }, 1600);
   }
 
   // Format a macros object (already scaled to the consumed quantity) using
@@ -13614,6 +13676,15 @@
     // The catalog is rendered AFTER bindEvents (and re-rendered on hash commands),
     // so direct per-button binding misses those rows. Delegating to document
     // catches every click regardless of when the button was added to the DOM.
+    // Today-log row click: surface that catalog item in the filter so the
+    // user can bump its amount (the "half now, half later" flow). Delegated
+    // so it survives renderTodayLog's innerHTML rebuilds.
+    document.addEventListener('click', (ev) => {
+      const logRow = ev.target.closest('.today-log-row-clickable[data-log-key]');
+      if (!logRow) return;
+      surfaceCatalogItem(logRow.dataset.logKey);
+    });
+
     document.addEventListener('click', (ev) => {
       const btn = ev.target.closest('.counter-btn[data-action][data-key]');
       if (!btn) return;
