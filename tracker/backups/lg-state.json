@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-08T00:55:02.728Z",
-  "_gistSavedAt": "2026-07-08T00:40:41.812Z",
+  "_backupTakenAt": "2026-07-08T09:22:05.687Z",
+  "_gistSavedAt": "2026-07-08T02:25:20.861Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1373,11 +1373,15 @@
         "counters": {
           "soy_milk": 250,
           "premier_latte": 357.5,
-          "strawberry_smoothy": 525,
+          "strawberry_smoothy": 520,
           "larabar": 45,
           "loven_fresh_protein_everything_bagel": 55,
           "david_bar_choc_chip_cookie_dough": 62,
-          "chobani_protein_raspberry_lemon": 190
+          "chobani_protein_raspberry_lemon": 190,
+          "simms_jerky_original": 28,
+          "string_cheese": 21,
+          "mama_cozzi_turkey_pepperoni": 30,
+          "hero_plain_bagel": 75
         },
         "customs": [
           {
@@ -1393,18 +1397,22 @@
         "counterMeta": {
           "soy_milk": "2026-07-07T13:47:55.164Z",
           "premier_latte": "2026-07-07T13:48:38.883Z",
-          "strawberry_smoothy": "2026-07-07T21:53:20.001Z",
+          "strawberry_smoothy": "2026-07-08T02:20:22.557Z",
           "larabar": "2026-07-07T21:53:33.734Z",
           "loven_fresh_protein_everything_bagel": "2026-07-07T21:53:51.071Z",
           "david_bar_choc_chip_cookie_dough": "2026-07-07T21:54:07.206Z",
-          "chobani_protein_raspberry_lemon": "2026-07-07T20:35:37-04:00"
+          "chobani_protein_raspberry_lemon": "2026-07-07T20:35:37-04:00",
+          "simms_jerky_original": "2026-07-07T20:57:24-04:00",
+          "string_cheese": "2026-07-08T02:17:52.961Z",
+          "mama_cozzi_turkey_pepperoni": "2026-07-08T02:17:59.380Z",
+          "hero_plain_bagel": "2026-07-08T02:18:12.251Z"
         },
-        "mood": 5,
-        "moodMeta": "2026-07-07T22:14:59.126Z",
+        "mood": 7,
+        "moodMeta": "2026-07-08T00:55:57.005Z",
         "weight": 94.6,
-        "weightMeta": "2026-07-07T22:14:59.048Z",
+        "weightMeta": "2026-07-08T00:55:56.927Z",
         "neck": 43,
-        "neckMeta": "2026-07-07T22:14:59.204Z"
+        "neckMeta": "2026-07-08T00:55:57.080Z"
       }
     },
     "savedItems": [],
@@ -1483,16 +1491,16 @@
       "section-density": true,
       "targets-daily": true,
       "details-profile-section": true,
-      "today-customs": true,
       "supplements-water": true,
       "history": true,
       "catalog-archive": true,
-      "targets-accumulation": true,
       "profile": true,
       "details-sync-error-banner": true,
       "section-archive-section": true,
-      "details-add-new-item": true,
       "details-recipe-maker": true,
+      "today-customs": true,
+      "details-add-new-item": true,
+      "targets-accumulation": true,
       "catalog-ratio": true
     },
     "userCatalog": {
@@ -6099,6 +6107,63 @@
             }
           ],
           "notes": "Label-derived (high confidence): kcal, macros, sodium (500mg/28g = EXTREME 17.9 mg/g), cholesterol, Ca (2% DV), Fe (6% DV). Estimated from USDA dried beef composition (high confidence): zinc very high (~0.1 mg/g — beef concentrated), B12 (~0.05 mcg/g excellent), selenium, choline, phosphorus, magnesium. Water ~25% (jerky concentrates beef). Purines MODERATE-HIGH (~100 mg/100g — flag for gout history). Ingredients: beef, gluten-free soy sauce (water, soybeans, rice, salt), beef broth, <2% flavorings, black pepper, vinegar, cultured celery powder (cultured celery powder + sea salt — natural nitrite source, chemically equivalent to added sodium nitrite), granulated garlic, salt. Contains soy. Marketed as no added nitrites/MSG/artificial sweeteners + gluten-free."
+        },
+        "simms_jerky_original": {
+          "name": "Simms Zero Sugar Original Beef Jerky (Aldi)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.5,
+          "p": 0.5,
+          "carbs": 0,
+          "fiber": 0,
+          "sugar": 0,
+          "addedSugar": 0,
+          "fat": 0.0536,
+          "sf": 0.0179,
+          "transFat": 0,
+          "cholesterol": 1.0714,
+          "sodium": 17.857,
+          "calcium": 0.9286,
+          "iron": 0.0386,
+          "potassium": 5,
+          "vitD": 0,
+          "vitA": 0,
+          "vitC": 0,
+          "vitE": 0.005,
+          "vitK": 0.002,
+          "b1": 0.0005,
+          "b2": 0.001,
+          "b3": 0.05,
+          "b5": 0.005,
+          "b6": 0.005,
+          "b9": 0.05,
+          "b12": 0.05,
+          "choline": 1,
+          "magnesium": 0.5,
+          "phosphorus": 4,
+          "zinc": 0.1,
+          "selenium": 0.5,
+          "copper": 0.001,
+          "manganese": 0.002,
+          "iodine": 0.05,
+          "water": 0.25,
+          "purines": 1,
+          "displayUnits": [
+            {
+              "label": "1 oz serving",
+              "default": true,
+              "multiplier": 28
+            },
+            {
+              "label": "1 g",
+              "multiplier": 1
+            },
+            {
+              "label": "1 bag (~4 oz)",
+              "multiplier": 112
+            }
+          ],
+          "notes": "Nutritionally IDENTICAL to simms_jerky_blackpepper (same manufacturer/formulation, Original vs Black Pepper flavor). Label per 1 oz (28g): 70 kcal, 14g protein, 1.5g fat (0.5g sat), 30mg cholesterol, 500mg sodium (extreme, 17.9 mg/g), 0 carb/fiber/sugar, Ca 2% DV, Fe 6% DV. Estimated micros from USDA dried beef (high confidence): zinc very high (~0.1 mg/g), B12 (~0.05 mcg/g), selenium, choline, phosphorus. Water ~25%. Purines moderate-high (~100 mg/100g). Ingredients: beef, gluten-free soy sauce (water, soybeans, rice, salt), beef broth, <2% flavorings, vinegar, cultured celery powder (cultured celery powder + sea salt — natural nitrite source, chemically equivalent to added nitrite in-gut), granulated garlic, salt. Contains soy. Marketed no-added-nitrites/no-MSG/no-artificial-sweeteners, gluten-free."
         },
         "skim_milk": {
           "name": "Skim milk",
