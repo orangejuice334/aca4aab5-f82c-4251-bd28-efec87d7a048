@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-09T10:19:21.084Z",
-  "_gistSavedAt": "2026-07-08T23:52:58.343Z",
+  "_backupTakenAt": "2026-07-10T10:17:42.484Z",
+  "_gistSavedAt": "2026-07-09T18:50:33.896Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1424,7 +1424,9 @@
           "nutricost_casein_vanilla": 70.4,
           "soy_milk": 300,
           "hero_plain_bagel": 75,
-          "kofta_kebab_counter": 95
+          "kofta_kebab_counter": 95,
+          "yogurt_la_fermiere_lemon": 0,
+          "chicken_cutlet_breaded_homemade": 0
         },
         "customs": [],
         "toggleMeta": {},
@@ -1436,12 +1438,45 @@
           "nutricost_casein_vanilla": "2026-07-08T20:48:58.780Z",
           "soy_milk": "2026-07-08T21:12:26.400Z",
           "hero_plain_bagel": "2026-07-08T21:12:36.438Z",
-          "kofta_kebab_counter": "2026-07-08T19:50:53-04:00"
+          "kofta_kebab_counter": "2026-07-08T19:50:53-04:00",
+          "yogurt_la_fermiere_lemon": "2026-07-09T08:20:28-04:00",
+          "chicken_cutlet_breaded_homemade": "2026-07-09T08:20:28-04:00"
         },
         "mood": 5,
         "moodMeta": "2026-07-08T14:10:39.977Z",
         "weight": 93.5,
         "weightMeta": "2026-07-08T21:15:18.442Z"
+      },
+      "2026-07-09": {
+        "toggles": {
+          "omega3#08:00": true,
+          "omega3#12:30": true
+        },
+        "counters": {
+          "yogurt_la_fermiere_lemon": 125,
+          "chicken_cutlet_breaded_homemade": 62,
+          "vita_coco_pineapple": 510,
+          "soy_milk": 150,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "feggs_scrambled": 553,
+          "harvest_snaps": 50,
+          "tomate_frito": 26.4
+        },
+        "customs": [],
+        "toggleMeta": {
+          "omega3#08:00": "2026-07-09T18:50:27.536Z",
+          "omega3#12:30": "2026-07-09T18:50:30.959Z"
+        },
+        "counterMeta": {
+          "yogurt_la_fermiere_lemon": "2026-07-09T08:20:28-04:00",
+          "chicken_cutlet_breaded_homemade": "2026-07-09T08:20:28-04:00",
+          "vita_coco_pineapple": "2026-07-09T08:23:42-04:00",
+          "soy_milk": "2026-07-09T13:38:28.353Z",
+          "david_bar_choc_chip_cookie_dough": "2026-07-09T13:38:33.046Z",
+          "feggs_scrambled": "2026-07-09T18:34:23.009Z",
+          "harvest_snaps": "2026-07-09T18:34:32.960Z",
+          "tomate_frito": "2026-07-09T18:34:50.419Z"
+        }
       }
     },
     "savedItems": [],
@@ -1526,12 +1561,10 @@
       "details-sync-error-banner": true,
       "section-archive-section": true,
       "today-customs": true,
-      "details-add-new-item": true,
       "targets-accumulation": true,
       "section-mood-tracker": true,
-      "details-recipe-maker": true,
-      "supplements-water": true,
-      "profile": true
+      "profile": true,
+      "today-log": true
     },
     "userCatalog": {
       "items": {
@@ -2493,6 +2526,56 @@
           "notes": "Label-derived (high confidence): kcal, macros, sodium (1,130mg/cup = 49% DV — extreme), fiber, iron (3mg = 17% DV from fortification), Ca, K. Estimated from USDA instant ramen + pea-protein-enriched composition (lower confidence): B-vitamins (B9 high from folic acid fortification, B1/B2/B3 from enrichment), Mg, P, Zn, Se. Vit B12 = 0 (no animal source). Purines low (~50 mg/100g). Per-gram values for DRY product as labeled. Ingredients: enriched organic unbleached flour (wheat, niacin, reduced iron, thiamine mononitrate, riboflavin, folic acid), organic sunflower oil, organic pea protein, seasoning blend (maltodextrin, brown sugar, salt, yeast extract, autolyzed yeast, dehydrated vegetable powder [onion, garlic, chives], caramelized sugar, caramel color, disodium inosinate & disodium guanylate, paprika extract, spices, hydrolyzed soy & corn protein, natural beef style flavor), dried red bell pepper, dried carrot, salt, dried onion, dried peas, dried corn, ≤2% mix tocopherol, potassium carbonate, soda ash, guar gum, sodium tripolyphosphate. Contains wheat, soy. Contains NO beef (despite 'beef style flavor').",
           "brand": "Chef's Cupboard (Aldi)"
         },
+        "chicken_cutlet_breaded_homemade": {
+          "name": "Chicken cutlet, breaded & pan-fried (homemade)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.5,
+          "p": 0.2,
+          "carbs": 0.12,
+          "fiber": 0.007,
+          "sugar": 0.008,
+          "addedSugar": 0,
+          "fat": 0.13,
+          "sf": 0.025,
+          "transFat": 0,
+          "cholesterol": 0.85,
+          "sodium": 3.5,
+          "calcium": 0.3,
+          "iron": 0.01,
+          "potassium": 2.8,
+          "vitD": 0.001,
+          "vitA": 0.02,
+          "b1": 0.001,
+          "b2": 0.002,
+          "b3": 0.08,
+          "b5": 0.008,
+          "b6": 0.005,
+          "b9": 0.1,
+          "b12": 0.003,
+          "choline": 0.8,
+          "magnesium": 0.25,
+          "phosphorus": 1.8,
+          "zinc": 0.01,
+          "selenium": 0.2,
+          "copper": 0.0005,
+          "manganese": 0.002,
+          "iodine": 0.01,
+          "water": 0.5,
+          "purines": 1.3,
+          "displayUnits": [
+            {
+              "label": "1 cutlet (~130 g)",
+              "default": true,
+              "multiplier": 130
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "HOMEMADE, NO LABEL — MODERATE-CONFIDENCE estimate. Breaded pan-fried chicken breast cutlet (milanesa/schnitzel style, pounded thin). Values per gram cooked. Assumes: chicken breast + standard breadcrumb breading (flour/egg/breadcrumb) + pan-fried in oil. Estimated ~250 kcal, 20g protein, 13g fat, 12g carb /100g -> 12.5 kcal per g protein. TWO KEY UNKNOWNS: (1) piece weight — assumed 130g per cutlet as-eaten; adjust if larger/smaller. (2) Breading type — if ALMOND FLOUR / low-carb breading (photo shows pale crumbly coating), carbs drop to ~3g/100g and fat rises to ~16g/100g, kcal similar. Micros from chicken breast (high niacin B3 ~0.08 mg/g, B6, selenium, phosphorus, choline). Purines moderate-high (~130 mg/100g poultry). Oil absorption assumed ~8-10% by weight (pan-fried, not deep-fried)."
+        },
         "chicken_livers_bell_evans": {
           "name": "Chicken livers organic",
           "category": "items",
@@ -3151,6 +3234,34 @@
             }
           ],
           "defaultMeasuredIn": "g"
+        },
+        "feggs_scrambled": {
+          "name": "Feggs scrambled",
+          "category": "recipes",
+          "ingredients": [
+            {
+              "itemKey": "evoo_tsp",
+              "amount": 5
+            },
+            {
+              "itemKey": "egg_substitute",
+              "amount": 460
+            },
+            {
+              "itemKey": "tomate_frito",
+              "multiplier": 0.5
+            }
+          ],
+          "displayUnits": [
+            {
+              "label": "full recipe",
+              "multiplier": 553,
+              "amount": 553,
+              "unit": "g",
+              "default": true,
+              "locked": true
+            }
+          ]
         },
         "ff_greek_tropical": {
           "name": "Friendly Farms Nonfat Greek Yogurt Tropical Fruit",
@@ -5992,36 +6103,6 @@
           "purines": 0.1,
           "brand": "Casa Mamita / ALDI"
         },
-        "scrambled_feggs": {
-          "name": "Feggs scrambled",
-          "category": "recipes",
-          "ingredients": [
-            {
-              "itemKey": "string_cheese",
-              "amount": 84
-            },
-            {
-              "itemKey": "egg_substitute",
-              "amount": 828
-            },
-            {
-              "itemKey": "turkey_breast_smithfield",
-              "amount": 224,
-              "label": "1 slice"
-            }
-          ],
-          "displayUnits": [
-            {
-              "label": "full recipe",
-              "amount": 1136,
-              "unit": "g",
-              "default": true,
-              "locked": true,
-              "multiplier": 1136
-            }
-          ],
-          "defaultMeasuredIn": "units"
-        },
         "sea_queen_shrimp": {
           "name": "Shrimp Sea Queen cooked medium peeled (Aldi)",
           "category": "items",
@@ -7043,7 +7124,7 @@
           "defaultMeasuredIn": "g"
         },
         "tomate_frito": {
-          "name": "tomate frito",
+          "name": "Tomate frito",
           "category": "recipes",
           "ingredients": [
             {
@@ -7051,15 +7132,19 @@
               "amount": 170
             },
             {
+              "itemKey": "sucralose",
+              "amount": 1
+            },
+            {
               "itemKey": "evoo_tsp",
-              "amount": 30
+              "amount": 5
             }
           ],
           "displayUnits": [
             {
               "label": "full recipe",
-              "multiplier": 200,
-              "amount": 200,
+              "multiplier": 176,
+              "amount": 176,
               "unit": "g",
               "default": true,
               "locked": true
@@ -7695,6 +7780,51 @@
           ],
           "defaultMeasuredIn": "g"
         },
+        "vita_coco_pineapple": {
+          "name": "Coconut water pineapple (Vita Coco)",
+          "category": "items",
+          "brand": "Vita Coco",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.2353,
+          "p": 0,
+          "carbs": 0.0549,
+          "fiber": 0,
+          "sugar": 0.0529,
+          "addedSugar": 0.0196,
+          "fat": 0.00098,
+          "sf": 0.00098,
+          "transFat": 0,
+          "cholesterol": 0,
+          "sodium": 0.2255,
+          "calcium": 0.1471,
+          "iron": 0,
+          "potassium": 1.9196,
+          "vitC": 1.2059,
+          "phosphorus": 0.0784,
+          "magnesium": 0.0784,
+          "vitD": 0,
+          "b1": 0.00006,
+          "b2": 0.00006,
+          "b6": 0.00003,
+          "water": 0.94,
+          "purines": 0,
+          "displayUnits": [
+            {
+              "label": "1 container (500 mL)",
+              "default": true,
+              "multiplier": 510
+            },
+            {
+              "label": "1 serving (8 fl oz)",
+              "multiplier": 245
+            },
+            {
+              "label": "100 mL",
+              "multiplier": 102
+            }
+          ],
+          "notes": "Vita Coco Pineapple coconut water (from concentrate), 500 mL carton = ~2 servings of 240 mL. Label columns were scrambled in photo; realigned against known coconut-water profile. PER CONTAINER (500 mL): 120 kcal, 0g protein, 28g carb, 27g sugar (10g ADDED — cane sugar added, plus coconut-water intrinsic sugars), 115mg sodium, K 979mg (20% DV — headline electrolyte), vit C 615mg (680% DV — added ascorbic acid), Ca 75mg (6%), Mg 40mg (10%), P 40mg (4%), 0.5g fat. Container mass assumed ~510g (500 mL x 1.02 density). Per-serving (240 mL): 60 kcal, 13g sugar (5g added), K 470mg, vit C 295mg. Zero protein — this is a hydration/electrolyte + sugar drink, no protein density. Purines negligible. Ingredients: coconut water from concentrate (water, coconut water concentrate), sugar, natural flavors, coconut puree, ascorbic acid (vit C), gellan gum. Gluten free."
+        },
         "water": {
           "name": "Water",
           "category": "water",
@@ -7946,6 +8076,50 @@
           ],
           "defaultMeasuredIn": "g",
           "purines": 0.15
+        },
+        "yogurt_la_fermiere_lemon": {
+          "name": "Yogurt whole-milk lemon (La Fermière)",
+          "category": "items",
+          "brand": "La Fermière",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.44,
+          "p": 0.032,
+          "carbs": 0.128,
+          "fiber": 0,
+          "sugar": 0.12,
+          "addedSugar": 0.088,
+          "fat": 0.088,
+          "sf": 0.056,
+          "transFat": 0,
+          "cholesterol": 0.344,
+          "sodium": 0.48,
+          "calcium": 1.144,
+          "iron": 0,
+          "potassium": 1.504,
+          "vitD": 0,
+          "vitA": 0.3,
+          "b2": 0.002,
+          "b12": 0.004,
+          "b5": 0.004,
+          "choline": 0.15,
+          "phosphorus": 1.1,
+          "zinc": 0.006,
+          "selenium": 0.02,
+          "iodine": 0.3,
+          "water": 0.72,
+          "purines": 0.05,
+          "displayUnits": [
+            {
+              "label": "1 container (4.5 oz)",
+              "default": true,
+              "multiplier": 125
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "La Fermiere French-style whole-milk cream-top lemon yogurt (terracotta/foil pot). Label per 1 container: 180 kcal, 4g protein, 11g fat (7g sat = 36% DV), 43mg cholesterol, 60mg sodium, 16g carb, 15g sugar (11g added = 21% DV), Ca 11% DV, K 4% DV. Container weight estimated 125g (4.5 oz) via macro back-calc (matches label exactly at 125g). This is an INDULGENT dessert-style yogurt, NOT high-protein (only 4g protein / 180 kcal; whole milk + cream + cane sugar). Micros from whole-milk yogurt (medium confidence): B12 (~0.004 mcg/g), B2, phosphorus, iodine (dairy), vit A (milkfat). Purines very low (dairy). Ingredients: pasteurized whole milk, pasteurized cream, cane sugar, lemon juice, live cultures (S. thermophilus, L. bulgaricus). Contains milk; facility uses eggs + tree nuts."
         },
         "yogurt_oikos_pro_lemon": {
           "name": "Yogurt Greek Pro Complete Protein lemon",
