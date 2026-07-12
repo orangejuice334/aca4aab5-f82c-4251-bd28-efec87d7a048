@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-11T08:43:02.087Z",
-  "_gistSavedAt": "2026-07-09T18:50:33.896Z",
+  "_backupTakenAt": "2026-07-12T08:59:02.959Z",
+  "_gistSavedAt": "2026-07-11T22:37:06.548Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1477,6 +1477,39 @@
           "harvest_snaps": "2026-07-09T18:34:32.960Z",
           "tomate_frito": "2026-07-09T18:34:50.419Z"
         }
+      },
+      "2026-07-11": {
+        "toggles": {},
+        "counters": {
+          "soy_milk": 150,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "black_bean_pasta": 70.87,
+          "ketchup_heinz_packet": 65,
+          "evoo_tsp": 13.5,
+          "loven_fresh_protein_everything_bagel": 44,
+          "ff_super_zero_vanilla": 0,
+          "yogurt_half": 170
+        },
+        "customs": [
+          {
+            "id": "fb96f23c-9750-4d4f-a790-c9a8b1cc9299",
+            "name": "90kcal",
+            "kcal": 90,
+            "count": 1,
+            "lastModified": "2026-07-11T17:16:56.397Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "soy_milk": "2026-07-11T17:17:34.546Z",
+          "david_bar_choc_chip_cookie_dough": "2026-07-11T17:17:37.859Z",
+          "black_bean_pasta": "2026-07-11T18:17:54.216535+00:00",
+          "ketchup_heinz_packet": "2026-07-11T18:17:54.216535+00:00",
+          "evoo_tsp": "2026-07-11T18:17:54.216535+00:00",
+          "loven_fresh_protein_everything_bagel": "2026-07-11T18:59:14.824Z",
+          "ff_super_zero_vanilla": "2026-07-11T18:59:37.479Z",
+          "yogurt_half": "2026-07-11T19:00:26.255Z"
+        }
       }
     },
     "savedItems": [],
@@ -1564,7 +1597,9 @@
       "targets-accumulation": true,
       "section-mood-tracker": true,
       "profile": true,
-      "today-log": true
+      "today-log": true,
+      "supplements-water": true,
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
@@ -2206,6 +2241,67 @@
               "multiplier": 347
             }
           ]
+        },
+        "bun_hotdog_hero_classic": {
+          "name": "Bun hot dog Hero Classic",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "brand": "Hero",
+          "kcal": 1.629,
+          "p": 0.1774,
+          "carbs": 0.371,
+          "fiber": 0.3548,
+          "sugar": 0,
+          "addedSugar": 0,
+          "fat": 0.0645,
+          "sf": 0.0081,
+          "transFat": 0,
+          "cholesterol": 0,
+          "sodium": 5.9677,
+          "calcium": 0.3226,
+          "iron": 0.0161,
+          "potassium": 0.6452,
+          "omega3": 0.0081,
+          "magnesium": 0.55,
+          "phosphorus": 1.7,
+          "zinc": 0.025,
+          "selenium": 0.3,
+          "copper": 0.0025,
+          "manganese": 0.03,
+          "iodine": 0.005,
+          "vitE": 0.015,
+          "vitK": 0.02,
+          "b1": 0.006,
+          "b2": 0.002,
+          "b3": 0.02,
+          "b5": 0.005,
+          "b6": 0.002,
+          "b9": 1,
+          "choline": 0.1,
+          "water": 0.32,
+          "purines": 0.15,
+          "displayUnits": [
+            {
+              "label": "1 package (8 buns)",
+              "amount": 496,
+              "unit": "g",
+              "multiplier": 496
+            },
+            {
+              "label": "1 bun",
+              "amount": 62,
+              "unit": "g",
+              "default": true,
+              "multiplier": 62
+            },
+            {
+              "label": "½ bun",
+              "amount": 31,
+              "unit": "g",
+              "multiplier": 31
+            }
+          ],
+          "notes": "Label per 1 bun (62g): 90 kcal LABEL, 11g protein, 4g fat, 0.5g sat, 0g trans, 0mg cholesterol, 23g carb, 22g fiber, 0g sugar, 0g added sugar, 370mg sodium (16% DV — moderately high per bun), Vit D 0, Calcium 20mg, Iron 1mg (6% DV), Potassium 40mg. Net carb = 1g (front panel). KCAL CORRECTION: stored at 101 kcal/bun (1.629 kcal/g). Same brand/technology as Hero Classic Plain Bagels — primary fiber is 'resistant wheat starch' = RS4 (chemically cross-linked/phosphated wheat starch, e.g. Fibersym), the LEAST fermentable resistant-starch type, caloric availability ~0.5 kcal/g, NOT the ~2 kcal/g of readily-fermentable RS2/RS3. Added back ~0.5 kcal/g × 22g fiber = ~11 kcal over label's 90 = 101 total (real value plausibly 95–105); consistent with the bagel's revised correction, NOT the blanket 2 kcal/g fiber rule. omega-3 (ALA ~0.5g/bun, LOW confidence) estimated from milled flaxseed (USDA milled flax ~22.8g ALA/100g; flax listed above the 2% ingredient line, so ≥~1.2g flax/bun). Micros from wheat-gluten + fava-bean protein + flax + olive oil composition (MEDIUM-LOW confidence): folate (B9) elevated from fava (~1 mcg/g), selenium from wheat (~0.3 mcg/g), Mg/P/Mn/thiamine bumped by flax, vitE/vitK from olive oil. B12 = 0 (plant-based). Calcium/iron/potassium/sodium/VitD label-derived (high confidence). Protein blend: vital wheat gluten + fava bean protein (complementary lysine). Ingredients: resistant wheat starch, water, wheat protein, yeast, olive oil, milled flaxseed, <2% fava bean protein, vinegar, guar gum, cultured wheat flour, wheat flour, salt, enzymes. CONTAINS WHEAT; produced in a facility that also handles soy, egg, milk, sesame, tree nuts. High-fiber/high-protein/low-net-carb marketed hot dog bun (8 buns, net wt 17.5 oz / 496g)."
         },
         "caffeine_anhydrous_200mg": {
           "name": "Caffeine anhydrous 200 mg capsule",
@@ -3665,6 +3761,75 @@
             }
           ],
           "defaultMeasuredIn": "g"
+        },
+        "ham_black_forest_365": {
+          "name": "Ham Black Forest uncured (365 Whole Foods)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "brand": "365 Whole Foods",
+          "kcal": 1.25,
+          "p": 0.1964,
+          "carbs": 0.0179,
+          "sugar": 0.0089,
+          "addedSugar": 0.0089,
+          "fiber": 0,
+          "fat": 0.0357,
+          "sf": 0.0089,
+          "transFat": 0,
+          "cholesterol": 0.625,
+          "sodium": 8.3929,
+          "iron": 0.0125,
+          "potassium": 3.5714,
+          "calcium": 0.05,
+          "magnesium": 0.2,
+          "phosphorus": 2.2,
+          "zinc": 0.022,
+          "selenium": 0.25,
+          "copper": 0.001,
+          "manganese": 0.0004,
+          "iodine": 0.03,
+          "b1": 0.0053,
+          "b2": 0.002,
+          "b3": 0.035,
+          "b5": 0.007,
+          "b6": 0.0025,
+          "b9": 0.04,
+          "b12": 0.01,
+          "choline": 0.9,
+          "vitA": 0.03,
+          "vitD": 0.004,
+          "vitE": 0.002,
+          "vitK": 0.001,
+          "water": 0.7,
+          "purines": 1.5,
+          "displayUnits": [
+            {
+              "label": "1 package (14 oz)",
+              "amount": 397,
+              "unit": "g",
+              "multiplier": 397
+            },
+            {
+              "label": "4 slices (2 oz)",
+              "amount": 56,
+              "unit": "g",
+              "default": true,
+              "multiplier": 56
+            },
+            {
+              "label": "2 slices",
+              "amount": 28,
+              "unit": "g",
+              "multiplier": 28
+            },
+            {
+              "label": "1 slice",
+              "amount": 14,
+              "unit": "g",
+              "multiplier": 14
+            }
+          ],
+          "notes": "Label per 4 slices (56g): 70 kcal, 11g protein, 2g fat, 0.5g sat, 0g trans, 35mg cholesterol, 1g carb, 0g fiber, <1g total sugars, <1g added sugars, 470mg sodium (20% DV — HIGH, 8.39 mg/g), Vit D 0, Calcium 0, Iron 0.7mg (4%), Potassium 200mg (4%). Sub-threshold sugar corrected to ~0.5g (all added, from cane sugar). Label macros/sodium/cholesterol/iron/potassium high confidence. Micros estimated from USDA cured-ham composition (high confidence — well-characterized): pork is one of the richest thiamine sources (B1 ~0.53 mg/100g), niacin (B3 ~3.5 mg/100g), B6, B12 (~1 mcg/100g), selenium (~20 mcg/100g), zinc (~2.3 mg/100g), choline (~90 mg/100g). Phosphorus set to ~200 mg/100g (natural pork only — this product has NO added phosphate, unlike most deli hams which run ~280–320 mg/100g). Water ~70%. Purines moderate ~150 mg/100g. Ingredients: pork, water, sea salt, cane sugar, vinegar powder, cultured celery powder. UNCURED / 'no nitrates or nitrites added' — but the cultured celery powder is a natural nitrate source that bacterial cultures convert to nitrite in situ, so the finished product still contains nitrite; 'uncured' is a USDA labeling distinction, not a nitrite-free guarantee. Still a PROCESSED MEAT — WHO IARC Group 1 (colorectal-cancer association at chronic ≥50g/day). Sodium-dense; moderate purines relevant for uric-acid/gout management. 95% lean, fully cooked, Animal Welfare Certified (GAP Step 1), raised without added hormones/antibiotics, vegetarian feed. Value Pack, net wt 14 oz (397g), ~7 servings."
         },
         "ham_black_forest_aldi": {
           "name": "Ham Black Forest deli sliced (Aldi)",
@@ -8072,6 +8237,12 @@
               "amount": 226.8,
               "unit": "g",
               "multiplier": 226.8
+            },
+            {
+              "label": "serving",
+              "amount": 170,
+              "unit": "g",
+              "multiplier": 170
             }
           ],
           "defaultMeasuredIn": "g",
