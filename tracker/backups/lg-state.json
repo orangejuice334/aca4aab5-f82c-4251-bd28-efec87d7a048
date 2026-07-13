@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-12T08:59:02.959Z",
-  "_gistSavedAt": "2026-07-11T22:37:06.548Z",
+  "_backupTakenAt": "2026-07-13T10:18:10.468Z",
+  "_gistSavedAt": "2026-07-12T19:39:06.534Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1510,6 +1510,34 @@
           "ff_super_zero_vanilla": "2026-07-11T18:59:37.479Z",
           "yogurt_half": "2026-07-11T19:00:26.255Z"
         }
+      },
+      "2026-07-12": {
+        "toggles": {},
+        "counters": {
+          "cereal_premier_protein_chocolate": 42,
+          "soy_milk": 500,
+          "protein_whey_dymatize_iso100_vanilla": 33,
+          "bagel_cinnamon_royo": 80,
+          "david_bar_choc_chip_cookie_dough": 62
+        },
+        "customs": [
+          {
+            "id": "cb3e821f-4314-4b41-a604-293be490aaf8",
+            "name": "650kcal 25p",
+            "kcal": 650,
+            "p": 25,
+            "count": 1,
+            "lastModified": "2026-07-12T19:38:23.241Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "cereal_premier_protein_chocolate": "2026-07-12T09:43:03-04:00",
+          "soy_milk": "2026-07-12T19:38:58.464Z",
+          "protein_whey_dymatize_iso100_vanilla": "2026-07-12T13:59:02.223Z",
+          "bagel_cinnamon_royo": "2026-07-12T10:57:16-04:00",
+          "david_bar_choc_chip_cookie_dough": "2026-07-12T19:38:00.283Z"
+        }
       }
     },
     "savedItems": [],
@@ -1599,7 +1627,9 @@
       "profile": true,
       "today-log": true,
       "supplements-water": true,
-      "details-add-new-item": true
+      "details-recipe-maker": true,
+      "details-add-new-item": true,
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
@@ -1783,6 +1813,68 @@
             }
           ],
           "defaultMeasuredIn": "g"
+        },
+        "bagel_cinnamon_royo": {
+          "name": "Bagel cinnamon Royo",
+          "brand": "Royo",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.0625,
+          "p": 0.1125,
+          "fat": 0.0125,
+          "sf": 0,
+          "transFat": 0,
+          "carbs": 0.4625,
+          "fiber": 0.3875,
+          "sugar": 0.025,
+          "addedSugar": 0.0125,
+          "cholesterol": 0,
+          "sodium": 4.625,
+          "water": 0.35,
+          "vitD": 0,
+          "calcium": 0.25,
+          "iron": 0.015,
+          "potassium": 1.25,
+          "magnesium": 0.55,
+          "phosphorus": 1.5,
+          "zinc": 0.02,
+          "selenium": 0.25,
+          "copper": 0.004,
+          "manganese": 0.03,
+          "vitE": 0.01,
+          "vitK": 0.002,
+          "b1": 0.006,
+          "b2": 0.002,
+          "b3": 0.02,
+          "b5": 0.005,
+          "b6": 0.002,
+          "b9": 0.35,
+          "choline": 0.1,
+          "iodine": 0.005,
+          "omega3": 0.005,
+          "purines": 0.15,
+          "displayUnits": [
+            {
+              "label": "1 bagel (80 g)",
+              "amount": 80,
+              "unit": "g",
+              "default": true,
+              "multiplier": 80
+            },
+            {
+              "label": "½ bagel (40 g)",
+              "amount": 40,
+              "unit": "g",
+              "multiplier": 40
+            },
+            {
+              "label": "1 bag (6 bagels, 480 g)",
+              "amount": 480,
+              "unit": "g",
+              "multiplier": 480
+            }
+          ],
+          "notes": "Royo Bread Co. Cinnamon Bagels. 6 per bag, net 17oz/480g => 80g/bagel. Label per bagel (80g): 70 kcal LABEL, 1g fat, 0 sat, 0 trans, 0 chol, 370mg sodium (16% DV, moderately high), 37g carb, 31g fiber, 2g sugar, 1g added sugar, 9g protein, Vit D 0, Ca 20mg, Iron 1.2mg, K 100mg. Net carb 6g. KCAL CORRECTION: stored 85 kcal/bagel (1.0625/g). Fiber blend is resistant wheat starch (RS4, cross-linked/phosphated -- least fermentable RS, ~0-1 kcal/g), oat fiber (insoluble, ~0-1), wheat bran (partially fermentable, ~1-2), psyllium husk (soluble but poorly fermented, ~0), and flaxseed. Applied ~0.5 kcal/g x 31g fiber = ~15 kcal over label's 70 = 85 total (real value plausibly 80-90); same methodology as the Hero RS4 bagel/bun in this catalog, NOT the blanket 2 kcal/g fiber rule. omega-3 (ALA ~0.4g/bagel, LOW confidence) from flaxseed (USDA milled flax ~22.8g ALA/100g; flax mid-ingredient-list). Off-label micros ESTIMATED (LOW-MEDIUM confidence) from wheat protein + resistant wheat starch + oat fiber + wheat bran + rye + flax composition: Mg ~44mg, phosphorus ~120mg/bagel (relevant to reduced-eGFR history), manganese/thiamine/niacin bumped by bran+flax, selenium from wheat (~0.25 mcg/g). B12 = 0 (vegan/plant). Ca/Fe/K/Na/VitD label-derived (high confidence). Purines ~12mg/bagel -- LOW (grains/bran low-moderate) -- LOW CONFIDENCE. Protein source: wheat protein/gluten (lysine-limited; no complementary legume in the cinnamon variant). Full ingredients: water, resistant wheat starch, wheat protein, oat fiber, wheat bran, psyllium husk, cultured wheat flour, flaxseed, currants, cinnamon, brown sugar, salt, malted syrup, yeast, apple cider vinegar, rye flour. CONTAINS WHEAT; facility also processes egg, soy. Vegan, keto-marketed."
         },
         "bagel_sesame_qtr": {
           "name": "Bagel sesame",
@@ -2510,6 +2602,66 @@
           ],
           "defaultMeasuredIn": "g",
           "brand": "Giant"
+        },
+        "cereal_premier_protein_chocolate": {
+          "name": "Cereal Premier Protein chocolate",
+          "brand": "Premier Protein",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 4.2857,
+          "p": 0.4762,
+          "fat": 0.119,
+          "sf": 0.0238,
+          "transFat": 0,
+          "carbs": 0.3333,
+          "fiber": 0.0238,
+          "sugar": 0.119,
+          "addedSugar": 0.0952,
+          "cholesterol": 0,
+          "sodium": 6.4286,
+          "water": 0.03,
+          "vitD": 0,
+          "calcium": 0.7143,
+          "iron": 0.0524,
+          "potassium": 2.8571,
+          "magnesium": 1.0714,
+          "phosphorus": 3.0476,
+          "zinc": 0.0157,
+          "selenium": 0.2452,
+          "copper": 0.0044,
+          "manganese": 0.0086,
+          "vitE": 0.0476,
+          "b1": 0.0005,
+          "b2": 0.0012,
+          "b3": 0.0048,
+          "b5": 0.0012,
+          "b6": 0.0005,
+          "b9": 0.3571,
+          "choline": 0.2381,
+          "omega3": 0.0476,
+          "purines": 0.3238,
+          "displayUnits": [
+            {
+              "label": "1 cup (42 g)",
+              "amount": 42,
+              "unit": "g",
+              "default": true,
+              "multiplier": 42
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            },
+            {
+              "label": "container (252 g)",
+              "amount": 252,
+              "unit": "g",
+              "multiplier": 252
+            }
+          ],
+          "notes": "Premier Protein Cereal, Chocolate. Distributed by Post Consumer Brands. About 6 servings/container (42g each => ~252g). kcal NOT corrected: label 180 reconciles with Atwater 4-4-9 (5x9+14x4+20x4~181); fiber only 1g and disclosed, no sugar alcohols/polydextrose, stevia non-nutritive. Protein 20g stored at label (nitrogen). Source is a plant blend dominated by wheat gluten + wheat protein isolate (lysine-limited), plus pea protein concentrate (complements lysine) and almonds; DIAAS-adjusted utilizable protein for muscle-protein-synthesis is meaningfully below 20g, but no fixed downgrade applied (no rule for gluten/pea blends, unlike collagen). Sodium/calcium/iron/potassium/vitD are label-exact. Off-label micros ESTIMATED from ingredient model (~14g wheat gluten, ~8g almonds, ~6g wheat protein isolate, ~3g pea protein, ~6g corn flour, ~4g sugar, ~1.5g cocoa) anchored to USDA #168147 vital wheat gluten (Se 39.7, P 260, Mg 25, Zn 0.85, Cu 0.18 mg/100g) + almonds/cocoa/pea -- LOW CONFIDENCE. Per serving approx: Mg 45mg, P 128mg (relevant to reduced-eGFR history), vitamin E 2mg (almonds), Se 10mcg. Purines ~14mg/serving -- LOW purine (wheat gluten/seitan low, pea moderate; net well under 50mg/serving) -- LOW CONFIDENCE. b12, vitA, vitK, b7, iodine, molybdenum, chromium omitted (trace/absent or unknowable in this formulation)."
         },
         "cheese_parmesan_grated_reggano": {
           "name": "Cheese parmesan grated",
