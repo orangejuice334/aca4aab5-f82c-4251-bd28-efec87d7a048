@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-14T18:16:46.114Z",
-  "_gistSavedAt": "2026-07-14T17:48:25.890Z",
+  "_backupTakenAt": "2026-07-14T18:47:56.935Z",
+  "_gistSavedAt": "2026-07-14T18:36:10.676Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1675,7 +1675,8 @@
       "profile": true,
       "supplements-water": true,
       "history": true,
-      "catalog-ratio": true
+      "catalog-ratio": true,
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {

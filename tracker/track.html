@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.93">
+<meta name="app-version" content="v6.5.94">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -2275,7 +2275,7 @@
   .recipe-ing-top {
     display: flex;
     flex: 1 1 100%;
-    align-items: center;
+    align-items: flex-start;
     gap: 6px;
   }
   .recipe-ing-top .recipe-ing-select { flex: 1 1 auto; min-width: 0; }
@@ -3162,7 +3162,7 @@
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 6px 10px;
-    margin-top: 10px;
+    margin-top: 4px;
     align-items: end;
   }
 
@@ -3210,6 +3210,21 @@
     gap: 8px;
     align-items: center;
     margin-top: 4px;
+  }
+  /* Duplicated top+bottom action rows (store checkbox + Add) are fenced from
+     the form body by a horizontal rule on the body-facing side, so both rows
+     read identically - a rule, then the row. Matches the page's 1px solid
+     var(--rule) dividers. */
+  .custom-form-actions.actions-top {
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .custom-form-actions.actions-bottom {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--rule);
   }
 
   .custom-form-store {
@@ -4520,7 +4535,7 @@
         <div class="custom-form">
           <!-- Top actions row (mirror of the bottom one). Both store
                checkboxes stay in sync; either Add button submits. -->
-          <div class="custom-form-actions" data-custom-actions>
+          <div class="custom-form-actions actions-top" data-custom-actions>
             <label class="custom-form-store">
               <input type="checkbox" data-custom-input="store" />
               Store for later (saves as reusable item)
@@ -4549,7 +4564,7 @@
             </select>
             <input type="text" data-custom-input="newCategory" data-new-cat-input placeholder="New category name" style="display: none; margin-top: 6px;" />
           </div>
-          <div class="custom-form-actions">
+          <div class="custom-form-actions actions-bottom">
             <label class="custom-form-store">
               <input type="checkbox" data-custom-input="store" />
               Store for later (saves as reusable item)
@@ -4564,25 +4579,25 @@
     <details class="recipe-maker" id="recipe-maker">
       <summary>Recipe maker</summary>
       <div class="recipe-maker-body">
+        <!-- Top actions row (mirror of the bottom one). Both store
+             checkboxes stay in sync; either Add button saves. -->
+        <div class="custom-form-actions actions-top" data-recipe-actions>
+          <label class="custom-form-store">
+            <input type="checkbox" data-recipe-store />
+            Store for later (saves as reusable item)
+          </label>
+          <button type="button" data-recipe-save class="custom-form-submit">Add</button>
+        </div>
+
         <div class="recipe-maker-fields">
           <div class="custom-form-field wide">
-            <label>Recipe name</label>
+            <label>Recipe name <span class="edit-panel-hint">optional; auto-named from calories and protein if blank</span></label>
             <input type="text" data-recipe-name placeholder="e.g. Eggs & shrimp microwave bowl" />
           </div>
           <div class="custom-form-field wide">
             <label>Key <span class="edit-panel-hint">auto-derived from name; edit if you want a custom slug</span></label>
             <input type="text" data-recipe-key placeholder="(auto)" />
           </div>
-        </div>
-
-        <!-- Top actions row (mirror of the bottom one). Both store
-             checkboxes stay in sync; either Add button saves. -->
-        <div class="custom-form-actions" data-recipe-actions>
-          <label class="custom-form-store">
-            <input type="checkbox" data-recipe-store />
-            Store for later (saves as reusable item)
-          </label>
-          <button type="button" data-recipe-save class="custom-form-submit">Add</button>
         </div>
 
         <div class="recipe-maker-ingredients" data-recipe-ing-list></div>
@@ -4606,7 +4621,7 @@
         </div>
 
         <div class="custom-form-error" data-recipe-error style="display: none;"></div>
-        <div class="custom-form-actions" data-recipe-actions>
+        <div class="custom-form-actions actions-bottom" data-recipe-actions>
           <label class="custom-form-store">
             <input type="checkbox" data-recipe-store />
             Store for later (saves as reusable item)
@@ -12666,19 +12681,18 @@
     const keyInput = document.querySelector('[data-recipe-key]');
     const errorEl = document.querySelector('[data-recipe-error]');
     if (!nameInput || !keyInput || !errorEl) return;
-    const name = (nameInput.value || '').trim();
+    let name = (nameInput.value || '').trim();
     let key = (keyInput.value || '').trim();
     const showError = (msg) => { errorEl.textContent = msg; errorEl.style.display = ''; };
-    if (!name) return showError('Recipe name is required.');
-    if (!key) key = rmSlugify(name);
-    if (!key) return showError('Could not derive a key from the name. Type one manually.');
 
     const list = document.querySelector('[data-recipe-ing-list]');
     const rows = list ? list.querySelectorAll('[data-recipe-ing-row]') : [];
     const ingredients = [];
+    let totalKcal = 0, totalProtein = 0;
     rows.forEach(row => {
       const m = rmComputeRowMacros(row);
       if (!m) return;
+      totalKcal += m.kcal; totalProtein += m.p;
       const sourceItem = ITEMS[m.key];
       if (sourceItem && isPer100(sourceItem)) {
         // Mass/volume source — store native-unit amount directly. resolveIngredient
@@ -12699,6 +12713,12 @@
       }
     });
     if (ingredients.length === 0) return showError('Add at least one ingredient.');
+
+    // Recipe name is optional: when blank, auto-name it from the batch's total
+    // calories and protein (e.g. "Recipe (320 kcal, 24g protein)").
+    if (!name) name = 'Recipe (' + Math.round(totalKcal) + ' kcal, ' + Math.round(totalProtein) + 'g protein)';
+    if (!key) key = rmSlugify(name);
+    if (!key) return showError('Could not derive a key from the name. Type one manually.');
     if (ITEMS[key] && !confirm('Item "' + key + '" already exists. Overwrite?')) {
       errorEl.style.display = 'none';
       return;
@@ -12802,6 +12822,7 @@
     document.addEventListener('change', (ev) => {
       const sel = ev.target.closest('[data-recipe-ing-select]');
       if (sel) {
+        sel.size = 1;
         const row = sel.closest('[data-recipe-ing-row]');
         if (row) renderRecipeRowVariants(row);
         rmRecomputeTotals();
@@ -12820,6 +12841,16 @@
         return;
       }
     });
+    // Collapse an expanded ingredient <select> listbox once focus leaves it
+    // (deferred so a click landing on an option registers first).
+    document.addEventListener('focusout', (ev) => {
+      const rmFilter = ev.target.closest('[data-recipe-ing-filter]');
+      if (!rmFilter) return;
+      const row = rmFilter.closest('[data-recipe-ing-row]');
+      const select = row && row.querySelector('[data-recipe-ing-select]');
+      if (!select) return;
+      setTimeout(() => { if (document.activeElement !== select) select.size = 1; }, 200);
+    });
     document.addEventListener('input', (ev) => {
       const variantInp = ev.target.closest('[data-recipe-variant-input]');
       if (variantInp) {
@@ -12827,12 +12858,17 @@
         rmRecomputeTotals();
         return;
       }
-      // Recipe-ingredient filter box: narrow that row's pick-item dropdown.
+      // Recipe-ingredient filter box: narrow that row's pick-item dropdown,
+      // and expand the <select> into a listbox so the user watches the option
+      // count shrink live on each keystroke (collapses on pick / blur below).
       const rmFilter = ev.target.closest('[data-recipe-ing-filter]');
       if (rmFilter) {
         const row = rmFilter.closest('[data-recipe-ing-row]');
         const select = row && row.querySelector('[data-recipe-ing-select]');
-        if (select) rmFilterSelect(select, rmFilter.value);
+        if (select) {
+          rmFilterSelect(select, rmFilter.value);
+          select.size = rmFilter.value.trim() ? Math.min(Math.max(select.options.length, 2), 8) : 1;
+        }
         return;
       }
       // Group filter input — live filter rows in the closest .checkout-group.
