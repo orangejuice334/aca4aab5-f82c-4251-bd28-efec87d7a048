@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-13T10:18:10.468Z",
-  "_gistSavedAt": "2026-07-12T19:39:06.534Z",
+  "_backupTakenAt": "2026-07-14T09:00:37.696Z",
+  "_gistSavedAt": "2026-07-13T21:32:12.870Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1538,6 +1538,37 @@
           "bagel_cinnamon_royo": "2026-07-12T10:57:16-04:00",
           "david_bar_choc_chip_cookie_dough": "2026-07-12T19:38:00.283Z"
         }
+      },
+      "2026-07-13": {
+        "toggles": {},
+        "counters": {
+          "spinach_fresh": 40,
+          "yogurt_half": 300,
+          "strawberry_frozen_blb": 125,
+          "protein_whey_dymatize_iso100_vanilla": 33,
+          "sucralose": 2,
+          "soy_milk": 350,
+          "loven_fresh_protein_everything_bagel": 55,
+          "string_cheese": 42,
+          "mama_cozzi_turkey_pepperoni": 45,
+          "david_bar_choc_chip_cookie_dough": 62
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "spinach_fresh": "2026-07-13T14:38:53.306Z",
+          "yogurt_half": "2026-07-13T14:39:15.679Z",
+          "strawberry_frozen_blb": "2026-07-13T14:40:12.816Z",
+          "protein_whey_dymatize_iso100_vanilla": "2026-07-13T14:39:44.021Z",
+          "sucralose": "2026-07-13T14:40:45.438Z",
+          "soy_milk": "2026-07-13T21:31:57.088Z",
+          "loven_fresh_protein_everything_bagel": "2026-07-13T16:53:51.521Z",
+          "string_cheese": "2026-07-13T16:54:04.566Z",
+          "mama_cozzi_turkey_pepperoni": "2026-07-13T16:54:21.147Z",
+          "david_bar_choc_chip_cookie_dough": "2026-07-13T21:32:04.719Z"
+        },
+        "weight": 94.3,
+        "weightMeta": "2026-07-13T13:47:08.147Z"
       }
     },
     "savedItems": [],
@@ -1625,10 +1656,10 @@
       "targets-accumulation": true,
       "section-mood-tracker": true,
       "profile": true,
-      "today-log": true,
       "supplements-water": true,
       "details-recipe-maker": true,
       "details-add-new-item": true,
+      "history": true,
       "catalog-ratio": true
     },
     "userCatalog": {
@@ -5113,7 +5144,9 @@
           ],
           "notes": "Kraft fat-free shredded mozzarella. Bag ~7 servings × 28 g = 196 g. 9 g protein per 1/4 cup serving - k/g P ~5, well below your 8.0 protein-positive cutoff so a strong protein-dense topper. Sodium 280 mg per serving (12% DV) is the main watch-out. Ingredients: nonfat mozzarella (pasteurized skim milk, cheese culture, salt, vitamin yeast, vit-A palmitate, enzymes, artificial color), modified cornstarch (anti-caking), natamycin (mold inhibitor).",
           "brand": "Kraft",
-          "purines": 0.1
+          "purines": 0.1,
+          "prevCategory": "items",
+          "archived": true
         },
         "mushrooms_pampa_jar": {
           "name": "Mushrooms pieces & stems jarred",
