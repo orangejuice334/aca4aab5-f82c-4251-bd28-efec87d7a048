@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.92">
+<meta name="app-version" content="v6.5.93">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -2278,7 +2278,23 @@
     align-items: center;
     gap: 6px;
   }
-  .recipe-ing-top .recipe-ing-select { flex: 1 1 auto; }
+  .recipe-ing-top .recipe-ing-select { flex: 1 1 auto; min-width: 0; }
+  /* Filter box that narrows the pick-item dropdown (it has many entries) -
+     sits between the select and the delete X, like the catalog group filter. */
+  .recipe-ing-top .recipe-ing-filter {
+    flex: 0 1 120px;
+    min-width: 70px;
+    padding: 4px 8px;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    background: var(--paper);
+    color: var(--ink);
+    box-sizing: border-box;
+  }
+  .recipe-ing-top .recipe-ing-filter:focus { outline: none; border-color: var(--ink-soft); }
+  .recipe-ing-top .recipe-ing-filter::placeholder { color: var(--ink-faint); }
   .recipe-ing-variants {
     flex: 1 1 100%;
     display: flex;
@@ -4502,6 +4518,15 @@
       <summary>Add new catalog item</summary>
       <div data-custom-form="2">
         <div class="custom-form">
+          <!-- Top actions row (mirror of the bottom one). Both store
+               checkboxes stay in sync; either Add button submits. -->
+          <div class="custom-form-actions" data-custom-actions>
+            <label class="custom-form-store">
+              <input type="checkbox" data-custom-input="store" />
+              Store for later (saves as reusable item)
+            </label>
+            <button type="button" class="custom-form-submit" data-custom-submit>Add</button>
+          </div>
           <div class="custom-form-field wide">
             <label>Name</label>
             <input type="text" data-custom-input="name" placeholder="e.g. Pizza slice" />
@@ -4550,6 +4575,16 @@
           </div>
         </div>
 
+        <!-- Top actions row (mirror of the bottom one). Both store
+             checkboxes stay in sync; either Add button saves. -->
+        <div class="custom-form-actions" data-recipe-actions>
+          <label class="custom-form-store">
+            <input type="checkbox" data-recipe-store />
+            Store for later (saves as reusable item)
+          </label>
+          <button type="button" data-recipe-save class="custom-form-submit">Add</button>
+        </div>
+
         <div class="recipe-maker-ingredients" data-recipe-ing-list></div>
         <button type="button" data-recipe-ing-add class="ing-add-btn">+ Add ingredient</button>
 
@@ -4557,6 +4592,7 @@
           <div class="recipe-ing-row" data-recipe-ing-row>
             <div class="recipe-ing-top">
               <select data-recipe-ing-select class="recipe-ing-select"></select>
+              <input type="text" data-recipe-ing-filter class="recipe-ing-filter" placeholder="filter…" aria-label="Filter items" />
               <button type="button" data-recipe-ing-delete class="ing-delete" aria-label="Remove ingredient">×</button>
             </div>
             <div class="recipe-ing-variants" data-recipe-ing-variants></div>
@@ -4570,8 +4606,12 @@
         </div>
 
         <div class="custom-form-error" data-recipe-error style="display: none;"></div>
-        <div class="recipe-maker-actions">
-          <button type="button" data-recipe-save class="custom-form-submit">Save recipe</button>
+        <div class="custom-form-actions" data-recipe-actions>
+          <label class="custom-form-store">
+            <input type="checkbox" data-recipe-store />
+            Store for later (saves as reusable item)
+          </label>
+          <button type="button" data-recipe-save class="custom-form-submit">Add</button>
         </div>
       </div>
     </details>
@@ -12325,6 +12365,25 @@
     });
   }
 
+  // Repopulate a recipe-ingredient select with only options whose label
+  // matches the filter query (case-insensitive substring). The currently
+  // selected option is always kept (even if it doesn't match) so an active
+  // ingredient never silently drops out of the row.
+  function rmFilterSelect(select, query) {
+    const q = (query || '').trim().toLowerCase();
+    const current = select.value;
+    const opts = rmCatalogOptions();
+    select.innerHTML = '<option value="">— Pick item —</option>';
+    opts.forEach(({ key, label }) => {
+      if (q && key !== current && !label.toLowerCase().includes(q)) return;
+      const opt = document.createElement('option');
+      opt.value = key;
+      opt.textContent = label;
+      select.appendChild(opt);
+    });
+    select.value = current;
+  }
+
   // Render the per-variant input rows for a recipe ingredient row. Each
   // input represents one way to count the ingredient (e.g. "1 bottle" or
   // "1 ml" for the protein shake). All synced — typing in any one updates
@@ -12652,11 +12711,17 @@
     // Every new recipe gets an initial locked "full recipe" variant
     // (whole batch). The user always has a way to log "I ate the whole
     // thing". Additional per-serving variants are added in the editor.
+    // "Store for later" (checked) = reusable catalog recipe (always visible).
+    // Unchecked (default) = a one-off: a non-preserve recipe that only shows
+    // on days it's logged. Neither auto-logs today.
+    const storeCb = document.querySelector('[data-recipe-store]');
+    const store = storeCb ? storeCb.checked : false;
     const newRecipe = {
       name: name,
       category: 'recipes',
       ingredients: ingredients,
     };
+    if (!store) newRecipe.preserve = false;
     const fullBatch = recipeCanonicalGrams(newRecipe);
     if (fullBatch > 0) {
       newRecipe.displayUnits = [{
@@ -12678,8 +12743,11 @@
     keyInput.value = '';
     rmKeyManuallyEdited = false;
     if (list) list.innerHTML = '';
+    document.querySelectorAll('[data-recipe-store]').forEach(cb => { cb.checked = false; });
     rmRecomputeTotals();
-    alert('Saved recipe "' + key + '".');
+    alert(store
+      ? 'Saved recipe "' + key + '" to your catalog.'
+      : 'Saved one-off recipe "' + key + '" (shows on days you log it).');
   }
 
   let rmKeyManuallyEdited = false;
@@ -12737,6 +12805,19 @@
         const row = sel.closest('[data-recipe-ing-row]');
         if (row) renderRecipeRowVariants(row);
         rmRecomputeTotals();
+        return;
+      }
+      // Keep the duplicated top+bottom "Store for later" checkboxes in sync.
+      const recipeStore = ev.target.closest('[data-recipe-store]');
+      if (recipeStore) {
+        document.querySelectorAll('[data-recipe-store]').forEach(cb => { cb.checked = recipeStore.checked; });
+        return;
+      }
+      const itemStore = ev.target.closest('[data-custom-input="store"]');
+      if (itemStore) {
+        const formRoot = itemStore.closest('[data-custom-form]');
+        if (formRoot) formRoot.querySelectorAll('[data-custom-input="store"]').forEach(cb => { cb.checked = itemStore.checked; });
+        return;
       }
     });
     document.addEventListener('input', (ev) => {
@@ -12744,6 +12825,14 @@
       if (variantInp) {
         recipeRowSyncFromInput(variantInp);
         rmRecomputeTotals();
+        return;
+      }
+      // Recipe-ingredient filter box: narrow that row's pick-item dropdown.
+      const rmFilter = ev.target.closest('[data-recipe-ing-filter]');
+      if (rmFilter) {
+        const row = rmFilter.closest('[data-recipe-ing-row]');
+        const select = row && row.querySelector('[data-recipe-ing-select]');
+        if (select) rmFilterSelect(select, rmFilter.value);
         return;
       }
       // Group filter input — live filter rows in the closest .checkout-group.

@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-08T21:42:08.645Z",
-  "_gistSavedAt": "2026-07-08T21:18:09.557Z",
+  "_backupTakenAt": "2026-07-14T18:15:56.996Z",
+  "_gistSavedAt": "2026-07-14T17:48:25.890Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1418,28 +1418,174 @@
         "toggles": {},
         "counters": {
           "chobani_protein_raspberry_lemon": 190,
-          "loven_fresh_protein_everything_bagel": 55,
-          "david_bar_choc_chip_cookie_dough": 62,
+          "loven_fresh_protein_everything_bagel": 110,
+          "david_bar_choc_chip_cookie_dough": 124,
           "edamame_half": 170,
           "nutricost_casein_vanilla": 70.4,
           "soy_milk": 300,
-          "hero_plain_bagel": 75
+          "hero_plain_bagel": 75,
+          "kofta_kebab_counter": 95,
+          "yogurt_la_fermiere_lemon": 0,
+          "chicken_cutlet_breaded_homemade": 0
         },
         "customs": [],
         "toggleMeta": {},
         "counterMeta": {
           "chobani_protein_raspberry_lemon": "2026-07-08T14:11:25.383Z",
-          "loven_fresh_protein_everything_bagel": "2026-07-08T14:11:41.198Z",
-          "david_bar_choc_chip_cookie_dough": "2026-07-08T14:11:53.255Z",
+          "loven_fresh_protein_everything_bagel": "2026-07-08T23:34:51.227Z",
+          "david_bar_choc_chip_cookie_dough": "2026-07-08T23:34:38.027Z",
           "edamame_half": "2026-07-08T16:09:13-04:00",
           "nutricost_casein_vanilla": "2026-07-08T20:48:58.780Z",
           "soy_milk": "2026-07-08T21:12:26.400Z",
-          "hero_plain_bagel": "2026-07-08T21:12:36.438Z"
+          "hero_plain_bagel": "2026-07-08T21:12:36.438Z",
+          "kofta_kebab_counter": "2026-07-08T19:50:53-04:00",
+          "yogurt_la_fermiere_lemon": "2026-07-09T08:20:28-04:00",
+          "chicken_cutlet_breaded_homemade": "2026-07-09T08:20:28-04:00"
         },
         "mood": 5,
         "moodMeta": "2026-07-08T14:10:39.977Z",
         "weight": 93.5,
         "weightMeta": "2026-07-08T21:15:18.442Z"
+      },
+      "2026-07-09": {
+        "toggles": {
+          "omega3#08:00": true,
+          "omega3#12:30": true
+        },
+        "counters": {
+          "yogurt_la_fermiere_lemon": 125,
+          "chicken_cutlet_breaded_homemade": 62,
+          "vita_coco_pineapple": 510,
+          "soy_milk": 150,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "feggs_scrambled": 553,
+          "harvest_snaps": 50,
+          "tomate_frito": 26.4
+        },
+        "customs": [],
+        "toggleMeta": {
+          "omega3#08:00": "2026-07-09T18:50:27.536Z",
+          "omega3#12:30": "2026-07-09T18:50:30.959Z"
+        },
+        "counterMeta": {
+          "yogurt_la_fermiere_lemon": "2026-07-09T08:20:28-04:00",
+          "chicken_cutlet_breaded_homemade": "2026-07-09T08:20:28-04:00",
+          "vita_coco_pineapple": "2026-07-09T08:23:42-04:00",
+          "soy_milk": "2026-07-09T13:38:28.353Z",
+          "david_bar_choc_chip_cookie_dough": "2026-07-09T13:38:33.046Z",
+          "feggs_scrambled": "2026-07-09T18:34:23.009Z",
+          "harvest_snaps": "2026-07-09T18:34:32.960Z",
+          "tomate_frito": "2026-07-09T18:34:50.419Z"
+        }
+      },
+      "2026-07-11": {
+        "toggles": {},
+        "counters": {
+          "soy_milk": 150,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "black_bean_pasta": 70.87,
+          "ketchup_heinz_packet": 65,
+          "evoo_tsp": 13.5,
+          "loven_fresh_protein_everything_bagel": 44,
+          "ff_super_zero_vanilla": 0,
+          "yogurt_half": 170
+        },
+        "customs": [
+          {
+            "id": "fb96f23c-9750-4d4f-a790-c9a8b1cc9299",
+            "name": "90kcal",
+            "kcal": 90,
+            "count": 1,
+            "lastModified": "2026-07-11T17:16:56.397Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "soy_milk": "2026-07-11T17:17:34.546Z",
+          "david_bar_choc_chip_cookie_dough": "2026-07-11T17:17:37.859Z",
+          "black_bean_pasta": "2026-07-11T18:17:54.216535+00:00",
+          "ketchup_heinz_packet": "2026-07-11T18:17:54.216535+00:00",
+          "evoo_tsp": "2026-07-11T18:17:54.216535+00:00",
+          "loven_fresh_protein_everything_bagel": "2026-07-11T18:59:14.824Z",
+          "ff_super_zero_vanilla": "2026-07-11T18:59:37.479Z",
+          "yogurt_half": "2026-07-11T19:00:26.255Z"
+        }
+      },
+      "2026-07-12": {
+        "toggles": {},
+        "counters": {
+          "cereal_premier_protein_chocolate": 42,
+          "soy_milk": 500,
+          "protein_whey_dymatize_iso100_vanilla": 33,
+          "bagel_cinnamon_royo": 80,
+          "david_bar_choc_chip_cookie_dough": 62
+        },
+        "customs": [
+          {
+            "id": "cb3e821f-4314-4b41-a604-293be490aaf8",
+            "name": "650kcal 25p",
+            "kcal": 650,
+            "p": 25,
+            "count": 1,
+            "lastModified": "2026-07-12T19:38:23.241Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "cereal_premier_protein_chocolate": "2026-07-12T09:43:03-04:00",
+          "soy_milk": "2026-07-12T19:38:58.464Z",
+          "protein_whey_dymatize_iso100_vanilla": "2026-07-12T13:59:02.223Z",
+          "bagel_cinnamon_royo": "2026-07-12T10:57:16-04:00",
+          "david_bar_choc_chip_cookie_dough": "2026-07-12T19:38:00.283Z"
+        }
+      },
+      "2026-07-13": {
+        "toggles": {},
+        "counters": {
+          "spinach_fresh": 40,
+          "yogurt_half": 300,
+          "strawberry_frozen_blb": 125,
+          "protein_whey_dymatize_iso100_vanilla": 33,
+          "sucralose": 2,
+          "soy_milk": 350,
+          "loven_fresh_protein_everything_bagel": 55,
+          "string_cheese": 42,
+          "mama_cozzi_turkey_pepperoni": 45,
+          "david_bar_choc_chip_cookie_dough": 62
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "spinach_fresh": "2026-07-13T14:38:53.306Z",
+          "yogurt_half": "2026-07-13T14:39:15.679Z",
+          "strawberry_frozen_blb": "2026-07-13T14:40:12.816Z",
+          "protein_whey_dymatize_iso100_vanilla": "2026-07-13T14:39:44.021Z",
+          "sucralose": "2026-07-13T14:40:45.438Z",
+          "soy_milk": "2026-07-13T21:31:57.088Z",
+          "loven_fresh_protein_everything_bagel": "2026-07-13T16:53:51.521Z",
+          "string_cheese": "2026-07-13T16:54:04.566Z",
+          "mama_cozzi_turkey_pepperoni": "2026-07-13T16:54:21.147Z",
+          "david_bar_choc_chip_cookie_dough": "2026-07-13T21:32:04.719Z"
+        },
+        "weight": 94.3,
+        "weightMeta": "2026-07-13T13:47:08.147Z"
+      },
+      "2026-07-14": {
+        "toggles": {},
+        "counters": {
+          "soy_milk": 200,
+          "cereal_premier_protein_chocolate": 50
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "soy_milk": "2026-07-14T12:37:17.419Z",
+          "cereal_premier_protein_chocolate": "2026-07-14T12:37:52.823Z"
+        },
+        "weight": 94.5,
+        "weightMeta": "2026-07-14T11:32:46.393Z",
+        "mood": 6,
+        "moodMeta": "2026-07-14T12:52:13.446Z"
       }
     },
     "savedItems": [],
@@ -1524,12 +1670,12 @@
       "details-sync-error-banner": true,
       "section-archive-section": true,
       "today-customs": true,
-      "details-add-new-item": true,
       "targets-accumulation": true,
       "section-mood-tracker": true,
-      "details-recipe-maker": true,
+      "profile": true,
       "supplements-water": true,
-      "profile": true
+      "history": true,
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
@@ -1713,6 +1859,68 @@
             }
           ],
           "defaultMeasuredIn": "g"
+        },
+        "bagel_cinnamon_royo": {
+          "name": "Bagel cinnamon Royo",
+          "brand": "Royo",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.0625,
+          "p": 0.1125,
+          "fat": 0.0125,
+          "sf": 0,
+          "transFat": 0,
+          "carbs": 0.4625,
+          "fiber": 0.3875,
+          "sugar": 0.025,
+          "addedSugar": 0.0125,
+          "cholesterol": 0,
+          "sodium": 4.625,
+          "water": 0.35,
+          "vitD": 0,
+          "calcium": 0.25,
+          "iron": 0.015,
+          "potassium": 1.25,
+          "magnesium": 0.55,
+          "phosphorus": 1.5,
+          "zinc": 0.02,
+          "selenium": 0.25,
+          "copper": 0.004,
+          "manganese": 0.03,
+          "vitE": 0.01,
+          "vitK": 0.002,
+          "b1": 0.006,
+          "b2": 0.002,
+          "b3": 0.02,
+          "b5": 0.005,
+          "b6": 0.002,
+          "b9": 0.35,
+          "choline": 0.1,
+          "iodine": 0.005,
+          "omega3": 0.005,
+          "purines": 0.15,
+          "displayUnits": [
+            {
+              "label": "1 bagel (80 g)",
+              "amount": 80,
+              "unit": "g",
+              "default": true,
+              "multiplier": 80
+            },
+            {
+              "label": "½ bagel (40 g)",
+              "amount": 40,
+              "unit": "g",
+              "multiplier": 40
+            },
+            {
+              "label": "1 bag (6 bagels, 480 g)",
+              "amount": 480,
+              "unit": "g",
+              "multiplier": 480
+            }
+          ],
+          "notes": "Royo Bread Co. Cinnamon Bagels. 6 per bag, net 17oz/480g => 80g/bagel. Label per bagel (80g): 70 kcal LABEL, 1g fat, 0 sat, 0 trans, 0 chol, 370mg sodium (16% DV, moderately high), 37g carb, 31g fiber, 2g sugar, 1g added sugar, 9g protein, Vit D 0, Ca 20mg, Iron 1.2mg, K 100mg. Net carb 6g. KCAL CORRECTION: stored 85 kcal/bagel (1.0625/g). Fiber blend is resistant wheat starch (RS4, cross-linked/phosphated -- least fermentable RS, ~0-1 kcal/g), oat fiber (insoluble, ~0-1), wheat bran (partially fermentable, ~1-2), psyllium husk (soluble but poorly fermented, ~0), and flaxseed. Applied ~0.5 kcal/g x 31g fiber = ~15 kcal over label's 70 = 85 total (real value plausibly 80-90); same methodology as the Hero RS4 bagel/bun in this catalog, NOT the blanket 2 kcal/g fiber rule. omega-3 (ALA ~0.4g/bagel, LOW confidence) from flaxseed (USDA milled flax ~22.8g ALA/100g; flax mid-ingredient-list). Off-label micros ESTIMATED (LOW-MEDIUM confidence) from wheat protein + resistant wheat starch + oat fiber + wheat bran + rye + flax composition: Mg ~44mg, phosphorus ~120mg/bagel (relevant to reduced-eGFR history), manganese/thiamine/niacin bumped by bran+flax, selenium from wheat (~0.25 mcg/g). B12 = 0 (vegan/plant). Ca/Fe/K/Na/VitD label-derived (high confidence). Purines ~12mg/bagel -- LOW (grains/bran low-moderate) -- LOW CONFIDENCE. Protein source: wheat protein/gluten (lysine-limited; no complementary legume in the cinnamon variant). Full ingredients: water, resistant wheat starch, wheat protein, oat fiber, wheat bran, psyllium husk, cultured wheat flour, flaxseed, currants, cinnamon, brown sugar, salt, malted syrup, yeast, apple cider vinegar, rye flour. CONTAINS WHEAT; facility also processes egg, soy. Vegan, keto-marketed."
         },
         "bagel_sesame_qtr": {
           "name": "Bagel sesame",
@@ -2172,6 +2380,67 @@
             }
           ]
         },
+        "bun_hotdog_hero_classic": {
+          "name": "Bun hot dog Hero Classic",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "brand": "Hero",
+          "kcal": 1.629,
+          "p": 0.1774,
+          "carbs": 0.371,
+          "fiber": 0.3548,
+          "sugar": 0,
+          "addedSugar": 0,
+          "fat": 0.0645,
+          "sf": 0.0081,
+          "transFat": 0,
+          "cholesterol": 0,
+          "sodium": 5.9677,
+          "calcium": 0.3226,
+          "iron": 0.0161,
+          "potassium": 0.6452,
+          "omega3": 0.0081,
+          "magnesium": 0.55,
+          "phosphorus": 1.7,
+          "zinc": 0.025,
+          "selenium": 0.3,
+          "copper": 0.0025,
+          "manganese": 0.03,
+          "iodine": 0.005,
+          "vitE": 0.015,
+          "vitK": 0.02,
+          "b1": 0.006,
+          "b2": 0.002,
+          "b3": 0.02,
+          "b5": 0.005,
+          "b6": 0.002,
+          "b9": 1,
+          "choline": 0.1,
+          "water": 0.32,
+          "purines": 0.15,
+          "displayUnits": [
+            {
+              "label": "1 package (8 buns)",
+              "amount": 496,
+              "unit": "g",
+              "multiplier": 496
+            },
+            {
+              "label": "1 bun",
+              "amount": 62,
+              "unit": "g",
+              "default": true,
+              "multiplier": 62
+            },
+            {
+              "label": "½ bun",
+              "amount": 31,
+              "unit": "g",
+              "multiplier": 31
+            }
+          ],
+          "notes": "Label per 1 bun (62g): 90 kcal LABEL, 11g protein, 4g fat, 0.5g sat, 0g trans, 0mg cholesterol, 23g carb, 22g fiber, 0g sugar, 0g added sugar, 370mg sodium (16% DV — moderately high per bun), Vit D 0, Calcium 20mg, Iron 1mg (6% DV), Potassium 40mg. Net carb = 1g (front panel). KCAL CORRECTION: stored at 101 kcal/bun (1.629 kcal/g). Same brand/technology as Hero Classic Plain Bagels — primary fiber is 'resistant wheat starch' = RS4 (chemically cross-linked/phosphated wheat starch, e.g. Fibersym), the LEAST fermentable resistant-starch type, caloric availability ~0.5 kcal/g, NOT the ~2 kcal/g of readily-fermentable RS2/RS3. Added back ~0.5 kcal/g × 22g fiber = ~11 kcal over label's 90 = 101 total (real value plausibly 95–105); consistent with the bagel's revised correction, NOT the blanket 2 kcal/g fiber rule. omega-3 (ALA ~0.5g/bun, LOW confidence) estimated from milled flaxseed (USDA milled flax ~22.8g ALA/100g; flax listed above the 2% ingredient line, so ≥~1.2g flax/bun). Micros from wheat-gluten + fava-bean protein + flax + olive oil composition (MEDIUM-LOW confidence): folate (B9) elevated from fava (~1 mcg/g), selenium from wheat (~0.3 mcg/g), Mg/P/Mn/thiamine bumped by flax, vitE/vitK from olive oil. B12 = 0 (plant-based). Calcium/iron/potassium/sodium/VitD label-derived (high confidence). Protein blend: vital wheat gluten + fava bean protein (complementary lysine). Ingredients: resistant wheat starch, water, wheat protein, yeast, olive oil, milled flaxseed, <2% fava bean protein, vinegar, guar gum, cultured wheat flour, wheat flour, salt, enzymes. CONTAINS WHEAT; produced in a facility that also handles soy, egg, milk, sesame, tree nuts. High-fiber/high-protein/low-net-carb marketed hot dog bun (8 buns, net wt 17.5 oz / 496g)."
+        },
         "caffeine_anhydrous_200mg": {
           "name": "Caffeine anhydrous 200 mg capsule",
           "category": "supplements",
@@ -2380,6 +2649,66 @@
           "defaultMeasuredIn": "g",
           "brand": "Giant"
         },
+        "cereal_premier_protein_chocolate": {
+          "name": "Cereal Premier Protein chocolate",
+          "brand": "Premier Protein",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 4.2857,
+          "p": 0.4762,
+          "fat": 0.119,
+          "sf": 0.0238,
+          "transFat": 0,
+          "carbs": 0.3333,
+          "fiber": 0.0238,
+          "sugar": 0.119,
+          "addedSugar": 0.0952,
+          "cholesterol": 0,
+          "sodium": 6.4286,
+          "water": 0.03,
+          "vitD": 0,
+          "calcium": 0.7143,
+          "iron": 0.0524,
+          "potassium": 2.8571,
+          "magnesium": 1.0714,
+          "phosphorus": 3.0476,
+          "zinc": 0.0157,
+          "selenium": 0.2452,
+          "copper": 0.0044,
+          "manganese": 0.0086,
+          "vitE": 0.0476,
+          "b1": 0.0005,
+          "b2": 0.0012,
+          "b3": 0.0048,
+          "b5": 0.0012,
+          "b6": 0.0005,
+          "b9": 0.3571,
+          "choline": 0.2381,
+          "omega3": 0.0476,
+          "purines": 0.3238,
+          "displayUnits": [
+            {
+              "label": "1 cup (42 g)",
+              "amount": 42,
+              "unit": "g",
+              "default": true,
+              "multiplier": 42
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            },
+            {
+              "label": "container (252 g)",
+              "amount": 252,
+              "unit": "g",
+              "multiplier": 252
+            }
+          ],
+          "notes": "Premier Protein Cereal, Chocolate. Distributed by Post Consumer Brands. About 6 servings/container (42g each => ~252g). kcal NOT corrected: label 180 reconciles with Atwater 4-4-9 (5x9+14x4+20x4~181); fiber only 1g and disclosed, no sugar alcohols/polydextrose, stevia non-nutritive. Protein 20g stored at label (nitrogen). Source is a plant blend dominated by wheat gluten + wheat protein isolate (lysine-limited), plus pea protein concentrate (complements lysine) and almonds; DIAAS-adjusted utilizable protein for muscle-protein-synthesis is meaningfully below 20g, but no fixed downgrade applied (no rule for gluten/pea blends, unlike collagen). Sodium/calcium/iron/potassium/vitD are label-exact. Off-label micros ESTIMATED from ingredient model (~14g wheat gluten, ~8g almonds, ~6g wheat protein isolate, ~3g pea protein, ~6g corn flour, ~4g sugar, ~1.5g cocoa) anchored to USDA #168147 vital wheat gluten (Se 39.7, P 260, Mg 25, Zn 0.85, Cu 0.18 mg/100g) + almonds/cocoa/pea -- LOW CONFIDENCE. Per serving approx: Mg 45mg, P 128mg (relevant to reduced-eGFR history), vitamin E 2mg (almonds), Se 10mcg. Purines ~14mg/serving -- LOW purine (wheat gluten/seitan low, pea moderate; net well under 50mg/serving) -- LOW CONFIDENCE. b12, vitA, vitK, b7, iodine, molybdenum, chromium omitted (trace/absent or unknowable in this formulation)."
+        },
         "cheese_parmesan_grated_reggano": {
           "name": "Cheese parmesan grated",
           "brand": "Reggano",
@@ -2490,6 +2819,56 @@
           ],
           "notes": "Label-derived (high confidence): kcal, macros, sodium (1,130mg/cup = 49% DV — extreme), fiber, iron (3mg = 17% DV from fortification), Ca, K. Estimated from USDA instant ramen + pea-protein-enriched composition (lower confidence): B-vitamins (B9 high from folic acid fortification, B1/B2/B3 from enrichment), Mg, P, Zn, Se. Vit B12 = 0 (no animal source). Purines low (~50 mg/100g). Per-gram values for DRY product as labeled. Ingredients: enriched organic unbleached flour (wheat, niacin, reduced iron, thiamine mononitrate, riboflavin, folic acid), organic sunflower oil, organic pea protein, seasoning blend (maltodextrin, brown sugar, salt, yeast extract, autolyzed yeast, dehydrated vegetable powder [onion, garlic, chives], caramelized sugar, caramel color, disodium inosinate & disodium guanylate, paprika extract, spices, hydrolyzed soy & corn protein, natural beef style flavor), dried red bell pepper, dried carrot, salt, dried onion, dried peas, dried corn, ≤2% mix tocopherol, potassium carbonate, soda ash, guar gum, sodium tripolyphosphate. Contains wheat, soy. Contains NO beef (despite 'beef style flavor').",
           "brand": "Chef's Cupboard (Aldi)"
+        },
+        "chicken_cutlet_breaded_homemade": {
+          "name": "Chicken cutlet, breaded & pan-fried (homemade)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.5,
+          "p": 0.2,
+          "carbs": 0.12,
+          "fiber": 0.007,
+          "sugar": 0.008,
+          "addedSugar": 0,
+          "fat": 0.13,
+          "sf": 0.025,
+          "transFat": 0,
+          "cholesterol": 0.85,
+          "sodium": 3.5,
+          "calcium": 0.3,
+          "iron": 0.01,
+          "potassium": 2.8,
+          "vitD": 0.001,
+          "vitA": 0.02,
+          "b1": 0.001,
+          "b2": 0.002,
+          "b3": 0.08,
+          "b5": 0.008,
+          "b6": 0.005,
+          "b9": 0.1,
+          "b12": 0.003,
+          "choline": 0.8,
+          "magnesium": 0.25,
+          "phosphorus": 1.8,
+          "zinc": 0.01,
+          "selenium": 0.2,
+          "copper": 0.0005,
+          "manganese": 0.002,
+          "iodine": 0.01,
+          "water": 0.5,
+          "purines": 1.3,
+          "displayUnits": [
+            {
+              "label": "1 cutlet (~130 g)",
+              "default": true,
+              "multiplier": 130
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "HOMEMADE, NO LABEL — MODERATE-CONFIDENCE estimate. Breaded pan-fried chicken breast cutlet (milanesa/schnitzel style, pounded thin). Values per gram cooked. Assumes: chicken breast + standard breadcrumb breading (flour/egg/breadcrumb) + pan-fried in oil. Estimated ~250 kcal, 20g protein, 13g fat, 12g carb /100g -> 12.5 kcal per g protein. TWO KEY UNKNOWNS: (1) piece weight — assumed 130g per cutlet as-eaten; adjust if larger/smaller. (2) Breading type — if ALMOND FLOUR / low-carb breading (photo shows pale crumbly coating), carbs drop to ~3g/100g and fat rises to ~16g/100g, kcal similar. Micros from chicken breast (high niacin B3 ~0.08 mg/g, B6, selenium, phosphorus, choline). Purines moderate-high (~130 mg/100g poultry). Oil absorption assumed ~8-10% by weight (pan-fried, not deep-fried)."
         },
         "chicken_livers_bell_evans": {
           "name": "Chicken livers organic",
@@ -3150,6 +3529,34 @@
           ],
           "defaultMeasuredIn": "g"
         },
+        "feggs_scrambled": {
+          "name": "Feggs scrambled",
+          "category": "recipes",
+          "ingredients": [
+            {
+              "itemKey": "evoo_tsp",
+              "amount": 5
+            },
+            {
+              "itemKey": "egg_substitute",
+              "amount": 460
+            },
+            {
+              "itemKey": "tomate_frito",
+              "multiplier": 0.5
+            }
+          ],
+          "displayUnits": [
+            {
+              "label": "full recipe",
+              "multiplier": 553,
+              "amount": 553,
+              "unit": "g",
+              "default": true,
+              "locked": true
+            }
+          ]
+        },
         "ff_greek_tropical": {
           "name": "Friendly Farms Nonfat Greek Yogurt Tropical Fruit",
           "category": "items",
@@ -3552,6 +3959,75 @@
             }
           ],
           "defaultMeasuredIn": "g"
+        },
+        "ham_black_forest_365": {
+          "name": "Ham Black Forest uncured (365 Whole Foods)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "brand": "365 Whole Foods",
+          "kcal": 1.25,
+          "p": 0.1964,
+          "carbs": 0.0179,
+          "sugar": 0.0089,
+          "addedSugar": 0.0089,
+          "fiber": 0,
+          "fat": 0.0357,
+          "sf": 0.0089,
+          "transFat": 0,
+          "cholesterol": 0.625,
+          "sodium": 8.3929,
+          "iron": 0.0125,
+          "potassium": 3.5714,
+          "calcium": 0.05,
+          "magnesium": 0.2,
+          "phosphorus": 2.2,
+          "zinc": 0.022,
+          "selenium": 0.25,
+          "copper": 0.001,
+          "manganese": 0.0004,
+          "iodine": 0.03,
+          "b1": 0.0053,
+          "b2": 0.002,
+          "b3": 0.035,
+          "b5": 0.007,
+          "b6": 0.0025,
+          "b9": 0.04,
+          "b12": 0.01,
+          "choline": 0.9,
+          "vitA": 0.03,
+          "vitD": 0.004,
+          "vitE": 0.002,
+          "vitK": 0.001,
+          "water": 0.7,
+          "purines": 1.5,
+          "displayUnits": [
+            {
+              "label": "1 package (14 oz)",
+              "amount": 397,
+              "unit": "g",
+              "multiplier": 397
+            },
+            {
+              "label": "4 slices (2 oz)",
+              "amount": 56,
+              "unit": "g",
+              "default": true,
+              "multiplier": 56
+            },
+            {
+              "label": "2 slices",
+              "amount": 28,
+              "unit": "g",
+              "multiplier": 28
+            },
+            {
+              "label": "1 slice",
+              "amount": 14,
+              "unit": "g",
+              "multiplier": 14
+            }
+          ],
+          "notes": "Label per 4 slices (56g): 70 kcal, 11g protein, 2g fat, 0.5g sat, 0g trans, 35mg cholesterol, 1g carb, 0g fiber, <1g total sugars, <1g added sugars, 470mg sodium (20% DV — HIGH, 8.39 mg/g), Vit D 0, Calcium 0, Iron 0.7mg (4%), Potassium 200mg (4%). Sub-threshold sugar corrected to ~0.5g (all added, from cane sugar). Label macros/sodium/cholesterol/iron/potassium high confidence. Micros estimated from USDA cured-ham composition (high confidence — well-characterized): pork is one of the richest thiamine sources (B1 ~0.53 mg/100g), niacin (B3 ~3.5 mg/100g), B6, B12 (~1 mcg/100g), selenium (~20 mcg/100g), zinc (~2.3 mg/100g), choline (~90 mg/100g). Phosphorus set to ~200 mg/100g (natural pork only — this product has NO added phosphate, unlike most deli hams which run ~280–320 mg/100g). Water ~70%. Purines moderate ~150 mg/100g. Ingredients: pork, water, sea salt, cane sugar, vinegar powder, cultured celery powder. UNCURED / 'no nitrates or nitrites added' — but the cultured celery powder is a natural nitrate source that bacterial cultures convert to nitrite in situ, so the finished product still contains nitrite; 'uncured' is a USDA labeling distinction, not a nitrite-free guarantee. Still a PROCESSED MEAT — WHO IARC Group 1 (colorectal-cancer association at chronic ≥50g/day). Sodium-dense; moderate purines relevant for uric-acid/gout management. 95% lean, fully cooked, Animal Welfare Certified (GAP Step 1), raised without added hormones/antibiotics, vegetarian feed. Value Pack, net wt 14 oz (397g), ~7 servings."
         },
         "ham_black_forest_aldi": {
           "name": "Ham Black Forest deli sliced (Aldi)",
@@ -4238,6 +4714,59 @@
           ],
           "defaultMeasuredIn": "g"
         },
+        "kofta_kebab_counter": {
+          "name": "Kofta kebab, grilled (meat counter, pure lamb)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.65,
+          "p": 0.2,
+          "carbs": 0.03,
+          "fiber": 0.005,
+          "sugar": 0.01,
+          "addedSugar": 0,
+          "fat": 0.2,
+          "sf": 0.085,
+          "transFat": 0.012,
+          "cholesterol": 0.82,
+          "sodium": 4.5,
+          "calcium": 0.15,
+          "iron": 0.018,
+          "potassium": 2.8,
+          "vitD": 0.001,
+          "vitA": 0.02,
+          "vitC": 0.01,
+          "vitE": 0.005,
+          "vitK": 0.008,
+          "b1": 0.0006,
+          "b2": 0.002,
+          "b3": 0.055,
+          "b5": 0.006,
+          "b6": 0.003,
+          "b9": 0.05,
+          "b12": 0.026,
+          "choline": 0.85,
+          "magnesium": 0.2,
+          "phosphorus": 1.7,
+          "zinc": 0.04,
+          "selenium": 0.15,
+          "copper": 0.0008,
+          "manganese": 0.001,
+          "iodine": 0.01,
+          "water": 0.53,
+          "purines": 1.2,
+          "displayUnits": [
+            {
+              "label": "100 g",
+              "default": true,
+              "multiplier": 100
+            },
+            {
+              "label": "1 skewer (~95 g)",
+              "multiplier": 95
+            }
+          ],
+          "notes": "MEAT-COUNTER ITEM, NO LABEL — macros estimated. Confirmed PURE LAMB by source. Values per gram COOKED. Basis: USDA ground lamb broiled (283 kcal, 24.75g P, 19.66g fat, 8.9g sat, 97mg chol /100g), diluted ~12% for onion/herb/spice mix-ins + moderate-fat lamb assumption. Estimated cooked: ~265 kcal, 20g protein, 20g fat (8.5g sat), 3g carb, ~450mg sodium /100g -> ~13.3 kcal per g protein. Lamb vs beef differences applied: higher saturated fat, higher cholesterol (~82mg/100g), higher B12 (~2.6 mcg/100g) and natural ruminant trans fat, slightly lower heme iron than beef. Purines moderate-high (~120 mg/100g — relevant for gout at larger portions). Sodium still a guess (350-550mg/100g range). If the lamb was extra-fatty, calories up to ~300/100g; if lean, ~230/100g. If 95g logged was RAW weight, scale down ~25%."
+        },
         "larabar": {
           "name": "Larabar",
           "category": "items",
@@ -4630,7 +5159,9 @@
           ],
           "notes": "Kraft fat-free shredded mozzarella. Bag ~7 servings × 28 g = 196 g. 9 g protein per 1/4 cup serving - k/g P ~5, well below your 8.0 protein-positive cutoff so a strong protein-dense topper. Sodium 280 mg per serving (12% DV) is the main watch-out. Ingredients: nonfat mozzarella (pasteurized skim milk, cheese culture, salt, vitamin yeast, vit-A palmitate, enzymes, artificial color), modified cornstarch (anti-caking), natamycin (mold inhibitor).",
           "brand": "Kraft",
-          "purines": 0.1
+          "purines": 0.1,
+          "prevCategory": "items",
+          "archived": true
         },
         "mushrooms_pampa_jar": {
           "name": "Mushrooms pieces & stems jarred",
@@ -5937,36 +6468,6 @@
           "purines": 0.1,
           "brand": "Casa Mamita / ALDI"
         },
-        "scrambled_feggs": {
-          "name": "Feggs scrambled",
-          "category": "recipes",
-          "ingredients": [
-            {
-              "itemKey": "string_cheese",
-              "amount": 84
-            },
-            {
-              "itemKey": "egg_substitute",
-              "amount": 828
-            },
-            {
-              "itemKey": "turkey_breast_smithfield",
-              "amount": 224,
-              "label": "1 slice"
-            }
-          ],
-          "displayUnits": [
-            {
-              "label": "full recipe",
-              "amount": 1136,
-              "unit": "g",
-              "default": true,
-              "locked": true,
-              "multiplier": 1136
-            }
-          ],
-          "defaultMeasuredIn": "units"
-        },
         "sea_queen_shrimp": {
           "name": "Shrimp Sea Queen cooked medium peeled (Aldi)",
           "category": "items",
@@ -6988,7 +7489,7 @@
           "defaultMeasuredIn": "g"
         },
         "tomate_frito": {
-          "name": "tomate frito",
+          "name": "Tomate frito",
           "category": "recipes",
           "ingredients": [
             {
@@ -6996,15 +7497,19 @@
               "amount": 170
             },
             {
+              "itemKey": "sucralose",
+              "amount": 1
+            },
+            {
               "itemKey": "evoo_tsp",
-              "amount": 30
+              "amount": 5
             }
           ],
           "displayUnits": [
             {
               "label": "full recipe",
-              "multiplier": 200,
-              "amount": 200,
+              "multiplier": 176,
+              "amount": 176,
               "unit": "g",
               "default": true,
               "locked": true
@@ -7640,6 +8145,51 @@
           ],
           "defaultMeasuredIn": "g"
         },
+        "vita_coco_pineapple": {
+          "name": "Coconut water pineapple (Vita Coco)",
+          "category": "items",
+          "brand": "Vita Coco",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.2353,
+          "p": 0,
+          "carbs": 0.0549,
+          "fiber": 0,
+          "sugar": 0.0529,
+          "addedSugar": 0.0196,
+          "fat": 0.00098,
+          "sf": 0.00098,
+          "transFat": 0,
+          "cholesterol": 0,
+          "sodium": 0.2255,
+          "calcium": 0.1471,
+          "iron": 0,
+          "potassium": 1.9196,
+          "vitC": 1.2059,
+          "phosphorus": 0.0784,
+          "magnesium": 0.0784,
+          "vitD": 0,
+          "b1": 0.00006,
+          "b2": 0.00006,
+          "b6": 0.00003,
+          "water": 0.94,
+          "purines": 0,
+          "displayUnits": [
+            {
+              "label": "1 container (500 mL)",
+              "default": true,
+              "multiplier": 510
+            },
+            {
+              "label": "1 serving (8 fl oz)",
+              "multiplier": 245
+            },
+            {
+              "label": "100 mL",
+              "multiplier": 102
+            }
+          ],
+          "notes": "Vita Coco Pineapple coconut water (from concentrate), 500 mL carton = ~2 servings of 240 mL. Label columns were scrambled in photo; realigned against known coconut-water profile. PER CONTAINER (500 mL): 120 kcal, 0g protein, 28g carb, 27g sugar (10g ADDED — cane sugar added, plus coconut-water intrinsic sugars), 115mg sodium, K 979mg (20% DV — headline electrolyte), vit C 615mg (680% DV — added ascorbic acid), Ca 75mg (6%), Mg 40mg (10%), P 40mg (4%), 0.5g fat. Container mass assumed ~510g (500 mL x 1.02 density). Per-serving (240 mL): 60 kcal, 13g sugar (5g added), K 470mg, vit C 295mg. Zero protein — this is a hydration/electrolyte + sugar drink, no protein density. Purines negligible. Ingredients: coconut water from concentrate (water, coconut water concentrate), sugar, natural flavors, coconut puree, ascorbic acid (vit C), gellan gum. Gluten free."
+        },
         "water": {
           "name": "Water",
           "category": "water",
@@ -7887,10 +8437,60 @@
               "amount": 226.8,
               "unit": "g",
               "multiplier": 226.8
+            },
+            {
+              "label": "serving",
+              "amount": 170,
+              "unit": "g",
+              "multiplier": 170
             }
           ],
           "defaultMeasuredIn": "g",
           "purines": 0.15
+        },
+        "yogurt_la_fermiere_lemon": {
+          "name": "Yogurt whole-milk lemon (La Fermière)",
+          "category": "items",
+          "brand": "La Fermière",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.44,
+          "p": 0.032,
+          "carbs": 0.128,
+          "fiber": 0,
+          "sugar": 0.12,
+          "addedSugar": 0.088,
+          "fat": 0.088,
+          "sf": 0.056,
+          "transFat": 0,
+          "cholesterol": 0.344,
+          "sodium": 0.48,
+          "calcium": 1.144,
+          "iron": 0,
+          "potassium": 1.504,
+          "vitD": 0,
+          "vitA": 0.3,
+          "b2": 0.002,
+          "b12": 0.004,
+          "b5": 0.004,
+          "choline": 0.15,
+          "phosphorus": 1.1,
+          "zinc": 0.006,
+          "selenium": 0.02,
+          "iodine": 0.3,
+          "water": 0.72,
+          "purines": 0.05,
+          "displayUnits": [
+            {
+              "label": "1 container (4.5 oz)",
+              "default": true,
+              "multiplier": 125
+            },
+            {
+              "label": "100 g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "La Fermiere French-style whole-milk cream-top lemon yogurt (terracotta/foil pot). Label per 1 container: 180 kcal, 4g protein, 11g fat (7g sat = 36% DV), 43mg cholesterol, 60mg sodium, 16g carb, 15g sugar (11g added = 21% DV), Ca 11% DV, K 4% DV. Container weight estimated 125g (4.5 oz) via macro back-calc (matches label exactly at 125g). This is an INDULGENT dessert-style yogurt, NOT high-protein (only 4g protein / 180 kcal; whole milk + cream + cane sugar). Micros from whole-milk yogurt (medium confidence): B12 (~0.004 mcg/g), B2, phosphorus, iodine (dairy), vit A (milkfat). Purines very low (dairy). Ingredients: pasteurized whole milk, pasteurized cream, cane sugar, lemon juice, live cultures (S. thermophilus, L. bulgaricus). Contains milk; facility uses eggs + tree nuts."
         },
         "yogurt_oikos_pro_lemon": {
           "name": "Yogurt Greek Pro Complete Protein lemon",
