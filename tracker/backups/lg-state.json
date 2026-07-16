@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-15T09:05:48.562Z",
-  "_gistSavedAt": "2026-07-15T01:31:58.542Z",
+  "_backupTakenAt": "2026-07-16T09:08:52.940Z",
+  "_gistSavedAt": "2026-07-15T18:44:32.860Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1605,6 +1605,39 @@
         "moodMeta": "2026-07-15T01:31:57.579Z",
         "neck": 43,
         "neckMeta": "2026-07-15T01:31:57.663Z"
+      },
+      "2026-07-15": {
+        "toggles": {},
+        "counters": {
+          "protein_whey_animal_strawberry": 35.2,
+          "yogurt_half": 300,
+          "strawberry_frozen_blb": 250,
+          "spinach_fresh": 30,
+          "sucralose": 4,
+          "soy_milk": 300,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "hero_plain_bagel": 75,
+          "avocado_half": 65,
+          "smoked_salmon_slice": 40
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "protein_whey_animal_strawberry": "2026-07-15T14:14:45.392Z",
+          "yogurt_half": "2026-07-15T14:15:07.339Z",
+          "strawberry_frozen_blb": "2026-07-15T14:15:22.524Z",
+          "spinach_fresh": "2026-07-15T14:15:29.014Z",
+          "sucralose": "2026-07-15T14:15:36.907Z",
+          "soy_milk": "2026-07-15T14:16:16.276Z",
+          "david_bar_choc_chip_cookie_dough": "2026-07-15T14:44:31-04:00",
+          "hero_plain_bagel": "2026-07-15T14:44:31-04:00",
+          "avocado_half": "2026-07-15T14:44:31-04:00",
+          "smoked_salmon_slice": "2026-07-15T14:44:31-04:00"
+        },
+        "mood": 7,
+        "moodMeta": "2026-07-15T16:30:44.276Z",
+        "weight": 94.1,
+        "weightMeta": "2026-07-15T13:56:56.080Z"
       }
     },
     "savedItems": [],
@@ -1693,7 +1726,6 @@
       "profile": true,
       "supplements-water": true,
       "history": true,
-      "catalog-ratio": true,
       "details-add-new-item": true,
       "details-recipe-maker": true
     },
