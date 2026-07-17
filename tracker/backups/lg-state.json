@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-16T09:08:52.940Z",
-  "_gistSavedAt": "2026-07-15T18:44:32.860Z",
+  "_backupTakenAt": "2026-07-17T09:04:16.056Z",
+  "_gistSavedAt": "2026-07-17T00:50:57.827Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1634,10 +1634,39 @@
           "avocado_half": "2026-07-15T14:44:31-04:00",
           "smoked_salmon_slice": "2026-07-15T14:44:31-04:00"
         },
-        "mood": 7,
-        "moodMeta": "2026-07-15T16:30:44.276Z",
+        "mood": 6,
+        "moodMeta": "2026-07-16T20:19:10.383Z",
         "weight": 94.1,
         "weightMeta": "2026-07-15T13:56:56.080Z"
+      },
+      "2026-07-16": {
+        "toggles": {},
+        "counters": {
+          "string_cheese": 21,
+          "mama_cozzi_turkey_pepperoni": 15,
+          "ketchup_packet": 54,
+          "mayo_packet": 14,
+          "goldhen_egg_whites": 181.4,
+          "black_bean_pasta": 60,
+          "yogurt_half": 170,
+          "nutricost_casein_vanilla": 35.2
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "string_cheese": "2026-07-16T17:01:28.435Z",
+          "mama_cozzi_turkey_pepperoni": "2026-07-16T17:01:42.547Z",
+          "ketchup_packet": "2026-07-16T18:11:17.576Z",
+          "mayo_packet": "2026-07-16T18:11:21.618Z",
+          "goldhen_egg_whites": "2026-07-16T18:11:55.469Z",
+          "black_bean_pasta": "2026-07-16T18:12:25.516Z",
+          "yogurt_half": "2026-07-16T20:19:52.339Z",
+          "nutricost_casein_vanilla": "2026-07-16T20:20:14.109Z"
+        },
+        "weight": 94.2,
+        "weightMeta": "2026-07-16T11:32:19.345Z",
+        "mood": 7.5,
+        "moodMeta": "2026-07-16T20:18:47.882Z"
       }
     },
     "savedItems": [],
@@ -1723,11 +1752,12 @@
       "section-archive-section": true,
       "today-customs": true,
       "targets-accumulation": true,
-      "profile": true,
       "supplements-water": true,
       "history": true,
       "details-add-new-item": true,
-      "details-recipe-maker": true
+      "details-recipe-maker": true,
+      "today-log": true,
+      "profile": true
     },
     "userCatalog": {
       "items": {
@@ -3944,6 +3974,7 @@
               "label": "½ carton",
               "amount": 453.5,
               "unit": "g",
+              "default": true,
               "multiplier": 453.5
             },
             {
@@ -3962,7 +3993,6 @@
               "label": "3 Tbsp (label)",
               "amount": 46,
               "unit": "g",
-              "default": true,
               "multiplier": 46
             }
           ],
@@ -5778,6 +5808,63 @@
           ],
           "notes": "Dry roasted peanuts, lightly salted (USDA reference per 100 g: 585 kcal · 23.7 g protein · 49.7 g fat · 21.5 g carbs · 8 g fiber · 410 mg sodium). Fistful weight estimated at 30 g (about 1 oz, ~25-35 peanuts). k/g P ~24.7 — calorie-dense, protein per calorie is poor. Strong vitE, niacin (b3), magnesium, potassium contributor. Sodium varies by brand; unsalted ~0.05 mg/g, heavily salted ~8 mg/g.",
           "purines": 0.75
+        },
+        "poke_wasabi_tuna_annasea": {
+          "name": "Poke wasabi tuna Annasea",
+          "brand": "Annasea",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.1555,
+          "p": 0.1943,
+          "fat": 0.1449,
+          "sf": 0.0177,
+          "transFat": 0,
+          "carbs": 0.0106,
+          "fiber": 0.0035,
+          "sugar": 0.0035,
+          "addedSugar": 0,
+          "cholesterol": 0.3534,
+          "sodium": 4.735,
+          "water": 0.5,
+          "vitD": 0,
+          "calcium": 0.3887,
+          "iron": 0.0042,
+          "potassium": 3.9223,
+          "selenium": 0.6572,
+          "b3": 0.1304,
+          "b12": 0.0159,
+          "b6": 0.0067,
+          "b5": 0.00203,
+          "b1": 0.00087,
+          "b2": 0.00087,
+          "phosphorus": 2.1201,
+          "magnesium": 0.3357,
+          "choline": 0.47,
+          "zinc": 0.0042,
+          "copper": 0.0012,
+          "manganese": 0.00053,
+          "iodine": 0.106,
+          "vitA": 0.1307,
+          "vitE": 0.00247,
+          "vitK": 0.001,
+          "omega3": 0.0023,
+          "purines": 1.3322,
+          "displayUnits": [
+            {
+              "label": "½ package (142 g)",
+              "amount": 142,
+              "unit": "g",
+              "default": true,
+              "multiplier": 142
+            },
+            {
+              "label": "full package (283 g)",
+              "amount": 283,
+              "unit": "g",
+              "multiplier": 283
+            }
+          ],
+          "notes": "Annasea Authentic Hawaii-Style Poke, Wasabi Tuna (sesame oil & kukui nuts), frozen, sauce pack included. Net 10oz/283g, 2 servings/container. Label per 1/2 pkg (142g): 310 kcal, 20g fat, 2.5g sat, 0 trans, 50mg chol, 670mg sodium (29% DV, HIGH), 2g carb, 1g fiber, 0g sugar, 28g protein, Vit D 0, Ca 60mg, Iron 0.6mg, K 560mg. Per container: 610 kcal, 41g fat, 5g sat, 100mg chol, 1340mg sodium, 3g carb, 1g fiber, 55g protein, Ca 110, Fe 1.2, K 1110. STORED VALUES derived from per-CONTAINER column / 283g (more accurate: per-serving column shows FDA rounding, e.g. calcium 60mg/serving vs truer 55mg from 110/2). Protein source: yellowfin and/or bigeye tuna (~205g of the 283g), plus sesame seeds, capelin fish roe (masago), trace kukui. High added fat (~39g of 41g) from sesame oil/soybean oil, sesame seeds, kukui nuts, wasabi oil -- tuna itself is lean (~1g fat). PURINES HIGH: ~1.33 mg/g => ~190mg per 1/2-pkg serving, ~377mg per package (yellowfin 150-200 mg/100g + roe). Relevant to uric-acid/gout history. MEDIUM confidence. Off-label micros ESTIMATED from yellowfin composition (USDA: Se 90.6mcg, niacin 18mg, B12 2.1mcg, B6 0.93mg, phosphorus 278mg, Mg 35mg, choline 65mg per 100g): selenium ~185mcg/pkg (very high), B12 ~4.5mcg, niacin ~37mg, phosphorus ~600mg/pkg (relevant to reduced-eGFR history), MEDIUM confidence. vitD stored 0 per label, BUT raw yellowfin has ~1.7mcg/100g so true value likely ~3.5mcg/container -- label's 0 may be understated (kept at label value). omega-3 ~0.65g/pkg (yellowfin lean ~0.24g/100g EPA+DHA + kukui/candlenut ALA) LOW confidence. B9/folate low in tuna. CONTAINS: fish (tuna, capelin roe), sesame, soy, wheat, tree nuts (kukui). Raw fish -- foodborne-illness advisory on pack. Ingredients: yellowfin/bigeye tuna (tasteless-smoke treated), sesame oil (sesame+soybean oil), sesame seeds, white shoyu, masago, water, kukui nuts, sea salt, red chili flakes, wasabi oil (rapeseed oil, mustard extract, wasabi), xanthan gum."
         },
         "pork_beans_halfcup": {
           "name": "Pork & beans",
