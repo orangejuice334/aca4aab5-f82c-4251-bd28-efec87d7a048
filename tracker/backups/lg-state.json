@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-18T08:44:58.370Z",
-  "_gistSavedAt": "2026-07-17T14:07:18.824Z",
+  "_backupTakenAt": "2026-07-19T09:02:14.400Z",
+  "_gistSavedAt": "2026-07-18T15:01:02.750Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1676,6 +1676,30 @@
         "counterMeta": {},
         "weight": 93.2,
         "weightMeta": "2026-07-17T14:07:17.251Z"
+      },
+      "2026-07-18": {
+        "toggles": {},
+        "counters": {
+          "soy_milk": 300,
+          "banana": 118,
+          "david_bar_choc_chip_cookie_dough": 62
+        },
+        "customs": [
+          {
+            "id": "e0bc74bf-2192-48eb-ba26-9026d8a0c480",
+            "name": "150kcal 3p",
+            "kcal": 150,
+            "p": 3,
+            "count": 1,
+            "lastModified": "2026-07-18T15:01:00.872Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "soy_milk": "2026-07-18T15:00:19.251Z",
+          "banana": "2026-07-18T15:00:28.108Z",
+          "david_bar_choc_chip_cookie_dough": "2026-07-18T15:00:34.744Z"
+        }
       }
     },
     "savedItems": [],
@@ -1763,11 +1787,11 @@
       "targets-accumulation": true,
       "supplements-water": true,
       "history": true,
-      "details-add-new-item": true,
       "details-recipe-maker": true,
       "today-log": true,
       "profile": true,
-      "catalog-ratio": true
+      "catalog-ratio": true,
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
