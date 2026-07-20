@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-19T09:02:14.400Z",
-  "_gistSavedAt": "2026-07-18T15:01:02.750Z",
+  "_backupTakenAt": "2026-07-20T09:52:36.810Z",
+  "_gistSavedAt": "2026-07-19T20:40:01.484Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1699,7 +1699,20 @@
           "soy_milk": "2026-07-18T15:00:19.251Z",
           "banana": "2026-07-18T15:00:28.108Z",
           "david_bar_choc_chip_cookie_dough": "2026-07-18T15:00:34.744Z"
-        }
+        },
+        "mood": 4,
+        "moodMeta": "2026-07-19T20:38:59.149Z"
+      },
+      "2026-07-19": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "mood": 4,
+        "moodMeta": "2026-07-19T20:38:55.695Z",
+        "weight": 94.3,
+        "weightMeta": "2026-07-19T20:39:15.585Z"
       }
     },
     "savedItems": [],
