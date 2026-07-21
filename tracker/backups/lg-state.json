@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-20T09:52:36.810Z",
-  "_gistSavedAt": "2026-07-19T20:40:01.484Z",
+  "_backupTakenAt": "2026-07-21T09:23:28.896Z",
+  "_gistSavedAt": "2026-07-20T19:16:18.799Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1713,6 +1713,31 @@
         "moodMeta": "2026-07-19T20:38:55.695Z",
         "weight": 94.3,
         "weightMeta": "2026-07-19T20:39:15.585Z"
+      },
+      "2026-07-20": {
+        "toggles": {},
+        "counters": {
+          "david_bar_choc_chip_cookie_dough": 62,
+          "soy_milk": 400,
+          "banana": 118,
+          "chobani_protein_raspberry_lemon": 190,
+          "bagel_cinnamon_royo": 80,
+          "premier": 325
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "david_bar_choc_chip_cookie_dough": "2026-07-20T13:30:33.525Z",
+          "soy_milk": "2026-07-20T13:30:47.107Z",
+          "banana": "2026-07-20T16:37:20.723Z",
+          "chobani_protein_raspberry_lemon": "2026-07-20T16:37:44.167Z",
+          "bagel_cinnamon_royo": "2026-07-20T18:45:58.207Z",
+          "premier": "2026-07-20T18:46:12.525Z"
+        },
+        "mood": 4,
+        "moodMeta": "2026-07-20T18:45:42.441Z",
+        "weight": 94,
+        "weightMeta": "2026-07-20T13:28:13.488Z"
       }
     },
     "savedItems": [],
@@ -1799,12 +1824,10 @@
       "today-customs": true,
       "targets-accumulation": true,
       "supplements-water": true,
-      "history": true,
       "details-recipe-maker": true,
-      "today-log": true,
       "profile": true,
-      "catalog-ratio": true,
-      "details-add-new-item": true
+      "details-add-new-item": true,
+      "history": true
     },
     "userCatalog": {
       "items": {
