@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-21T09:23:28.896Z",
-  "_gistSavedAt": "2026-07-20T19:16:18.799Z",
+  "_backupTakenAt": "2026-07-22T09:22:41.986Z",
+  "_gistSavedAt": "2026-07-21T12:31:58.310Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1738,6 +1738,26 @@
         "moodMeta": "2026-07-20T18:45:42.441Z",
         "weight": 94,
         "weightMeta": "2026-07-20T13:28:13.488Z"
+      },
+      "2026-07-21": {
+        "toggles": {},
+        "counters": {},
+        "customs": [
+          {
+            "id": "aca9f0fc-df19-4e4c-ad2a-493bc17e45ad",
+            "name": "100kcal 5p",
+            "kcal": 100,
+            "p": 5,
+            "count": 1,
+            "lastModified": "2026-07-21T12:31:56.635Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "mood": 4,
+        "moodMeta": "2026-07-21T11:41:41.926Z",
+        "weight": 94,
+        "weightMeta": "2026-07-21T11:41:52.750Z"
       }
     },
     "savedItems": [],
@@ -1826,8 +1846,9 @@
       "supplements-water": true,
       "details-recipe-maker": true,
       "profile": true,
-      "details-add-new-item": true,
-      "history": true
+      "history": true,
+      "catalog-ratio": true,
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
@@ -8845,6 +8866,7 @@
           "label": "Uncategorized"
         }
       ]
-    }
+    },
+    "totalsMode": "collapsed"
   }
 }
