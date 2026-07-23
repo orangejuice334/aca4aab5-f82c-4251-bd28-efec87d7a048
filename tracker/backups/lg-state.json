@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-22T09:22:41.986Z",
-  "_gistSavedAt": "2026-07-21T12:31:58.310Z",
+  "_backupTakenAt": "2026-07-23T09:20:53.191Z",
+  "_gistSavedAt": "2026-07-22T22:24:04.226Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1758,6 +1758,37 @@
         "moodMeta": "2026-07-21T11:41:41.926Z",
         "weight": 94,
         "weightMeta": "2026-07-21T11:41:52.750Z"
+      },
+      "2026-07-22": {
+        "toggles": {},
+        "counters": {
+          "soy_milk": 200,
+          "protein_casein_dymatize_elite_cookies_cream": 37.4,
+          "yogurt_half": 340,
+          "goldhen_egg_whites": 302.33,
+          "evoo_tsp": 10,
+          "bun_hotdog_hero_classic": 62,
+          "tj_eggplant_garlic_spread": 113.33,
+          "roll_salmon_maki_6pc": 0
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "soy_milk": "2026-07-22T13:56:04.045Z",
+          "protein_casein_dymatize_elite_cookies_cream": "2026-07-22T13:56:52.548Z",
+          "yogurt_half": "2026-07-22T13:57:00.957Z",
+          "goldhen_egg_whites": "2026-07-22T14:33:43-04:00",
+          "evoo_tsp": "2026-07-22T14:33:43-04:00",
+          "bun_hotdog_hero_classic": "2026-07-22T14:33:43-04:00",
+          "tj_eggplant_garlic_spread": "2026-07-22T14:33:43-04:00",
+          "roll_salmon_maki_6pc": "2026-07-22T18:24:03-04:00"
+        },
+        "mood": 6,
+        "moodMeta": "2026-07-22T16:09:16.677Z",
+        "weight": 93.2,
+        "weightMeta": "2026-07-22T16:09:16.599Z",
+        "neck": 43,
+        "neckMeta": "2026-07-22T16:09:16.756Z"
       }
     },
     "savedItems": [],
@@ -1843,12 +1874,11 @@
       "section-archive-section": true,
       "today-customs": true,
       "targets-accumulation": true,
-      "supplements-water": true,
       "details-recipe-maker": true,
-      "profile": true,
       "history": true,
+      "details-add-new-item": true,
       "catalog-ratio": true,
-      "details-add-new-item": true
+      "supplements-water": true
     },
     "userCatalog": {
       "items": {
@@ -6552,6 +6582,61 @@
           "notes": "Label-derived (high confidence) for full pack: kcal, macros, sodium (560mg/pack = HIGH), fiber (3g/pack), iron (15% DV from enriched flour), Ca, K, vit D. Combined hummus + pretzels — single SKU snack pack. Estimated from USDA chickpea + sesame + enriched wheat composition (lower confidence): B-vitamins (B9 high from enrichment), Mg, P, Zn, Se, vit E (from sunflower oil + tahini), water content (~41% — hummus ~65% water, pretzels ~5%, ratio ~60/40 by weight). Purines moderate (~0.4 mg/g — chickpeas contribute most). Hummus ingredients: chickpeas, water, sunflower oil, sesame tahini, sea salt, citric acid, garlic, guar gum, cumin. Pretzel ingredients: enriched wheat flour (iron as ferrous sulfate, niacin, thiamine mononitrate, riboflavin, folic acid), salt, sunflower/canola/rice oil, corn syrup, malt syrup, yeast. Contains wheat, sesame.",
           "brand": "Park Street Deli (Aldi)"
         },
+        "ramen_high_protein_volo_vero": {
+          "name": "Ramen high-protein Volo+Vero",
+          "brand": "Volo + Vero",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 3.3333,
+          "p": 0.4848,
+          "fat": 0.0303,
+          "sf": 0.00758,
+          "transFat": 0,
+          "carbs": 0.2727,
+          "fiber": 0.0606,
+          "sugar": 0.0455,
+          "addedSugar": 0,
+          "cholesterol": 0,
+          "sodium": 10,
+          "water": 0.0909,
+          "vitD": 0,
+          "calcium": 0.803,
+          "iron": 0.0833,
+          "potassium": 2.6818,
+          "magnesium": 0.7576,
+          "phosphorus": 2.2727,
+          "zinc": 0.01515,
+          "selenium": 0.2273,
+          "copper": 0.004545,
+          "manganese": 0.00909,
+          "b1": 0.001515,
+          "b2": 0.000758,
+          "b3": 0.01515,
+          "b5": 0.001515,
+          "b6": 0.000758,
+          "b9": 0.2273,
+          "choline": 0.4545,
+          "iodine": 0.0758,
+          "vitE": 0.00455,
+          "vitK": 0.00758,
+          "purines": 1.1364,
+          "displayUnits": [
+            {
+              "label": "1 bag (66 g)",
+              "amount": 66,
+              "unit": "g",
+              "default": true,
+              "multiplier": 66
+            },
+            {
+              "label": "container (2 bags, 132 g)",
+              "amount": 132,
+              "unit": "g",
+              "multiplier": 132
+            }
+          ],
+          "notes": "Volo + Vero High Protein Instant Ramen (plant-based, non-fried, air-dried). Label per 1 bag (66g): 220 kcal, 2g fat, 0.5g sat, 0 trans, 0 chol, 660mg sodium (29% DV, HIGH), 18g carb, 4g fiber, 3g sugar, 0 added sugar, 32g protein, Vit D 0, Ca 53mg, Iron 5.5mg (30% DV, high -- label-exact), K 177mg. Nutrition panel = 2 servings/container (132g). SODIUM varies by flavor: the box is a variety pack (Spicy Kimchi, Spicy Curry, Beef, Chicken seasonings) sharing one panel; 660mg is representative, beef/chicken/curry differ. kcal stored at label 220 BUT likely ~6-10 kcal overcounted: label uses total-carb x4, counting the 4g fiber at 4 kcal/g, though konjac powder/glucomannan (~0 kcal) and pea fiber (~2 kcal/g) are sub-4; real value ~210-214. Small/uncertain, left at label. Protein 32g at label. Blend = vital wheat gluten (lysine-limited) + pea protein (complements lysine) + buckwheat flour (lysine-rich pseudograin) = reasonably COMPLETE plant blend, decent DIAAS; no downgrade applied. Off-label micros ESTIMATED from noodle composition (vital wheat gluten, pea protein, wheat + buckwheat flour, pea fiber, konjac, xanthan): Mg ~50mg (buckwheat), phosphorus ~150mg/serving (relevant to reduced-eGFR history), Mn/Cu bumped by buckwheat, selenium ~15mcg from wheat. LOW-MEDIUM confidence. PURINES ~75mg/serving MODERATE: noodle (wheat gluten low, pea protein moderate, buckwheat moderate) PLUS seasoning yeast extract and disodium 5'-ribonucleotide (added inosinate/guanylate purines). Relevant to uric-acid/gout history. LOW confidence. b12 = 0 (plant, unfortified). Full box net 17.8oz/504g. CONTAINS wheat, soy. Noodle ingredients: vital wheat gluten, pea protein, wheat flour, buckwheat flour, pea fiber powder, konjac powder, xanthan gum, sodium carbonate, tapioca starch."
+        },
         "roll_salmon_maki_6pc": {
           "name": "Roll salmon maki 6-piece",
           "category": "items",
@@ -7621,6 +7706,60 @@
           ],
           "notes": "Label-derived (high confidence): kcal, macros, sodium, sugar (incl 9g added/35g serving), fiber, Ca, Fe, K. Ingredients: mango, sugar, glycerin, mango juice, sulfur dioxide (preservative). Estimated from USDA dried mango profile (lower confidence): vit A (carotenoids), vit C, water content (~18% moisture for soft-and-juicy variant), purines (low, ~50 mg/100g). HIGH-FRUCTOSE food — flag for gout management; minimize during flares and as regular snack given elevated baseline uric acid.",
           "brand": "Trader Joe's"
+        },
+        "tj_eggplant_garlic_spread": {
+          "name": "Spread eggplant garlic Trader Joe's",
+          "brand": "Trader Joe's",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1,
+          "p": 0.01,
+          "fat": 0.0667,
+          "sf": 0.0067,
+          "transFat": 0,
+          "carbs": 0.1333,
+          "fiber": 0.0333,
+          "sugar": 0.0667,
+          "addedSugar": 0.0333,
+          "cholesterol": 0,
+          "sodium": 7.3333,
+          "water": 0.67,
+          "vitD": 0,
+          "calcium": 0.2,
+          "iron": 0.005,
+          "potassium": 2.5,
+          "magnesium": 0.27,
+          "phosphorus": 0.5,
+          "vitA": 1,
+          "vitC": 0.1,
+          "b9": 0.33,
+          "vitK": 0.1,
+          "copper": 0.002,
+          "manganese": 0.003,
+          "zinc": 0.003,
+          "purines": 0.25,
+          "displayUnits": [
+            {
+              "label": "2 Tbsp (30 g)",
+              "amount": 30,
+              "unit": "g",
+              "default": true,
+              "multiplier": 30
+            },
+            {
+              "label": "1 Tbsp (15 g)",
+              "amount": 15,
+              "unit": "g",
+              "multiplier": 15
+            },
+            {
+              "label": "container (340 g)",
+              "amount": 340,
+              "unit": "g",
+              "multiplier": 340
+            }
+          ],
+          "notes": "Trader Joe's Eggplant Garlic Spread (ajvar-style), 340g container (user-confirmed), serves ~11 at 2 Tbsp (30g). Label per 30g: 30 kcal, 2g fat, 0g sat fat DISPLAY (but 1% DV => ~0.2g, corrected to 0.2g/serving), 0 trans, 0 chol, 220mg sodium (10% DV), 4g carb, 1g fiber, 2g sugar, 1g added sugar, 0g protein. CORRECTIONS: (1) sat fat 0.2g/serving from 1% DV rounding (sunflower oil, ~10% sat of 2g fat). (2) protein ~0.3g/serving sub-threshold estimate (eggplant/pepper have trace protein; label rounds 0g). (3) POTASSIUM ~75mg/serving ESTIMATED -- label shows 0% DV but eggplant/red pepper/tomato paste all contain K; relevant to reduced-eGFR / potassium tracking. LOW confidence. Other micros ESTIMATED LOW confidence from eggplant + sweet red pepper + tomato paste base: Mg ~8mg, P ~15mg, vitA ~30mcg RAE (carotenoids from tomato/pepper), vitC ~3mg (degraded by processing), folate ~10mcg per serving. Purines ~7.5mg/serving -- LOW (vegetable-based). Sunflower oil is omega-6, negligible omega-3. Ingredients: eggplant, sweet red peppers, water, sunflower oil, tomato paste, cane sugar, sea salt, dried garlic, glucono-delta-lactone (acidifier). No major allergens declared."
         },
         "tofu_firm_half": {
           "name": "Tofu firm",
@@ -8866,7 +9005,6 @@
           "label": "Uncategorized"
         }
       ]
-    },
-    "totalsMode": "collapsed"
+    }
   }
 }
