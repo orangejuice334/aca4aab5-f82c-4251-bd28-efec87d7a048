@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-23T09:20:53.191Z",
-  "_gistSavedAt": "2026-07-22T22:24:04.226Z",
+  "_backupTakenAt": "2026-07-24T09:16:05.674Z",
+  "_gistSavedAt": "2026-07-23T21:13:27.772Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1783,12 +1783,38 @@
           "tj_eggplant_garlic_spread": "2026-07-22T14:33:43-04:00",
           "roll_salmon_maki_6pc": "2026-07-22T18:24:03-04:00"
         },
+        "mood": 5,
+        "moodMeta": "2026-07-23T11:54:51.458Z"
+      },
+      "2026-07-23": {
+        "toggles": {},
+        "counters": {
+          "david_bar_choc_chip_cookie_dough": 62,
+          "yogurt_oikos_pro_lemon": 150
+        },
+        "customs": [
+          {
+            "id": "21556194-35af-4282-82da-cb7d8c1febef",
+            "name": "125kcal 6p",
+            "kcal": 125,
+            "p": 6,
+            "count": 1,
+            "lastModified": "2026-07-23T21:12:24.346Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "david_bar_choc_chip_cookie_dough": "2026-07-23T21:11:32.358Z",
+          "yogurt_oikos_pro_lemon": "2026-07-23T21:11:53.807Z"
+        },
         "mood": 6,
-        "moodMeta": "2026-07-22T16:09:16.677Z",
-        "weight": 93.2,
-        "weightMeta": "2026-07-22T16:09:16.599Z",
+        "moodMeta": "2026-07-23T11:54:55.203Z",
+        "waist": 105,
+        "waistMeta": "2026-07-23T16:23:11.907Z",
         "neck": 43,
-        "neckMeta": "2026-07-22T16:09:16.756Z"
+        "neckMeta": "2026-07-23T21:11:04.049Z",
+        "weight": 93.2,
+        "weightMeta": "2026-07-23T21:13:26.200Z"
       }
     },
     "savedItems": [],
@@ -1876,9 +1902,11 @@
       "targets-accumulation": true,
       "details-recipe-maker": true,
       "history": true,
-      "details-add-new-item": true,
+      "supplements-water": true,
+      "profile": true,
       "catalog-ratio": true,
-      "supplements-water": true
+      "details-add-new-item": true,
+      "chart-bmi-chart": true
     },
     "userCatalog": {
       "items": {
