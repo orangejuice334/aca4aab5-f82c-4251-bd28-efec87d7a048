@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-24T09:16:05.674Z",
-  "_gistSavedAt": "2026-07-23T21:13:27.772Z",
+  "_backupTakenAt": "2026-07-25T08:56:05.397Z",
+  "_gistSavedAt": "2026-07-24T23:22:06.409Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1815,6 +1815,31 @@
         "neckMeta": "2026-07-23T21:11:04.049Z",
         "weight": 93.2,
         "weightMeta": "2026-07-23T21:13:26.200Z"
+      },
+      "2026-07-24": {
+        "toggles": {},
+        "counters": {
+          "david_bar_choc_chip_cookie_dough": 124,
+          "soy_milk": 200,
+          "yogurt_oikos_pro_lemon": 150,
+          "premier": 325
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "david_bar_choc_chip_cookie_dough": "2026-07-24T23:21:40.431Z",
+          "soy_milk": "2026-07-24T14:52:27.469Z",
+          "yogurt_oikos_pro_lemon": "2026-07-24T23:21:49.217Z",
+          "premier": "2026-07-24T23:22:05.288Z"
+        },
+        "waist": 104,
+        "waistMeta": "2026-07-24T18:07:03.665Z",
+        "weight": 91.7,
+        "weightMeta": "2026-07-24T18:07:03.424Z",
+        "neck": 43,
+        "neckMeta": "2026-07-24T18:07:03.537Z",
+        "mood": 6,
+        "moodMeta": "2026-07-24T23:21:37.432Z"
       }
     },
     "savedItems": [],
@@ -1904,7 +1929,6 @@
       "history": true,
       "supplements-water": true,
       "profile": true,
-      "catalog-ratio": true,
       "details-add-new-item": true,
       "chart-bmi-chart": true
     },
@@ -5510,64 +5534,6 @@
           "defaultMeasuredIn": "g",
           "brand": "Heinz",
           "purines": 0.1
-        },
-        "mycoffee": {
-          "name": "My Coffee soy milk",
-          "category": "liquids",
-          "kcal": 87,
-          "p": 7,
-          "sf": 0.5,
-          "water": 730,
-          "caffeine": 200,
-          "displayUnits": [
-            {
-              "label": "1 unit",
-              "amount": 330,
-              "unit": "g",
-              "default": true,
-              "multiplier": 330
-            }
-          ],
-          "ingredients": [
-            {
-              "name": "500 ml drip coffee",
-              "kcal": 5,
-              "p": 0,
-              "sf": 0,
-              "water": 500,
-              "caffeine": 200,
-              "amount": {
-                "value": 0,
-                "unit": "g"
-              }
-            },
-            {
-              "name": "240 ml 365 unsweetened soy",
-              "kcal": 70,
-              "p": 7,
-              "sf": 0.5,
-              "water": 230,
-              "caffeine": 0,
-              "amount": {
-                "value": 0,
-                "unit": "g"
-              }
-            },
-            {
-              "name": "3 sucralose packets",
-              "kcal": 12,
-              "p": 0,
-              "sf": 0,
-              "water": 0,
-              "caffeine": 0,
-              "amount": {
-                "value": 0,
-                "unit": "g"
-              }
-            }
-          ],
-          "defaultMeasuredIn": "g",
-          "purines": 0.000303
         },
         "mycowcoffee": {
           "name": "My Coffee cow milk",
