@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-25T08:56:05.397Z",
-  "_gistSavedAt": "2026-07-24T23:22:06.409Z",
+  "_backupTakenAt": "2026-07-26T09:08:00.449Z",
+  "_gistSavedAt": "2026-07-26T00:21:46.289Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1840,6 +1840,40 @@
         "neckMeta": "2026-07-24T18:07:03.537Z",
         "mood": 6,
         "moodMeta": "2026-07-24T23:21:37.432Z"
+      },
+      "2026-07-25": {
+        "toggles": {},
+        "counters": {
+          "premier": 650,
+          "yogurt_oikos_pro_lemon": 150,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "avocado_half": 50,
+          "hero_plain_bagel": 75,
+          "smoked_salmon_slice": 40
+        },
+        "customs": [
+          {
+            "id": "b5aedbe0-7322-4d7a-80b3-a0e124882592",
+            "name": "490kcal 15p",
+            "kcal": 490,
+            "p": 15,
+            "count": 1,
+            "lastModified": "2026-07-26T00:16:48.783Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "premier": "2026-07-26T00:17:13.938Z",
+          "yogurt_oikos_pro_lemon": "2026-07-25T19:27:34.322Z",
+          "david_bar_choc_chip_cookie_dough": "2026-07-25T19:27:43.348Z",
+          "avocado_half": "2026-07-25T15:50:03-04:00",
+          "hero_plain_bagel": "2026-07-25T15:50:03-04:00",
+          "smoked_salmon_slice": "2026-07-25T15:50:03-04:00"
+        },
+        "weight": 92.3,
+        "weightMeta": "2026-07-26T00:16:10.818Z",
+        "mood": 4,
+        "moodMeta": "2026-07-26T00:16:10.904Z"
       }
     },
     "savedItems": [],
@@ -1925,12 +1959,11 @@
       "section-archive-section": true,
       "today-customs": true,
       "targets-accumulation": true,
-      "details-recipe-maker": true,
       "history": true,
       "supplements-water": true,
       "profile": true,
-      "details-add-new-item": true,
-      "chart-bmi-chart": true
+      "chart-bmi-chart": true,
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
@@ -6130,6 +6163,67 @@
           "brand": "Premier",
           "purines": 0.15
         },
+        "premier_indulgence_wcr": {
+          "name": "Protein shake Premier Indulgence white choc raspberry",
+          "brand": "Premier Protein",
+          "category": "liquids",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.5231,
+          "p": 0.0923,
+          "fat": 0.00923,
+          "sf": 0.003077,
+          "transFat": 0,
+          "carbs": 0.01538,
+          "fiber": 0.00246,
+          "sugar": 0.00923,
+          "addedSugar": 0.006154,
+          "cholesterol": 0.06154,
+          "sodium": 0.7077,
+          "water": 0.85,
+          "vitD": 0.01846,
+          "calcium": 2,
+          "iron": 0.005538,
+          "potassium": 0.5538,
+          "vitA": 0.7077,
+          "vitC": 0.1415,
+          "vitE": 0.011692,
+          "vitK": 0.09231,
+          "b1": 0.000738,
+          "b2": 0.0008,
+          "b3": 0.009846,
+          "b6": 0.001046,
+          "b9": 0.24615,
+          "b12": 0.001477,
+          "b7": 0.018462,
+          "b5": 0.003077,
+          "phosphorus": 1.6923,
+          "iodine": 0.070769,
+          "magnesium": 0.27692,
+          "zinc": 0.008615,
+          "selenium": 0.024615,
+          "copper": 0.000431,
+          "manganese": 0.001077,
+          "chromium": 0.016308,
+          "molybdenum": 0.020923,
+          "choline": 0.092,
+          "purines": 0.015,
+          "displayUnits": [
+            {
+              "label": "1 bottle (325 g)",
+              "amount": 325,
+              "unit": "g",
+              "default": true,
+              "multiplier": 325
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Premier Protein Indulgence, White Chocolate Raspberry, 11 fl oz (325 mL) shake, 1 serving/container. Bottle stored as 325g (matches existing premier shake convention; mL~=g). FULLY LABELED -- all values label-exact, HIGH confidence. Per bottle: 170 kcal, 3g fat, 1g sat, 0 trans, 20mg chol, 230mg sodium, 5g carb, <1g fiber (~0.8g via 3% DV), 3g sugar (2g added), 30g protein. Micros per bottle: Vit D 6mcg, Ca 650mg, Iron 1.8mg, K 180mg, Vit A 230mcg, Vit C 46mg, Vit E 3.8mg, Vit K 30mcg, thiamin 0.24mg, riboflavin 0.26mg, niacin 3.2mg, B6 0.34mg, folate 80mcg DFE (47mcg folic acid), B12 0.48mcg, biotin 6mcg, pantothenic 1mg, phosphorus 550mg (45% DV -- relevant to reduced-eGFR history), iodine 23mcg, Mg 90mg, zinc 2.8mg, selenium 8mcg, copper 0.14mg, manganese 0.35mg, chromium 5.3mcg, molybdenum 6.8mcg. Protein = milk-based (milk protein concentrate/calcium caseinate/whey -- complete, high quality; no downgrade). ESTIMATED (not on label, minor): choline ~30mg, purines ~5mg/bottle LOW (dairy protein is low-purine, gout-favorable), water ~85%. Oils: sunflower and/or soybean oil (high-oleic). Gluten free. CONTAINS milk."
+        },
         "premier_latte": {
           "name": "Protein shake latte",
           "category": "liquids",
@@ -7754,6 +7848,63 @@
             }
           ],
           "notes": "Trader Joe's Eggplant Garlic Spread (ajvar-style), 340g container (user-confirmed), serves ~11 at 2 Tbsp (30g). Label per 30g: 30 kcal, 2g fat, 0g sat fat DISPLAY (but 1% DV => ~0.2g, corrected to 0.2g/serving), 0 trans, 0 chol, 220mg sodium (10% DV), 4g carb, 1g fiber, 2g sugar, 1g added sugar, 0g protein. CORRECTIONS: (1) sat fat 0.2g/serving from 1% DV rounding (sunflower oil, ~10% sat of 2g fat). (2) protein ~0.3g/serving sub-threshold estimate (eggplant/pepper have trace protein; label rounds 0g). (3) POTASSIUM ~75mg/serving ESTIMATED -- label shows 0% DV but eggplant/red pepper/tomato paste all contain K; relevant to reduced-eGFR / potassium tracking. LOW confidence. Other micros ESTIMATED LOW confidence from eggplant + sweet red pepper + tomato paste base: Mg ~8mg, P ~15mg, vitA ~30mcg RAE (carotenoids from tomato/pepper), vitC ~3mg (degraded by processing), folate ~10mcg per serving. Purines ~7.5mg/serving -- LOW (vegetable-based). Sunflower oil is omega-6, negligible omega-3. Ingredients: eggplant, sweet red peppers, water, sunflower oil, tomato paste, cane sugar, sea salt, dried garlic, glucono-delta-lactone (acidifier). No major allergens declared."
+        },
+        "tj_nova_salmon_pieces": {
+          "name": "Salmon smoked Nova Trader Joe's",
+          "brand": "Trader Joe's",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.4035,
+          "p": 0.193,
+          "fat": 0.0614,
+          "sf": 0.00877,
+          "transFat": 0,
+          "carbs": 0,
+          "fiber": 0,
+          "sugar": 0,
+          "addedSugar": 0,
+          "cholesterol": 0.5263,
+          "sodium": 10.7018,
+          "water": 0.65,
+          "vitD": 0.0912,
+          "calcium": 0.1754,
+          "iron": 0.00877,
+          "potassium": 4.7368,
+          "selenium": 0.32,
+          "omega3": 0.006,
+          "b12": 0.03,
+          "b3": 0.07,
+          "b6": 0.003,
+          "b2": 0.001,
+          "b5": 0.01,
+          "phosphorus": 2,
+          "magnesium": 0.18,
+          "choline": 0.9,
+          "zinc": 0.004,
+          "vitA": 0.001,
+          "purines": 1.3,
+          "displayUnits": [
+            {
+              "label": "2 slices (57 g)",
+              "amount": 57,
+              "unit": "g",
+              "default": true,
+              "multiplier": 57
+            },
+            {
+              "label": "1 slice (28.5 g)",
+              "amount": 28.5,
+              "unit": "g",
+              "multiplier": 28.5
+            },
+            {
+              "label": "container (228 g)",
+              "amount": 228,
+              "unit": "g",
+              "multiplier": 228
+            }
+          ],
+          "notes": "Trader Joe's Nova Salmon Pieces (cold-smoked farmed Atlantic salmon, Chile/Patagonia). Ingredients: Atlantic salmon (color added), salt, hardwood smoke. About 4 servings/container (2 slices/57g each => ~228g). Label per 57g: 80 kcal, 3.5g fat, 0.5g sat, 0 trans, 30mg chol, 610mg sodium (27% DV, HIGH -- cured/smoked), 0 carb, 11g protein, Vit D 5.2mcg (25%), Ca 10mg, Iron 0.5mg, K 270mg. All label-exact (high confidence). Off-label micros ESTIMATED from smoked Atlantic salmon (USDA): selenium ~18mcg/serving, B12 ~1.7mcg, niacin ~4mg, phosphorus ~114mg/serving (relevant to reduced-eGFR history), choline ~51mg, omega-3 (EPA+DHA) ~0.34g/serving. LOW-MEDIUM confidence. PURINES ~1.3 mg/g => ~74mg per 57g serving -- MODERATE (fish; salmon ~130mg/100g). Relevant to uric-acid/gout history. LOW confidence. Distinct from generic 'Smoked salmon' catalog entry. CONTAINS fish (salmon)."
         },
         "tofu_firm_half": {
           "name": "Tofu firm",
