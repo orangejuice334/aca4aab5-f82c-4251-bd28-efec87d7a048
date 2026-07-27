@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-26T09:08:00.449Z",
-  "_gistSavedAt": "2026-07-26T00:21:46.289Z",
+  "_backupTakenAt": "2026-07-27T10:35:09.657Z",
+  "_gistSavedAt": "2026-07-26T18:15:20.607Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1874,6 +1874,40 @@
         "weightMeta": "2026-07-26T00:16:10.818Z",
         "mood": 4,
         "moodMeta": "2026-07-26T00:16:10.904Z"
+      },
+      "2026-07-26": {
+        "toggles": {},
+        "counters": {
+          "chobani_protein_raspberry_lemon": 190,
+          "soy_milk": 250,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "gortons_parmesan_fish_fillets": 154.5,
+          "earth_grown_veggie_burger": 71,
+          "ketchup_heinz_packet": 9
+        },
+        "customs": [
+          {
+            "id": "574967cc-925a-42dd-9ff9-612df535c0b1",
+            "name": "80kcal 1p",
+            "kcal": 80,
+            "p": 1,
+            "count": 1,
+            "lastModified": "2026-07-26T15:45:10.135Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "chobani_protein_raspberry_lemon": "2026-07-26T11:40:02-04:00",
+          "soy_milk": "2026-07-26T11:40:02-04:00",
+          "david_bar_choc_chip_cookie_dough": "2026-07-26T15:50:09.774Z",
+          "gortons_parmesan_fish_fillets": "2026-07-26T14:15:18-04:00",
+          "earth_grown_veggie_burger": "2026-07-26T14:15:18-04:00",
+          "ketchup_heinz_packet": "2026-07-26T14:15:18-04:00"
+        },
+        "mood": 5,
+        "moodMeta": "2026-07-26T15:23:08.866Z",
+        "weight": 92.6,
+        "weightMeta": "2026-07-26T15:22:01.239Z"
       }
     },
     "savedItems": [],
@@ -1956,13 +1990,15 @@
       "details-profile-section": true,
       "catalog-archive": true,
       "details-sync-error-banner": true,
-      "section-archive-section": true,
       "today-customs": true,
       "targets-accumulation": true,
       "history": true,
       "supplements-water": true,
-      "profile": true,
       "chart-bmi-chart": true,
+      "profile": true,
+      "details-recipe-maker": true,
+      "today-log": true,
+      "section-weight-tracker": true,
       "details-add-new-item": true
     },
     "userCatalog": {
@@ -3428,6 +3464,60 @@
           "defaultMeasuredIn": "g",
           "brand": "PerformX"
         },
+        "earth_grown_veggie_burger": {
+          "name": "Burger veggie Earth Grown (Aldi)",
+          "brand": "Earth Grown (Aldi)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.3521,
+          "p": 0.0704,
+          "fat": 0.02817,
+          "sf": 0,
+          "transFat": 0,
+          "carbs": 0.2254,
+          "fiber": 0.04225,
+          "sugar": 0.04225,
+          "addedSugar": 0,
+          "cholesterol": 0,
+          "sodium": 4.0845,
+          "water": 0.6,
+          "vitD": 0,
+          "calcium": 0.4225,
+          "iron": 0.01408,
+          "potassium": 4.6479,
+          "magnesium": 0.42,
+          "phosphorus": 1.13,
+          "zinc": 0.01,
+          "selenium": 0.04,
+          "copper": 0.0014,
+          "manganese": 0.007,
+          "b1": 0.0014,
+          "b3": 0.007,
+          "b6": 0.0014,
+          "b9": 0.56,
+          "vitA": 0.7,
+          "vitC": 0.07,
+          "vitK": 0.28,
+          "choline": 0.28,
+          "omega3": 0.0014,
+          "purines": 0.56,
+          "displayUnits": [
+            {
+              "label": "1 burger (71 g)",
+              "amount": 71,
+              "unit": "g",
+              "default": true,
+              "multiplier": 71
+            },
+            {
+              "label": "box (4 burgers, 284 g)",
+              "amount": 284,
+              "unit": "g",
+              "multiplier": 284
+            }
+          ],
+          "notes": "Earth Grown (Aldi) Vegan Veggie Burger, vegetable burger with 11 vegetables. Certified vegan, cholesterol-free. Net 10oz/284g, 4 patties (2.5oz/71g each). Label per patty (71g): 90 kcal, 2g fat, 0 sat, 0 trans, 0 chol, 290mg sodium (13% DV), 16g carb, 3g fiber, 3g sugar, 0 added sugar, 5g protein, Vit D 0, Ca 30mg, Iron 1mg, K 330mg. KCAL CORRECTION: stored 96 kcal/patty (1.3521/g). Label 90 uses net-carb accounting (3g fiber counted at ~0 kcal); fiber here is WHOLE-FOOD (oats/beta-glucan, peas, edamame, chickpeas, vegetables) = genuinely fermentable ~2 kcal/g, so added back ~6 kcal (real ~94-96). NOT the ~0.5 kcal/g discount used for the isolated RS4/psyllium bread items. Protein 5g = plant blend (soy protein flour, soybeans, peas, chickpeas, oats); modest quantity, lysine ok from legumes. Off-label micros ESTIMATED LOW-MEDIUM confidence from the vegetable+legume+oat composition: Mg ~30mg, phosphorus ~80mg/patty (relevant to reduced-eGFR history), folate ~40mcg (legumes/spinach), vitamin A ~50mcg RAE (carrots/spinach/red pepper carotenoids), vitamin K ~20mcg (spinach/broccoli). PURINES ~40mg/patty MODERATE -- notable legume content (peas, edamame, soybeans, chickpeas are moderate-purine); relevant to uric-acid/gout history. LOW confidence. omega-3 (ALA) ~0.1g/patty from soybeans/canola. CONTAINS soy. Ingredients: carrots, peas, whole oats, zucchini, edamame, corn, string beans, spinach, corn meal, onions, potato starch, soy protein flour, organic wheat-free tamari, water, organic soybeans, salt, chickpeas, dried onion, canola oil, red peppers, broccoli, granulated garlic, parsley."
+        },
         "edamame_half": {
           "name": "Edamame shelled",
           "category": "items",
@@ -4204,6 +4294,63 @@
           ],
           "notes": "Label-derived (high confidence): kcal, macros, sodium (500mg/28g = EXTREME 17.9 mg/g), cholesterol, Ca (2% DV), Fe (6% DV). Estimated from USDA dried beef composition (high confidence): zinc very high (~0.1 mg/g — beef concentrated), B12 (~0.05 mcg/g excellent), selenium, choline, phosphorus, magnesium. Water ~25% (jerky concentrates beef). Purines MODERATE-HIGH (~100 mg/100g — flag for gout history). Ingredients: beef, gluten-free soy sauce (water, soybeans, rice, salt), beef broth, <2% flavorings, black pepper, vinegar, cultured celery powder (cultured celery powder + sea salt — natural nitrite source, chemically equivalent to added sodium nitrite), granulated garlic, salt. Contains soy. Marketed as no added nitrites/MSG/artificial sweeteners + gluten-free.",
           "brand": "Goldhen (Aldi)"
+        },
+        "gortons_parmesan_fish_fillets": {
+          "name": "Fish fillets Gorton's parmesan crusted breaded",
+          "brand": "Gorton's",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.5243,
+          "p": 0.1068,
+          "fat": 0.1359,
+          "sf": 0.009709,
+          "transFat": 0,
+          "carbs": 0.2233,
+          "fiber": 0.009709,
+          "sugar": 0.02913,
+          "addedSugar": 0,
+          "cholesterol": 0.3398,
+          "sodium": 5.7282,
+          "water": 0.5,
+          "vitD": 0.002913,
+          "calcium": 0.1942,
+          "iron": 0.01165,
+          "potassium": 2.1359,
+          "omega3": 0.001165,
+          "selenium": 0.29,
+          "b12": 0.024,
+          "phosphorus": 1.94,
+          "magnesium": 0.24,
+          "b3": 0.019,
+          "choline": 0.63,
+          "zinc": 0.005,
+          "iodine": 0.39,
+          "b1": 0.002,
+          "b2": 0.002,
+          "b9": 0.39,
+          "purines": 1.2,
+          "displayUnits": [
+            {
+              "label": "2 fillets (103 g)",
+              "amount": 103,
+              "unit": "g",
+              "default": true,
+              "multiplier": 103
+            },
+            {
+              "label": "1 fillet (51.5 g)",
+              "amount": 51.5,
+              "unit": "g",
+              "multiplier": 51.5
+            },
+            {
+              "label": "box (5 servings, 515 g)",
+              "amount": 515,
+              "unit": "g",
+              "multiplier": 515
+            }
+          ],
+          "notes": "Gorton's Parmesan Crusted Breaded Fish Fillets (wild-caught Alaskan pollock, whole fillet not minced, real parmesan/romano, breadcrumb coating). 5 servings/container, 2 fillets (103g)/serving => ~515g box, ~51.5g/fillet. Label per 2 fillets (103g): 260 kcal, 14g fat (1g sat -- low, canola/soybean oil), 0 trans, 35mg chol, 590mg sodium (26% DV), 23g carb, 1g fiber, 3g sugar, 0 added, 11g protein, Vit D 0.3mcg, Ca 20mg, Iron 1.2mg, K 220mg, plus 120mg EPA+DHA omega-3/serving. All label-exact (high confidence). kcal NOT corrected (fiber only 1g, breading; negligible). Off-label micros ESTIMATED from breaded pollock + cheese + enriched flour: selenium ~30mcg/serving (pollock high), B12 ~2.5mcg, phosphorus ~200mg/serving (relevant to reduced-eGFR history; also aluminum phosphate in coating), choline ~65mg, iodine ~40mcg (fish), folate ~40mcg (enriched flour). LOW-MEDIUM confidence. PURINES ~1.2 mg/g => ~124mg per 103g serving -- MODERATE-HIGH (pollock; fish). Relevant to uric-acid/gout history. LOW confidence. CONTAINS: fish (pollock), milk (parmesan/whey), wheat. Fried/baked breaded product. Uncooked -- cook to 165F."
         },
         "guac_tbsp": {
           "name": "Guacamole",
