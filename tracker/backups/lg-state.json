@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-27T10:35:09.657Z",
-  "_gistSavedAt": "2026-07-26T18:15:20.607Z",
+  "_backupTakenAt": "2026-07-28T09:31:48.058Z",
+  "_gistSavedAt": "2026-07-27T23:55:31.372Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1908,6 +1908,39 @@
         "moodMeta": "2026-07-26T15:23:08.866Z",
         "weight": 92.6,
         "weightMeta": "2026-07-26T15:22:01.239Z"
+      },
+      "2026-07-27": {
+        "toggles": {},
+        "counters": {
+          "david_bar_choc_chip_cookie_dough": 62,
+          "yogurt_half": 170,
+          "protein_casein_dymatize_elite_cookies_cream": 17
+        },
+        "customs": [
+          {
+            "id": "0bd71979-14aa-4512-aa9b-329bc2be2517",
+            "name": "450kcal 3p",
+            "kcal": 450,
+            "p": 3,
+            "count": 1,
+            "lastModified": "2026-07-27T13:46:29.657Z"
+          },
+          {
+            "id": "6570477e-c69c-4e49-a596-722f549d8974",
+            "name": "50kcal",
+            "kcal": 50,
+            "count": 1,
+            "lastModified": "2026-07-27T14:18:28.995Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "david_bar_choc_chip_cookie_dough": "2026-07-27T23:33:41.690Z",
+          "yogurt_half": "2026-07-27T23:33:52.700Z",
+          "protein_casein_dymatize_elite_cookies_cream": "2026-07-27T23:34:00.926Z"
+        },
+        "mood": 6.5,
+        "moodMeta": "2026-07-27T23:55:29.889Z"
       }
     },
     "savedItems": [],
@@ -1990,16 +2023,16 @@
       "details-profile-section": true,
       "catalog-archive": true,
       "details-sync-error-banner": true,
-      "today-customs": true,
       "targets-accumulation": true,
       "history": true,
       "supplements-water": true,
       "chart-bmi-chart": true,
-      "profile": true,
       "details-recipe-maker": true,
-      "today-log": true,
       "section-weight-tracker": true,
-      "details-add-new-item": true
+      "today-log": true,
+      "today-customs": true,
+      "details-add-new-item": true,
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
