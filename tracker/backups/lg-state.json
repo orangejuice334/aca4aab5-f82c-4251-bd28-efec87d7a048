@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-28T09:31:48.058Z",
-  "_gistSavedAt": "2026-07-27T23:55:31.372Z",
+  "_backupTakenAt": "2026-07-29T09:33:28.137Z",
+  "_gistSavedAt": "2026-07-28T20:53:39.691Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1941,6 +1941,52 @@
         },
         "mood": 6.5,
         "moodMeta": "2026-07-27T23:55:29.889Z"
+      },
+      "2026-07-28": {
+        "toggles": {},
+        "counters": {
+          "hero_plain_bagel": 75,
+          "ff_greek_tropical": 150,
+          "bar_luna_lemon_zest": 24,
+          "chobani_protein_raspberry_lemon": 190,
+          "david_bar_choc_chip_cookie_dough": 62
+        },
+        "customs": [
+          {
+            "id": "8206bf7b-970e-4d0a-9595-2dd99554d072",
+            "name": "caviar",
+            "kcal": 60,
+            "p": 7,
+            "count": 1,
+            "lastModified": "2026-07-28T13:10:08.662Z"
+          },
+          {
+            "id": "eb38b322-cfc7-49b0-b67b-5318c3cbcb55",
+            "name": "butter",
+            "kcal": 70,
+            "count": 1,
+            "lastModified": "2026-07-28T13:10:47.633Z"
+          },
+          {
+            "id": "e7ffe83d-2261-4c66-879c-5709e1fb8930",
+            "name": "cakes",
+            "kcal": 120,
+            "count": 1,
+            "lastModified": "2026-07-28T13:11:09.997Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "hero_plain_bagel": "2026-07-28T13:08:59.370Z",
+          "ff_greek_tropical": "2026-07-28T13:09:10.842Z",
+          "bar_luna_lemon_zest": "2026-07-28T20:51:39.466Z",
+          "chobani_protein_raspberry_lemon": "2026-07-28T20:51:52.514Z",
+          "david_bar_choc_chip_cookie_dough": "2026-07-28T20:53:38.041Z"
+        },
+        "weight": 92.1,
+        "weightMeta": "2026-07-28T20:51:18.239Z",
+        "mood": 6,
+        "moodMeta": "2026-07-28T20:51:18.373Z"
       }
     },
     "savedItems": [],
@@ -2028,11 +2074,11 @@
       "supplements-water": true,
       "chart-bmi-chart": true,
       "details-recipe-maker": true,
-      "section-weight-tracker": true,
       "today-log": true,
       "today-customs": true,
-      "details-add-new-item": true,
-      "catalog-ratio": true
+      "profile": true,
+      "section-mood-tracker": true,
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
