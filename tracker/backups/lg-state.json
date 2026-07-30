@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-29T09:33:28.137Z",
-  "_gistSavedAt": "2026-07-28T20:53:39.691Z",
+  "_backupTakenAt": "2026-07-30T09:25:38.368Z",
+  "_gistSavedAt": "2026-07-29T22:32:21.767Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1987,6 +1987,31 @@
         "weightMeta": "2026-07-28T20:51:18.239Z",
         "mood": 6,
         "moodMeta": "2026-07-28T20:51:18.373Z"
+      },
+      "2026-07-29": {
+        "toggles": {},
+        "counters": {
+          "string_cheese": 42,
+          "bun_hotdog_hero_classic": 31,
+          "david_bar_choc_chip_cookie_dough": 124,
+          "planters_sea_salt_vinegar_peanuts": 28,
+          "harvest_snaps": 12.5,
+          "chobani_protein_raspberry_lemon": 190,
+          "lean_cuisine_lasagna_meat_sauce": 297,
+          "soy_milk_original": 100
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "string_cheese": "2026-07-29T15:51:17.458Z",
+          "bun_hotdog_hero_classic": "2026-07-29T15:51:24.919Z",
+          "david_bar_choc_chip_cookie_dough": "2026-07-29T18:29:59-04:00",
+          "planters_sea_salt_vinegar_peanuts": "2026-07-29T16:33:14-04:00",
+          "harvest_snaps": "2026-07-29T21:14:48.056Z",
+          "chobani_protein_raspberry_lemon": "2026-07-29T21:16:00.056Z",
+          "lean_cuisine_lasagna_meat_sauce": "2026-07-29T18:29:59-04:00",
+          "soy_milk_original": "2026-07-29T22:32:20.173Z"
+        }
       }
     },
     "savedItems": [],
@@ -2074,11 +2099,11 @@
       "supplements-water": true,
       "chart-bmi-chart": true,
       "details-recipe-maker": true,
-      "today-log": true,
       "today-customs": true,
-      "profile": true,
       "section-mood-tracker": true,
-      "details-add-new-item": true
+      "details-add-new-item": true,
+      "profile": true,
+      "section-weight-tracker": true
     },
     "userCatalog": {
       "items": {
@@ -5368,6 +5393,59 @@
           ],
           "defaultMeasuredIn": "g"
         },
+        "lean_cuisine_lasagna_meat_sauce": {
+          "name": "Lasagna meat sauce Lean Cuisine",
+          "brand": "Lean Cuisine",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.9764,
+          "p": 0.06061,
+          "fat": 0.020202,
+          "sf": 0.010101,
+          "transFat": 0,
+          "carbs": 0.138047,
+          "fiber": 0.013468,
+          "sugar": 0.03367,
+          "addedSugar": 0.013468,
+          "cholesterol": 0.06734,
+          "sodium": 2.222222,
+          "water": 0.7,
+          "vitD": 0,
+          "calcium": 0.841751,
+          "iron": 0.007071,
+          "potassium": 2.895623,
+          "phosphorus": 0.84,
+          "magnesium": 0.135,
+          "zinc": 0.0067,
+          "selenium": 0.084,
+          "b12": 0.005,
+          "b3": 0.0135,
+          "b6": 0.001,
+          "b2": 0.001,
+          "b1": 0.0007,
+          "b9": 0.101,
+          "choline": 0.202,
+          "vitA": 0.27,
+          "vitC": 0.017,
+          "iodine": 0.1,
+          "purines": 0.3,
+          "displayUnits": [
+            {
+              "label": "1 package (297 g)",
+              "amount": 297,
+              "unit": "g",
+              "default": true,
+              "multiplier": 297
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Lean Cuisine Classic Lasagna with Meat Sauce (Nestle), frozen meal, 1 serving/container, net 10.5oz/297g. Label per package (297g): 290 kcal, 6g fat (3g sat, 1g mono, 0 poly), 0 trans, 20mg chol, 660mg sodium (29% DV), 41g carb, 4g fiber, 10g sugar, 4g added sugar, 18g protein, Vit D 0, Ca 250mg (20%), Iron 2.1mg, K 860mg (20%). All label-exact. kcal stored at label 290 BUT likely ~8 kcal overcounted: label uses total-carb x4, counting 4g fiber (wheat pasta/tomato/soy, fermentable ~2 kcal/g) at 4 kcal/g; real ~282. Small/uncertain, left at label (consistent w/ Volo ramen handling). Off-label micros ESTIMATED from beef+pork meat sauce + mozzarella/ricotta/parmesan + semolina pasta + tomato: phosphorus ~250mg/package (relevant to reduced-eGFR history), B12 ~1.5mcg, selenium ~25mcg, zinc ~2mg, vitA ~80mcg RAE. LOW-MEDIUM confidence. PURINES ~0.3 mg/g => ~89mg/package -- MODERATE (beef+pork meat sauce). Relevant to uric-acid/gout history. LOW confidence. Protein mix: beef/pork + dairy cheese + textured soy + wheat -- complete. CONTAINS wheat, milk, soy. Bioengineered ingredients."
+        },
         "loven_fresh_protein_everything_bagel": {
           "name": "L'Oven Fresh Protein Everything Bagel (Aldi)",
           "category": "items",
@@ -6182,6 +6260,59 @@
           ],
           "notes": "Dry roasted peanuts, lightly salted (USDA reference per 100 g: 585 kcal · 23.7 g protein · 49.7 g fat · 21.5 g carbs · 8 g fiber · 410 mg sodium). Fistful weight estimated at 30 g (about 1 oz, ~25-35 peanuts). k/g P ~24.7 — calorie-dense, protein per calorie is poor. Strong vitE, niacin (b3), magnesium, potassium contributor. Sodium varies by brand; unsalted ~0.05 mg/g, heavily salted ~8 mg/g.",
           "purines": 0.75
+        },
+        "planters_sea_salt_vinegar_peanuts": {
+          "name": "Peanuts sea salt & vinegar Planters",
+          "brand": "Planters",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 5.7143,
+          "p": 0.25,
+          "fat": 0.5,
+          "sf": 0.07143,
+          "transFat": 0,
+          "carbs": 0.17857,
+          "fiber": 0.07143,
+          "sugar": 0.07143,
+          "addedSugar": 0,
+          "cholesterol": 0,
+          "sodium": 5.3571,
+          "water": 0.02,
+          "vitD": 0,
+          "calcium": 1.0714,
+          "iron": 0.05,
+          "potassium": 6.7857,
+          "vitE": 0.08036,
+          "b3": 0.17143,
+          "b5": 0.017857,
+          "magnesium": 1.5,
+          "copper": 0.003214,
+          "manganese": 0.016429,
+          "selenium": 0.07,
+          "phosphorus": 3.8,
+          "zinc": 0.033,
+          "b1": 0.0064,
+          "b2": 0.0014,
+          "b6": 0.0035,
+          "b9": 2.4,
+          "choline": 0.52,
+          "purines": 0.6,
+          "displayUnits": [
+            {
+              "label": "1 oz (28 g)",
+              "amount": 28,
+              "unit": "g",
+              "default": true,
+              "multiplier": 28
+            },
+            {
+              "label": "container (~170 g)",
+              "amount": 170,
+              "unit": "g",
+              "multiplier": 170
+            }
+          ],
+          "notes": "Planters Sea Salt & Vinegar Peanuts (Hormel). About 6 servings/container (6oz/170g can), serving 1 oz (28g/~39 pieces). Label per 28g: 160 kcal, 14g fat (2g sat, 4.5g poly, 7g mono), 0 trans, 0 chol, 150mg sodium (7%), 5g carb, 2g fiber, 2g sugar, 0 added sugar, 7g protein, Vit D 0, Ca 30mg, Iron 1.4mg, K 190mg. Label %DV-derived (high confidence): Vit E ~2.25mg (15%), niacin ~4.8mg (30%), pantothenic ~0.5mg (10%), Mg ~42mg (10%), copper ~0.09mg (10%), manganese ~0.46mg (20%). kcal NOT corrected (label 160 is already at/below net-carb Atwater ~166; note whole peanuts have ~5-15% reduced metabolizable energy from incomplete fat absorption, but label value kept). Mono/poly fat (7g/4.5g) noted here (no dedicated tracker fields). Off-label micros ESTIMATED from peanuts (USDA): phosphorus ~106mg/serving (relevant to reduced-eGFR history), folate ~67mcg (peanuts high), choline ~15mg, zinc ~0.9mg, selenium ~2mcg. LOW-MEDIUM confidence. PURINES ~0.6 mg/g => ~17mg/serving -- LOW-MODERATE (peanuts/legumes). Relevant to uric-acid/gout history. LOW confidence. Distinct from 'Peanuts dry roasted' entry. Ingredients: peanuts, peanut oil, <2% sea salt, sodium diacetate, dextrose, malic acid, canola oil, maltodextrin, modified cornstarch, natural flavor, yeast extract, ascorbic acid, paprika+turmeric extract (color), salt. CONTAINS peanuts; may contain tree nuts."
         },
         "poke_wasabi_tuna_annasea": {
           "name": "Poke wasabi tuna Annasea",
