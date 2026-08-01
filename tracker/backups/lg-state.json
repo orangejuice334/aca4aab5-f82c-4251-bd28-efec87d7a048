@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-31T09:38:21.533Z",
-  "_gistSavedAt": "2026-07-30T22:40:20.782Z",
+  "_backupTakenAt": "2026-08-01T09:01:34.894Z",
+  "_gistSavedAt": "2026-08-01T00:12:12.307Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2050,6 +2050,45 @@
         "moodMeta": "2026-07-30T22:37:56.924Z",
         "neck": 43,
         "neckMeta": "2026-07-30T22:37:57.015Z"
+      },
+      "2026-07-31": {
+        "toggles": {},
+        "counters": {
+          "soy_milk": 550,
+          "hero_plain_bagel": 75,
+          "bun_hotdog_hero_classic": 62,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "chobani_protein_raspberry_lemon": 190,
+          "yogurt_half": 340,
+          "protein_whey_dymatize_iso100_vanilla": 66,
+          "blueberry": 230
+        },
+        "customs": [
+          {
+            "id": "58d01ecb-8973-472b-aa0e-bb837bc7a1a6",
+            "name": "250kcal",
+            "kcal": 250,
+            "count": 1,
+            "lastModified": "2026-07-31T14:25:16.089Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "soy_milk": "2026-08-01T00:08:24.563Z",
+          "hero_plain_bagel": "2026-07-31T14:24:41.268Z",
+          "bun_hotdog_hero_classic": "2026-07-31T14:24:43.435Z",
+          "david_bar_choc_chip_cookie_dough": "2026-07-31T23:37:48.068Z",
+          "chobani_protein_raspberry_lemon": "2026-07-31T23:37:50.010Z",
+          "yogurt_half": "2026-08-01T00:07:36.892Z",
+          "protein_whey_dymatize_iso100_vanilla": "2026-08-01T00:07:59.454Z",
+          "blueberry": "2026-07-31T20:11:34-04:00"
+        },
+        "mood": 7,
+        "moodMeta": "2026-07-31T12:30:31.929Z",
+        "weight": 90.7,
+        "weightMeta": "2026-07-31T23:14:06.413Z",
+        "waist": 103,
+        "waistMeta": "2026-07-31T15:27:41.400Z"
       }
     },
     "savedItems": [],
@@ -2140,8 +2179,7 @@
       "today-customs": true,
       "section-mood-tracker": true,
       "profile": true,
-      "details-add-new-item": true,
-      "catalog-ratio": true
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
@@ -2781,6 +2819,65 @@
           ],
           "notes": "Goya dry black beans. Label per 1/4 cup (35 g): 80 kcal · 10 g P · 19 g carb · 11 g fiber · 530 mg K · 5 mg Na · 0.5 g fat. CATALOG USES CORRECTED kcal = 100 (Goya treats fiber as 0 kcal; fermentable fiber adds back ~2 kcal/g = +22 kcal). Real k/g P ~10, not the label-implied 8. When boiled at home, mass triples (35 g dry → ~100 g cooked); kcal and protein transfer 1:1. Goya canned shows k/g P 14 because canned label uses standard fiber=4kcal/g accounting — same beans, different label convention.",
           "brand": "Goya"
+        },
+        "blueberry": {
+          "name": "Blueberry",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.53,
+          "p": 0.0074,
+          "carbs": 0.1449,
+          "fiber": 0.024,
+          "sugar": 0.0996,
+          "fat": 0.0033,
+          "sf": 0.00028,
+          "sodium": 0.01,
+          "water": 0.8421,
+          "vitA": 0.03,
+          "vitC": 0.097,
+          "vitE": 0.0057,
+          "vitK": 0.193,
+          "b1": 0.00037,
+          "b2": 0.00041,
+          "b3": 0.00418,
+          "b5": 0.00124,
+          "b6": 0.00052,
+          "b7": 0.005,
+          "b9": 0.06,
+          "choline": 0.06,
+          "calcium": 0.06,
+          "iron": 0.0028,
+          "magnesium": 0.06,
+          "phosphorus": 0.12,
+          "potassium": 0.77,
+          "zinc": 0.0016,
+          "selenium": 0.001,
+          "copper": 0.00057,
+          "manganese": 0.00336,
+          "iodine": 0.003,
+          "purines": 0.15,
+          "displayUnits": [
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "default": true,
+              "multiplier": 100
+            },
+            {
+              "label": "1 cup (148 g)",
+              "amount": 148,
+              "unit": "g",
+              "multiplier": 148
+            },
+            {
+              "label": "1 pint clamshell (~340 g)",
+              "amount": 340,
+              "unit": "g",
+              "multiplier": 340
+            }
+          ],
+          "notes": "Raw highbush blueberries. Macros and micros from USDA SR Legacy 09050 (blueberries, raw) - HIGH CONFIDENCE. kcal corrected from USDA 57/100g to 53/100g: USDA applies fruit-specific Atwater 3.60 kcal/g to total carbohydrate by difference, which counts the 2.4 g/100g fiber at 3.60; fermentable fiber realistically yields ~2 kcal/g, so 2.4 g x 1.6 kcal = ~3.8 kcal subtracted. Sodium 1 mg/100g (USDA) retained rather than label 0. b7 (biotin) 0.5 mcg/100g and iodine 0.3 mcg/100g are estimates - not in SR Legacy, blueberries carry only trace amounts - LOW CONFIDENCE. purines 15 mg/100g estimated from Japanese purine tables for berry fruit (low-purine class, ~10-20 mg/100g) - LOW CONFIDENCE."
         },
         "bran_flakes": {
           "name": "Bran flakes",
