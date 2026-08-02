@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-08-01T09:01:34.894Z",
-  "_gistSavedAt": "2026-08-01T00:12:12.307Z",
+  "_backupTakenAt": "2026-08-02T09:05:26.408Z",
+  "_gistSavedAt": "2026-08-01T23:07:00.354Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2089,6 +2089,49 @@
         "weightMeta": "2026-07-31T23:14:06.413Z",
         "waist": 103,
         "waistMeta": "2026-07-31T15:27:41.400Z"
+      },
+      "2026-08-01": {
+        "toggles": {},
+        "counters": {
+          "tj_serrano_ham": 60,
+          "string_cheese": 42,
+          "banana": 59,
+          "soy_milk": 250,
+          "cantaloupe": 300,
+          "david_bar_choc_chip_cookie_dough": 62
+        },
+        "customs": [
+          {
+            "id": "d801cdab-f37e-4579-9e4b-ee91f1e8dfc0",
+            "name": "450kcal 25p",
+            "kcal": 450,
+            "p": 25,
+            "count": 1,
+            "lastModified": "2026-08-01T23:06:51.086Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "tj_serrano_ham": "2026-08-01T12:49:25.654Z",
+          "string_cheese": "2026-08-01T08:44:01-04:00",
+          "banana": "2026-08-01T12:49:33.283Z",
+          "soy_milk": "2026-08-01T12:49:57.209Z",
+          "cantaloupe": "2026-08-01T10:48:27-04:00",
+          "david_bar_choc_chip_cookie_dough": "2026-08-01T23:06:03.631Z"
+        },
+        "mood": 6,
+        "moodMeta": "2026-08-01T23:05:34.053Z",
+        "weight": 90.8,
+        "weightMeta": "2026-08-01T23:05:33.906Z",
+        "neck": 43,
+        "neckMeta": "2026-08-01T23:05:34.198Z"
+      },
+      "2026-08-02": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {}
       }
     },
     "savedItems": [],
@@ -2164,7 +2207,7 @@
         "timeFormat": "24h"
       }
     },
-    "sortMode": "ratio",
+    "sortMode": "alpha",
     "collapsedGroups": {
       "section-density": true,
       "targets-daily": true,
@@ -2174,11 +2217,10 @@
       "targets-accumulation": true,
       "history": true,
       "supplements-water": true,
-      "chart-bmi-chart": true,
-      "details-recipe-maker": true,
       "today-customs": true,
       "section-mood-tracker": true,
       "profile": true,
+      "details-recipe-maker": true,
       "details-add-new-item": true
     },
     "userCatalog": {
@@ -2372,16 +2414,13 @@
           "kcal": 1.0625,
           "p": 0.1125,
           "fat": 0.0125,
-          "sf": 0,
           "transFat": 0,
           "carbs": 0.4625,
           "fiber": 0.3875,
           "sugar": 0.025,
           "addedSugar": 0.0125,
-          "cholesterol": 0,
           "sodium": 4.625,
           "water": 0.35,
-          "vitD": 0,
           "calcium": 0.25,
           "iron": 0.015,
           "potassium": 1.25,
@@ -2405,6 +2444,12 @@
           "purines": 0.15,
           "displayUnits": [
             {
+              "label": "1 bag (6 bagels, 480 g)",
+              "amount": 480,
+              "unit": "g",
+              "multiplier": 480
+            },
+            {
               "label": "1 bagel (80 g)",
               "amount": 80,
               "unit": "g",
@@ -2416,12 +2461,6 @@
               "amount": 40,
               "unit": "g",
               "multiplier": 40
-            },
-            {
-              "label": "1 bag (6 bagels, 480 g)",
-              "amount": 480,
-              "unit": "g",
-              "multiplier": 480
             }
           ],
           "notes": "Royo Bread Co. Cinnamon Bagels. 6 per bag, net 17oz/480g => 80g/bagel. Label per bagel (80g): 70 kcal LABEL, 1g fat, 0 sat, 0 trans, 0 chol, 370mg sodium (16% DV, moderately high), 37g carb, 31g fiber, 2g sugar, 1g added sugar, 9g protein, Vit D 0, Ca 20mg, Iron 1.2mg, K 100mg. Net carb 6g. KCAL CORRECTION: stored 85 kcal/bagel (1.0625/g). Fiber blend is resistant wheat starch (RS4, cross-linked/phosphated -- least fermentable RS, ~0-1 kcal/g), oat fiber (insoluble, ~0-1), wheat bran (partially fermentable, ~1-2), psyllium husk (soluble but poorly fermented, ~0), and flaxseed. Applied ~0.5 kcal/g x 31g fiber = ~15 kcal over label's 70 = 85 total (real value plausibly 80-90); same methodology as the Hero RS4 bagel/bun in this catalog, NOT the blanket 2 kcal/g fiber rule. omega-3 (ALA ~0.4g/bagel, LOW confidence) from flaxseed (USDA milled flax ~22.8g ALA/100g; flax mid-ingredient-list). Off-label micros ESTIMATED (LOW-MEDIUM confidence) from wheat protein + resistant wheat starch + oat fiber + wheat bran + rye + flax composition: Mg ~44mg, phosphorus ~120mg/bagel (relevant to reduced-eGFR history), manganese/thiamine/niacin bumped by bran+flax, selenium from wheat (~0.25 mcg/g). B12 = 0 (vegan/plant). Ca/Fe/K/Na/VitD label-derived (high confidence). Purines ~12mg/bagel -- LOW (grains/bran low-moderate) -- LOW CONFIDENCE. Protein source: wheat protein/gluten (lysine-limited; no complementary legume in the cinnamon variant). Full ingredients: water, resistant wheat starch, wheat protein, oat fiber, wheat bran, psyllium husk, cultured wheat flour, flaxseed, currants, cinnamon, brown sugar, salt, malted syrup, yeast, apple cider vinegar, rye flour. CONTAINS WHEAT; facility also processes egg, soy. Vegan, keto-marketed."
@@ -2952,12 +2991,10 @@
           "p": 0.1774,
           "carbs": 0.371,
           "fiber": 0.3548,
-          "sugar": 0,
           "addedSugar": 0,
           "fat": 0.0645,
           "sf": 0.0081,
           "transFat": 0,
-          "cholesterol": 0,
           "sodium": 5.9677,
           "calcium": 0.3226,
           "iron": 0.0161,
@@ -3096,6 +3133,62 @@
           ],
           "defaultMeasuredIn": "g"
         },
+        "cantaloupe": {
+          "name": "Cantaloupe",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.34,
+          "p": 0.0084,
+          "fat": 0.0019,
+          "sf": 0.0005,
+          "transFat": 0,
+          "carbs": 0.0816,
+          "fiber": 0.009,
+          "sugar": 0.0786,
+          "addedSugar": 0,
+          "cholesterol": 0,
+          "sodium": 0.16,
+          "water": 0.9,
+          "potassium": 2.67,
+          "vitC": 0.367,
+          "vitA": 1.69,
+          "calcium": 0.09,
+          "iron": 0.0021,
+          "magnesium": 0.12,
+          "phosphorus": 0.15,
+          "b3": 0.00734,
+          "b6": 0.00072,
+          "b9": 0.21,
+          "choline": 0.076,
+          "vitE": 0.0005,
+          "vitK": 0.025,
+          "copper": 0.00041,
+          "manganese": 0.00041,
+          "zinc": 0.0018,
+          "purines": 0.1,
+          "displayUnits": [
+            {
+              "label": "1 cup cubed (160 g)",
+              "amount": 160,
+              "unit": "g",
+              "default": true,
+              "multiplier": 160
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            },
+            {
+              "label": "1 wedge (1/8 melon, 69 g)",
+              "amount": 69,
+              "unit": "g",
+              "multiplier": 69
+            }
+          ],
+          "notes": "Cantaloupe (muskmelon), raw (USDA SR). Per 100g: 34 kcal, 0.84g protein, 0.19g fat, 8.16g carb, 0.9g fiber, 7.86g sugar (all natural), K 267mg, Vit C 36.7mg (HIGH), Vit A 169mcg RAE (HIGH -- beta-carotene), folate 21mcg, Ca 9mg, Mg 12mg, P 15mg, choline 7.6mg, sodium 16mg. ~90% water. Purines ~10mg/100g -- LOW (fruit, gout-favorable). Whole food, high confidence (USDA)."
+        },
         "cc": {
           "name": "Cottage cheese 2%",
           "category": "items",
@@ -3226,10 +3319,8 @@
           "fiber": 0.0238,
           "sugar": 0.119,
           "addedSugar": 0.0952,
-          "cholesterol": 0,
           "sodium": 6.4286,
           "water": 0.03,
-          "vitD": 0,
           "calcium": 0.7143,
           "iron": 0.0524,
           "potassium": 2.8571,
@@ -3251,11 +3342,10 @@
           "purines": 0.3238,
           "displayUnits": [
             {
-              "label": "1 cup (42 g)",
-              "amount": 42,
+              "label": "container (252 g)",
+              "amount": 252,
               "unit": "g",
-              "default": true,
-              "multiplier": 42
+              "multiplier": 252
             },
             {
               "label": "100 g",
@@ -3264,10 +3354,11 @@
               "multiplier": 100
             },
             {
-              "label": "container (252 g)",
-              "amount": 252,
+              "label": "1 cup (42 g)",
+              "amount": 42,
               "unit": "g",
-              "multiplier": 252
+              "default": true,
+              "multiplier": 42
             }
           ],
           "notes": "Premier Protein Cereal, Chocolate. Distributed by Post Consumer Brands. About 6 servings/container (42g each => ~252g). kcal NOT corrected: label 180 reconciles with Atwater 4-4-9 (5x9+14x4+20x4~181); fiber only 1g and disclosed, no sugar alcohols/polydextrose, stevia non-nutritive. Protein 20g stored at label (nitrogen). Source is a plant blend dominated by wheat gluten + wheat protein isolate (lysine-limited), plus pea protein concentrate (complements lysine) and almonds; DIAAS-adjusted utilizable protein for muscle-protein-synthesis is meaningfully below 20g, but no fixed downgrade applied (no rule for gluten/pea blends, unlike collagen). Sodium/calcium/iron/potassium/vitD are label-exact. Off-label micros ESTIMATED from ingredient model (~14g wheat gluten, ~8g almonds, ~6g wheat protein isolate, ~3g pea protein, ~6g corn flour, ~4g sugar, ~1.5g cocoa) anchored to USDA #168147 vital wheat gluten (Se 39.7, P 260, Mg 25, Zn 0.85, Cu 0.18 mg/100g) + almonds/cocoa/pea -- LOW CONFIDENCE. Per serving approx: Mg 45mg, P 128mg (relevant to reduced-eGFR history), vitamin E 2mg (almonds), Se 10mcg. Purines ~14mg/serving -- LOW purine (wheat gluten/seitan low, pea moderate; net well under 50mg/serving) -- LOW CONFIDENCE. b12, vitA, vitK, b7, iodine, molybdenum, chromium omitted (trace/absent or unknowable in this formulation)."
@@ -3423,11 +3514,15 @@
           "displayUnits": [
             {
               "label": "1 cutlet (~130 g)",
+              "amount": 130,
+              "unit": "g",
               "default": true,
               "multiplier": 130
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             }
           ],
@@ -3478,11 +3573,8 @@
           "cholesterol": 0.1053,
           "sodium": 0.7368,
           "calcium": 1.0263,
-          "iron": 0,
           "potassium": 1.5789,
-          "vitD": 0,
           "vitA": 0.05,
-          "vitC": 0,
           "vitE": 0.01,
           "vitK": 0.001,
           "b1": 0.0003,
@@ -3505,11 +3597,15 @@
           "displayUnits": [
             {
               "label": "1 container",
+              "amount": 190,
+              "unit": "g",
               "default": true,
               "multiplier": 190
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             }
           ],
@@ -3766,7 +3862,6 @@
           "fiber": 0.0471,
           "sugar": 0.0235,
           "fat": 0.0471,
-          "sf": 0,
           "sodium": 0.0588,
           "water": 0.6608,
           "vitC": 0.06,
@@ -3792,25 +3887,29 @@
           "purines": 1.7,
           "displayUnits": [
             {
-              "label": "1/2 cup (85g)",
-              "default": true,
-              "multiplier": 85
+              "label": "1 bag (~5 servings)",
+              "amount": 425,
+              "unit": "g",
+              "multiplier": 425
             },
             {
               "label": "1 cup",
+              "amount": 170,
+              "unit": "g",
               "multiplier": 170
             },
             {
-              "label": "1 bag (~5 servings)",
-              "multiplier": 425
+              "label": "1/2 cup (85g)",
+              "amount": 85,
+              "unit": "g",
+              "default": true,
+              "multiplier": 85
             }
           ],
           "defaultMeasuredIn": "g",
           "brand": "Season's Choice (Aldi)",
           "transFat": 0,
-          "cholesterol": 0,
           "addedSugar": 0,
-          "vitD": 0,
           "notes": "Season's Choice shelled edamame (Aldi), product of China. Label per 1/2 cup (85g): 90 kcal, 10g protein, 4g fat, 6g carb, 4g fiber, 2g sugar, 5mg sodium, Ca 50mg, Fe 1.8mg (10% DV), K 410mg (8% DV). MACROS updated to this real label (was generic USDA estimate at 1.322 kcal/g / 12.4 kcal-per-g-protein; real label is 1.059 kcal/g / 9.0 kcal-per-g-protein — leaner). Deep-researched micros KEPT from USDA edamame (label omits them): folate (B9) very high ~3.1 mcg/g, vit K ~0.26 mcg/g, magnesium ~0.64 mg/g, phosphorus, choline ~0.56 mg/g, zinc, Mn, Cu, selenium, biotin (B7), molybdenum. Purines moderate (~170 mg/100g soybean-based — flag for gout at large quantities). Ingredients: soybeans. Contains soy."
         },
         "egg_fried": {
@@ -4166,13 +4265,14 @@
           "displayUnits": [
             {
               "label": "full recipe",
-              "multiplier": 553,
               "amount": 553,
               "unit": "g",
               "default": true,
-              "locked": true
+              "locked": true,
+              "multiplier": 553
             }
-          ]
+          ],
+          "defaultMeasuredIn": "units"
         },
         "ff_greek_tropical": {
           "name": "Friendly Farms Nonfat Greek Yogurt Tropical Fruit",
@@ -4644,7 +4744,6 @@
           "carbs": 0.0179,
           "sugar": 0.0089,
           "addedSugar": 0.0089,
-          "fiber": 0,
           "fat": 0.0357,
           "sf": 0.0089,
           "transFat": 0,
@@ -5431,11 +5530,15 @@
           "displayUnits": [
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "default": true,
               "multiplier": 100
             },
             {
               "label": "1 skewer (~95 g)",
+              "amount": 95,
+              "unit": "g",
               "multiplier": 95
             }
           ],
@@ -5586,22 +5689,22 @@
           "brand": "Lean Cuisine",
           "category": "items",
           "defaultMeasuredIn": "g",
-          "kcal": 0.966543,
-          "p": 0.078067,
-          "fat": 0.026022,
-          "sf": 0.013011,
+          "kcal": 0.9665,
+          "p": 0.0781,
+          "fat": 0.026,
+          "sf": 0.013,
           "transFat": 0,
-          "carbs": 0.100372,
-          "fiber": 0.007435,
-          "sugar": 0.011152,
+          "carbs": 0.1004,
+          "fiber": 0.0074,
+          "sugar": 0.0112,
           "addedSugar": 0,
-          "cholesterol": 0.167286,
-          "sodium": 2.60223,
+          "cholesterol": 0.1673,
+          "sodium": 2.6022,
           "water": 0.7,
-          "vitD": 0.001115,
-          "calcium": 0.408922,
-          "iron": 0.005948,
-          "potassium": 3.122677,
+          "vitD": 0.0011,
+          "calcium": 0.4089,
+          "iron": 0.0059,
+          "potassium": 3.1227,
           "phosphorus": 0.93,
           "magnesium": 0.15,
           "zinc": 0.011,
@@ -6573,7 +6676,6 @@
           "cholesterol": 0.3534,
           "sodium": 4.735,
           "water": 0.5,
-          "vitD": 0,
           "calcium": 0.3887,
           "iron": 0.0042,
           "potassium": 3.9223,
@@ -6581,34 +6683,34 @@
           "b3": 0.1304,
           "b12": 0.0159,
           "b6": 0.0067,
-          "b5": 0.00203,
-          "b1": 0.00087,
-          "b2": 0.00087,
+          "b5": 0.002,
+          "b1": 0.0009,
+          "b2": 0.0009,
           "phosphorus": 2.1201,
           "magnesium": 0.3357,
           "choline": 0.47,
           "zinc": 0.0042,
           "copper": 0.0012,
-          "manganese": 0.00053,
+          "manganese": 0.0005,
           "iodine": 0.106,
           "vitA": 0.1307,
-          "vitE": 0.00247,
+          "vitE": 0.0025,
           "vitK": 0.001,
           "omega3": 0.0023,
           "purines": 1.3322,
           "displayUnits": [
+            {
+              "label": "full package (283 g)",
+              "amount": 283,
+              "unit": "g",
+              "multiplier": 283
+            },
             {
               "label": "½ package (142 g)",
               "amount": 142,
               "unit": "g",
               "default": true,
               "multiplier": 142
-            },
-            {
-              "label": "full package (283 g)",
-              "amount": 283,
-              "unit": "g",
-              "multiplier": 283
             }
           ],
           "notes": "Annasea Authentic Hawaii-Style Poke, Wasabi Tuna (sesame oil & kukui nuts), frozen, sauce pack included. Net 10oz/283g, 2 servings/container. Label per 1/2 pkg (142g): 310 kcal, 20g fat, 2.5g sat, 0 trans, 50mg chol, 670mg sodium (29% DV, HIGH), 2g carb, 1g fiber, 0g sugar, 28g protein, Vit D 0, Ca 60mg, Iron 0.6mg, K 560mg. Per container: 610 kcal, 41g fat, 5g sat, 100mg chol, 1340mg sodium, 3g carb, 1g fiber, 55g protein, Ca 110, Fe 1.2, K 1110. STORED VALUES derived from per-CONTAINER column / 283g (more accurate: per-serving column shows FDA rounding, e.g. calcium 60mg/serving vs truer 55mg from 110/2). Protein source: yellowfin and/or bigeye tuna (~205g of the 283g), plus sesame seeds, capelin fish roe (masago), trace kukui. High added fat (~39g of 41g) from sesame oil/soybean oil, sesame seeds, kukui nuts, wasabi oil -- tuna itself is lean (~1g fat). PURINES HIGH: ~1.33 mg/g => ~190mg per 1/2-pkg serving, ~377mg per package (yellowfin 150-200 mg/100g + roe). Relevant to uric-acid/gout history. MEDIUM confidence. Off-label micros ESTIMATED from yellowfin composition (USDA: Se 90.6mcg, niacin 18mg, B12 2.1mcg, B6 0.93mg, phosphorus 278mg, Mg 35mg, choline 65mg per 100g): selenium ~185mcg/pkg (very high), B12 ~4.5mcg, niacin ~37mg, phosphorus ~600mg/pkg (relevant to reduced-eGFR history), MEDIUM confidence. vitD stored 0 per label, BUT raw yellowfin has ~1.7mcg/100g so true value likely ~3.5mcg/container -- label's 0 may be understated (kept at label value). omega-3 ~0.65g/pkg (yellowfin lean ~0.24g/100g EPA+DHA + kukui/candlenut ALA) LOW confidence. B9/folate low in tuna. CONTAINS: fish (tuna, capelin roe), sesame, soy, wheat, tree nuts (kukui). Raw fish -- foodborne-illness advisory on pack. Ingredients: yellowfin/bigeye tuna (tasteless-smoke treated), sesame oil (sesame+soybean oil), sesame seeds, white shoyu, masago, water, kukui nuts, sea salt, red chili flakes, wasabi oil (rapeseed oil, mustard extract, wasabi), xanthan gum."
@@ -6769,41 +6871,41 @@
           "defaultMeasuredIn": "g",
           "kcal": 0.5231,
           "p": 0.0923,
-          "fat": 0.00923,
-          "sf": 0.003077,
+          "fat": 0.0092,
+          "sf": 0.0031,
           "transFat": 0,
-          "carbs": 0.01538,
-          "fiber": 0.00246,
-          "sugar": 0.00923,
+          "carbs": 0.0154,
+          "fiber": 0.0025,
+          "sugar": 0.0092,
           "addedSugar": 0.006154,
-          "cholesterol": 0.06154,
+          "cholesterol": 0.0615,
           "sodium": 0.7077,
           "water": 0.85,
-          "vitD": 0.01846,
+          "vitD": 0.0185,
           "calcium": 2,
-          "iron": 0.005538,
+          "iron": 0.0055,
           "potassium": 0.5538,
           "vitA": 0.7077,
           "vitC": 0.1415,
-          "vitE": 0.011692,
-          "vitK": 0.09231,
-          "b1": 0.000738,
+          "vitE": 0.0117,
+          "vitK": 0.0923,
+          "b1": 0.0007,
           "b2": 0.0008,
-          "b3": 0.009846,
-          "b6": 0.001046,
-          "b9": 0.24615,
-          "b12": 0.001477,
-          "b7": 0.018462,
-          "b5": 0.003077,
+          "b3": 0.0098,
+          "b6": 0.001,
+          "b9": 0.2462,
+          "b12": 0.0015,
+          "b7": 0.0185,
+          "b5": 0.0031,
           "phosphorus": 1.6923,
-          "iodine": 0.070769,
-          "magnesium": 0.27692,
-          "zinc": 0.008615,
-          "selenium": 0.024615,
-          "copper": 0.000431,
-          "manganese": 0.001077,
-          "chromium": 0.016308,
-          "molybdenum": 0.020923,
+          "iodine": 0.0708,
+          "magnesium": 0.2769,
+          "zinc": 0.0086,
+          "selenium": 0.0246,
+          "copper": 0.0004,
+          "manganese": 0.0011,
+          "chromium": 0.0163,
+          "molybdenum": 0.0209,
           "choline": 0.092,
           "purines": 0.015,
           "displayUnits": [
@@ -7276,20 +7378,19 @@
           "defaultMeasuredIn": "g",
           "kcal": 3,
           "p": 0.35,
-          "fat": 0.116667,
-          "sf": 0.041667,
+          "fat": 0.1167,
+          "sf": 0.0417,
           "transFat": 0,
-          "carbs": 0.383333,
+          "carbs": 0.3833,
           "fiber": 0.2,
-          "sugar": 0.016667,
+          "sugar": 0.0167,
           "addedSugar": 0,
           "sugarAlcohol": 0.116667,
-          "cholesterol": 0.083333,
+          "cholesterol": 0.0833,
           "sodium": 3.5,
           "water": 0.1,
-          "vitD": 0,
           "calcium": 2.5,
-          "iron": 0.008333,
+          "iron": 0.0083,
           "potassium": 2,
           "phosphorus": 3.33,
           "magnesium": 0.67,
@@ -7318,49 +7419,47 @@
           "kcal": 3.3333,
           "p": 0.4848,
           "fat": 0.0303,
-          "sf": 0.00758,
+          "sf": 0.0076,
           "transFat": 0,
           "carbs": 0.2727,
           "fiber": 0.0606,
           "sugar": 0.0455,
           "addedSugar": 0,
-          "cholesterol": 0,
           "sodium": 10,
           "water": 0.0909,
-          "vitD": 0,
           "calcium": 0.803,
           "iron": 0.0833,
           "potassium": 2.6818,
           "magnesium": 0.7576,
           "phosphorus": 2.2727,
-          "zinc": 0.01515,
+          "zinc": 0.0152,
           "selenium": 0.2273,
-          "copper": 0.004545,
-          "manganese": 0.00909,
-          "b1": 0.001515,
-          "b2": 0.000758,
-          "b3": 0.01515,
-          "b5": 0.001515,
-          "b6": 0.000758,
+          "copper": 0.0045,
+          "manganese": 0.0091,
+          "b1": 0.0015,
+          "b2": 0.0008,
+          "b3": 0.0152,
+          "b5": 0.0015,
+          "b6": 0.0008,
           "b9": 0.2273,
           "choline": 0.4545,
           "iodine": 0.0758,
-          "vitE": 0.00455,
-          "vitK": 0.00758,
+          "vitE": 0.0046,
+          "vitK": 0.0076,
           "purines": 1.1364,
           "displayUnits": [
+            {
+              "label": "container (2 bags, 132 g)",
+              "amount": 132,
+              "unit": "g",
+              "multiplier": 132
+            },
             {
               "label": "1 bag (66 g)",
               "amount": 66,
               "unit": "g",
               "default": true,
               "multiplier": 66
-            },
-            {
-              "label": "container (2 bags, 132 g)",
-              "amount": 132,
-              "unit": "g",
-              "multiplier": 132
             }
           ],
           "notes": "Volo + Vero High Protein Instant Ramen (plant-based, non-fried, air-dried). Label per 1 bag (66g): 220 kcal, 2g fat, 0.5g sat, 0 trans, 0 chol, 660mg sodium (29% DV, HIGH), 18g carb, 4g fiber, 3g sugar, 0 added sugar, 32g protein, Vit D 0, Ca 53mg, Iron 5.5mg (30% DV, high -- label-exact), K 177mg. Nutrition panel = 2 servings/container (132g). SODIUM varies by flavor: the box is a variety pack (Spicy Kimchi, Spicy Curry, Beef, Chicken seasonings) sharing one panel; 660mg is representative, beef/chicken/curry differ. kcal stored at label 220 BUT likely ~6-10 kcal overcounted: label uses total-carb x4, counting the 4g fiber at 4 kcal/g, though konjac powder/glucomannan (~0 kcal) and pea fiber (~2 kcal/g) are sub-4; real value ~210-214. Small/uncertain, left at label. Protein 32g at label. Blend = vital wheat gluten (lysine-limited) + pea protein (complements lysine) + buckwheat flour (lysine-rich pseudograin) = reasonably COMPLETE plant blend, decent DIAAS; no downgrade applied. Off-label micros ESTIMATED from noodle composition (vital wheat gluten, pea protein, wheat + buckwheat flour, pea fiber, konjac, xanthan): Mg ~50mg (buckwheat), phosphorus ~150mg/serving (relevant to reduced-eGFR history), Mn/Cu bumped by buckwheat, selenium ~15mcg from wheat. LOW-MEDIUM confidence. PURINES ~75mg/serving MODERATE: noodle (wheat gluten low, pea protein moderate, buckwheat moderate) PLUS seasoning yeast extract and disodium 5'-ribonucleotide (added inosinate/guanylate purines). Relevant to uric-acid/gout history. LOW confidence. b12 = 0 (plant, unfortified). Full box net 17.8oz/504g. CONTAINS wheat, soy. Noodle ingredients: vital wheat gluten, pea protein, wheat flour, buckwheat flour, pea fiber powder, konjac powder, xanthan gum, sodium carbonate, tapioca starch."
@@ -7721,9 +7820,6 @@
           "defaultMeasuredIn": "g",
           "kcal": 2.5,
           "p": 0.5,
-          "carbs": 0,
-          "fiber": 0,
-          "sugar": 0,
           "addedSugar": 0,
           "fat": 0.0536,
           "sf": 0.0179,
@@ -7733,9 +7829,6 @@
           "calcium": 0.9286,
           "iron": 0.0386,
           "potassium": 5,
-          "vitD": 0,
-          "vitA": 0,
-          "vitC": 0,
           "vitE": 0.005,
           "vitK": 0.002,
           "b1": 0.0005,
@@ -7757,17 +7850,23 @@
           "purines": 1,
           "displayUnits": [
             {
+              "label": "1 bag (~4 oz)",
+              "amount": 112,
+              "unit": "g",
+              "multiplier": 112
+            },
+            {
               "label": "1 oz serving",
+              "amount": 28,
+              "unit": "g",
               "default": true,
               "multiplier": 28
             },
             {
               "label": "1 g",
+              "amount": 1,
+              "unit": "g",
               "multiplier": 1
-            },
-            {
-              "label": "1 bag (~4 oz)",
-              "multiplier": 112
             }
           ],
           "notes": "Nutritionally IDENTICAL to simms_jerky_blackpepper (same manufacturer/formulation, Original vs Black Pepper flavor). Label per 1 oz (28g): 70 kcal, 14g protein, 1.5g fat (0.5g sat), 30mg cholesterol, 500mg sodium (extreme, 17.9 mg/g), 0 carb/fiber/sugar, Ca 2% DV, Fe 6% DV. Estimated micros from USDA dried beef (high confidence): zinc very high (~0.1 mg/g), B12 (~0.05 mcg/g), selenium, choline, phosphorus. Water ~25%. Purines moderate-high (~100 mg/100g). Ingredients: beef, gluten-free soy sauce (water, soybeans, rice, salt), beef broth, <2% flavorings, vinegar, cultured celery powder (cultured celery powder + sea salt — natural nitrite source, chemically equivalent to added nitrite in-gut), granulated garlic, salt. Contains soy. Marketed no-added-nitrites/no-MSG/no-artificial-sweeteners, gluten-free.",
@@ -8497,18 +8596,15 @@
           "kcal": 1.4035,
           "p": 0.193,
           "fat": 0.0614,
-          "sf": 0.00877,
+          "sf": 0.0088,
           "transFat": 0,
-          "carbs": 0,
-          "fiber": 0,
-          "sugar": 0,
           "addedSugar": 0,
           "cholesterol": 0.5263,
           "sodium": 10.7018,
           "water": 0.65,
           "vitD": 0.0912,
           "calcium": 0.1754,
-          "iron": 0.00877,
+          "iron": 0.0088,
           "potassium": 4.7368,
           "selenium": 0.32,
           "omega3": 0.006,
@@ -8525,6 +8621,12 @@
           "purines": 1.3,
           "displayUnits": [
             {
+              "label": "container (228 g)",
+              "amount": 228,
+              "unit": "g",
+              "multiplier": 228
+            },
+            {
               "label": "2 slices (57 g)",
               "amount": 57,
               "unit": "g",
@@ -8536,15 +8638,63 @@
               "amount": 28.5,
               "unit": "g",
               "multiplier": 28.5
-            },
-            {
-              "label": "container (228 g)",
-              "amount": 228,
-              "unit": "g",
-              "multiplier": 228
             }
           ],
           "notes": "Trader Joe's Nova Salmon Pieces (cold-smoked farmed Atlantic salmon, Chile/Patagonia). Ingredients: Atlantic salmon (color added), salt, hardwood smoke. About 4 servings/container (2 slices/57g each => ~228g). Label per 57g: 80 kcal, 3.5g fat, 0.5g sat, 0 trans, 30mg chol, 610mg sodium (27% DV, HIGH -- cured/smoked), 0 carb, 11g protein, Vit D 5.2mcg (25%), Ca 10mg, Iron 0.5mg, K 270mg. All label-exact (high confidence). Off-label micros ESTIMATED from smoked Atlantic salmon (USDA): selenium ~18mcg/serving, B12 ~1.7mcg, niacin ~4mg, phosphorus ~114mg/serving (relevant to reduced-eGFR history), choline ~51mg, omega-3 (EPA+DHA) ~0.34g/serving. LOW-MEDIUM confidence. PURINES ~1.3 mg/g => ~74mg per 57g serving -- MODERATE (fish; salmon ~130mg/100g). Relevant to uric-acid/gout history. LOW confidence. Distinct from generic 'Smoked salmon' catalog entry. CONTAINS fish (salmon)."
+        },
+        "tj_serrano_ham": {
+          "name": "Ham serrano Trader Joe's",
+          "brand": "Trader Joe's",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.3333,
+          "p": 0.36667,
+          "fat": 0.1,
+          "sf": 0.033333,
+          "transFat": 0,
+          "carbs": 0,
+          "fiber": 0,
+          "sugar": 0,
+          "addedSugar": 0,
+          "cholesterol": 0.33333,
+          "sodium": 13.3333,
+          "water": 0.45,
+          "vitD": 0,
+          "calcium": 0.33333,
+          "iron": 0.056667,
+          "potassium": 4.3333,
+          "selenium": 0.5,
+          "b12": 0.01,
+          "b1": 0.006,
+          "b3": 0.05,
+          "b6": 0.005,
+          "zinc": 0.023,
+          "phosphorus": 2,
+          "magnesium": 0.23,
+          "choline": 0.83,
+          "purines": 1,
+          "displayUnits": [
+            {
+              "label": "2 slices (30 g)",
+              "amount": 30,
+              "unit": "g",
+              "default": true,
+              "multiplier": 30
+            },
+            {
+              "label": "1 slice (15 g)",
+              "amount": 15,
+              "unit": "g",
+              "multiplier": 15
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Trader Joe's Charcuteria Serrano Ham (dry-cured, from a chorizo/salchichon/serrano variety pack). Ingredients: pork, sea salt (only). Label per 2 slices (30g): 70 kcal, 3g fat (1g sat), 0 trans, 10mg chol, 400mg sodium (17% DV -- HIGH, cured), 0 carb, 0 fiber, 0 sugar, 11g protein (very protein-dense), Vit D 0, Ca 10mg, Iron 1.7mg (10%), K 130mg. All label-exact. Off-label micros ESTIMATED from dry-cured pork: selenium ~15mcg/serving, thiamin (pork high), phosphorus ~60mg/serving (relevant to reduced-eGFR history), choline ~25mg, B12/B6/zinc. LOW-MEDIUM confidence. PURINES ~1.0 mg/g => ~30mg per 2-slice serving -- MODERATE (cured pork). Relevant to uric-acid/gout history. LOW confidence. Distinct from Lidl serrano entry (brand-specific label). CONTAINS pork. No nitrates/nitrites added (except naturally in sea salt/swiss chard)."
         },
         "tofu_firm_half": {
           "name": "Tofu firm",
