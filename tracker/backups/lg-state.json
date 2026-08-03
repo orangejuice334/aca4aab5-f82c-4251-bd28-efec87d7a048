@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-08-02T09:05:26.408Z",
-  "_gistSavedAt": "2026-08-01T23:07:00.354Z",
+  "_backupTakenAt": "2026-08-03T10:35:11.128Z",
+  "_gistSavedAt": "2026-08-02T13:31:20.141Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2131,7 +2131,11 @@
         "counters": {},
         "customs": [],
         "toggleMeta": {},
-        "counterMeta": {}
+        "counterMeta": {},
+        "mood": 6,
+        "moodMeta": "2026-08-02T13:31:05.311Z",
+        "weight": 91,
+        "weightMeta": "2026-08-02T13:31:15.834Z"
       }
     },
     "savedItems": [],
@@ -2221,7 +2225,8 @@
       "section-mood-tracker": true,
       "profile": true,
       "details-recipe-maker": true,
-      "details-add-new-item": true
+      "details-add-new-item": true,
+      "catalog-alpha": true
     },
     "userCatalog": {
       "items": {
@@ -9940,6 +9945,7 @@
           "label": "Uncategorized"
         }
       ]
-    }
+    },
+    "totalsMode": "collapsed"
   }
 }
