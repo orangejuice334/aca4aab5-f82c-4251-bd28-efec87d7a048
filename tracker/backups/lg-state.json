@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-08-03T10:35:11.128Z",
-  "_gistSavedAt": "2026-08-02T13:31:20.141Z",
+  "_backupTakenAt": "2026-08-04T09:35:12.197Z",
+  "_gistSavedAt": "2026-08-03T22:05:11.720Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2128,14 +2128,41 @@
       },
       "2026-08-02": {
         "toggles": {},
-        "counters": {},
-        "customs": [],
+        "counters": {
+          "david_bar_choc_chip_cookie_dough": 62,
+          "yogurt_oikos_triple_zero_lemon": 150,
+          "premier": 325
+        },
+        "customs": [
+          {
+            "id": "a1faa6e4-8840-4c58-ad3a-f205b597495a",
+            "name": "100kcal",
+            "kcal": 100,
+            "count": 1,
+            "lastModified": "2026-08-03T20:20:09.237Z"
+          }
+        ],
         "toggleMeta": {},
-        "counterMeta": {},
+        "counterMeta": {
+          "david_bar_choc_chip_cookie_dough": "2026-08-03T20:20:17.764Z",
+          "yogurt_oikos_triple_zero_lemon": "2026-08-03T20:20:22.499Z",
+          "premier": "2026-08-03T20:20:37.348Z"
+        },
         "mood": 6,
         "moodMeta": "2026-08-02T13:31:05.311Z",
         "weight": 91,
         "weightMeta": "2026-08-02T13:31:15.834Z"
+      },
+      "2026-08-03": {
+        "toggles": {},
+        "counters": {
+          "lean_cuisine_meatloaf_mashed": 265
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "lean_cuisine_meatloaf_mashed": "2026-08-03T16:26:08-04:00"
+        }
       }
     },
     "savedItems": [],
@@ -2225,8 +2252,7 @@
       "section-mood-tracker": true,
       "profile": true,
       "details-recipe-maker": true,
-      "details-add-new-item": true,
-      "catalog-alpha": true
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
@@ -5688,6 +5714,59 @@
             }
           ],
           "notes": "Lean Cuisine Classic Lasagna with Meat Sauce (Nestle), frozen meal, 1 serving/container, net 10.5oz/297g. Label per package (297g): 290 kcal, 6g fat (3g sat, 1g mono, 0 poly), 0 trans, 20mg chol, 660mg sodium (29% DV), 41g carb, 4g fiber, 10g sugar, 4g added sugar, 18g protein, Vit D 0, Ca 250mg (20%), Iron 2.1mg, K 860mg (20%). All label-exact. kcal stored at label 290 BUT likely ~8 kcal overcounted: label uses total-carb x4, counting 4g fiber (wheat pasta/tomato/soy, fermentable ~2 kcal/g) at 4 kcal/g; real ~282. Small/uncertain, left at label (consistent w/ Volo ramen handling). Off-label micros ESTIMATED from beef+pork meat sauce + mozzarella/ricotta/parmesan + semolina pasta + tomato: phosphorus ~250mg/package (relevant to reduced-eGFR history), B12 ~1.5mcg, selenium ~25mcg, zinc ~2mg, vitA ~80mcg RAE. LOW-MEDIUM confidence. PURINES ~0.3 mg/g => ~89mg/package -- MODERATE (beef+pork meat sauce). Relevant to uric-acid/gout history. LOW confidence. Protein mix: beef/pork + dairy cheese + textured soy + wheat -- complete. CONTAINS wheat, milk, soy. Bioengineered ingredients."
+        },
+        "lean_cuisine_meatloaf_mashed": {
+          "name": "Meatloaf & mashed potatoes Lean Cuisine",
+          "brand": "Lean Cuisine",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.018868,
+          "p": 0.071698,
+          "fat": 0.037736,
+          "sf": 0.016981,
+          "transFat": 0,
+          "carbs": 0.09434,
+          "fiber": 0.007547,
+          "sugar": 0.015094,
+          "addedSugar": 0.003774,
+          "cholesterol": 0.169811,
+          "sodium": 2.90566,
+          "water": 0.7,
+          "vitD": 0,
+          "calcium": 0.226415,
+          "iron": 0.008679,
+          "potassium": 2.830189,
+          "phosphorus": 0.94,
+          "magnesium": 0.151,
+          "zinc": 0.0113,
+          "selenium": 0.094,
+          "b12": 0.0075,
+          "b3": 0.0151,
+          "b6": 0.0015,
+          "b2": 0.0011,
+          "b1": 0.00075,
+          "b9": 0.094,
+          "choline": 0.302,
+          "vitA": 0.189,
+          "vitC": 0.03,
+          "iodine": 0.113,
+          "purines": 0.38,
+          "displayUnits": [
+            {
+              "label": "1 package (265 g)",
+              "amount": 265,
+              "unit": "g",
+              "default": true,
+              "multiplier": 265
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Lean Cuisine Signature Meatloaf with Mashed Potatoes and Gravy (Nestle), frozen meal, 1 serving/container, net 9-3/8oz/265g. Label per package (265g): 270 kcal, 10g fat (4.5g sat, 2.5g mono, 0 poly), 0 trans, 45mg chol, 770mg sodium (33% DV -- HIGH), 25g carb, 2g fiber, 4g sugar, 1g added sugar, 19g protein, Vit D 0, Ca 60mg, Iron 2.3mg (15%), K 750mg (15%). All label-exact. kcal stored at label 270 (fiber only 2g; negligible correction). Off-label micros ESTIMATED from beef meatloaf (+ textured soy, rolled oats) + cream mashed potatoes + dairy: phosphorus ~250mg/package (relevant to reduced-eGFR history), B12 ~2mcg, selenium ~25mcg, zinc ~3mg, choline ~80mg. LOW-MEDIUM confidence. PURINES ~0.38 mg/g => ~100mg/package -- MODERATE-HIGH (beef meatloaf). Relevant to uric-acid/gout history. LOW confidence. CONTAINS egg, wheat, milk, sesame, soy. Bioengineered ingredients."
         },
         "lean_cuisine_salisbury_mac_cheese": {
           "name": "Salisbury steak mac cheese Lean Cuisine",
