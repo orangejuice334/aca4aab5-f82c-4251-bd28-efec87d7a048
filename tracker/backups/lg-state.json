@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-08-04T09:35:12.197Z",
-  "_gistSavedAt": "2026-08-03T22:05:11.720Z",
+  "_backupTakenAt": "2026-08-05T09:30:43.779Z",
+  "_gistSavedAt": "2026-08-04T20:29:26.004Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2163,6 +2163,17 @@
         "counterMeta": {
           "lean_cuisine_meatloaf_mashed": "2026-08-03T16:26:08-04:00"
         }
+      },
+      "2026-08-04": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "mood": 4,
+        "moodMeta": "2026-08-04T18:49:28.380Z",
+        "weight": 90.7,
+        "weightMeta": "2026-08-04T20:25:40.885Z"
       }
     },
     "savedItems": [],
@@ -6629,6 +6640,65 @@
           ],
           "defaultMeasuredIn": "g",
           "brand": "PB2"
+        },
+        "peanut_butter_delight_aldi": {
+          "name": "Peanut butter creamy Peanut Delight (Aldi)",
+          "brand": "Peanut Delight (Aldi)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 5.625,
+          "p": 0.21875,
+          "fat": 0.46875,
+          "sf": 0.09375,
+          "transFat": 0,
+          "carbs": 0.25,
+          "fiber": 0.0625,
+          "sugar": 0.125,
+          "addedSugar": 0.0625,
+          "cholesterol": 0,
+          "sodium": 3.125,
+          "water": 0.01,
+          "vitD": 0,
+          "calcium": 0.625,
+          "iron": 0.015625,
+          "potassium": 5.625,
+          "magnesium": 1.53,
+          "phosphorus": 3.35,
+          "zinc": 0.025,
+          "selenium": 0.16,
+          "copper": 0.005,
+          "manganese": 0.015,
+          "b3": 0.13,
+          "b6": 0.004,
+          "b9": 0.9,
+          "b5": 0.011,
+          "vitE": 0.09,
+          "choline": 0.6,
+          "b1": 0.0015,
+          "b2": 0.002,
+          "purines": 0.6,
+          "displayUnits": [
+            {
+              "label": "2 Tbsp (32 g)",
+              "amount": 32,
+              "unit": "g",
+              "default": true,
+              "multiplier": 32
+            },
+            {
+              "label": "1 Tbsp (16 g)",
+              "amount": 16,
+              "unit": "g",
+              "multiplier": 16
+            },
+            {
+              "label": "jar (454 g)",
+              "amount": 454,
+              "unit": "g",
+              "multiplier": 454
+            }
+          ],
+          "notes": "Peanut Delight No-Stir Creamy Peanut Butter Spread (Aldi), made with 90% peanuts. Ingredients: dry roasted peanuts, sugar, palm oil, sea salt. About 14 servings/container (16oz/454g jar). Label per 2 Tbsp (32g): 180 kcal, 15g fat (3g sat -- palm oil raises sat vs natural PB), 0 trans, 0 chol, 100mg sodium (4%), 8g carb, 2g fiber, 4g sugar, 2g added sugar, 7g protein, Vit D 0, Ca 20mg, Iron 0.5mg, K 180mg. All label-exact. kcal stored at label 180 (peanut butter is ground/highly absorbable, unlike whole nuts; fiber 2g minimal). Off-label micros ESTIMATED from peanuts (USDA): Mg ~49mg/serving, phosphorus ~107mg/serving (relevant to reduced-eGFR history), vitamin E ~2.9mg (peanuts high), niacin ~4.2mg, folate ~29mcg, choline ~19mg. LOW-MEDIUM confidence. PURINES ~0.6 mg/g => ~19mg/serving -- LOW-MODERATE (peanuts). Relevant to uric-acid/gout history. LOW confidence. Note: 'no-stir' style uses palm oil to prevent oil separation (adds saturated fat) + sugar, vs natural PB. CONTAINS peanuts."
         },
         "peanuts_fistful": {
           "name": "Peanuts dry roasted (lightly salted)",
