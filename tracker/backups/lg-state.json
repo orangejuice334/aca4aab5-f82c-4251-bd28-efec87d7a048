@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-08-05T09:30:43.779Z",
-  "_gistSavedAt": "2026-08-04T20:29:26.004Z",
+  "_backupTakenAt": "2026-08-06T09:35:15.411Z",
+  "_gistSavedAt": "2026-08-05T20:41:28.379Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2162,7 +2162,11 @@
         "toggleMeta": {},
         "counterMeta": {
           "lean_cuisine_meatloaf_mashed": "2026-08-03T16:26:08-04:00"
-        }
+        },
+        "neck": 43,
+        "neckMeta": "2026-08-03T22:05:12.010Z",
+        "weight": 91,
+        "weightMeta": "2026-08-03T22:05:11.911Z"
       },
       "2026-08-04": {
         "toggles": {},
@@ -2174,6 +2178,25 @@
         "moodMeta": "2026-08-04T18:49:28.380Z",
         "weight": 90.7,
         "weightMeta": "2026-08-04T20:25:40.885Z"
+      },
+      "2026-08-05": {
+        "toggles": {},
+        "counters": {
+          "soy_milk": 150,
+          "david_bar_choc_chip_cookie_dough": 62
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "soy_milk": "2026-08-05T14:37:03.023Z",
+          "david_bar_choc_chip_cookie_dough": "2026-08-05T14:37:13.778Z"
+        },
+        "weight": 90.2,
+        "weightMeta": "2026-08-05T14:37:51.924Z",
+        "waist": 104,
+        "waistMeta": "2026-08-05T14:39:40.042Z",
+        "mood": 6,
+        "moodMeta": "2026-08-05T14:39:40.961Z"
       }
     },
     "savedItems": [],
@@ -2254,7 +2277,6 @@
       "section-density": true,
       "targets-daily": true,
       "details-profile-section": true,
-      "catalog-archive": true,
       "details-sync-error-banner": true,
       "targets-accumulation": true,
       "history": true,
@@ -2263,7 +2285,11 @@
       "section-mood-tracker": true,
       "profile": true,
       "details-recipe-maker": true,
-      "details-add-new-item": true
+      "details-add-new-item": true,
+      "catalog-alpha": true,
+      "section-weight-tracker": true,
+      "section-archive-section": true,
+      "catalog-archive": true
     },
     "userCatalog": {
       "items": {
@@ -10094,7 +10120,6 @@
           "label": "Uncategorized"
         }
       ]
-    },
-    "totalsMode": "collapsed"
+    }
   }
 }
