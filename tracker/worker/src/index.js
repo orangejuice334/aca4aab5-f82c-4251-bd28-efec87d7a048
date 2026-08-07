@@ -333,6 +333,18 @@ const OPS = {
     }
     return { ok: true };
   },
+  chart_range_set(state, op) {
+    // Date window for the weight / BMI / body-fat charts. 15, 30 or 90 days
+    // back from today; null clears it so the charts show full history.
+    if (op.value === null || op.value === undefined) {
+      delete state.chartRangeDays;
+    } else if (op.value === 15 || op.value === 30 || op.value === 90) {
+      state.chartRangeDays = op.value;
+    } else {
+      return { ok: false, error: 'chart_range_set requires 15, 30, 90 or null' };
+    }
+    return { ok: true };
+  },
   collapsed_group_set(state, op) {
     if (!op.key) return { ok: false, error: 'collapsed_group_set requires key' };
     if (!state.collapsedGroups) state.collapsedGroups = {};

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.94">
+<meta name="app-version" content="v6.5.95">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -3655,6 +3655,43 @@
   .bmi-legend-band.fat-fitness   { background: hsla(90,  55%, 60%, 0.35); }
   .bmi-legend-band.fat-average   { background: hsla(40, 80%, 65%, 0.4); }
   .bmi-legend-band.fat-obese     { background: hsla(15, 70%, 60%, 0.4); }
+  /* Metric name in front of each chart legend. The BMI and body-fat legends
+     are styled identically and sit close together, so without a name the BMI
+     key reads as though it also explains the body-fat chart's colors. */
+  .bmi-legend-title {
+    font-weight: 600;
+    color: var(--ink);
+    text-transform: uppercase;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+  }
+
+  /* Shared date-range control above the weight / BMI / body-fat charts.
+     Right-aligned so it reads as a filter on the charts beneath it. */
+  .chart-range-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    margin: 12px 0 2px;
+  }
+  .chart-range-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .chart-range-select {
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 2px;
+    padding: 4px 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+  }
+  .chart-range-select:focus { outline: none; border-color: var(--ink-soft); }
 
   /* Navy-method instructions: collapsible <details>. Keeps the section tidy
      when not needed; expands inline. */
@@ -4679,6 +4716,20 @@
 
   <div class="weight-summary" id="weight-summary"></div>
 
+  <!-- Shared date-range filter for the weight / BMI / body-fat charts below.
+       Trims the shared X axis only; the summary stats and the mood chart
+       further down keep their full history. Persisted and synced like the
+       other view preferences (sort mode, collapsed groups). -->
+  <div class="chart-range-row">
+    <label class="chart-range-label" for="chart-range">Range</label>
+    <select id="chart-range" class="chart-range-select" data-chart-range>
+      <option value="15">Last 15 days</option>
+      <option value="30">Last 30 days</option>
+      <option value="90">Last 90 days</option>
+      <option value="all">Full history</option>
+    </select>
+  </div>
+
   <div class="weight-chart-wrapper">
     <div class="chart-title">Weight (kg)</div>
     <svg id="weight-chart" class="weight-chart" preserveAspectRatio="none"></svg>
@@ -4688,6 +4739,7 @@
     <div class="chart-title">BMI <span class="chart-subtitle" id="bmi-height-subtitle"></span></div>
     <svg id="bmi-chart" class="weight-chart" preserveAspectRatio="none"></svg>
     <div class="bmi-legend">
+      <span class="bmi-legend-title">BMI</span>
       <span class="bmi-legend-band underweight"></span>underweight &lt;18.5
       <span class="bmi-legend-band normal"></span>normal 18.5–25
       <span class="bmi-legend-band overweight"></span>overweight 25–30
@@ -4699,6 +4751,7 @@
     <div class="chart-title">Body fat % <span class="chart-subtitle" id="fat-pct-subtitle"></span></div>
     <svg id="fat-pct-chart" class="weight-chart" preserveAspectRatio="none"></svg>
     <div class="bmi-legend">
+      <span class="bmi-legend-title">Body fat</span>
       <span class="bmi-legend-band fat-essential"></span>essential 2–5%
       <span class="bmi-legend-band fat-athlete"></span>athlete 6–13%
       <span class="bmi-legend-band fat-fitness"></span>fitness 14–17%
@@ -5823,6 +5876,11 @@
             else snap.totalsMode = op.value;
             break;
           }
+          case 'chart_range_set': {
+            if (op.value == null) delete snap.chartRangeDays;
+            else snap.chartRangeDays = op.value;
+            break;
+          }
           case 'collapsed_group_set': {
             if (!snap.collapsedGroups) snap.collapsedGroups = {};
             if (op.collapsed) snap.collapsedGroups[op.key] = true;
@@ -5843,6 +5901,7 @@
       profile: structuredClone(state.profile || {}),
       sortMode: state.sortMode,
       totalsMode: state.totalsMode,
+      chartRangeDays: state.chartRangeDays,
       collapsedGroups: structuredClone(state.collapsedGroups || {}),
     };
   }
@@ -5860,6 +5919,7 @@
       profile: {},
       sortMode: undefined,
       totalsMode: undefined,
+      chartRangeDays: undefined,
       collapsedGroups: {},
     };
   }
@@ -5992,6 +6052,11 @@
     // ---- totalsMode (string | undefined) ----
     if (snap.totalsMode !== state.totalsMode) {
       sendOp({ type: 'totals_mode_set', value: state.totalsMode ?? null });
+    }
+
+    // ---- chartRangeDays (15 | 30 | 90 | undefined for full history) ----
+    if (snap.chartRangeDays !== state.chartRangeDays) {
+      sendOp({ type: 'chart_range_set', value: state.chartRangeDays ?? null });
     }
 
     // ---- collapsedGroups (per-key) ----
@@ -6168,6 +6233,9 @@
     // (strip hidden). Lives outside collapsedGroups so that map stays
     // boolean-only.
     totalsMode: undefined,
+    // Date window for the weight / BMI / body-fat charts: 15, 30, 90 days
+    // back from today, or undefined for full history (the default).
+    chartRangeDays: undefined,
   };
 
   function ensureDayBucket(dateKey) {
@@ -6229,6 +6297,7 @@
     state.sortMode = (parsed.sortMode === 'alpha' || parsed.sortMode === 'ratio') ? parsed.sortMode : 'category';
     state.collapsedGroups = (parsed.collapsedGroups && typeof parsed.collapsedGroups === 'object') ? parsed.collapsedGroups : {};
     state.totalsMode = (parsed.totalsMode === 'all' || parsed.totalsMode === 'collapsed') ? parsed.totalsMode : undefined;
+    state.chartRangeDays = normalizeChartRangeDays(parsed.chartRangeDays);
     // Demo-mode detection: when cached userCatalog has no items, we'll be
     // showing OFFLINE_DEMO_ITEMS in the catalog. Reset cached profile
     // schedules too so the demo state stays consistent. User's real profile
@@ -6276,6 +6345,7 @@
       sortMode: state.sortMode,
       collapsedGroups: state.collapsedGroups,
       totalsMode: state.totalsMode,
+      chartRangeDays: state.chartRangeDays,
       userCatalog: { items: ITEMS, categories: CATEGORIES },
     };
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave)); } catch (e) {}
@@ -7632,6 +7702,7 @@
     state.sortMode = (remoteState.sortMode === 'alpha' || remoteState.sortMode === 'ratio') ? remoteState.sortMode : 'category';
     state.collapsedGroups = (remoteState.collapsedGroups && typeof remoteState.collapsedGroups === 'object') ? remoteState.collapsedGroups : {};
     state.totalsMode = (remoteState.totalsMode === 'all' || remoteState.totalsMode === 'collapsed') ? remoteState.totalsMode : undefined;
+    state.chartRangeDays = normalizeChartRangeDays(remoteState.chartRangeDays);
     if (remoteState.userCatalog) hydrateCatalog(remoteState.userCatalog, true);
     // Snapshot the gist as it actually was. Snapshot must come AFTER
     // hydrateCatalog so ITEMS truly reflects the remote payload's catalog,
@@ -7655,6 +7726,7 @@
         sortMode: state.sortMode,
         collapsedGroups: state.collapsedGroups,
         totalsMode: state.totalsMode,
+        chartRangeDays: state.chartRangeDays,
         userCatalog: { items: ITEMS, categories: CATEGORIES },
       }));
     } catch (e) {}
@@ -11882,6 +11954,7 @@
     syncInput('context-bar-mood',   bucket && bucket.mood, true);
     renderBfInlineFromInputs();
     renderWeightSummary();
+    syncChartRangeSelect();
     renderWeightChart();
     renderBmiChart();
     renderFatPercentChart();
@@ -12156,9 +12229,24 @@
     // numeric labels get thinned.
     if (options.showPointLabels) {
       const decimals = options.yDecimals !== undefined ? options.yDecimals : 1;
+      // Thin the value labels across the points that HAVE a value, not across
+      // the whole shared axis. A sparse series (body fat is only recorded on
+      // days with a neck + waist measurement) has nulls at most axis
+      // positions, so sampling the axis would drop nearly every label.
+      const valueIndices = [];
+      points.forEach((p, i) => { if (typeof p.y === 'number') valueIndices.push(i); });
+      const valueLabelIndices = new Set();
+      if (valueIndices.length <= MAX_LABELS) {
+        valueIndices.forEach(i => valueLabelIndices.add(i));
+      } else {
+        const vStep = (valueIndices.length - 1) / (MAX_LABELS - 1);
+        for (let k = 0; k < MAX_LABELS; k++) {
+          valueLabelIndices.add(valueIndices[Math.round(k * vStep)]);
+        }
+      }
       points.forEach((p, i) => {
         if (typeof p.y !== 'number') return;
-        if (!labelIndices.has(i)) return;
+        if (!valueLabelIndices.has(i)) return;
         const cx = xFor(i);
         const cy = yFor(p.y);
         // Default placement: 8px above the point. If too close to top edge,
@@ -12248,11 +12336,39 @@
   // series, sorted ascending, so the axis is as long as the longest data
   // series. X-axis label density is thinned in buildLineChart so 30+
   // points don't pile their date labels on top of each other.
+  // Chart date-range window, in days back from today: 15, 30, 90, or
+  // undefined for full history. Anything unrecognised normalises to full
+  // history so a stale or hand-edited value can never blank the charts.
+  // Declared as a function (not a const) so the persistence sites that run
+  // during boot can call it before this point in the file is evaluated.
+  function normalizeChartRangeDays(v) {
+    const n = (typeof v === 'string') ? parseInt(v, 10) : v;
+    return (n === 15 || n === 30 || n === 90) ? n : undefined;
+  }
+
+  // Push state.chartRangeDays into the <select> (remote sync / cache restore
+  // can change it underneath the UI). Skipped while the user has it open.
+  function syncChartRangeSelect() {
+    const sel = document.getElementById('chart-range');
+    if (!sel || document.activeElement === sel) return;
+    const days = normalizeChartRangeDays(state.chartRangeDays);
+    sel.value = days ? String(days) : 'all';
+  }
+
   function getSharedChartDates() {
     const dates = new Set();
     for (const s of collectWeightSeries()) dates.add(s.date);
     for (const s of collectFatPercentSeries()) dates.add(s.date);
-    return Array.from(dates).sort();
+    const all = Array.from(dates).sort();
+    // Range filter: keep dates inside the selected window, counted back from
+    // today so "last 30 days" means 30 calendar days, not the last 30
+    // readings. Inclusive of today, hence days - 1.
+    const days = normalizeChartRangeDays(state.chartRangeDays);
+    if (!days) return all;
+    const cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - (days - 1));
+    const cutoffKey = dateKeyFromDate(cutoff);
+    return all.filter(d => d >= cutoffKey);
   }
 
   // Build a sparse points array on the shared date axis. Returns
@@ -12330,12 +12446,15 @@
       color: '#b04a2e',
       yDecimals: 1,
       showPointLabels: true,
+      // Boundaries match the legend buckets exactly (essential 2-5,
+      // athlete 6-13, fitness 14-17, average 18-24, obese >=25) read as
+      // continuous ranges: [0,6) [6,14) [14,18) [18,25) [25,inf).
       bands: [
-        { min: 0,  max: 5,   color: 'hsla(200, 60%, 70%, 0.18)' },
-        { min: 5,  max: 13,  color: 'hsla(135, 60%, 60%, 0.15)' },
-        { min: 13, max: 17,  color: 'hsla(90, 55%, 60%, 0.18)' },
-        { min: 17, max: 24,  color: 'hsla(40, 80%, 65%, 0.18)' },
-        { min: 24, max: 60,  color: 'hsla(15, 70%, 60%, 0.18)' },
+        { min: 0,  max: 6,   color: 'hsla(200, 60%, 70%, 0.18)' },
+        { min: 6,  max: 14,  color: 'hsla(135, 60%, 60%, 0.15)' },
+        { min: 14, max: 18,  color: 'hsla(90, 55%, 60%, 0.18)' },
+        { min: 18, max: 25,  color: 'hsla(40, 80%, 65%, 0.18)' },
+        { min: 25, max: 100, color: 'hsla(15, 70%, 60%, 0.18)' },
       ],
     });
   }
@@ -12838,6 +12957,15 @@
       if (itemStore) {
         const formRoot = itemStore.closest('[data-custom-form]');
         if (formRoot) formRoot.querySelectorAll('[data-custom-input="store"]').forEach(cb => { cb.checked = itemStore.checked; });
+        return;
+      }
+      // Chart date-range selector: re-render the three charts off the
+      // trimmed shared axis, then persist through the normal cold path.
+      const chartRange = ev.target.closest('[data-chart-range]');
+      if (chartRange) {
+        state.chartRangeDays = normalizeChartRangeDays(chartRange.value);
+        renderWeightSection();
+        saveState();
         return;
       }
     });

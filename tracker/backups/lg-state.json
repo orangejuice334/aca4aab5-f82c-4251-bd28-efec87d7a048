@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-07-14T18:47:56.935Z",
-  "_gistSavedAt": "2026-07-14T18:36:10.676Z",
+  "_backupTakenAt": "2026-08-07T14:42:14.190Z",
+  "_gistSavedAt": "2026-08-07T14:41:07.038Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -1576,16 +1576,689 @@
           "soy_milk": 200,
           "cereal_premier_protein_chocolate": 50
         },
-        "customs": [],
+        "customs": [
+          {
+            "id": "38130079-d77b-499d-aa7f-737d3f595df6",
+            "name": "450kcal 50p",
+            "kcal": 450,
+            "p": 50,
+            "count": 1,
+            "lastModified": "2026-07-14T18:49:30.789Z"
+          },
+          {
+            "id": "953fa68b-a43c-4eff-8bc0-2531c7107a8e",
+            "name": "350kcal 50p",
+            "kcal": 350,
+            "p": 50,
+            "count": 1,
+            "lastModified": "2026-07-14T22:07:31.465Z"
+          }
+        ],
         "toggleMeta": {},
         "counterMeta": {
           "soy_milk": "2026-07-14T12:37:17.419Z",
           "cereal_premier_protein_chocolate": "2026-07-14T12:37:52.823Z"
         },
         "weight": 94.5,
-        "weightMeta": "2026-07-14T11:32:46.393Z",
+        "weightMeta": "2026-07-15T01:31:57.507Z",
+        "mood": 7,
+        "moodMeta": "2026-07-15T01:31:57.579Z",
+        "neck": 43,
+        "neckMeta": "2026-07-15T01:31:57.663Z"
+      },
+      "2026-07-15": {
+        "toggles": {},
+        "counters": {
+          "protein_whey_animal_strawberry": 35.2,
+          "yogurt_half": 300,
+          "strawberry_frozen_blb": 250,
+          "spinach_fresh": 30,
+          "sucralose": 4,
+          "soy_milk": 300,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "hero_plain_bagel": 75,
+          "avocado_half": 65,
+          "smoked_salmon_slice": 40
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "protein_whey_animal_strawberry": "2026-07-15T14:14:45.392Z",
+          "yogurt_half": "2026-07-15T14:15:07.339Z",
+          "strawberry_frozen_blb": "2026-07-15T14:15:22.524Z",
+          "spinach_fresh": "2026-07-15T14:15:29.014Z",
+          "sucralose": "2026-07-15T14:15:36.907Z",
+          "soy_milk": "2026-07-15T14:16:16.276Z",
+          "david_bar_choc_chip_cookie_dough": "2026-07-15T14:44:31-04:00",
+          "hero_plain_bagel": "2026-07-15T14:44:31-04:00",
+          "avocado_half": "2026-07-15T14:44:31-04:00",
+          "smoked_salmon_slice": "2026-07-15T14:44:31-04:00"
+        },
         "mood": 6,
-        "moodMeta": "2026-07-14T12:52:13.446Z"
+        "moodMeta": "2026-07-16T20:19:10.383Z",
+        "weight": 94.1,
+        "weightMeta": "2026-07-15T13:56:56.080Z"
+      },
+      "2026-07-16": {
+        "toggles": {},
+        "counters": {
+          "string_cheese": 21,
+          "mama_cozzi_turkey_pepperoni": 15,
+          "ketchup_packet": 54,
+          "mayo_packet": 14,
+          "goldhen_egg_whites": 181.4,
+          "black_bean_pasta": 60,
+          "yogurt_half": 170,
+          "nutricost_casein_vanilla": 35.2
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "string_cheese": "2026-07-16T17:01:28.435Z",
+          "mama_cozzi_turkey_pepperoni": "2026-07-16T17:01:42.547Z",
+          "ketchup_packet": "2026-07-16T18:11:17.576Z",
+          "mayo_packet": "2026-07-16T18:11:21.618Z",
+          "goldhen_egg_whites": "2026-07-16T18:11:55.469Z",
+          "black_bean_pasta": "2026-07-16T18:12:25.516Z",
+          "yogurt_half": "2026-07-16T20:19:52.339Z",
+          "nutricost_casein_vanilla": "2026-07-16T20:20:14.109Z"
+        },
+        "weight": 94.2,
+        "weightMeta": "2026-07-16T11:32:19.345Z",
+        "mood": 7.5,
+        "moodMeta": "2026-07-16T20:18:47.882Z"
+      },
+      "2026-07-17": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "weight": 93.2,
+        "weightMeta": "2026-07-17T14:07:17.251Z"
+      },
+      "2026-07-18": {
+        "toggles": {},
+        "counters": {
+          "soy_milk": 300,
+          "banana": 118,
+          "david_bar_choc_chip_cookie_dough": 62
+        },
+        "customs": [
+          {
+            "id": "e0bc74bf-2192-48eb-ba26-9026d8a0c480",
+            "name": "150kcal 3p",
+            "kcal": 150,
+            "p": 3,
+            "count": 1,
+            "lastModified": "2026-07-18T15:01:00.872Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "soy_milk": "2026-07-18T15:00:19.251Z",
+          "banana": "2026-07-18T15:00:28.108Z",
+          "david_bar_choc_chip_cookie_dough": "2026-07-18T15:00:34.744Z"
+        },
+        "mood": 4,
+        "moodMeta": "2026-07-19T20:38:59.149Z"
+      },
+      "2026-07-19": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "mood": 4,
+        "moodMeta": "2026-07-19T20:38:55.695Z",
+        "weight": 94.3,
+        "weightMeta": "2026-07-19T20:39:15.585Z"
+      },
+      "2026-07-20": {
+        "toggles": {},
+        "counters": {
+          "david_bar_choc_chip_cookie_dough": 62,
+          "soy_milk": 400,
+          "banana": 118,
+          "chobani_protein_raspberry_lemon": 190,
+          "bagel_cinnamon_royo": 80,
+          "premier": 325
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "david_bar_choc_chip_cookie_dough": "2026-07-20T13:30:33.525Z",
+          "soy_milk": "2026-07-20T13:30:47.107Z",
+          "banana": "2026-07-20T16:37:20.723Z",
+          "chobani_protein_raspberry_lemon": "2026-07-20T16:37:44.167Z",
+          "bagel_cinnamon_royo": "2026-07-20T18:45:58.207Z",
+          "premier": "2026-07-20T18:46:12.525Z"
+        },
+        "mood": 4,
+        "moodMeta": "2026-07-20T18:45:42.441Z",
+        "weight": 94,
+        "weightMeta": "2026-07-20T13:28:13.488Z"
+      },
+      "2026-07-21": {
+        "toggles": {},
+        "counters": {},
+        "customs": [
+          {
+            "id": "aca9f0fc-df19-4e4c-ad2a-493bc17e45ad",
+            "name": "100kcal 5p",
+            "kcal": 100,
+            "p": 5,
+            "count": 1,
+            "lastModified": "2026-07-21T12:31:56.635Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "mood": 4,
+        "moodMeta": "2026-07-21T11:41:41.926Z",
+        "weight": 94,
+        "weightMeta": "2026-07-21T11:41:52.750Z"
+      },
+      "2026-07-22": {
+        "toggles": {},
+        "counters": {
+          "soy_milk": 200,
+          "protein_casein_dymatize_elite_cookies_cream": 37.4,
+          "yogurt_half": 340,
+          "goldhen_egg_whites": 302.33,
+          "evoo_tsp": 10,
+          "bun_hotdog_hero_classic": 62,
+          "tj_eggplant_garlic_spread": 113.33,
+          "roll_salmon_maki_6pc": 0
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "soy_milk": "2026-07-22T13:56:04.045Z",
+          "protein_casein_dymatize_elite_cookies_cream": "2026-07-22T13:56:52.548Z",
+          "yogurt_half": "2026-07-22T13:57:00.957Z",
+          "goldhen_egg_whites": "2026-07-22T14:33:43-04:00",
+          "evoo_tsp": "2026-07-22T14:33:43-04:00",
+          "bun_hotdog_hero_classic": "2026-07-22T14:33:43-04:00",
+          "tj_eggplant_garlic_spread": "2026-07-22T14:33:43-04:00",
+          "roll_salmon_maki_6pc": "2026-07-22T18:24:03-04:00"
+        },
+        "mood": 5,
+        "moodMeta": "2026-07-23T11:54:51.458Z"
+      },
+      "2026-07-23": {
+        "toggles": {},
+        "counters": {
+          "david_bar_choc_chip_cookie_dough": 62,
+          "yogurt_oikos_pro_lemon": 150
+        },
+        "customs": [
+          {
+            "id": "21556194-35af-4282-82da-cb7d8c1febef",
+            "name": "125kcal 6p",
+            "kcal": 125,
+            "p": 6,
+            "count": 1,
+            "lastModified": "2026-07-23T21:12:24.346Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "david_bar_choc_chip_cookie_dough": "2026-07-23T21:11:32.358Z",
+          "yogurt_oikos_pro_lemon": "2026-07-23T21:11:53.807Z"
+        },
+        "mood": 6,
+        "moodMeta": "2026-07-23T11:54:55.203Z",
+        "waist": 105,
+        "waistMeta": "2026-07-23T16:23:11.907Z",
+        "neck": 43,
+        "neckMeta": "2026-07-23T21:11:04.049Z",
+        "weight": 93.2,
+        "weightMeta": "2026-07-23T21:13:26.200Z"
+      },
+      "2026-07-24": {
+        "toggles": {},
+        "counters": {
+          "david_bar_choc_chip_cookie_dough": 124,
+          "soy_milk": 200,
+          "yogurt_oikos_pro_lemon": 150,
+          "premier": 325
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "david_bar_choc_chip_cookie_dough": "2026-07-24T23:21:40.431Z",
+          "soy_milk": "2026-07-24T14:52:27.469Z",
+          "yogurt_oikos_pro_lemon": "2026-07-24T23:21:49.217Z",
+          "premier": "2026-07-24T23:22:05.288Z"
+        },
+        "waist": 104,
+        "waistMeta": "2026-07-24T18:07:03.665Z",
+        "weight": 91.7,
+        "weightMeta": "2026-07-24T18:07:03.424Z",
+        "neck": 43,
+        "neckMeta": "2026-07-24T18:07:03.537Z",
+        "mood": 6,
+        "moodMeta": "2026-07-24T23:21:37.432Z"
+      },
+      "2026-07-25": {
+        "toggles": {},
+        "counters": {
+          "premier": 650,
+          "yogurt_oikos_pro_lemon": 150,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "avocado_half": 50,
+          "hero_plain_bagel": 75,
+          "smoked_salmon_slice": 40
+        },
+        "customs": [
+          {
+            "id": "b5aedbe0-7322-4d7a-80b3-a0e124882592",
+            "name": "490kcal 15p",
+            "kcal": 490,
+            "p": 15,
+            "count": 1,
+            "lastModified": "2026-07-26T00:16:48.783Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "premier": "2026-07-26T00:17:13.938Z",
+          "yogurt_oikos_pro_lemon": "2026-07-25T19:27:34.322Z",
+          "david_bar_choc_chip_cookie_dough": "2026-07-25T19:27:43.348Z",
+          "avocado_half": "2026-07-25T15:50:03-04:00",
+          "hero_plain_bagel": "2026-07-25T15:50:03-04:00",
+          "smoked_salmon_slice": "2026-07-25T15:50:03-04:00"
+        },
+        "weight": 92.3,
+        "weightMeta": "2026-07-26T00:16:10.818Z",
+        "mood": 4,
+        "moodMeta": "2026-07-26T00:16:10.904Z"
+      },
+      "2026-07-26": {
+        "toggles": {},
+        "counters": {
+          "chobani_protein_raspberry_lemon": 190,
+          "soy_milk": 250,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "gortons_parmesan_fish_fillets": 154.5,
+          "earth_grown_veggie_burger": 71,
+          "ketchup_heinz_packet": 9
+        },
+        "customs": [
+          {
+            "id": "574967cc-925a-42dd-9ff9-612df535c0b1",
+            "name": "80kcal 1p",
+            "kcal": 80,
+            "p": 1,
+            "count": 1,
+            "lastModified": "2026-07-26T15:45:10.135Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "chobani_protein_raspberry_lemon": "2026-07-26T11:40:02-04:00",
+          "soy_milk": "2026-07-26T11:40:02-04:00",
+          "david_bar_choc_chip_cookie_dough": "2026-07-26T15:50:09.774Z",
+          "gortons_parmesan_fish_fillets": "2026-07-26T14:15:18-04:00",
+          "earth_grown_veggie_burger": "2026-07-26T14:15:18-04:00",
+          "ketchup_heinz_packet": "2026-07-26T14:15:18-04:00"
+        },
+        "mood": 5,
+        "moodMeta": "2026-07-26T15:23:08.866Z",
+        "weight": 92.6,
+        "weightMeta": "2026-07-26T15:22:01.239Z"
+      },
+      "2026-07-27": {
+        "toggles": {},
+        "counters": {
+          "david_bar_choc_chip_cookie_dough": 62,
+          "yogurt_half": 170,
+          "protein_casein_dymatize_elite_cookies_cream": 17
+        },
+        "customs": [
+          {
+            "id": "0bd71979-14aa-4512-aa9b-329bc2be2517",
+            "name": "450kcal 3p",
+            "kcal": 450,
+            "p": 3,
+            "count": 1,
+            "lastModified": "2026-07-27T13:46:29.657Z"
+          },
+          {
+            "id": "6570477e-c69c-4e49-a596-722f549d8974",
+            "name": "50kcal",
+            "kcal": 50,
+            "count": 1,
+            "lastModified": "2026-07-27T14:18:28.995Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "david_bar_choc_chip_cookie_dough": "2026-07-27T23:33:41.690Z",
+          "yogurt_half": "2026-07-27T23:33:52.700Z",
+          "protein_casein_dymatize_elite_cookies_cream": "2026-07-27T23:34:00.926Z"
+        },
+        "mood": 6.5,
+        "moodMeta": "2026-07-27T23:55:29.889Z"
+      },
+      "2026-07-28": {
+        "toggles": {},
+        "counters": {
+          "hero_plain_bagel": 75,
+          "ff_greek_tropical": 150,
+          "bar_luna_lemon_zest": 24,
+          "chobani_protein_raspberry_lemon": 190,
+          "david_bar_choc_chip_cookie_dough": 62
+        },
+        "customs": [
+          {
+            "id": "8206bf7b-970e-4d0a-9595-2dd99554d072",
+            "name": "caviar",
+            "kcal": 60,
+            "p": 7,
+            "count": 1,
+            "lastModified": "2026-07-28T13:10:08.662Z"
+          },
+          {
+            "id": "eb38b322-cfc7-49b0-b67b-5318c3cbcb55",
+            "name": "butter",
+            "kcal": 70,
+            "count": 1,
+            "lastModified": "2026-07-28T13:10:47.633Z"
+          },
+          {
+            "id": "e7ffe83d-2261-4c66-879c-5709e1fb8930",
+            "name": "cakes",
+            "kcal": 120,
+            "count": 1,
+            "lastModified": "2026-07-28T13:11:09.997Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "hero_plain_bagel": "2026-07-28T13:08:59.370Z",
+          "ff_greek_tropical": "2026-07-28T13:09:10.842Z",
+          "bar_luna_lemon_zest": "2026-07-28T20:51:39.466Z",
+          "chobani_protein_raspberry_lemon": "2026-07-28T20:51:52.514Z",
+          "david_bar_choc_chip_cookie_dough": "2026-07-28T20:53:38.041Z"
+        },
+        "weight": 92.1,
+        "weightMeta": "2026-07-28T20:51:18.239Z",
+        "mood": 6,
+        "moodMeta": "2026-07-28T20:51:18.373Z"
+      },
+      "2026-07-29": {
+        "toggles": {},
+        "counters": {
+          "string_cheese": 42,
+          "bun_hotdog_hero_classic": 31,
+          "david_bar_choc_chip_cookie_dough": 124,
+          "planters_sea_salt_vinegar_peanuts": 28,
+          "harvest_snaps": 12.5,
+          "chobani_protein_raspberry_lemon": 190,
+          "lean_cuisine_lasagna_meat_sauce": 297,
+          "soy_milk_original": 100
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "string_cheese": "2026-07-29T15:51:17.458Z",
+          "bun_hotdog_hero_classic": "2026-07-29T15:51:24.919Z",
+          "david_bar_choc_chip_cookie_dough": "2026-07-29T18:29:59-04:00",
+          "planters_sea_salt_vinegar_peanuts": "2026-07-29T16:33:14-04:00",
+          "harvest_snaps": "2026-07-29T21:14:48.056Z",
+          "chobani_protein_raspberry_lemon": "2026-07-29T21:16:00.056Z",
+          "lean_cuisine_lasagna_meat_sauce": "2026-07-29T18:29:59-04:00",
+          "soy_milk_original": "2026-07-29T22:32:20.173Z"
+        }
+      },
+      "2026-07-30": {
+        "toggles": {},
+        "counters": {
+          "soy_milk": 450,
+          "quest_smores_bar": 60,
+          "nectarine": 140,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "chobani_protein_raspberry_lemon": 380,
+          "protein_soy_isolate_myvegan_chocolate": 30,
+          "lean_cuisine_salisbury_mac_cheese": 269
+        },
+        "customs": [
+          {
+            "id": "d985840e-39a9-48ae-a51a-85b360995cd8",
+            "name": "40kcal 4p",
+            "kcal": 40,
+            "p": 4,
+            "count": 1,
+            "lastModified": "2026-07-30T12:31:16.408Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "soy_milk": "2026-07-30T20:28:11.242Z",
+          "quest_smores_bar": "2026-07-30T08:36:23-04:00",
+          "nectarine": "2026-07-30T08:36:23-04:00",
+          "david_bar_choc_chip_cookie_dough": "2026-07-30T20:18:23.375Z",
+          "chobani_protein_raspberry_lemon": "2026-07-30T22:35:17.227Z",
+          "protein_soy_isolate_myvegan_chocolate": "2026-07-30T20:27:58.502Z",
+          "lean_cuisine_salisbury_mac_cheese": "2026-07-30T18:39:01-04:00"
+        },
+        "weight": 91.5,
+        "weightMeta": "2026-07-30T22:37:56.829Z",
+        "mood": 7,
+        "moodMeta": "2026-07-30T22:37:56.924Z",
+        "neck": 43,
+        "neckMeta": "2026-07-30T22:37:57.015Z"
+      },
+      "2026-07-31": {
+        "toggles": {},
+        "counters": {
+          "soy_milk": 550,
+          "hero_plain_bagel": 75,
+          "bun_hotdog_hero_classic": 62,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "chobani_protein_raspberry_lemon": 190,
+          "yogurt_half": 340,
+          "protein_whey_dymatize_iso100_vanilla": 66,
+          "blueberry": 230
+        },
+        "customs": [
+          {
+            "id": "58d01ecb-8973-472b-aa0e-bb837bc7a1a6",
+            "name": "250kcal",
+            "kcal": 250,
+            "count": 1,
+            "lastModified": "2026-07-31T14:25:16.089Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "soy_milk": "2026-08-01T00:08:24.563Z",
+          "hero_plain_bagel": "2026-07-31T14:24:41.268Z",
+          "bun_hotdog_hero_classic": "2026-07-31T14:24:43.435Z",
+          "david_bar_choc_chip_cookie_dough": "2026-07-31T23:37:48.068Z",
+          "chobani_protein_raspberry_lemon": "2026-07-31T23:37:50.010Z",
+          "yogurt_half": "2026-08-01T00:07:36.892Z",
+          "protein_whey_dymatize_iso100_vanilla": "2026-08-01T00:07:59.454Z",
+          "blueberry": "2026-07-31T20:11:34-04:00"
+        },
+        "mood": 7,
+        "moodMeta": "2026-07-31T12:30:31.929Z",
+        "weight": 90.7,
+        "weightMeta": "2026-07-31T23:14:06.413Z",
+        "waist": 103,
+        "waistMeta": "2026-07-31T15:27:41.400Z"
+      },
+      "2026-08-01": {
+        "toggles": {},
+        "counters": {
+          "tj_serrano_ham": 60,
+          "string_cheese": 42,
+          "banana": 59,
+          "soy_milk": 250,
+          "cantaloupe": 300,
+          "david_bar_choc_chip_cookie_dough": 62
+        },
+        "customs": [
+          {
+            "id": "d801cdab-f37e-4579-9e4b-ee91f1e8dfc0",
+            "name": "450kcal 25p",
+            "kcal": 450,
+            "p": 25,
+            "count": 1,
+            "lastModified": "2026-08-01T23:06:51.086Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "tj_serrano_ham": "2026-08-01T12:49:25.654Z",
+          "string_cheese": "2026-08-01T08:44:01-04:00",
+          "banana": "2026-08-01T12:49:33.283Z",
+          "soy_milk": "2026-08-01T12:49:57.209Z",
+          "cantaloupe": "2026-08-01T10:48:27-04:00",
+          "david_bar_choc_chip_cookie_dough": "2026-08-01T23:06:03.631Z"
+        },
+        "mood": 6,
+        "moodMeta": "2026-08-01T23:05:34.053Z",
+        "weight": 90.8,
+        "weightMeta": "2026-08-01T23:05:33.906Z",
+        "neck": 43,
+        "neckMeta": "2026-08-01T23:05:34.198Z"
+      },
+      "2026-08-02": {
+        "toggles": {},
+        "counters": {
+          "david_bar_choc_chip_cookie_dough": 62,
+          "yogurt_oikos_triple_zero_lemon": 150,
+          "premier": 325
+        },
+        "customs": [
+          {
+            "id": "a1faa6e4-8840-4c58-ad3a-f205b597495a",
+            "name": "100kcal",
+            "kcal": 100,
+            "count": 1,
+            "lastModified": "2026-08-03T20:20:09.237Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "david_bar_choc_chip_cookie_dough": "2026-08-03T20:20:17.764Z",
+          "yogurt_oikos_triple_zero_lemon": "2026-08-03T20:20:22.499Z",
+          "premier": "2026-08-03T20:20:37.348Z"
+        },
+        "mood": 6,
+        "moodMeta": "2026-08-02T13:31:05.311Z",
+        "weight": 91,
+        "weightMeta": "2026-08-02T13:31:15.834Z"
+      },
+      "2026-08-03": {
+        "toggles": {},
+        "counters": {
+          "lean_cuisine_meatloaf_mashed": 265
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "lean_cuisine_meatloaf_mashed": "2026-08-03T16:26:08-04:00"
+        },
+        "neck": 43,
+        "neckMeta": "2026-08-03T22:05:12.010Z",
+        "weight": 91,
+        "weightMeta": "2026-08-03T22:05:11.911Z"
+      },
+      "2026-08-04": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "mood": 4,
+        "moodMeta": "2026-08-04T18:49:28.380Z",
+        "weight": 90.7,
+        "weightMeta": "2026-08-04T20:25:40.885Z"
+      },
+      "2026-08-05": {
+        "toggles": {},
+        "counters": {
+          "soy_milk": 150,
+          "david_bar_choc_chip_cookie_dough": 62
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "soy_milk": "2026-08-05T14:37:03.023Z",
+          "david_bar_choc_chip_cookie_dough": "2026-08-05T14:37:13.778Z"
+        },
+        "weight": 90.2,
+        "weightMeta": "2026-08-05T14:37:51.924Z",
+        "waist": 104,
+        "waistMeta": "2026-08-05T14:39:40.042Z",
+        "mood": 6,
+        "moodMeta": "2026-08-05T14:40:26.972Z"
+      },
+      "2026-08-06": {
+        "toggles": {},
+        "counters": {
+          "soy_milk": 300,
+          "peach": 163,
+          "oikos_triple_zero_vanilla": 204,
+          "david_bar_choc_chip_cookie_dough": 124,
+          "yogurt_oikos_triple_zero_lemon": 0,
+          "arnold_keto_rolls": 114,
+          "peanut_butter_delight_aldi": 56,
+          "quest_chips_nacho": 32,
+          "ff_super_zero_vanilla": 125
+        },
+        "customs": [
+          {
+            "id": "d463b449-9976-4e80-ae52-db2afde50cf6",
+            "name": "350kcal",
+            "kcal": 350,
+            "count": 1,
+            "lastModified": "2026-08-06T12:39:13.866Z"
+          },
+          {
+            "id": "4f5f803d-8510-4d76-90d3-d89db6e51867",
+            "name": "50kcal 2.5p",
+            "kcal": 50,
+            "p": 2.5,
+            "count": 1,
+            "lastModified": "2026-08-06T18:30:29.699Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "soy_milk": "2026-08-06T12:37:44.630Z",
+          "peach": "2026-08-06T12:44:39.654Z",
+          "oikos_triple_zero_vanilla": "2026-08-06T11:45:43-04:00",
+          "david_bar_choc_chip_cookie_dough": "2026-08-06T20:11:46.060Z",
+          "yogurt_oikos_triple_zero_lemon": "2026-08-07T14:20:44.437Z",
+          "arnold_keto_rolls": "2026-08-06T18:59:35-04:00",
+          "peanut_butter_delight_aldi": "2026-08-06T18:59:35-04:00",
+          "quest_chips_nacho": "2026-08-06T18:59:35-04:00",
+          "ff_super_zero_vanilla": "2026-08-06T18:59:35-04:00"
+        },
+        "neck": 43,
+        "neckMeta": "2026-08-06T22:51:09.154Z",
+        "weight": 90.2,
+        "weightMeta": "2026-08-07T14:21:18.437Z"
+      },
+      "2026-08-07": {
+        "toggles": {},
+        "counters": {
+          "quest_chips_nacho": 32
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "quest_chips_nacho": "2026-08-07T14:34:54.687Z"
+        },
+        "mood": 5,
+        "moodMeta": "2026-08-07T14:21:35.478Z",
+        "weight": 90.6,
+        "weightMeta": "2026-08-07T14:21:39.933Z"
       }
     },
     "savedItems": [],
@@ -1661,21 +2334,21 @@
         "timeFormat": "24h"
       }
     },
-    "sortMode": "ratio",
+    "sortMode": "alpha",
     "collapsedGroups": {
       "section-density": true,
       "targets-daily": true,
       "details-profile-section": true,
-      "catalog-archive": true,
       "details-sync-error-banner": true,
-      "section-archive-section": true,
-      "today-customs": true,
       "targets-accumulation": true,
+      "history": true,
+      "supplements-water": true,
       "section-mood-tracker": true,
       "profile": true,
-      "supplements-water": true,
-      "history": true,
-      "catalog-ratio": true,
+      "details-recipe-maker": true,
+      "section-archive-section": true,
+      "catalog-archive": true,
+      "today-customs": true,
       "details-add-new-item": true
     },
     "userCatalog": {
@@ -1819,6 +2492,63 @@
           "defaultMeasuredIn": "g",
           "purines": 0.05
         },
+        "arnold_keto_rolls": {
+          "name": "Roll keto sandwich thins Arnold",
+          "brand": "Arnold",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.754386,
+          "p": 0.210526,
+          "fat": 0.052632,
+          "sf": 0.008772,
+          "transFat": 0,
+          "carbs": 0.368421,
+          "fiber": 0.298246,
+          "sugar": 0.008772,
+          "addedSugar": 0,
+          "cholesterol": 0,
+          "sodium": 5.438596,
+          "water": 0.35,
+          "vitD": 0,
+          "calcium": 1.052632,
+          "iron": 0.015789,
+          "potassium": 1.403509,
+          "phosphorus": 1.58,
+          "magnesium": 0.53,
+          "selenium": 0.26,
+          "zinc": 0.012,
+          "manganese": 0.009,
+          "copper": 0.0026,
+          "b1": 0.0018,
+          "b3": 0.018,
+          "b9": 0.35,
+          "vitE": 0.018,
+          "choline": 0.26,
+          "purines": 0.53,
+          "omega3": 0.0018,
+          "displayUnits": [
+            {
+              "label": "1 roll (57 g)",
+              "amount": 57,
+              "unit": "g",
+              "default": true,
+              "multiplier": 57
+            },
+            {
+              "label": "½ roll (28.5 g)",
+              "amount": 28.5,
+              "unit": "g",
+              "multiplier": 28.5
+            },
+            {
+              "label": "bag (6 rolls, 340 g)",
+              "amount": 340,
+              "unit": "g",
+              "multiplier": 340
+            }
+          ],
+          "notes": "Arnold Superior Keto Sandwich Thins / Rolls (Bimbo Bakeries), 6 pre-sliced rolls, net 12oz/340g, 57g/roll. Label per roll: 100 kcal, 3g fat (0.5 sat, 1.5 poly, 1 mono), 0 trans, 0 chol, 310mg sodium (13%), 21g carb, 17g fiber (61% DV!), <1g sugar, 0 added, 12g protein, Vit D 0, Ca 60mg, Iron 0.9mg, K 80mg. Net carb 4g. kcal STORED AT LABEL 100 -- already embeds ~0.5 kcal/g on the fiber (net-carb base ~91 + ~9). NOTE: fiber = soluble corn fiber + inulin (chicory) + oat fiber + modified wheat starch. Inulin & soluble corn fiber are MORE fermentable than the RS4/psyllium in the Hero/Royo keto breads, so a strict ~2 kcal/g fermentable-fiber treatment would put this ~110-115 kcal; kept at label for consistency with the other keto breads. Off-label micros ESTIMATED from wheat protein isolate + sunflower flour + oat fiber + soybean oil: phosphorus ~90mg/roll (relevant to reduced-eGFR history), Mg ~30mg, selenium ~15mcg, folate ~20mcg. LOW-MEDIUM confidence. PURINES ~30mg/roll -- LOW-MODERATE (wheat gluten/oat). CONTAINS wheat, soy, sesame; bakery may use milk."
+        },
         "avocado_half": {
           "name": "Avocado",
           "category": "items",
@@ -1869,16 +2599,13 @@
           "kcal": 1.0625,
           "p": 0.1125,
           "fat": 0.0125,
-          "sf": 0,
           "transFat": 0,
           "carbs": 0.4625,
           "fiber": 0.3875,
           "sugar": 0.025,
           "addedSugar": 0.0125,
-          "cholesterol": 0,
           "sodium": 4.625,
           "water": 0.35,
-          "vitD": 0,
           "calcium": 0.25,
           "iron": 0.015,
           "potassium": 1.25,
@@ -1902,6 +2629,12 @@
           "purines": 0.15,
           "displayUnits": [
             {
+              "label": "1 bag (6 bagels, 480 g)",
+              "amount": 480,
+              "unit": "g",
+              "multiplier": 480
+            },
+            {
               "label": "1 bagel (80 g)",
               "amount": 80,
               "unit": "g",
@@ -1913,12 +2646,6 @@
               "amount": 40,
               "unit": "g",
               "multiplier": 40
-            },
-            {
-              "label": "1 bag (6 bagels, 480 g)",
-              "amount": 480,
-              "unit": "g",
-              "multiplier": 480
             }
           ],
           "notes": "Royo Bread Co. Cinnamon Bagels. 6 per bag, net 17oz/480g => 80g/bagel. Label per bagel (80g): 70 kcal LABEL, 1g fat, 0 sat, 0 trans, 0 chol, 370mg sodium (16% DV, moderately high), 37g carb, 31g fiber, 2g sugar, 1g added sugar, 9g protein, Vit D 0, Ca 20mg, Iron 1.2mg, K 100mg. Net carb 6g. KCAL CORRECTION: stored 85 kcal/bagel (1.0625/g). Fiber blend is resistant wheat starch (RS4, cross-linked/phosphated -- least fermentable RS, ~0-1 kcal/g), oat fiber (insoluble, ~0-1), wheat bran (partially fermentable, ~1-2), psyllium husk (soluble but poorly fermented, ~0), and flaxseed. Applied ~0.5 kcal/g x 31g fiber = ~15 kcal over label's 70 = 85 total (real value plausibly 80-90); same methodology as the Hero RS4 bagel/bun in this catalog, NOT the blanket 2 kcal/g fiber rule. omega-3 (ALA ~0.4g/bagel, LOW confidence) from flaxseed (USDA milled flax ~22.8g ALA/100g; flax mid-ingredient-list). Off-label micros ESTIMATED (LOW-MEDIUM confidence) from wheat protein + resistant wheat starch + oat fiber + wheat bran + rye + flax composition: Mg ~44mg, phosphorus ~120mg/bagel (relevant to reduced-eGFR history), manganese/thiamine/niacin bumped by bran+flax, selenium from wheat (~0.25 mcg/g). B12 = 0 (vegan/plant). Ca/Fe/K/Na/VitD label-derived (high confidence). Purines ~12mg/bagel -- LOW (grains/bran low-moderate) -- LOW CONFIDENCE. Protein source: wheat protein/gluten (lysine-limited; no complementary legume in the cinnamon variant). Full ingredients: water, resistant wheat starch, wheat protein, oat fiber, wheat bran, psyllium husk, cultured wheat flour, flaxseed, currants, cinnamon, brown sugar, salt, malted syrup, yeast, apple cider vinegar, rye flour. CONTAINS WHEAT; facility also processes egg, soy. Vegan, keto-marketed."
@@ -2317,6 +3044,65 @@
           "notes": "Goya dry black beans. Label per 1/4 cup (35 g): 80 kcal · 10 g P · 19 g carb · 11 g fiber · 530 mg K · 5 mg Na · 0.5 g fat. CATALOG USES CORRECTED kcal = 100 (Goya treats fiber as 0 kcal; fermentable fiber adds back ~2 kcal/g = +22 kcal). Real k/g P ~10, not the label-implied 8. When boiled at home, mass triples (35 g dry → ~100 g cooked); kcal and protein transfer 1:1. Goya canned shows k/g P 14 because canned label uses standard fiber=4kcal/g accounting — same beans, different label convention.",
           "brand": "Goya"
         },
+        "blueberry": {
+          "name": "Blueberry",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.53,
+          "p": 0.0074,
+          "carbs": 0.1449,
+          "fiber": 0.024,
+          "sugar": 0.0996,
+          "fat": 0.0033,
+          "sf": 0.00028,
+          "sodium": 0.01,
+          "water": 0.8421,
+          "vitA": 0.03,
+          "vitC": 0.097,
+          "vitE": 0.0057,
+          "vitK": 0.193,
+          "b1": 0.00037,
+          "b2": 0.00041,
+          "b3": 0.00418,
+          "b5": 0.00124,
+          "b6": 0.00052,
+          "b7": 0.005,
+          "b9": 0.06,
+          "choline": 0.06,
+          "calcium": 0.06,
+          "iron": 0.0028,
+          "magnesium": 0.06,
+          "phosphorus": 0.12,
+          "potassium": 0.77,
+          "zinc": 0.0016,
+          "selenium": 0.001,
+          "copper": 0.00057,
+          "manganese": 0.00336,
+          "iodine": 0.003,
+          "purines": 0.15,
+          "displayUnits": [
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "default": true,
+              "multiplier": 100
+            },
+            {
+              "label": "1 cup (148 g)",
+              "amount": 148,
+              "unit": "g",
+              "multiplier": 148
+            },
+            {
+              "label": "1 pint clamshell (~340 g)",
+              "amount": 340,
+              "unit": "g",
+              "multiplier": 340
+            }
+          ],
+          "notes": "Raw highbush blueberries. Macros and micros from USDA SR Legacy 09050 (blueberries, raw) - HIGH CONFIDENCE. kcal corrected from USDA 57/100g to 53/100g: USDA applies fruit-specific Atwater 3.60 kcal/g to total carbohydrate by difference, which counts the 2.4 g/100g fiber at 3.60; fermentable fiber realistically yields ~2 kcal/g, so 2.4 g x 1.6 kcal = ~3.8 kcal subtracted. Sodium 1 mg/100g (USDA) retained rather than label 0. b7 (biotin) 0.5 mcg/100g and iodine 0.3 mcg/100g are estimates - not in SR Legacy, blueberries carry only trace amounts - LOW CONFIDENCE. purines 15 mg/100g estimated from Japanese purine tables for berry fruit (low-purine class, ~10-20 mg/100g) - LOW CONFIDENCE."
+        },
         "bran_flakes": {
           "name": "Bran flakes",
           "category": "items",
@@ -2390,12 +3176,10 @@
           "p": 0.1774,
           "carbs": 0.371,
           "fiber": 0.3548,
-          "sugar": 0,
           "addedSugar": 0,
           "fat": 0.0645,
           "sf": 0.0081,
           "transFat": 0,
-          "cholesterol": 0,
           "sodium": 5.9677,
           "calcium": 0.3226,
           "iron": 0.0161,
@@ -2534,6 +3318,62 @@
           ],
           "defaultMeasuredIn": "g"
         },
+        "cantaloupe": {
+          "name": "Cantaloupe",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.34,
+          "p": 0.0084,
+          "fat": 0.0019,
+          "sf": 0.0005,
+          "transFat": 0,
+          "carbs": 0.0816,
+          "fiber": 0.009,
+          "sugar": 0.0786,
+          "addedSugar": 0,
+          "cholesterol": 0,
+          "sodium": 0.16,
+          "water": 0.9,
+          "potassium": 2.67,
+          "vitC": 0.367,
+          "vitA": 1.69,
+          "calcium": 0.09,
+          "iron": 0.0021,
+          "magnesium": 0.12,
+          "phosphorus": 0.15,
+          "b3": 0.00734,
+          "b6": 0.00072,
+          "b9": 0.21,
+          "choline": 0.076,
+          "vitE": 0.0005,
+          "vitK": 0.025,
+          "copper": 0.00041,
+          "manganese": 0.00041,
+          "zinc": 0.0018,
+          "purines": 0.1,
+          "displayUnits": [
+            {
+              "label": "1 cup cubed (160 g)",
+              "amount": 160,
+              "unit": "g",
+              "default": true,
+              "multiplier": 160
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            },
+            {
+              "label": "1 wedge (1/8 melon, 69 g)",
+              "amount": 69,
+              "unit": "g",
+              "multiplier": 69
+            }
+          ],
+          "notes": "Cantaloupe (muskmelon), raw (USDA SR). Per 100g: 34 kcal, 0.84g protein, 0.19g fat, 8.16g carb, 0.9g fiber, 7.86g sugar (all natural), K 267mg, Vit C 36.7mg (HIGH), Vit A 169mcg RAE (HIGH -- beta-carotene), folate 21mcg, Ca 9mg, Mg 12mg, P 15mg, choline 7.6mg, sodium 16mg. ~90% water. Purines ~10mg/100g -- LOW (fruit, gout-favorable). Whole food, high confidence (USDA)."
+        },
         "cc": {
           "name": "Cottage cheese 2%",
           "category": "items",
@@ -2664,10 +3504,8 @@
           "fiber": 0.0238,
           "sugar": 0.119,
           "addedSugar": 0.0952,
-          "cholesterol": 0,
           "sodium": 6.4286,
           "water": 0.03,
-          "vitD": 0,
           "calcium": 0.7143,
           "iron": 0.0524,
           "potassium": 2.8571,
@@ -2689,11 +3527,10 @@
           "purines": 0.3238,
           "displayUnits": [
             {
-              "label": "1 cup (42 g)",
-              "amount": 42,
+              "label": "container (252 g)",
+              "amount": 252,
               "unit": "g",
-              "default": true,
-              "multiplier": 42
+              "multiplier": 252
             },
             {
               "label": "100 g",
@@ -2702,10 +3539,11 @@
               "multiplier": 100
             },
             {
-              "label": "container (252 g)",
-              "amount": 252,
+              "label": "1 cup (42 g)",
+              "amount": 42,
               "unit": "g",
-              "multiplier": 252
+              "default": true,
+              "multiplier": 42
             }
           ],
           "notes": "Premier Protein Cereal, Chocolate. Distributed by Post Consumer Brands. About 6 servings/container (42g each => ~252g). kcal NOT corrected: label 180 reconciles with Atwater 4-4-9 (5x9+14x4+20x4~181); fiber only 1g and disclosed, no sugar alcohols/polydextrose, stevia non-nutritive. Protein 20g stored at label (nitrogen). Source is a plant blend dominated by wheat gluten + wheat protein isolate (lysine-limited), plus pea protein concentrate (complements lysine) and almonds; DIAAS-adjusted utilizable protein for muscle-protein-synthesis is meaningfully below 20g, but no fixed downgrade applied (no rule for gluten/pea blends, unlike collagen). Sodium/calcium/iron/potassium/vitD are label-exact. Off-label micros ESTIMATED from ingredient model (~14g wheat gluten, ~8g almonds, ~6g wheat protein isolate, ~3g pea protein, ~6g corn flour, ~4g sugar, ~1.5g cocoa) anchored to USDA #168147 vital wheat gluten (Se 39.7, P 260, Mg 25, Zn 0.85, Cu 0.18 mg/100g) + almonds/cocoa/pea -- LOW CONFIDENCE. Per serving approx: Mg 45mg, P 128mg (relevant to reduced-eGFR history), vitamin E 2mg (almonds), Se 10mcg. Purines ~14mg/serving -- LOW purine (wheat gluten/seitan low, pea moderate; net well under 50mg/serving) -- LOW CONFIDENCE. b12, vitA, vitK, b7, iodine, molybdenum, chromium omitted (trace/absent or unknowable in this formulation)."
@@ -2861,11 +3699,15 @@
           "displayUnits": [
             {
               "label": "1 cutlet (~130 g)",
+              "amount": 130,
+              "unit": "g",
               "default": true,
               "multiplier": 130
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             }
           ],
@@ -2916,11 +3758,8 @@
           "cholesterol": 0.1053,
           "sodium": 0.7368,
           "calcium": 1.0263,
-          "iron": 0,
           "potassium": 1.5789,
-          "vitD": 0,
           "vitA": 0.05,
-          "vitC": 0,
           "vitE": 0.01,
           "vitK": 0.001,
           "b1": 0.0003,
@@ -2943,11 +3782,15 @@
           "displayUnits": [
             {
               "label": "1 container",
+              "amount": 190,
+              "unit": "g",
               "default": true,
               "multiplier": 190
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             }
           ],
@@ -3141,6 +3984,60 @@
           "defaultMeasuredIn": "g",
           "brand": "PerformX"
         },
+        "earth_grown_veggie_burger": {
+          "name": "Burger veggie Earth Grown (Aldi)",
+          "brand": "Earth Grown (Aldi)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.3521,
+          "p": 0.0704,
+          "fat": 0.02817,
+          "sf": 0,
+          "transFat": 0,
+          "carbs": 0.2254,
+          "fiber": 0.04225,
+          "sugar": 0.04225,
+          "addedSugar": 0,
+          "cholesterol": 0,
+          "sodium": 4.0845,
+          "water": 0.6,
+          "vitD": 0,
+          "calcium": 0.4225,
+          "iron": 0.01408,
+          "potassium": 4.6479,
+          "magnesium": 0.42,
+          "phosphorus": 1.13,
+          "zinc": 0.01,
+          "selenium": 0.04,
+          "copper": 0.0014,
+          "manganese": 0.007,
+          "b1": 0.0014,
+          "b3": 0.007,
+          "b6": 0.0014,
+          "b9": 0.56,
+          "vitA": 0.7,
+          "vitC": 0.07,
+          "vitK": 0.28,
+          "choline": 0.28,
+          "omega3": 0.0014,
+          "purines": 0.56,
+          "displayUnits": [
+            {
+              "label": "1 burger (71 g)",
+              "amount": 71,
+              "unit": "g",
+              "default": true,
+              "multiplier": 71
+            },
+            {
+              "label": "box (4 burgers, 284 g)",
+              "amount": 284,
+              "unit": "g",
+              "multiplier": 284
+            }
+          ],
+          "notes": "Earth Grown (Aldi) Vegan Veggie Burger, vegetable burger with 11 vegetables. Certified vegan, cholesterol-free. Net 10oz/284g, 4 patties (2.5oz/71g each). Label per patty (71g): 90 kcal, 2g fat, 0 sat, 0 trans, 0 chol, 290mg sodium (13% DV), 16g carb, 3g fiber, 3g sugar, 0 added sugar, 5g protein, Vit D 0, Ca 30mg, Iron 1mg, K 330mg. KCAL CORRECTION: stored 96 kcal/patty (1.3521/g). Label 90 uses net-carb accounting (3g fiber counted at ~0 kcal); fiber here is WHOLE-FOOD (oats/beta-glucan, peas, edamame, chickpeas, vegetables) = genuinely fermentable ~2 kcal/g, so added back ~6 kcal (real ~94-96). NOT the ~0.5 kcal/g discount used for the isolated RS4/psyllium bread items. Protein 5g = plant blend (soy protein flour, soybeans, peas, chickpeas, oats); modest quantity, lysine ok from legumes. Off-label micros ESTIMATED LOW-MEDIUM confidence from the vegetable+legume+oat composition: Mg ~30mg, phosphorus ~80mg/patty (relevant to reduced-eGFR history), folate ~40mcg (legumes/spinach), vitamin A ~50mcg RAE (carrots/spinach/red pepper carotenoids), vitamin K ~20mcg (spinach/broccoli). PURINES ~40mg/patty MODERATE -- notable legume content (peas, edamame, soybeans, chickpeas are moderate-purine); relevant to uric-acid/gout history. LOW confidence. omega-3 (ALA) ~0.1g/patty from soybeans/canola. CONTAINS soy. Ingredients: carrots, peas, whole oats, zucchini, edamame, corn, string beans, spinach, corn meal, onions, potato starch, soy protein flour, organic wheat-free tamari, water, organic soybeans, salt, chickpeas, dried onion, canola oil, red peppers, broccoli, granulated garlic, parsley."
+        },
         "edamame_half": {
           "name": "Edamame shelled",
           "category": "items",
@@ -3150,7 +4047,6 @@
           "fiber": 0.0471,
           "sugar": 0.0235,
           "fat": 0.0471,
-          "sf": 0,
           "sodium": 0.0588,
           "water": 0.6608,
           "vitC": 0.06,
@@ -3176,25 +4072,29 @@
           "purines": 1.7,
           "displayUnits": [
             {
-              "label": "1/2 cup (85g)",
-              "default": true,
-              "multiplier": 85
+              "label": "1 bag (~5 servings)",
+              "amount": 425,
+              "unit": "g",
+              "multiplier": 425
             },
             {
               "label": "1 cup",
+              "amount": 170,
+              "unit": "g",
               "multiplier": 170
             },
             {
-              "label": "1 bag (~5 servings)",
-              "multiplier": 425
+              "label": "1/2 cup (85g)",
+              "amount": 85,
+              "unit": "g",
+              "default": true,
+              "multiplier": 85
             }
           ],
           "defaultMeasuredIn": "g",
           "brand": "Season's Choice (Aldi)",
           "transFat": 0,
-          "cholesterol": 0,
           "addedSugar": 0,
-          "vitD": 0,
           "notes": "Season's Choice shelled edamame (Aldi), product of China. Label per 1/2 cup (85g): 90 kcal, 10g protein, 4g fat, 6g carb, 4g fiber, 2g sugar, 5mg sodium, Ca 50mg, Fe 1.8mg (10% DV), K 410mg (8% DV). MACROS updated to this real label (was generic USDA estimate at 1.322 kcal/g / 12.4 kcal-per-g-protein; real label is 1.059 kcal/g / 9.0 kcal-per-g-protein — leaner). Deep-researched micros KEPT from USDA edamame (label omits them): folate (B9) very high ~3.1 mcg/g, vit K ~0.26 mcg/g, magnesium ~0.64 mg/g, phosphorus, choline ~0.56 mg/g, zinc, Mn, Cu, selenium, biotin (B7), molybdenum. Purines moderate (~170 mg/100g soybean-based — flag for gout at large quantities). Ingredients: soybeans. Contains soy."
         },
         "egg_fried": {
@@ -3550,13 +4450,14 @@
           "displayUnits": [
             {
               "label": "full recipe",
-              "multiplier": 553,
               "amount": 553,
               "unit": "g",
               "default": true,
-              "locked": true
+              "locked": true,
+              "multiplier": 553
             }
-          ]
+          ],
+          "defaultMeasuredIn": "units"
         },
         "ff_greek_tropical": {
           "name": "Friendly Farms Nonfat Greek Yogurt Tropical Fruit",
@@ -3893,6 +4794,7 @@
               "label": "½ carton",
               "amount": 453.5,
               "unit": "g",
+              "default": true,
               "multiplier": 453.5
             },
             {
@@ -3911,12 +4813,68 @@
               "label": "3 Tbsp (label)",
               "amount": 46,
               "unit": "g",
-              "default": true,
               "multiplier": 46
             }
           ],
           "notes": "Label-derived (high confidence): kcal, macros, sodium (500mg/28g = EXTREME 17.9 mg/g), cholesterol, Ca (2% DV), Fe (6% DV). Estimated from USDA dried beef composition (high confidence): zinc very high (~0.1 mg/g — beef concentrated), B12 (~0.05 mcg/g excellent), selenium, choline, phosphorus, magnesium. Water ~25% (jerky concentrates beef). Purines MODERATE-HIGH (~100 mg/100g — flag for gout history). Ingredients: beef, gluten-free soy sauce (water, soybeans, rice, salt), beef broth, <2% flavorings, black pepper, vinegar, cultured celery powder (cultured celery powder + sea salt — natural nitrite source, chemically equivalent to added sodium nitrite), granulated garlic, salt. Contains soy. Marketed as no added nitrites/MSG/artificial sweeteners + gluten-free.",
           "brand": "Goldhen (Aldi)"
+        },
+        "gortons_parmesan_fish_fillets": {
+          "name": "Fish fillets Gorton's parmesan crusted breaded",
+          "brand": "Gorton's",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.5243,
+          "p": 0.1068,
+          "fat": 0.1359,
+          "sf": 0.009709,
+          "transFat": 0,
+          "carbs": 0.2233,
+          "fiber": 0.009709,
+          "sugar": 0.02913,
+          "addedSugar": 0,
+          "cholesterol": 0.3398,
+          "sodium": 5.7282,
+          "water": 0.5,
+          "vitD": 0.002913,
+          "calcium": 0.1942,
+          "iron": 0.01165,
+          "potassium": 2.1359,
+          "omega3": 0.001165,
+          "selenium": 0.29,
+          "b12": 0.024,
+          "phosphorus": 1.94,
+          "magnesium": 0.24,
+          "b3": 0.019,
+          "choline": 0.63,
+          "zinc": 0.005,
+          "iodine": 0.39,
+          "b1": 0.002,
+          "b2": 0.002,
+          "b9": 0.39,
+          "purines": 1.2,
+          "displayUnits": [
+            {
+              "label": "2 fillets (103 g)",
+              "amount": 103,
+              "unit": "g",
+              "default": true,
+              "multiplier": 103
+            },
+            {
+              "label": "1 fillet (51.5 g)",
+              "amount": 51.5,
+              "unit": "g",
+              "multiplier": 51.5
+            },
+            {
+              "label": "box (5 servings, 515 g)",
+              "amount": 515,
+              "unit": "g",
+              "multiplier": 515
+            }
+          ],
+          "notes": "Gorton's Parmesan Crusted Breaded Fish Fillets (wild-caught Alaskan pollock, whole fillet not minced, real parmesan/romano, breadcrumb coating). 5 servings/container, 2 fillets (103g)/serving => ~515g box, ~51.5g/fillet. Label per 2 fillets (103g): 260 kcal, 14g fat (1g sat -- low, canola/soybean oil), 0 trans, 35mg chol, 590mg sodium (26% DV), 23g carb, 1g fiber, 3g sugar, 0 added, 11g protein, Vit D 0.3mcg, Ca 20mg, Iron 1.2mg, K 220mg, plus 120mg EPA+DHA omega-3/serving. All label-exact (high confidence). kcal NOT corrected (fiber only 1g, breading; negligible). Off-label micros ESTIMATED from breaded pollock + cheese + enriched flour: selenium ~30mcg/serving (pollock high), B12 ~2.5mcg, phosphorus ~200mg/serving (relevant to reduced-eGFR history; also aluminum phosphate in coating), choline ~65mg, iodine ~40mcg (fish), folate ~40mcg (enriched flour). LOW-MEDIUM confidence. PURINES ~1.2 mg/g => ~124mg per 103g serving -- MODERATE-HIGH (pollock; fish). Relevant to uric-acid/gout history. LOW confidence. CONTAINS: fish (pollock), milk (parmesan/whey), wheat. Fried/baked breaded product. Uncooked -- cook to 165F."
         },
         "guac_tbsp": {
           "name": "Guacamole",
@@ -3971,7 +4929,6 @@
           "carbs": 0.0179,
           "sugar": 0.0089,
           "addedSugar": 0.0089,
-          "fiber": 0,
           "fat": 0.0357,
           "sf": 0.0089,
           "transFat": 0,
@@ -4758,11 +5715,15 @@
           "displayUnits": [
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "default": true,
               "multiplier": 100
             },
             {
               "label": "1 skewer (~95 g)",
+              "amount": 95,
+              "unit": "g",
               "multiplier": 95
             }
           ],
@@ -4854,6 +5815,164 @@
             }
           ],
           "defaultMeasuredIn": "g"
+        },
+        "lean_cuisine_lasagna_meat_sauce": {
+          "name": "Lasagna meat sauce Lean Cuisine",
+          "brand": "Lean Cuisine",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.9764,
+          "p": 0.06061,
+          "fat": 0.020202,
+          "sf": 0.010101,
+          "transFat": 0,
+          "carbs": 0.138047,
+          "fiber": 0.013468,
+          "sugar": 0.03367,
+          "addedSugar": 0.013468,
+          "cholesterol": 0.06734,
+          "sodium": 2.222222,
+          "water": 0.7,
+          "vitD": 0,
+          "calcium": 0.841751,
+          "iron": 0.007071,
+          "potassium": 2.895623,
+          "phosphorus": 0.84,
+          "magnesium": 0.135,
+          "zinc": 0.0067,
+          "selenium": 0.084,
+          "b12": 0.005,
+          "b3": 0.0135,
+          "b6": 0.001,
+          "b2": 0.001,
+          "b1": 0.0007,
+          "b9": 0.101,
+          "choline": 0.202,
+          "vitA": 0.27,
+          "vitC": 0.017,
+          "iodine": 0.1,
+          "purines": 0.3,
+          "displayUnits": [
+            {
+              "label": "1 package (297 g)",
+              "amount": 297,
+              "unit": "g",
+              "default": true,
+              "multiplier": 297
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Lean Cuisine Classic Lasagna with Meat Sauce (Nestle), frozen meal, 1 serving/container, net 10.5oz/297g. Label per package (297g): 290 kcal, 6g fat (3g sat, 1g mono, 0 poly), 0 trans, 20mg chol, 660mg sodium (29% DV), 41g carb, 4g fiber, 10g sugar, 4g added sugar, 18g protein, Vit D 0, Ca 250mg (20%), Iron 2.1mg, K 860mg (20%). All label-exact. kcal stored at label 290 BUT likely ~8 kcal overcounted: label uses total-carb x4, counting 4g fiber (wheat pasta/tomato/soy, fermentable ~2 kcal/g) at 4 kcal/g; real ~282. Small/uncertain, left at label (consistent w/ Volo ramen handling). Off-label micros ESTIMATED from beef+pork meat sauce + mozzarella/ricotta/parmesan + semolina pasta + tomato: phosphorus ~250mg/package (relevant to reduced-eGFR history), B12 ~1.5mcg, selenium ~25mcg, zinc ~2mg, vitA ~80mcg RAE. LOW-MEDIUM confidence. PURINES ~0.3 mg/g => ~89mg/package -- MODERATE (beef+pork meat sauce). Relevant to uric-acid/gout history. LOW confidence. Protein mix: beef/pork + dairy cheese + textured soy + wheat -- complete. CONTAINS wheat, milk, soy. Bioengineered ingredients."
+        },
+        "lean_cuisine_meatloaf_mashed": {
+          "name": "Meatloaf & mashed potatoes Lean Cuisine",
+          "brand": "Lean Cuisine",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.018868,
+          "p": 0.071698,
+          "fat": 0.037736,
+          "sf": 0.016981,
+          "transFat": 0,
+          "carbs": 0.09434,
+          "fiber": 0.007547,
+          "sugar": 0.015094,
+          "addedSugar": 0.003774,
+          "cholesterol": 0.169811,
+          "sodium": 2.90566,
+          "water": 0.7,
+          "vitD": 0,
+          "calcium": 0.226415,
+          "iron": 0.008679,
+          "potassium": 2.830189,
+          "phosphorus": 0.94,
+          "magnesium": 0.151,
+          "zinc": 0.0113,
+          "selenium": 0.094,
+          "b12": 0.0075,
+          "b3": 0.0151,
+          "b6": 0.0015,
+          "b2": 0.0011,
+          "b1": 0.00075,
+          "b9": 0.094,
+          "choline": 0.302,
+          "vitA": 0.189,
+          "vitC": 0.03,
+          "iodine": 0.113,
+          "purines": 0.38,
+          "displayUnits": [
+            {
+              "label": "1 package (265 g)",
+              "amount": 265,
+              "unit": "g",
+              "default": true,
+              "multiplier": 265
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Lean Cuisine Signature Meatloaf with Mashed Potatoes and Gravy (Nestle), frozen meal, 1 serving/container, net 9-3/8oz/265g. Label per package (265g): 270 kcal, 10g fat (4.5g sat, 2.5g mono, 0 poly), 0 trans, 45mg chol, 770mg sodium (33% DV -- HIGH), 25g carb, 2g fiber, 4g sugar, 1g added sugar, 19g protein, Vit D 0, Ca 60mg, Iron 2.3mg (15%), K 750mg (15%). All label-exact. kcal stored at label 270 (fiber only 2g; negligible correction). Off-label micros ESTIMATED from beef meatloaf (+ textured soy, rolled oats) + cream mashed potatoes + dairy: phosphorus ~250mg/package (relevant to reduced-eGFR history), B12 ~2mcg, selenium ~25mcg, zinc ~3mg, choline ~80mg. LOW-MEDIUM confidence. PURINES ~0.38 mg/g => ~100mg/package -- MODERATE-HIGH (beef meatloaf). Relevant to uric-acid/gout history. LOW confidence. CONTAINS egg, wheat, milk, sesame, soy. Bioengineered ingredients."
+        },
+        "lean_cuisine_salisbury_mac_cheese": {
+          "name": "Salisbury steak mac cheese Lean Cuisine",
+          "brand": "Lean Cuisine",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.9665,
+          "p": 0.0781,
+          "fat": 0.026,
+          "sf": 0.013,
+          "transFat": 0,
+          "carbs": 0.1004,
+          "fiber": 0.0074,
+          "sugar": 0.0112,
+          "addedSugar": 0,
+          "cholesterol": 0.1673,
+          "sodium": 2.6022,
+          "water": 0.7,
+          "vitD": 0.0011,
+          "calcium": 0.4089,
+          "iron": 0.0059,
+          "potassium": 3.1227,
+          "phosphorus": 0.93,
+          "magnesium": 0.15,
+          "zinc": 0.011,
+          "selenium": 0.11,
+          "b12": 0.0074,
+          "b3": 0.015,
+          "b6": 0.0011,
+          "b2": 0.0011,
+          "b1": 0.0007,
+          "b9": 0.11,
+          "choline": 0.3,
+          "vitA": 0.22,
+          "iodine": 0.11,
+          "purines": 0.45,
+          "displayUnits": [
+            {
+              "label": "1 package (269 g)",
+              "amount": 269,
+              "unit": "g",
+              "default": true,
+              "multiplier": 269
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Lean Cuisine Signature Salisbury Steak with Macaroni & Cheese (Nestle), frozen meal, 1 serving/container, net 9.5oz/269g. Label per package (269g): 260 kcal, 7g fat (3.5g sat, 2.5g mono, 0 poly), 0 trans, 45mg chol, 700mg sodium (30% DV), 27g carb, 2g fiber, 3g sugar, 0 added, 21g protein, Vit D 0.3mcg, Ca 110mg, Iron 1.6mg, K 840mg (20%). All label-exact. kcal at label 260 (fiber only 2g; total-carb method gives ~255, rounding; no meaningful correction). Off-label micros ESTIMATED from beef+pork+mushroom salisbury + cheddar mac & cheese + semolina pasta: phosphorus ~250mg/package (relevant to reduced-eGFR history), B12 ~2mcg, selenium ~30mcg, zinc ~3mg, choline ~80mg (meat+egg). LOW-MEDIUM confidence. PURINES ~0.45 mg/g => ~121mg/package -- MODERATE-HIGH (beef + pork + mushrooms). Relevant to uric-acid/gout history. LOW confidence. Protein: beef/pork + dairy cheese + textured soy + wheat + egg white -- complete. CONTAINS egg, wheat, milk, soy. Bioengineered ingredient."
         },
         "loven_fresh_protein_everything_bagel": {
           "name": "L'Oven Fresh Protein Everything Bagel (Aldi)",
@@ -5281,64 +6400,6 @@
           "brand": "Heinz",
           "purines": 0.1
         },
-        "mycoffee": {
-          "name": "My Coffee soy milk",
-          "category": "liquids",
-          "kcal": 87,
-          "p": 7,
-          "sf": 0.5,
-          "water": 730,
-          "caffeine": 200,
-          "displayUnits": [
-            {
-              "label": "1 unit",
-              "amount": 330,
-              "unit": "g",
-              "default": true,
-              "multiplier": 330
-            }
-          ],
-          "ingredients": [
-            {
-              "name": "500 ml drip coffee",
-              "kcal": 5,
-              "p": 0,
-              "sf": 0,
-              "water": 500,
-              "caffeine": 200,
-              "amount": {
-                "value": 0,
-                "unit": "g"
-              }
-            },
-            {
-              "name": "240 ml 365 unsweetened soy",
-              "kcal": 70,
-              "p": 7,
-              "sf": 0.5,
-              "water": 230,
-              "caffeine": 0,
-              "amount": {
-                "value": 0,
-                "unit": "g"
-              }
-            },
-            {
-              "name": "3 sucralose packets",
-              "kcal": 12,
-              "p": 0,
-              "sf": 0,
-              "water": 0,
-              "caffeine": 0,
-              "amount": {
-                "value": 0,
-                "unit": "g"
-              }
-            }
-          ],
-          "defaultMeasuredIn": "g",
-          "purines": 0.000303
-        },
         "mycowcoffee": {
           "name": "My Coffee cow milk",
           "category": "liquids",
@@ -5397,6 +6458,61 @@
           "purines": 0.000303,
           "prevCategory": "liquids",
           "archived": true
+        },
+        "nectarine": {
+          "name": "Nectarine",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.44,
+          "p": 0.0106,
+          "fat": 0.0032,
+          "sf": 0.00025,
+          "transFat": 0,
+          "carbs": 0.1055,
+          "fiber": 0.017,
+          "sugar": 0.0789,
+          "addedSugar": 0,
+          "cholesterol": 0,
+          "sodium": 0,
+          "water": 0.88,
+          "potassium": 2.01,
+          "vitC": 0.054,
+          "vitA": 0.17,
+          "calcium": 0.06,
+          "iron": 0.0028,
+          "magnesium": 0.09,
+          "phosphorus": 0.26,
+          "b3": 0.011,
+          "b9": 0.05,
+          "choline": 0.06,
+          "vitE": 0.0077,
+          "vitK": 0.022,
+          "copper": 0.00086,
+          "manganese": 0.00054,
+          "zinc": 0.0017,
+          "purines": 0.15,
+          "displayUnits": [
+            {
+              "label": "1 medium (140 g)",
+              "amount": 140,
+              "unit": "g",
+              "default": true,
+              "multiplier": 140
+            },
+            {
+              "label": "1 large (156 g)",
+              "amount": 156,
+              "unit": "g",
+              "multiplier": 156
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Nectarine, raw (USDA SR). Per 100g: 44 kcal, 1.06g protein, 0.32g fat, 10.55g carb, 1.7g fiber, 7.89g sugar (all natural, no added), K 201mg, Vit C 5.4mg, Vit A 17mcg RAE, Ca 6mg, Iron 0.28mg, Mg 9mg, P 26mg, niacin 1.1mg, folate 5mcg, choline 6mg, Vit E 0.77mg, Vit K 2.2mcg. Sodium ~0. 1 medium (2.5in) ~140g. Purines ~15mg/100g -- LOW (fruit, gout-favorable). Whole food, high confidence (USDA)."
         },
         "nigiri_pack_salmon_tuna_6pc": {
           "name": "Nigiri sushi pack salmon tuna 6 pieces",
@@ -5477,6 +6593,61 @@
           ],
           "notes": "Label-derived (high confidence): kcal, macros, sodium, cholesterol, Ca (VERY HIGH at 18.125 mg/g — 580mg/scoop = 45% DV), K, Fe. Estimated from USDA micellar casein composition (high confidence): phosphorus very high (~6 mg/g — casein binds phosphate), B12 (~0.015 mcg/g, decent), iodine (~0.5 mcg/g — dairy is excellent iodine source), choline, selenium, Mg. Purines LOW (~7.5 mg/100g — dairy proteins are gout-protective per Choi 2004). Ingredients: Micellar casein (casein protein, sunflower lecithin, instantized), natural and artificial flavors, salt (sodium chloride), sucralose. Contains milk. CASEIN-SPECIFIC PROPERTIES: slow-digesting (4–6h amino acid release vs whey's 1–2h), forms gastric gel = high satiety + slower delivery, ideal for pre-bed or long fasting windows. Leucine ~9% of protein (slightly lower than whey at ~11% but still effective for MPS). Mouthfeel thicker/chalkier than whey or soy.",
           "brand": "Nutricost"
+        },
+        "oikos_triple_zero_vanilla": {
+          "name": "Yogurt Greek Oikos Triple Zero vanilla",
+          "brand": "Oikos",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.588235,
+          "p": 0.1,
+          "fat": 0,
+          "sf": 0,
+          "transFat": 0,
+          "carbs": 0.041176,
+          "fiber": 0,
+          "sugar": 0.035294,
+          "addedSugar": 0,
+          "cholesterol": 0.058824,
+          "sodium": 0.382353,
+          "water": 0.8,
+          "vitD": 0.013529,
+          "calcium": 1,
+          "iron": 0,
+          "potassium": 1,
+          "phosphorus": 1.18,
+          "magnesium": 0.12,
+          "zinc": 0.006,
+          "selenium": 0.088,
+          "b12": 0.006,
+          "b2": 0.0024,
+          "b5": 0.004,
+          "b6": 0.0006,
+          "choline": 0.18,
+          "iodine": 0.35,
+          "purines": 0.03,
+          "displayUnits": [
+            {
+              "label": "3/4 cup (170 g)",
+              "amount": 170,
+              "unit": "g",
+              "default": true,
+              "multiplier": 170
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            },
+            {
+              "label": "container (907 g)",
+              "amount": 907,
+              "unit": "g",
+              "multiplier": 907
+            }
+          ],
+          "notes": "Oikos Triple Zero Vanilla, blended nonfat Greek yogurt, 32oz/907g tub (~5 servings). Label per 3/4 cup (170g): 100 kcal, 0 fat, 0 sat, 0 trans, 10mg chol, 65mg sodium, 7g carb, 0 fiber, 6g sugar (0 added -- stevia sweetened), 17g protein, Vit D 2.3mcg (10%), Ca 170mg (15%), Iron 0, K 170mg. All label-exact. Triple Zero = 0 added sugar, 0 artificial sweeteners, 0 fat. Off-label micros ESTIMATED from nonfat Greek yogurt: phosphorus ~200mg/serving (relevant to reduced-eGFR history), iodine ~60mcg (dairy), B12 ~1mcg, riboflavin, selenium. LOW-MEDIUM confidence. Purines ~5mg/serving -- LOW (dairy, gout-favorable). Same Triple Zero base as the lemon entry, vanilla flavor. Ingredients: cultured nonfat milk, water, <1% natural flavors, tapioca starch, stevia leaf extract, lemon juice concentrate, sea salt, vitamin D3, yogurt cultures. CONTAINS milk."
         },
         "omega3": {
           "name": "Omega-3 (fish oil)",
@@ -5668,6 +6839,121 @@
           "defaultMeasuredIn": "g",
           "brand": "PB2"
         },
+        "peach": {
+          "name": "Peach",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.39,
+          "p": 0.0091,
+          "fat": 0.0025,
+          "sf": 0.0002,
+          "transFat": 0,
+          "carbs": 0.0954,
+          "fiber": 0.015,
+          "sugar": 0.0839,
+          "addedSugar": 0,
+          "cholesterol": 0,
+          "sodium": 0,
+          "water": 0.89,
+          "potassium": 1.9,
+          "vitC": 0.066,
+          "vitA": 0.16,
+          "calcium": 0.06,
+          "iron": 0.0025,
+          "magnesium": 0.09,
+          "phosphorus": 0.2,
+          "b3": 0.00806,
+          "b6": 0.00025,
+          "b9": 0.04,
+          "choline": 0.061,
+          "vitE": 0.0073,
+          "vitK": 0.026,
+          "copper": 0.00068,
+          "manganese": 0.00061,
+          "zinc": 0.0017,
+          "purines": 0.15,
+          "displayUnits": [
+            {
+              "label": "1 large (163 g)",
+              "amount": 163,
+              "unit": "g",
+              "default": true,
+              "multiplier": 163
+            },
+            {
+              "label": "1 medium (150 g)",
+              "amount": 150,
+              "unit": "g",
+              "multiplier": 150
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Peach, raw (USDA SR). Per 100g: 39 kcal, 0.91g protein, 0.25g fat, 9.54g carb, 1.5g fiber, 8.39g sugar (all natural), K 190mg, Vit C 6.6mg, Vit A 16mcg RAE, folate 4mcg, Ca 6mg, Mg 9mg, P 20mg, niacin 0.8mg, choline 6mg, Vit E 0.73mg, Vit K 2.6mcg. Sodium ~0. 1 large (2-3/4in) ~163g edible (~175g with pit). Purines ~15mg/100g -- LOW (fruit, gout-favorable). Whole food, high confidence (USDA)."
+        },
+        "peanut_butter_delight_aldi": {
+          "name": "Peanut butter creamy Peanut Delight (Aldi)",
+          "brand": "Peanut Delight (Aldi)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 5.625,
+          "p": 0.21875,
+          "fat": 0.46875,
+          "sf": 0.09375,
+          "transFat": 0,
+          "carbs": 0.25,
+          "fiber": 0.0625,
+          "sugar": 0.125,
+          "addedSugar": 0.0625,
+          "cholesterol": 0,
+          "sodium": 3.125,
+          "water": 0.01,
+          "vitD": 0,
+          "calcium": 0.625,
+          "iron": 0.015625,
+          "potassium": 5.625,
+          "magnesium": 1.53,
+          "phosphorus": 3.35,
+          "zinc": 0.025,
+          "selenium": 0.16,
+          "copper": 0.005,
+          "manganese": 0.015,
+          "b3": 0.13,
+          "b6": 0.004,
+          "b9": 0.9,
+          "b5": 0.011,
+          "vitE": 0.09,
+          "choline": 0.6,
+          "b1": 0.0015,
+          "b2": 0.002,
+          "purines": 0.6,
+          "displayUnits": [
+            {
+              "label": "2 Tbsp (32 g)",
+              "amount": 32,
+              "unit": "g",
+              "default": true,
+              "multiplier": 32
+            },
+            {
+              "label": "1 Tbsp (16 g)",
+              "amount": 16,
+              "unit": "g",
+              "multiplier": 16
+            },
+            {
+              "label": "jar (454 g)",
+              "amount": 454,
+              "unit": "g",
+              "multiplier": 454
+            }
+          ],
+          "notes": "Peanut Delight No-Stir Creamy Peanut Butter Spread (Aldi), made with 90% peanuts. Ingredients: dry roasted peanuts, sugar, palm oil, sea salt. About 14 servings/container (16oz/454g jar). Label per 2 Tbsp (32g): 180 kcal, 15g fat (3g sat -- palm oil raises sat vs natural PB), 0 trans, 0 chol, 100mg sodium (4%), 8g carb, 2g fiber, 4g sugar, 2g added sugar, 7g protein, Vit D 0, Ca 20mg, Iron 0.5mg, K 180mg. All label-exact. kcal stored at label 180 (peanut butter is ground/highly absorbable, unlike whole nuts; fiber 2g minimal). Off-label micros ESTIMATED from peanuts (USDA): Mg ~49mg/serving, phosphorus ~107mg/serving (relevant to reduced-eGFR history), vitamin E ~2.9mg (peanuts high), niacin ~4.2mg, folate ~29mcg, choline ~19mg. LOW-MEDIUM confidence. PURINES ~0.6 mg/g => ~19mg/serving -- LOW-MODERATE (peanuts). Relevant to uric-acid/gout history. LOW confidence. Note: 'no-stir' style uses palm oil to prevent oil separation (adds saturated fat) + sugar, vs natural PB. CONTAINS peanuts."
+        },
         "peanuts_fistful": {
           "name": "Peanuts dry roasted (lightly salted)",
           "category": "items",
@@ -5727,6 +7013,115 @@
           ],
           "notes": "Dry roasted peanuts, lightly salted (USDA reference per 100 g: 585 kcal · 23.7 g protein · 49.7 g fat · 21.5 g carbs · 8 g fiber · 410 mg sodium). Fistful weight estimated at 30 g (about 1 oz, ~25-35 peanuts). k/g P ~24.7 — calorie-dense, protein per calorie is poor. Strong vitE, niacin (b3), magnesium, potassium contributor. Sodium varies by brand; unsalted ~0.05 mg/g, heavily salted ~8 mg/g.",
           "purines": 0.75
+        },
+        "planters_sea_salt_vinegar_peanuts": {
+          "name": "Peanuts sea salt & vinegar Planters",
+          "brand": "Planters",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 5.7143,
+          "p": 0.25,
+          "fat": 0.5,
+          "sf": 0.07143,
+          "transFat": 0,
+          "carbs": 0.17857,
+          "fiber": 0.07143,
+          "sugar": 0.07143,
+          "addedSugar": 0,
+          "cholesterol": 0,
+          "sodium": 5.3571,
+          "water": 0.02,
+          "vitD": 0,
+          "calcium": 1.0714,
+          "iron": 0.05,
+          "potassium": 6.7857,
+          "vitE": 0.08036,
+          "b3": 0.17143,
+          "b5": 0.017857,
+          "magnesium": 1.5,
+          "copper": 0.003214,
+          "manganese": 0.016429,
+          "selenium": 0.07,
+          "phosphorus": 3.8,
+          "zinc": 0.033,
+          "b1": 0.0064,
+          "b2": 0.0014,
+          "b6": 0.0035,
+          "b9": 2.4,
+          "choline": 0.52,
+          "purines": 0.6,
+          "displayUnits": [
+            {
+              "label": "1 oz (28 g)",
+              "amount": 28,
+              "unit": "g",
+              "default": true,
+              "multiplier": 28
+            },
+            {
+              "label": "container (~170 g)",
+              "amount": 170,
+              "unit": "g",
+              "multiplier": 170
+            }
+          ],
+          "notes": "Planters Sea Salt & Vinegar Peanuts (Hormel). About 6 servings/container (6oz/170g can), serving 1 oz (28g/~39 pieces). Label per 28g: 160 kcal, 14g fat (2g sat, 4.5g poly, 7g mono), 0 trans, 0 chol, 150mg sodium (7%), 5g carb, 2g fiber, 2g sugar, 0 added sugar, 7g protein, Vit D 0, Ca 30mg, Iron 1.4mg, K 190mg. Label %DV-derived (high confidence): Vit E ~2.25mg (15%), niacin ~4.8mg (30%), pantothenic ~0.5mg (10%), Mg ~42mg (10%), copper ~0.09mg (10%), manganese ~0.46mg (20%). kcal NOT corrected (label 160 is already at/below net-carb Atwater ~166; note whole peanuts have ~5-15% reduced metabolizable energy from incomplete fat absorption, but label value kept). Mono/poly fat (7g/4.5g) noted here (no dedicated tracker fields). Off-label micros ESTIMATED from peanuts (USDA): phosphorus ~106mg/serving (relevant to reduced-eGFR history), folate ~67mcg (peanuts high), choline ~15mg, zinc ~0.9mg, selenium ~2mcg. LOW-MEDIUM confidence. PURINES ~0.6 mg/g => ~17mg/serving -- LOW-MODERATE (peanuts/legumes). Relevant to uric-acid/gout history. LOW confidence. Distinct from 'Peanuts dry roasted' entry. Ingredients: peanuts, peanut oil, <2% sea salt, sodium diacetate, dextrose, malic acid, canola oil, maltodextrin, modified cornstarch, natural flavor, yeast extract, ascorbic acid, paprika+turmeric extract (color), salt. CONTAINS peanuts; may contain tree nuts."
+        },
+        "poke_wasabi_tuna_annasea": {
+          "name": "Poke wasabi tuna Annasea",
+          "brand": "Annasea",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.1555,
+          "p": 0.1943,
+          "fat": 0.1449,
+          "sf": 0.0177,
+          "transFat": 0,
+          "carbs": 0.0106,
+          "fiber": 0.0035,
+          "sugar": 0.0035,
+          "addedSugar": 0,
+          "cholesterol": 0.3534,
+          "sodium": 4.735,
+          "water": 0.5,
+          "calcium": 0.3887,
+          "iron": 0.0042,
+          "potassium": 3.9223,
+          "selenium": 0.6572,
+          "b3": 0.1304,
+          "b12": 0.0159,
+          "b6": 0.0067,
+          "b5": 0.002,
+          "b1": 0.0009,
+          "b2": 0.0009,
+          "phosphorus": 2.1201,
+          "magnesium": 0.3357,
+          "choline": 0.47,
+          "zinc": 0.0042,
+          "copper": 0.0012,
+          "manganese": 0.0005,
+          "iodine": 0.106,
+          "vitA": 0.1307,
+          "vitE": 0.0025,
+          "vitK": 0.001,
+          "omega3": 0.0023,
+          "purines": 1.3322,
+          "displayUnits": [
+            {
+              "label": "full package (283 g)",
+              "amount": 283,
+              "unit": "g",
+              "multiplier": 283
+            },
+            {
+              "label": "½ package (142 g)",
+              "amount": 142,
+              "unit": "g",
+              "default": true,
+              "multiplier": 142
+            }
+          ],
+          "notes": "Annasea Authentic Hawaii-Style Poke, Wasabi Tuna (sesame oil & kukui nuts), frozen, sauce pack included. Net 10oz/283g, 2 servings/container. Label per 1/2 pkg (142g): 310 kcal, 20g fat, 2.5g sat, 0 trans, 50mg chol, 670mg sodium (29% DV, HIGH), 2g carb, 1g fiber, 0g sugar, 28g protein, Vit D 0, Ca 60mg, Iron 0.6mg, K 560mg. Per container: 610 kcal, 41g fat, 5g sat, 100mg chol, 1340mg sodium, 3g carb, 1g fiber, 55g protein, Ca 110, Fe 1.2, K 1110. STORED VALUES derived from per-CONTAINER column / 283g (more accurate: per-serving column shows FDA rounding, e.g. calcium 60mg/serving vs truer 55mg from 110/2). Protein source: yellowfin and/or bigeye tuna (~205g of the 283g), plus sesame seeds, capelin fish roe (masago), trace kukui. High added fat (~39g of 41g) from sesame oil/soybean oil, sesame seeds, kukui nuts, wasabi oil -- tuna itself is lean (~1g fat). PURINES HIGH: ~1.33 mg/g => ~190mg per 1/2-pkg serving, ~377mg per package (yellowfin 150-200 mg/100g + roe). Relevant to uric-acid/gout history. MEDIUM confidence. Off-label micros ESTIMATED from yellowfin composition (USDA: Se 90.6mcg, niacin 18mg, B12 2.1mcg, B6 0.93mg, phosphorus 278mg, Mg 35mg, choline 65mg per 100g): selenium ~185mcg/pkg (very high), B12 ~4.5mcg, niacin ~37mg, phosphorus ~600mg/pkg (relevant to reduced-eGFR history), MEDIUM confidence. vitD stored 0 per label, BUT raw yellowfin has ~1.7mcg/100g so true value likely ~3.5mcg/container -- label's 0 may be understated (kept at label value). omega-3 ~0.65g/pkg (yellowfin lean ~0.24g/100g EPA+DHA + kukui/candlenut ALA) LOW confidence. B9/folate low in tuna. CONTAINS: fish (tuna, capelin roe), sesame, soy, wheat, tree nuts (kukui). Raw fish -- foodborne-illness advisory on pack. Ingredients: yellowfin/bigeye tuna (tasteless-smoke treated), sesame oil (sesame+soybean oil), sesame seeds, white shoyu, masago, water, kukui nuts, sea salt, red chili flakes, wasabi oil (rapeseed oil, mustard extract, wasabi), xanthan gum."
         },
         "pork_beans_halfcup": {
           "name": "Pork & beans",
@@ -5876,6 +7271,67 @@
           "defaultMeasuredIn": "g",
           "brand": "Premier",
           "purines": 0.15
+        },
+        "premier_indulgence_wcr": {
+          "name": "Protein shake Premier Indulgence white choc raspberry",
+          "brand": "Premier Protein",
+          "category": "liquids",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.5231,
+          "p": 0.0923,
+          "fat": 0.0092,
+          "sf": 0.0031,
+          "transFat": 0,
+          "carbs": 0.0154,
+          "fiber": 0.0025,
+          "sugar": 0.0092,
+          "addedSugar": 0.006154,
+          "cholesterol": 0.0615,
+          "sodium": 0.7077,
+          "water": 0.85,
+          "vitD": 0.0185,
+          "calcium": 2,
+          "iron": 0.0055,
+          "potassium": 0.5538,
+          "vitA": 0.7077,
+          "vitC": 0.1415,
+          "vitE": 0.0117,
+          "vitK": 0.0923,
+          "b1": 0.0007,
+          "b2": 0.0008,
+          "b3": 0.0098,
+          "b6": 0.001,
+          "b9": 0.2462,
+          "b12": 0.0015,
+          "b7": 0.0185,
+          "b5": 0.0031,
+          "phosphorus": 1.6923,
+          "iodine": 0.0708,
+          "magnesium": 0.2769,
+          "zinc": 0.0086,
+          "selenium": 0.0246,
+          "copper": 0.0004,
+          "manganese": 0.0011,
+          "chromium": 0.0163,
+          "molybdenum": 0.0209,
+          "choline": 0.092,
+          "purines": 0.015,
+          "displayUnits": [
+            {
+              "label": "1 bottle (325 g)",
+              "amount": 325,
+              "unit": "g",
+              "default": true,
+              "multiplier": 325
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Premier Protein Indulgence, White Chocolate Raspberry, 11 fl oz (325 mL) shake, 1 serving/container. Bottle stored as 325g (matches existing premier shake convention; mL~=g). FULLY LABELED -- all values label-exact, HIGH confidence. Per bottle: 170 kcal, 3g fat, 1g sat, 0 trans, 20mg chol, 230mg sodium, 5g carb, <1g fiber (~0.8g via 3% DV), 3g sugar (2g added), 30g protein. Micros per bottle: Vit D 6mcg, Ca 650mg, Iron 1.8mg, K 180mg, Vit A 230mcg, Vit C 46mg, Vit E 3.8mg, Vit K 30mcg, thiamin 0.24mg, riboflavin 0.26mg, niacin 3.2mg, B6 0.34mg, folate 80mcg DFE (47mcg folic acid), B12 0.48mcg, biotin 6mcg, pantothenic 1mg, phosphorus 550mg (45% DV -- relevant to reduced-eGFR history), iodine 23mcg, Mg 90mg, zinc 2.8mg, selenium 8mcg, copper 0.14mg, manganese 0.35mg, chromium 5.3mcg, molybdenum 6.8mcg. Protein = milk-based (milk protein concentrate/calcium caseinate/whey -- complete, high quality; no downgrade). ESTIMATED (not on label, minor): choline ~30mg, purines ~5mg/bottle LOW (dairy protein is low-purine, gout-favorable), water ~85%. Oils: sunflower and/or soybean oil (high-oleic). Gluten free. CONTAINS milk."
         },
         "premier_latte": {
           "name": "Protein shake latte",
@@ -6145,11 +7601,11 @@
               "multiplier": 100
             },
             {
-              "label": "1 scoop (30 g)",
-              "amount": 1,
+              "label": "1 scoop",
+              "amount": 3,
               "unit": "g",
               "default": true,
-              "multiplier": 1
+              "multiplier": 3
             }
           ],
           "notes": "MyVegan (Myprotein) Soy Protein Isolate, chocolate flavour. Macros from product label per 30 g scoop (33 scoops / 1 kg bag): 26 g protein, 1 g carb, 0 g fat/SF/trans/sugar/fibre, 220 mg sodium, calcium 22% DV, iron 20% DV. kcal set to 120 per user (label printed 110); at 120 kcal that is 4.0 kcal/g, slightly above the ~3.7 kcal/g of the whey isolates and not fully reconcilable via Atwater with 0 g fat. Calcium/iron back-calculated on the OLD FDA Daily Values (calcium 1000 mg, iron 18 mg) because this is the pre-2016 label format -> 220 mg calcium and 3.6 mg iron per scoop. Fat/SF printed 0 g (sub-threshold); estimated 0.3 g fat / 0.05 g SF per scoop. Off-label minerals (Mg, P, K, Zn, Cu, Mn, Se) backfilled from USDA SR Legacy 16122 Soy protein isolate (sodium type, consistent with the high label sodium). B-vitamins, folate (B9), and choline estimated from the same USDA entry -- LOW CONFIDENCE. Purines ~1.2 mg/g (~36 mg/scoop) estimated from soy purine literature (soyfoods 50-150 mg/100 g; USDA does not track purines) -- LOW CONFIDENCE, though the per-serving load is low for uric-acid purposes. Omega-3 trace (defatted isolate). Iodine, chromium, molybdenum, biotin (B7) unknown, left at 0."
@@ -6322,6 +7778,145 @@
           ],
           "notes": "Label-derived (high confidence) for full pack: kcal, macros, sodium (560mg/pack = HIGH), fiber (3g/pack), iron (15% DV from enriched flour), Ca, K, vit D. Combined hummus + pretzels — single SKU snack pack. Estimated from USDA chickpea + sesame + enriched wheat composition (lower confidence): B-vitamins (B9 high from enrichment), Mg, P, Zn, Se, vit E (from sunflower oil + tahini), water content (~41% — hummus ~65% water, pretzels ~5%, ratio ~60/40 by weight). Purines moderate (~0.4 mg/g — chickpeas contribute most). Hummus ingredients: chickpeas, water, sunflower oil, sesame tahini, sea salt, citric acid, garlic, guar gum, cumin. Pretzel ingredients: enriched wheat flour (iron as ferrous sulfate, niacin, thiamine mononitrate, riboflavin, folic acid), salt, sunflower/canola/rice oil, corn syrup, malt syrup, yeast. Contains wheat, sesame.",
           "brand": "Park Street Deli (Aldi)"
+        },
+        "quest_chips_nacho": {
+          "name": "Chips protein Quest nacho",
+          "brand": "Quest",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 4.375,
+          "p": 0.59375,
+          "fat": 0.15625,
+          "sf": 0.03125,
+          "transFat": 0,
+          "carbs": 0.15625,
+          "fiber": 0.03125,
+          "sugar": 0.03125,
+          "addedSugar": 0,
+          "cholesterol": 0.15625,
+          "sodium": 9.0625,
+          "water": 0.02,
+          "vitD": 0,
+          "calcium": 5.3125,
+          "iron": 0.0125,
+          "potassium": 1.5625,
+          "phosphorus": 6.25,
+          "magnesium": 0.94,
+          "zinc": 0.047,
+          "selenium": 0.31,
+          "b12": 0.016,
+          "b2": 0.009,
+          "choline": 0.94,
+          "purines": 0.31,
+          "displayUnits": [
+            {
+              "label": "1 bag (32 g)",
+              "amount": 32,
+              "unit": "g",
+              "default": true,
+              "multiplier": 32
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Quest Tortilla Style Protein Chips, Nacho (Quest Nutrition), 1 bag (32g). Label per bag: 140 kcal, 5g fat (1g sat), 0 trans, 5mg chol, 290mg sodium (13%), 5g carb, 1g fiber, 1g sugar, 0 added, 19g protein, Vit D 0, Ca 170mg (15%), Iron 0.4mg, K 50mg. All label-exact. kcal stored at label 140 (fiber only 1g; negligible). Protein = milk protein isolate + whey protein isolate + calcium caseinate (complete, high quality). Off-label micros ESTIMATED from dairy protein isolates: phosphorus ~200mg/bag (HIGH -- protein isolates; relevant to reduced-eGFR history), Mg ~30mg, selenium ~10mcg. LOW-MEDIUM confidence. Purines ~10mg/bag -- LOW (dairy). CONTAINS milk, soy."
+        },
+        "quest_smores_bar": {
+          "name": "Protein bar Quest s'mores",
+          "brand": "Quest",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 3,
+          "p": 0.35,
+          "fat": 0.1167,
+          "sf": 0.0417,
+          "transFat": 0,
+          "carbs": 0.3833,
+          "fiber": 0.2,
+          "sugar": 0.0167,
+          "addedSugar": 0,
+          "sugarAlcohol": 0.116667,
+          "cholesterol": 0.0833,
+          "sodium": 3.5,
+          "water": 0.1,
+          "calcium": 2.5,
+          "iron": 0.0083,
+          "potassium": 2,
+          "phosphorus": 3.33,
+          "magnesium": 0.67,
+          "zinc": 0.025,
+          "selenium": 0.167,
+          "b12": 0.008,
+          "b2": 0.005,
+          "choline": 0.5,
+          "purines": 0.167,
+          "displayUnits": [
+            {
+              "label": "1 bar (60 g)",
+              "amount": 60,
+              "unit": "g",
+              "default": true,
+              "multiplier": 60
+            }
+          ],
+          "notes": "Quest Protein Bar, S'mores, 1 bar (60g). Label per bar: 180 kcal, 7g fat (2.5g sat), 0 trans, 5mg chol, 210mg sodium, 23g total carb, 12g fiber, 1g sugar, 0 added, 7g sugar alcohol (erythritol) => 4g net carb, 21g protein, Vit D 0, Ca 150mg (10%), Iron 0.5mg, K 120mg. Stored carbs 23/fiber 12/sugarAlcohol 7 (nets to 4g digestible). kcal STORED AT LABEL 180 (consistent with David bar precedent; fiber not zeroed, erythritol correctly ~0 kcal). NOTE: label counts the 12g soluble corn fiber at ~1.4 kcal/g; a strict fermentable-fiber treatment at 2 kcal/g would give ~187 kcal. Erythritol ~0.2 kcal/g (~0). Off-label micros ESTIMATED from milk/whey protein isolate + almonds + cocoa: phosphorus ~200mg/bar (HIGH -- protein isolates; relevant to reduced-eGFR history), Mg ~40mg, selenium ~10mcg. LOW-MEDIUM confidence. PURINES ~10mg/bar -- LOW (dairy protein, gout-favorable). CONTAINS milk, almonds (tree nuts); may contain soy, egg, peanut."
+        },
+        "ramen_high_protein_volo_vero": {
+          "name": "Ramen high-protein Volo+Vero",
+          "brand": "Volo + Vero",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 3.3333,
+          "p": 0.4848,
+          "fat": 0.0303,
+          "sf": 0.0076,
+          "transFat": 0,
+          "carbs": 0.2727,
+          "fiber": 0.0606,
+          "sugar": 0.0455,
+          "addedSugar": 0,
+          "sodium": 10,
+          "water": 0.0909,
+          "calcium": 0.803,
+          "iron": 0.0833,
+          "potassium": 2.6818,
+          "magnesium": 0.7576,
+          "phosphorus": 2.2727,
+          "zinc": 0.0152,
+          "selenium": 0.2273,
+          "copper": 0.0045,
+          "manganese": 0.0091,
+          "b1": 0.0015,
+          "b2": 0.0008,
+          "b3": 0.0152,
+          "b5": 0.0015,
+          "b6": 0.0008,
+          "b9": 0.2273,
+          "choline": 0.4545,
+          "iodine": 0.0758,
+          "vitE": 0.0046,
+          "vitK": 0.0076,
+          "purines": 1.1364,
+          "displayUnits": [
+            {
+              "label": "container (2 bags, 132 g)",
+              "amount": 132,
+              "unit": "g",
+              "multiplier": 132
+            },
+            {
+              "label": "1 bag (66 g)",
+              "amount": 66,
+              "unit": "g",
+              "default": true,
+              "multiplier": 66
+            }
+          ],
+          "notes": "Volo + Vero High Protein Instant Ramen (plant-based, non-fried, air-dried). Label per 1 bag (66g): 220 kcal, 2g fat, 0.5g sat, 0 trans, 0 chol, 660mg sodium (29% DV, HIGH), 18g carb, 4g fiber, 3g sugar, 0 added sugar, 32g protein, Vit D 0, Ca 53mg, Iron 5.5mg (30% DV, high -- label-exact), K 177mg. Nutrition panel = 2 servings/container (132g). SODIUM varies by flavor: the box is a variety pack (Spicy Kimchi, Spicy Curry, Beef, Chicken seasonings) sharing one panel; 660mg is representative, beef/chicken/curry differ. kcal stored at label 220 BUT likely ~6-10 kcal overcounted: label uses total-carb x4, counting the 4g fiber at 4 kcal/g, though konjac powder/glucomannan (~0 kcal) and pea fiber (~2 kcal/g) are sub-4; real value ~210-214. Small/uncertain, left at label. Protein 32g at label. Blend = vital wheat gluten (lysine-limited) + pea protein (complements lysine) + buckwheat flour (lysine-rich pseudograin) = reasonably COMPLETE plant blend, decent DIAAS; no downgrade applied. Off-label micros ESTIMATED from noodle composition (vital wheat gluten, pea protein, wheat + buckwheat flour, pea fiber, konjac, xanthan): Mg ~50mg (buckwheat), phosphorus ~150mg/serving (relevant to reduced-eGFR history), Mn/Cu bumped by buckwheat, selenium ~15mcg from wheat. LOW-MEDIUM confidence. PURINES ~75mg/serving MODERATE: noodle (wheat gluten low, pea protein moderate, buckwheat moderate) PLUS seasoning yeast extract and disodium 5'-ribonucleotide (added inosinate/guanylate purines). Relevant to uric-acid/gout history. LOW confidence. b12 = 0 (plant, unfortified). Full box net 17.8oz/504g. CONTAINS wheat, soy. Noodle ingredients: vital wheat gluten, pea protein, wheat flour, buckwheat flour, pea fiber powder, konjac powder, xanthan gum, sodium carbonate, tapioca starch."
         },
         "roll_salmon_maki_6pc": {
           "name": "Roll salmon maki 6-piece",
@@ -6679,9 +8274,6 @@
           "defaultMeasuredIn": "g",
           "kcal": 2.5,
           "p": 0.5,
-          "carbs": 0,
-          "fiber": 0,
-          "sugar": 0,
           "addedSugar": 0,
           "fat": 0.0536,
           "sf": 0.0179,
@@ -6691,9 +8283,6 @@
           "calcium": 0.9286,
           "iron": 0.0386,
           "potassium": 5,
-          "vitD": 0,
-          "vitA": 0,
-          "vitC": 0,
           "vitE": 0.005,
           "vitK": 0.002,
           "b1": 0.0005,
@@ -6715,17 +8304,23 @@
           "purines": 1,
           "displayUnits": [
             {
+              "label": "1 bag (~4 oz)",
+              "amount": 112,
+              "unit": "g",
+              "multiplier": 112
+            },
+            {
               "label": "1 oz serving",
+              "amount": 28,
+              "unit": "g",
               "default": true,
               "multiplier": 28
             },
             {
               "label": "1 g",
+              "amount": 1,
+              "unit": "g",
               "multiplier": 1
-            },
-            {
-              "label": "1 bag (~4 oz)",
-              "multiplier": 112
             }
           ],
           "notes": "Nutritionally IDENTICAL to simms_jerky_blackpepper (same manufacturer/formulation, Original vs Black Pepper flavor). Label per 1 oz (28g): 70 kcal, 14g protein, 1.5g fat (0.5g sat), 30mg cholesterol, 500mg sodium (extreme, 17.9 mg/g), 0 carb/fiber/sugar, Ca 2% DV, Fe 6% DV. Estimated micros from USDA dried beef (high confidence): zinc very high (~0.1 mg/g), B12 (~0.05 mcg/g), selenium, choline, phosphorus. Water ~25%. Purines moderate-high (~100 mg/100g). Ingredients: beef, gluten-free soy sauce (water, soybeans, rice, salt), beef broth, <2% flavorings, vinegar, cultured celery powder (cultured celery powder + sea salt — natural nitrite source, chemically equivalent to added nitrite in-gut), granulated garlic, salt. Contains soy. Marketed no-added-nitrites/no-MSG/no-artificial-sweeteners, gluten-free.",
@@ -7393,6 +8988,168 @@
           "notes": "Label-derived (high confidence): kcal, macros, sodium, sugar (incl 9g added/35g serving), fiber, Ca, Fe, K. Ingredients: mango, sugar, glycerin, mango juice, sulfur dioxide (preservative). Estimated from USDA dried mango profile (lower confidence): vit A (carotenoids), vit C, water content (~18% moisture for soft-and-juicy variant), purines (low, ~50 mg/100g). HIGH-FRUCTOSE food — flag for gout management; minimize during flares and as regular snack given elevated baseline uric acid.",
           "brand": "Trader Joe's"
         },
+        "tj_eggplant_garlic_spread": {
+          "name": "Spread eggplant garlic Trader Joe's",
+          "brand": "Trader Joe's",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1,
+          "p": 0.01,
+          "fat": 0.0667,
+          "sf": 0.0067,
+          "transFat": 0,
+          "carbs": 0.1333,
+          "fiber": 0.0333,
+          "sugar": 0.0667,
+          "addedSugar": 0.0333,
+          "cholesterol": 0,
+          "sodium": 7.3333,
+          "water": 0.67,
+          "vitD": 0,
+          "calcium": 0.2,
+          "iron": 0.005,
+          "potassium": 2.5,
+          "magnesium": 0.27,
+          "phosphorus": 0.5,
+          "vitA": 1,
+          "vitC": 0.1,
+          "b9": 0.33,
+          "vitK": 0.1,
+          "copper": 0.002,
+          "manganese": 0.003,
+          "zinc": 0.003,
+          "purines": 0.25,
+          "displayUnits": [
+            {
+              "label": "2 Tbsp (30 g)",
+              "amount": 30,
+              "unit": "g",
+              "default": true,
+              "multiplier": 30
+            },
+            {
+              "label": "1 Tbsp (15 g)",
+              "amount": 15,
+              "unit": "g",
+              "multiplier": 15
+            },
+            {
+              "label": "container (340 g)",
+              "amount": 340,
+              "unit": "g",
+              "multiplier": 340
+            }
+          ],
+          "notes": "Trader Joe's Eggplant Garlic Spread (ajvar-style), 340g container (user-confirmed), serves ~11 at 2 Tbsp (30g). Label per 30g: 30 kcal, 2g fat, 0g sat fat DISPLAY (but 1% DV => ~0.2g, corrected to 0.2g/serving), 0 trans, 0 chol, 220mg sodium (10% DV), 4g carb, 1g fiber, 2g sugar, 1g added sugar, 0g protein. CORRECTIONS: (1) sat fat 0.2g/serving from 1% DV rounding (sunflower oil, ~10% sat of 2g fat). (2) protein ~0.3g/serving sub-threshold estimate (eggplant/pepper have trace protein; label rounds 0g). (3) POTASSIUM ~75mg/serving ESTIMATED -- label shows 0% DV but eggplant/red pepper/tomato paste all contain K; relevant to reduced-eGFR / potassium tracking. LOW confidence. Other micros ESTIMATED LOW confidence from eggplant + sweet red pepper + tomato paste base: Mg ~8mg, P ~15mg, vitA ~30mcg RAE (carotenoids from tomato/pepper), vitC ~3mg (degraded by processing), folate ~10mcg per serving. Purines ~7.5mg/serving -- LOW (vegetable-based). Sunflower oil is omega-6, negligible omega-3. Ingredients: eggplant, sweet red peppers, water, sunflower oil, tomato paste, cane sugar, sea salt, dried garlic, glucono-delta-lactone (acidifier). No major allergens declared."
+        },
+        "tj_nova_salmon_pieces": {
+          "name": "Salmon smoked Nova Trader Joe's",
+          "brand": "Trader Joe's",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.4035,
+          "p": 0.193,
+          "fat": 0.0614,
+          "sf": 0.0088,
+          "transFat": 0,
+          "addedSugar": 0,
+          "cholesterol": 0.5263,
+          "sodium": 10.7018,
+          "water": 0.65,
+          "vitD": 0.0912,
+          "calcium": 0.1754,
+          "iron": 0.0088,
+          "potassium": 4.7368,
+          "selenium": 0.32,
+          "omega3": 0.006,
+          "b12": 0.03,
+          "b3": 0.07,
+          "b6": 0.003,
+          "b2": 0.001,
+          "b5": 0.01,
+          "phosphorus": 2,
+          "magnesium": 0.18,
+          "choline": 0.9,
+          "zinc": 0.004,
+          "vitA": 0.001,
+          "purines": 1.3,
+          "displayUnits": [
+            {
+              "label": "container (228 g)",
+              "amount": 228,
+              "unit": "g",
+              "multiplier": 228
+            },
+            {
+              "label": "2 slices (57 g)",
+              "amount": 57,
+              "unit": "g",
+              "default": true,
+              "multiplier": 57
+            },
+            {
+              "label": "1 slice (28.5 g)",
+              "amount": 28.5,
+              "unit": "g",
+              "multiplier": 28.5
+            }
+          ],
+          "notes": "Trader Joe's Nova Salmon Pieces (cold-smoked farmed Atlantic salmon, Chile/Patagonia). Ingredients: Atlantic salmon (color added), salt, hardwood smoke. About 4 servings/container (2 slices/57g each => ~228g). Label per 57g: 80 kcal, 3.5g fat, 0.5g sat, 0 trans, 30mg chol, 610mg sodium (27% DV, HIGH -- cured/smoked), 0 carb, 11g protein, Vit D 5.2mcg (25%), Ca 10mg, Iron 0.5mg, K 270mg. All label-exact (high confidence). Off-label micros ESTIMATED from smoked Atlantic salmon (USDA): selenium ~18mcg/serving, B12 ~1.7mcg, niacin ~4mg, phosphorus ~114mg/serving (relevant to reduced-eGFR history), choline ~51mg, omega-3 (EPA+DHA) ~0.34g/serving. LOW-MEDIUM confidence. PURINES ~1.3 mg/g => ~74mg per 57g serving -- MODERATE (fish; salmon ~130mg/100g). Relevant to uric-acid/gout history. LOW confidence. Distinct from generic 'Smoked salmon' catalog entry. CONTAINS fish (salmon)."
+        },
+        "tj_serrano_ham": {
+          "name": "Ham serrano Trader Joe's",
+          "brand": "Trader Joe's",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.3333,
+          "p": 0.36667,
+          "fat": 0.1,
+          "sf": 0.033333,
+          "transFat": 0,
+          "carbs": 0,
+          "fiber": 0,
+          "sugar": 0,
+          "addedSugar": 0,
+          "cholesterol": 0.33333,
+          "sodium": 13.3333,
+          "water": 0.45,
+          "vitD": 0,
+          "calcium": 0.33333,
+          "iron": 0.056667,
+          "potassium": 4.3333,
+          "selenium": 0.5,
+          "b12": 0.01,
+          "b1": 0.006,
+          "b3": 0.05,
+          "b6": 0.005,
+          "zinc": 0.023,
+          "phosphorus": 2,
+          "magnesium": 0.23,
+          "choline": 0.83,
+          "purines": 1,
+          "displayUnits": [
+            {
+              "label": "2 slices (30 g)",
+              "amount": 30,
+              "unit": "g",
+              "default": true,
+              "multiplier": 30
+            },
+            {
+              "label": "1 slice (15 g)",
+              "amount": 15,
+              "unit": "g",
+              "multiplier": 15
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Trader Joe's Charcuteria Serrano Ham (dry-cured, from a chorizo/salchichon/serrano variety pack). Ingredients: pork, sea salt (only). Label per 2 slices (30g): 70 kcal, 3g fat (1g sat), 0 trans, 10mg chol, 400mg sodium (17% DV -- HIGH, cured), 0 carb, 0 fiber, 0 sugar, 11g protein (very protein-dense), Vit D 0, Ca 10mg, Iron 1.7mg (10%), K 130mg. All label-exact. Off-label micros ESTIMATED from dry-cured pork: selenium ~15mcg/serving, thiamin (pork high), phosphorus ~60mg/serving (relevant to reduced-eGFR history), choline ~25mg, B12/B6/zinc. LOW-MEDIUM confidence. PURINES ~1.0 mg/g => ~30mg per 2-slice serving -- MODERATE (cured pork). Relevant to uric-acid/gout history. LOW confidence. Distinct from Lidl serrano entry (brand-specific label). CONTAINS pork. No nitrates/nitrites added (except naturally in sea salt/swiss chard)."
+        },
         "tofu_firm_half": {
           "name": "Tofu firm",
           "category": "items",
@@ -7553,6 +9310,55 @@
           "notes": "Giant Food tomato paste. 12 oz (340 g) can, ~10 servings × 33 g per label. Same product family as the unbranded tomato_paste item (which is the 6 oz / 170 g size); kcal and macros are essentially identical per gram. Sodium unusually low (15 mg per 33 g serving = 4 mg/oz) - many tomato paste brands run 100-300 mg per serving, so this Giant SKU is a low-sodium win. Potassium 270 mg per 33 g serving (6% DV) - meaningful in a slab batch.",
           "brand": "Giant",
           "purines": 0.3
+        },
+        "too_good_mixed_berry": {
+          "name": "Yogurt Greek Too Good & Co. mixed berry",
+          "brand": "Too Good & Co.",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.533333,
+          "p": 0.08,
+          "fat": 0.013333,
+          "sf": 0.006667,
+          "transFat": 0,
+          "carbs": 0.026667,
+          "fiber": 0,
+          "sugar": 0.013333,
+          "addedSugar": 0,
+          "cholesterol": 0.026667,
+          "sodium": 0.233333,
+          "water": 0.82,
+          "vitD": 0.013333,
+          "calcium": 0.693333,
+          "iron": 0,
+          "potassium": 0.626667,
+          "phosphorus": 1,
+          "magnesium": 0.1,
+          "zinc": 0.005,
+          "selenium": 0.067,
+          "b12": 0.0053,
+          "b2": 0.002,
+          "b5": 0.0033,
+          "choline": 0.13,
+          "iodine": 0.3,
+          "vitC": 0.013,
+          "purines": 0.027,
+          "displayUnits": [
+            {
+              "label": "1 container (150 g)",
+              "amount": 150,
+              "unit": "g",
+              "default": true,
+              "multiplier": 150
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Too Good & Co. (Danone) blended low-sugar Greek yogurt cup, mixed berry (blueberry/strawberry/raspberry purees), 150g container. Label per container (150g): 80 kcal, 2g fat (1g sat), 0 trans, <5mg chol, 35mg sodium, 4g carb, 0 fiber, 2g sugar (0 added -- stevia), 12g protein, Vit D 10% (~2mcg), Ca 8% (~104mg), Iron 0, K 2% (~94mg). Label-derived (high confidence). 'At least 70% less sugar (2g/5.3oz) vs avg Greek yogurt (10g/5.3oz)', no artificial sweeteners. Off-label micros ESTIMATED from low/nonfat Greek yogurt: phosphorus ~150mg/container (relevant to reduced-eGFR history), iodine ~45mcg, B12 ~0.8mcg. LOW-MEDIUM confidence. Purines ~4mg -- LOW (dairy). Ingredients: cultured ultra-filtered nonfat milk, cultured reduced-fat milk, water, <1% berry purees, tapioca starch, natural flavors, lemon juice concentrate, gellan gum, stevia extract, sea salt, fruit/veg juice concentrate (color), vitamin D3, yogurt cultures. CONTAINS milk. NOT eaten -- catalog only."
         },
         "tuna_can": {
           "name": "Tuna chunk light",
@@ -8637,6 +10443,7 @@
           "label": "Uncategorized"
         }
       ]
-    }
+    },
+    "totalsMode": "collapsed"
   }
 }
