@@ -174,6 +174,74 @@ test('a seeded range value drives the select and the axis on boot', async () => 
   } finally { h.teardown(); }
 });
 
+// ---------- E. the range control must NOT reach the mood chart ----------
+test('mood chart keeps full history when the range is narrowed', async () => {
+  // Mood is logged every day here; the mood chart lives in its own section
+  // with no range control, so the weight-section dropdown must not trim it.
+  const s = seed();
+  for (const d of Object.keys(s.state.days)) s.state.days[d].mood = 6;
+  const h = await loadTracker({ seedState: s });
+  try {
+    await waitMs(140);
+    const moodBefore = xDateLabels(h.doc.getElementById('mood-chart'));
+    assert.ok(moodBefore.length > 0, 'mood chart rendered');
+    changeTo(h.doc.getElementById('chart-range'), '15');
+    await waitMs(100);
+    const moodAfter = xDateLabels(h.doc.getElementById('mood-chart'));
+    assert.deepEqual(moodAfter, moodBefore, 'mood axis is untouched by the range control');
+    // ...while the weight chart on the same page DID trim.
+    assert.equal(xDateLabels(h.doc.getElementById('weight-chart'))[0], daysAgo(14).slice(5),
+      'weight chart still honours the range');
+  } finally { h.teardown(); }
+});
+
+// ---------- F. a window with no reading shows the empty state ----------
+test('a window containing no body-fat reading shows "No data yet", not a solid band', async () => {
+  // Daily weight keeps the shared axis populated, but the last neck+waist
+  // reading is 40 days old, so a 15-day window has zero fat readings.
+  const days = {};
+  for (let i = 0; i < 120; i++) {
+    const d = daysAgo(i);
+    days[d] = { counters: {}, customs: [], toggles: {}, counterMeta: {}, weight: 90 - i * 0.05 };
+    if (i >= 40 && i % 10 === 0) { days[d].neck = 40; days[d].waist = 95; }
+  }
+  const h = await loadTracker({ seedState: { state: {
+    activeDate: daysAgo(0), days, counters: {}, customs: [],
+    profile: { sex: 'M', ageYears: 35, heightCm: 183 },
+    userCatalog: { items: {}, categories: [] }, toggles: {},
+    chartRangeDays: 15,
+  } } });
+  try {
+    await waitMs(140);
+    const fat = h.doc.getElementById('fat-pct-chart');
+    const texts = [...fat.querySelectorAll('text')].map(t => t.textContent);
+    assert.ok(texts.includes('No data yet'), 'empty state shown, got: ' + texts.join('|'));
+    assert.equal(fat.querySelectorAll('circle').length, 0, 'no points drawn');
+    assert.equal(fat.querySelectorAll('rect').length, 0, 'no band rects painted over an empty window');
+  } finally { h.teardown(); }
+});
+
+test('the body-fat subtitle still reports the latest reading outside the window', async () => {
+  const days = {};
+  for (let i = 0; i < 120; i++) {
+    const d = daysAgo(i);
+    days[d] = { counters: {}, customs: [], toggles: {}, counterMeta: {}, weight: 90 - i * 0.05 };
+    if (i >= 40 && i % 10 === 0) { days[d].neck = 40; days[d].waist = 95; }
+  }
+  const h = await loadTracker({ seedState: { state: {
+    activeDate: daysAgo(0), days, counters: {}, customs: [],
+    profile: { sex: 'M', ageYears: 35, heightCm: 183, goals: { fatPercent: 15 } },
+    userCatalog: { items: {}, categories: [] }, toggles: {},
+    chartRangeDays: 15,
+  } } });
+  try {
+    await waitMs(140);
+    const sub = h.doc.getElementById('fat-pct-subtitle').textContent;
+    assert.match(sub, /latest \d+\.\d+%/, 'latest reading still shown despite an empty window: "' + sub + '"');
+    assert.match(sub, /goal max 15%/, 'goal still shown');
+  } finally { h.teardown(); }
+});
+
 test('a bogus stored range falls back to full history instead of blanking', async () => {
   const h = await loadTracker({ seedState: seed({ chartRangeDays: 7 }) });
   try {

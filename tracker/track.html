@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.95">
+<meta name="app-version" content="v6.5.96">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -11982,7 +11982,9 @@
   function renderMoodChart() {
     const svg = document.getElementById('mood-chart');
     if (!svg) return;
-    const dates = getSharedChartDates();
+    // Full history: the range dropdown belongs to the weight section and does
+    // not govern this chart, which sits in its own collapsible section.
+    const dates = getSharedChartDates(false);
     const points = projectOntoSharedAxis(collectMoodSeries(), s => s.mood, dates);
     buildLineChart(svg, points, {
       color: '#5a6b4d',
@@ -12098,7 +12100,12 @@
     const innerW = W - pad.left - pad.right;
     const innerH = H - pad.top - pad.bottom;
 
-    if (!points.length) {
+    // No plottable value: either no dates at all, or - once the range filter
+    // trims the axis - a window whose dates carry no reading for THIS metric.
+    // Without the second case the code below would fall through to the
+    // yMin=0/yMax=1 fallback and paint the lowest band across the whole plot,
+    // showing a solid colour block on a nonsense 0-1 scale.
+    if (!points.some(p => typeof p.y === 'number')) {
       const txt = svgEl('text', { x: W/2, y: H/2, 'text-anchor': 'middle', fill: '#8a8a8a',
         'font-family': 'JetBrains Mono, monospace', 'font-size': '12' });
       txt.textContent = 'No data yet';
@@ -12355,7 +12362,10 @@
     sel.value = days ? String(days) : 'all';
   }
 
-  function getSharedChartDates() {
+  // applyRange=false returns the untrimmed axis. The mood chart uses that:
+  // the range control lives in the weight section and is scoped to the
+  // weight / BMI / body-fat charts, so mood must keep its full history.
+  function getSharedChartDates(applyRange) {
     const dates = new Set();
     for (const s of collectWeightSeries()) dates.add(s.date);
     for (const s of collectFatPercentSeries()) dates.add(s.date);
@@ -12363,7 +12373,7 @@
     // Range filter: keep dates inside the selected window, counted back from
     // today so "last 30 days" means 30 calendar days, not the last 30
     // readings. Inclusive of today, hence days - 1.
-    const days = normalizeChartRangeDays(state.chartRangeDays);
+    const days = (applyRange === false) ? undefined : normalizeChartRangeDays(state.chartRangeDays);
     if (!days) return all;
     const cutoff = new Date();
     cutoff.setDate(cutoff.getDate() - (days - 1));
@@ -12423,14 +12433,14 @@
     if (!svg) return;
     const dates = getSharedChartDates();
     const points = projectOntoSharedAxis(collectFatPercentSeries(), s => s.fatPercent, dates);
-    // Subtitle: current value + goal max + delta. Uses the last non-null
-    // value on the shared axis (latest fat % reading the user has).
+    // Subtitle: current value + goal max + delta. Reads the latest reading
+    // from the FULL history, not the windowed points - "latest" is a fact
+    // about the user, so narrowing the range must not blank the app's only
+    // current-body-fat readout. collectFatPercentSeries sorts ascending.
     const sub = document.getElementById('fat-pct-subtitle');
     if (sub) {
-      let latest = null;
-      for (let i = points.length - 1; i >= 0; i--) {
-        if (typeof points[i].y === 'number') { latest = points[i].y; break; }
-      }
+      const fatSeries = collectFatPercentSeries();
+      const latest = fatSeries.length ? fatSeries[fatSeries.length - 1].fatPercent : null;
       const goal = state.profile && state.profile.goals && typeof state.profile.goals.fatPercent === 'number'
         ? state.profile.goals.fatPercent : null;
       const parts = [];
