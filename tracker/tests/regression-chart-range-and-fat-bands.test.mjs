@@ -195,6 +195,30 @@ test('mood chart keeps full history when the range is narrowed', async () => {
   } finally { h.teardown(); }
 });
 
+test('mood logged on a day with no weigh-in still plots', async () => {
+  // Pre-existing defect: the mood chart borrowed the weight+body-fat date
+  // union, so mood recorded on a day with neither was silently dropped.
+  const days = {};
+  for (let i = 0; i < 10; i++) {
+    const d = daysAgo(i);
+    days[d] = { counters: {}, customs: [], toggles: {}, counterMeta: {}, mood: 5 };
+    // Weight only on even days -> odd days carry mood and nothing else.
+    if (i % 2 === 0) days[d].weight = 90;
+  }
+  const h = await loadTracker({ seedState: { state: {
+    activeDate: daysAgo(0), days, counters: {}, customs: [],
+    profile: { sex: 'M', ageYears: 35, heightCm: 183 },
+    userCatalog: { items: {}, categories: [] }, toggles: {},
+  } } });
+  try {
+    await waitMs(140);
+    const mood = h.doc.getElementById('mood-chart');
+    // All 10 mood entries must plot, not just the 5 that share a weigh-in.
+    assert.equal(mood.querySelectorAll('circle').length, 10,
+      'every mood entry plots regardless of whether that day had a weigh-in');
+  } finally { h.teardown(); }
+});
+
 // ---------- F. a window with no reading shows the empty state ----------
 test('a window containing no body-fat reading shows "No data yet", not a solid band', async () => {
   // Daily weight keeps the shared axis populated, but the last neck+waist

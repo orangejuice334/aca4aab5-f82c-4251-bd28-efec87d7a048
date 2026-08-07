@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.96">
+<meta name="app-version" content="v6.5.97">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -11982,10 +11982,15 @@
   function renderMoodChart() {
     const svg = document.getElementById('mood-chart');
     if (!svg) return;
-    // Full history: the range dropdown belongs to the weight section and does
-    // not govern this chart, which sits in its own collapsible section.
-    const dates = getSharedChartDates(false);
-    const points = projectOntoSharedAxis(collectMoodSeries(), s => s.mood, dates);
+    // Mood gets its OWN axis rather than the shared weight/body-fat one.
+    // Mood is logged independently of weigh-ins, so projecting it onto the
+    // weight+body-fat date union silently dropped every mood entry recorded
+    // on a day with no weight and no tape measurement. Using the mood series'
+    // own dates also keeps this chart clear of the weight section's range
+    // dropdown, which does not govern it.
+    const moodSeries = collectMoodSeries();
+    const dates = moodSeries.map(s => s.date);
+    const points = projectOntoSharedAxis(moodSeries, s => s.mood, dates);
     buildLineChart(svg, points, {
       color: '#5a6b4d',
       yDecimals: 1,
@@ -12362,10 +12367,10 @@
     sel.value = days ? String(days) : 'all';
   }
 
-  // applyRange=false returns the untrimmed axis. The mood chart uses that:
-  // the range control lives in the weight section and is scoped to the
-  // weight / BMI / body-fat charts, so mood must keep its full history.
-  function getSharedChartDates(applyRange) {
+  // Shared axis for the weight / BMI / body-fat charts only. The mood chart
+  // builds its own axis from the mood series, so it is unaffected by the
+  // range control below.
+  function getSharedChartDates() {
     const dates = new Set();
     for (const s of collectWeightSeries()) dates.add(s.date);
     for (const s of collectFatPercentSeries()) dates.add(s.date);
@@ -12373,7 +12378,7 @@
     // Range filter: keep dates inside the selected window, counted back from
     // today so "last 30 days" means 30 calendar days, not the last 30
     // readings. Inclusive of today, hence days - 1.
-    const days = (applyRange === false) ? undefined : normalizeChartRangeDays(state.chartRangeDays);
+    const days = normalizeChartRangeDays(state.chartRangeDays);
     if (!days) return all;
     const cutoff = new Date();
     cutoff.setDate(cutoff.getDate() - (days - 1));
