@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-08-06T09:35:15.411Z",
-  "_gistSavedAt": "2026-08-05T20:41:28.379Z",
+  "_backupTakenAt": "2026-08-07T08:08:59.524Z",
+  "_gistSavedAt": "2026-08-06T23:02:27.664Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2196,7 +2196,52 @@
         "waist": 104,
         "waistMeta": "2026-08-05T14:39:40.042Z",
         "mood": 6,
-        "moodMeta": "2026-08-05T14:39:40.961Z"
+        "moodMeta": "2026-08-05T14:40:26.972Z"
+      },
+      "2026-08-06": {
+        "toggles": {},
+        "counters": {
+          "soy_milk": 300,
+          "peach": 163,
+          "oikos_triple_zero_vanilla": 204,
+          "david_bar_choc_chip_cookie_dough": 124,
+          "yogurt_oikos_triple_zero_lemon": 0,
+          "arnold_keto_rolls": 114,
+          "peanut_butter_delight_aldi": 56,
+          "quest_chips_nacho": 32,
+          "ff_super_zero_vanilla": 125
+        },
+        "customs": [
+          {
+            "id": "d463b449-9976-4e80-ae52-db2afde50cf6",
+            "name": "350kcal",
+            "kcal": 350,
+            "count": 1,
+            "lastModified": "2026-08-06T12:39:13.866Z"
+          },
+          {
+            "id": "4f5f803d-8510-4d76-90d3-d89db6e51867",
+            "name": "50kcal 2.5p",
+            "kcal": 50,
+            "p": 2.5,
+            "count": 1,
+            "lastModified": "2026-08-06T18:30:29.699Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "soy_milk": "2026-08-06T12:37:44.630Z",
+          "peach": "2026-08-06T12:44:39.654Z",
+          "oikos_triple_zero_vanilla": "2026-08-06T11:45:43-04:00",
+          "david_bar_choc_chip_cookie_dough": "2026-08-06T20:11:46.060Z",
+          "yogurt_oikos_triple_zero_lemon": "2026-08-06T20:12:23.936Z",
+          "arnold_keto_rolls": "2026-08-06T18:59:35-04:00",
+          "peanut_butter_delight_aldi": "2026-08-06T18:59:35-04:00",
+          "quest_chips_nacho": "2026-08-06T18:59:35-04:00",
+          "ff_super_zero_vanilla": "2026-08-06T18:59:35-04:00"
+        },
+        "neck": 43,
+        "neckMeta": "2026-08-06T22:51:09.154Z"
       }
     },
     "savedItems": [],
@@ -2281,15 +2326,15 @@
       "targets-accumulation": true,
       "history": true,
       "supplements-water": true,
-      "today-customs": true,
       "section-mood-tracker": true,
       "profile": true,
       "details-recipe-maker": true,
-      "details-add-new-item": true,
-      "catalog-alpha": true,
       "section-weight-tracker": true,
       "section-archive-section": true,
-      "catalog-archive": true
+      "catalog-archive": true,
+      "today-customs": true,
+      "details-add-new-item": true,
+      "section-checkout": true
     },
     "userCatalog": {
       "items": {
@@ -2431,6 +2476,63 @@
           ],
           "defaultMeasuredIn": "g",
           "purines": 0.05
+        },
+        "arnold_keto_rolls": {
+          "name": "Roll keto sandwich thins Arnold",
+          "brand": "Arnold",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.754386,
+          "p": 0.210526,
+          "fat": 0.052632,
+          "sf": 0.008772,
+          "transFat": 0,
+          "carbs": 0.368421,
+          "fiber": 0.298246,
+          "sugar": 0.008772,
+          "addedSugar": 0,
+          "cholesterol": 0,
+          "sodium": 5.438596,
+          "water": 0.35,
+          "vitD": 0,
+          "calcium": 1.052632,
+          "iron": 0.015789,
+          "potassium": 1.403509,
+          "phosphorus": 1.58,
+          "magnesium": 0.53,
+          "selenium": 0.26,
+          "zinc": 0.012,
+          "manganese": 0.009,
+          "copper": 0.0026,
+          "b1": 0.0018,
+          "b3": 0.018,
+          "b9": 0.35,
+          "vitE": 0.018,
+          "choline": 0.26,
+          "purines": 0.53,
+          "omega3": 0.0018,
+          "displayUnits": [
+            {
+              "label": "1 roll (57 g)",
+              "amount": 57,
+              "unit": "g",
+              "default": true,
+              "multiplier": 57
+            },
+            {
+              "label": "½ roll (28.5 g)",
+              "amount": 28.5,
+              "unit": "g",
+              "multiplier": 28.5
+            },
+            {
+              "label": "bag (6 rolls, 340 g)",
+              "amount": 340,
+              "unit": "g",
+              "multiplier": 340
+            }
+          ],
+          "notes": "Arnold Superior Keto Sandwich Thins / Rolls (Bimbo Bakeries), 6 pre-sliced rolls, net 12oz/340g, 57g/roll. Label per roll: 100 kcal, 3g fat (0.5 sat, 1.5 poly, 1 mono), 0 trans, 0 chol, 310mg sodium (13%), 21g carb, 17g fiber (61% DV!), <1g sugar, 0 added, 12g protein, Vit D 0, Ca 60mg, Iron 0.9mg, K 80mg. Net carb 4g. kcal STORED AT LABEL 100 -- already embeds ~0.5 kcal/g on the fiber (net-carb base ~91 + ~9). NOTE: fiber = soluble corn fiber + inulin (chicory) + oat fiber + modified wheat starch. Inulin & soluble corn fiber are MORE fermentable than the RS4/psyllium in the Hero/Royo keto breads, so a strict ~2 kcal/g fermentable-fiber treatment would put this ~110-115 kcal; kept at label for consistency with the other keto breads. Off-label micros ESTIMATED from wheat protein isolate + sunflower flour + oat fiber + soybean oil: phosphorus ~90mg/roll (relevant to reduced-eGFR history), Mg ~30mg, selenium ~15mcg, folate ~20mcg. LOW-MEDIUM confidence. PURINES ~30mg/roll -- LOW-MODERATE (wheat gluten/oat). CONTAINS wheat, soy, sesame; bakery may use milk."
         },
         "avocado_half": {
           "name": "Avocado",
@@ -6477,6 +6579,61 @@
           "notes": "Label-derived (high confidence): kcal, macros, sodium, cholesterol, Ca (VERY HIGH at 18.125 mg/g — 580mg/scoop = 45% DV), K, Fe. Estimated from USDA micellar casein composition (high confidence): phosphorus very high (~6 mg/g — casein binds phosphate), B12 (~0.015 mcg/g, decent), iodine (~0.5 mcg/g — dairy is excellent iodine source), choline, selenium, Mg. Purines LOW (~7.5 mg/100g — dairy proteins are gout-protective per Choi 2004). Ingredients: Micellar casein (casein protein, sunflower lecithin, instantized), natural and artificial flavors, salt (sodium chloride), sucralose. Contains milk. CASEIN-SPECIFIC PROPERTIES: slow-digesting (4–6h amino acid release vs whey's 1–2h), forms gastric gel = high satiety + slower delivery, ideal for pre-bed or long fasting windows. Leucine ~9% of protein (slightly lower than whey at ~11% but still effective for MPS). Mouthfeel thicker/chalkier than whey or soy.",
           "brand": "Nutricost"
         },
+        "oikos_triple_zero_vanilla": {
+          "name": "Yogurt Greek Oikos Triple Zero vanilla",
+          "brand": "Oikos",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.588235,
+          "p": 0.1,
+          "fat": 0,
+          "sf": 0,
+          "transFat": 0,
+          "carbs": 0.041176,
+          "fiber": 0,
+          "sugar": 0.035294,
+          "addedSugar": 0,
+          "cholesterol": 0.058824,
+          "sodium": 0.382353,
+          "water": 0.8,
+          "vitD": 0.013529,
+          "calcium": 1,
+          "iron": 0,
+          "potassium": 1,
+          "phosphorus": 1.18,
+          "magnesium": 0.12,
+          "zinc": 0.006,
+          "selenium": 0.088,
+          "b12": 0.006,
+          "b2": 0.0024,
+          "b5": 0.004,
+          "b6": 0.0006,
+          "choline": 0.18,
+          "iodine": 0.35,
+          "purines": 0.03,
+          "displayUnits": [
+            {
+              "label": "3/4 cup (170 g)",
+              "amount": 170,
+              "unit": "g",
+              "default": true,
+              "multiplier": 170
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            },
+            {
+              "label": "container (907 g)",
+              "amount": 907,
+              "unit": "g",
+              "multiplier": 907
+            }
+          ],
+          "notes": "Oikos Triple Zero Vanilla, blended nonfat Greek yogurt, 32oz/907g tub (~5 servings). Label per 3/4 cup (170g): 100 kcal, 0 fat, 0 sat, 0 trans, 10mg chol, 65mg sodium, 7g carb, 0 fiber, 6g sugar (0 added -- stevia sweetened), 17g protein, Vit D 2.3mcg (10%), Ca 170mg (15%), Iron 0, K 170mg. All label-exact. Triple Zero = 0 added sugar, 0 artificial sweeteners, 0 fat. Off-label micros ESTIMATED from nonfat Greek yogurt: phosphorus ~200mg/serving (relevant to reduced-eGFR history), iodine ~60mcg (dairy), B12 ~1mcg, riboflavin, selenium. LOW-MEDIUM confidence. Purines ~5mg/serving -- LOW (dairy, gout-favorable). Same Triple Zero base as the lemon entry, vanilla flavor. Ingredients: cultured nonfat milk, water, <1% natural flavors, tapioca starch, stevia leaf extract, lemon juice concentrate, sea salt, vitamin D3, yogurt cultures. CONTAINS milk."
+        },
         "omega3": {
           "name": "Omega-3 (fish oil)",
           "category": "supplements",
@@ -6666,6 +6823,62 @@
           ],
           "defaultMeasuredIn": "g",
           "brand": "PB2"
+        },
+        "peach": {
+          "name": "Peach",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.39,
+          "p": 0.0091,
+          "fat": 0.0025,
+          "sf": 0.0002,
+          "transFat": 0,
+          "carbs": 0.0954,
+          "fiber": 0.015,
+          "sugar": 0.0839,
+          "addedSugar": 0,
+          "cholesterol": 0,
+          "sodium": 0,
+          "water": 0.89,
+          "potassium": 1.9,
+          "vitC": 0.066,
+          "vitA": 0.16,
+          "calcium": 0.06,
+          "iron": 0.0025,
+          "magnesium": 0.09,
+          "phosphorus": 0.2,
+          "b3": 0.00806,
+          "b6": 0.00025,
+          "b9": 0.04,
+          "choline": 0.061,
+          "vitE": 0.0073,
+          "vitK": 0.026,
+          "copper": 0.00068,
+          "manganese": 0.00061,
+          "zinc": 0.0017,
+          "purines": 0.15,
+          "displayUnits": [
+            {
+              "label": "1 large (163 g)",
+              "amount": 163,
+              "unit": "g",
+              "default": true,
+              "multiplier": 163
+            },
+            {
+              "label": "1 medium (150 g)",
+              "amount": 150,
+              "unit": "g",
+              "multiplier": 150
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Peach, raw (USDA SR). Per 100g: 39 kcal, 0.91g protein, 0.25g fat, 9.54g carb, 1.5g fiber, 8.39g sugar (all natural), K 190mg, Vit C 6.6mg, Vit A 16mcg RAE, folate 4mcg, Ca 6mg, Mg 9mg, P 20mg, niacin 0.8mg, choline 6mg, Vit E 0.73mg, Vit K 2.6mcg. Sodium ~0. 1 large (2-3/4in) ~163g edible (~175g with pit). Purines ~15mg/100g -- LOW (fruit, gout-favorable). Whole food, high confidence (USDA)."
         },
         "peanut_butter_delight_aldi": {
           "name": "Peanut butter creamy Peanut Delight (Aldi)",
@@ -7550,6 +7763,52 @@
           ],
           "notes": "Label-derived (high confidence) for full pack: kcal, macros, sodium (560mg/pack = HIGH), fiber (3g/pack), iron (15% DV from enriched flour), Ca, K, vit D. Combined hummus + pretzels — single SKU snack pack. Estimated from USDA chickpea + sesame + enriched wheat composition (lower confidence): B-vitamins (B9 high from enrichment), Mg, P, Zn, Se, vit E (from sunflower oil + tahini), water content (~41% — hummus ~65% water, pretzels ~5%, ratio ~60/40 by weight). Purines moderate (~0.4 mg/g — chickpeas contribute most). Hummus ingredients: chickpeas, water, sunflower oil, sesame tahini, sea salt, citric acid, garlic, guar gum, cumin. Pretzel ingredients: enriched wheat flour (iron as ferrous sulfate, niacin, thiamine mononitrate, riboflavin, folic acid), salt, sunflower/canola/rice oil, corn syrup, malt syrup, yeast. Contains wheat, sesame.",
           "brand": "Park Street Deli (Aldi)"
+        },
+        "quest_chips_nacho": {
+          "name": "Chips protein Quest nacho",
+          "brand": "Quest",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 4.375,
+          "p": 0.59375,
+          "fat": 0.15625,
+          "sf": 0.03125,
+          "transFat": 0,
+          "carbs": 0.15625,
+          "fiber": 0.03125,
+          "sugar": 0.03125,
+          "addedSugar": 0,
+          "cholesterol": 0.15625,
+          "sodium": 9.0625,
+          "water": 0.02,
+          "vitD": 0,
+          "calcium": 5.3125,
+          "iron": 0.0125,
+          "potassium": 1.5625,
+          "phosphorus": 6.25,
+          "magnesium": 0.94,
+          "zinc": 0.047,
+          "selenium": 0.31,
+          "b12": 0.016,
+          "b2": 0.009,
+          "choline": 0.94,
+          "purines": 0.31,
+          "displayUnits": [
+            {
+              "label": "1 bag (32 g)",
+              "amount": 32,
+              "unit": "g",
+              "default": true,
+              "multiplier": 32
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Quest Tortilla Style Protein Chips, Nacho (Quest Nutrition), 1 bag (32g). Label per bag: 140 kcal, 5g fat (1g sat), 0 trans, 5mg chol, 290mg sodium (13%), 5g carb, 1g fiber, 1g sugar, 0 added, 19g protein, Vit D 0, Ca 170mg (15%), Iron 0.4mg, K 50mg. All label-exact. kcal stored at label 140 (fiber only 1g; negligible). Protein = milk protein isolate + whey protein isolate + calcium caseinate (complete, high quality). Off-label micros ESTIMATED from dairy protein isolates: phosphorus ~200mg/bag (HIGH -- protein isolates; relevant to reduced-eGFR history), Mg ~30mg, selenium ~10mcg. LOW-MEDIUM confidence. Purines ~10mg/bag -- LOW (dairy). CONTAINS milk, soy."
         },
         "quest_smores_bar": {
           "name": "Protein bar Quest s'mores",
@@ -9037,6 +9296,55 @@
           "brand": "Giant",
           "purines": 0.3
         },
+        "too_good_mixed_berry": {
+          "name": "Yogurt Greek Too Good & Co. mixed berry",
+          "brand": "Too Good & Co.",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.533333,
+          "p": 0.08,
+          "fat": 0.013333,
+          "sf": 0.006667,
+          "transFat": 0,
+          "carbs": 0.026667,
+          "fiber": 0,
+          "sugar": 0.013333,
+          "addedSugar": 0,
+          "cholesterol": 0.026667,
+          "sodium": 0.233333,
+          "water": 0.82,
+          "vitD": 0.013333,
+          "calcium": 0.693333,
+          "iron": 0,
+          "potassium": 0.626667,
+          "phosphorus": 1,
+          "magnesium": 0.1,
+          "zinc": 0.005,
+          "selenium": 0.067,
+          "b12": 0.0053,
+          "b2": 0.002,
+          "b5": 0.0033,
+          "choline": 0.13,
+          "iodine": 0.3,
+          "vitC": 0.013,
+          "purines": 0.027,
+          "displayUnits": [
+            {
+              "label": "1 container (150 g)",
+              "amount": 150,
+              "unit": "g",
+              "default": true,
+              "multiplier": 150
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Too Good & Co. (Danone) blended low-sugar Greek yogurt cup, mixed berry (blueberry/strawberry/raspberry purees), 150g container. Label per container (150g): 80 kcal, 2g fat (1g sat), 0 trans, <5mg chol, 35mg sodium, 4g carb, 0 fiber, 2g sugar (0 added -- stevia), 12g protein, Vit D 10% (~2mcg), Ca 8% (~104mg), Iron 0, K 2% (~94mg). Label-derived (high confidence). 'At least 70% less sugar (2g/5.3oz) vs avg Greek yogurt (10g/5.3oz)', no artificial sweeteners. Off-label micros ESTIMATED from low/nonfat Greek yogurt: phosphorus ~150mg/container (relevant to reduced-eGFR history), iodine ~45mcg, B12 ~0.8mcg. LOW-MEDIUM confidence. Purines ~4mg -- LOW (dairy). Ingredients: cultured ultra-filtered nonfat milk, cultured reduced-fat milk, water, <1% berry purees, tapioca starch, natural flavors, lemon juice concentrate, gellan gum, stevia extract, sea salt, fruit/veg juice concentrate (color), vitamin D3, yogurt cultures. CONTAINS milk. NOT eaten -- catalog only."
+        },
         "tuna_can": {
           "name": "Tuna chunk light",
           "category": "items",
@@ -10120,6 +10428,7 @@
           "label": "Uncategorized"
         }
       ]
-    }
+    },
+    "totalsMode": "collapsed"
   }
 }
