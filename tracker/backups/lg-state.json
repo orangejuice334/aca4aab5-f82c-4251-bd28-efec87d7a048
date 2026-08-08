@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-08-07T15:07:33.455Z",
-  "_gistSavedAt": "2026-08-07T14:41:07.038Z",
+  "_backupTakenAt": "2026-08-08T07:42:02.832Z",
+  "_gistSavedAt": "2026-08-07T22:56:35.006Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2248,12 +2248,30 @@
       "2026-08-07": {
         "toggles": {},
         "counters": {
-          "quest_chips_nacho": 32
+          "quest_chips_nacho": 32,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "ff_super_zero_vanilla": 221,
+          "wf_sesame_bagel": 27.17,
+          "string_cheese": 84,
+          "ketchup_heinz_packet": 18,
+          "evoo_tsp": 28,
+          "wf_egg_salad": 100,
+          "yogurt_oikos_pro_lemon": 150,
+          "nutricost_casein_vanilla": 35.2
         },
         "customs": [],
         "toggleMeta": {},
         "counterMeta": {
-          "quest_chips_nacho": "2026-08-07T14:34:54.687Z"
+          "quest_chips_nacho": "2026-08-07T14:34:54.687Z",
+          "david_bar_choc_chip_cookie_dough": "2026-08-07T21:14:07.736Z",
+          "ff_super_zero_vanilla": "2026-08-07T21:14:21.790Z",
+          "wf_sesame_bagel": "2026-08-07T18:28:00-04:00",
+          "string_cheese": "2026-08-07T18:28:00-04:00",
+          "ketchup_heinz_packet": "2026-08-07T18:28:00-04:00",
+          "evoo_tsp": "2026-08-07T18:28:00-04:00",
+          "wf_egg_salad": "2026-08-07T18:30:55-04:00",
+          "yogurt_oikos_pro_lemon": "2026-08-07T22:56:22.494Z",
+          "nutricost_casein_vanilla": "2026-08-07T22:56:34.801Z"
         },
         "mood": 5,
         "moodMeta": "2026-08-07T14:21:35.478Z",
@@ -10114,6 +10132,113 @@
           "defaultMeasuredIn": "g",
           "brand": "Wegovy"
         },
+        "wf_egg_salad": {
+          "name": "Egg salad Whole Foods",
+          "brand": "Whole Foods",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.858407,
+          "p": 0.097345,
+          "fat": 0.168142,
+          "sf": 0.035398,
+          "transFat": 0,
+          "carbs": 0.00885,
+          "fiber": 0,
+          "sugar": 0.00885,
+          "addedSugar": 0,
+          "cholesterol": 2.699115,
+          "sodium": 3.097345,
+          "water": 0.65,
+          "vitD": 0.017699,
+          "calcium": 0.442478,
+          "iron": 0.00885,
+          "potassium": 1.150442,
+          "phosphorus": 1.33,
+          "selenium": 0.22,
+          "b12": 0.009,
+          "b2": 0.0035,
+          "choline": 2.2,
+          "b5": 0.011,
+          "b9": 0.35,
+          "zinc": 0.009,
+          "vitA": 1.06,
+          "vitE": 0.018,
+          "iodine": 0.27,
+          "omega3": 0.0018,
+          "purines": 0.04,
+          "displayUnits": [
+            {
+              "label": "4 oz (113 g)",
+              "amount": 113,
+              "unit": "g",
+              "default": true,
+              "multiplier": 113
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Whole Foods Market Egg Salad (deli, sold by weight; this container 0.65lb/295g, varied servings). Label per 4 oz (113g): 210 kcal, 19g fat (4g sat), 0 trans, 305mg cholesterol (102% DV -- VERY high, egg yolks), 350mg sodium (15%), 1g carb, 0 fiber, 1g sugar, 0 added, 11g protein, Vit D 2mcg (10%), Ca 50mg, Iron 1mg, K 130mg. All label-exact. Off-label micros ESTIMATED from eggs + soybean oil + celery/onion: CHOLINE ~250mg/serving (eggs are richest choline source), phosphorus ~150mg/serving (relevant to reduced-eGFR history), selenium ~25mcg, vitamin A ~120mcg RAE (yolk), iodine ~30mcg (eggs), B12/B2/folate. LOW-MEDIUM confidence. PURINES ~5mg/serving -- LOW (eggs are gout-safe/low-purine, despite high cholesterol). Ingredients: eggs, soybean oil, dijon mustard (white wine, water, mustard seed, salt, spices), distilled vinegar, red pepper, celery, yellow onion, green onion, black pepper, salt. CONTAINS egg."
+        },
+        "wf_sesame_bagel": {
+          "name": "Bagel sesame Whole Foods",
+          "brand": "Whole Foods",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.7607,
+          "p": 0.092025,
+          "fat": 0.018405,
+          "sf": 0,
+          "transFat": 0,
+          "carbs": 0.542897,
+          "fiber": 0.018405,
+          "sugar": 0.064417,
+          "addedSugar": 0.055214,
+          "cholesterol": 0,
+          "sodium": 3.128923,
+          "water": 0.32,
+          "vitD": 0,
+          "calcium": 0.165639,
+          "iron": 0.036809,
+          "potassium": 0.828196,
+          "phosphorus": 0.83,
+          "magnesium": 0.23,
+          "selenium": 0.32,
+          "zinc": 0.009,
+          "b1": 0.0046,
+          "b2": 0.0028,
+          "b3": 0.046,
+          "b9": 1.1,
+          "manganese": 0.009,
+          "copper": 0.0014,
+          "choline": 0.23,
+          "purines": 0.28,
+          "displayUnits": [
+            {
+              "label": "1 bagel (109 g)",
+              "amount": 108.67,
+              "unit": "g",
+              "default": true,
+              "multiplier": 108.67
+            },
+            {
+              "label": "1/4 bagel (27 g)",
+              "amount": 27.17,
+              "unit": "g",
+              "multiplier": 27.17
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Whole Foods Market Sesame Bagel (in-store bakery, enriched wheat). Net 1lb 7oz/652g, 6 bagels => ~108.67g/bagel. Label per bagel (1 ea): 300 kcal, 2g fat (0 sat), 0 trans, 0 chol, 340mg sodium (15% DV), 59g carb, 2g fiber, 7g sugar (6g added), 10g protein, Vit D 0, Ca 18mg, Iron 4mg (22% DV -- enriched flour), K 90mg. All label-exact. kcal stored at label 300 (fiber only 2g; negligible). Off-label micros ESTIMATED from enriched wheat bagel: phosphorus ~90mg/bagel (relevant to reduced-eGFR history), folate ~120mcg (folic acid enriched), selenium ~35mcg (wheat high), niacin ~5mg, thiamin/riboflavin (enriched). LOW-MEDIUM confidence. PURINES ~30mg/bagel -- LOW-MODERATE (wheat). Distinct from generic 'Bagel sesame' entry (which has ~594mg sodium, 12g protein). Ingredients: wheat flour, malted barley flour, water, <2% yeast, sesame seeds, brown sugar, malt syrup, sea salt, raisin juice concentrate, molasses powder, ascorbic acid, enzymes, cornmeal. CONTAINS wheat, sesame. Bioengineered ingredients."
+        },
         "wing_plain_bww": {
           "name": "Classic wing plain",
           "category": "items",
@@ -10443,7 +10568,6 @@
           "label": "Uncategorized"
         }
       ]
-    },
-    "totalsMode": "collapsed"
+    }
   }
 }
