@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-08-10T08:22:23.132Z",
-  "_gistSavedAt": "2026-08-08T13:48:09.556Z",
+  "_backupTakenAt": "2026-08-11T08:05:27.129Z",
+  "_gistSavedAt": "2026-08-10T16:43:44.199Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2287,7 +2287,46 @@
         "mood": 5,
         "moodMeta": "2026-08-08T12:34:59.367Z",
         "weight": 90.2,
-        "weightMeta": "2026-08-08T12:35:24.431Z"
+        "weightMeta": "2026-08-08T13:48:10.280Z",
+        "neck": 43,
+        "neckMeta": "2026-08-08T13:48:10.392Z"
+      },
+      "2026-08-10": {
+        "toggles": {},
+        "counters": {
+          "chobani_zero_sugar_mixed_berry": 300,
+          "david_bar_choc_chip_cookie_dough": 62
+        },
+        "customs": [
+          {
+            "id": "286858ee-b41c-434a-b28c-f0639c4391ff",
+            "name": "750kcal 45p",
+            "kcal": 750,
+            "p": 45,
+            "fat": 33,
+            "sf": 10,
+            "count": 1,
+            "lastModified": "2026-08-10T16:42:45.759Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "chobani_zero_sugar_mixed_berry": "2026-08-10T10:55:48-04:00",
+          "david_bar_choc_chip_cookie_dough": "2026-08-10T10:55:48-04:00"
+        },
+        "weight": 90.5,
+        "weightMeta": "2026-08-10T11:00:10-04:00",
+        "neck": 43,
+        "neckMeta": "2026-08-10T14:56:22.629Z",
+        "mood": 7.5,
+        "moodMeta": "2026-08-10T16:43:42.724Z"
+      },
+      "2026-08-11": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {}
       }
     },
     "savedItems": [],
@@ -2378,6 +2417,7 @@
       "section-archive-section": true,
       "catalog-archive": true,
       "today-customs": true,
+      "catalog-alpha": true,
       "details-add-new-item": true
     },
     "userCatalog": {
@@ -3825,6 +3865,55 @@
           ],
           "notes": "Label per 1 container (190g): 140 kcal, 20g protein, 3g fat (2g sat), 8g carb, 1g fiber, 6g total sugars (0g added — all from milk lactose... though marketed lactose-free, residual milk sugar remains), 140mg sodium, 20mg cholesterol, Ca 15% DV, K 6% DV, B12 70% DV (very high). Lactose free. Zero added sugar (stevia/monk-style sweetened typical for Chobani zero-sugar line). Estimated micros from strained Greek yogurt composition (high confidence): B12 exceptional (~0.022 mcg/g, label-confirmed 70% DV), iodine (dairy ~0.5 mcg/g), phosphorus (~1.4 mg/g), choline. Purines low (~10 mg/100g). Ingredients: lowfat yogurt (cultured pasteurized lowfat milk, lactase enzyme), water, raspberry/lemon fruit base, natural flavors, fruit/veg juice concentrate (color), stevia/monk fruit. Contains milk. Live active cultures. USWNT/USMNT (US Soccer) promotional packaging.",
           "brand": "Chobani"
+        },
+        "chobani_zero_sugar_mixed_berry": {
+          "name": "Yogurt Greek Chobani Zero Sugar mixed berry",
+          "brand": "Chobani",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.4,
+          "p": 0.08,
+          "fat": 0,
+          "sf": 0,
+          "transFat": 0,
+          "carbs": 0.033333,
+          "fiber": 0,
+          "sugar": 0,
+          "addedSugar": 0,
+          "sugarAlcohol": 0.026667,
+          "cholesterol": 0.066667,
+          "sodium": 0.433333,
+          "water": 0.82,
+          "vitD": 0,
+          "calcium": 0.866667,
+          "iron": 0,
+          "potassium": 0.6,
+          "phosphorus": 1,
+          "magnesium": 0.1,
+          "zinc": 0.005,
+          "selenium": 0.067,
+          "b12": 0.0053,
+          "b2": 0.002,
+          "b5": 0.0033,
+          "choline": 0.13,
+          "iodine": 0.33,
+          "purines": 0.027,
+          "displayUnits": [
+            {
+              "label": "1 container (150 g)",
+              "amount": 150,
+              "unit": "g",
+              "default": true,
+              "multiplier": 150
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Chobani Zero Sugar Mixed Berry, nonfat Greek yogurt, lactose free, 150g container. Label per container: 60 kcal, 0 fat, 0 sat, 0 trans, 10mg chol, 65mg sodium, 5g carb, 0 fiber, 0 sugar (0 added), 12g protein, Vit D 0, Ca 10% (~130mg), Iron 0, K 0%. SWEETENERS: allulose + stevia + monk fruit (zero sugar). The 5g total carb is mostly ALLULOSE (a rare sugar, ~0 kcal, non-glycemic, FDA-excluded from calories/sugars). Stored ~4g in the sugarAlcohol field so net carb computes to ~1g digestible (allulose is not chemically a polyol but is functionally non-caloric like erythritol). kcal 60 = label (already accounts for allulose). Off-label micros ESTIMATED from nonfat Greek yogurt: phosphorus ~150mg/container (relevant to reduced-eGFR history), iodine ~50mcg (dairy), B12 ~0.8mcg. LOW-MEDIUM confidence. Purines ~4mg -- LOW (dairy, gout-favorable). Distinct from Chobani 20g Protein and Oikos entries. Ingredients: ultra-filtered nonfat milk, water, skim milk, allulose, <2%: natural flavors, tapioca flour, citrus fiber, sea salt, guar gum, veg juice concentrate (color), stevia leaf extract, monk fruit extract, cultures. CONTAINS milk."
         },
         "crackers_50g": {
           "name": "Crackers",
