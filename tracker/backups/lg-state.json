@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-08-12T08:10:34.901Z",
-  "_gistSavedAt": "2026-08-12T00:05:04.058Z",
+  "_backupTakenAt": "2026-08-13T08:13:33.644Z",
+  "_gistSavedAt": "2026-08-13T00:39:24.650Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2327,6 +2327,41 @@
         "customs": [],
         "toggleMeta": {},
         "counterMeta": {}
+      },
+      "2026-08-12": {
+        "toggles": {},
+        "counters": {
+          "chobani_zero_sugar_mixed_berry": 150,
+          "soy_milk": 150,
+          "premier": 325,
+          "loven_fresh_protein_everything_bagel": 110,
+          "portofino_yellowfin_tuna": 113,
+          "evoo_tsp": 15,
+          "quest_chips_nacho": 64,
+          "yogurt_oikos_pro_lemon": 150
+        },
+        "customs": [
+          {
+            "id": "f0721e55-2373-4d4e-b5a8-232d7b41acf8",
+            "name": "150kcal 10p",
+            "kcal": 150,
+            "p": 10,
+            "sugar": 5,
+            "count": 1,
+            "lastModified": "2026-08-12T16:00:24.828Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "chobani_zero_sugar_mixed_berry": "2026-08-12T16:00:45.227Z",
+          "soy_milk": "2026-08-12T16:02:29.187Z",
+          "premier": "2026-08-12T16:02:37.703Z",
+          "loven_fresh_protein_everything_bagel": "2026-08-12T13:43:28-04:00",
+          "portofino_yellowfin_tuna": "2026-08-12T13:43:28-04:00",
+          "evoo_tsp": "2026-08-12T13:43:28-04:00",
+          "quest_chips_nacho": "2026-08-13T00:39:17.467Z",
+          "yogurt_oikos_pro_lemon": "2026-08-13T00:38:28.556Z"
+        }
       }
     },
     "savedItems": [],
@@ -2417,7 +2452,7 @@
       "section-archive-section": true,
       "catalog-archive": true,
       "today-customs": true,
-      "catalog-alpha": true,
+      "section-weight-tracker": true,
       "details-add-new-item": true
     },
     "userCatalog": {
@@ -7344,6 +7379,56 @@
             }
           ],
           "notes": "Guessed cut: center-cut pork loin (lean), the leanest pork commonly sold as flat steaks/chops. USDA SR Legacy Pork, fresh, loin, whole, separable lean only, cooked, broiled, per 100g: 211 kcal, 29.5g protein, 9.6g fat, 3.4g sat fat, 82mg cholesterol, 57mg sodium, 423mg potassium. Broiled plain, no added salt/fat. transfat ~0.04g/100g naturally occurring. Pork is very high in thiamin (B1 ~0.83mg/100g) and selenium. Purines ~150mg/100g (moderate-high). If the actual cut was tenderloin it would be ~30% leaner (~143 kcal/100g); loin assumed per the steak description."
+        },
+        "portofino_yellowfin_tuna": {
+          "name": "Tuna yellowfin in olive oil Portofino",
+          "brand": "Portofino",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.0354,
+          "p": 0.256637,
+          "fat": 0.115044,
+          "sf": 0.022124,
+          "transFat": 0,
+          "carbs": 0,
+          "fiber": 0,
+          "sugar": 0,
+          "addedSugar": 0,
+          "cholesterol": 0.353982,
+          "sodium": 3.362832,
+          "water": 0.55,
+          "vitD": 0.017699,
+          "calcium": 0,
+          "iron": 0.009558,
+          "potassium": 3.327434,
+          "b3": 0.127434,
+          "b6": 0.002257,
+          "b12": 0.016991,
+          "selenium": 0.924779,
+          "phosphorus": 2.8,
+          "magnesium": 0.35,
+          "zinc": 0.005,
+          "choline": 0.65,
+          "iodine": 0.15,
+          "vitA": 0.15,
+          "omega3": 0.0024,
+          "purines": 1.7,
+          "displayUnits": [
+            {
+              "label": "1 can drained (113 g)",
+              "amount": 113,
+              "unit": "g",
+              "default": true,
+              "multiplier": 113
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Portofino Solid Yellowfin Tuna in Extra Virgin Olive Oil with Sea Salt. Wild caught. Net 4.5oz/128g, DRAINED 4oz/113g. Label per 1 can DRAINED (113g): 230 kcal, 13g fat (2.5 sat, 2.5 poly, 8 mono -- mostly retained olive oil; yellowfin is lean), 0 trans, 40mg chol, 380mg sodium (17%), 0 carb, 29g protein, Vit D 10%, Iron 6%, K 8%, Niacin 90%, B6 15%, B12 80%, SELENIUM 190% (very high). NOTE: this is the DRAINED value. The free packing oil (~15g = 128 net - 113 drained) is NOT included here; log separately as olive oil if the oil is eaten. Off-label micros ESTIMATED from yellowfin: phosphorus ~316mg/can (relevant to reduced-eGFR history), choline ~73mg, iodine ~17mcg. LOW-MEDIUM confidence. PURINES ~1.7 mg/g => ~192mg per can -- HIGH (tuna 150-200 mg/100g). Significant for uric-acid/gout history. MEDIUM confidence. Ingredients: yellowfin tuna, extra virgin olive oil, sea salt. CONTAINS fish (tuna)."
         },
         "premier": {
           "name": "Protein shake",
