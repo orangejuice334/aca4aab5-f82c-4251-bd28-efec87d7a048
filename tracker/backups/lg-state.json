@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-08-16T07:24:13.513Z",
-  "_gistSavedAt": "2026-08-15T23:17:46.923Z",
+  "_backupTakenAt": "2026-08-17T07:45:22.900Z",
+  "_gistSavedAt": "2026-08-16T13:32:51.635Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2370,7 +2370,24 @@
         "toggleMeta": {},
         "counterMeta": {},
         "weight": 89.2,
-        "weightMeta": "2026-08-15T17:32:26.972Z"
+        "weightMeta": "2026-08-15T23:17:47.348Z",
+        "neck": 43,
+        "neckMeta": "2026-08-15T23:17:47.480Z"
+      },
+      "2026-08-16": {
+        "toggles": {},
+        "counters": {
+          "chobani_zero_sugar_vanilla": 255,
+          "jif_pb_cup": 21
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "chobani_zero_sugar_vanilla": "2026-08-16T09:32:51-04:00",
+          "jif_pb_cup": "2026-08-16T09:32:51-04:00"
+        },
+        "weight": 88.4,
+        "weightMeta": "2026-08-16T12:59:16.095Z"
       }
     },
     "savedItems": [],
@@ -2452,17 +2469,17 @@
       "targets-daily": true,
       "details-profile-section": true,
       "details-sync-error-banner": true,
-      "targets-accumulation": true,
       "history": true,
       "supplements-water": true,
       "section-mood-tracker": true,
       "profile": true,
-      "details-recipe-maker": true,
       "section-archive-section": true,
       "catalog-archive": true,
       "today-customs": true,
-      "section-weight-tracker": true,
-      "details-add-new-item": true
+      "details-add-new-item": true,
+      "catalog-alpha": true,
+      "targets-accumulation": true,
+      "details-recipe-maker": true
     },
     "userCatalog": {
       "items": {
@@ -3958,6 +3975,61 @@
             }
           ],
           "notes": "Chobani Zero Sugar Mixed Berry, nonfat Greek yogurt, lactose free, 150g container. Label per container: 60 kcal, 0 fat, 0 sat, 0 trans, 10mg chol, 65mg sodium, 5g carb, 0 fiber, 0 sugar (0 added), 12g protein, Vit D 0, Ca 10% (~130mg), Iron 0, K 0%. SWEETENERS: allulose + stevia + monk fruit (zero sugar). The 5g total carb is mostly ALLULOSE (a rare sugar, ~0 kcal, non-glycemic, FDA-excluded from calories/sugars). Stored ~4g in the sugarAlcohol field so net carb computes to ~1g digestible (allulose is not chemically a polyol but is functionally non-caloric like erythritol). kcal 60 = label (already accounts for allulose). Off-label micros ESTIMATED from nonfat Greek yogurt: phosphorus ~150mg/container (relevant to reduced-eGFR history), iodine ~50mcg (dairy), B12 ~0.8mcg. LOW-MEDIUM confidence. Purines ~4mg -- LOW (dairy, gout-favorable). Distinct from Chobani 20g Protein and Oikos entries. Ingredients: ultra-filtered nonfat milk, water, skim milk, allulose, <2%: natural flavors, tapioca flour, citrus fiber, sea salt, guar gum, veg juice concentrate (color), stevia leaf extract, monk fruit extract, cultures. CONTAINS milk."
+        },
+        "chobani_zero_sugar_vanilla": {
+          "name": "Yogurt Greek Chobani Zero Sugar vanilla",
+          "brand": "Chobani",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.411765,
+          "p": 0.076471,
+          "fat": 0,
+          "sf": 0,
+          "transFat": 0,
+          "carbs": 0.035294,
+          "fiber": 0,
+          "sugar": 0,
+          "addedSugar": 0,
+          "sugarAlcohol": 0.029412,
+          "cholesterol": 0.058824,
+          "sodium": 0.441176,
+          "water": 0.82,
+          "vitD": 0,
+          "calcium": 1.058824,
+          "iron": 0,
+          "potassium": 0.411765,
+          "phosphorus": 1,
+          "magnesium": 0.1,
+          "zinc": 0.005,
+          "selenium": 0.067,
+          "b12": 0.0053,
+          "b2": 0.002,
+          "b5": 0.0033,
+          "choline": 0.13,
+          "iodine": 0.33,
+          "purines": 0.027,
+          "displayUnits": [
+            {
+              "label": "3/4 cup (170 g)",
+              "amount": 170,
+              "unit": "g",
+              "default": true,
+              "multiplier": 170
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            },
+            {
+              "label": "tub (907 g)",
+              "amount": 907,
+              "unit": "g",
+              "multiplier": 907
+            }
+          ],
+          "notes": "Chobani Zero Sugar Vanilla Greek Yogurt, lactose free, 32oz/907g tub (~5 servings). Label per 3/4 cup (170g): 70 kcal, 0 fat, 0 sat, 0 trans, 10mg chol, 75mg sodium, 6g carb, 0 fiber, 0 sugar (0 added), 13g protein, Vit D 0, Ca 180mg (15%), Iron 0, K 70mg. All label-exact. SWEETENERS: allulose + stevia (reb m) + monk fruit. The 6g total carb is mostly ALLULOSE (a rare sugar, ~0 kcal, non-glycemic, FDA-excluded from calories/sugars); ~5g stored in the sugarAlcohol field so net carb computes to ~1g digestible (allulose isn't chemically a polyol but is functionally non-caloric like erythritol). Same treatment as the Chobani Zero Sugar mixed berry entry. kcal 70 = label (already accounts for allulose). DISTINCT from the mixed berry cup entry (150g cup, 60 kcal, 12g protein) -- this is the 907g vanilla TUB with a 170g serving. Off-label micros ESTIMATED from nonfat Greek yogurt: phosphorus ~170mg/serving (relevant to reduced-eGFR history), iodine ~56mcg (dairy), B12 ~0.9mcg. LOW-MEDIUM confidence. Purines ~5mg/serving -- LOW (dairy, gout-favorable). 6 live cultures: S. thermophilus, L. bulgaricus, L. acidophilus, bifidus, L. casei, L. rhamnosus. Ingredients: ultra-filtered nonfat milk, water, skim milk, allulose, <2%: natural flavors, tapioca flour, citrus fiber, guar gum, sea salt, stevia leaf extract (reb m), monk fruit extract, vanilla extract, cultures. CONTAINS milk."
         },
         "crackers_50g": {
           "name": "Crackers",
@@ -5545,6 +5617,63 @@
           ],
           "defaultMeasuredIn": "g",
           "brand": "Jack Link's"
+        },
+        "jif_pb_cup": {
+          "name": "Peanut butter creamy Jif to-go cup",
+          "brand": "Jif",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 5.757576,
+          "p": 0.212121,
+          "fat": 0.484848,
+          "sf": 0.106061,
+          "transFat": 0.001,
+          "carbs": 0.242424,
+          "fiber": 0.060606,
+          "sugar": 0.090909,
+          "addedSugar": 0.060606,
+          "cholesterol": 0,
+          "sodium": 4.242424,
+          "water": 0.012,
+          "vitD": 0,
+          "calcium": 0.6,
+          "iron": 0.018,
+          "potassium": 6.06,
+          "vitE": 0.06,
+          "b3": 0.121,
+          "magnesium": 1.4,
+          "phosphorus": 3.2,
+          "zinc": 0.023,
+          "copper": 0.0038,
+          "manganese": 0.0135,
+          "selenium": 0.037,
+          "b6": 0.004,
+          "b9": 0.78,
+          "b5": 0.03,
+          "choline": 0.55,
+          "purines": 0.6,
+          "displayUnits": [
+            {
+              "label": "1 to-go cup (21 g)",
+              "amount": 21,
+              "unit": "g",
+              "default": true,
+              "multiplier": 21
+            },
+            {
+              "label": "2 Tbsp (33 g)",
+              "amount": 33,
+              "unit": "g",
+              "multiplier": 33
+            },
+            {
+              "label": "1 Tbsp (16.5 g)",
+              "amount": 16.5,
+              "unit": "g",
+              "multiplier": 16.5
+            }
+          ],
+          "notes": "Jif Creamy Peanut Butter, single-serve hotel/foodservice cup. WRAPPER SHOWS NET WT 3/4 OZ (21g) -- weight is on the package even though nutrition is not; 21g used (not a guess). Nutrition sourced from Jif official (jif.com) per 2 Tbsp (33g): 190 kcal, 16g fat (3.5g sat, 0 trans), 0 chol, 140mg sodium, 8g carb, 2g fiber, 3g sugars (2g added), 7g protein. Per-gram values derived from that 33g serving; the 21g cup therefore computes to ~121 kcal, 10.2g fat, 4.5g protein, 89mg sodium. HIGH confidence on macros (manufacturer data), scaled by weight. TRANS FAT CORRECTION: label reads 0g, but ingredients include FULLY hydrogenated vegetable oils (rapeseed and soybean) + mono/diglycerides. Fully hydrogenated (unlike PARTIALLY hydrogenated) produces essentially no trans fat -- it saturates the bonds completely -- so real trans is trace only; estimated ~0.03g per 33g (~0.02g per cup) rather than a true zero. LOW confidence, small either way. Off-label micros ESTIMATED from peanut composition (USDA, ~90% peanuts): Mg ~29mg/cup, phosphorus ~67mg/cup (relevant to reduced-eGFR history), vitamin E ~1.3mg, niacin ~2.5mg, folate ~16mcg. LOW-MEDIUM confidence. Purines ~13mg/cup -- LOW-MODERATE (peanuts/legumes). Contains added sugar + molasses, unlike natural peanut butter; distinct from the Aldi Peanut Delight entry (palm oil, no-stir). Ingredients: roasted peanuts, sugar, <2%: molasses, fully hydrogenated vegetable oils (rapeseed and soybean), mono and diglycerides, salt. CONTAINS peanuts. Gluten free."
         },
         "kashi_berry_fruitful": {
           "name": "Kashi Organic Berry Fruitful",
@@ -10762,6 +10891,7 @@
           "label": "Uncategorized"
         }
       ]
-    }
+    },
+    "totalsMode": "collapsed"
   }
 }
