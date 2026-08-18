@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-08-17T07:45:22.900Z",
-  "_gistSavedAt": "2026-08-16T13:32:51.635Z",
+  "_backupTakenAt": "2026-08-18T07:31:25.373Z",
+  "_gistSavedAt": "2026-08-17T23:05:55.569Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2388,6 +2388,40 @@
         },
         "weight": 88.4,
         "weightMeta": "2026-08-16T12:59:16.095Z"
+      },
+      "2026-08-17": {
+        "toggles": {},
+        "counters": {
+          "jif_pb_cup": 21,
+          "chobani_zero_sugar_vanilla": 340,
+          "premier": 325,
+          "hero_plain_bagel": 37.5,
+          "soy_milk_original": 123.5,
+          "dannon_light_fit_boston_cream": 150
+        },
+        "customs": [
+          {
+            "id": "dfaf86df-316f-4551-aeea-ef156caeda3b",
+            "name": "130kcal 4p",
+            "kcal": 130,
+            "p": 4,
+            "count": 1,
+            "lastModified": "2026-08-17T15:21:58.630Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "jif_pb_cup": "2026-08-17T14:20:35.873Z",
+          "chobani_zero_sugar_vanilla": "2026-08-17T14:21:05.817Z",
+          "premier": "2026-08-17T14:21:27.202Z",
+          "hero_plain_bagel": "2026-08-17T14:21:47.677Z",
+          "soy_milk_original": "2026-08-17T14:22:14.567Z",
+          "dannon_light_fit_boston_cream": "2026-08-17T19:05:54-04:00"
+        },
+        "weight": 88.5,
+        "weightMeta": "2026-08-17T14:19:49.508Z",
+        "mood": 6,
+        "moodMeta": "2026-08-17T15:21:22.655Z"
       }
     },
     "savedItems": [],
@@ -2472,14 +2506,14 @@
       "history": true,
       "supplements-water": true,
       "section-mood-tracker": true,
-      "profile": true,
       "section-archive-section": true,
       "catalog-archive": true,
       "today-customs": true,
-      "details-add-new-item": true,
-      "catalog-alpha": true,
       "targets-accumulation": true,
-      "details-recipe-maker": true
+      "details-recipe-maker": true,
+      "profile": true,
+      "today-log": true,
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
@@ -4123,6 +4157,54 @@
           "notes": "NatureWise D3 5,000 IU. Vitamin D supplementation. Maryland latitude (~39°N) means winter sun is too low-angle for skin synthesis Oct–April. Earlier bloodwork showed low-normal D; supplementation targets the 40–60 ng/mL range for bone, immune, and muscle support on a deficit. Every other day (~17,500 IU/week) is the sweet spot for someone your size — daily 5,000 IU long-term over-saturates. With breakfast because it's fat-soluble; needs dietary fat to absorb.",
           "defaultMeasuredIn": "g",
           "brand": "NatureWise"
+        },
+        "dannon_light_fit_boston_cream": {
+          "name": "Yogurt Greek Dannon Light + Fit boston cream pie",
+          "brand": "Dannon Light + Fit",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.533333,
+          "p": 0.08,
+          "fat": 0,
+          "sf": 0,
+          "transFat": 0,
+          "carbs": 0.053333,
+          "fiber": 0,
+          "sugar": 0.046667,
+          "addedSugar": 0.013333,
+          "cholesterol": 0.066667,
+          "sodium": 0.3,
+          "water": 0.85,
+          "vitD": 0,
+          "calcium": 0.866667,
+          "iron": 0,
+          "potassium": 0.626667,
+          "phosphorus": 1,
+          "magnesium": 0.1,
+          "zinc": 0.005,
+          "selenium": 0.067,
+          "b12": 0.0053,
+          "b2": 0.002,
+          "b5": 0.0033,
+          "choline": 0.13,
+          "iodine": 0.3,
+          "purines": 0.027,
+          "displayUnits": [
+            {
+              "label": "1 container (150 g)",
+              "amount": 150,
+              "unit": "g",
+              "default": true,
+              "multiplier": 150
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Dannon Light + Fit Greek, Boston Cream Pie, fat free yogurt, 150g (5.3oz) container, 1 serving. Label per container: 80 kcal, 0 fat, 0 sat, 0 trans, 10mg chol, 45mg sodium, 8g carb, 0 fiber, 7g total sugars (2g added), 12g protein, Vit D 0%, Calcium 10% (~130mg), Iron 0%, Potassium 2% (~94mg). All label-exact. kcal NEEDS NO CORRECTION: Atwater reconciles exactly (12x4 + 8x4 = 80). No fiber, no sugar alcohols, no polydextrose. SWEETENERS: fructose (caloric, the 2g added sugar) plus acesulfame potassium and sucralose (both non-nutritive, 0 kcal). The other ~5g of sugar is naturally occurring lactose from the nonfat milk. NOTE ON 'GREEK': thickened with modified food starch rather than fully strained, so texture/protein come partly from formulation; protein 12g per 150g (8%) is still Greek-range. Package's own comparison: Light+Fit 80 kcal/0g fat vs average flavored Greek yogurt 110 kcal/1g fat per 5.3oz. Off-label micros ESTIMATED from nonfat yogurt: phosphorus ~150mg/container (relevant to reduced-eGFR history), iodine ~45mcg (dairy), B12 ~0.8mcg, riboflavin. LOW-MEDIUM confidence. Purines ~4mg -- LOW (dairy, gout-favorable). Ingredients: cultured pasteurized nonfat milk, water, fructose, <1%: natural & artificial flavors, modified food starch, acesulfame potassium, sucralose, malic acid, potassium sorbate (freshness), yogurt cultures L. bulgaricus & S. thermophilus. Gluten free. Bioengineered ingredients. CONTAINS milk."
         },
         "david_bar_choc_chip_cookie_dough": {
           "name": "David Protein Bar Chocolate Chip Cookie Dough",
@@ -10891,7 +10973,6 @@
           "label": "Uncategorized"
         }
       ]
-    },
-    "totalsMode": "collapsed"
+    }
   }
 }
