@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-08-18T07:31:25.373Z",
-  "_gistSavedAt": "2026-08-17T23:05:55.569Z",
+  "_backupTakenAt": "2026-08-19T07:31:57.243Z",
+  "_gistSavedAt": "2026-08-18T21:40:36.899Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2419,9 +2419,36 @@
           "dannon_light_fit_boston_cream": "2026-08-17T19:05:54-04:00"
         },
         "weight": 88.5,
-        "weightMeta": "2026-08-17T14:19:49.508Z",
+        "weightMeta": "2026-08-18T00:00:16.177Z",
         "mood": 6,
-        "moodMeta": "2026-08-17T15:21:22.655Z"
+        "moodMeta": "2026-08-18T00:00:16.303Z",
+        "neck": 43,
+        "neckMeta": "2026-08-18T00:00:16.425Z"
+      },
+      "2026-08-18": {
+        "toggles": {},
+        "counters": {
+          "peanut_butter_sandwich": 111,
+          "soy_milk": 100,
+          "omelet_whole_egg_olive_oil": 140,
+          "yogurt_oikos_triple_zero_lemon": 0,
+          "pb_sandwich_oikos": 261
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "peanut_butter_sandwich": "2026-08-18T14:07:51.423Z",
+          "soy_milk": "2026-08-18T13:53:44.026Z",
+          "omelet_whole_egg_olive_oil": "2026-08-18T13:59:39.170Z",
+          "yogurt_oikos_triple_zero_lemon": "2026-08-18T14:06:43.826Z",
+          "pb_sandwich_oikos": "2026-08-18T14:11:01.682Z"
+        },
+        "mood": 6,
+        "moodMeta": "2026-08-18T21:37:26.216Z",
+        "neck": 43,
+        "neckMeta": "2026-08-18T21:37:27.008Z",
+        "weight": 88.9,
+        "weightMeta": "2026-08-18T21:37:25.399Z"
       }
     },
     "savedItems": [],
@@ -2497,7 +2524,7 @@
         "timeFormat": "24h"
       }
     },
-    "sortMode": "alpha",
+    "sortMode": "ratio",
     "collapsedGroups": {
       "section-density": true,
       "targets-daily": true,
@@ -2510,10 +2537,9 @@
       "catalog-archive": true,
       "today-customs": true,
       "targets-accumulation": true,
-      "details-recipe-maker": true,
       "profile": true,
-      "today-log": true,
-      "details-add-new-item": true
+      "details-add-new-item": true,
+      "details-recipe-maker": true
     },
     "userCatalog": {
       "items": {
@@ -3218,18 +3244,18 @@
           "fiber": 0.024,
           "sugar": 0.0996,
           "fat": 0.0033,
-          "sf": 0.00028,
+          "sf": 0.0003,
           "sodium": 0.01,
           "water": 0.8421,
           "vitA": 0.03,
           "vitC": 0.097,
           "vitE": 0.0057,
           "vitK": 0.193,
-          "b1": 0.00037,
-          "b2": 0.00041,
-          "b3": 0.00418,
-          "b5": 0.00124,
-          "b6": 0.00052,
+          "b1": 0.0004,
+          "b2": 0.0004,
+          "b3": 0.0042,
+          "b5": 0.0012,
+          "b6": 0.0005,
           "b7": 0.005,
           "b9": 0.06,
           "choline": 0.06,
@@ -3240,17 +3266,16 @@
           "potassium": 0.77,
           "zinc": 0.0016,
           "selenium": 0.001,
-          "copper": 0.00057,
-          "manganese": 0.00336,
+          "copper": 0.0006,
+          "manganese": 0.0034,
           "iodine": 0.003,
           "purines": 0.15,
           "displayUnits": [
             {
-              "label": "100 g",
-              "amount": 100,
+              "label": "1 pint clamshell (~340 g)",
+              "amount": 340,
               "unit": "g",
-              "default": true,
-              "multiplier": 100
+              "multiplier": 340
             },
             {
               "label": "1 cup (148 g)",
@@ -3259,10 +3284,11 @@
               "multiplier": 148
             },
             {
-              "label": "1 pint clamshell (~340 g)",
-              "amount": 340,
+              "label": "100 g",
+              "amount": 100,
               "unit": "g",
-              "multiplier": 340
+              "default": true,
+              "multiplier": 100
             }
           ],
           "notes": "Raw highbush blueberries. Macros and micros from USDA SR Legacy 09050 (blueberries, raw) - HIGH CONFIDENCE. kcal corrected from USDA 57/100g to 53/100g: USDA applies fruit-specific Atwater 3.60 kcal/g to total carbohydrate by difference, which counts the 2.4 g/100g fiber at 3.60; fermentable fiber realistically yields ~2 kcal/g, so 2.4 g x 1.6 kcal = ~3.8 kcal subtracted. Sodium 1 mg/100g (USDA) retained rather than label 0. b7 (biotin) 0.5 mcg/100g and iodine 0.3 mcg/100g are estimates - not in SR Legacy, blueberries carry only trace amounts - LOW CONFIDENCE. purines 15 mg/100g estimated from Japanese purine tables for berry fruit (low-purine class, ~10-20 mg/100g) - LOW CONFIDENCE."
@@ -3311,12 +3337,12 @@
           "ingredients": [
             {
               "itemKey": "bran_flakes",
-              "multiplier": 1,
+              "amount": 100,
               "label": "100 g"
             },
             {
               "itemKey": "soy_milk",
-              "multiplier": 1,
+              "amount": 100,
               "label": "1 cup (247 g)"
             }
           ],
@@ -3324,10 +3350,10 @@
           "displayUnits": [
             {
               "label": "1 bowl",
-              "amount": 347,
+              "amount": 200,
               "unit": "g",
               "default": true,
-              "multiplier": 347
+              "multiplier": 200
             }
           ]
         },
@@ -3495,7 +3521,6 @@
           "fiber": 0.009,
           "sugar": 0.0786,
           "addedSugar": 0,
-          "cholesterol": 0,
           "sodium": 0.16,
           "water": 0.9,
           "potassium": 2.67,
@@ -3505,14 +3530,14 @@
           "iron": 0.0021,
           "magnesium": 0.12,
           "phosphorus": 0.15,
-          "b3": 0.00734,
-          "b6": 0.00072,
+          "b3": 0.0073,
+          "b6": 0.0007,
           "b9": 0.21,
           "choline": 0.076,
           "vitE": 0.0005,
           "vitK": 0.025,
-          "copper": 0.00041,
-          "manganese": 0.00041,
+          "copper": 0.0004,
+          "manganese": 0.0004,
           "zinc": 0.0018,
           "purines": 0.1,
           "displayUnits": [
@@ -4307,19 +4332,16 @@
           "defaultMeasuredIn": "g",
           "kcal": 1.3521,
           "p": 0.0704,
-          "fat": 0.02817,
-          "sf": 0,
+          "fat": 0.0282,
           "transFat": 0,
           "carbs": 0.2254,
-          "fiber": 0.04225,
-          "sugar": 0.04225,
+          "fiber": 0.0423,
+          "sugar": 0.0423,
           "addedSugar": 0,
-          "cholesterol": 0,
           "sodium": 4.0845,
           "water": 0.6,
-          "vitD": 0,
           "calcium": 0.4225,
-          "iron": 0.01408,
+          "iron": 0.0141,
           "potassium": 4.6479,
           "magnesium": 0.42,
           "phosphorus": 1.13,
@@ -4339,17 +4361,17 @@
           "purines": 0.56,
           "displayUnits": [
             {
+              "label": "box (4 burgers, 284 g)",
+              "amount": 284,
+              "unit": "g",
+              "multiplier": 284
+            },
+            {
               "label": "1 burger (71 g)",
               "amount": 71,
               "unit": "g",
               "default": true,
               "multiplier": 71
-            },
-            {
-              "label": "box (4 burgers, 284 g)",
-              "amount": 284,
-              "unit": "g",
-              "multiplier": 284
             }
           ],
           "notes": "Earth Grown (Aldi) Vegan Veggie Burger, vegetable burger with 11 vegetables. Certified vegan, cholesterol-free. Net 10oz/284g, 4 patties (2.5oz/71g each). Label per patty (71g): 90 kcal, 2g fat, 0 sat, 0 trans, 0 chol, 290mg sodium (13% DV), 16g carb, 3g fiber, 3g sugar, 0 added sugar, 5g protein, Vit D 0, Ca 30mg, Iron 1mg, K 330mg. KCAL CORRECTION: stored 96 kcal/patty (1.3521/g). Label 90 uses net-carb accounting (3g fiber counted at ~0 kcal); fiber here is WHOLE-FOOD (oats/beta-glucan, peas, edamame, chickpeas, vegetables) = genuinely fermentable ~2 kcal/g, so added back ~6 kcal (real ~94-96). NOT the ~0.5 kcal/g discount used for the isolated RS4/psyllium bread items. Protein 5g = plant blend (soy protein flour, soybeans, peas, chickpeas, oats); modest quantity, lysine ok from legumes. Off-label micros ESTIMATED LOW-MEDIUM confidence from the vegetable+legume+oat composition: Mg ~30mg, phosphorus ~80mg/patty (relevant to reduced-eGFR history), folate ~40mcg (legumes/spinach), vitamin A ~50mcg RAE (carrots/spinach/red pepper carotenoids), vitamin K ~20mcg (spinach/broccoli). PURINES ~40mg/patty MODERATE -- notable legume content (peas, edamame, soybeans, chickpeas are moderate-purine); relevant to uric-acid/gout history. LOW confidence. omega-3 (ALA) ~0.1g/patty from soybeans/canola. CONTAINS soy. Ingredients: carrots, peas, whole oats, zucchini, edamame, corn, string beans, spinach, corn meal, onions, potato starch, soy protein flour, organic wheat-free tamari, water, organic soybeans, salt, chickpeas, dried onion, canola oil, red peppers, broccoli, granulated garlic, parsley."
@@ -4963,66 +4985,57 @@
           "brand": "Season's Choice",
           "category": "items",
           "defaultMeasuredIn": "g",
-          "kcal": 0.46053,
-          "p": 0.0065789,
+          "kcal": 0.4605,
+          "p": 0.0066,
           "carbs": 0.125,
-          "fiber": 0.019737,
-          "sugar": 0.098684,
-          "fat": 0.00265,
+          "fiber": 0.0197,
+          "sugar": 0.0987,
+          "fat": 0.0027,
           "sf": 0.0003,
-          "transfat": 0,
-          "cholesterol": 0,
           "sodium": 0.0275,
           "water": 0.87,
-          "caffeine": 0,
-          "omega3": 0,
           "vitA": 0.2625,
-          "vitC": 0.44737,
-          "vitD": 0,
-          "vitE": 0.003775,
-          "vitK": 0.02425,
-          "b1": 0.000385,
-          "b2": 0.000298,
-          "b3": 0.00478,
-          "b5": 0.001815,
-          "b6": 0.000945,
+          "vitC": 0.4474,
+          "vitE": 0.0038,
+          "vitK": 0.0243,
+          "b1": 0.0004,
+          "b2": 0.0003,
+          "b3": 0.0048,
+          "b5": 0.0018,
+          "b6": 0.0009,
           "b7": 0.01,
           "b9": 0.305,
-          "b12": 0,
-          "choline": 0.06225,
-          "calcium": 0.13158,
-          "iron": 0.0032895,
+          "choline": 0.0623,
+          "calcium": 0.1316,
+          "iron": 0.0033,
           "magnesium": 0.14,
           "phosphorus": 0.14,
-          "potassium": 1.44737,
-          "zinc": 0.001075,
-          "selenium": 0.00425,
+          "potassium": 1.4474,
+          "zinc": 0.0011,
+          "selenium": 0.0043,
           "copper": 0.0006,
-          "manganese": 0.00354,
+          "manganese": 0.0035,
           "iodine": 0.01,
-          "chromium": 0,
-          "molybdenum": 0,
-          "mercury": 0,
           "purines": 0.1,
           "displayUnits": [
+            {
+              "label": "Whole bag (~912 g)",
+              "amount": 912,
+              "unit": "g",
+              "multiplier": 912
+            },
             {
               "label": "1¼ cups (152 g)",
               "amount": 152,
               "unit": "g",
-              "multiplier": 152,
-              "default": true
+              "default": true,
+              "multiplier": 152
             },
             {
               "label": "1 cup (~122 g)",
               "amount": 122,
               "unit": "g",
               "multiplier": 122
-            },
-            {
-              "label": "Whole bag (~912 g)",
-              "amount": 912,
-              "unit": "g",
-              "multiplier": 912
             }
           ],
           "notes": "Season's Choice Tropical Blend (ALDI). Pineapple, mango, strawberries, papaya. Label: 70 kcal / 152 g serving, ~6 servings/bag. fat=0 on label but USDA avg ~0.265g/serving (below 0.5g threshold) — corrected to 0.00265 g/g. sodium=0 on label but USDA avg ~4mg/serving (below 5mg threshold) — corrected to 0.0275 mg/g. sf estimated ~0.0003 g/g. Micronutrients (vitA, vitE, vitK, B-vitamins, choline, Mg, P, Zn, Mn, Se, Cu, iodine) estimated as unweighted average of USDA SR Legacy values for raw pineapple (09266), mango (09176), strawberry (09316), papaya (09226) — LOW CONFIDENCE, flag for later verification. Water ~87% estimated from macro balance. Bag total 912 g from 6×152 g."
@@ -5143,20 +5156,20 @@
           "kcal": 2.5243,
           "p": 0.1068,
           "fat": 0.1359,
-          "sf": 0.009709,
+          "sf": 0.0097,
           "transFat": 0,
           "carbs": 0.2233,
-          "fiber": 0.009709,
-          "sugar": 0.02913,
+          "fiber": 0.0097,
+          "sugar": 0.0291,
           "addedSugar": 0,
           "cholesterol": 0.3398,
           "sodium": 5.7282,
           "water": 0.5,
-          "vitD": 0.002913,
+          "vitD": 0.0029,
           "calcium": 0.1942,
-          "iron": 0.01165,
+          "iron": 0.0117,
           "potassium": 2.1359,
-          "omega3": 0.001165,
+          "omega3": 0.0012,
           "selenium": 0.29,
           "b12": 0.024,
           "phosphorus": 1.94,
@@ -5171,6 +5184,12 @@
           "purines": 1.2,
           "displayUnits": [
             {
+              "label": "box (5 servings, 515 g)",
+              "amount": 515,
+              "unit": "g",
+              "multiplier": 515
+            },
+            {
               "label": "2 fillets (103 g)",
               "amount": 103,
               "unit": "g",
@@ -5182,12 +5201,6 @@
               "amount": 51.5,
               "unit": "g",
               "multiplier": 51.5
-            },
-            {
-              "label": "box (5 servings, 515 g)",
-              "amount": 515,
-              "unit": "g",
-              "multiplier": 515
             }
           ],
           "notes": "Gorton's Parmesan Crusted Breaded Fish Fillets (wild-caught Alaskan pollock, whole fillet not minced, real parmesan/romano, breadcrumb coating). 5 servings/container, 2 fillets (103g)/serving => ~515g box, ~51.5g/fillet. Label per 2 fillets (103g): 260 kcal, 14g fat (1g sat -- low, canola/soybean oil), 0 trans, 35mg chol, 590mg sodium (26% DV), 23g carb, 1g fiber, 3g sugar, 0 added, 11g protein, Vit D 0.3mcg, Ca 20mg, Iron 1.2mg, K 220mg, plus 120mg EPA+DHA omega-3/serving. All label-exact (high confidence). kcal NOT corrected (fiber only 1g, breading; negligible). Off-label micros ESTIMATED from breaded pollock + cheese + enriched flour: selenium ~30mcg/serving (pollock high), B12 ~2.5mcg, phosphorus ~200mg/serving (relevant to reduced-eGFR history; also aluminum phosphate in coating), choline ~65mg, iodine ~40mcg (fish), folate ~40mcg (enriched flour). LOW-MEDIUM confidence. PURINES ~1.2 mg/g => ~124mg per 103g serving -- MODERATE-HIGH (pollock; fish). Relevant to uric-acid/gout history. LOW confidence. CONTAINS: fish (pollock), milk (parmesan/whey), wheat. Fried/baked breaded product. Uncooked -- cook to 165F."
@@ -6195,21 +6208,20 @@
           "category": "items",
           "defaultMeasuredIn": "g",
           "kcal": 0.9764,
-          "p": 0.06061,
-          "fat": 0.020202,
-          "sf": 0.010101,
+          "p": 0.0606,
+          "fat": 0.0202,
+          "sf": 0.0101,
           "transFat": 0,
-          "carbs": 0.138047,
-          "fiber": 0.013468,
-          "sugar": 0.03367,
+          "carbs": 0.138,
+          "fiber": 0.0135,
+          "sugar": 0.0337,
           "addedSugar": 0.013468,
-          "cholesterol": 0.06734,
-          "sodium": 2.222222,
+          "cholesterol": 0.0673,
+          "sodium": 2.2222,
           "water": 0.7,
-          "vitD": 0,
-          "calcium": 0.841751,
-          "iron": 0.007071,
-          "potassium": 2.895623,
+          "calcium": 0.8418,
+          "iron": 0.0071,
+          "potassium": 2.8956,
           "phosphorus": 0.84,
           "magnesium": 0.135,
           "zinc": 0.0067,
@@ -6247,22 +6259,21 @@
           "brand": "Lean Cuisine",
           "category": "items",
           "defaultMeasuredIn": "g",
-          "kcal": 1.018868,
-          "p": 0.071698,
-          "fat": 0.037736,
-          "sf": 0.016981,
+          "kcal": 1.0189,
+          "p": 0.0717,
+          "fat": 0.0377,
+          "sf": 0.017,
           "transFat": 0,
-          "carbs": 0.09434,
-          "fiber": 0.007547,
-          "sugar": 0.015094,
+          "carbs": 0.0943,
+          "fiber": 0.0075,
+          "sugar": 0.0151,
           "addedSugar": 0.003774,
-          "cholesterol": 0.169811,
-          "sodium": 2.90566,
+          "cholesterol": 0.1698,
+          "sodium": 2.9057,
           "water": 0.7,
-          "vitD": 0,
-          "calcium": 0.226415,
-          "iron": 0.008679,
-          "potassium": 2.830189,
+          "calcium": 0.2264,
+          "iron": 0.0087,
+          "potassium": 2.8302,
           "phosphorus": 0.94,
           "magnesium": 0.151,
           "zinc": 0.0113,
@@ -6271,7 +6282,7 @@
           "b3": 0.0151,
           "b6": 0.0015,
           "b2": 0.0011,
-          "b1": 0.00075,
+          "b1": 0.0008,
           "b9": 0.094,
           "choline": 0.302,
           "vitA": 0.189,
@@ -6832,6 +6843,62 @@
           "prevCategory": "liquids",
           "archived": true
         },
+        "natures_own_keto_bread": {
+          "name": "Bread keto soft white Nature's Own",
+          "brand": "Nature's Own (Life Keto)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.357143,
+          "p": 0.214286,
+          "fat": 0.035714,
+          "sf": 0,
+          "transFat": 0,
+          "carbs": 0.357143,
+          "fiber": 0.357143,
+          "sugar": 0,
+          "addedSugar": 0,
+          "cholesterol": 0,
+          "sodium": 7.142857,
+          "water": 0.35,
+          "vitD": 0,
+          "calcium": 0.02,
+          "iron": 0.014286,
+          "potassium": 0.714286,
+          "phosphorus": 1.6,
+          "magnesium": 0.35,
+          "selenium": 0.25,
+          "zinc": 0.008,
+          "manganese": 0.005,
+          "copper": 0.0015,
+          "b1": 0.001,
+          "b3": 0.008,
+          "b9": 0.15,
+          "choline": 0.15,
+          "omega3": 0.002,
+          "purines": 0.4,
+          "displayUnits": [
+            {
+              "label": "1 slice (28 g)",
+              "amount": 28,
+              "unit": "g",
+              "default": true,
+              "multiplier": 28
+            },
+            {
+              "label": "2 slices (56 g)",
+              "amount": 56,
+              "unit": "g",
+              "multiplier": 56
+            },
+            {
+              "label": "loaf (16 slices, 448 g)",
+              "amount": 448,
+              "unit": "g",
+              "multiplier": 448
+            }
+          ],
+          "notes": "Nature's Own Life Keto Soft White Bread (Flowers Baking Co). 16 servings, 1 slice (28g/1.0oz), net wt 16oz. Label per slice: 35 kcal, 1g fat (0 sat, 0.5g poly, 0 mono), 0 trans, 0 chol, 200mg sodium (9% DV), 10g total carb, 10g fiber (35% DV), 0g sugar, 0 added, 6g protein, Vit D 0, Calcium 0mg, Iron 0.4mg, K 20mg. Front of pack claims NET 1g carb (total carb minus fiber; arithmetic actually gives 0g -- label rounding). KCAL CORRECTION: stored 38 kcal/slice (1.3571/g) vs label 35. Label uses net-carb Atwater (6x4 + 1x9 = 33) and prices the 10g fiber at only ~0.2 kcal/g. Fiber here is modified wheat starch -- RS4 (chemically cross-linked resistant starch, the LEAST fermentable class, ~0-1 kcal/g) plus trace guar gum and flax seed meal. Applied the catalog's standard ~0.5 kcal/g for RS4 breads (same methodology as the Hero bagel/bun, Royo bagel, Arnold keto rolls): 33 + 5 = 38. Real value plausibly 35-40; correction is small. Protein source: wheat protein isolate (vital gluten) -- lysine-limited, no complementary legume, so utilizable protein is below the 6g nitrogen figure. Calcium: label reads 0mg but calcium sulfate is an ingredient, so trace (~0.5mg/slice) stored rather than a true zero. Off-label micros ESTIMATED from wheat protein isolate + modified wheat starch + flax: phosphorus ~45mg/slice (relevant to reduced-eGFR history), Mg ~10mg, selenium ~7mcg, omega-3 ALA trace from flax seed meal. LOW-MEDIUM confidence. PURINES ~11mg/slice -- LOW (wheat gluten). Ingredients: water, modified wheat starch, wheat protein isolate, yeast, 2% or less: expeller pressed canola oil, sugar, salt, vinegar, enzymes, guar gum, calcium sulfate, flax seed meal. CONTAINS wheat; made on equipment that also processes sesame, may contain sesame."
+        },
         "nectarine": {
           "name": "Nectarine",
           "category": "items",
@@ -6839,14 +6906,12 @@
           "kcal": 0.44,
           "p": 0.0106,
           "fat": 0.0032,
-          "sf": 0.00025,
+          "sf": 0.0003,
           "transFat": 0,
           "carbs": 0.1055,
           "fiber": 0.017,
           "sugar": 0.0789,
           "addedSugar": 0,
-          "cholesterol": 0,
-          "sodium": 0,
           "water": 0.88,
           "potassium": 2.01,
           "vitC": 0.054,
@@ -6860,23 +6925,23 @@
           "choline": 0.06,
           "vitE": 0.0077,
           "vitK": 0.022,
-          "copper": 0.00086,
-          "manganese": 0.00054,
+          "copper": 0.0009,
+          "manganese": 0.0005,
           "zinc": 0.0017,
           "purines": 0.15,
           "displayUnits": [
+            {
+              "label": "1 large (156 g)",
+              "amount": 156,
+              "unit": "g",
+              "multiplier": 156
+            },
             {
               "label": "1 medium (140 g)",
               "amount": 140,
               "unit": "g",
               "default": true,
               "multiplier": 140
-            },
-            {
-              "label": "1 large (156 g)",
-              "amount": 156,
-              "unit": "g",
-              "multiplier": 156
             },
             {
               "label": "100 g",
@@ -7059,6 +7124,69 @@
           "notes": "MAV Nutrition Triple Strength Omega-3. 720 mg combined EPA+DHA per softgel. 3 softgels daily = 2,160 mg target (cardiovascular outcome trial dose). Anchovy-sourced, low mercury.\n\nABSORPTION REQUIRES DIETARY FAT (micelle formation in the small intestine):\n- High-fat meal (~30g fat): ~100% absorption\n- Low-fat meal (~10g fat): ~50%\n- Fasting / no fat: ~30% (only one-third reaches circulation)\nFat-absorption window is 2-4 hours post-meal; taking a softgel 3+ hours after eating misses most of the bile + lipase response.\n\nLOW-FAT DIET PLAN (current 1400 kcal cut, half avocado/day = ~11-15g fat):\n- Half avocado covers 1-2 softgels at full absorption.\n- Default: 2 softgels with the avocado meal, 1 softgel with whichever other meal has the most incidental fat (eggs, dairy, salmon, chicken thigh; even 3-5 g of fat helps a lot vs dry).\n- If no other meal has any fat: drop to 1-2 softgels that day. 1,440 mg well-absorbed beats 2,160 mg with the 3rd barely getting in.\n- Salmon days: dietary EPA+DHA from salmon (~1-1.5 g per 100 g Atlantic) covers a chunk of the daily target; 1-2 softgels is fine.\n- Stacking all 3 with avocado works too if you drizzle a teaspoon of olive oil to push the meal past the 15 g fat threshold (and accept the fish-burps).\n\nSPLITTING ACROSS MEALS (when fat is available at each):\n- Each dose gets its own micelle pool = better absorption per dose.\n- Eliminates the fish-burps / reflux that 3-at-once tends to cause.\n- Steady tissue EPA/DHA saturation across the day.\n\nEMERGENCY RULE (skipped meal, dry softgel imminent): take it with even a small fat-bearing bite (teaspoon olive oil, slice of cheese, glass of milk, handful of nuts). Or delay to the next meal that has fat. Dry softgel = ~one-third absorbed.",
           "defaultMeasuredIn": "g"
         },
+        "omelet_whole_egg_olive_oil": {
+          "name": "Omelet whole egg with olive oil",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.9435,
+          "p": 0.1319,
+          "fat": 0.14985,
+          "sf": 0.0397,
+          "transFat": 0,
+          "carbs": 0.00756,
+          "fiber": 0,
+          "sugar": 0.0039,
+          "addedSugar": 0,
+          "cholesterol": 3.906,
+          "sodium": 1.491,
+          "water": 0.7,
+          "vitD": 0.021,
+          "calcium": 0.588,
+          "iron": 0.0184,
+          "potassium": 1.449,
+          "magnesium": 0.126,
+          "phosphorus": 2.079,
+          "zinc": 0.0135,
+          "copper": 0.000756,
+          "manganese": 0.000294,
+          "selenium": 0.3224,
+          "iodine": 0.25,
+          "vitA": 1.68,
+          "vitE": 0.0181,
+          "vitK": 0.0333,
+          "b1": 0.00042,
+          "b2": 0.0048,
+          "b3": 0.00079,
+          "b5": 0.0161,
+          "b6": 0.00179,
+          "b9": 0.4935,
+          "b12": 0.00935,
+          "choline": 3.085,
+          "omega3": 0.00145,
+          "purines": 0.02,
+          "displayUnits": [
+            {
+              "label": "4-egg omelet (200 g)",
+              "amount": 200,
+              "unit": "g",
+              "default": true,
+              "multiplier": 200
+            },
+            {
+              "label": "3-egg omelet (150 g)",
+              "amount": 150,
+              "unit": "g",
+              "multiplier": 150
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "HOMEMADE plain omelet, whole eggs cooked in extra virgin olive oil. No cheese, no vegetables, no milk, NO ADDED SALT included. COMPOSED ESTIMATE, not a label. Modeled so that 200g FINISHED omelet = 210g raw whole egg (~4.2 large eggs) + 10g olive oil (2 tsp), minus ~20g water evaporated during cooking (~10% loss, mid-range for a soft-to-medium omelet). Nutrients are conserved in cooking while water leaves, so per-gram density here is HIGHER than raw egg: 1.94 kcal/g vs 1.44 kcal/g raw. Egg composition from USDA #01123 raw whole egg (143 kcal, 12.56g protein, 9.51g fat, 372mg cholesterol, 198mg phosphorus, 293.8mg choline, 30.7mcg selenium per 100g) -- cross-checks against this catalog's existing 'Egg' entry (1.44 kcal/g, 0.126 p/g). Olive oil from the catalog's evoo entry (8.82 kcal/g). MEDIUM confidence on macros; the two assumptions that move the number are the OIL AMOUNT (10g assumed; each extra tsp adds ~44 kcal) and the water-loss fraction (10% assumed; a drier omelet concentrates it further). Adjust grams logged, or a revised item, if the real egg count or oil amount is known. Per 200g as modeled: 389 kcal, 26.4g protein, 30g fat (7.9g saturated), ~0g carb, 781mg cholesterol (~4 yolks), 298mg sodium (egg-intrinsic only). Notably dense in choline (~617mg), selenium (~64mcg), vitamin A (~336mcg RAE), folate (~99mcg), B12 (~1.9mcg), and phosphorus (~416mg -- relevant to reduced-eGFR history). PURINES ~4mg/200g -- VERY LOW; eggs are essentially purine-free and gout-favorable. Fat profile shifted toward monounsaturated by the olive oil (~7.3g of the added 10g). Vitamin E and K partly oil-derived. CONTAINS egg."
+        },
         "orange_chicken_100g": {
           "name": "Orange chicken — takeout",
           "category": "items",
@@ -7211,6 +7339,38 @@
           ],
           "defaultMeasuredIn": "g",
           "brand": "PB2"
+        },
+        "pb_sandwich_oikos": {
+          "name": "pb sandwich oikos",
+          "category": "recipes",
+          "ingredients": [
+            {
+              "itemKey": "jif_pb_cup",
+              "amount": 21
+            },
+            {
+              "itemKey": "natures_own_keto_bread",
+              "amount": 56
+            },
+            {
+              "itemKey": "smuckers_sf_strawberry_preserves",
+              "amount": 34
+            },
+            {
+              "itemKey": "yogurt_oikos_triple_zero_lemon",
+              "amount": 150
+            }
+          ],
+          "displayUnits": [
+            {
+              "label": "full recipe",
+              "multiplier": 261,
+              "amount": 261,
+              "unit": "g",
+              "default": true,
+              "locked": true
+            }
+          ]
         },
         "peach": {
           "name": "Peach",
@@ -8208,18 +8368,17 @@
           "category": "items",
           "defaultMeasuredIn": "g",
           "kcal": 4.375,
-          "p": 0.59375,
-          "fat": 0.15625,
-          "sf": 0.03125,
+          "p": 0.5938,
+          "fat": 0.1563,
+          "sf": 0.0313,
           "transFat": 0,
-          "carbs": 0.15625,
-          "fiber": 0.03125,
-          "sugar": 0.03125,
+          "carbs": 0.1563,
+          "fiber": 0.0313,
+          "sugar": 0.0313,
           "addedSugar": 0,
-          "cholesterol": 0.15625,
+          "cholesterol": 0.1563,
           "sodium": 9.0625,
           "water": 0.02,
-          "vitD": 0,
           "calcium": 5.3125,
           "iron": 0.0125,
           "potassium": 1.5625,
@@ -8233,17 +8392,17 @@
           "purines": 0.31,
           "displayUnits": [
             {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            },
+            {
               "label": "1 bag (32 g)",
               "amount": 32,
               "unit": "g",
               "default": true,
               "multiplier": 32
-            },
-            {
-              "label": "100 g",
-              "amount": 100,
-              "unit": "g",
-              "multiplier": 100
             }
           ],
           "notes": "Quest Tortilla Style Protein Chips, Nacho (Quest Nutrition), 1 bag (32g). Label per bag: 140 kcal, 5g fat (1g sat), 0 trans, 5mg chol, 290mg sodium (13%), 5g carb, 1g fiber, 1g sugar, 0 added, 19g protein, Vit D 0, Ca 170mg (15%), Iron 0.4mg, K 50mg. All label-exact. kcal stored at label 140 (fiber only 1g; negligible). Protein = milk protein isolate + whey protein isolate + calcium caseinate (complete, high quality). Off-label micros ESTIMATED from dairy protein isolates: phosphorus ~200mg/bag (HIGH -- protein isolates; relevant to reduced-eGFR history), Mg ~30mg, selenium ~10mcg. LOW-MEDIUM confidence. Purines ~10mg/bag -- LOW (dairy). CONTAINS milk, soy."
@@ -8835,6 +8994,56 @@
             }
           ],
           "defaultMeasuredIn": "g"
+        },
+        "smuckers_sf_strawberry_preserves": {
+          "name": "Preserves strawberry sugar-free Smucker's",
+          "brand": "Smucker's",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.588235,
+          "p": 0,
+          "fat": 0,
+          "sf": 0,
+          "transFat": 0,
+          "carbs": 0.294118,
+          "fiber": 0.176471,
+          "sugar": 0.023529,
+          "addedSugar": 0,
+          "cholesterol": 0,
+          "sodium": 0.294118,
+          "water": 0.6,
+          "vitD": 0,
+          "calcium": 0.3,
+          "iron": 0.002,
+          "potassium": 0.6,
+          "vitC": 0.1,
+          "magnesium": 0.1,
+          "phosphorus": 0.1,
+          "b9": 0.1,
+          "manganese": 0.005,
+          "purines": 0.1,
+          "displayUnits": [
+            {
+              "label": "1 Tbsp (17 g)",
+              "amount": 17,
+              "unit": "g",
+              "default": true,
+              "multiplier": 17
+            },
+            {
+              "label": "2 Tbsp (34 g)",
+              "amount": 34,
+              "unit": "g",
+              "multiplier": 34
+            },
+            {
+              "label": "jar (361 g)",
+              "amount": 361,
+              "unit": "g",
+              "multiplier": 361
+            }
+          ],
+          "notes": "Smucker's Sugar Free Strawberry Preserves, sucralose-sweetened. Net 12.75oz/361g, about 21 servings of 1 Tbsp (17g). Label per Tbsp: 10 kcal, 0g fat, 5mg sodium, 5g total carb, 0g total sugars, 0g added sugars, 0g protein. Label states 'not a significant source of sat fat, trans fat, cholesterol, FIBER, vitamin D, calcium, iron and potassium.' Pack notes calorie content reduced from 50 to 10 per serving. kcal NEEDS NO CORRECTION: label 10 already prices polydextrose at ~1 kcal/g, matching this catalog's rule. Reconciles as ~3g polydextrose (~3 kcal) + ~1g maltodextrin (~4 kcal) + ~0.4g strawberry sugar (~1.6 kcal) ~= 9-10. FIBER CORRECTED to ~3g/serving (label declares none). Polydextrose is the 3rd ingredient and IS an FDA-recognized dietary fiber (~1 kcal/g, poorly digested); the 5g carb is mostly polydextrose, so a true 0g fiber is inconsistent with the ingredient list. 3g used to match the near-identical Skinnygirl sugar-free preserves entry in this catalog (same 17g serving, 10 kcal, 5g carb, 3g fiber). Net digestible carb therefore ~2g/serving. LOW-MEDIUM confidence. SUGAR CORRECTED to ~0.4g/serving: label rounds to 0g, but the pack's own footnote says strawberries add 'a trivial amount of sugar, <0.5g/serving' -- sub-threshold rounding, so estimated rather than zeroed. Micros ESTIMATED LOW confidence from the strawberry/water base (strawberries are 2nd ingredient): K ~10mg, vitamin C ~1.7mg (most degraded by processing), calcium ~5mg (partly added calcium chloride) per serving. Purines ~2mg -- LOW (fruit). Ingredients: water, strawberries, polydextrose, maltodextrin, 2% or less of: fruit pectin, citric acid, locust bean gum, vegetable juice (color), natural flavors, potassium sorbate, calcium chloride, sucralose. No artificial dyes. Refrigerate after opening."
         },
         "soy_milk": {
           "name": "Soy milk unsweetened",
@@ -9525,20 +9734,16 @@
           "category": "items",
           "defaultMeasuredIn": "g",
           "kcal": 2.3333,
-          "p": 0.36667,
+          "p": 0.3667,
           "fat": 0.1,
-          "sf": 0.033333,
+          "sf": 0.0333,
           "transFat": 0,
-          "carbs": 0,
-          "fiber": 0,
-          "sugar": 0,
           "addedSugar": 0,
-          "cholesterol": 0.33333,
+          "cholesterol": 0.3333,
           "sodium": 13.3333,
           "water": 0.45,
-          "vitD": 0,
-          "calcium": 0.33333,
-          "iron": 0.056667,
+          "calcium": 0.3333,
+          "iron": 0.0567,
           "potassium": 4.3333,
           "selenium": 0.5,
           "b12": 0.01,
@@ -9552,6 +9757,12 @@
           "purines": 1,
           "displayUnits": [
             {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            },
+            {
               "label": "2 slices (30 g)",
               "amount": 30,
               "unit": "g",
@@ -9563,12 +9774,6 @@
               "amount": 15,
               "unit": "g",
               "multiplier": 15
-            },
-            {
-              "label": "100 g",
-              "amount": 100,
-              "unit": "g",
-              "multiplier": 100
             }
           ],
           "notes": "Trader Joe's Charcuteria Serrano Ham (dry-cured, from a chorizo/salchichon/serrano variety pack). Ingredients: pork, sea salt (only). Label per 2 slices (30g): 70 kcal, 3g fat (1g sat), 0 trans, 10mg chol, 400mg sodium (17% DV -- HIGH, cured), 0 carb, 0 fiber, 0 sugar, 11g protein (very protein-dense), Vit D 0, Ca 10mg, Iron 1.7mg (10%), K 130mg. All label-exact. Off-label micros ESTIMATED from dry-cured pork: selenium ~15mcg/serving, thiamin (pork high), phosphorus ~60mg/serving (relevant to reduced-eGFR history), choline ~25mg, B12/B6/zinc. LOW-MEDIUM confidence. PURINES ~1.0 mg/g => ~30mg per 2-slice serving -- MODERATE (cured pork). Relevant to uric-acid/gout history. LOW confidence. Distinct from Lidl serrano entry (brand-specific label). CONTAINS pork. No nitrates/nitrites added (except naturally in sea salt/swiss chard)."
@@ -10381,40 +10586,39 @@
           "brand": "Vita Coco",
           "defaultMeasuredIn": "g",
           "kcal": 0.2353,
-          "p": 0,
           "carbs": 0.0549,
-          "fiber": 0,
           "sugar": 0.0529,
           "addedSugar": 0.0196,
-          "fat": 0.00098,
-          "sf": 0.00098,
+          "fat": 0.001,
+          "sf": 0.001,
           "transFat": 0,
-          "cholesterol": 0,
           "sodium": 0.2255,
           "calcium": 0.1471,
-          "iron": 0,
           "potassium": 1.9196,
           "vitC": 1.2059,
           "phosphorus": 0.0784,
           "magnesium": 0.0784,
-          "vitD": 0,
-          "b1": 0.00006,
-          "b2": 0.00006,
-          "b6": 0.00003,
+          "b1": 0.0001,
+          "b2": 0.0001,
           "water": 0.94,
-          "purines": 0,
           "displayUnits": [
             {
               "label": "1 container (500 mL)",
+              "amount": 510,
+              "unit": "g",
               "default": true,
               "multiplier": 510
             },
             {
               "label": "1 serving (8 fl oz)",
+              "amount": 245,
+              "unit": "g",
               "multiplier": 245
             },
             {
               "label": "100 mL",
+              "amount": 102,
+              "unit": "g",
               "multiplier": 102
             }
           ],
@@ -10542,22 +10746,21 @@
           "brand": "Whole Foods",
           "category": "items",
           "defaultMeasuredIn": "g",
-          "kcal": 1.858407,
-          "p": 0.097345,
-          "fat": 0.168142,
-          "sf": 0.035398,
+          "kcal": 1.8584,
+          "p": 0.0973,
+          "fat": 0.1681,
+          "sf": 0.0354,
           "transFat": 0,
-          "carbs": 0.00885,
-          "fiber": 0,
-          "sugar": 0.00885,
+          "carbs": 0.0089,
+          "sugar": 0.0089,
           "addedSugar": 0,
-          "cholesterol": 2.699115,
-          "sodium": 3.097345,
+          "cholesterol": 2.6991,
+          "sodium": 3.0973,
           "water": 0.65,
-          "vitD": 0.017699,
-          "calcium": 0.442478,
-          "iron": 0.00885,
-          "potassium": 1.150442,
+          "vitD": 0.0177,
+          "calcium": 0.4425,
+          "iron": 0.0089,
+          "potassium": 1.1504,
           "phosphorus": 1.33,
           "selenium": 0.22,
           "b12": 0.009,
@@ -10594,21 +10797,18 @@
           "category": "items",
           "defaultMeasuredIn": "g",
           "kcal": 2.7607,
-          "p": 0.092025,
-          "fat": 0.018405,
-          "sf": 0,
+          "p": 0.092,
+          "fat": 0.0184,
           "transFat": 0,
-          "carbs": 0.542897,
-          "fiber": 0.018405,
-          "sugar": 0.064417,
+          "carbs": 0.5429,
+          "fiber": 0.0184,
+          "sugar": 0.0644,
           "addedSugar": 0.055214,
-          "cholesterol": 0,
-          "sodium": 3.128923,
+          "sodium": 3.1289,
           "water": 0.32,
-          "vitD": 0,
-          "calcium": 0.165639,
-          "iron": 0.036809,
-          "potassium": 0.828196,
+          "calcium": 0.1656,
+          "iron": 0.0368,
+          "potassium": 0.8282,
           "phosphorus": 0.83,
           "magnesium": 0.23,
           "selenium": 0.32,
@@ -10624,22 +10824,22 @@
           "displayUnits": [
             {
               "label": "1 bagel (109 g)",
-              "amount": 108.67,
+              "amount": 108.7,
               "unit": "g",
               "default": true,
-              "multiplier": 108.67
-            },
-            {
-              "label": "1/4 bagel (27 g)",
-              "amount": 27.17,
-              "unit": "g",
-              "multiplier": 27.17
+              "multiplier": 108.7
             },
             {
               "label": "100 g",
               "amount": 100,
               "unit": "g",
               "multiplier": 100
+            },
+            {
+              "label": "1/4 bagel (27 g)",
+              "amount": 27.2,
+              "unit": "g",
+              "multiplier": 27.2
             }
           ],
           "notes": "Whole Foods Market Sesame Bagel (in-store bakery, enriched wheat). Net 1lb 7oz/652g, 6 bagels => ~108.67g/bagel. Label per bagel (1 ea): 300 kcal, 2g fat (0 sat), 0 trans, 0 chol, 340mg sodium (15% DV), 59g carb, 2g fiber, 7g sugar (6g added), 10g protein, Vit D 0, Ca 18mg, Iron 4mg (22% DV -- enriched flour), K 90mg. All label-exact. kcal stored at label 300 (fiber only 2g; negligible). Off-label micros ESTIMATED from enriched wheat bagel: phosphorus ~90mg/bagel (relevant to reduced-eGFR history), folate ~120mcg (folic acid enriched), selenium ~35mcg (wheat high), niacin ~5mg, thiamin/riboflavin (enriched). LOW-MEDIUM confidence. PURINES ~30mg/bagel -- LOW-MODERATE (wheat). Distinct from generic 'Bagel sesame' entry (which has ~594mg sodium, 12g protein). Ingredients: wheat flour, malted barley flour, water, <2% yeast, sesame seeds, brown sugar, malt syrup, sea salt, raisin juice concentrate, molasses powder, ascorbic acid, enzymes, cornmeal. CONTAINS wheat, sesame. Bioengineered ingredients."
@@ -10673,58 +10873,6 @@
           ],
           "notes": "Classic wing plain, 1 ea = 30.78 g. Per-1-g values derived from per-serving facts (kcal, fat, sf, cholesterol, sodium, protein, calcium, potassium). Label omits vitamins and most minerals; fields not on the label are zero, fill from USDA chicken-wing data if better accuracy needed.",
           "brand": "Buffalo Wild Wings"
-        },
-        "yogurt_bowl_apricot_almond": {
-          "name": "Yogurt bowl Greek + apricot + almond",
-          "category": "recipes",
-          "displayUnits": [
-            {
-              "label": "1 serving",
-              "amount": 220,
-              "unit": "g",
-              "default": true,
-              "multiplier": 220
-            }
-          ],
-          "ingredients": [
-            {
-              "name": "¼ tub Greek yogurt plain",
-              "kcal": 120,
-              "p": 21.5,
-              "sf": 0,
-              "water": 191,
-              "caffeine": 0,
-              "amount": {
-                "value": 0,
-                "unit": "g"
-              }
-            },
-            {
-              "name": "¼ jar Skinnygirl apricot preserves SF",
-              "kcal": 40,
-              "p": 0,
-              "sf": 0,
-              "water": 48,
-              "caffeine": 0,
-              "amount": {
-                "value": 0,
-                "unit": "g"
-              }
-            },
-            {
-              "name": "4 tbsp Barney almond powder",
-              "kcal": 90,
-              "p": 12,
-              "sf": 0,
-              "water": 0,
-              "caffeine": 0,
-              "amount": {
-                "value": 0,
-                "unit": "g"
-              }
-            }
-          ],
-          "defaultMeasuredIn": "units"
         },
         "yogurt_half": {
           "name": "Yogurt Greek plain",
@@ -10766,7 +10914,6 @@
               "label": "1/2 tub",
               "amount": 453.5,
               "unit": "g",
-              "default": true,
               "multiplier": 453.5
             },
             {
@@ -10779,6 +10926,7 @@
               "label": "serving",
               "amount": 170,
               "unit": "g",
+              "default": true,
               "multiplier": 170
             }
           ],
@@ -10793,7 +10941,6 @@
           "kcal": 1.44,
           "p": 0.032,
           "carbs": 0.128,
-          "fiber": 0,
           "sugar": 0.12,
           "addedSugar": 0.088,
           "fat": 0.088,
@@ -10802,9 +10949,7 @@
           "cholesterol": 0.344,
           "sodium": 0.48,
           "calcium": 1.144,
-          "iron": 0,
           "potassium": 1.504,
-          "vitD": 0,
           "vitA": 0.3,
           "b2": 0.002,
           "b12": 0.004,
@@ -10819,15 +10964,21 @@
           "displayUnits": [
             {
               "label": "1 container (4.5 oz)",
+              "amount": 125,
+              "unit": "g",
               "default": true,
               "multiplier": 125
             },
             {
               "label": "100 g",
+              "amount": 100,
+              "unit": "g",
               "multiplier": 100
             }
           ],
-          "notes": "La Fermiere French-style whole-milk cream-top lemon yogurt (terracotta/foil pot). Label per 1 container: 180 kcal, 4g protein, 11g fat (7g sat = 36% DV), 43mg cholesterol, 60mg sodium, 16g carb, 15g sugar (11g added = 21% DV), Ca 11% DV, K 4% DV. Container weight estimated 125g (4.5 oz) via macro back-calc (matches label exactly at 125g). This is an INDULGENT dessert-style yogurt, NOT high-protein (only 4g protein / 180 kcal; whole milk + cream + cane sugar). Micros from whole-milk yogurt (medium confidence): B12 (~0.004 mcg/g), B2, phosphorus, iodine (dairy), vit A (milkfat). Purines very low (dairy). Ingredients: pasteurized whole milk, pasteurized cream, cane sugar, lemon juice, live cultures (S. thermophilus, L. bulgaricus). Contains milk; facility uses eggs + tree nuts."
+          "notes": "La Fermiere French-style whole-milk cream-top lemon yogurt (terracotta/foil pot). Label per 1 container: 180 kcal, 4g protein, 11g fat (7g sat = 36% DV), 43mg cholesterol, 60mg sodium, 16g carb, 15g sugar (11g added = 21% DV), Ca 11% DV, K 4% DV. Container weight estimated 125g (4.5 oz) via macro back-calc (matches label exactly at 125g). This is an INDULGENT dessert-style yogurt, NOT high-protein (only 4g protein / 180 kcal; whole milk + cream + cane sugar). Micros from whole-milk yogurt (medium confidence): B12 (~0.004 mcg/g), B2, phosphorus, iodine (dairy), vit A (milkfat). Purines very low (dairy). Ingredients: pasteurized whole milk, pasteurized cream, cane sugar, lemon juice, live cultures (S. thermophilus, L. bulgaricus). Contains milk; facility uses eggs + tree nuts.",
+          "prevCategory": "items",
+          "archived": true
         },
         "yogurt_oikos_pro_lemon": {
           "name": "Yogurt Greek Pro Complete Protein lemon",
@@ -10973,6 +11124,8 @@
           "label": "Uncategorized"
         }
       ]
-    }
+    },
+    "chartRangeDays": 30,
+    "totalsMode": "collapsed"
   }
 }
