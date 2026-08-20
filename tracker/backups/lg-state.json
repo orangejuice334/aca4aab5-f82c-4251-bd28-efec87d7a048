@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-08-19T07:31:57.243Z",
-  "_gistSavedAt": "2026-08-18T21:40:36.899Z",
+  "_backupTakenAt": "2026-08-20T07:34:30.886Z",
+  "_gistSavedAt": "2026-08-19T18:36:29.289Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2449,6 +2449,39 @@
         "neckMeta": "2026-08-18T21:37:27.008Z",
         "weight": 88.9,
         "weightMeta": "2026-08-18T21:37:25.399Z"
+      },
+      "2026-08-19": {
+        "toggles": {},
+        "counters": {
+          "ketchup_packet": 72,
+          "portofino_yellowfin_tuna": 113,
+          "evoo_tsp": 15,
+          "natures_own_keto_bread": 112,
+          "dannon_light_fit_boston_cream": 150,
+          "ensure_max_protein_birthday_cake": 330,
+          "chobani_zero_sugar_vanilla": 85,
+          "jif_pb_cup": 10.5,
+          "watermelon": 150
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "ketchup_packet": "2026-08-19T18:36:27.639Z",
+          "portofino_yellowfin_tuna": "2026-08-19T17:54:38.516Z",
+          "evoo_tsp": "2026-08-19T17:54:54.104Z",
+          "natures_own_keto_bread": "2026-08-19T17:53:58.885Z",
+          "dannon_light_fit_boston_cream": "2026-08-19T14:22:19.238Z",
+          "ensure_max_protein_birthday_cake": "2026-08-19T17:53:46.558Z",
+          "chobani_zero_sugar_vanilla": "2026-08-19T17:54:15.406Z",
+          "jif_pb_cup": "2026-08-19T17:54:23.530Z",
+          "watermelon": "2026-08-19T18:00:35.401Z"
+        },
+        "mood": 6,
+        "moodMeta": "2026-08-19T13:21:37.481Z",
+        "weight": 88.1,
+        "weightMeta": "2026-08-19T13:21:47.607Z",
+        "waist": 103,
+        "waistMeta": "2026-08-19T16:52:57.064Z"
       }
     },
     "savedItems": [],
@@ -2458,9 +2491,9 @@
       "heightCm": 183,
       "ageYears": 42,
       "sex": "M",
-      "activityLevel": "light",
+      "activityLevel": "moderate",
       "startWeightKg": 102,
-      "targetWeightKg": 88,
+      "targetWeightKg": 75,
       "goals": {
         "kcal": 1600,
         "p": 190,
@@ -2531,15 +2564,15 @@
       "details-profile-section": true,
       "details-sync-error-banner": true,
       "history": true,
-      "supplements-water": true,
       "section-mood-tracker": true,
       "section-archive-section": true,
       "catalog-archive": true,
       "today-customs": true,
       "targets-accumulation": true,
-      "profile": true,
+      "details-recipe-maker": true,
       "details-add-new-item": true,
-      "details-recipe-maker": true
+      "profile": true,
+      "supplements-water": true
     },
     "userCatalog": {
       "items": {
@@ -4745,6 +4778,67 @@
           "notes": "Label-derived (high confidence): kcal, macros, sodium (340mg/30g = HIGH), cholesterol, Ca (44mg/30g), K (231mg/30g excellent for snack), high protein density (21g/30g). Estimated from milk protein isolate composition (high confidence — dairy whey base): B12 (~0.007 mcg/g), phosphorus very high (~4 mg/g from dairy), iodine, choline, selenium. Purines low (~10 mg/100g — dairy gout-protective). Ingredients: milk protein isolate, sunflower oil, dextrose, salt, skim milk, <1% of onion, garlic, jalapeño, tomato, whey, whey protein concentrate, sour cream solids, buttermilk, milk, cheese cultures, enzymes, yeast extract, natural flavors, spice and color, citric acid, silicon dioxide, disodium phosphate, lactic acid. Contains milk. Label shows full amino acid profile (full essential AA spectrum including 2,130 mg leucine and 1,840 mg lysine per 30g serving).",
           "brand": "Elevation (Aldi)"
         },
+        "ensure_max_protein_birthday_cake": {
+          "name": "Shake Ensure Max Protein birthday cake",
+          "brand": "Ensure (Abbott)",
+          "category": "liquids",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.454545,
+          "p": 0.090909,
+          "fat": 0.006061,
+          "sf": 0.001515,
+          "transFat": 0,
+          "carbs": 0.018182,
+          "fiber": 0.012121,
+          "sugar": 0.00303,
+          "addedSugar": 0,
+          "cholesterol": 0.060606,
+          "sodium": 0.69697,
+          "water": 0.88,
+          "vitD": 0.033333,
+          "calcium": 1.969697,
+          "iron": 0.008182,
+          "potassium": 1.181818,
+          "vitA": 0.818182,
+          "vitC": 0.136364,
+          "vitE": 0.011364,
+          "vitK": 0.072727,
+          "b1": 0.000909,
+          "b2": 0.001773,
+          "b3": 0.024242,
+          "b6": 0.001545,
+          "b9": 0.30303,
+          "b12": 0.001818,
+          "b7": 0.022727,
+          "b5": 0.005303,
+          "phosphorus": 1.515152,
+          "iodine": 0.113636,
+          "magnesium": 0.318182,
+          "zinc": 0.015,
+          "selenium": 0.075,
+          "copper": 0.000682,
+          "manganese": 0.001742,
+          "chromium": 0.026515,
+          "molybdenum": 0.061364,
+          "choline": 0.25,
+          "purines": 0.015,
+          "displayUnits": [
+            {
+              "label": "1 carton (330 g)",
+              "amount": 330,
+              "unit": "g",
+              "default": true,
+              "multiplier": 330
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Ensure Max Protein Nutrition Shake, Birthday Cake (Abbott), 11 fl oz / 330 mL carton, 1 serving. Stored as 330 g (mL~=g, matching the Premier shake convention in this catalog). FULLY LABELED (25 vitamins & minerals) -- all values label-derived, HIGH confidence. Per carton: 150 kcal, 2g fat (0.5g sat, 0 trans, 0 poly, 1g mono), 20mg chol, 230mg sodium, 6g total carb, 4g fiber, 1g total sugars, 0g added sugars, 30g protein. Vit D 11mcg (60%), Ca 650mg (50%), Iron 2.7mg (15%), K 390mg (8%). %DV converted to absolute per carton: vitamin A 270mcg RAE (30%), vitamin C 45mg (50%), vitamin E 3.75mg (25%), vitamin K 24mcg (20%), thiamin 0.3mg (25%), riboflavin 0.585mg (45%), niacin 8mg (50%), B6 0.51mg (30%), folate 100mcg DFE (25%, 60mcg folic acid), B12 0.6mcg (25%), biotin 7.5mcg (25%), pantothenic acid 1.75mg (35%), phosphorus 500mg (40% -- HIGH, relevant to reduced-eGFR history), iodine 37.5mcg (25%), magnesium 105mg (25%), zinc 4.95mg (45%), selenium 24.75mcg (45%), copper 0.225mg (25%), manganese 0.575mg (25%), chromium 8.75mcg (25%), molybdenum 20.25mcg (45%), choline 82.5mg (15%). CHLORIDE 345mg (15%) is on the label but has no field in this tracker -- recorded here only. kcal kept at label 150: Atwater with 4g fiber priced near ~1 kcal/g reconciles (30x4 + 2x9 + 2g net carb x4 = 146, plus ~4-8 from the fiber). No correction applied. Fiber source is a corn-fiber/inulin type (partially fermentable); the 6g total carb minus 4g fiber leaves only ~2g digestible. Protein is milk-based (milk protein concentrate / whey) -- complete, high quality, no downgrade. ESTIMATED (not on label): purines ~5mg/carton -- LOW (dairy protein, gout-favorable); water ~88%. Artificially flavored. Halal, kosher. CONTAINS milk."
+        },
         "evoo_tsp": {
           "name": "Olive oil extra virgin",
           "category": "small_portions",
@@ -6848,22 +6942,18 @@
           "brand": "Nature's Own (Life Keto)",
           "category": "items",
           "defaultMeasuredIn": "g",
-          "kcal": 1.357143,
-          "p": 0.214286,
-          "fat": 0.035714,
-          "sf": 0,
+          "kcal": 1.3571,
+          "p": 0.2143,
+          "fat": 0.0357,
           "transFat": 0,
-          "carbs": 0.357143,
-          "fiber": 0.357143,
-          "sugar": 0,
+          "carbs": 0.3571,
+          "fiber": 0.3571,
           "addedSugar": 0,
-          "cholesterol": 0,
-          "sodium": 7.142857,
+          "sodium": 7.1429,
           "water": 0.35,
-          "vitD": 0,
           "calcium": 0.02,
-          "iron": 0.014286,
-          "potassium": 0.714286,
+          "iron": 0.0143,
+          "potassium": 0.7143,
           "phosphorus": 1.6,
           "magnesium": 0.35,
           "selenium": 0.25,
@@ -6878,11 +6968,10 @@
           "purines": 0.4,
           "displayUnits": [
             {
-              "label": "1 slice (28 g)",
-              "amount": 28,
+              "label": "loaf (16 slices, 448 g)",
+              "amount": 448,
               "unit": "g",
-              "default": true,
-              "multiplier": 28
+              "multiplier": 448
             },
             {
               "label": "2 slices (56 g)",
@@ -6891,10 +6980,11 @@
               "multiplier": 56
             },
             {
-              "label": "loaf (16 slices, 448 g)",
-              "amount": 448,
+              "label": "1 slice (28 g)",
+              "amount": 28,
               "unit": "g",
-              "multiplier": 448
+              "default": true,
+              "multiplier": 28
             }
           ],
           "notes": "Nature's Own Life Keto Soft White Bread (Flowers Baking Co). 16 servings, 1 slice (28g/1.0oz), net wt 16oz. Label per slice: 35 kcal, 1g fat (0 sat, 0.5g poly, 0 mono), 0 trans, 0 chol, 200mg sodium (9% DV), 10g total carb, 10g fiber (35% DV), 0g sugar, 0 added, 6g protein, Vit D 0, Calcium 0mg, Iron 0.4mg, K 20mg. Front of pack claims NET 1g carb (total carb minus fiber; arithmetic actually gives 0g -- label rounding). KCAL CORRECTION: stored 38 kcal/slice (1.3571/g) vs label 35. Label uses net-carb Atwater (6x4 + 1x9 = 33) and prices the 10g fiber at only ~0.2 kcal/g. Fiber here is modified wheat starch -- RS4 (chemically cross-linked resistant starch, the LEAST fermentable class, ~0-1 kcal/g) plus trace guar gum and flax seed meal. Applied the catalog's standard ~0.5 kcal/g for RS4 breads (same methodology as the Hero bagel/bun, Royo bagel, Arnold keto rolls): 33 + 5 = 38. Real value plausibly 35-40; correction is small. Protein source: wheat protein isolate (vital gluten) -- lysine-limited, no complementary legume, so utilizable protein is below the 6g nitrogen figure. Calcium: label reads 0mg but calcium sulfate is an ingredient, so trace (~0.5mg/slice) stored rather than a true zero. Off-label micros ESTIMATED from wheat protein isolate + modified wheat starch + flax: phosphorus ~45mg/slice (relevant to reduced-eGFR history), Mg ~10mg, selenium ~7mcg, omega-3 ALA trace from flax seed meal. LOW-MEDIUM confidence. PURINES ~11mg/slice -- LOW (wheat gluten). Ingredients: water, modified wheat starch, wheat protein isolate, yeast, 2% or less: expeller pressed canola oil, sugar, salt, vinegar, enzymes, guar gum, calcium sulfate, flax seed meal. CONTAINS wheat; made on equipment that also processes sesame, may contain sesame."
@@ -7766,25 +7856,21 @@
           "category": "items",
           "defaultMeasuredIn": "g",
           "kcal": 2.0354,
-          "p": 0.256637,
-          "fat": 0.115044,
-          "sf": 0.022124,
+          "p": 0.2566,
+          "fat": 0.115,
+          "sf": 0.0221,
           "transFat": 0,
-          "carbs": 0,
-          "fiber": 0,
-          "sugar": 0,
           "addedSugar": 0,
-          "cholesterol": 0.353982,
-          "sodium": 3.362832,
+          "cholesterol": 0.354,
+          "sodium": 3.3628,
           "water": 0.55,
-          "vitD": 0.017699,
-          "calcium": 0,
-          "iron": 0.009558,
-          "potassium": 3.327434,
-          "b3": 0.127434,
-          "b6": 0.002257,
-          "b12": 0.016991,
-          "selenium": 0.924779,
+          "vitD": 0.0177,
+          "iron": 0.0096,
+          "potassium": 3.3274,
+          "b3": 0.1274,
+          "b6": 0.0023,
+          "b12": 0.017,
+          "selenium": 0.9248,
           "phosphorus": 2.8,
           "magnesium": 0.35,
           "zinc": 0.005,
@@ -9408,6 +9494,63 @@
           ],
           "defaultMeasuredIn": "g",
           "purines": 0
+        },
+        "think_bar_lemon_delight": {
+          "name": "Protein bar think! lemon delight",
+          "brand": "think!",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 3.833333,
+          "p": 0.333333,
+          "fat": 0.15,
+          "sf": 0.058333,
+          "transFat": 0,
+          "carbs": 0.4,
+          "fiber": 0,
+          "sugar": 0,
+          "addedSugar": 0,
+          "sugarAlcohol": 0.216667,
+          "cholesterol": 0.083333,
+          "sodium": 3.833333,
+          "water": 0.06,
+          "vitD": 0,
+          "calcium": 1.5,
+          "iron": 0.026667,
+          "potassium": 1.833333,
+          "phosphorus": 4.17,
+          "magnesium": 0.83,
+          "zinc": 0.025,
+          "selenium": 0.167,
+          "b12": 0.008,
+          "b2": 0.005,
+          "vitC": 0.15,
+          "vitE": 0.03,
+          "choline": 0.5,
+          "copper": 0.004,
+          "manganese": 0.008,
+          "purines": 0.5,
+          "displayUnits": [
+            {
+              "label": "1 bar (60 g)",
+              "amount": 60,
+              "unit": "g",
+              "default": true,
+              "multiplier": 60
+            },
+            {
+              "label": "½ bar (30 g)",
+              "amount": 30,
+              "unit": "g",
+              "multiplier": 30
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "think! High Protein Bar, Lemon Delight, 1 bar 2.1oz/60g. Product of Canada. Label per bar: 230 kcal, 9g fat (3.5g sat, 0 trans), 5mg chol, 230mg sodium (10% DV), 24g total carb, 0g fiber, 0g total sugars, 0g added sugars, 13g SUGAR ALCOHOL, 20g protein, Vit D 0, Ca 90mg, Iron 1.6mg, K 110mg. All label-exact. CARB GAP EXPLAINED: total carb 24g but the declared sub-lines only account for 13g (0 fiber + 0 sugars + 13 sugar alcohol). The undeclared ~11g is mostly VEGETABLE GLYCERIN (3rd ingredient, right after maltitol syrup) plus a little tapioca starch. Glycerin is chemically a polyol but FDA does not require it in the 'sugar alcohol' line, and there is no mandatory 'other carbohydrate' line -- only fiber/total sugars/added sugars are required sub-lines. US total carbohydrate is computed BY DIFFERENCE (mass minus protein, fat, water, ash), so glycerin lands inside it silently. Calorie math confirms: 20g protein (80) + 9g fat (81) = 161, leaving 69 kcal for carb; 13g maltitol at ~2.1 kcal/g = 27, so the remaining 11g yields ~42 kcal = ~3.8 kcal/g -- consistent with glycerin (4.32) and starch (4), NOT fiber (0-2). kcal kept at label 230; a full recompute (maltitol 2.1 + glycerin 4.32) gives ~236, within the uncertainty of the glycerin quantity, so no correction applied. NET digestible carb is effectively ~11g despite '0g sugar' marketing -- glycerin is caloric and mildly glycemic. Off-label micros ESTIMATED from soy/whey protein isolates + calcium caseinate + almond butter: phosphorus ~250mg/bar (HIGH -- protein isolates; relevant to reduced-eGFR history), Mg ~50mg, selenium ~10mcg. LOW-MEDIUM confidence. Vitamin C present (ascorbic acid used as an ingredient). PURINES ~30mg/bar -- LOW-MODERATE (soy protein isolate moderate, whey/casein low). Ingredients: protein blend (soy protein isolate, whey protein isolate, calcium caseinate, whey protein concentrate), maltitol syrup, vegetable glycerin, almond butter, fractionated palm kernel oil, high oleic sunflower oil, water, sunflower and/or soy lecithin, natural flavor, tapioca starch, salt, ascorbic acid, citric acid. Gluten free, no artificial sweeteners. CONTAINS almond (tree nut), milk, soy; facility also processes other tree nuts, peanut, egg. NOTE: sugar alcohols in this quantity (13g) commonly cause GI effects in sensitive people."
         },
         "tj_ab_pretzel_nuggets": {
           "name": "Trader Joe's Almond Butter Filled Pretzel Nuggets",
@@ -11124,8 +11267,6 @@
           "label": "Uncategorized"
         }
       ]
-    },
-    "chartRangeDays": 30,
-    "totalsMode": "collapsed"
+    }
   }
 }
