@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-08-21T07:36:24.124Z",
-  "_gistSavedAt": "2026-08-20T19:52:07.850Z",
+  "_backupTakenAt": "2026-08-22T07:24:46.997Z",
+  "_gistSavedAt": "2026-08-22T01:16:52.480Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2511,6 +2511,62 @@
         "weightMeta": "2026-08-20T18:02:42.418Z",
         "neck": 43,
         "neckMeta": "2026-08-20T18:02:42.684Z"
+      },
+      "2026-08-21": {
+        "toggles": {},
+        "counters": {
+          "beef_patty_cooked_80_20": 42.5,
+          "cheese_american_slice": 10.5,
+          "bun_hamburger_white": 13.5,
+          "ketchup_heinz_packet": 9,
+          "ensure_max_protein_birthday_cake": 660,
+          "soy_milk_original": 150,
+          "natures_own_keto_bread": 56,
+          "chicken_tender_breaded": 50,
+          "smuckers_sf_strawberry_preserves": 0,
+          "yogurt_oikos_triple_zero_lemon": 150,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "slate_ultra_protein_vanilla": 443
+        },
+        "customs": [
+          {
+            "id": "d0e42216-8081-437b-8c77-7757b616577b",
+            "name": "Custom 100 kcal",
+            "kcal": 100,
+            "p": 2,
+            "count": 1,
+            "lastModified": "2026-08-21T10:31:24-04:00"
+          },
+          {
+            "id": "a1f3a257-0885-42b2-bcf9-22b8b0be479c",
+            "name": "50kcal 4p",
+            "kcal": 50,
+            "p": 4,
+            "count": 1,
+            "lastModified": "2026-08-21T19:28:24.665Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "beef_patty_cooked_80_20": "2026-08-21T10:31:24-04:00",
+          "cheese_american_slice": "2026-08-21T10:31:24-04:00",
+          "bun_hamburger_white": "2026-08-21T14:47:01.129Z",
+          "ketchup_heinz_packet": "2026-08-21T10:31:24-04:00",
+          "ensure_max_protein_birthday_cake": "2026-08-21T19:28:39.099Z",
+          "soy_milk_original": "2026-08-21T10:31:24-04:00",
+          "natures_own_keto_bread": "2026-08-21T10:31:24-04:00",
+          "chicken_tender_breaded": "2026-08-21T10:31:24-04:00",
+          "smuckers_sf_strawberry_preserves": "2026-08-22T01:16:35.381Z",
+          "yogurt_oikos_triple_zero_lemon": "2026-08-21T19:28:05.344Z",
+          "david_bar_choc_chip_cookie_dough": "2026-08-21T21:37:25.352Z",
+          "slate_ultra_protein_vanilla": "2026-08-21T21:16:51-04:00"
+        },
+        "weight": 87.9,
+        "weightMeta": "2026-08-21T14:11:13.628Z",
+        "mood": 6,
+        "moodMeta": "2026-08-21T14:11:13.791Z",
+        "neck": 43,
+        "neckMeta": "2026-08-21T14:11:13.954Z"
       }
     },
     "savedItems": [],
@@ -2596,12 +2652,12 @@
       "section-mood-tracker": true,
       "section-archive-section": true,
       "catalog-archive": true,
-      "today-customs": true,
       "targets-accumulation": true,
       "supplements-water": true,
-      "details-add-new-item": true,
       "details-recipe-maker": true,
-      "profile": true
+      "profile": true,
+      "today-log": true,
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
@@ -3175,6 +3231,64 @@
           ],
           "notes": "Broiled version of beef_kabob_grassfed. Concentrated the raw label by an assumed 28% cook loss (yield 0.72, factor 1.389) on retained nutrients; water set to 0.58 ml/g (cooked ~58% water). Per 100 g cooked: ~149 kcal, ~33.5 P, ~1.9 fat, ~93 chol, ~68 Na, iron ~3.3, K ~466. LOW CONFIDENCE: yield is generic (weigh raw vs cooked to pin exact); potassium concentrated but leaches into drippings (likely overstated); B1/B6/B12 degrade with heat (not downgraded); no added salt assumed; raw-side micros were already estimates."
         },
+        "beef_patty_cooked_80_20": {
+          "name": "Patty beef 80/20 cooked",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.54,
+          "p": 0.2575,
+          "fat": 0.1541,
+          "sf": 0.0602,
+          "transFat": 0.007,
+          "carbs": 0,
+          "fiber": 0,
+          "sugar": 0,
+          "addedSugar": 0,
+          "cholesterol": 0.88,
+          "sodium": 0.78,
+          "water": 0.56,
+          "vitD": 0.0002,
+          "calcium": 0.24,
+          "iron": 0.0244,
+          "potassium": 3.15,
+          "magnesium": 0.21,
+          "phosphorus": 1.98,
+          "zinc": 0.062,
+          "selenium": 0.217,
+          "copper": 0.0007,
+          "manganese": 0.0001,
+          "b1": 0.0005,
+          "b2": 0.0016,
+          "b3": 0.054,
+          "b5": 0.006,
+          "b6": 0.0035,
+          "b9": 0.07,
+          "b12": 0.0264,
+          "choline": 0.82,
+          "purines": 1.2,
+          "displayUnits": [
+            {
+              "label": "1 patty cooked (85 g)",
+              "amount": 85,
+              "unit": "g",
+              "default": true,
+              "multiplier": 85
+            },
+            {
+              "label": "½ patty (42.5 g)",
+              "amount": 42.5,
+              "unit": "g",
+              "multiplier": 42.5
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "GENERIC ground beef patty, 80% lean / 20% fat, pan-broiled. NO LABEL -- values from USDA SR (ground beef 80/20 cooked, ~254 kcal, 25.75g protein, 15.41g fat, 6.02g sat, 88mg cholesterol, 78mg sodium, 315mg potassium, 198mg phosphorus, 6.2mg zinc, 21.7mcg selenium, 2.64mcg B12, 82mg choline per 100g). MEDIUM-HIGH confidence on macros (well-characterised whole food); the real uncertainty is the fat grade -- a leaner 90/10 patty would run ~200 kcal/100g, a fattier 73/27 ~270. DEFAULT UNIT is a cooked 85g patty, which corresponds to a raw quarter-pounder (113g / 4 oz) after ~25% cooking loss. A fast-food style patty is much smaller (~45g cooked). Adjust grams if the patty size is known. Sodium 78mg/100g is the meat's own -- NO added salt or seasoning included. Trans fat ~0.7g/100g is naturally occurring ruminant trans fat (vaccenic/conjugated linoleic acid), not industrial. PURINES ~1.2 mg/g => ~102mg per 85g patty -- MODERATE-HIGH (beef is a classic gout trigger food). Relevant to uric-acid history. MEDIUM confidence. Phosphorus ~168mg per 85g patty, all naturally protein-bound (~40-60% absorbed), unlike additive phosphate."
+        },
         "black_bean_pasta": {
           "name": "Black bean pasta",
           "category": "items",
@@ -3416,6 +3530,69 @@
               "multiplier": 200
             }
           ]
+        },
+        "bun_hamburger_white": {
+          "name": "Bun hamburger white",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.79,
+          "p": 0.095,
+          "fat": 0.04,
+          "sf": 0.009,
+          "transFat": 0,
+          "carbs": 0.493,
+          "fiber": 0.022,
+          "sugar": 0.057,
+          "addedSugar": 0.045,
+          "cholesterol": 0,
+          "sodium": 4.94,
+          "water": 0.34,
+          "vitD": 0,
+          "calcium": 1.45,
+          "iron": 0.033,
+          "potassium": 1.2,
+          "magnesium": 0.24,
+          "phosphorus": 0.92,
+          "zinc": 0.009,
+          "selenium": 0.21,
+          "copper": 0.0015,
+          "manganese": 0.005,
+          "b1": 0.004,
+          "b2": 0.0025,
+          "b3": 0.035,
+          "b5": 0.004,
+          "b6": 0.0004,
+          "b9": 0.8,
+          "choline": 0.12,
+          "purines": 0.3,
+          "displayUnits": [
+            {
+              "label": "1 whole bun (54 g)",
+              "amount": 54,
+              "unit": "g",
+              "default": true,
+              "multiplier": 54
+            },
+            {
+              "label": "top half / crown (30 g)",
+              "amount": 30,
+              "unit": "g",
+              "multiplier": 30
+            },
+            {
+              "label": "bottom half / heel (24 g)",
+              "amount": 24,
+              "unit": "g",
+              "multiplier": 24
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "GENERIC plain white hamburger bun, enriched wheat flour. NO LABEL -- USDA values per 100g: 279 kcal, 9.5g protein, 4.0g fat, 49.3g carb, 2.2g fiber, 5.7g sugar, 494mg sodium, 145mg calcium, 3.3mg iron (enriched), 80mcg folate (folic acid fortified), 21mcg selenium. MEDIUM confidence; bakery and brioche buns run heavier and sweeter, potato buns similar. SPLIT WEIGHTS: a standard bun is ~54g. The TOP HALF (crown) is the domed portion and carries roughly 55% of the mass (~30g); the bottom (heel) is flatter at ~24g. Units provided for each so a top-only or bottom-only sandwich can be logged accurately. Iron/folate/thiamin/niacin are enrichment-derived (added back to refined flour), not intrinsic. Purines LOW-MODERATE (wheat)."
         },
         "bun_hotdog_hero_classic": {
           "name": "Bun hot dog Hero Classic",
@@ -3797,6 +3974,60 @@
           ],
           "notes": "Premier Protein Cereal, Chocolate. Distributed by Post Consumer Brands. About 6 servings/container (42g each => ~252g). kcal NOT corrected: label 180 reconciles with Atwater 4-4-9 (5x9+14x4+20x4~181); fiber only 1g and disclosed, no sugar alcohols/polydextrose, stevia non-nutritive. Protein 20g stored at label (nitrogen). Source is a plant blend dominated by wheat gluten + wheat protein isolate (lysine-limited), plus pea protein concentrate (complements lysine) and almonds; DIAAS-adjusted utilizable protein for muscle-protein-synthesis is meaningfully below 20g, but no fixed downgrade applied (no rule for gluten/pea blends, unlike collagen). Sodium/calcium/iron/potassium/vitD are label-exact. Off-label micros ESTIMATED from ingredient model (~14g wheat gluten, ~8g almonds, ~6g wheat protein isolate, ~3g pea protein, ~6g corn flour, ~4g sugar, ~1.5g cocoa) anchored to USDA #168147 vital wheat gluten (Se 39.7, P 260, Mg 25, Zn 0.85, Cu 0.18 mg/100g) + almonds/cocoa/pea -- LOW CONFIDENCE. Per serving approx: Mg 45mg, P 128mg (relevant to reduced-eGFR history), vitamin E 2mg (almonds), Se 10mcg. Purines ~14mg/serving -- LOW purine (wheat gluten/seitan low, pea moderate; net well under 50mg/serving) -- LOW CONFIDENCE. b12, vitA, vitK, b7, iodine, molybdenum, chromium omitted (trace/absent or unknowable in this formulation)."
         },
+        "cheese_american_slice": {
+          "name": "Cheese American processed slice",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.857,
+          "p": 0.167,
+          "fat": 0.214,
+          "sf": 0.119,
+          "transFat": 0,
+          "carbs": 0.095,
+          "fiber": 0,
+          "sugar": 0.095,
+          "addedSugar": 0,
+          "cholesterol": 0.714,
+          "sodium": 10.95,
+          "water": 0.44,
+          "vitD": 0.001,
+          "calcium": 9.52,
+          "iron": 0.002,
+          "potassium": 1,
+          "magnesium": 0.09,
+          "phosphorus": 6.19,
+          "zinc": 0.028,
+          "selenium": 0.06,
+          "vitA": 0.9,
+          "b2": 0.003,
+          "b12": 0.008,
+          "b5": 0.005,
+          "choline": 0.15,
+          "iodine": 0.35,
+          "purines": 0.05,
+          "displayUnits": [
+            {
+              "label": "1 slice (21 g)",
+              "amount": 21,
+              "unit": "g",
+              "default": true,
+              "multiplier": 21
+            },
+            {
+              "label": "½ slice (10.5 g)",
+              "amount": 10.5,
+              "unit": "g",
+              "multiplier": 10.5
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "GENERIC American processed cheese single, ~21g slice (Kraft-singles class). NO LABEL -- modelled on the standard single: 60 kcal, 3.5g protein, 4.5g fat (2.5g sat), 2g carb, 15mg cholesterol, 230mg sodium, ~200mg calcium per slice. MEDIUM confidence; deli-sliced American runs slightly richer and 'cheese product' variants slightly leaner. PHOSPHORUS FLAG (relevant to reduced-eGFR history): ~130mg per slice, and processed cheese is emulsified with SODIUM PHOSPHATE / SODIUM CITRATE salts -- inorganic phosphate additives absorbed at ~90-100%, versus ~40-60% for the protein-bound phosphorus in natural cheese. So the bioavailable load exceeds what the milligram figure implies. Same additive issue as the Rockin' Protein shake in this catalog. Sodium ~230mg per single slice is high for the weight (1095mg/100g). Purines LOW (dairy, gout-favorable). CONTAINS milk."
+        },
         "cheese_parmesan_grated_reggano": {
           "name": "Cheese parmesan grated",
           "brand": "Reggano",
@@ -3990,6 +4221,66 @@
           ],
           "purines": 2.5,
           "brand": "Bell and Evans"
+        },
+        "chicken_tender_breaded": {
+          "name": "Chicken tender breaded",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.65,
+          "p": 0.15,
+          "fat": 0.155,
+          "sf": 0.03,
+          "transFat": 0.001,
+          "carbs": 0.15,
+          "fiber": 0.01,
+          "sugar": 0.005,
+          "addedSugar": 0,
+          "cholesterol": 0.42,
+          "sodium": 5.3,
+          "water": 0.5,
+          "vitD": 0.003,
+          "calcium": 0.2,
+          "iron": 0.011,
+          "potassium": 2.2,
+          "magnesium": 0.22,
+          "phosphorus": 2.05,
+          "zinc": 0.008,
+          "selenium": 0.25,
+          "copper": 0.0005,
+          "manganese": 0.002,
+          "b1": 0.003,
+          "b2": 0.001,
+          "b3": 0.055,
+          "b5": 0.009,
+          "b6": 0.0004,
+          "b9": 0.1,
+          "b12": 0.003,
+          "choline": 0.4,
+          "vitE": 0.004,
+          "vitK": 0.05,
+          "purines": 0.9,
+          "displayUnits": [
+            {
+              "label": "1 tender (50 g)",
+              "amount": 50,
+              "unit": "g",
+              "default": true,
+              "multiplier": 50
+            },
+            {
+              "label": "3 tenders (150 g)",
+              "amount": 150,
+              "unit": "g",
+              "multiplier": 150
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "GENERIC breaded chicken breast tender, cooked (frozen-prepared or restaurant style). NO LABEL -- grounded on USDA FoodData Central FDC 171515 (breaded chicken breast tenders: 263 kcal, 14.73g protein, 15.75g fat, 15.01g carb, 41mg cholesterol, 536mg sodium, 24.7mcg selenium per 100g), cross-checked against USDA SR frozen-prepared tenders (240 kcal, 14.62g protein, 13.58g fat/100g) and a commercial oven-cooked tender (293 kcal, 16g protein, 18g fat, 457mg sodium, 210mg phosphorus/100g). Stored at ~265 kcal/100g, mid-range. MEDIUM confidence. The spread is driven by breading ratio and cook method: deep-fried restaurant tenders sit at the high end (~290-330 kcal/100g), oven-baked frozen at the low end (~240). PIECE SIZE ASSUMED 50g. Real tenders vary widely -- frozen retail tenders run ~28-35g each, restaurant/hand-breaded 50-70g. Adjust grams if known. Sodium is high at ~530mg/100g (~265mg per tender) -- breading brine and seasoning, not the chicken. PURINES ~0.9 mg/g => ~45mg/tender -- MODERATE (poultry). Relevant to uric-acid history. LOW-MEDIUM confidence. CONTAINS wheat (breading); typically also egg. Phosphorus ~103mg/tender, partly from breading phosphates."
         },
         "chobani_protein_raspberry_lemon": {
           "name": "Chobani Protein Raspberry Lemon (20g, zero added sugar)",
@@ -5143,6 +5434,65 @@
             }
           ],
           "notes": "Season's Choice Tropical Blend (ALDI). Pineapple, mango, strawberries, papaya. Label: 70 kcal / 152 g serving, ~6 servings/bag. fat=0 on label but USDA avg ~0.265g/serving (below 0.5g threshold) — corrected to 0.00265 g/g. sodium=0 on label but USDA avg ~4mg/serving (below 5mg threshold) — corrected to 0.0275 mg/g. sf estimated ~0.0003 g/g. Micronutrients (vitA, vitE, vitK, B-vitamins, choline, Mg, P, Zn, Mn, Se, Cu, iodine) estimated as unweighted average of USDA SR Legacy values for raw pineapple (09266), mango (09176), strawberry (09316), papaya (09226) — LOW CONFIDENCE, flag for later verification. Water ~87% estimated from macro balance. Bag total 912 g from 6×152 g."
+        },
+        "fruit_snacks_choczero": {
+          "name": "Fruit snacks ChocZero sugar free",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.785714,
+          "p": 0.007143,
+          "carbs": 0.821429,
+          "fiber": 0.785714,
+          "sugar": 0.014286,
+          "fat": 0.003571,
+          "sf": 0,
+          "sodium": 0.892857,
+          "water": 0.12,
+          "vitA": 0.535714,
+          "vitC": 0.053571,
+          "vitE": 0,
+          "vitK": 0,
+          "b1": 0,
+          "b2": 0,
+          "b3": 0,
+          "b5": 0,
+          "b6": 0,
+          "b7": 0,
+          "b9": 0,
+          "choline": 0.035714,
+          "calcium": 0.142857,
+          "iron": 0.003571,
+          "magnesium": 0.071429,
+          "phosphorus": 0.107143,
+          "potassium": 0.714286,
+          "zinc": 0,
+          "selenium": 0,
+          "copper": 0.000714,
+          "manganese": 0.001071,
+          "iodine": 0,
+          "purines": 0.05,
+          "displayUnits": [
+            {
+              "label": "1 piece (2.5 g)",
+              "amount": 2.5,
+              "unit": "g",
+              "multiplier": 2.5
+            },
+            {
+              "label": "1 snack pack, 11 pieces (28 g)",
+              "amount": 28,
+              "unit": "g",
+              "default": true,
+              "multiplier": 28
+            },
+            {
+              "label": "1 box, 8 packs (224 g)",
+              "amount": 224,
+              "unit": "g",
+              "multiplier": 224
+            }
+          ],
+          "notes": "ChocZero Sugar Free Fruit Snacks. Ingredients: soluble corn fiber (resistant dextrin), strawberry, grape, peach, raspberry, orange, pectin, citric acid, carnauba wax, monk fruit extract, natural colors (red radish, beet red, beta-carotene), sunflower lecithin. No sugar alcohols; sweetened by monk fruit extract plus fruit. kcal NOT corrected upward - the label 50 kcal per 28 g already prices the 22 g soluble fiber at ~2 kcal/g (22 x 2 = 44, plus ~1 g non-fiber carb x 4 = 48, rounds to 50), so ChocZero is already declaring the fermentable-fiber energy most brands zero out. Resistant dextrin (Fibersol-2 class digestion-resistant maltodextrin) has metabolizable energy ~1.6-2.0 kcal/g; 2.0 used per house convention, so 50 is a conservative ceiling and the true figure may be nearer 40-45 - MEDIUM CONFIDENCE. Sugar corrected from label 0 g to 0.4 g/serving: real fruit purees are present and total carb 23 g minus fiber 22 g leaves ~1 g non-fiber carb, most of which is fruit sugar rounded below the 0.5 g declaration threshold - LOW CONFIDENCE. Protein 0.2 g and fat 0.1 g per serving are sub-threshold rounding corrections (fruit solids, sunflower lecithin) - LOW CONFIDENCE. Potassium 20 mg/serving estimated from fruit puree content; label declares 0 mg but the declaration threshold is ~94 mg - LOW CONFIDENCE. Water 12%, typical of pectin gummies - LOW CONFIDENCE. All micronutrients are trace-level estimates, not label or USDA values - LOW CONFIDENCE. Purines negligible. 22 g fermentable fiber per 28 g pack is 79% of the fiber Daily Value in one serving."
         },
         "garlic_powder": {
           "name": "Garlic powder",
@@ -9130,6 +9480,62 @@
           "defaultMeasuredIn": "g",
           "purines": 0.15
         },
+        "slate_ultra_protein_vanilla": {
+          "name": "Shake Slate Ultra Protein vanilla",
+          "brand": "Slate",
+          "category": "liquids",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.40632,
+          "p": 0.094808,
+          "fat": 0,
+          "sf": 0,
+          "transFat": 0,
+          "carbs": 0.004515,
+          "fiber": 0.002257,
+          "sugar": 0.002257,
+          "addedSugar": 0,
+          "cholesterol": 0.06772,
+          "sodium": 1.015801,
+          "water": 0.87,
+          "vitD": 0.015801,
+          "calcium": 2.232506,
+          "iron": 0,
+          "potassium": 0.977427,
+          "vitA": 0.665914,
+          "phosphorus": 1.7607,
+          "magnesium": 0.1964,
+          "zinc": 0.0072,
+          "selenium": 0.059,
+          "b12": 0.009,
+          "b2": 0.0032,
+          "b5": 0.0063,
+          "b6": 0.0007,
+          "choline": 0.287,
+          "iodine": 0.271,
+          "purines": 0.023,
+          "displayUnits": [
+            {
+              "label": "1 can (443 g)",
+              "amount": 443,
+              "unit": "g",
+              "default": true,
+              "multiplier": 443
+            },
+            {
+              "label": "½ can (221.5 g)",
+              "amount": 221.5,
+              "unit": "g",
+              "multiplier": 221.5
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Slate Ultra Protein, high protein milk shake, Vanilla. 15 fl oz / 443 mL can, 1 serving per container. Slate Craft Goods Inc, Boston MA. Stored as 443 g (mL~=g, matching the Premier/Ensure/Rockin' convention here; true mass is ~460 g at milk-shake density ~1.04, so per-gram values run very slightly high). Label per can: 180 kcal, 0g fat (0 sat, 0 trans), 30mg cholesterol, 450mg sodium (20% DV), 2g total carb, 1g fiber, 1g total sugars, 0g ADDED sugars, 42g protein (84% DV), Vit D 7mcg (35%), Calcium 989mg (80%), Iron 0, Potassium 433mg (10%), Vitamin A 295mcg (35%). All label-exact. kcal kept at label 180: Atwater gives 42x4 + 1g net carb x4 + 1g fiber at ~2 = 174, a 6 kcal gap that is ordinary label rounding. No correction. 42g protein in 180 kcal is an exceptionally lean ratio (4.3 kcal per gram of protein) -- essentially all protein, since the fat is fully removed and there is almost no carbohydrate. Protein is 100% dairy from ultrafiltered skim milk (casein + whey in native ratio) -- complete, high quality, no downgrade. PHOSPHORUS ~780mg/can ESTIMATED (not on label), anchored to the declared 989mg calcium using milk's Ca:P ratio of roughly 1.25:1. HIGH in absolute terms and relevant to reduced-eGFR history -- BUT note the favorable contrast with the Rockin' Protein shake and processed American cheese in this catalog: Slate's ingredient list contains NO phosphate additives (the only salt is TRIPOTASSIUM CITRATE), so this phosphorus is naturally protein-bound and absorbed at only ~40-60%, versus ~90-100% for additive phosphate. LOW-MEDIUM confidence on the figure. Sodium 450mg/can is high for a beverage (20% DV). Other off-label micros ESTIMATED from the same calcium anchor: magnesium ~87mg, zinc ~3.2mg, selenium ~26mcg, B12 ~4mcg, riboflavin ~1.4mg, choline ~127mg, iodine ~120mcg per can (dairy is a major iodine source). LOW-MEDIUM confidence. Purines ~10mg/can -- LOW (dairy, gout-favorable). Sweetened with sucralose + stevia leaf (Reb M); thickened with pectin and cellulose gel/gum. Lactose free (lactase enzyme). Ingredients: ultrafiltered skim milk blend (ultrafiltered milk, water), <2% of natural flavors, salt, pectin, tripotassium citrate, sucralose, cellulose gel, cellulose gum, lactase enzyme, vitamin A palmitate, stevia leaf (Reb M), vitamin D3. No carrageenan, no erythritol, no rBST, gluten free, nut free, soy free. CONTAINS milk."
+        },
         "smoked_salmon_slice": {
           "name": "Smoked salmon",
           "category": "small_portions",
@@ -11356,6 +11762,6 @@
         }
       ]
     },
-    "chartRangeDays": 30
+    "chartRangeDays": 90
   }
 }
