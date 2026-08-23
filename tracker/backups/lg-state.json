@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-08-22T07:24:46.997Z",
-  "_gistSavedAt": "2026-08-22T01:16:52.480Z",
+  "_backupTakenAt": "2026-08-23T07:27:13.474Z",
+  "_gistSavedAt": "2026-08-22T23:07:23.090Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2567,6 +2567,19 @@
         "moodMeta": "2026-08-21T14:11:13.791Z",
         "neck": 43,
         "neckMeta": "2026-08-21T14:11:13.954Z"
+      },
+      "2026-08-22": {
+        "toggles": {},
+        "counters": {
+          "legendary_donuts_dipped_chocolate": 72
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "legendary_donuts_dipped_chocolate": "2026-08-22T18:39:13-04:00"
+        },
+        "mood": 6,
+        "moodMeta": "2026-08-22T23:07:03.967Z"
       }
     },
     "savedItems": [],
@@ -6811,6 +6824,59 @@
             }
           ],
           "notes": "Lean Cuisine Signature Salisbury Steak with Macaroni & Cheese (Nestle), frozen meal, 1 serving/container, net 9.5oz/269g. Label per package (269g): 260 kcal, 7g fat (3.5g sat, 2.5g mono, 0 poly), 0 trans, 45mg chol, 700mg sodium (30% DV), 27g carb, 2g fiber, 3g sugar, 0 added, 21g protein, Vit D 0.3mcg, Ca 110mg, Iron 1.6mg, K 840mg (20%). All label-exact. kcal at label 260 (fiber only 2g; total-carb method gives ~255, rounding; no meaningful correction). Off-label micros ESTIMATED from beef+pork+mushroom salisbury + cheddar mac & cheese + semolina pasta: phosphorus ~250mg/package (relevant to reduced-eGFR history), B12 ~2mcg, selenium ~30mcg, zinc ~3mg, choline ~80mg (meat+egg). LOW-MEDIUM confidence. PURINES ~0.45 mg/g => ~121mg/package -- MODERATE-HIGH (beef + pork + mushrooms). Relevant to uric-acid/gout history. LOW confidence. Protein: beef/pork + dairy cheese + textured soy + wheat + egg white -- complete. CONTAINS egg, wheat, milk, soy. Bioengineered ingredient."
+        },
+        "legendary_donuts_dipped_chocolate": {
+          "name": "Donuts mini protein Legendary Foods dipped chocolate",
+          "brand": "Legendary Foods",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.5,
+          "p": 0.305556,
+          "fat": 0.083333,
+          "sf": 0.013889,
+          "transFat": 0,
+          "carbs": 0.388889,
+          "fiber": 0.166667,
+          "sugar": 0.013889,
+          "addedSugar": 0,
+          "sugarAlcohol": 0.152778,
+          "cholesterol": 0.138889,
+          "sodium": 4.583333,
+          "water": 0.2,
+          "vitD": 0,
+          "calcium": 0.4,
+          "iron": 0.006944,
+          "potassium": 0.694444,
+          "phosphorus": 3.5,
+          "magnesium": 0.4,
+          "zinc": 0.02,
+          "selenium": 0.15,
+          "b12": 0.008,
+          "b2": 0.005,
+          "choline": 0.5,
+          "purines": 0.4,
+          "displayUnits": [
+            {
+              "label": "1 pack (2 donuts, 72 g)",
+              "amount": 72,
+              "unit": "g",
+              "default": true,
+              "multiplier": 72
+            },
+            {
+              "label": "1 donut (36 g)",
+              "amount": 36,
+              "unit": "g",
+              "multiplier": 36
+            },
+            {
+              "label": "box (8 packs, 576 g)",
+              "amount": 576,
+              "unit": "g",
+              "multiplier": 576
+            }
+          ],
+          "notes": "Legendary Foods Mini Protein Donuts+, Dipped Chocolate. 1 pack = 2 mini donuts (72g), 8 packs/box. Label per pack: 180 kcal, 6g fat (1g sat, 0 trans), 10mg chol, 330mg sodium (14% DV), 28g total carb, 12g fiber (43% DV), 11g erythritol, <1g total sugars, 0g added sugars, 22g protein, Vit D 0, Calcium 20%, Iron 3%, Potassium 10%. Front-of-pack: '5g net carbs' (28 total - 12 fiber - 11 erythritol). All label-exact. CARB BREAKDOWN CHECK: 28g total carb only itemizes to 23g (12 fiber + 11 erythritol + <1 sugar); the remaining ~4-5g is unlabeled but plausibly modified resistant tapioca starch and/or polydextrose (both mid-list ingredients) -- same 'undeclared carbohydrate' phenomenon as the think! bar in this catalog, just smaller in magnitude. kcal kept at label 180: protein 22x4 + fat 6x9 = 142, leaving 38 kcal for the whole 28g carb block (~1.4 kcal/g average) -- consistent with erythritol (~0.2), fiber (~0-2), and a modified/resistant starch fraction (~2-4) blended together. No further correction applied. Protein blend is milk protein isolate + dried egg whites + whey protein isolate + collagen peptides -- collagen (added separately, listed after the main blend) is INCOMPLETE protein (no tryptophan), so utilizable protein from the 22g total is somewhat below the nitrogen-based figure; no fixed downgrade applied, same treatment as other collagen-containing items in this catalog. Off-label micros ESTIMATED from the whey/milk/egg protein blend + cocoa: phosphorus ~250mg/pack (HIGH -- protein isolates; relevant if tracking phosphorus for kidney-function reasons, not otherwise noted as relevant here), Mg ~29mg, selenium ~11mcg, choline ~36mg (egg whites contribute little choline since it's concentrated in yolk, which is absent here). LOW-MEDIUM confidence. PURINES ~29mg/pack -- LOW-MODERATE (whey/milk/egg all low-purine; collagen negligible). Gout-favorable protein sources. SUGAR ALCOHOL LOAD: 11g erythritol/pack. Erythritol is absorbed in the small intestine and excreted in urine largely unchanged, so it causes far less GI distress than maltitol/sorbitol at equivalent doses (contrast the think! bar's 13g maltitol in this catalog) -- but very high erythritol intake has separate research raising questions about cardiovascular clotting markers, an active area of study as of the training cutoff. Ingredients: protein blend (milk protein isolate, dried egg whites, whey protein isolate), erythritol, polydextrose, water, collagen peptides, high oleic sunflower oil, glycerin, modified resistant tapioca starch, <2% of: cocoa processed with alkali, gum arabic, natural flavors, baking soda, potassium bicarbonate, salt, magnesium chloride, xanthan gum, citric acid, sunflower lecithin, sucrose fatty acid esters, sodium lactate, sucralose, guar gum. CONTAINS milk, eggs. Processed in a facility that also processes peanuts and tree nuts. Gluten free."
         },
         "loven_fresh_protein_everything_bagel": {
           "name": "L'Oven Fresh Protein Everything Bagel (Aldi)",
