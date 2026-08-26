@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-08-25T07:37:38.799Z",
-  "_gistSavedAt": "2026-08-23T16:58:07.548Z",
+  "_backupTakenAt": "2026-08-26T07:39:37.704Z",
+  "_gistSavedAt": "2026-08-25T21:17:33.839Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2599,6 +2599,48 @@
           "soy_milk": "2026-08-23T16:56:08.010Z",
           "ensure_max_protein_birthday_cake": "2026-08-23T16:58:00.719Z"
         }
+      },
+      "2026-08-25": {
+        "toggles": {},
+        "counters": {
+          "yogurt_oikos_triple_zero_lemon": 150,
+          "peach": 65.2,
+          "soy_milk": 300,
+          "dannon_light_fit_boston_cream": 150,
+          "isopure_zero_carb_apple_melon": 500,
+          "david_bar_choc_chip_cookie_dough": 62
+        },
+        "customs": [
+          {
+            "id": "13c5a1a1-3699-4975-8d5d-6c1f19a5eac7",
+            "name": "250kcal 6p",
+            "kcal": 250,
+            "p": 6,
+            "count": 1,
+            "lastModified": "2026-08-25T13:06:33.934Z"
+          },
+          {
+            "id": "b265bb97-9c82-4488-bf0d-5ff5dd3c4b17",
+            "name": "200kcal 4p",
+            "kcal": 200,
+            "p": 4,
+            "count": 1,
+            "lastModified": "2026-08-25T15:34:26.613Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "yogurt_oikos_triple_zero_lemon": "2026-08-25T13:05:06.596Z",
+          "peach": "2026-08-25T13:05:21.888Z",
+          "soy_milk": "2026-08-25T13:05:48.272Z",
+          "dannon_light_fit_boston_cream": "2026-08-25T15:34:14.647Z",
+          "isopure_zero_carb_apple_melon": "2026-08-25T14:47:39-04:00",
+          "david_bar_choc_chip_cookie_dough": "2026-08-25T21:17:16.663Z"
+        },
+        "neck": 40,
+        "neckMeta": "2026-08-25T15:39:07.850Z",
+        "waist": 101,
+        "waistMeta": "2026-08-25T15:39:11.540Z"
       }
     },
     "savedItems": [],
@@ -2688,7 +2730,6 @@
       "supplements-water": true,
       "details-recipe-maker": true,
       "profile": true,
-      "today-log": true,
       "details-add-new-item": true
     },
     "userCatalog": {
@@ -6156,6 +6197,47 @@
             }
           ],
           "defaultMeasuredIn": "g"
+        },
+        "isopure_zero_carb_apple_melon": {
+          "name": "Drink Isopure Zero Carb protein apple melon",
+          "brand": "Isopure",
+          "category": "liquids",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.26,
+          "p": 0.064,
+          "fat": 0,
+          "sf": 0,
+          "transFat": 0,
+          "carbs": 0,
+          "fiber": 0,
+          "sugar": 0,
+          "addedSugar": 0,
+          "cholesterol": 0,
+          "sodium": 0.05,
+          "water": 0.93,
+          "vitD": 0,
+          "calcium": 0,
+          "iron": 0,
+          "potassium": 0,
+          "phosphorus": 0.15,
+          "b2": 0.0006,
+          "purines": 0.002,
+          "displayUnits": [
+            {
+              "label": "1 bottle (500 g)",
+              "amount": 500,
+              "unit": "g",
+              "default": true,
+              "multiplier": 500
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Isopure Zero Carb Protein Drink, Apple Melon (artificially flavored), 16.9 fl oz / 500 mL bottle, 100% whey protein isolate. Stored as 500 g (mL~=g; a nearly-water clear drink is close to true density, so this is a good approximation unlike the opaque milk-based shakes in this catalog). Label per bottle: 130 kcal, 0g fat, 0g total carb, 0g sugar, 25mg sodium, 32g protein (64% DV). 'Not a significant source of' saturated fat, trans fat, cholesterol, fiber, added sugars, vitamin D, calcium, iron, or potassium -- genuinely a near-pure protein-and-water beverage. All label-exact. kcal/protein ratio = 130/32 = 4.06 kcal per gram of protein -- essentially the Atwater FLOOR for any protein source (4 kcal/g by definition), since there is zero fat and zero carbohydrate to add calories. This is the leanest ratio in this catalog, edging out even the Slate Ultra Protein shake (4.29) because Slate's milk base still carries a trace of fat/carb and mineral mass that Isopure's isolate-in-water does not. Whey PROTEIN ISOLATE (not concentrate) is >90% protein by dry weight with virtually all lactose and fat removed during processing -- this is why it is naturally very low in calcium, phosphorus, and other minerals compared to a milk-based shake; those minerals are largely stripped along with the fat/lactose fraction during isolate filtration. PHOSPHORUS: ingredient list includes PHOSPHORIC ACID (used as an acidulant/flavor-balancing agent), an ADDITIVE inorganic phosphate absorbed at ~90-100%, similar in kind to the additives in the Rockin' Protein shake and processed American cheese in this catalog -- but the absolute quantity here is small (~75mg estimated) since whey isolate itself contributes almost none. ESTIMATED, LOW-MEDIUM confidence. Purines negligible (whey isolate, gout-favorable). Artificially flavored/colored (Yellow 5, Blue 1 per ingredient list). Manufactured for Natural Alternatives Int'l. Gluten free. CONTAINS milk."
         },
         "jacklinks_turkey": {
           "name": "Turkey jerky original",
@@ -11902,7 +11984,6 @@
           "label": "Uncategorized"
         }
       ]
-    },
-    "chartRangeDays": 90
+    }
   }
 }
