@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-08-26T07:39:37.704Z",
-  "_gistSavedAt": "2026-08-25T21:17:33.839Z",
+  "_backupTakenAt": "2026-08-27T18:00:44.275Z",
+  "_gistSavedAt": "2026-08-27T17:10:13.685Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2641,6 +2641,67 @@
         "neckMeta": "2026-08-25T15:39:07.850Z",
         "waist": 101,
         "waistMeta": "2026-08-25T15:39:11.540Z"
+      },
+      "2026-08-26": {
+        "toggles": {},
+        "counters": {
+          "ensure_max_protein_birthday_cake": 330,
+          "natures_own_keto_bread": 56,
+          "pb_pro_protein_peanut_butter": 41.6,
+          "smuckers_sf_strawberry_preserves": 51,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "isopure_zero_carb_apple_melon": 500
+        },
+        "customs": [
+          {
+            "id": "c9aba432-294c-496b-a690-aa7062752d10",
+            "name": "70kcal",
+            "kcal": 70,
+            "count": 1,
+            "lastModified": "2026-08-26T13:44:24.799Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "ensure_max_protein_birthday_cake": "2026-08-26T13:41:45.750Z",
+          "natures_own_keto_bread": "2026-08-26T13:41:53.505Z",
+          "pb_pro_protein_peanut_butter": "2026-08-26T13:44:12.110Z",
+          "smuckers_sf_strawberry_preserves": "2026-08-26T13:43:43.876Z",
+          "david_bar_choc_chip_cookie_dough": "2026-08-26T17:16:38.807Z",
+          "isopure_zero_carb_apple_melon": "2026-08-26T19:06:45.905Z"
+        },
+        "weight": 87.8,
+        "weightMeta": "2026-08-27T13:16:11.100Z"
+      },
+      "2026-08-27": {
+        "toggles": {},
+        "counters": {
+          "natures_own_keto_bread": 56,
+          "soy_milk_original": 370.5,
+          "peach": 81.5,
+          "smoked_salmon_slice": 22.4
+        },
+        "customs": [
+          {
+            "id": "db74bd21-614c-45f6-ad58-f475e43dbaff",
+            "name": "100kcal 2p",
+            "kcal": 100,
+            "p": 2,
+            "count": 1,
+            "lastModified": "2026-08-27T13:18:06.754Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "natures_own_keto_bread": "2026-08-27T13:28:13.824Z",
+          "soy_milk_original": "2026-08-27T13:17:38.170Z",
+          "peach": "2026-08-27T13:18:57.102Z",
+          "smoked_salmon_slice": "2026-08-27T13:28:04.429Z"
+        },
+        "weight": 87.4,
+        "weightMeta": "2026-08-27T17:10:12.592Z",
+        "neck": 40,
+        "neckMeta": "2026-08-27T17:10:12.706Z"
       }
     },
     "savedItems": [],
@@ -2723,13 +2784,13 @@
       "details-profile-section": true,
       "details-sync-error-banner": true,
       "history": true,
-      "section-mood-tracker": true,
       "section-archive-section": true,
       "catalog-archive": true,
       "targets-accumulation": true,
-      "supplements-water": true,
       "details-recipe-maker": true,
       "profile": true,
+      "supplements-water": true,
+      "section-mood-tracker": true,
       "details-add-new-item": true
     },
     "userCatalog": {
@@ -11984,6 +12045,7 @@
           "label": "Uncategorized"
         }
       ]
-    }
+    },
+    "chartRangeDays": 90
   }
 }
