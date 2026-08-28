@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-08-27T18:00:44.275Z",
-  "_gistSavedAt": "2026-08-27T17:10:13.685Z",
+  "_backupTakenAt": "2026-08-28T19:10:48.712Z",
+  "_gistSavedAt": "2026-08-28T15:17:53.628Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2679,7 +2679,8 @@
           "natures_own_keto_bread": 56,
           "soy_milk_original": 370.5,
           "peach": 81.5,
-          "smoked_salmon_slice": 22.4
+          "smoked_salmon_slice": 22.4,
+          "ensure_max_protein_birthday_cake": 330
         },
         "customs": [
           {
@@ -2696,12 +2697,30 @@
           "natures_own_keto_bread": "2026-08-27T13:28:13.824Z",
           "soy_milk_original": "2026-08-27T13:17:38.170Z",
           "peach": "2026-08-27T13:18:57.102Z",
-          "smoked_salmon_slice": "2026-08-27T13:28:04.429Z"
+          "smoked_salmon_slice": "2026-08-27T13:28:04.429Z",
+          "ensure_max_protein_birthday_cake": "2026-08-27T18:47:24.974Z"
         },
         "weight": 87.4,
-        "weightMeta": "2026-08-27T17:10:12.592Z",
-        "neck": 40,
-        "neckMeta": "2026-08-27T17:10:12.706Z"
+        "weightMeta": "2026-08-27T17:10:12.592Z"
+      },
+      "2026-08-28": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_vanilla": 0,
+          "pbj_sandwich": 122,
+          "slate_ultra_protein_chocolate": 886
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_vanilla": "2026-08-28T15:17:52.396Z",
+          "pbj_sandwich": "2026-08-28T14:16:37.140Z",
+          "slate_ultra_protein_chocolate": "2026-08-28T11:15:18-04:00"
+        },
+        "mood": 7,
+        "moodMeta": "2026-08-28T13:26:43.757Z",
+        "weight": 87.8,
+        "weightMeta": "2026-08-28T13:26:55.045Z"
       }
     },
     "savedItems": [],
@@ -2787,7 +2806,6 @@
       "section-archive-section": true,
       "catalog-archive": true,
       "targets-accumulation": true,
-      "details-recipe-maker": true,
       "profile": true,
       "supplements-water": true,
       "section-mood-tracker": true,
@@ -8103,6 +8121,34 @@
           ],
           "defaultMeasuredIn": "units"
         },
+        "pbj_sandwich": {
+          "name": "PBJ sandwich",
+          "category": "recipes",
+          "ingredients": [
+            {
+              "itemKey": "pb_pro_protein_peanut_butter",
+              "amount": 32
+            },
+            {
+              "itemKey": "natures_own_keto_bread",
+              "amount": 56
+            },
+            {
+              "itemKey": "smuckers_sf_strawberry_preserves",
+              "amount": 34
+            }
+          ],
+          "displayUnits": [
+            {
+              "label": "full recipe",
+              "multiplier": 122,
+              "amount": 122,
+              "unit": "g",
+              "default": true,
+              "locked": true
+            }
+          ]
+        },
         "peach": {
           "name": "Peach",
           "category": "items",
@@ -9763,6 +9809,64 @@
           ],
           "defaultMeasuredIn": "g",
           "purines": 0.15
+        },
+        "slate_ultra_protein_chocolate": {
+          "name": "Shake Slate Ultra Protein chocolate",
+          "brand": "Slate",
+          "category": "liquids",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.428894,
+          "p": 0.094808,
+          "fat": 0.002257,
+          "sf": 0.001129,
+          "transFat": 0,
+          "carbs": 0.009029,
+          "fiber": 0.004515,
+          "sugar": 0.002257,
+          "addedSugar": 0,
+          "cholesterol": 0.06772,
+          "sodium": 0.857788,
+          "water": 0.87,
+          "vitD": 0.015801,
+          "calcium": 2.243792,
+          "iron": 0.004515,
+          "potassium": 0.954853,
+          "vitA": 0.665914,
+          "phosphorus": 1.772,
+          "magnesium": 0.2257,
+          "zinc": 0.00745,
+          "selenium": 0.0587,
+          "b12": 0.00903,
+          "b2": 0.00316,
+          "b5": 0.00632,
+          "b6": 0.00068,
+          "choline": 0.2867,
+          "iodine": 0.2709,
+          "copper": 0.000339,
+          "manganese": 0.000226,
+          "purines": 0.0226,
+          "displayUnits": [
+            {
+              "label": "1 can (443 g)",
+              "amount": 443,
+              "unit": "g",
+              "default": true,
+              "multiplier": 443
+            },
+            {
+              "label": "2 cans (886 g)",
+              "amount": 886,
+              "unit": "g",
+              "multiplier": 886
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Slate Ultra Protein, high protein milk shake, CHOCOLATE. 15 fl oz / 443 mL can, 1 serving. Slate Craft Goods Inc, Boston MA. Stored as 443 g (mL~=g, matching the catalog's shake convention; true mass ~460 g at ~1.04 g/mL, so per-gram values run slightly high). Label per can: 190 kcal, 1g fat (0.5g sat, 0 trans), 30mg cholesterol, 380mg sodium (17% DV), 4g total carb, 2g fiber, 1g total sugars, 0g ADDED sugars, 42g protein (84% DV), Vit D 7mcg (35%), Calcium 994mg (80%), Iron 2mg (10%), Potassium 423mg (8%), Vitamin A 295mcg (35%). All label-exact. Front of can: 1g sugar, 2g net carbs (4g carb - 2g fiber). kcal NEEDS NO CORRECTION: 42x4 + 1x9 + 2g net carb x4 + 2g fiber at ~2 = 189 vs label 190. Essentially exact. DIFFERENCES FROM THE VANILLA ENTRY in this catalog (cocoa processed with alkali is the only added ingredient): +10 kcal (190 vs 180), 4g carb vs 2g, 2g fiber vs 1g (cocoa fiber), 1g fat vs 0g, iron 2mg vs 0mg (cocoa is a real iron source), and LOWER sodium 380mg vs 450mg. Protein identical at 42g. Efficiency 4.5 kcal per gram of protein vs vanilla's 4.3 -- still near the ~4.0 theoretical floor for any protein beverage. Off-label micros ESTIMATED by anchoring to the declared 994mg calcium via milk's Ca:P ratio of ~1.25:1 => phosphorus ~785mg/can. HIGH in absolute terms, BUT as with the vanilla: Slate's only mineral salt is TRIPOTASSIUM CITRATE, no phosphate additives, so this phosphorus is naturally protein-bound (~40-60% absorbed) rather than the ~90-100% absorbed additive kind. LOW-MEDIUM confidence on the figure. Cocoa also contributes copper and manganese beyond the vanilla version. Other estimates: magnesium ~100mg, zinc ~3.3mg, selenium ~26mcg, B12 ~4mcg, choline ~127mg, iodine ~120mcg per can. Purines ~10mg -- LOW (dairy, gout-favorable). Sweetened with sucralose + stevia leaf (Reb M); thickened with pectin and cellulose gel/gum. Lactose free (lactase enzyme). Ingredients: ultrafiltered skim milk blend (ultrafiltered milk, water), <2% of natural flavors, cocoa (processed with alkali), salt, pectin, tripotassium citrate, sucralose, cellulose gel, cellulose gum, lactase enzyme, vitamin A palmitate, stevia leaf (Reb M), vitamin D3. No carrageenan, no erythritol, no rBST, gluten free, nut free, soy free. CONTAINS milk."
         },
         "slate_ultra_protein_vanilla": {
           "name": "Shake Slate Ultra Protein vanilla",
@@ -12046,6 +12150,6 @@
         }
       ]
     },
-    "chartRangeDays": 90
+    "chartRangeDays": 30
   }
 }
