@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-08-29T12:54:36.760Z",
-  "_gistSavedAt": "2026-08-28T19:51:45.486Z",
+  "_backupTakenAt": "2026-08-30T12:28:48.018Z",
+  "_gistSavedAt": "2026-08-29T23:03:47.396Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2727,6 +2727,54 @@
         "moodMeta": "2026-08-28T13:26:43.757Z",
         "weight": 87.8,
         "weightMeta": "2026-08-28T13:26:55.045Z"
+      },
+      "2026-08-29": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_chocolate": 443,
+          "ensure_max_protein_birthday_cake": 330,
+          "natures_own_keto_bread": 28,
+          "braunschweiger_john_morrell": 56,
+          "yogurt_oikos_triple_zero_lemon": 450,
+          "isopure_zero_carb_apple_melon": 500,
+          "egg_fried": 46
+        },
+        "customs": [
+          {
+            "id": "33d5ee31-c7bc-40dd-b992-c34b9d84e645",
+            "name": "130kcal 4p",
+            "kcal": 130,
+            "p": 4,
+            "count": 1,
+            "lastModified": "2026-08-29T14:36:39.234Z"
+          },
+          {
+            "id": "98dae994-2acb-4aa5-bc6d-c00f19c2691d",
+            "name": "260kcal 10p",
+            "kcal": 260,
+            "p": 10,
+            "count": 1,
+            "lastModified": "2026-08-29T19:21:26.443Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_chocolate": "2026-08-29T14:34:40.769Z",
+          "ensure_max_protein_birthday_cake": "2026-08-29T14:34:51.351Z",
+          "natures_own_keto_bread": "2026-08-29T14:35:35.115Z",
+          "braunschweiger_john_morrell": "2026-08-29T10:36:07-04:00",
+          "yogurt_oikos_triple_zero_lemon": "2026-08-29T19:20:39.763Z",
+          "isopure_zero_carb_apple_melon": "2026-08-29T22:00:41.787Z",
+          "egg_fried": "2026-08-29T22:16:27.336Z"
+        },
+        "mood": 7,
+        "moodMeta": "2026-08-29T13:36:47.934Z",
+        "neck": 40,
+        "neckMeta": "2026-08-29T13:36:48.017Z",
+        "weight": 87.9,
+        "weightMeta": "2026-08-29T14:32:17.648Z",
+        "waist": 100,
+        "waistMeta": "2026-08-29T14:34:31.996Z"
       }
     },
     "savedItems": [],
@@ -2815,7 +2863,8 @@
       "profile": true,
       "supplements-water": true,
       "section-mood-tracker": true,
-      "details-add-new-item": true
+      "today-customs": true,
+      "today-log": true
     },
     "userCatalog": {
       "items": {
@@ -2889,7 +2938,8 @@
             }
           ],
           "defaultMeasuredIn": "g",
-          "brand": "Barney Butter"
+          "brand": "Barney Butter",
+          "notes": "Oikos Pro Complete Protein, Lemon (Danone). 5.3 oz / 150 g. Front label: \"20 g protein, 0 g added sugar, 8 vitamins (vit D + B2/B6/B12).\" Uses whey protein concentrate IN ADDITION to ultra-filtered milk for higher protein density. Sweetened with stevia. Note: NOT a low-calorie food (130 kcal per cup, vs 90 for Triple Zero). Per cup: k/g P 6.5 — still protein-positive. 20 g/cup is closer to clearing the 44 g per-meal anabolic threshold (protein per sitting at age 42 needed to fully trigger muscle protein synthesis) — 2 cups = 40 g, just under threshold. Pair with one other protein source for a full MPS event."
         },
         "applesauce": {
           "name": "Applesauce",
@@ -3398,9 +3448,6 @@
           "fat": 0.1541,
           "sf": 0.0602,
           "transFat": 0.007,
-          "carbs": 0,
-          "fiber": 0,
-          "sugar": 0,
           "addedSugar": 0,
           "cholesterol": 0.88,
           "sodium": 0.78,
@@ -3426,6 +3473,12 @@
           "purines": 1.2,
           "displayUnits": [
             {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            },
+            {
               "label": "1 patty cooked (85 g)",
               "amount": 85,
               "unit": "g",
@@ -3437,15 +3490,9 @@
               "amount": 42.5,
               "unit": "g",
               "multiplier": 42.5
-            },
-            {
-              "label": "100 g",
-              "amount": 100,
-              "unit": "g",
-              "multiplier": 100
             }
           ],
-          "notes": "GENERIC ground beef patty, 80% lean / 20% fat, pan-broiled. NO LABEL -- values from USDA SR (ground beef 80/20 cooked, ~254 kcal, 25.75g protein, 15.41g fat, 6.02g sat, 88mg cholesterol, 78mg sodium, 315mg potassium, 198mg phosphorus, 6.2mg zinc, 21.7mcg selenium, 2.64mcg B12, 82mg choline per 100g). MEDIUM-HIGH confidence on macros (well-characterised whole food); the real uncertainty is the fat grade -- a leaner 90/10 patty would run ~200 kcal/100g, a fattier 73/27 ~270. DEFAULT UNIT is a cooked 85g patty, which corresponds to a raw quarter-pounder (113g / 4 oz) after ~25% cooking loss. A fast-food style patty is much smaller (~45g cooked). Adjust grams if the patty size is known. Sodium 78mg/100g is the meat's own -- NO added salt or seasoning included. Trans fat ~0.7g/100g is naturally occurring ruminant trans fat (vaccenic/conjugated linoleic acid), not industrial. PURINES ~1.2 mg/g => ~102mg per 85g patty -- MODERATE-HIGH (beef is a classic gout trigger food). Relevant to uric-acid history. MEDIUM confidence. Phosphorus ~168mg per 85g patty, all naturally protein-bound (~40-60% absorbed), unlike additive phosphate."
+          "notes": "Lidl Preferred Selection Jamón Serrano. Spain, aged 12mo min. 3 oz (85 g) pkg = 3 servings × 28 g. Pork ham + sea salt. 21 mg Na/g. k/g P 7.0. Re-added 2026-05-14 after sync issue."
         },
         "black_bean_pasta": {
           "name": "Black bean pasta",
@@ -3501,7 +3548,8 @@
             }
           ],
           "defaultMeasuredIn": "g",
-          "brand": "Explore Cuisine"
+          "brand": "Explore Cuisine",
+          "notes": "Trader Joe's Nova Salmon Pieces (cold-smoked farmed Atlantic salmon, Chile/Patagonia). Ingredients: Atlantic salmon (color added), salt, hardwood smoke. About 4 servings/container (2 slices/57g each => ~228g). Label per 57g: 80 kcal, 3.5g fat, 0.5g sat, 0 trans, 30mg chol, 610mg sodium (27% DV, HIGH -- cured/smoked), 0 carb, 11g protein, Vit D 5.2mcg (25%), Ca 10mg, Iron 0.5mg, K 270mg. All label-exact (high confidence). Off-label micros ESTIMATED from smoked Atlantic salmon (USDA): selenium ~18mcg/serving, B12 ~1.7mcg, niacin ~4mg, phosphorus ~114mg/serving (relevant to reduced-eGFR history), choline ~51mg, omega-3 (EPA+DHA) ~0.34g/serving. LOW-MEDIUM confidence. PURINES ~1.3 mg/g => ~74mg per 57g serving -- MODERATE (fish; salmon ~130mg/100g). Relevant to uric-acid/gout history. LOW confidence. Distinct from generic 'Smoked salmon' catalog entry. CONTAINS fish (salmon)."
         },
         "black_beans_dry_goya": {
           "name": "Black beans (dry)",
@@ -3563,7 +3611,6 @@
               "multiplier": 35
             }
           ],
-          "notes": "Goya dry black beans. Label per 1/4 cup (35 g): 80 kcal · 10 g P · 19 g carb · 11 g fiber · 530 mg K · 5 mg Na · 0.5 g fat. CATALOG USES CORRECTED kcal = 100 (Goya treats fiber as 0 kcal; fermentable fiber adds back ~2 kcal/g = +22 kcal). Real k/g P ~10, not the label-implied 8. When boiled at home, mass triples (35 g dry → ~100 g cooked); kcal and protein transfer 1:1. Goya canned shows k/g P 14 because canned label uses standard fiber=4kcal/g accounting — same beans, different label convention.",
           "brand": "Goya"
         },
         "blueberry": {
@@ -3689,6 +3736,69 @@
             }
           ]
         },
+        "braunschweiger_john_morrell": {
+          "name": "Braunschweiger liver sausage John Morrell",
+          "brand": "John Morrell",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 3.035714,
+          "p": 0.142857,
+          "fat": 0.232143,
+          "sf": 0.080357,
+          "transFat": 0,
+          "carbs": 0.089286,
+          "fiber": 0,
+          "sugar": 0.008929,
+          "addedSugar": 0.007143,
+          "cholesterol": 2.053571,
+          "sodium": 8.571429,
+          "water": 0.52,
+          "vitA": 40.178571,
+          "vitC": 0,
+          "calcium": 0.089286,
+          "iron": 0.144643,
+          "b12": 0.2009,
+          "b2": 0.015,
+          "b3": 0.084,
+          "b5": 0.034,
+          "b6": 0.0033,
+          "b1": 0.0025,
+          "b9": 0.44,
+          "selenium": 0.58,
+          "copper": 0.0024,
+          "zinc": 0.028,
+          "manganese": 0.0016,
+          "phosphorus": 1.68,
+          "potassium": 1.99,
+          "magnesium": 0.11,
+          "vitD": 0.012,
+          "vitE": 0.0035,
+          "vitK": 0.016,
+          "choline": 2.5,
+          "purines": 1.8,
+          "displayUnits": [
+            {
+              "label": "2 oz (56 g)",
+              "amount": 56,
+              "unit": "g",
+              "default": true,
+              "multiplier": 56
+            },
+            {
+              "label": "1 oz (28 g)",
+              "amount": 28,
+              "unit": "g",
+              "multiplier": 28
+            },
+            {
+              "label": "package (454 g)",
+              "amount": 454,
+              "unit": "g",
+              "multiplier": 454
+            }
+          ],
+          "notes": "John Morrell Braunschweiger (pork liver sausage), 16oz/454g package, 8 servings of 2 oz (56g). Label per 56g: 170 kcal (Fat Cal 110), 13g fat (4.5g sat, 0 trans), 115mg cholesterol (38% DV), 480mg sodium (20%), 5g total carb, 0g fiber, <1g sugars, 8g protein, Vitamin A 150%, Vitamin C 0%, Calcium 0%, Iron 45%. NOTE: this is an OLD-FORMAT panel (pre-2016 -- 'Fat Cal.', Vitamin A/C listed, no added-sugars line), so %DV values use the old Daily Values: Vit A 150% of 5000 IU = ~2250mcg RAE/serving; Iron 45% of 18mg = ~8.1mg/serving. kcal NEEDS NO CORRECTION: 8x4 + 13x9 + 5x4 = 169 vs label 170. Essentially exact. SUGAR sub-threshold: label reads '<1g'; estimated 0.5g/serving with ~0.4g added (corn syrup, dextrose, and sugar all appear in the ingredient list). PROTEIN IS LOW FOR A MEAT (8g per 170 kcal = 21 kcal per gram of protein) -- this is a fat-dominant emulsified sausage, not a lean protein source; fat supplies ~65% of calories. LIVER-DRIVEN MICRONUTRIENTS, from USDA FDC 171621 (braunschweiger, pork) per 100g: vitamin B12 20.09mcg (837% DV), vitamin A 4220mcg RAE (469%), riboflavin 1.5mg (117%), selenium 58mcg (105%), pantothenic acid 3.4mg (68%), niacin 8.4mg, iron 11mg, copper 0.24mg, zinc 2.8mg, phosphorus 168mg, potassium 199mg, folate 44mcg, choline ~250mg. HIGH confidence (USDA), though brand formulation varies. Per 56g serving that works out to roughly: B12 11mcg, vitamin A 2250mcg RAE, selenium 32mcg, riboflavin 0.8mg, choline 140mg, iron 8mg. VITAMIN A NOTE: ~2250mcg RAE per serving is PREFORMED retinol (not beta-carotene). The tolerable upper intake level for preformed vitamin A in adults is 3000mcg/day, so a single 2 oz serving supplies about 75% of that ceiling. Unlike carotenoids, preformed retinol accumulates and has a defined upper limit -- worth knowing if liver is eaten regularly. Factual note, not a recommendation. PURINES ~1.8 mg/g => ~100mg per 56g serving -- HIGH. Organ meats/liver are the single highest-purine food category and the classic gout trigger. Relevant to uric-acid tracking. MEDIUM confidence (liver ~290mg/100g; this product is part liver, part pork/bacon). CURED product: contains sodium nitrite plus sodium erythorbate (cure accelerator), potassium lactate and sodium diacetate (antimicrobials), and SODIUM PHOSPHATES (from the bacon component) -- additive phosphate, absorbed more completely than the liver's intrinsic phosphorus. Ingredients: pork liver, pork, bacon (pork, water, salt, sugar, sodium phosphates, sodium erythorbate, sodium nitrite), water, modified food starch, and 2% or less of corn syrup, salt, flavorings, potassium lactate, sodium lactate, dehydrated onion, sodium diacetate, dextrose, sodium erythorbate, sugar, sodium nitrite. Keep refrigerated; use within 5 days of opening."
+        },
         "bun_hamburger_white": {
           "name": "Bun hamburger white",
           "category": "items",
@@ -3809,7 +3919,7 @@
               "multiplier": 31
             }
           ],
-          "notes": "Label per 1 bun (62g): 90 kcal LABEL, 11g protein, 4g fat, 0.5g sat, 0g trans, 0mg cholesterol, 23g carb, 22g fiber, 0g sugar, 0g added sugar, 370mg sodium (16% DV — moderately high per bun), Vit D 0, Calcium 20mg, Iron 1mg (6% DV), Potassium 40mg. Net carb = 1g (front panel). KCAL CORRECTION: stored at 101 kcal/bun (1.629 kcal/g). Same brand/technology as Hero Classic Plain Bagels — primary fiber is 'resistant wheat starch' = RS4 (chemically cross-linked/phosphated wheat starch, e.g. Fibersym), the LEAST fermentable resistant-starch type, caloric availability ~0.5 kcal/g, NOT the ~2 kcal/g of readily-fermentable RS2/RS3. Added back ~0.5 kcal/g × 22g fiber = ~11 kcal over label's 90 = 101 total (real value plausibly 95–105); consistent with the bagel's revised correction, NOT the blanket 2 kcal/g fiber rule. omega-3 (ALA ~0.5g/bun, LOW confidence) estimated from milled flaxseed (USDA milled flax ~22.8g ALA/100g; flax listed above the 2% ingredient line, so ≥~1.2g flax/bun). Micros from wheat-gluten + fava-bean protein + flax + olive oil composition (MEDIUM-LOW confidence): folate (B9) elevated from fava (~1 mcg/g), selenium from wheat (~0.3 mcg/g), Mg/P/Mn/thiamine bumped by flax, vitE/vitK from olive oil. B12 = 0 (plant-based). Calcium/iron/potassium/sodium/VitD label-derived (high confidence). Protein blend: vital wheat gluten + fava bean protein (complementary lysine). Ingredients: resistant wheat starch, water, wheat protein, yeast, olive oil, milled flaxseed, <2% fava bean protein, vinegar, guar gum, cultured wheat flour, wheat flour, salt, enzymes. CONTAINS WHEAT; produced in a facility that also handles soy, egg, milk, sesame, tree nuts. High-fiber/high-protein/low-net-carb marketed hot dog bun (8 buns, net wt 17.5 oz / 496g)."
+          "notes": "Royo Bread Co. Cinnamon Bagels. 6 per bag, net 17oz/480g => 80g/bagel. Label per bagel (80g): 70 kcal LABEL, 1g fat, 0 sat, 0 trans, 0 chol, 370mg sodium (16% DV, moderately high), 37g carb, 31g fiber, 2g sugar, 1g added sugar, 9g protein, Vit D 0, Ca 20mg, Iron 1.2mg, K 100mg. Net carb 6g. KCAL CORRECTION: stored 85 kcal/bagel (1.0625/g). Fiber blend is resistant wheat starch (RS4, cross-linked/phosphated -- least fermentable RS, ~0-1 kcal/g), oat fiber (insoluble, ~0-1), wheat bran (partially fermentable, ~1-2), psyllium husk (soluble but poorly fermented, ~0), and flaxseed. Applied ~0.5 kcal/g x 31g fiber = ~15 kcal over label's 70 = 85 total (real value plausibly 80-90); same methodology as the Hero RS4 bagel/bun in this catalog, NOT the blanket 2 kcal/g fiber rule. omega-3 (ALA ~0.4g/bagel, LOW confidence) from flaxseed (USDA milled flax ~22.8g ALA/100g; flax mid-ingredient-list). Off-label micros ESTIMATED (LOW-MEDIUM confidence) from wheat protein + resistant wheat starch + oat fiber + wheat bran + rye + flax composition: Mg ~44mg, phosphorus ~120mg/bagel (relevant to reduced-eGFR history), manganese/thiamine/niacin bumped by bran+flax, selenium from wheat (~0.25 mcg/g). B12 = 0 (vegan/plant). Ca/Fe/K/Na/VitD label-derived (high confidence). Purines ~12mg/bagel -- LOW (grains/bran low-moderate) -- LOW CONFIDENCE. Protein source: wheat protein/gluten (lysine-limited; no complementary legume in the cinnamon variant). Full ingredients: water, resistant wheat starch, wheat protein, oat fiber, wheat bran, psyllium husk, cultured wheat flour, flaxseed, currants, cinnamon, brown sugar, salt, malted syrup, yeast, apple cider vinegar, rye flour. CONTAINS WHEAT; facility also processes egg, soy. Vegan, keto-marketed."
         },
         "caffeine_anhydrous_200mg": {
           "name": "Caffeine anhydrous 200 mg capsule",
@@ -4012,7 +4122,8 @@
               "multiplier": 1
             }
           ],
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "notes": "Portofino Solid Yellowfin Tuna in Extra Virgin Olive Oil with Sea Salt. Wild caught. Net 4.5oz/128g, DRAINED 4oz/113g. Label per 1 can DRAINED (113g): 230 kcal, 13g fat (2.5 sat, 2.5 poly, 8 mono -- mostly retained olive oil; yellowfin is lean), 0 trans, 40mg chol, 380mg sodium (17%), 0 carb, 29g protein, Vit D 10%, Iron 6%, K 8%, Niacin 90%, B6 15%, B12 80%, SELENIUM 190% (very high). NOTE: this is the DRAINED value. The free packing oil (~15g = 128 net - 113 drained) is NOT included here; log separately as olive oil if the oil is eaten. Off-label micros ESTIMATED from yellowfin: phosphorus ~316mg/can (relevant to reduced-eGFR history), choline ~73mg, iodine ~17mcg. LOW-MEDIUM confidence. PURINES ~1.7 mg/g => ~192mg per can -- HIGH (tuna 150-200 mg/100g). Significant for uric-acid/gout history. MEDIUM confidence. Ingredients: yellowfin tuna, extra virgin olive oil, sea salt. CONTAINS fish (tuna)."
         },
         "cc_giant_ff": {
           "name": "Cottage cheese fat-free",
@@ -4072,7 +4183,8 @@
             }
           ],
           "defaultMeasuredIn": "g",
-          "brand": "Giant"
+          "brand": "Giant",
+          "notes": "Too Good & Co. (Danone) blended low-sugar Greek yogurt cup, mixed berry (blueberry/strawberry/raspberry purees), 150g container. Label per container (150g): 80 kcal, 2g fat (1g sat), 0 trans, <5mg chol, 35mg sodium, 4g carb, 0 fiber, 2g sugar (0 added -- stevia), 12g protein, Vit D 10% (~2mcg), Ca 8% (~104mg), Iron 0, K 2% (~94mg). Label-derived (high confidence). 'At least 70% less sugar (2g/5.3oz) vs avg Greek yogurt (10g/5.3oz)', no artificial sweeteners. Off-label micros ESTIMATED from low/nonfat Greek yogurt: phosphorus ~150mg/container (relevant to reduced-eGFR history), iodine ~45mcg, B12 ~0.8mcg. LOW-MEDIUM confidence. Purines ~4mg -- LOW (dairy). Ingredients: cultured ultra-filtered nonfat milk, cultured reduced-fat milk, water, <1% berry purees, tapioca starch, natural flavors, lemon juice concentrate, gellan gum, stevia extract, sea salt, fruit/veg juice concentrate (color), vitamin D3, yogurt cultures. CONTAINS milk. NOT eaten -- catalog only."
         },
         "cereal_premier_protein_chocolate": {
           "name": "Cereal Premier Protein chocolate",
@@ -4130,7 +4242,7 @@
               "multiplier": 42
             }
           ],
-          "notes": "Premier Protein Cereal, Chocolate. Distributed by Post Consumer Brands. About 6 servings/container (42g each => ~252g). kcal NOT corrected: label 180 reconciles with Atwater 4-4-9 (5x9+14x4+20x4~181); fiber only 1g and disclosed, no sugar alcohols/polydextrose, stevia non-nutritive. Protein 20g stored at label (nitrogen). Source is a plant blend dominated by wheat gluten + wheat protein isolate (lysine-limited), plus pea protein concentrate (complements lysine) and almonds; DIAAS-adjusted utilizable protein for muscle-protein-synthesis is meaningfully below 20g, but no fixed downgrade applied (no rule for gluten/pea blends, unlike collagen). Sodium/calcium/iron/potassium/vitD are label-exact. Off-label micros ESTIMATED from ingredient model (~14g wheat gluten, ~8g almonds, ~6g wheat protein isolate, ~3g pea protein, ~6g corn flour, ~4g sugar, ~1.5g cocoa) anchored to USDA #168147 vital wheat gluten (Se 39.7, P 260, Mg 25, Zn 0.85, Cu 0.18 mg/100g) + almonds/cocoa/pea -- LOW CONFIDENCE. Per serving approx: Mg 45mg, P 128mg (relevant to reduced-eGFR history), vitamin E 2mg (almonds), Se 10mcg. Purines ~14mg/serving -- LOW purine (wheat gluten/seitan low, pea moderate; net well under 50mg/serving) -- LOW CONFIDENCE. b12, vitA, vitK, b7, iodine, molybdenum, chromium omitted (trace/absent or unknowable in this formulation)."
+          "notes": "Season's Choice shelled edamame (Aldi), product of China. Label per 1/2 cup (85g): 90 kcal, 10g protein, 4g fat, 6g carb, 4g fiber, 2g sugar, 5mg sodium, Ca 50mg, Fe 1.8mg (10% DV), K 410mg (8% DV). MACROS updated to this real label (was generic USDA estimate at 1.322 kcal/g / 12.4 kcal-per-g-protein; real label is 1.059 kcal/g / 9.0 kcal-per-g-protein — leaner). Deep-researched micros KEPT from USDA edamame (label omits them): folate (B9) very high ~3.1 mcg/g, vit K ~0.26 mcg/g, magnesium ~0.64 mg/g, phosphorus, choline ~0.56 mg/g, zinc, Mn, Cu, selenium, biotin (B7), molybdenum. Purines moderate (~170 mg/100g soybean-based — flag for gout at large quantities). Ingredients: soybeans. Contains soy."
         },
         "cheese_american_slice": {
           "name": "Cheese American processed slice",
@@ -4241,7 +4353,76 @@
               "multiplier": 5
             }
           ],
-          "notes": "Reggano Grated Parmesan Cheese (ALDI), 8 oz (227g), 45 servings. Label per 5g (2 tsp): 20 kcal, 2g protein, 1.5g fat, 1g sat fat, <5mg cholesterol, 90mg sodium, 0 carbs, calcium 55mg, iron 0, potassium 9mg. Ingredients: parmesan cheese (part-skim cow milk, cultures, salt, enzymes), powdered cellulose (anti-caking), potassium sorbate. Cholesterol estimated at 0.88 mg/g (USDA grated parmesan ~88mg/100g, consistent with label <5mg). Vitamins, phosphorus (high in hard cheese), magnesium, zinc, selenium from USDA grated parmesan — MEDIUM CONFIDENCE."
+          "notes": "Goya dry black beans. Label per 1/4 cup (35 g): 80 kcal · 10 g P · 19 g carb · 11 g fiber · 530 mg K · 5 mg Na · 0.5 g fat. CATALOG USES CORRECTED kcal = 100 (Goya treats fiber as 0 kcal; fermentable fiber adds back ~2 kcal/g = +22 kcal). Real k/g P ~10, not the label-implied 8. When boiled at home, mass triples (35 g dry → ~100 g cooked); kcal and protein transfer 1:1. Goya canned shows k/g P 14 because canned label uses standard fiber=4kcal/g accounting — same beans, different label convention."
+        },
+        "cheese_provolone_lucerne": {
+          "name": "Cheese provolone slices not smoked (Lucerne)",
+          "category": "items",
+          "brand": "Lucerne Dairy Farms",
+          "defaultMeasuredIn": "g",
+          "kcal": 3.6842105263157894,
+          "fat": 0.2631578947368421,
+          "sf": 0.15789473684210525,
+          "transFat": 0,
+          "p": 0.2631578947368421,
+          "cholesterol": 0.7894736842105263,
+          "sodium": 7.105263157894737,
+          "calcium": 7.368421052631579,
+          "potassium": 1.5789473684210527,
+          "iron": 0.005263157894736842,
+          "vitD": 0.005263157894736842,
+          "carbs": 0.0057,
+          "fiber": 0,
+          "sugar": 0.0057,
+          "addedSugar": 0,
+          "phosphorus": 5.03,
+          "magnesium": 0.286,
+          "zinc": 0.0329,
+          "selenium": 0.146,
+          "copper": 0.00036,
+          "manganese": 0.00003,
+          "iodine": 0.3,
+          "vitA": 2.39,
+          "vitE": 0.0025,
+          "vitK": 0.022,
+          "b1": 0.00036,
+          "b2": 0.0032,
+          "b3": 0.0014,
+          "b5": 0.005,
+          "b6": 0.00071,
+          "b9": 0.1,
+          "b12": 0.0146,
+          "choline": 0.157,
+          "water": 0.414,
+          "purines": 0.06,
+          "displayUnits": [
+            {
+              "label": "1 slice (19 g)",
+              "amount": 19,
+              "unit": "g",
+              "default": true,
+              "multiplier": 19
+            },
+            {
+              "label": "2 slices (38 g)",
+              "amount": 38,
+              "unit": "g",
+              "multiplier": 38
+            },
+            {
+              "label": "1 package (12 slices, 226 g)",
+              "amount": 226,
+              "unit": "g",
+              "multiplier": 226
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Lucerne Dairy Farms NOT SMOKED Provolone Cheese Slices, 12 slices, net wt 8 oz (226 g). Label serving 1 slice (19 g); 12 x 19 = 228 g vs 226 g declared net, so slices average ~18.8 g. LABEL-EXACT per 19 g slice (high confidence): 70 kcal, 5 g fat (3 g sat, 0 trans), 15 mg cholesterol, 135 mg sodium, 0 g total carb, 0 g fiber, 0 g sugars, 5 g protein, vit D 0.1 mcg, calcium 140 mg, iron 0.1 mg, potassium 30 mg. CARB SUB-THRESHOLD CORRECTION: label shows 0 g total carb and 0 g sugars, meaning <0.5 g per slice. Not left at zero. USDA carbohydrate-by-difference for provolone is 2.14 g/100 g, but by-difference (100 minus water+protein+fat+ash) absorbs all analytical error and overstates residual carbohydrate in an aged cheese where lactose is largely fermented out. Used USDA's DIRECTLY MEASURED total sugars instead: 0.57 g/100 g = 0.0057 g/g = ~0.11 g per slice. Carbs set equal to sugars. MEDIUM confidence. CALORIE RECONCILIATION: Atwater on the declared macros gives 5x9 + 5x4 + 0.11x4 = 45 + 20 + 0.4 = 65.4 kcal, and generic USDA provolone scales to 351 x 0.19 = 66.7 kcal per 19 g -- both BELOW the label's 70. The label therefore runs ~5-7% HIGH, not low; the manufacturer likely computed from unrounded values nearer 5.4 g fat / 5.1 g protein, which is within normal batch variation for a fattier provolone. NO CORRECTION APPLIED -- kept at the label's 70 kcal. Correcting downward would mean logging fewer calories than the manufacturer declares, which is the wrong direction of error for a deficit. OFF-LABEL MICROS estimated from USDA SR Legacy 170850 (Cheese, provolone), per-100 g values divided by 100 (MEDIUM-HIGH confidence -- the Lucerne label and USDA agree closely on the anchors they share: sodium 710 vs 737 mg/100 g, calcium 737 vs 767, protein 26.3 vs 26.1 g, fat 26.3 vs 27.1 g): phosphorus 503 mg/100 g (~96 mg/slice), magnesium 28.6, zinc 3.29, selenium 14.6 mcg, copper 0.036 mg, vit A 239 mcg RAE, vit E 0.25 mg, vit K 2.2 mcg, B1 0.036, B2 0.32, B3 0.14, B5 0.50, B6 0.071 mg, B9 10 mcg, B12 1.46 mcg, choline 15.7 mg, water 41.4%. IODINE ~30 mcg/100 g -- LOW confidence, not in USDA for this food; estimated from the dairy-iodine range and set consistent with the American-slice entry in this catalog. PURINES ~6 mg/100 g -- LOW, cheese is a gout-favorable protein source. Whole-milk natural cheese, NOT a processed 'cheese product': ingredients are provolone cheese (cultured pasteurized milk, salt, microbial enzymes) only -- no emulsifying salts, no added phosphate, no anticaking agent. Microbial rennet, so vegetarian. rBST-free pledge. Protein is complete dairy casein, no quality downgrade. Use within 3-5 days of opening. CONTAINS milk."
         },
         "chefs_cupboard_ramen": {
           "name": "Chef's Cupboard Ramen cup beef style (Aldi)",
@@ -4361,7 +4542,7 @@
           "water": 0.72,
           "sodium": 1.116,
           "cholesterol": 3.527,
-          "notes": "Label: 110 kcal / 112g (4oz) serving, 4.5 servings / 510g container. Protein 21g, fat 2.5g, sat fat 1g, trans fat 0g (chicken is not a ruminant; USDA data confirms negligible trans fat). Carbs 0g. Cholesterol 395mg/serving = 3.527 mg/g — very high, expected for liver. Sodium 125mg/serving (5% DV). Iron 12.3mg/serving (70% DV) = 0.1098 mg/g — heme iron, highly bioavailable; this contributes significantly to daily iron total alongside soy + multi. Potassium 280mg (6% DV). Vitamin D 0.7 mcg (4% DV). Water est. 72% per USDA SR Legacy chicken liver data (moderate confidence). Organic, air-chilled, no antibiotics. Bell and Evans, Fredericksburg PA.",
+          "notes": "Label-derived (high confidence): kcal, macros, sodium (340mg/30g = HIGH), cholesterol, Ca (44mg/30g), K (231mg/30g excellent for snack), high protein density (21g/30g). Estimated from milk protein isolate composition (high confidence — dairy whey base): B12 (~0.007 mcg/g), phosphorus very high (~4 mg/g from dairy), iodine, choline, selenium. Purines low (~10 mg/100g — dairy gout-protective). Ingredients: milk protein isolate, sunflower oil, dextrose, salt, skim milk, <1% of onion, garlic, jalapeño, tomato, whey, whey protein concentrate, sour cream solids, buttermilk, milk, cheese cultures, enzymes, yeast extract, natural flavors, spice and color, citric acid, silicon dioxide, disodium phosphate, lactic acid. Contains milk. Label shows full amino acid profile (full essential AA spectrum including 2,130 mg leucine and 1,840 mg lysine per 30g serving).",
           "displayUnits": [
             {
               "label": "Whole container (510 g)",
@@ -4492,7 +4673,7 @@
               "multiplier": 100
             }
           ],
-          "notes": "Label per 1 container (190g): 140 kcal, 20g protein, 3g fat (2g sat), 8g carb, 1g fiber, 6g total sugars (0g added — all from milk lactose... though marketed lactose-free, residual milk sugar remains), 140mg sodium, 20mg cholesterol, Ca 15% DV, K 6% DV, B12 70% DV (very high). Lactose free. Zero added sugar (stevia/monk-style sweetened typical for Chobani zero-sugar line). Estimated micros from strained Greek yogurt composition (high confidence): B12 exceptional (~0.022 mcg/g, label-confirmed 70% DV), iodine (dairy ~0.5 mcg/g), phosphorus (~1.4 mg/g), choline. Purines low (~10 mg/100g). Ingredients: lowfat yogurt (cultured pasteurized lowfat milk, lactase enzyme), water, raspberry/lemon fruit base, natural flavors, fruit/veg juice concentrate (color), stevia/monk fruit. Contains milk. Live active cultures. USWNT/USMNT (US Soccer) promotional packaging.",
+          "notes": "Wild caught Alaskan pink salmon, MSC-certified sustainable. Includes edible bones (calcium source). 14.75 oz can = 5 servings. Pink and sockeye are the LOW-mercury canned salmon picks (vs higher-mercury King/Chinook). Drain liquid before macro calculations apply; values are for drained weight.",
           "brand": "Chobani"
         },
         "chobani_zero_sugar_mixed_berry": {
@@ -4536,7 +4717,7 @@
               "multiplier": 100
             }
           ],
-          "notes": "Chobani Zero Sugar Mixed Berry, nonfat Greek yogurt, lactose free, 150g container. Label per container: 60 kcal, 0 fat, 0 sat, 0 trans, 10mg chol, 65mg sodium, 5g carb, 0 fiber, 0 sugar (0 added), 12g protein, Vit D 0, Ca 10% (~130mg), Iron 0, K 0%. SWEETENERS: allulose + stevia + monk fruit (zero sugar). The 5g total carb is mostly ALLULOSE (a rare sugar, ~0 kcal, non-glycemic, FDA-excluded from calories/sugars). Stored ~4g in the sugarAlcohol field so net carb computes to ~1g digestible (allulose is not chemically a polyol but is functionally non-caloric like erythritol). kcal 60 = label (already accounts for allulose). Off-label micros ESTIMATED from nonfat Greek yogurt: phosphorus ~150mg/container (relevant to reduced-eGFR history), iodine ~50mcg (dairy), B12 ~0.8mcg. LOW-MEDIUM confidence. Purines ~4mg -- LOW (dairy, gout-favorable). Distinct from Chobani 20g Protein and Oikos entries. Ingredients: ultra-filtered nonfat milk, water, skim milk, allulose, <2%: natural flavors, tapioca flour, citrus fiber, sea salt, guar gum, veg juice concentrate (color), stevia leaf extract, monk fruit extract, cultures. CONTAINS milk."
+          "notes": "Ensure Max Protein Nutrition Shake, Birthday Cake (Abbott), 11 fl oz / 330 mL carton, 1 serving. Stored as 330 g (mL~=g, matching the Premier shake convention in this catalog). FULLY LABELED (25 vitamins & minerals) -- all values label-derived, HIGH confidence. Per carton: 150 kcal, 2g fat (0.5g sat, 0 trans, 0 poly, 1g mono), 20mg chol, 230mg sodium, 6g total carb, 4g fiber, 1g total sugars, 0g added sugars, 30g protein. Vit D 11mcg (60%), Ca 650mg (50%), Iron 2.7mg (15%), K 390mg (8%). %DV converted to absolute per carton: vitamin A 270mcg RAE (30%), vitamin C 45mg (50%), vitamin E 3.75mg (25%), vitamin K 24mcg (20%), thiamin 0.3mg (25%), riboflavin 0.585mg (45%), niacin 8mg (50%), B6 0.51mg (30%), folate 100mcg DFE (25%, 60mcg folic acid), B12 0.6mcg (25%), biotin 7.5mcg (25%), pantothenic acid 1.75mg (35%), phosphorus 500mg (40% -- HIGH, relevant to reduced-eGFR history), iodine 37.5mcg (25%), magnesium 105mg (25%), zinc 4.95mg (45%), selenium 24.75mcg (45%), copper 0.225mg (25%), manganese 0.575mg (25%), chromium 8.75mcg (25%), molybdenum 20.25mcg (45%), choline 82.5mg (15%). CHLORIDE 345mg (15%) is on the label but has no field in this tracker -- recorded here only. kcal kept at label 150: Atwater with 4g fiber priced near ~1 kcal/g reconciles (30x4 + 2x9 + 2g net carb x4 = 146, plus ~4-8 from the fiber). No correction applied. Fiber source is a corn-fiber/inulin type (partially fermentable); the 6g total carb minus 4g fiber leaves only ~2g digestible. Protein is milk-based (milk protein concentrate / whey) -- complete, high quality, no downgrade. ESTIMATED (not on label): purines ~5mg/carton -- LOW (dairy protein, gout-favorable); water ~88%. Artificially flavored. Halal, kosher. CONTAINS milk."
         },
         "chobani_zero_sugar_vanilla": {
           "name": "Yogurt Greek Chobani Zero Sugar vanilla",
@@ -4584,8 +4765,7 @@
               "unit": "g",
               "multiplier": 100
             }
-          ],
-          "notes": "Chobani Zero Sugar Vanilla Greek Yogurt, lactose free, 32oz/907g tub (~5 servings). Label per 3/4 cup (170g): 70 kcal, 0 fat, 0 sat, 0 trans, 10mg chol, 75mg sodium, 6g carb, 0 fiber, 0 sugar (0 added), 13g protein, Vit D 0, Ca 180mg (15%), Iron 0, K 70mg. All label-exact. SWEETENERS: allulose + stevia (reb m) + monk fruit. The 6g total carb is mostly ALLULOSE (a rare sugar, ~0 kcal, non-glycemic, FDA-excluded from calories/sugars); ~5g stored in the sugarAlcohol field so net carb computes to ~1g digestible (allulose isn't chemically a polyol but is functionally non-caloric like erythritol). Same treatment as the Chobani Zero Sugar mixed berry entry. kcal 70 = label (already accounts for allulose). DISTINCT from the mixed berry cup entry (150g cup, 60 kcal, 12g protein) -- this is the 907g vanilla TUB with a 170g serving. Off-label micros ESTIMATED from nonfat Greek yogurt: phosphorus ~170mg/serving (relevant to reduced-eGFR history), iodine ~56mcg (dairy), B12 ~0.9mcg. LOW-MEDIUM confidence. Purines ~5mg/serving -- LOW (dairy, gout-favorable). 6 live cultures: S. thermophilus, L. bulgaricus, L. acidophilus, bifidus, L. casei, L. rhamnosus. Ingredients: ultra-filtered nonfat milk, water, skim milk, allulose, <2%: natural flavors, tapioca flour, citrus fiber, guar gum, sea salt, stevia leaf extract (reb m), monk fruit extract, vanilla extract, cultures. CONTAINS milk."
+          ]
         },
         "crackers_50g": {
           "name": "Crackers",
@@ -4720,8 +4900,7 @@
               "unit": "g",
               "multiplier": 100
             }
-          ],
-          "notes": "Dannon Light + Fit Greek, Boston Cream Pie, fat free yogurt, 150g (5.3oz) container, 1 serving. Label per container: 80 kcal, 0 fat, 0 sat, 0 trans, 10mg chol, 45mg sodium, 8g carb, 0 fiber, 7g total sugars (2g added), 12g protein, Vit D 0%, Calcium 10% (~130mg), Iron 0%, Potassium 2% (~94mg). All label-exact. kcal NEEDS NO CORRECTION: Atwater reconciles exactly (12x4 + 8x4 = 80). No fiber, no sugar alcohols, no polydextrose. SWEETENERS: fructose (caloric, the 2g added sugar) plus acesulfame potassium and sucralose (both non-nutritive, 0 kcal). The other ~5g of sugar is naturally occurring lactose from the nonfat milk. NOTE ON 'GREEK': thickened with modified food starch rather than fully strained, so texture/protein come partly from formulation; protein 12g per 150g (8%) is still Greek-range. Package's own comparison: Light+Fit 80 kcal/0g fat vs average flavored Greek yogurt 110 kcal/1g fat per 5.3oz. Off-label micros ESTIMATED from nonfat yogurt: phosphorus ~150mg/container (relevant to reduced-eGFR history), iodine ~45mcg (dairy), B12 ~0.8mcg, riboflavin. LOW-MEDIUM confidence. Purines ~4mg -- LOW (dairy, gout-favorable). Ingredients: cultured pasteurized nonfat milk, water, fructose, <1%: natural & artificial flavors, modified food starch, acesulfame potassium, sucralose, malic acid, potassium sorbate (freshness), yogurt cultures L. bulgaricus & S. thermophilus. Gluten free. Bioengineered ingredients. CONTAINS milk."
+          ]
         },
         "david_bar_choc_chip_cookie_dough": {
           "name": "David Protein Bar Chocolate Chip Cookie Dough",
@@ -4776,7 +4955,7 @@
               "multiplier": 62
             }
           ],
-          "notes": "Label per 1 bar (62g): 150 kcal, 28g protein, 2g fat (1.5g sat), 12g carb, 1g fiber, 0g sugar, 7g sugar alcohol, 160mg sodium, 10mg cholesterol, Ca 140mg (10% DV), Fe 0.4mg, K 110mg. PDCAAS 1.0 claimed; '75% CFP' (calories from protein) claimed. KCAL: label 150 stored as-is (accurate) — the low calorie count is achieved via EPG (Esterified Propoxylated Glycerol, 'modified plant fat'), a fat replacer that is largely non-absorbed (~0.7 kcal/g vs 9 for real fat); the 2g fat figure already reflects EPG's reduced caloric contribution. Sugar-alcohol (7g: maltitol + allulose + glycerin) calories already baked into the 150. PROTEIN CAVEAT: 28g is total protein but the 'protein system' is milk protein isolate + COLLAGEN (#2 ingredient) + whey concentrate + egg white. Collagen is an incomplete, low-leucine protein (~2.5% leucine vs whey ~11%) that contributes little to muscle protein synthesis. Collagen fraction is undisclosed by David; MPS/leucine-effective protein is therefore somewhat below the 28g label (rough est ~22-26g effective), though milk isolate + whey + egg white carry most of the load. PDCAAS 1.0 can mask this (caps at 1.0; DIAAS would be more revealing). EPG note: novel fat replacer, FDA GRAS; at high intakes can cause olestra-like GI effects (claimed better tolerated). Estimated micros from dairy-protein blend (medium confidence): phosphorus high (~2 mg/g, dairy), iodine + B12 (dairy), choline. Ingredients: protein system (milk protein isolate, collagen, whey protein concentrate, egg white), binding system (maltitol, allulose, glycerin, soluble corn fiber, tapioca starch, soy lecithin), fat system (modified plant fat [EPG], coconut oil), flavor system (unsweetened chocolate, dutch process cocoa, natural & artificial flavor, salt, sucralose, acesulfame K). Contains milk, egg, soy. May contain peanut, sesame, tree nuts. Gluten free.",
+          "notes": "Chobani Zero Sugar Vanilla Greek Yogurt, lactose free, 32oz/907g tub (~5 servings). Label per 3/4 cup (170g): 70 kcal, 0 fat, 0 sat, 0 trans, 10mg chol, 75mg sodium, 6g carb, 0 fiber, 0 sugar (0 added), 13g protein, Vit D 0, Ca 180mg (15%), Iron 0, K 70mg. All label-exact. SWEETENERS: allulose + stevia (reb m) + monk fruit. The 6g total carb is mostly ALLULOSE (a rare sugar, ~0 kcal, non-glycemic, FDA-excluded from calories/sugars); ~5g stored in the sugarAlcohol field so net carb computes to ~1g digestible (allulose isn't chemically a polyol but is functionally non-caloric like erythritol). Same treatment as the Chobani Zero Sugar mixed berry entry. kcal 70 = label (already accounts for allulose). DISTINCT from the mixed berry cup entry (150g cup, 60 kcal, 12g protein) -- this is the 907g vanilla TUB with a 170g serving. Off-label micros ESTIMATED from nonfat Greek yogurt: phosphorus ~170mg/serving (relevant to reduced-eGFR history), iodine ~56mcg (dairy), B12 ~0.9mcg. LOW-MEDIUM confidence. Purines ~5mg/serving -- LOW (dairy, gout-favorable). 6 live cultures: S. thermophilus, L. bulgaricus, L. acidophilus, bifidus, L. casei, L. rhamnosus. Ingredients: ultra-filtered nonfat milk, water, skim milk, allulose, <2%: natural flavors, tapioca flour, citrus fiber, guar gum, sea salt, stevia leaf extract (reb m), monk fruit extract, vanilla extract, cultures. CONTAINS milk.",
           "brand": "David"
         },
         "drink_performx_strawberry_banana": {
@@ -4925,7 +5104,7 @@
           "brand": "Season's Choice (Aldi)",
           "transFat": 0,
           "addedSugar": 0,
-          "notes": "Season's Choice shelled edamame (Aldi), product of China. Label per 1/2 cup (85g): 90 kcal, 10g protein, 4g fat, 6g carb, 4g fiber, 2g sugar, 5mg sodium, Ca 50mg, Fe 1.8mg (10% DV), K 410mg (8% DV). MACROS updated to this real label (was generic USDA estimate at 1.322 kcal/g / 12.4 kcal-per-g-protein; real label is 1.059 kcal/g / 9.0 kcal-per-g-protein — leaner). Deep-researched micros KEPT from USDA edamame (label omits them): folate (B9) very high ~3.1 mcg/g, vit K ~0.26 mcg/g, magnesium ~0.64 mg/g, phosphorus, choline ~0.56 mg/g, zinc, Mn, Cu, selenium, biotin (B7), molybdenum. Purines moderate (~170 mg/100g soybean-based — flag for gout at large quantities). Ingredients: soybeans. Contains soy."
+          "notes": "Label per 1 bun (62g): 90 kcal LABEL, 11g protein, 4g fat, 0.5g sat, 0g trans, 0mg cholesterol, 23g carb, 22g fiber, 0g sugar, 0g added sugar, 370mg sodium (16% DV — moderately high per bun), Vit D 0, Calcium 20mg, Iron 1mg (6% DV), Potassium 40mg. Net carb = 1g (front panel). KCAL CORRECTION: stored at 101 kcal/bun (1.629 kcal/g). Same brand/technology as Hero Classic Plain Bagels — primary fiber is 'resistant wheat starch' = RS4 (chemically cross-linked/phosphated wheat starch, e.g. Fibersym), the LEAST fermentable resistant-starch type, caloric availability ~0.5 kcal/g, NOT the ~2 kcal/g of readily-fermentable RS2/RS3. Added back ~0.5 kcal/g × 22g fiber = ~11 kcal over label's 90 = 101 total (real value plausibly 95–105); consistent with the bagel's revised correction, NOT the blanket 2 kcal/g fiber rule. omega-3 (ALA ~0.5g/bun, LOW confidence) estimated from milled flaxseed (USDA milled flax ~22.8g ALA/100g; flax listed above the 2% ingredient line, so ≥~1.2g flax/bun). Micros from wheat-gluten + fava-bean protein + flax + olive oil composition (MEDIUM-LOW confidence): folate (B9) elevated from fava (~1 mcg/g), selenium from wheat (~0.3 mcg/g), Mg/P/Mn/thiamine bumped by flax, vitE/vitK from olive oil. B12 = 0 (plant-based). Calcium/iron/potassium/sodium/VitD label-derived (high confidence). Protein blend: vital wheat gluten + fava bean protein (complementary lysine). Ingredients: resistant wheat starch, water, wheat protein, yeast, olive oil, milled flaxseed, <2% fava bean protein, vinegar, guar gum, cultured wheat flour, wheat flour, salt, enzymes. CONTAINS WHEAT; produced in a facility that also handles soy, egg, milk, sesame, tree nuts. High-fiber/high-protein/low-net-carb marketed hot dog bun (8 buns, net wt 17.5 oz / 496g)."
         },
         "egg_fried": {
           "name": "Egg fried",
@@ -5038,7 +5217,7 @@
               "multiplier": 46
             }
           ],
-          "notes": "Giant Food egg substitute. Yellow carton, pasteurized egg whites + small gums + beta-carotene color + B-vitamin / mineral fortification. Container ~32 fl oz / ~920 g. Density ~1.022 g/ml (3 Tbsp = 45 ml = 46 g per label) so ml and g are interchangeable for cooking. Same protein/kcal as plain egg whites; difference is the added fortification - vit D, calcium 200 mg per serving (15% DV), B-complex (riboflavin 40% DV, B12 20% DV, biotin 25% DV) - and trace gums + salt (85 mg sodium per serving). Pick between this and plain egg whites on micronutrient-density vs ingredient-minimalism.",
+          "notes": "Label-derived (high confidence): kcal, macros, sodium (500mg/28g = EXTREME 17.9 mg/g), cholesterol, Ca (2% DV), Fe (6% DV). Estimated from USDA dried beef composition (high confidence): zinc very high (~0.1 mg/g — beef concentrated), B12 (~0.05 mcg/g excellent), selenium, choline, phosphorus, magnesium. Water ~25% (jerky concentrates beef). Purines MODERATE-HIGH (~100 mg/100g — flag for gout history). Ingredients: beef, gluten-free soy sauce (water, soybeans, rice, salt), beef broth, <2% flavorings, black pepper, vinegar, cultured celery powder (cultured celery powder + sea salt — natural nitrite source, chemically equivalent to added sodium nitrite), granulated garlic, salt. Contains soy. Marketed as no added nitrites/MSG/artificial sweeteners + gluten-free.",
           "brand": "Giant",
           "purines": 0.05
         },
@@ -5234,7 +5413,6 @@
               "multiplier": 30
             }
           ],
-          "notes": "Label-derived (high confidence): kcal, macros, sodium (340mg/30g = HIGH), cholesterol, Ca (44mg/30g), K (231mg/30g excellent for snack), high protein density (21g/30g). Estimated from milk protein isolate composition (high confidence — dairy whey base): B12 (~0.007 mcg/g), phosphorus very high (~4 mg/g from dairy), iodine, choline, selenium. Purines low (~10 mg/100g — dairy gout-protective). Ingredients: milk protein isolate, sunflower oil, dextrose, salt, skim milk, <1% of onion, garlic, jalapeño, tomato, whey, whey protein concentrate, sour cream solids, buttermilk, milk, cheese cultures, enzymes, yeast extract, natural flavors, spice and color, citric acid, silicon dioxide, disodium phosphate, lactic acid. Contains milk. Label shows full amino acid profile (full essential AA spectrum including 2,130 mg leucine and 1,840 mg lysine per 30g serving).",
           "brand": "Elevation (Aldi)"
         },
         "ensure_max_protein_birthday_cake": {
@@ -5400,7 +5578,6 @@
               "multiplier": 100
             }
           ],
-          "notes": "Label-derived (high confidence): kcal, macros, sodium, sugar (incl 2g added/container), Ca (10% DV), K (4% DV), cholesterol. Estimated from USDA nonfat Greek yogurt + fruit blend composition (lower confidence): B-vitamins (B12 ~0.0075 mcg/g notable), Mg, P, Zn, Se, Cu, Mn, iodine (high in dairy ~0.5 mcg/g), choline, water (~80%), purines (low). Contains live active cultures: S. thermophilus, L. bulgaricus, L. acidophilus, Bifidus. Ingredients: cultured nonfat milk, water, pineapple, mango, fructose, modified corn starch, sugar, natural flavors, passion fruit juice concentrate, fruit juice concentrate for color, fruit pectin, acesulfame K, sucralose, citric acid, malic acid. Dual sweetened (sucralose + ace-K).",
           "brand": "Friendly Farms (Aldi)"
         },
         "ff_super_zero_vanilla": {
@@ -5458,7 +5635,7 @@
               "multiplier": 100
             }
           ],
-          "notes": "Label-derived (high confidence): kcal, macros, sodium, sugar (5g/170g all from natural milk lactose — 0g added), Ca (10% DV), K (6% DV), cholesterol. Sweetened with stevia (steviol glycosides) only — no artificial sweeteners. Estimated from USDA nonfat Greek yogurt composition (high confidence): B12 (~0.0075 mcg/g notable), iodine (high in dairy ~0.5 mcg/g), choline, Mg, P (~1.35 mg/g), Zn, Se. Modified corn starch added for body/texture (replaces fat-derived mouthfeel). Live active cultures (typical Greek strains). Water ~85% (slightly higher than typical Greek due to starch dilution). Ingredients: cultured pasteurized milk, modified corn starch, natural flavors, concentrate, steviol glycosides. Contains milk. Product of Canada.",
+          "notes": "Oikos Triple Zero Vanilla, blended nonfat Greek yogurt, 32oz/907g tub (~5 servings). Label per 3/4 cup (170g): 100 kcal, 0 fat, 0 sat, 0 trans, 10mg chol, 65mg sodium, 7g carb, 0 fiber, 6g sugar (0 added -- stevia sweetened), 17g protein, Vit D 2.3mcg (10%), Ca 170mg (15%), Iron 0, K 170mg. All label-exact. Triple Zero = 0 added sugar, 0 artificial sweeteners, 0 fat. Off-label micros ESTIMATED from nonfat Greek yogurt: phosphorus ~200mg/serving (relevant to reduced-eGFR history), iodine ~60mcg (dairy), B12 ~1mcg, riboflavin, selenium. LOW-MEDIUM confidence. Purines ~5mg/serving -- LOW (dairy, gout-favorable). Same Triple Zero base as the lemon entry, vanilla flavor. Ingredients: cultured nonfat milk, water, <1% natural flavors, tapioca starch, stevia leaf extract, lemon juice concentrate, sea salt, vitamin D3, yogurt cultures. CONTAINS milk.",
           "brand": "Friendly Farms (Aldi)"
         },
         "flonase": {
@@ -5757,7 +5934,7 @@
               "multiplier": 46
             }
           ],
-          "notes": "Label-derived (high confidence): kcal, macros, sodium (500mg/28g = EXTREME 17.9 mg/g), cholesterol, Ca (2% DV), Fe (6% DV). Estimated from USDA dried beef composition (high confidence): zinc very high (~0.1 mg/g — beef concentrated), B12 (~0.05 mcg/g excellent), selenium, choline, phosphorus, magnesium. Water ~25% (jerky concentrates beef). Purines MODERATE-HIGH (~100 mg/100g — flag for gout history). Ingredients: beef, gluten-free soy sauce (water, soybeans, rice, salt), beef broth, <2% flavorings, black pepper, vinegar, cultured celery powder (cultured celery powder + sea salt — natural nitrite source, chemically equivalent to added sodium nitrite), granulated garlic, salt. Contains soy. Marketed as no added nitrites/MSG/artificial sweeteners + gluten-free.",
+          "notes": "Nutritionally IDENTICAL to simms_jerky_blackpepper (same manufacturer/formulation, Original vs Black Pepper flavor). Label per 1 oz (28g): 70 kcal, 14g protein, 1.5g fat (0.5g sat), 30mg cholesterol, 500mg sodium (extreme, 17.9 mg/g), 0 carb/fiber/sugar, Ca 2% DV, Fe 6% DV. Estimated micros from USDA dried beef (high confidence): zinc very high (~0.1 mg/g), B12 (~0.05 mcg/g), selenium, choline, phosphorus. Water ~25%. Purines moderate-high (~100 mg/100g). Ingredients: beef, gluten-free soy sauce (water, soybeans, rice, salt), beef broth, <2% flavorings, vinegar, cultured celery powder (cultured celery powder + sea salt — natural nitrite source, chemically equivalent to added nitrite in-gut), granulated garlic, salt. Contains soy. Marketed no-added-nitrites/no-MSG/no-artificial-sweeteners, gluten-free.",
           "brand": "Goldhen (Aldi)"
         },
         "gortons_parmesan_fish_fillets": {
@@ -5926,7 +6103,7 @@
               "multiplier": 14
             }
           ],
-          "notes": "Label per 4 slices (56g): 70 kcal, 11g protein, 2g fat, 0.5g sat, 0g trans, 35mg cholesterol, 1g carb, 0g fiber, <1g total sugars, <1g added sugars, 470mg sodium (20% DV — HIGH, 8.39 mg/g), Vit D 0, Calcium 0, Iron 0.7mg (4%), Potassium 200mg (4%). Sub-threshold sugar corrected to ~0.5g (all added, from cane sugar). Label macros/sodium/cholesterol/iron/potassium high confidence. Micros estimated from USDA cured-ham composition (high confidence — well-characterized): pork is one of the richest thiamine sources (B1 ~0.53 mg/100g), niacin (B3 ~3.5 mg/100g), B6, B12 (~1 mcg/100g), selenium (~20 mcg/100g), zinc (~2.3 mg/100g), choline (~90 mg/100g). Phosphorus set to ~200 mg/100g (natural pork only — this product has NO added phosphate, unlike most deli hams which run ~280–320 mg/100g). Water ~70%. Purines moderate ~150 mg/100g. Ingredients: pork, water, sea salt, cane sugar, vinegar powder, cultured celery powder. UNCURED / 'no nitrates or nitrites added' — but the cultured celery powder is a natural nitrate source that bacterial cultures convert to nitrite in situ, so the finished product still contains nitrite; 'uncured' is a USDA labeling distinction, not a nitrite-free guarantee. Still a PROCESSED MEAT — WHO IARC Group 1 (colorectal-cancer association at chronic ≥50g/day). Sodium-dense; moderate purines relevant for uric-acid/gout management. 95% lean, fully cooked, Animal Welfare Certified (GAP Step 1), raised without added hormones/antibiotics, vegetarian feed. Value Pack, net wt 14 oz (397g), ~7 servings."
+          "notes": "Shamrock Farms Rockin' Protein MAX, Chocolate Banana, 19.7 fl oz / 582 mL bottle, about 2.5 servings of 1 cup (240 mL). Ultra-pasteurized, lactose free (lactase enzyme added). Stored as 582 g (mL~=g, matching the Premier and Ensure shake convention in this catalog; a milk-based shake is actually ~1.03-1.05 g/mL, so true bottle mass is closer to 600 g -- per-gram values here are therefore very slightly high). PER-GRAM VALUES DERIVED FROM THE PER-CONTAINER COLUMN (more accurate than the per-serving column, which shows FDA rounding). Per bottle: 320 kcal, 6g fat (3g sat, 0 trans), 45mg chol, 600mg sodium (26% DV), 21g total carb, 6g fiber, 13g total sugars, 0g ADDED sugars (sucralose-sweetened; the 13g is native milk lactose/galactose), 50g protein (100% DV). Micros per bottle: Vit D 3.2mcg (15%), Calcium 1290mg (100% DV), Iron 3.6mg (20%), Potassium 1200mg (25%), Vit A 250mcg (30%), thiamin 0.09mg (8%), riboflavin 0.33mg (25%), PHOSPHORUS 800mg (60%), Magnesium 75mg (20%). All label-exact. kcal kept at label 320: Atwater gives 50x4 + 6x9 + 15g net carb x4 = 314, so the label prices the 6g soluble corn fiber at ~1 kcal/g; a strict 2 kcal/g treatment would give ~326 (+2%). Too small to correct. PHOSPHORUS FLAG (relevant to reduced-eGFR history): 800mg/bottle is high in absolute terms, and the ingredient list includes SODIUM HEXAMETAPHOSPHATE and DIPOTASSIUM PHOSPHATE -- inorganic phosphate ADDITIVES, which are absorbed at ~90-100% versus roughly 40-60% for naturally protein-bound phosphorus. So the bioavailable phosphorus load is higher than the same number from whole dairy would imply. Also 1200mg potassium and 600mg sodium per bottle. Protein is dairy (milk + skim milk + milk protein concentrate) -- complete, high quality, no downgrade. ESTIMATED (not on label): B12 ~2.6mcg, iodine ~100mcg (dairy is a major iodine source), choline ~90mg, selenium ~20mcg per bottle; purines ~10mg -- LOW (dairy, gout-favorable). LOW-MEDIUM confidence. Ingredients: water, milk, skim milk, milk protein concentrate, soluble corn fiber, cocoa (processed with alkali), sodium hexametaphosphate, dipotassium phosphate, natural and artificial flavor, corn starch, salt, sucralose, carrageenan, lactase enzyme, vitamin A palmitate, vitamin D3. Gluten free, rBST-free pledge. CONTAINS milk."
         },
         "ham_black_forest_aldi": {
           "name": "Ham Black Forest deli sliced (Aldi)",
@@ -6070,9 +6247,84 @@
               "multiplier": 14
             }
           ],
-          "notes": "Wild caught Alaskan pink salmon, MSC-certified sustainable. Includes edible bones (calcium source). 14.75 oz can = 5 servings. Pink and sockeye are the LOW-mercury canned salmon picks (vs higher-mercury King/Chinook). Drain liquid before macro calculations apply; values are for drained weight.",
+          "notes": "Guessed cut: center-cut pork loin (lean), the leanest pork commonly sold as flat steaks/chops. USDA SR Legacy Pork, fresh, loin, whole, separable lean only, cooked, broiled, per 100g: 211 kcal, 29.5g protein, 9.6g fat, 3.4g sat fat, 82mg cholesterol, 57mg sodium, 423mg potassium. Broiled plain, no added salt/fat. transfat ~0.04g/100g naturally occurring. Pork is very high in thiamin (B1 ~0.83mg/100g) and selenium. Purines ~150mg/100g (moderate-high). If the actual cut was tenderloin it would be ~30% leaner (~143 kcal/100g); loin assumed per the steak description.",
           "defaultMeasuredIn": "g",
           "brand": "Lidl"
+        },
+        "ham_smoked_prime_fresh_smithfield": {
+          "name": "Ham smoked deli sliced (Prime Fresh Smithfield)",
+          "category": "items",
+          "brand": "Prime Fresh Delicatessen by Smithfield",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.125,
+          "fat": 0.030357142857142857,
+          "sf": 0.008928571428571428,
+          "transFat": 0,
+          "p": 0.17857142857142858,
+          "carbs": 0.03571428571428571,
+          "fiber": 0,
+          "sugar": 0.017857142857142856,
+          "addedSugar": 0.017857142857142856,
+          "cholesterol": 0.5357142857142857,
+          "sodium": 10.178571428571429,
+          "iron": 0.0064285714285714285,
+          "calcium": 0.052,
+          "potassium": 5,
+          "magnesium": 0.191,
+          "phosphorus": 2.6,
+          "zinc": 0.0152,
+          "selenium": 0.317,
+          "copper": 0.00043,
+          "manganese": 0.0001,
+          "iodine": 0.0122,
+          "vitA": 0,
+          "vitD": 0.0061,
+          "vitE": 0.003,
+          "vitK": 0.0043,
+          "b1": 0.00348,
+          "b2": 0.00261,
+          "b3": 0.0565,
+          "b5": 0.00696,
+          "b6": 0.00391,
+          "b9": 0,
+          "b12": 0.00348,
+          "choline": 0.626,
+          "water": 0.748,
+          "purines": 1.2,
+          "displayUnits": [
+            {
+              "label": "2 slices (56 g)",
+              "amount": 56,
+              "unit": "g",
+              "default": true,
+              "multiplier": 56
+            },
+            {
+              "label": "1 slice (28 g)",
+              "amount": 28,
+              "unit": "g",
+              "multiplier": 28
+            },
+            {
+              "label": "4 slices (112 g)",
+              "amount": 112,
+              "unit": "g",
+              "multiplier": 112
+            },
+            {
+              "label": "1 package (16 oz, 454 g)",
+              "amount": 454,
+              "unit": "g",
+              "multiplier": 454
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Prime Fresh Delicatessen by Smithfield, SMOKED HAM with natural juices, 96% fat free, FAMILY SIZE, net wt 16 oz (1 lb / 454 g). Old-format label (Calories from Fat, Sugars, Vitamin A/C %). Serving 2 slices (56 g), 8 servings per container => 16 slices, ~28 g each. LABEL-EXACT per 56 g (high confidence): 60 kcal, 15 kcal from fat, 2 g fat (0.5 g sat, 0 trans), 30 mg cholesterol, 570 mg sodium, 2 g total carb, 1 g sugars, 10 g protein, vit A 0%, iron 2%. Iron converted at the OLD 18 mg RDI: 2% = 0.36 mg per 56 g. Label states it is not a significant source of dietary fiber, vitamin C or calcium -- fiber set to 0, calcium taken from USDA. CALORIE RECONCILIATION (+3 kcal correction applied, 60 -> 63 per 56 g): (1) Strict Atwater on the DECLARED macros gives 2x9 + 2x4 + 10x4 = 18 + 8 + 40 = 66 kcal, 10% above label. (2) But 'Calories from Fat 15' pins unrounded fat at 15/9 = 1.67 g, not 2.0 -- so fat contributes 15, not 18. (3) The 2 g total carb is not all sugar: label sugars are 1 g, and the cure contains POTASSIUM LACTATE, whose lactate counts in carbohydrate-by-difference at ~3.6 kcal/g rather than 4. So 1 g sugar x 4 = 4.0 plus ~1 g lactate x 3.6 = 3.6, total 7.6 kcal from carb. (4) Rebuild: 15.3 (fat, 1.7 g) + 40.0 (protein, 10 g) + 7.6 (carb) = 62.9 => 63 kcal per 56 g = 1.125 kcal/g. FAT STORED AT THE UNROUNDED 1.7 g, not the declared 2 g, so the item is internally consistent with that kcal. CONFIDENCE LOW-MEDIUM on the correction: USDA's independent profile for this exact food class scales to 60.9 kcal per 56 g, which supports the label's 60 outright, and the gap is entirely attributable to this product carrying ~1.6 g more carb per serving than the USDA sample. Keeping 60 would also be defensible; 63 is the middle course and errs upward. ADDED SUGAR: all 1 g of sugars is from the cure (sugar is an ingredient; ham contributes no native sugar), so addedSugar = total sugars. OFF-LABEL MICROS from USDA SR Legacy 173863 / SR 07028, 'Ham, sliced, pre-packaged, deli meat (96% fat free, water added)' -- an exact class match, and it agrees closely with the label on shared anchors (kcal 108.7 vs 107.1 per 100 g, protein 17.0 vs 17.9 g, sodium 945 vs 1018 mg). MEDIUM-HIGH confidence: magnesium 19.1 mg/100 g, phosphorus 252 (stored slightly higher at 260 for the added sodium phosphates), zinc 1.52, calcium 5.2, copper 0.043 mg, selenium 31.7 mcg, iodine 1.22 mcg, B1 0.348, B2 0.261, B3 5.65, B5 0.696, B6 0.391 mg, B9 0, B12 0.348 mcg, choline 62.6 mg, vit D 0.61 mcg, vit E 0.30 mg, vit K 0.43 mcg (as MK-4), water 74.8%. Pork is an excellent thiamine (B1) source -- one serving carries roughly 16% DV despite only 63 kcal. POTASSIUM stored at 500 mg/100 g vs USDA's 463 -- raised because POTASSIUM LACTATE is an explicit cure ingredient here and the USDA sample may not carry it. LOW-MEDIUM confidence, plausible range 460-600. PURINES ~120 mg/100 g -- moderate, and lower per gram than solid ham because the product is brine-extended to ~75% water. LOW-MEDIUM confidence. SODIUM IS THE HEADLINE NUMBER: 570 mg per 56 g serving = 1018 mg/100 g, 24% DV for two slices. Among the most sodium-dense items in this catalog on a per-calorie basis (16 mg sodium per kcal). Ingredients: cured with water, contains 2% or less of salt, sugar, potassium lactate, sodium phosphates, sodium diacetate, sodium erythorbate (antioxidant, limits nitrosamine formation), sodium nitrite (preservative). PROCESSED MEAT -- IARC Group 1, colorectal association at chronic intake around 50 g/day. Protein is complete pork muscle protein, no quality downgrade. Use within 5 days of opening. Package photographed use-by SEP 03 2026."
         },
         "ham_steak_smithfield_hickory": {
           "name": "Ham steak hickory smoked boneless",
@@ -6126,7 +6378,7 @@
               "multiplier": 84
             }
           ],
-          "notes": "Smithfield Hickory Smoked Boneless Ham Steak. Label: 84g serving, 2.5 servings/container (210g total). Macros from label per-gram (÷84). transfat label shows 0g but real value ~0.02g/84g serving (CLA in pork) — corrected to 0.0002 g/g. Micronutrients from USDA SR Legacy cured smoked ham (approx. #10123/#10178) — LOW CONFIDENCE, flag for verification. Water ~63% estimated for cured smoked ham. Omega-3 ~0.20 mg/g (lean pork estimate). Purines ~120 mg/100g (moderate, cured pork)."
+          "notes": "Quest Tortilla Style Protein Chips, Nacho (Quest Nutrition), 1 bag (32g). Label per bag: 140 kcal, 5g fat (1g sat), 0 trans, 5mg chol, 290mg sodium (13%), 5g carb, 1g fiber, 1g sugar, 0 added, 19g protein, Vit D 0, Ca 170mg (15%), Iron 0.4mg, K 50mg. All label-exact. kcal stored at label 140 (fiber only 1g; negligible). Protein = milk protein isolate + whey protein isolate + calcium caseinate (complete, high quality). Off-label micros ESTIMATED from dairy protein isolates: phosphorus ~200mg/bag (HIGH -- protein isolates; relevant to reduced-eGFR history), Mg ~30mg, selenium ~10mcg. LOW-MEDIUM confidence. Purines ~10mg/bag -- LOW (dairy). CONTAINS milk, soy."
         },
         "harvest_snaps": {
           "name": "Harvest Snaps Tomato Basil",
@@ -6226,7 +6478,6 @@
               "multiplier": 37.5
             }
           ],
-          "notes": "Label per 1 bagel (75g): 130 kcal LABEL, 19g protein (front-panel confirmed; side-panel '10g' was glare misread), 4g fat, 0.5g sat, 25g carb, 21g fiber, 0g sugar, 460mg sodium, 0 cholesterol, Ca 20mg, Iron 3mg (15% DV), K 30mg. Net carb = 4g. KCAL CORRECTION (revised): stored at 140 kcal/bagel (1.8667 kcal/g). Fiber is 'resistant wheat starch' = almost certainly RS4 (chemically phosphated/cross-linked wheat starch, e.g. Fibersym). RS4 is the LEAST fermentable resistant starch type — caloric availability ~0-1 kcal/g, NOT the ~2 kcal/g of readily-fermentable RS2/RS3. So the standard 'add back 2 kcal/g' fiber rule does NOT cleanly apply here. Added back only ~0.5 kcal/g over the ~21g fiber = ~10 kcal over label's 130 = 140 total. Real value plausibly 135-150. (Earlier stored 162 was an over-correction that wrongly treated this as readily-fermentable fiber.) Estimated micros from wheat gluten + fava bean protein composition (medium confidence): folate (B9) elevated from fava (~1 mcg/g), selenium (wheat ~0.3 mcg/g), manganese, phosphorus, Mg. B12=0 (plant). Protein blend: vital wheat gluten + fava bean protein (complementary lysine). Ingredients: water, resistant wheat starch, wheat protein, fava bean protein, [remainder obscured]. Contains wheat. High-protein/high-fiber/low-net-carb marketed bagel.",
           "brand": "Hero"
         },
         "hummus": {
@@ -6290,20 +6541,10 @@
           "defaultMeasuredIn": "g",
           "kcal": 0.26,
           "p": 0.064,
-          "fat": 0,
-          "sf": 0,
           "transFat": 0,
-          "carbs": 0,
-          "fiber": 0,
-          "sugar": 0,
           "addedSugar": 0,
-          "cholesterol": 0,
           "sodium": 0.05,
           "water": 0.93,
-          "vitD": 0,
-          "calcium": 0,
-          "iron": 0,
-          "potassium": 0,
           "phosphorus": 0.15,
           "b2": 0.0006,
           "purines": 0.002,
@@ -6364,7 +6605,8 @@
             }
           ],
           "defaultMeasuredIn": "g",
-          "brand": "Jack Link's"
+          "brand": "Jack Link's",
+          "notes": "Wild caught Alaskan pink salmon, MSC-certified sustainable. Includes edible bones (calcium source). 14.75 oz can = 5 servings. Pink and sockeye are the LOW-mercury canned salmon picks (vs higher-mercury King/Chinook). Drain liquid before macro calculations apply; values are for drained weight."
         },
         "jif_pb_cup": {
           "name": "Peanut butter creamy Jif to-go cup",
@@ -7017,22 +7259,21 @@
           "category": "items",
           "defaultMeasuredIn": "g",
           "kcal": 2.5,
-          "p": 0.305556,
-          "fat": 0.083333,
-          "sf": 0.013889,
+          "p": 0.3056,
+          "fat": 0.0833,
+          "sf": 0.0139,
           "transFat": 0,
-          "carbs": 0.388889,
-          "fiber": 0.166667,
-          "sugar": 0.013889,
+          "carbs": 0.3889,
+          "fiber": 0.1667,
+          "sugar": 0.0139,
           "addedSugar": 0,
           "sugarAlcohol": 0.152778,
-          "cholesterol": 0.138889,
-          "sodium": 4.583333,
+          "cholesterol": 0.1389,
+          "sodium": 4.5833,
           "water": 0.2,
-          "vitD": 0,
           "calcium": 0.4,
-          "iron": 0.006944,
-          "potassium": 0.694444,
+          "iron": 0.0069,
+          "potassium": 0.6944,
           "phosphorus": 3.5,
           "magnesium": 0.4,
           "zinc": 0.02,
@@ -7042,6 +7283,12 @@
           "choline": 0.5,
           "purines": 0.4,
           "displayUnits": [
+            {
+              "label": "box (8 packs, 576 g)",
+              "amount": 576,
+              "unit": "g",
+              "multiplier": 576
+            },
             {
               "label": "1 pack (2 donuts, 72 g)",
               "amount": 72,
@@ -7054,15 +7301,8 @@
               "amount": 36,
               "unit": "g",
               "multiplier": 36
-            },
-            {
-              "label": "box (8 packs, 576 g)",
-              "amount": 576,
-              "unit": "g",
-              "multiplier": 576
             }
-          ],
-          "notes": "Legendary Foods Mini Protein Donuts+, Dipped Chocolate. 1 pack = 2 mini donuts (72g), 8 packs/box. Label per pack: 180 kcal, 6g fat (1g sat, 0 trans), 10mg chol, 330mg sodium (14% DV), 28g total carb, 12g fiber (43% DV), 11g erythritol, <1g total sugars, 0g added sugars, 22g protein, Vit D 0, Calcium 20%, Iron 3%, Potassium 10%. Front-of-pack: '5g net carbs' (28 total - 12 fiber - 11 erythritol). All label-exact. CARB BREAKDOWN CHECK: 28g total carb only itemizes to 23g (12 fiber + 11 erythritol + <1 sugar); the remaining ~4-5g is unlabeled but plausibly modified resistant tapioca starch and/or polydextrose (both mid-list ingredients) -- same 'undeclared carbohydrate' phenomenon as the think! bar in this catalog, just smaller in magnitude. kcal kept at label 180: protein 22x4 + fat 6x9 = 142, leaving 38 kcal for the whole 28g carb block (~1.4 kcal/g average) -- consistent with erythritol (~0.2), fiber (~0-2), and a modified/resistant starch fraction (~2-4) blended together. No further correction applied. Protein blend is milk protein isolate + dried egg whites + whey protein isolate + collagen peptides -- collagen (added separately, listed after the main blend) is INCOMPLETE protein (no tryptophan), so utilizable protein from the 22g total is somewhat below the nitrogen-based figure; no fixed downgrade applied, same treatment as other collagen-containing items in this catalog. Off-label micros ESTIMATED from the whey/milk/egg protein blend + cocoa: phosphorus ~250mg/pack (HIGH -- protein isolates; relevant if tracking phosphorus for kidney-function reasons, not otherwise noted as relevant here), Mg ~29mg, selenium ~11mcg, choline ~36mg (egg whites contribute little choline since it's concentrated in yolk, which is absent here). LOW-MEDIUM confidence. PURINES ~29mg/pack -- LOW-MODERATE (whey/milk/egg all low-purine; collagen negligible). Gout-favorable protein sources. SUGAR ALCOHOL LOAD: 11g erythritol/pack. Erythritol is absorbed in the small intestine and excreted in urine largely unchanged, so it causes far less GI distress than maltitol/sorbitol at equivalent doses (contrast the think! bar's 13g maltitol in this catalog) -- but very high erythritol intake has separate research raising questions about cardiovascular clotting markers, an active area of study as of the training cutoff. Ingredients: protein blend (milk protein isolate, dried egg whites, whey protein isolate), erythritol, polydextrose, water, collagen peptides, high oleic sunflower oil, glycerin, modified resistant tapioca starch, <2% of: cocoa processed with alkali, gum arabic, natural flavors, baking soda, potassium bicarbonate, salt, magnesium chloride, xanthan gum, citric acid, sunflower lecithin, sucrose fatty acid esters, sodium lactate, sucralose, guar gum. CONTAINS milk, eggs. Processed in a facility that also processes peanuts and tree nuts. Gluten free."
+          ]
         },
         "loven_fresh_protein_everything_bagel": {
           "name": "L'Oven Fresh Protein Everything Bagel (Aldi)",
@@ -7181,7 +7421,7 @@
               "multiplier": 1.8
             }
           ],
-          "notes": "Label-derived (high confidence): kcal, macros, sodium (550mg/30g = EXTREME 18.3 mg/g), cholesterol (60mg/30g), Fe (4% DV), K (2% DV). Estimated from USDA turkey deli meat + paprika oleoresin composition (medium confidence): B12 (~0.01 mcg/g), niacin (B3 high from turkey ~0.05 mg/g), B6, choline, selenium, water ~30%. Purines moderate-high (~120 mg/100g — flag for gout). Ingredients: turkey, salt, spices, <2% dextrose, water, flavoring, smoke flavoring, lactic acid starter culture, oleoresin of paprika, garlic powder, SODIUM NITRITE (preservative), citric acid, BHA, BHT (synthetic antioxidant preservatives — chronic intake safety debated). PROCESSED MEAT — WHO IARC Group 1 carcinogen association. Marketed as 60% less fat than original pepperoni.",
+          "notes": "Classic wing plain, 1 ea = 30.78 g. Per-1-g values derived from per-serving facts (kcal, fat, sf, cholesterol, sodium, protein, calcium, potassium). Label omits vitamins and most minerals; fields not on the label are zero, fill from USDA chicken-wing data if better accuracy needed.",
           "brand": "Mama Cozzi's (Aldi)"
         },
         "mandarin": {
@@ -7426,7 +7666,7 @@
               "multiplier": 50
             }
           ],
-          "notes": "Lidl Preferred Selection Jamón Serrano. Spain, aged 12mo min. 3 oz (85 g) pkg = 3 servings × 28 g. Pork ham + sea salt. 21 mg Na/g. k/g P 7.0. Re-added 2026-05-14 after sync issue.",
+          "notes": "Reggano Grated Parmesan Cheese (ALDI), 8 oz (227g), 45 servings. Label per 5g (2 tsp): 20 kcal, 2g protein, 1.5g fat, 1g sat fat, <5mg cholesterol, 90mg sodium, 0 carbs, calcium 55mg, iron 0, potassium 9mg. Ingredients: parmesan cheese (part-skim cow milk, cultures, salt, enzymes), powdered cellulose (anti-caking), potassium sorbate. Cholesterol estimated at 0.88 mg/g (USDA grated parmesan ~88mg/100g, consistent with label <5mg). Vitamins, phosphorus (high in hard cheese), magnesium, zinc, selenium from USDA grated parmesan — MEDIUM CONFIDENCE.",
           "defaultMeasuredIn": "g",
           "brand": "Pampa"
         },
@@ -7599,7 +7839,7 @@
               "multiplier": 28
             }
           ],
-          "notes": "Nature's Own Life Keto Soft White Bread (Flowers Baking Co). 16 servings, 1 slice (28g/1.0oz), net wt 16oz. Label per slice: 35 kcal, 1g fat (0 sat, 0.5g poly, 0 mono), 0 trans, 0 chol, 200mg sodium (9% DV), 10g total carb, 10g fiber (35% DV), 0g sugar, 0 added, 6g protein, Vit D 0, Calcium 0mg, Iron 0.4mg, K 20mg. Front of pack claims NET 1g carb (total carb minus fiber; arithmetic actually gives 0g -- label rounding). KCAL CORRECTION: stored 38 kcal/slice (1.3571/g) vs label 35. Label uses net-carb Atwater (6x4 + 1x9 = 33) and prices the 10g fiber at only ~0.2 kcal/g. Fiber here is modified wheat starch -- RS4 (chemically cross-linked resistant starch, the LEAST fermentable class, ~0-1 kcal/g) plus trace guar gum and flax seed meal. Applied the catalog's standard ~0.5 kcal/g for RS4 breads (same methodology as the Hero bagel/bun, Royo bagel, Arnold keto rolls): 33 + 5 = 38. Real value plausibly 35-40; correction is small. Protein source: wheat protein isolate (vital gluten) -- lysine-limited, no complementary legume, so utilizable protein is below the 6g nitrogen figure. Calcium: label reads 0mg but calcium sulfate is an ingredient, so trace (~0.5mg/slice) stored rather than a true zero. Off-label micros ESTIMATED from wheat protein isolate + modified wheat starch + flax: phosphorus ~45mg/slice (relevant to reduced-eGFR history), Mg ~10mg, selenium ~7mcg, omega-3 ALA trace from flax seed meal. LOW-MEDIUM confidence. PURINES ~11mg/slice -- LOW (wheat gluten). Ingredients: water, modified wheat starch, wheat protein isolate, yeast, 2% or less: expeller pressed canola oil, sugar, salt, vinegar, enzymes, guar gum, calcium sulfate, flax seed meal. CONTAINS wheat; made on equipment that also processes sesame, may contain sesame."
+          "notes": "Trader Joe's Charcuteria Serrano Ham (dry-cured, from a chorizo/salchichon/serrano variety pack). Ingredients: pork, sea salt (only). Label per 2 slices (30g): 70 kcal, 3g fat (1g sat), 0 trans, 10mg chol, 400mg sodium (17% DV -- HIGH, cured), 0 carb, 0 fiber, 0 sugar, 11g protein (very protein-dense), Vit D 0, Ca 10mg, Iron 1.7mg (10%), K 130mg. All label-exact. Off-label micros ESTIMATED from dry-cured pork: selenium ~15mcg/serving, thiamin (pork high), phosphorus ~60mg/serving (relevant to reduced-eGFR history), choline ~25mg, B12/B6/zinc. LOW-MEDIUM confidence. PURINES ~1.0 mg/g => ~30mg per 2-slice serving -- MODERATE (cured pork). Relevant to uric-acid/gout history. LOW confidence. Distinct from Lidl serrano entry (brand-specific label). CONTAINS pork. No nitrates/nitrites added (except naturally in sea salt/swiss chard)."
         },
         "nectarine": {
           "name": "Nectarine",
@@ -7783,7 +8023,7 @@
               "multiplier": 100
             }
           ],
-          "notes": "Oikos Triple Zero Vanilla, blended nonfat Greek yogurt, 32oz/907g tub (~5 servings). Label per 3/4 cup (170g): 100 kcal, 0 fat, 0 sat, 0 trans, 10mg chol, 65mg sodium, 7g carb, 0 fiber, 6g sugar (0 added -- stevia sweetened), 17g protein, Vit D 2.3mcg (10%), Ca 170mg (15%), Iron 0, K 170mg. All label-exact. Triple Zero = 0 added sugar, 0 artificial sweeteners, 0 fat. Off-label micros ESTIMATED from nonfat Greek yogurt: phosphorus ~200mg/serving (relevant to reduced-eGFR history), iodine ~60mcg (dairy), B12 ~1mcg, riboflavin, selenium. LOW-MEDIUM confidence. Purines ~5mg/serving -- LOW (dairy, gout-favorable). Same Triple Zero base as the lemon entry, vanilla flavor. Ingredients: cultured nonfat milk, water, <1% natural flavors, tapioca starch, stevia leaf extract, lemon juice concentrate, sea salt, vitamin D3, yogurt cultures. CONTAINS milk."
+          "notes": "Oikos Triple Zero Lemon (Danone). 5.3 oz / 150 g cup. \"Triple Zero\" = 0 added sugar (sweetened with stevia leaf extract), 0 fat, 0 artificial sweeteners. Cultured Grade A nonfat milk + tapioca starch (texture) + lemon juice concentrate + turmeric (color) + stevia + vitamin D3. Cultures: S. thermophilus, L. bulgaricus. Per cup: 90 kcal · 15 g protein. k/g P 6.0 — well under your 8.0 protein-positive cutoff. Single cup is below the 44 g per-meal anabolic threshold (the per-meal protein needed at age 42 to fully trigger muscle protein synthesis) — pair with another protein source for a full MPS-triggering meal."
         },
         "omega3": {
           "name": "Omega-3 (fish oil)",
@@ -8540,8 +8780,7 @@
               "default": true,
               "multiplier": 35
             }
-          ],
-          "notes": "Guessed cut: center-cut pork loin (lean), the leanest pork commonly sold as flat steaks/chops. USDA SR Legacy Pork, fresh, loin, whole, separable lean only, cooked, broiled, per 100g: 211 kcal, 29.5g protein, 9.6g fat, 3.4g sat fat, 82mg cholesterol, 57mg sodium, 423mg potassium. Broiled plain, no added salt/fat. transfat ~0.04g/100g naturally occurring. Pork is very high in thiamin (B1 ~0.83mg/100g) and selenium. Purines ~150mg/100g (moderate-high). If the actual cut was tenderloin it would be ~30% leaner (~143 kcal/100g); loin assumed per the steak description."
+          ]
         },
         "portofino_yellowfin_tuna": {
           "name": "Tuna yellowfin in olive oil Portofino",
@@ -8587,7 +8826,7 @@
               "multiplier": 100
             }
           ],
-          "notes": "Portofino Solid Yellowfin Tuna in Extra Virgin Olive Oil with Sea Salt. Wild caught. Net 4.5oz/128g, DRAINED 4oz/113g. Label per 1 can DRAINED (113g): 230 kcal, 13g fat (2.5 sat, 2.5 poly, 8 mono -- mostly retained olive oil; yellowfin is lean), 0 trans, 40mg chol, 380mg sodium (17%), 0 carb, 29g protein, Vit D 10%, Iron 6%, K 8%, Niacin 90%, B6 15%, B12 80%, SELENIUM 190% (very high). NOTE: this is the DRAINED value. The free packing oil (~15g = 128 net - 113 drained) is NOT included here; log separately as olive oil if the oil is eaten. Off-label micros ESTIMATED from yellowfin: phosphorus ~316mg/can (relevant to reduced-eGFR history), choline ~73mg, iodine ~17mcg. LOW-MEDIUM confidence. PURINES ~1.7 mg/g => ~192mg per can -- HIGH (tuna 150-200 mg/100g). Significant for uric-acid/gout history. MEDIUM confidence. Ingredients: yellowfin tuna, extra virgin olive oil, sea salt. CONTAINS fish (tuna)."
+          "notes": "Source: USDA SR Legacy #11457 (raw spinach). Per 100g: 23 kcal, 2.86g protein, 0.39g fat, 0.063g sat fat, 0g trans fat (plant product), 2.2g fiber, 79mg sodium, 558mg potassium, 99mg calcium, 2.71mg iron (non-heme), 91.4g water. Notable micronutrients: vitamin K 483mcg/100g, folate 194mcg/100g, vitamin C 28mg/100g. All values high-confidence USDA data."
         },
         "premier": {
           "name": "Protein shake",
@@ -8632,7 +8871,8 @@
           ],
           "defaultMeasuredIn": "g",
           "brand": "Premier",
-          "purines": 0.15
+          "purines": 0.15,
+          "notes": "Label per 1 bar (62g): 150 kcal, 28g protein, 2g fat (1.5g sat), 12g carb, 1g fiber, 0g sugar, 7g sugar alcohol, 160mg sodium, 10mg cholesterol, Ca 140mg (10% DV), Fe 0.4mg, K 110mg. PDCAAS 1.0 claimed; '75% CFP' (calories from protein) claimed. KCAL: label 150 stored as-is (accurate) — the low calorie count is achieved via EPG (Esterified Propoxylated Glycerol, 'modified plant fat'), a fat replacer that is largely non-absorbed (~0.7 kcal/g vs 9 for real fat); the 2g fat figure already reflects EPG's reduced caloric contribution. Sugar-alcohol (7g: maltitol + allulose + glycerin) calories already baked into the 150. PROTEIN CAVEAT: 28g is total protein but the 'protein system' is milk protein isolate + COLLAGEN (#2 ingredient) + whey concentrate + egg white. Collagen is an incomplete, low-leucine protein (~2.5% leucine vs whey ~11%) that contributes little to muscle protein synthesis. Collagen fraction is undisclosed by David; MPS/leucine-effective protein is therefore somewhat below the 28g label (rough est ~22-26g effective), though milk isolate + whey + egg white carry most of the load. PDCAAS 1.0 can mask this (caps at 1.0; DIAAS would be more revealing). EPG note: novel fat replacer, FDA GRAS; at high intakes can cause olestra-like GI effects (claimed better tolerated). Estimated micros from dairy-protein blend (medium confidence): phosphorus high (~2 mg/g, dairy), iodine + B12 (dairy), choline. Ingredients: protein system (milk protein isolate, collagen, whey protein concentrate, egg white), binding system (maltitol, allulose, glycerin, soluble corn fiber, tapioca starch, soy lecithin), fat system (modified plant fat [EPG], coconut oil), flavor system (unsweetened chocolate, dutch process cocoa, natural & artificial flavor, salt, sucralose, acesulfame K). Contains milk, egg, soy. May contain peanut, sesame, tree nuts. Gluten free."
         },
         "premier_indulgence_wcr": {
           "name": "Protein shake Premier Indulgence white choc raspberry",
@@ -8693,7 +8933,7 @@
               "multiplier": 100
             }
           ],
-          "notes": "Premier Protein Indulgence, White Chocolate Raspberry, 11 fl oz (325 mL) shake, 1 serving/container. Bottle stored as 325g (matches existing premier shake convention; mL~=g). FULLY LABELED -- all values label-exact, HIGH confidence. Per bottle: 170 kcal, 3g fat, 1g sat, 0 trans, 20mg chol, 230mg sodium, 5g carb, <1g fiber (~0.8g via 3% DV), 3g sugar (2g added), 30g protein. Micros per bottle: Vit D 6mcg, Ca 650mg, Iron 1.8mg, K 180mg, Vit A 230mcg, Vit C 46mg, Vit E 3.8mg, Vit K 30mcg, thiamin 0.24mg, riboflavin 0.26mg, niacin 3.2mg, B6 0.34mg, folate 80mcg DFE (47mcg folic acid), B12 0.48mcg, biotin 6mcg, pantothenic 1mg, phosphorus 550mg (45% DV -- relevant to reduced-eGFR history), iodine 23mcg, Mg 90mg, zinc 2.8mg, selenium 8mcg, copper 0.14mg, manganese 0.35mg, chromium 5.3mcg, molybdenum 6.8mcg. Protein = milk-based (milk protein concentrate/calcium caseinate/whey -- complete, high quality; no downgrade). ESTIMATED (not on label, minor): choline ~30mg, purines ~5mg/bottle LOW (dairy protein is low-purine, gout-favorable), water ~85%. Oils: sunflower and/or soybean oil (high-oleic). Gluten free. CONTAINS milk."
+          "notes": "Label-derived (high confidence): kcal, macros, sodium, sugar (5g/170g all from natural milk lactose — 0g added), Ca (10% DV), K (6% DV), cholesterol. Sweetened with stevia (steviol glycosides) only — no artificial sweeteners. Estimated from USDA nonfat Greek yogurt composition (high confidence): B12 (~0.0075 mcg/g notable), iodine (high in dairy ~0.5 mcg/g), choline, Mg, P (~1.35 mg/g), Zn, Se. Modified corn starch added for body/texture (replaces fat-derived mouthfeel). Live active cultures (typical Greek strains). Water ~85% (slightly higher than typical Greek due to starch dilution). Ingredients: cultured pasteurized milk, modified corn starch, natural flavors, concentrate, steviol glycosides. Contains milk. Product of Canada."
         },
         "premier_latte": {
           "name": "Protein shake latte",
@@ -8970,7 +9210,7 @@
               "multiplier": 3
             }
           ],
-          "notes": "MyVegan (Myprotein) Soy Protein Isolate, chocolate flavour. Macros from product label per 30 g scoop (33 scoops / 1 kg bag): 26 g protein, 1 g carb, 0 g fat/SF/trans/sugar/fibre, 220 mg sodium, calcium 22% DV, iron 20% DV. kcal set to 120 per user (label printed 110); at 120 kcal that is 4.0 kcal/g, slightly above the ~3.7 kcal/g of the whey isolates and not fully reconcilable via Atwater with 0 g fat. Calcium/iron back-calculated on the OLD FDA Daily Values (calcium 1000 mg, iron 18 mg) because this is the pre-2016 label format -> 220 mg calcium and 3.6 mg iron per scoop. Fat/SF printed 0 g (sub-threshold); estimated 0.3 g fat / 0.05 g SF per scoop. Off-label minerals (Mg, P, K, Zn, Cu, Mn, Se) backfilled from USDA SR Legacy 16122 Soy protein isolate (sodium type, consistent with the high label sodium). B-vitamins, folate (B9), and choline estimated from the same USDA entry -- LOW CONFIDENCE. Purines ~1.2 mg/g (~36 mg/scoop) estimated from soy purine literature (soyfoods 50-150 mg/100 g; USDA does not track purines) -- LOW CONFIDENCE, though the per-serving load is low for uric-acid purposes. Omega-3 trace (defatted isolate). Iodine, chromium, molybdenum, biotin (B7) unknown, left at 0."
+          "notes": "Animal Whey Isolate Loaded Protein Powder, Strawberry, 4 lb tub (1814g), 57 servings. Ingredients: whey protein isolate, ultra-filtered whey protein concentrate, digestive enzyme blend (papain, bromelain), artificial flavors, lecithin, gum blend, xanthan gum, carrageenan, sodium chloride, natural strawberry pieces, beet root powder, acesulfame potassium, sucralose. Macros and calcium/iron/potassium/phosphorus/magnesium from label (÷32). Label also lists Chloride 135mg/serving (not a tracked field). b2, b5, b12, choline, zinc, selenium estimated from USDA whey isolate data — LOW CONFIDENCE. Purines ~70mg/100g estimated for concentrated whey — LOW CONFIDENCE."
         },
         "protein_whey_animal_strawberry": {
           "name": "Protein powder whey isolate strawberry",
@@ -9184,7 +9424,7 @@
               "multiplier": 32
             }
           ],
-          "notes": "Quest Tortilla Style Protein Chips, Nacho (Quest Nutrition), 1 bag (32g). Label per bag: 140 kcal, 5g fat (1g sat), 0 trans, 5mg chol, 290mg sodium (13%), 5g carb, 1g fiber, 1g sugar, 0 added, 19g protein, Vit D 0, Ca 170mg (15%), Iron 0.4mg, K 50mg. All label-exact. kcal stored at label 140 (fiber only 1g; negligible). Protein = milk protein isolate + whey protein isolate + calcium caseinate (complete, high quality). Off-label micros ESTIMATED from dairy protein isolates: phosphorus ~200mg/bag (HIGH -- protein isolates; relevant to reduced-eGFR history), Mg ~30mg, selenium ~10mcg. LOW-MEDIUM confidence. Purines ~10mg/bag -- LOW (dairy). CONTAINS milk, soy."
+          "notes": "Label per 1 bagel (75g): 130 kcal LABEL, 19g protein (front-panel confirmed; side-panel '10g' was glare misread), 4g fat, 0.5g sat, 25g carb, 21g fiber, 0g sugar, 460mg sodium, 0 cholesterol, Ca 20mg, Iron 3mg (15% DV), K 30mg. Net carb = 4g. KCAL CORRECTION (revised): stored at 140 kcal/bagel (1.8667 kcal/g). Fiber is 'resistant wheat starch' = almost certainly RS4 (chemically phosphated/cross-linked wheat starch, e.g. Fibersym). RS4 is the LEAST fermentable resistant starch type — caloric availability ~0-1 kcal/g, NOT the ~2 kcal/g of readily-fermentable RS2/RS3. So the standard 'add back 2 kcal/g' fiber rule does NOT cleanly apply here. Added back only ~0.5 kcal/g over the ~21g fiber = ~10 kcal over label's 130 = 140 total. Real value plausibly 135-150. (Earlier stored 162 was an over-correction that wrongly treated this as readily-fermentable fiber.) Estimated micros from wheat gluten + fava bean protein composition (medium confidence): folate (B9) elevated from fava (~1 mcg/g), selenium (wheat ~0.3 mcg/g), manganese, phosphorus, Mg. B12=0 (plant). Protein blend: vital wheat gluten + fava bean protein (complementary lysine). Ingredients: water, resistant wheat starch, wheat protein, fava bean protein, [remainder obscured]. Contains wheat. High-protein/high-fiber/low-net-carb marketed bagel."
         },
         "quest_smores_bar": {
           "name": "Protein bar Quest s'mores",
@@ -9481,7 +9721,7 @@
               "multiplier": 85
             }
           ],
-          "notes": "Wild caught Alaskan pink salmon, MSC-certified sustainable. Includes edible bones (calcium source). 14.75 oz can = 5 servings. Pink and sockeye are the LOW-mercury canned salmon picks (vs higher-mercury King/Chinook). Drain liquid before macro calculations apply; values are for drained weight.",
+          "notes": "Nature's Own Life Keto Soft White Bread (Flowers Baking Co). 16 servings, 1 slice (28g/1.0oz), net wt 16oz. Label per slice: 35 kcal, 1g fat (0 sat, 0.5g poly, 0 mono), 0 trans, 0 chol, 200mg sodium (9% DV), 10g total carb, 10g fiber (35% DV), 0g sugar, 0 added, 6g protein, Vit D 0, Calcium 0mg, Iron 0.4mg, K 20mg. Front of pack claims NET 1g carb (total carb minus fiber; arithmetic actually gives 0g -- label rounding). KCAL CORRECTION: stored 38 kcal/slice (1.3571/g) vs label 35. Label uses net-carb Atwater (6x4 + 1x9 = 33) and prices the 10g fiber at only ~0.2 kcal/g. Fiber here is modified wheat starch -- RS4 (chemically cross-linked resistant starch, the LEAST fermentable class, ~0-1 kcal/g) plus trace guar gum and flax seed meal. Applied the catalog's standard ~0.5 kcal/g for RS4 breads (same methodology as the Hero bagel/bun, Royo bagel, Arnold keto rolls): 33 + 5 = 38. Real value plausibly 35-40; correction is small. Protein source: wheat protein isolate (vital gluten) -- lysine-limited, no complementary legume, so utilizable protein is below the 6g nitrogen figure. Calcium: label reads 0mg but calcium sulfate is an ingredient, so trace (~0.5mg/slice) stored rather than a true zero. Off-label micros ESTIMATED from wheat protein isolate + modified wheat starch + flax: phosphorus ~45mg/slice (relevant to reduced-eGFR history), Mg ~10mg, selenium ~7mcg, omega-3 ALA trace from flax seed meal. LOW-MEDIUM confidence. PURINES ~11mg/slice -- LOW (wheat gluten). Ingredients: water, modified wheat starch, wheat protein isolate, yeast, 2% or less: expeller pressed canola oil, sugar, salt, vinegar, enzymes, guar gum, calcium sulfate, flax seed meal. CONTAINS wheat; made on equipment that also processes sesame, may contain sesame.",
           "defaultMeasuredIn": "g",
           "brand": "Nixe / Lidl"
         },
@@ -9770,7 +10010,7 @@
               "multiplier": 1
             }
           ],
-          "notes": "Nutritionally IDENTICAL to simms_jerky_blackpepper (same manufacturer/formulation, Original vs Black Pepper flavor). Label per 1 oz (28g): 70 kcal, 14g protein, 1.5g fat (0.5g sat), 30mg cholesterol, 500mg sodium (extreme, 17.9 mg/g), 0 carb/fiber/sugar, Ca 2% DV, Fe 6% DV. Estimated micros from USDA dried beef (high confidence): zinc very high (~0.1 mg/g), B12 (~0.05 mcg/g), selenium, choline, phosphorus. Water ~25%. Purines moderate-high (~100 mg/100g). Ingredients: beef, gluten-free soy sauce (water, soybeans, rice, salt), beef broth, <2% flavorings, vinegar, cultured celery powder (cultured celery powder + sea salt — natural nitrite source, chemically equivalent to added nitrite in-gut), granulated garlic, salt. Contains soy. Marketed no-added-nitrites/no-MSG/no-artificial-sweeteners, gluten-free.",
+          "notes": "Chobani Zero Sugar Mixed Berry, nonfat Greek yogurt, lactose free, 150g container. Label per container: 60 kcal, 0 fat, 0 sat, 0 trans, 10mg chol, 65mg sodium, 5g carb, 0 fiber, 0 sugar (0 added), 12g protein, Vit D 0, Ca 10% (~130mg), Iron 0, K 0%. SWEETENERS: allulose + stevia + monk fruit (zero sugar). The 5g total carb is mostly ALLULOSE (a rare sugar, ~0 kcal, non-glycemic, FDA-excluded from calories/sugars). Stored ~4g in the sugarAlcohol field so net carb computes to ~1g digestible (allulose is not chemically a polyol but is functionally non-caloric like erythritol). kcal 60 = label (already accounts for allulose). Off-label micros ESTIMATED from nonfat Greek yogurt: phosphorus ~150mg/container (relevant to reduced-eGFR history), iodine ~50mcg (dairy), B12 ~0.8mcg. LOW-MEDIUM confidence. Purines ~4mg -- LOW (dairy, gout-favorable). Distinct from Chobani 20g Protein and Oikos entries. Ingredients: ultra-filtered nonfat milk, water, skim milk, allulose, <2%: natural flavors, tapioca flour, citrus fiber, sea salt, guar gum, veg juice concentrate (color), stevia leaf extract, monk fruit extract, cultures. CONTAINS milk.",
           "brand": "Simms (Aldi)"
         },
         "skim_milk": {
@@ -9821,37 +10061,43 @@
           "brand": "Slate",
           "category": "liquids",
           "defaultMeasuredIn": "g",
-          "kcal": 0.428894,
-          "p": 0.094808,
-          "fat": 0.002257,
-          "sf": 0.001129,
+          "kcal": 0.4289,
+          "p": 0.0948,
+          "fat": 0.0023,
+          "sf": 0.0011,
           "transFat": 0,
-          "carbs": 0.009029,
-          "fiber": 0.004515,
-          "sugar": 0.002257,
+          "carbs": 0.009,
+          "fiber": 0.0045,
+          "sugar": 0.0023,
           "addedSugar": 0,
-          "cholesterol": 0.06772,
-          "sodium": 0.857788,
+          "cholesterol": 0.0677,
+          "sodium": 0.8578,
           "water": 0.87,
-          "vitD": 0.015801,
-          "calcium": 2.243792,
-          "iron": 0.004515,
-          "potassium": 0.954853,
-          "vitA": 0.665914,
+          "vitD": 0.0158,
+          "calcium": 2.2438,
+          "iron": 0.0045,
+          "potassium": 0.9549,
+          "vitA": 0.6659,
           "phosphorus": 1.772,
           "magnesium": 0.2257,
-          "zinc": 0.00745,
+          "zinc": 0.0075,
           "selenium": 0.0587,
-          "b12": 0.00903,
-          "b2": 0.00316,
-          "b5": 0.00632,
-          "b6": 0.00068,
+          "b12": 0.009,
+          "b2": 0.0032,
+          "b5": 0.0063,
+          "b6": 0.0007,
           "choline": 0.2867,
           "iodine": 0.2709,
-          "copper": 0.000339,
-          "manganese": 0.000226,
+          "copper": 0.0003,
+          "manganese": 0.0002,
           "purines": 0.0226,
           "displayUnits": [
+            {
+              "label": "2 cans (886 g)",
+              "amount": 886,
+              "unit": "g",
+              "multiplier": 886
+            },
             {
               "label": "1 can (443 g)",
               "amount": 443,
@@ -9860,42 +10106,32 @@
               "multiplier": 443
             },
             {
-              "label": "2 cans (886 g)",
-              "amount": 886,
-              "unit": "g",
-              "multiplier": 886
-            },
-            {
               "label": "100 g",
               "amount": 100,
               "unit": "g",
               "multiplier": 100
             }
-          ],
-          "notes": "Slate Ultra Protein, high protein milk shake, CHOCOLATE. 15 fl oz / 443 mL can, 1 serving. Slate Craft Goods Inc, Boston MA. Stored as 443 g (mL~=g, matching the catalog's shake convention; true mass ~460 g at ~1.04 g/mL, so per-gram values run slightly high). Label per can: 190 kcal, 1g fat (0.5g sat, 0 trans), 30mg cholesterol, 380mg sodium (17% DV), 4g total carb, 2g fiber, 1g total sugars, 0g ADDED sugars, 42g protein (84% DV), Vit D 7mcg (35%), Calcium 994mg (80%), Iron 2mg (10%), Potassium 423mg (8%), Vitamin A 295mcg (35%). All label-exact. Front of can: 1g sugar, 2g net carbs (4g carb - 2g fiber). kcal NEEDS NO CORRECTION: 42x4 + 1x9 + 2g net carb x4 + 2g fiber at ~2 = 189 vs label 190. Essentially exact. DIFFERENCES FROM THE VANILLA ENTRY in this catalog (cocoa processed with alkali is the only added ingredient): +10 kcal (190 vs 180), 4g carb vs 2g, 2g fiber vs 1g (cocoa fiber), 1g fat vs 0g, iron 2mg vs 0mg (cocoa is a real iron source), and LOWER sodium 380mg vs 450mg. Protein identical at 42g. Efficiency 4.5 kcal per gram of protein vs vanilla's 4.3 -- still near the ~4.0 theoretical floor for any protein beverage. Off-label micros ESTIMATED by anchoring to the declared 994mg calcium via milk's Ca:P ratio of ~1.25:1 => phosphorus ~785mg/can. HIGH in absolute terms, BUT as with the vanilla: Slate's only mineral salt is TRIPOTASSIUM CITRATE, no phosphate additives, so this phosphorus is naturally protein-bound (~40-60% absorbed) rather than the ~90-100% absorbed additive kind. LOW-MEDIUM confidence on the figure. Cocoa also contributes copper and manganese beyond the vanilla version. Other estimates: magnesium ~100mg, zinc ~3.3mg, selenium ~26mcg, B12 ~4mcg, choline ~127mg, iodine ~120mcg per can. Purines ~10mg -- LOW (dairy, gout-favorable). Sweetened with sucralose + stevia leaf (Reb M); thickened with pectin and cellulose gel/gum. Lactose free (lactase enzyme). Ingredients: ultrafiltered skim milk blend (ultrafiltered milk, water), <2% of natural flavors, cocoa (processed with alkali), salt, pectin, tripotassium citrate, sucralose, cellulose gel, cellulose gum, lactase enzyme, vitamin A palmitate, stevia leaf (Reb M), vitamin D3. No carrageenan, no erythritol, no rBST, gluten free, nut free, soy free. CONTAINS milk."
+          ]
         },
         "slate_ultra_protein_vanilla": {
           "name": "Shake Slate Ultra Protein vanilla",
           "brand": "Slate",
           "category": "liquids",
           "defaultMeasuredIn": "g",
-          "kcal": 0.40632,
-          "p": 0.094808,
-          "fat": 0,
-          "sf": 0,
+          "kcal": 0.4063,
+          "p": 0.0948,
           "transFat": 0,
-          "carbs": 0.004515,
-          "fiber": 0.002257,
-          "sugar": 0.002257,
+          "carbs": 0.0045,
+          "fiber": 0.0023,
+          "sugar": 0.0023,
           "addedSugar": 0,
-          "cholesterol": 0.06772,
-          "sodium": 1.015801,
+          "cholesterol": 0.0677,
+          "sodium": 1.0158,
           "water": 0.87,
-          "vitD": 0.015801,
-          "calcium": 2.232506,
-          "iron": 0,
-          "potassium": 0.977427,
-          "vitA": 0.665914,
+          "vitD": 0.0158,
+          "calcium": 2.2325,
+          "potassium": 0.9774,
+          "vitA": 0.6659,
           "phosphorus": 1.7607,
           "magnesium": 0.1964,
           "zinc": 0.0072,
@@ -9972,7 +10208,8 @@
               "multiplier": 14
             }
           ],
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "notes": "Volo + Vero High Protein Instant Ramen (plant-based, non-fried, air-dried). Label per 1 bag (66g): 220 kcal, 2g fat, 0.5g sat, 0 trans, 0 chol, 660mg sodium (29% DV, HIGH), 18g carb, 4g fiber, 3g sugar, 0 added sugar, 32g protein, Vit D 0, Ca 53mg, Iron 5.5mg (30% DV, high -- label-exact), K 177mg. Nutrition panel = 2 servings/container (132g). SODIUM varies by flavor: the box is a variety pack (Spicy Kimchi, Spicy Curry, Beef, Chicken seasonings) sharing one panel; 660mg is representative, beef/chicken/curry differ. kcal stored at label 220 BUT likely ~6-10 kcal overcounted: label uses total-carb x4, counting the 4g fiber at 4 kcal/g, though konjac powder/glucomannan (~0 kcal) and pea fiber (~2 kcal/g) are sub-4; real value ~210-214. Small/uncertain, left at label. Protein 32g at label. Blend = vital wheat gluten (lysine-limited) + pea protein (complements lysine) + buckwheat flour (lysine-rich pseudograin) = reasonably COMPLETE plant blend, decent DIAAS; no downgrade applied. Off-label micros ESTIMATED from noodle composition (vital wheat gluten, pea protein, wheat + buckwheat flour, pea fiber, konjac, xanthan): Mg ~50mg (buckwheat), phosphorus ~150mg/serving (relevant to reduced-eGFR history), Mn/Cu bumped by buckwheat, selenium ~15mcg from wheat. LOW-MEDIUM confidence. PURINES ~75mg/serving MODERATE: noodle (wheat gluten low, pea protein moderate, buckwheat moderate) PLUS seasoning yeast extract and disodium 5'-ribonucleotide (added inosinate/guanylate purines). Relevant to uric-acid/gout history. LOW confidence. b12 = 0 (plant, unfortified). Full box net 17.8oz/504g. CONTAINS wheat, soy. Noodle ingredients: vital wheat gluten, pea protein, wheat flour, buckwheat flour, pea fiber powder, konjac powder, xanthan gum, sodium carbonate, tapioca starch."
         },
         "smuckers_sf_strawberry_preserves": {
           "name": "Preserves strawberry sugar-free Smucker's",
@@ -10134,7 +10371,6 @@
           "sf": 0.0006,
           "water": 0.914,
           "sodium": 0.79,
-          "notes": "Source: USDA SR Legacy #11457 (raw spinach). Per 100g: 23 kcal, 2.86g protein, 0.39g fat, 0.063g sat fat, 0g trans fat (plant product), 2.2g fiber, 79mg sodium, 558mg potassium, 99mg calcium, 2.71mg iron (non-heme), 91.4g water. Notable micronutrients: vitamin K 483mcg/100g, folate 194mcg/100g, vitamin C 28mg/100g. All values high-confidence USDA data.",
           "displayUnits": [
             {
               "label": "100 g",
@@ -10324,7 +10560,8 @@
               "multiplier": 21
             }
           ],
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "notes": "Arnold Superior Keto Sandwich Thins / Rolls (Bimbo Bakeries), 6 pre-sliced rolls, net 12oz/340g, 57g/roll. Label per roll: 100 kcal, 3g fat (0.5 sat, 1.5 poly, 1 mono), 0 trans, 0 chol, 310mg sodium (13%), 21g carb, 17g fiber (61% DV!), <1g sugar, 0 added, 12g protein, Vit D 0, Ca 60mg, Iron 0.9mg, K 80mg. Net carb 4g. kcal STORED AT LABEL 100 -- already embeds ~0.5 kcal/g on the fiber (net-carb base ~91 + ~9). NOTE: fiber = soluble corn fiber + inulin (chicory) + oat fiber + modified wheat starch. Inulin & soluble corn fiber are MORE fermentable than the RS4/psyllium in the Hero/Royo keto breads, so a strict ~2 kcal/g fermentable-fiber treatment would put this ~110-115 kcal; kept at label for consistency with the other keto breads. Off-label micros ESTIMATED from wheat protein isolate + sunflower flour + oat fiber + soybean oil: phosphorus ~90mg/roll (relevant to reduced-eGFR history), Mg ~30mg, selenium ~15mcg, folate ~20mcg. LOW-MEDIUM confidence. PURINES ~30mg/roll -- LOW-MODERATE (wheat gluten/oat). CONTAINS wheat, soy, sesame; bakery may use milk."
         },
         "subway_pocket_chicken": {
           "name": "Chicken protein pocket peppercorn ranch",
@@ -10758,8 +10995,7 @@
               "unit": "g",
               "multiplier": 28.5
             }
-          ],
-          "notes": "Trader Joe's Nova Salmon Pieces (cold-smoked farmed Atlantic salmon, Chile/Patagonia). Ingredients: Atlantic salmon (color added), salt, hardwood smoke. About 4 servings/container (2 slices/57g each => ~228g). Label per 57g: 80 kcal, 3.5g fat, 0.5g sat, 0 trans, 30mg chol, 610mg sodium (27% DV, HIGH -- cured/smoked), 0 carb, 11g protein, Vit D 5.2mcg (25%), Ca 10mg, Iron 0.5mg, K 270mg. All label-exact (high confidence). Off-label micros ESTIMATED from smoked Atlantic salmon (USDA): selenium ~18mcg/serving, B12 ~1.7mcg, niacin ~4mg, phosphorus ~114mg/serving (relevant to reduced-eGFR history), choline ~51mg, omega-3 (EPA+DHA) ~0.34g/serving. LOW-MEDIUM confidence. PURINES ~1.3 mg/g => ~74mg per 57g serving -- MODERATE (fish; salmon ~130mg/100g). Relevant to uric-acid/gout history. LOW confidence. Distinct from generic 'Smoked salmon' catalog entry. CONTAINS fish (salmon)."
+          ]
         },
         "tj_serrano_ham": {
           "name": "Ham serrano Trader Joe's",
@@ -10809,7 +11045,7 @@
               "multiplier": 15
             }
           ],
-          "notes": "Trader Joe's Charcuteria Serrano Ham (dry-cured, from a chorizo/salchichon/serrano variety pack). Ingredients: pork, sea salt (only). Label per 2 slices (30g): 70 kcal, 3g fat (1g sat), 0 trans, 10mg chol, 400mg sodium (17% DV -- HIGH, cured), 0 carb, 0 fiber, 0 sugar, 11g protein (very protein-dense), Vit D 0, Ca 10mg, Iron 1.7mg (10%), K 130mg. All label-exact. Off-label micros ESTIMATED from dry-cured pork: selenium ~15mcg/serving, thiamin (pork high), phosphorus ~60mg/serving (relevant to reduced-eGFR history), choline ~25mg, B12/B6/zinc. LOW-MEDIUM confidence. PURINES ~1.0 mg/g => ~30mg per 2-slice serving -- MODERATE (cured pork). Relevant to uric-acid/gout history. LOW confidence. Distinct from Lidl serrano entry (brand-specific label). CONTAINS pork. No nitrates/nitrites added (except naturally in sea salt/swiss chard)."
+          "notes": "Label per 4 slices (56g): 70 kcal, 11g protein, 2g fat, 0.5g sat, 0g trans, 35mg cholesterol, 1g carb, 0g fiber, <1g total sugars, <1g added sugars, 470mg sodium (20% DV — HIGH, 8.39 mg/g), Vit D 0, Calcium 0, Iron 0.7mg (4%), Potassium 200mg (4%). Sub-threshold sugar corrected to ~0.5g (all added, from cane sugar). Label macros/sodium/cholesterol/iron/potassium high confidence. Micros estimated from USDA cured-ham composition (high confidence — well-characterized): pork is one of the richest thiamine sources (B1 ~0.53 mg/100g), niacin (B3 ~3.5 mg/100g), B6, B12 (~1 mcg/100g), selenium (~20 mcg/100g), zinc (~2.3 mg/100g), choline (~90 mg/100g). Phosphorus set to ~200 mg/100g (natural pork only — this product has NO added phosphate, unlike most deli hams which run ~280–320 mg/100g). Water ~70%. Purines moderate ~150 mg/100g. Ingredients: pork, water, sea salt, cane sugar, vinegar powder, cultured celery powder. UNCURED / 'no nitrates or nitrites added' — but the cultured celery powder is a natural nitrate source that bacterial cultures convert to nitrite in situ, so the finished product still contains nitrite; 'uncured' is a USDA labeling distinction, not a nitrite-free guarantee. Still a PROCESSED MEAT — WHO IARC Group 1 (colorectal-cancer association at chronic ≥50g/day). Sodium-dense; moderate purines relevant for uric-acid/gout management. 95% lean, fully cooked, Animal Welfare Certified (GAP Step 1), raised without added hormones/antibiotics, vegetarian feed. Value Pack, net wt 14 oz (397g), ~7 servings."
         },
         "tofu_firm_half": {
           "name": "Tofu firm",
@@ -10856,7 +11092,7 @@
               "multiplier": 91
             }
           ],
-          "notes": "SIMMER METHOD — silken-ish texture from firm tofu\n\nWhy it works: two things happen at once. (1) Water migration — firm tofu was made denser by pressing water out; simmering lets it absorb water back, plumping and softening. (2) Salt loosens the tight protein bonds that give firm tofu its chewy bite, and seasons the tofu from the inside (firm tofu is famously bland on its own).\n\nINGREDIENTS (yields ~2 servings, half a container)\n• ½ container (227 g) Nature's Soy firm tofu\n• 500 ml (2 cups) cold water\n• 2 tsp (10 g) salt → makes a 2% saline solution\n\nSTEPS\n\n1. Drain the tofu. Open the package over the sink, pour off the storage water. Lift the block out and blot it dry with a paper towel or clean cloth.\n   Why: the packaging water is bland and slightly soybean-smelling. Getting rid of it lets the salted simmer water flavor the tofu instead of competing with it.\n\n2. Cut the tofu before simmering. For most uses, 2–3 cm (¾–1 inch) cubes work well. Cut precisely — once simmered, the tofu becomes too fragile to recut without breaking.\n   Why: surface area exposed to salted water determines how much texture changes. Cubes balance softening throughout the piece while keeping a clean plated shape.\n\n3. Pour 500 ml of cold water into a small saucepan or wide skillet — choose a vessel that holds the tofu cubes in a single layer. Place over medium heat.\n\n4. Bring to a GENTLE simmer. You want small bubbles rising occasionally, not a rolling boil.\n   Why: vigorous boiling agitates the tofu and breaks it apart. Firm tofu becomes fragile during this process; the surface is the first thing to go.\n\n5. Add 2 tsp salt to the simmering water. Stir briefly until dissolved.\n   Don't taste the water — 2% saline is unpleasantly salty in your mouth, but the tofu only absorbs a fraction of it. The final tofu will taste seasoned, not salty.\n\n6. Lower the tofu cubes in with a slotted spoon or flat strainer. Submerge fully.\n   If they float: the water level is right.\n   If they sink heavily: the tofu was extra-pressed (this is fine — they'll absorb water and rise gradually).\n\n7. Set a timer:\n   • 10 minutes → slightly softer than firm; \"medium\" tofu texture, still firmly cuttable.\n   • 12–15 minutes → noticeably softer, like \"soft\" tofu, gently springy bite.\n   • Past 15 minutes → starts losing structural integrity.\n   • Past 20 minutes → you'll need to fish out fragments.\n   For silken-ish target, aim 13–15 minutes.\n\n8. While simmering: keep the heat low. If the water rolls hard, lower the burner. Don't stir — the cubes are fragile. If you must reposition, lift and place gently with a slotted spoon, never push or scrape.\n\n9. Lift the tofu out with a slotted spoon. Drain on a plate lined with paper towel.\n   Don't dump the pot through a colander — the drop impact will shatter soft cubes.\n\n10. Use immediately for best texture. Options:\n    • Toss in sauce (mapo tofu, garlic-chili oil, mushroom gravy).\n    • Cold: pour a splash of soy sauce, sesame oil, top with chopped green onion and chili crisp — Chinese-style cold tofu.\n    • Layer into a bowl with rice or noodles.\n    • Blend into a dressing or pudding-style dish.\n\nSTORAGE\nRefrigerate leftovers in their own salted simmer water (not plain water — plain water leaches the seasoning back out). Use within 24 hours. The texture continues to soften while sitting and gets fragile by day 2.\n\nTIPS\n• Richer flavor: replace plain water with light vegetable broth or dashi (kombu + dried bonito) before adding the salt. The 2 tsp salt amount stays the same.\n• A sliver of fresh ginger and a small piece of star anise in the simmer water adds subtle Chinese-style aroma.\n• Slightly under-simmer (10–11 min) if the tofu will then go into a hot sauced dish — the residual heat continues softening.\n• Saline scaling: 2 tsp salt per 500 ml is the 2% ratio. 1 L water → 4 tsp salt. 250 ml (1 cup) → 1 tsp.",
+          "notes": "Label-derived (high confidence): kcal, macros, sodium (550mg/30g = EXTREME 18.3 mg/g), cholesterol (60mg/30g), Fe (4% DV), K (2% DV). Estimated from USDA turkey deli meat + paprika oleoresin composition (medium confidence): B12 (~0.01 mcg/g), niacin (B3 high from turkey ~0.05 mg/g), B6, choline, selenium, water ~30%. Purines moderate-high (~120 mg/100g — flag for gout). Ingredients: turkey, salt, spices, <2% dextrose, water, flavoring, smoke flavoring, lactic acid starter culture, oleoresin of paprika, garlic powder, SODIUM NITRITE (preservative), citric acid, BHA, BHT (synthetic antioxidant preservatives — chronic intake safety debated). PROCESSED MEAT — WHO IARC Group 1 carcinogen association. Marketed as 60% less fat than original pepperoni.",
           "potassium": 1.3187,
           "defaultMeasuredIn": "g",
           "brand": "Nature's Soy"
@@ -10912,28 +11148,29 @@
           "category": "recipes",
           "ingredients": [
             {
-              "itemKey": "tomato_paste_giant",
-              "amount": 170
-            },
-            {
-              "itemKey": "sucralose",
-              "amount": 1
+              "itemKey": "tomato_paste_signature_select",
+              "amount": 340
             },
             {
               "itemKey": "evoo_tsp",
-              "amount": 5
+              "amount": 10
+            },
+            {
+              "itemKey": "garlic_powder",
+              "amount": 9
             }
           ],
           "displayUnits": [
             {
               "label": "full recipe",
-              "multiplier": 176,
-              "amount": 176,
+              "amount": 359,
               "unit": "g",
               "default": true,
-              "locked": true
+              "locked": true,
+              "multiplier": 359
             }
-          ]
+          ],
+          "defaultMeasuredIn": "units"
         },
         "tomato_paste_giant": {
           "name": "Tomato paste",
@@ -10971,6 +11208,73 @@
           "notes": "Giant Food tomato paste. 12 oz (340 g) can, ~10 servings × 33 g per label. Same product family as the unbranded tomato_paste item (which is the 6 oz / 170 g size); kcal and macros are essentially identical per gram. Sodium unusually low (15 mg per 33 g serving = 4 mg/oz) - many tomato paste brands run 100-300 mg per serving, so this Giant SKU is a low-sodium win. Potassium 270 mg per 33 g serving (6% DV) - meaningful in a slab batch.",
           "brand": "Giant",
           "purines": 0.3
+        },
+        "tomato_paste_signature_select": {
+          "name": "Tomato paste Signature Select (Safeway)",
+          "brand": "Signature Select",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.909091,
+          "p": 0.030303,
+          "fat": 0,
+          "sf": 0,
+          "transFat": 0,
+          "carbs": 0.181818,
+          "fiber": 0.060606,
+          "sugar": 0.121212,
+          "addedSugar": 0,
+          "cholesterol": 0,
+          "sodium": 0.606061,
+          "water": 0.74,
+          "vitD": 0,
+          "calcium": 0.363636,
+          "iron": 0.030303,
+          "potassium": 9.272727,
+          "magnesium": 0.42,
+          "phosphorus": 0.83,
+          "zinc": 0.0063,
+          "copper": 0.0031,
+          "manganese": 0.003,
+          "selenium": 0.059,
+          "vitC": 0.219,
+          "vitA": 0.76,
+          "vitE": 0.043,
+          "vitK": 0.114,
+          "b1": 0.0006,
+          "b2": 0.0015,
+          "b3": 0.031,
+          "b6": 0.0022,
+          "b9": 0.12,
+          "choline": 0.26,
+          "purines": 0.1,
+          "displayUnits": [
+            {
+              "label": "2 Tbsp (33 g)",
+              "amount": 33,
+              "unit": "g",
+              "default": true,
+              "multiplier": 33
+            },
+            {
+              "label": "1 Tbsp (16.5 g)",
+              "amount": 16.5,
+              "unit": "g",
+              "multiplier": 16.5
+            },
+            {
+              "label": "can (340 g)",
+              "amount": 340,
+              "unit": "g",
+              "multiplier": 340
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Signature Select (Safeway store brand) Tomato Paste. About 10 servings per container of 2 Tbsp (33g) => ~330-340g can (12 oz). Ingredients: TOMATOES, CITRIC ACID. That's the entire list -- no salt, no oil, no preservatives. Non-BPA can lining. Vegan. Label per 33g: 30 kcal, 0g fat, 0mg cholesterol, 20mg sodium (1% DV), 6g total carb, 2g fiber, 4g total sugars (0g ADDED -- all intrinsic tomato sugar), 1g protein, Vit D 0, Calcium 12mg, Iron 1mg (6%), Potassium 306mg (6%). All label-exact. kcal kept at label 30, though slightly generous: total-carb Atwater gives 28, net-carb-with-fiber gives 24, and USDA tomato paste (82 kcal/100g) implies 27 for 33g. The 3-6 kcal spread is immaterial at this serving size; left at label. NEAR-DUPLICATE WARNING: the 'tomato_paste_giant' entry in this catalog is the same product class (Giant brand, 340g can) with identical macros per 33g -- 30 kcal, 1g protein, 6g carb, 2g fiber, 4g sugar. The only real differences are sodium (Giant 15mg vs Signature Select 20mg per serving) and potassium (270 vs 306mg). Kept as a separate brand entry, but either can stand in for the other; this one carries the fuller micronutrient set. OFF-LABEL MICROS from USDA (tomato paste, canned, without salt added, per 100g): potassium 1014mg, vitamin C 21.9mg, vitamin A 76mcg RAE, VITAMIN E 4.3mg (unusually high for a vegetable -- tomato paste is a legitimate vitamin E source), vitamin K 11.4mcg, niacin 3.1mg, B6 0.22mg, magnesium 42mg, phosphorus 83mg, copper 0.31mg, manganese 0.30mg, folate 12mcg, choline 26mg. HIGH confidence (whole food, well characterised). LYCOPENE ~28,700 mcg/100g -- tomato paste is the single richest common dietary source of lycopene, roughly 10x fresh tomato by weight, and the carotenoid is MORE bioavailable after the heat processing and concentration, not less. No lycopene field exists in this tracker, so it is recorded here only. POTASSIUM IS THE STANDOUT NUMBER: 306mg per 2-Tbsp serving, ~1000mg per 100g -- very potassium-dense for a condiment-sized portion. Sodium is remarkably low at 20mg/serving because no salt is added; most canned tomato products run 10-30x higher. Purines ~10mg/100g -- VERY LOW (vegetable, gout-favorable)."
         },
         "too_good_mixed_berry": {
           "name": "Yogurt Greek Too Good & Co. mixed berry",
@@ -11017,7 +11321,7 @@
               "multiplier": 100
             }
           ],
-          "notes": "Too Good & Co. (Danone) blended low-sugar Greek yogurt cup, mixed berry (blueberry/strawberry/raspberry purees), 150g container. Label per container (150g): 80 kcal, 2g fat (1g sat), 0 trans, <5mg chol, 35mg sodium, 4g carb, 0 fiber, 2g sugar (0 added -- stevia), 12g protein, Vit D 10% (~2mcg), Ca 8% (~104mg), Iron 0, K 2% (~94mg). Label-derived (high confidence). 'At least 70% less sugar (2g/5.3oz) vs avg Greek yogurt (10g/5.3oz)', no artificial sweeteners. Off-label micros ESTIMATED from low/nonfat Greek yogurt: phosphorus ~150mg/container (relevant to reduced-eGFR history), iodine ~45mcg, B12 ~0.8mcg. LOW-MEDIUM confidence. Purines ~4mg -- LOW (dairy). Ingredients: cultured ultra-filtered nonfat milk, cultured reduced-fat milk, water, <1% berry purees, tapioca starch, natural flavors, lemon juice concentrate, gellan gum, stevia extract, sea salt, fruit/veg juice concentrate (color), vitamin D3, yogurt cultures. CONTAINS milk. NOT eaten -- catalog only."
+          "notes": "Dannon Light + Fit Greek, Boston Cream Pie, fat free yogurt, 150g (5.3oz) container, 1 serving. Label per container: 80 kcal, 0 fat, 0 sat, 0 trans, 10mg chol, 45mg sodium, 8g carb, 0 fiber, 7g total sugars (2g added), 12g protein, Vit D 0%, Calcium 10% (~130mg), Iron 0%, Potassium 2% (~94mg). All label-exact. kcal NEEDS NO CORRECTION: Atwater reconciles exactly (12x4 + 8x4 = 80). No fiber, no sugar alcohols, no polydextrose. SWEETENERS: fructose (caloric, the 2g added sugar) plus acesulfame potassium and sucralose (both non-nutritive, 0 kcal). The other ~5g of sugar is naturally occurring lactose from the nonfat milk. NOTE ON 'GREEK': thickened with modified food starch rather than fully strained, so texture/protein come partly from formulation; protein 12g per 150g (8%) is still Greek-range. Package's own comparison: Light+Fit 80 kcal/0g fat vs average flavored Greek yogurt 110 kcal/1g fat per 5.3oz. Off-label micros ESTIMATED from nonfat yogurt: phosphorus ~150mg/container (relevant to reduced-eGFR history), iodine ~45mcg (dairy), B12 ~0.8mcg, riboflavin. LOW-MEDIUM confidence. Purines ~4mg -- LOW (dairy, gout-favorable). Ingredients: cultured pasteurized nonfat milk, water, fructose, <1%: natural & artificial flavors, modified food starch, acesulfame potassium, sucralose, malic acid, potassium sorbate (freshness), yogurt cultures L. bulgaricus & S. thermophilus. Gluten free. Bioengineered ingredients. CONTAINS milk."
         },
         "tuna_can": {
           "name": "Tuna chunk light",
@@ -11329,7 +11633,8 @@
             }
           ],
           "defaultMeasuredIn": "g",
-          "brand": "Safeway"
+          "brand": "Safeway",
+          "notes": "Legendary Foods Mini Protein Donuts+, Dipped Chocolate. 1 pack = 2 mini donuts (72g), 8 packs/box. Label per pack: 180 kcal, 6g fat (1g sat, 0 trans), 10mg chol, 330mg sodium (14% DV), 28g total carb, 12g fiber (43% DV), 11g erythritol, <1g total sugars, 0g added sugars, 22g protein, Vit D 0, Calcium 20%, Iron 3%, Potassium 10%. Front-of-pack: '5g net carbs' (28 total - 12 fiber - 11 erythritol). All label-exact. CARB BREAKDOWN CHECK: 28g total carb only itemizes to 23g (12 fiber + 11 erythritol + <1 sugar); the remaining ~4-5g is unlabeled but plausibly modified resistant tapioca starch and/or polydextrose (both mid-list ingredients) -- same 'undeclared carbohydrate' phenomenon as the think! bar in this catalog, just smaller in magnitude. kcal kept at label 180: protein 22x4 + fat 6x9 = 142, leaving 38 kcal for the whole 28g carb block (~1.4 kcal/g average) -- consistent with erythritol (~0.2), fiber (~0-2), and a modified/resistant starch fraction (~2-4) blended together. No further correction applied. Protein blend is milk protein isolate + dried egg whites + whey protein isolate + collagen peptides -- collagen (added separately, listed after the main blend) is INCOMPLETE protein (no tryptophan), so utilizable protein from the 22g total is somewhat below the nitrogen-based figure; no fixed downgrade applied, same treatment as other collagen-containing items in this catalog. Off-label micros ESTIMATED from the whey/milk/egg protein blend + cocoa: phosphorus ~250mg/pack (HIGH -- protein isolates; relevant if tracking phosphorus for kidney-function reasons, not otherwise noted as relevant here), Mg ~29mg, selenium ~11mcg, choline ~36mg (egg whites contribute little choline since it's concentrated in yolk, which is absent here). LOW-MEDIUM confidence. PURINES ~29mg/pack -- LOW-MODERATE (whey/milk/egg all low-purine; collagen negligible). Gout-favorable protein sources. SUGAR ALCOHOL LOAD: 11g erythritol/pack. Erythritol is absorbed in the small intestine and excreted in urine largely unchanged, so it causes far less GI distress than maltitol/sorbitol at equivalent doses (contrast the think! bar's 13g maltitol in this catalog) -- but very high erythritol intake has separate research raising questions about cardiovascular clotting markers, an active area of study as of the training cutoff. Ingredients: protein blend (milk protein isolate, dried egg whites, whey protein isolate), erythritol, polydextrose, water, collagen peptides, high oleic sunflower oil, glycerin, modified resistant tapioca starch, <2% of: cocoa processed with alkali, gum arabic, natural flavors, baking soda, potassium bicarbonate, salt, magnesium chloride, xanthan gum, citric acid, sunflower lecithin, sucrose fatty acid esters, sodium lactate, sucralose, guar gum. CONTAINS milk, eggs. Processed in a facility that also processes peanuts and tree nuts. Gluten free."
         },
         "turkey_leg_baked": {
           "name": "Turkey leg, oven baked",
@@ -11379,7 +11684,8 @@
               "multiplier": 1
             }
           ],
-          "defaultMeasuredIn": "g"
+          "defaultMeasuredIn": "g",
+          "notes": "Smithfield Hickory Smoked Boneless Ham Steak. Label: 84g serving, 2.5 servings/container (210g total). Macros from label per-gram (÷84). transfat label shows 0g but real value ~0.02g/84g serving (CLA in pork) — corrected to 0.0002 g/g. Micronutrients from USDA SR Legacy cured smoked ham (approx. #10123/#10178) — LOW CONFIDENCE, flag for verification. Water ~63% estimated for cured smoked ham. Omega-3 ~0.20 mg/g (lean pork estimate). Purines ~120 mg/100g (moderate, cured pork)."
         },
         "turkey_salmon_black_bean_slab": {
           "name": "Turkey salmon black bean slab",
@@ -11701,6 +12007,58 @@
           },
           "purines": 0
         },
+        "water_recipe": {
+          "name": "Water (recipe ingredient)",
+          "category": "liquids",
+          "defaultMeasuredIn": "g",
+          "kcal": 0,
+          "p": 0,
+          "fat": 0,
+          "sf": 0,
+          "transFat": 0,
+          "carbs": 0,
+          "fiber": 0,
+          "sugar": 0,
+          "addedSugar": 0,
+          "cholesterol": 0,
+          "sodium": 0,
+          "water": 1,
+          "purines": 0,
+          "displayUnits": [
+            {
+              "label": "1 cup (237 g)",
+              "amount": 237,
+              "unit": "g",
+              "default": true,
+              "multiplier": 237
+            },
+            {
+              "label": "1/2 cup (118 g)",
+              "amount": 118,
+              "unit": "g",
+              "multiplier": 118
+            },
+            {
+              "label": "1 Tbsp (15 g)",
+              "amount": 15,
+              "unit": "g",
+              "multiplier": 15
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            },
+            {
+              "label": "1 liter (1000 g)",
+              "amount": 1000,
+              "unit": "g",
+              "multiplier": 1000
+            }
+          ],
+          "notes": "Plain water, for use as a RECIPE INGREDIENT. Purpose is to account for MASS in composed recipes so that per-gram values compute correctly when water is part of a mixture (a smoothie, a sauce, reconstituted powder). Contributes zero calories and zero macronutrients. 1 mL = 1 g exactly, so gram and millilitre amounts are interchangeable here. SEPARATE from the existing 'water' item in this catalog, which is deliberately configured for HYDRATION SCHEDULING -- its display units are wake / pre-lunch / afternoon / dinner at 500 mL each with daily times attached, and it sits in the 'water' category. That one is left untouched. This entry is filed under 'liquids' instead of 'water' so that using it inside recipes does not get double-counted into daily hydration totals. MINERALS DELIBERATELY LEFT AT ZERO rather than estimated. Tap water genuinely does contain calcium, magnesium, sodium, and fluoride, but the amounts vary by more than an order of magnitude between municipalities (calcium roughly 5-100 mg/L, magnesium 1-30 mg/L, sodium 5-50 mg/L), and filtered, softened, distilled, and bottled water differ again. Inventing a number would be worse than recording none. If a local water-quality report is ever available the fields can be filled in properly. COOKING CAVEAT: water that BOILS OFF does not remain in the finished dish. When building a recipe that simmers, reduces, or bakes, count only the water that stays in the final product -- otherwise the recipe's total mass is overstated and its per-gram calorie density comes out too low. For pasta or grains the reverse applies: they ABSORB water and gain mass, which is why cooked-weight values differ from dry."
+        },
         "watermelon": {
           "name": "Watermelon (fresh, raw)",
           "category": "items",
@@ -11902,7 +12260,7 @@
               "multiplier": 1
             }
           ],
-          "notes": "Classic wing plain, 1 ea = 30.78 g. Per-1-g values derived from per-serving facts (kcal, fat, sf, cholesterol, sodium, protein, calcium, potassium). Label omits vitamins and most minerals; fields not on the label are zero, fill from USDA chicken-wing data if better accuracy needed.",
+          "notes": "Premier Protein Cereal, Chocolate. Distributed by Post Consumer Brands. About 6 servings/container (42g each => ~252g). kcal NOT corrected: label 180 reconciles with Atwater 4-4-9 (5x9+14x4+20x4~181); fiber only 1g and disclosed, no sugar alcohols/polydextrose, stevia non-nutritive. Protein 20g stored at label (nitrogen). Source is a plant blend dominated by wheat gluten + wheat protein isolate (lysine-limited), plus pea protein concentrate (complements lysine) and almonds; DIAAS-adjusted utilizable protein for muscle-protein-synthesis is meaningfully below 20g, but no fixed downgrade applied (no rule for gluten/pea blends, unlike collagen). Sodium/calcium/iron/potassium/vitD are label-exact. Off-label micros ESTIMATED from ingredient model (~14g wheat gluten, ~8g almonds, ~6g wheat protein isolate, ~3g pea protein, ~6g corn flour, ~4g sugar, ~1.5g cocoa) anchored to USDA #168147 vital wheat gluten (Se 39.7, P 260, Mg 25, Zn 0.85, Cu 0.18 mg/100g) + almonds/cocoa/pea -- LOW CONFIDENCE. Per serving approx: Mg 45mg, P 128mg (relevant to reduced-eGFR history), vitamin E 2mg (almonds), Se 10mcg. Purines ~14mg/serving -- LOW purine (wheat gluten/seitan low, pea moderate; net well under 50mg/serving) -- LOW CONFIDENCE. b12, vitA, vitK, b7, iodine, molybdenum, chromium omitted (trace/absent or unknowable in this formulation).",
           "brand": "Buffalo Wild Wings"
         },
         "yogurt_half": {
@@ -11962,7 +12320,8 @@
             }
           ],
           "defaultMeasuredIn": "g",
-          "purines": 0.15
+          "purines": 0.15,
+          "notes": "Premier Protein Indulgence, White Chocolate Raspberry, 11 fl oz (325 mL) shake, 1 serving/container. Bottle stored as 325g (matches existing premier shake convention; mL~=g). FULLY LABELED -- all values label-exact, HIGH confidence. Per bottle: 170 kcal, 3g fat, 1g sat, 0 trans, 20mg chol, 230mg sodium, 5g carb, <1g fiber (~0.8g via 3% DV), 3g sugar (2g added), 30g protein. Micros per bottle: Vit D 6mcg, Ca 650mg, Iron 1.8mg, K 180mg, Vit A 230mcg, Vit C 46mg, Vit E 3.8mg, Vit K 30mcg, thiamin 0.24mg, riboflavin 0.26mg, niacin 3.2mg, B6 0.34mg, folate 80mcg DFE (47mcg folic acid), B12 0.48mcg, biotin 6mcg, pantothenic 1mg, phosphorus 550mg (45% DV -- relevant to reduced-eGFR history), iodine 23mcg, Mg 90mg, zinc 2.8mg, selenium 8mcg, copper 0.14mg, manganese 0.35mg, chromium 5.3mcg, molybdenum 6.8mcg. Protein = milk-based (milk protein concentrate/calcium caseinate/whey -- complete, high quality; no downgrade). ESTIMATED (not on label, minor): choline ~30mg, purines ~5mg/bottle LOW (dairy protein is low-purine, gout-favorable), water ~85%. Oils: sunflower and/or soybean oil (high-oleic). Gluten free. CONTAINS milk."
         },
         "yogurt_la_fermiere_lemon": {
           "name": "Yogurt whole-milk lemon (La Fermière)",
@@ -12156,6 +12515,7 @@
         }
       ]
     },
-    "chartRangeDays": 30
+    "chartRangeDays": 30,
+    "totalsMode": "collapsed"
   }
 }
