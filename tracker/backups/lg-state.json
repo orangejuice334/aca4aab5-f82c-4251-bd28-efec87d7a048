@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-08-30T12:28:48.018Z",
-  "_gistSavedAt": "2026-08-29T23:03:47.396Z",
+  "_backupTakenAt": "2026-08-31T14:42:28.370Z",
+  "_gistSavedAt": "2026-08-31T13:50:21.030Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2775,6 +2775,66 @@
         "weightMeta": "2026-08-29T14:32:17.648Z",
         "waist": 100,
         "waistMeta": "2026-08-29T14:34:31.996Z"
+      },
+      "2026-08-30": {
+        "toggles": {},
+        "counters": {
+          "legendary_donuts_dipped_chocolate": 72,
+          "slate_ultra_protein_chocolate": 443,
+          "avocado_half": 16.25,
+          "large_egg": 50,
+          "natures_own_keto_bread": 56,
+          "ham_smoked_prime_fresh_smithfield": 56,
+          "braunschweiger_john_morrell": 39,
+          "ensure_max_protein_birthday_cake": 330,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "isopure_zero_carb_apple_melon": 0,
+          "yogurt_oikos_triple_zero_lemon": 150,
+          "smuckers_sf_strawberry_preserves": 25.5,
+          "dannon_light_fit_boston_cream": 150
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "legendary_donuts_dipped_chocolate": "2026-08-30T14:01:28.988Z",
+          "slate_ultra_protein_chocolate": "2026-08-30T14:09:19.361Z",
+          "avocado_half": "2026-08-30T15:17:33.821Z",
+          "large_egg": "2026-08-30T20:30:50.487Z",
+          "natures_own_keto_bread": "2026-08-30T20:24:53.536Z",
+          "ham_smoked_prime_fresh_smithfield": "2026-08-30T20:25:01.679Z",
+          "braunschweiger_john_morrell": "2026-08-30T20:25:17.714Z",
+          "ensure_max_protein_birthday_cake": "2026-08-30T20:28:29.854Z",
+          "david_bar_choc_chip_cookie_dough": "2026-08-30T22:57:00.216Z",
+          "isopure_zero_carb_apple_melon": "2026-08-31T12:35:00.803Z",
+          "yogurt_oikos_triple_zero_lemon": "2026-08-31T02:29:41.455Z",
+          "smuckers_sf_strawberry_preserves": "2026-08-31T02:30:57.866Z",
+          "dannon_light_fit_boston_cream": "2026-08-31T02:31:03.005Z"
+        },
+        "mood": 7,
+        "moodMeta": "2026-08-30T14:01:15.818Z",
+        "weight": 87.5,
+        "weightMeta": "2026-08-30T14:08:13.231Z"
+      },
+      "2026-08-31": {
+        "toggles": {},
+        "counters": {
+          "dannon_light_fit_boston_cream": 150,
+          "slate_ultra_protein_chocolate": 443,
+          "natures_own_keto_bread": 56,
+          "braunschweiger_john_morrell": 44.8
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "dannon_light_fit_boston_cream": "2026-08-31T13:49:53.023Z",
+          "slate_ultra_protein_chocolate": "2026-08-31T13:49:57.724Z",
+          "natures_own_keto_bread": "2026-08-31T13:50:06.785Z",
+          "braunschweiger_john_morrell": "2026-08-31T13:50:19.991Z"
+        },
+        "weight": 87.8,
+        "weightMeta": "2026-08-31T12:35:30.452Z",
+        "mood": 7,
+        "moodMeta": "2026-08-31T13:49:45.003Z"
       }
     },
     "savedItems": [],
@@ -2864,7 +2924,9 @@
       "supplements-water": true,
       "section-mood-tracker": true,
       "today-customs": true,
-      "today-log": true
+      "today-log": true,
+      "details-add-new-item": true,
+      "details-recipe-maker": true
     },
     "userCatalog": {
       "items": {
@@ -4941,12 +5003,6 @@
           "water": 0.08,
           "purines": 0.1,
           "displayUnits": [
-            {
-              "label": "1 box (12 bars)",
-              "amount": 744,
-              "unit": "g",
-              "multiplier": 744
-            },
             {
               "label": "1 bar",
               "amount": 62,
@@ -12515,7 +12571,6 @@
         }
       ]
     },
-    "chartRangeDays": 30,
-    "totalsMode": "collapsed"
+    "chartRangeDays": 30
   }
 }
