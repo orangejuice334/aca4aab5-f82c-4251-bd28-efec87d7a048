@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-08-31T14:42:28.370Z",
-  "_gistSavedAt": "2026-08-31T13:50:21.030Z",
+  "_backupTakenAt": "2026-09-01T12:16:06.420Z",
+  "_gistSavedAt": "2026-09-01T01:03:42.439Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2820,16 +2820,32 @@
         "counters": {
           "dannon_light_fit_boston_cream": 150,
           "slate_ultra_protein_chocolate": 443,
-          "natures_own_keto_bread": 56,
-          "braunschweiger_john_morrell": 44.8
+          "natures_own_keto_bread": 112,
+          "braunschweiger_john_morrell": 44.8,
+          "too_good_mixed_berry": 150,
+          "yogurt_oikos_triple_zero_lemon": 150,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "string_cheese": 63,
+          "ensure_max_protein_birthday_cake": 330,
+          "harvest_snaps": 50,
+          "ham_smoked_prime_fresh_smithfield": 28,
+          "avocado_half": 52
         },
         "customs": [],
         "toggleMeta": {},
         "counterMeta": {
           "dannon_light_fit_boston_cream": "2026-08-31T13:49:53.023Z",
           "slate_ultra_protein_chocolate": "2026-08-31T13:49:57.724Z",
-          "natures_own_keto_bread": "2026-08-31T13:50:06.785Z",
-          "braunschweiger_john_morrell": "2026-08-31T13:50:19.991Z"
+          "natures_own_keto_bread": "2026-09-01T01:02:06.619Z",
+          "braunschweiger_john_morrell": "2026-08-31T13:50:19.991Z",
+          "too_good_mixed_berry": "2026-08-31T17:07:01.920Z",
+          "yogurt_oikos_triple_zero_lemon": "2026-08-31T17:07:06.975Z",
+          "david_bar_choc_chip_cookie_dough": "2026-08-31T18:22:58.888Z",
+          "string_cheese": "2026-08-31T18:23:06.190Z",
+          "ensure_max_protein_birthday_cake": "2026-08-31T20:38:15.201Z",
+          "harvest_snaps": "2026-08-31T20:46:08.670Z",
+          "ham_smoked_prime_fresh_smithfield": "2026-09-01T01:02:27.981Z",
+          "avocado_half": "2026-09-01T01:02:40.739Z"
         },
         "weight": 87.8,
         "weightMeta": "2026-08-31T12:35:30.452Z",
@@ -11221,8 +11237,8 @@
               "label": "full recipe",
               "amount": 359,
               "unit": "g",
-              "default": true,
               "locked": true,
+              "default": true,
               "multiplier": 359
             }
           ],
