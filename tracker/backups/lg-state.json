@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-01T12:16:06.420Z",
-  "_gistSavedAt": "2026-09-01T01:03:42.439Z",
+  "_backupTakenAt": "2026-09-02T11:53:35.651Z",
+  "_gistSavedAt": "2026-09-01T23:15:26.173Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2851,6 +2851,50 @@
         "weightMeta": "2026-08-31T12:35:30.452Z",
         "mood": 7,
         "moodMeta": "2026-08-31T13:49:45.003Z"
+      },
+      "2026-09-01": {
+        "toggles": {},
+        "counters": {
+          "legendary_donuts_dipped_chocolate": 72,
+          "slate_ultra_protein_chocolate": 443,
+          "yogurt_oikos_triple_zero_lemon": 150,
+          "egg_fried": 46,
+          "avocado_half": 91,
+          "natures_own_keto_bread": 56,
+          "braunschweiger_john_morrell": 56,
+          "ensure_max_protein_birthday_cake": 330,
+          "wf_sesame_bagel": 54.35,
+          "cream_cheese": 15,
+          "cheese_provolone_lucerne": 11.4
+        },
+        "customs": [
+          {
+            "id": "80aaef1e-97d0-47f0-98da-94c5aed2be0e",
+            "name": "350kcal 10p",
+            "kcal": 350,
+            "p": 10,
+            "count": 1,
+            "lastModified": "2026-09-01T12:52:54.699Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "legendary_donuts_dipped_chocolate": "2026-09-01T12:52:24.039Z",
+          "slate_ultra_protein_chocolate": "2026-09-01T15:31:05.455Z",
+          "yogurt_oikos_triple_zero_lemon": "2026-09-01T18:47:47.641Z",
+          "egg_fried": "2026-09-01T18:54:22.033Z",
+          "avocado_half": "2026-09-01T23:14:08.928Z",
+          "natures_own_keto_bread": "2026-09-01T23:13:57.893Z",
+          "braunschweiger_john_morrell": "2026-09-01T23:14:16.100Z",
+          "ensure_max_protein_birthday_cake": "2026-09-01T23:14:53.028Z",
+          "wf_sesame_bagel": "2026-09-01T19:15:25-04:00",
+          "cream_cheese": "2026-09-01T19:15:25-04:00",
+          "cheese_provolone_lucerne": "2026-09-01T19:15:25-04:00"
+        },
+        "weight": 88,
+        "weightMeta": "2026-09-01T18:47:13.924Z",
+        "mood": 7,
+        "moodMeta": "2026-09-01T15:30:50.326Z"
       }
     },
     "savedItems": [],
@@ -2936,13 +2980,13 @@
       "section-archive-section": true,
       "catalog-archive": true,
       "targets-accumulation": true,
-      "profile": true,
       "supplements-water": true,
       "section-mood-tracker": true,
       "today-customs": true,
       "today-log": true,
-      "details-add-new-item": true,
-      "details-recipe-maker": true
+      "details-recipe-maker": true,
+      "profile": true,
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
@@ -4882,6 +4926,72 @@
             }
           ],
           "defaultMeasuredIn": "g"
+        },
+        "cream_cheese": {
+          "name": "Cream cheese regular",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 3.42,
+          "p": 0.0593,
+          "fat": 0.3424,
+          "sf": 0.1929,
+          "transFat": 0.009,
+          "carbs": 0.0552,
+          "fiber": 0,
+          "sugar": 0.0376,
+          "addedSugar": 0,
+          "cholesterol": 1.01,
+          "sodium": 3.14,
+          "water": 0.53,
+          "vitD": 0.002,
+          "vitA": 3.08,
+          "calcium": 0.97,
+          "iron": 0.0011,
+          "potassium": 1.38,
+          "magnesium": 0.09,
+          "phosphorus": 1.07,
+          "zinc": 0.005,
+          "selenium": 0.045,
+          "b1": 0.00002,
+          "b2": 0.00242,
+          "b3": 0.0001,
+          "b5": 0.0051,
+          "b6": 0.0004,
+          "b9": 0.11,
+          "b12": 0.0024,
+          "choline": 0.27,
+          "vitE": 0.0022,
+          "vitK": 0.0022,
+          "iodine": 0.15,
+          "purines": 0.05,
+          "displayUnits": [
+            {
+              "label": "1 tbsp (14.5 g)",
+              "amount": 14.5,
+              "unit": "g",
+              "default": true,
+              "multiplier": 14.5
+            },
+            {
+              "label": "2 tbsp (29 g)",
+              "amount": 29,
+              "unit": "g",
+              "multiplier": 29
+            },
+            {
+              "label": "1 oz / deli schmear (28 g)",
+              "amount": 28,
+              "unit": "g",
+              "multiplier": 28
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "GENERIC cream cheese, REGULAR full-fat (Philadelphia-style block or tub). NO LABEL -- values from USDA per 100g: 342 kcal, 5.93g protein, 34.24g fat (19.29g saturated), 5.52g carb, 3.76g sugar, 101mg cholesterol, 314mg sodium, 97mg calcium, 138mg potassium, 107mg phosphorus, 308mcg RAE vitamin A, 0.24mcg B12, 27mg choline. HIGH confidence (well-characterised staple), but ASSUMES FULL-FAT. IF THE PRODUCT IS DIFFERENT, THE NUMBERS MOVE A LOT: whipped cream cheese is ~30% less dense by volume (a tablespoon weighs ~11g not 14.5g); Neufchatel / 'reduced fat' runs ~1/3 fewer calories (~230 kcal/100g); fat-free is ~105 kcal/100g. Swap or re-add if any of those apply. PORTION REFERENCE: 1 tbsp = ~14.5g (~50 kcal). A deli 'schmear' is typically 1 oz / 28g (~96 kcal) and a heavy bagel-shop application can reach 2 oz / 57g (~195 kcal) -- cream cheese is easy to under-estimate by eye because it is spread thin over a wide area. Fat is ~90% of calories and about 56% of that fat is saturated, which is high even among cheeses. Protein is negligible for a dairy product at 5.9g/100g -- cream cheese is legally a fat product, not a protein one (contrast provolone at ~26g/100g). Trans fat ~0.9g/100g is naturally occurring ruminant trans (vaccenic acid / CLA), not industrial. Purines very low (dairy, gout-favorable). CONTAINS milk."
         },
         "creatine": {
           "name": "Creatine 5 g",
