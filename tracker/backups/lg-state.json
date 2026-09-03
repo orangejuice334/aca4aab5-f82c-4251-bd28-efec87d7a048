@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-02T11:53:35.651Z",
-  "_gistSavedAt": "2026-09-01T23:15:26.173Z",
+  "_backupTakenAt": "2026-09-03T11:52:18.895Z",
+  "_gistSavedAt": "2026-09-03T01:26:47.351Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2895,6 +2895,38 @@
         "weightMeta": "2026-09-01T18:47:13.924Z",
         "mood": 7,
         "moodMeta": "2026-09-01T15:30:50.326Z"
+      },
+      "2026-09-02": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_chocolate": 443,
+          "natures_own_keto_bread": 112,
+          "braunschweiger_john_morrell": 44,
+          "soy_milk_original": 197.6,
+          "laughing_cow_light": 38
+        },
+        "customs": [
+          {
+            "id": "9dd4a0b9-3576-4321-b5ad-e3bac539f10c",
+            "name": "200kcal 10p",
+            "kcal": 200,
+            "p": 10,
+            "count": 1,
+            "lastModified": "2026-09-02T21:02:21-04:00"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_chocolate": "2026-09-02T13:24:27.611Z",
+          "natures_own_keto_bread": "2026-09-02T21:02:21-04:00",
+          "braunschweiger_john_morrell": "2026-09-02T13:25:05.916Z",
+          "soy_milk_original": "2026-09-02T16:54:27.280Z",
+          "laughing_cow_light": "2026-09-02T21:02:21-04:00"
+        },
+        "mood": 7,
+        "moodMeta": "2026-09-02T12:35:12.052Z",
+        "weight": 86.8,
+        "weightMeta": "2026-09-03T01:26:01.933Z"
       }
     },
     "savedItems": [],
@@ -2982,10 +3014,11 @@
       "targets-accumulation": true,
       "supplements-water": true,
       "section-mood-tracker": true,
-      "today-customs": true,
       "today-log": true,
-      "details-recipe-maker": true,
       "profile": true,
+      "details-recipe-maker": true,
+      "catalog-ratio": true,
+      "today-customs": true,
       "details-add-new-item": true
     },
     "userCatalog": {
@@ -7278,6 +7311,67 @@
             }
           ],
           "defaultMeasuredIn": "g"
+        },
+        "laughing_cow_light": {
+          "name": "Cheese spreadable wedges Laughing Cow light",
+          "brand": "The Laughing Cow (Bel Brands)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.315789,
+          "p": 0.105263,
+          "fat": 0.078947,
+          "sf": 0.052632,
+          "transFat": 0,
+          "carbs": 0.052632,
+          "fiber": 0,
+          "sugar": 0.052632,
+          "addedSugar": 0,
+          "cholesterol": 0.263158,
+          "sodium": 8.421053,
+          "water": 0.6,
+          "vitD": 0,
+          "calcium": 6.842105,
+          "iron": 0,
+          "potassium": 0,
+          "phosphorus": 8,
+          "magnesium": 0.11,
+          "zinc": 0.036,
+          "selenium": 0.09,
+          "vitA": 0.95,
+          "b2": 0.0035,
+          "b12": 0.011,
+          "b5": 0.006,
+          "choline": 0.1,
+          "iodine": 0.3,
+          "purines": 0.05,
+          "displayUnits": [
+            {
+              "label": "1 wedge (19 g)",
+              "amount": 19,
+              "unit": "g",
+              "default": true,
+              "multiplier": 19
+            },
+            {
+              "label": "2 wedges (38 g)",
+              "amount": 38,
+              "unit": "g",
+              "multiplier": 38
+            },
+            {
+              "label": "container (8 wedges, 154 g)",
+              "amount": 154,
+              "unit": "g",
+              "multiplier": 154
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "The Laughing Cow LIGHT spreadable cheese wedges (Bel Brands USA). 8 wedges per container, 0.68 oz (19g) each, net 5.4 oz (154g). Label per 1 wedge (19g): 25 kcal, 1.5g fat (1g sat, 0 trans), 5mg cholesterol, 160mg sodium (7% DV), 1g total carb, 0g fiber, 1g total sugars (0g ADDED -- intrinsic milk lactose), 2g protein, Vit D 0%, Calcium 10%, Iron 0%, Potassium 0%. All label-exact. kcal NEEDS NO CORRECTION: 2x4 + 1.5x9 + 1x4 = 25.5 vs label 25. Essentially exact. Pack states fat is reduced from 3.5g to 1.5g per serving versus the original -- a ~57% fat cut, which is where the '50% less fat' and '25 calories' claims come from. SODIUM IS THE NUMBER TO WATCH: 160mg in a 19g wedge = 842mg per 100g. Extremely salt-dense for the portion size -- two wedges deliver 320mg, more than a slice of American cheese, from only 50 kcal. This is characteristic of processed/spreadable cheese, where salt and emulsifying salts do the texture work that fat used to. PHOSPHATE ADDITIVES: ingredient list includes SODIUM POLYPHOSPHATE and TRICALCIUM PHOSPHATE -- these are the emulsifiers that make the cheese spreadable, and they are inorganic phosphate salts absorbed at ~90-100%, versus roughly 40-60% for the phosphorus naturally bound in cheese protein. Estimated ~150mg phosphorus per wedge, a large share of it additive-derived. The tricalcium phosphate also inflates the 'good source of calcium' claim -- some of that 10% DV is added mineral, not dairy calcium. LOW-MEDIUM confidence on the figure. PROTEIN IS LOW relative to real cheese: 2g per 25 kcal works out to 10.5g/100g, versus ~26g/100g for provolone. Made with real cheese, but diluted with whey, water, and skim milk. Off-label micros ESTIMATED from processed cheese composition: vitamin A ~18mcg RAE, B12 ~0.2mcg, iodine ~6mcg per wedge. Purines very low (dairy, gout-favorable). Ingredients: cheddar and semisoft cheese (pasteurized cultured milk and part-skim milk, salt, enzymes), whey, milk protein concentrate, water, skim milk, sodium polyphosphate, less than 2% of each: tricalcium phosphate, citric acid, salt. No artificial flavors, colors, or growth hormones. CONTAINS milk. Refrigerate after purchase."
         },
         "lean_cuisine_lasagna_meat_sauce": {
           "name": "Lasagna meat sauce Lean Cuisine",
