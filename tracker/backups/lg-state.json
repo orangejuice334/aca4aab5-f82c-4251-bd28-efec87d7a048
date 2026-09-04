@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-03T11:52:18.895Z",
-  "_gistSavedAt": "2026-09-03T01:26:47.351Z",
+  "_backupTakenAt": "2026-09-04T11:55:15.406Z",
+  "_gistSavedAt": "2026-09-03T21:04:11.184Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2927,6 +2927,53 @@
         "moodMeta": "2026-09-02T12:35:12.052Z",
         "weight": 86.8,
         "weightMeta": "2026-09-03T01:26:01.933Z"
+      },
+      "2026-09-03": {
+        "toggles": {},
+        "counters": {
+          "ensure_max_protein_birthday_cake": 330,
+          "natures_own_keto_bread": 28,
+          "soy_milk_original": 197.6,
+          "legendary_donuts_dipped_chocolate": 72,
+          "banana": 141.6,
+          "slate_ultra_protein_chocolate": 443
+        },
+        "customs": [
+          {
+            "id": "873f991e-5514-4b9b-9668-7da4fd7015cc",
+            "name": "120kcal 3p",
+            "kcal": 120,
+            "p": 3,
+            "count": 1,
+            "lastModified": "2026-09-03T13:18:48.923Z"
+          },
+          {
+            "id": "615e5805-d511-4261-b8d0-b4504fd60587",
+            "name": "250kcal 3p",
+            "kcal": 250,
+            "p": 3,
+            "count": 1,
+            "lastModified": "2026-09-03T15:08:57.594Z"
+          },
+          {
+            "id": "40d08bd5-0dcf-4677-a0be-8055fc72ad43",
+            "name": "325",
+            "kcal": 325,
+            "count": 1,
+            "lastModified": "2026-09-03T21:04:09.742Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "ensure_max_protein_birthday_cake": "2026-09-03T13:17:49.532Z",
+          "natures_own_keto_bread": "2026-09-03T13:17:54.612Z",
+          "soy_milk_original": "2026-09-03T13:18:16.962Z",
+          "legendary_donuts_dipped_chocolate": "2026-09-03T13:18:26.160Z",
+          "banana": "2026-09-03T14:42:47.948Z",
+          "slate_ultra_protein_chocolate": "2026-09-03T21:03:56.396Z"
+        },
+        "weight": 87.1,
+        "weightMeta": "2026-09-03T13:17:45.064Z"
       }
     },
     "savedItems": [],
@@ -3017,8 +3064,8 @@
       "today-log": true,
       "profile": true,
       "details-recipe-maker": true,
-      "catalog-ratio": true,
       "today-customs": true,
+      "section-weight-tracker": true,
       "details-add-new-item": true
     },
     "userCatalog": {
