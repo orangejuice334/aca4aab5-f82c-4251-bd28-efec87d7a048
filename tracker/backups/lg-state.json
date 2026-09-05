@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-04T11:55:15.406Z",
-  "_gistSavedAt": "2026-09-03T21:04:11.184Z",
+  "_backupTakenAt": "2026-09-05T11:04:35.804Z",
+  "_gistSavedAt": "2026-09-04T18:54:58.246Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2974,6 +2974,29 @@
         },
         "weight": 87.1,
         "weightMeta": "2026-09-03T13:17:45.064Z"
+      },
+      "2026-09-04": {
+        "toggles": {},
+        "counters": {
+          "natures_own_keto_bread": 56,
+          "pb_pro_protein_peanut_butter": 45,
+          "smuckers_sf_strawberry_preserves": 51,
+          "slate_ultra_protein_vanilla": 443,
+          "dannon_light_fit_boston_cream": 150
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "natures_own_keto_bread": "2026-09-04T13:05:52.677Z",
+          "pb_pro_protein_peanut_butter": "2026-09-04T13:06:06.487Z",
+          "smuckers_sf_strawberry_preserves": "2026-09-04T13:06:36.111Z",
+          "slate_ultra_protein_vanilla": "2026-09-04T13:06:43.808Z",
+          "dannon_light_fit_boston_cream": "2026-09-04T18:54:57.305Z"
+        },
+        "mood": 7,
+        "moodMeta": "2026-09-04T13:05:27.204Z",
+        "weight": 87.1,
+        "weightMeta": "2026-09-04T13:05:48.243Z"
       }
     },
     "savedItems": [],
@@ -8608,20 +8631,18 @@
           "defaultMeasuredIn": "g",
           "kcal": 4.6875,
           "p": 0.3125,
-          "fat": 0.34375,
+          "fat": 0.3438,
           "sf": 0.0625,
           "transFat": 0,
-          "carbs": 0.34375,
+          "carbs": 0.3438,
           "fiber": 0.0625,
-          "sugar": 0.03125,
+          "sugar": 0.0313,
           "addedSugar": 0,
           "sugarAlcohol": 0.21875,
-          "cholesterol": 0,
           "sodium": 2.1875,
           "water": 0.02,
-          "vitD": 0,
           "calcium": 0.9375,
-          "iron": 0.065625,
+          "iron": 0.0656,
           "potassium": 0.625,
           "magnesium": 1.5,
           "phosphorus": 3.5,
@@ -8636,6 +8657,12 @@
           "purines": 0.6,
           "displayUnits": [
             {
+              "label": "jar (454 g)",
+              "amount": 454,
+              "unit": "g",
+              "multiplier": 454
+            },
+            {
               "label": "2 Tbsp (32 g)",
               "amount": 32,
               "unit": "g",
@@ -8647,12 +8674,6 @@
               "amount": 16,
               "unit": "g",
               "multiplier": 16
-            },
-            {
-              "label": "jar (454 g)",
-              "amount": 454,
-              "unit": "g",
-              "multiplier": 454
             }
           ],
           "notes": "PB Pro Premium Protein Peanut Butter (Protein Sweets), 16oz/454g jar, 14 servings of 2 Tbsp (32g). Front label claims '140g protein per jar' -- CHECKS OUT: 10g/serving x 14 servings = 140g exactly. Label per serving: 150 kcal, 11g fat (2g sat, 0 trans), 0 chol, 70mg sodium, 11g total carb, 2g fiber, <1g total sugars, 0g added sugars, 7g sugar alcohol, 10g protein, Vit D 0, Calcium 30mg (2%), Iron 2.1mg (10%... unusually high for a peanut product; likely fortified or additive-sourced given the pea protein isolate), Potassium 20mg (0%). All label-exact. kcal NEEDS NO CORRECTION: protein 10x4 + fat 11x9 = 139, leaving 11 kcal for the whole 11g carb block (2g fiber + 7g sugar alcohol [monk fruit/erythritol blend] + <1g sugar) = ~1 kcal/g average, consistent with erythritol's near-zero contribution plus fiber plus a trace of real sugar. Protein blend is peanuts (intrinsic) PLUS ADDED pea protein isolate -- pea protein complements peanut's limiting amino acid (methionine) reasonably well, so this is a more complete protein mix than plain peanut butter; almond flour contributes additional protein and fat. Off-label micros ESTIMATED from peanut + pea protein isolate + almond flour composition: magnesium ~48mg/serving, phosphorus ~112mg/serving (relevant if tracking phosphorus for kidney-function reasons), vitamin E ~2.6mg (peanuts/almonds), folate ~22mcg, niacin ~3.8mg. LOW-MEDIUM confidence. PURINES ~19mg/serving -- LOW-MODERATE (peanuts/legumes, pea protein). Sweetened with monkfruit/erythritol blend (0g added sugar, low GI). Ingredients: PEANUTS, MONKFRUIT/ERYTHRITOL, PEA PROTEIN, ALMOND FLOUR. CONTAINS almond, peanuts. Notably short ingredient list for a 'protein-boosted' spread -- no gums, oils, or emulsifiers added beyond the four listed."
