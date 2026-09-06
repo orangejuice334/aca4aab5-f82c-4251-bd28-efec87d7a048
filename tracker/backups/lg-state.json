@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-05T11:04:35.804Z",
-  "_gistSavedAt": "2026-09-04T18:54:58.246Z",
+  "_backupTakenAt": "2026-09-06T11:28:07.698Z",
+  "_gistSavedAt": "2026-09-06T01:20:11.033Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -2997,6 +2997,54 @@
         "moodMeta": "2026-09-04T13:05:27.204Z",
         "weight": 87.1,
         "weightMeta": "2026-09-04T13:05:48.243Z"
+      },
+      "2026-09-05": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_vanilla": 443,
+          "natures_own_keto_bread": 56,
+          "tomate_frito": 150,
+          "laughing_cow_light": 38,
+          "bagel_sesame_qtr": 7,
+          "walmart_chicken_sandwich": 175,
+          "slate_ultra_protein_chocolate": 443,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "yogurt_oikos_triple_zero_lemon": 150
+        },
+        "customs": [
+          {
+            "id": "e48a9b11-f1c6-475a-8ff1-7fd4948ef7ee",
+            "name": "85kcal 2p",
+            "kcal": 85,
+            "p": 2,
+            "count": 1,
+            "lastModified": "2026-09-05T15:00:40.214Z"
+          },
+          {
+            "id": "c50422ed-8c36-4fb6-b252-3dd86e8aa75d",
+            "name": "60kcal 5p",
+            "kcal": 60,
+            "p": 5,
+            "count": 1,
+            "lastModified": "2026-09-05T15:06:37.955Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_vanilla": "2026-09-05T14:12:31.135Z",
+          "natures_own_keto_bread": "2026-09-05T14:12:38.693Z",
+          "tomate_frito": "2026-09-05T14:13:41.900Z",
+          "laughing_cow_light": "2026-09-05T14:39:17.473Z",
+          "bagel_sesame_qtr": "2026-09-05T14:39:38.989Z",
+          "walmart_chicken_sandwich": "2026-09-05T14:07:16-04:00",
+          "slate_ultra_protein_chocolate": "2026-09-06T01:19:16.371Z",
+          "david_bar_choc_chip_cookie_dough": "2026-09-06T01:19:20.759Z",
+          "yogurt_oikos_triple_zero_lemon": "2026-09-06T01:19:28.447Z"
+        },
+        "weight": 87.6,
+        "weightMeta": "2026-09-06T01:19:10.104Z",
+        "neck": 40,
+        "neckMeta": "2026-09-06T01:19:10.183Z"
       }
     },
     "savedItems": [],
@@ -3084,7 +3132,6 @@
       "targets-accumulation": true,
       "supplements-water": true,
       "section-mood-tracker": true,
-      "today-log": true,
       "profile": true,
       "details-recipe-maker": true,
       "today-customs": true,
@@ -3286,7 +3333,9 @@
               "multiplier": 28.5
             }
           ],
-          "notes": "Arnold Superior Keto Sandwich Thins / Rolls (Bimbo Bakeries), 6 pre-sliced rolls, net 12oz/340g, 57g/roll. Label per roll: 100 kcal, 3g fat (0.5 sat, 1.5 poly, 1 mono), 0 trans, 0 chol, 310mg sodium (13%), 21g carb, 17g fiber (61% DV!), <1g sugar, 0 added, 12g protein, Vit D 0, Ca 60mg, Iron 0.9mg, K 80mg. Net carb 4g. kcal STORED AT LABEL 100 -- already embeds ~0.5 kcal/g on the fiber (net-carb base ~91 + ~9). NOTE: fiber = soluble corn fiber + inulin (chicory) + oat fiber + modified wheat starch. Inulin & soluble corn fiber are MORE fermentable than the RS4/psyllium in the Hero/Royo keto breads, so a strict ~2 kcal/g fermentable-fiber treatment would put this ~110-115 kcal; kept at label for consistency with the other keto breads. Off-label micros ESTIMATED from wheat protein isolate + sunflower flour + oat fiber + soybean oil: phosphorus ~90mg/roll (relevant to reduced-eGFR history), Mg ~30mg, selenium ~15mcg, folate ~20mcg. LOW-MEDIUM confidence. PURINES ~30mg/roll -- LOW-MODERATE (wheat gluten/oat). CONTAINS wheat, soy, sesame; bakery may use milk."
+          "notes": "Arnold Superior Keto Sandwich Thins / Rolls (Bimbo Bakeries), 6 pre-sliced rolls, net 12oz/340g, 57g/roll. Label per roll: 100 kcal, 3g fat (0.5 sat, 1.5 poly, 1 mono), 0 trans, 0 chol, 310mg sodium (13%), 21g carb, 17g fiber (61% DV!), <1g sugar, 0 added, 12g protein, Vit D 0, Ca 60mg, Iron 0.9mg, K 80mg. Net carb 4g. kcal STORED AT LABEL 100 -- already embeds ~0.5 kcal/g on the fiber (net-carb base ~91 + ~9). NOTE: fiber = soluble corn fiber + inulin (chicory) + oat fiber + modified wheat starch. Inulin & soluble corn fiber are MORE fermentable than the RS4/psyllium in the Hero/Royo keto breads, so a strict ~2 kcal/g fermentable-fiber treatment would put this ~110-115 kcal; kept at label for consistency with the other keto breads. Off-label micros ESTIMATED from wheat protein isolate + sunflower flour + oat fiber + soybean oil: phosphorus ~90mg/roll (relevant to reduced-eGFR history), Mg ~30mg, selenium ~15mcg, folate ~20mcg. LOW-MEDIUM confidence. PURINES ~30mg/roll -- LOW-MODERATE (wheat gluten/oat). CONTAINS wheat, soy, sesame; bakery may use milk.",
+          "prevCategory": "items",
+          "archived": true
         },
         "avocado_half": {
           "name": "Avocado",
@@ -11512,6 +11561,12 @@
               "locked": true,
               "default": true,
               "multiplier": 359
+            },
+            {
+              "label": "1 g",
+              "amount": 1,
+              "unit": "g",
+              "multiplier": 1
             }
           ],
           "defaultMeasuredIn": "units"
@@ -12304,6 +12359,66 @@
             }
           ],
           "notes": "Vita Coco Pineapple coconut water (from concentrate), 500 mL carton = ~2 servings of 240 mL. Label columns were scrambled in photo; realigned against known coconut-water profile. PER CONTAINER (500 mL): 120 kcal, 0g protein, 28g carb, 27g sugar (10g ADDED — cane sugar added, plus coconut-water intrinsic sugars), 115mg sodium, K 979mg (20% DV — headline electrolyte), vit C 615mg (680% DV — added ascorbic acid), Ca 75mg (6%), Mg 40mg (10%), P 40mg (4%), 0.5g fat. Container mass assumed ~510g (500 mL x 1.02 density). Per-serving (240 mL): 60 kcal, 13g sugar (5g added), K 470mg, vit C 295mg. Zero protein — this is a hydration/electrolyte + sugar drink, no protein density. Purines negligible. Ingredients: coconut water from concentrate (water, coconut water concentrate), sugar, natural flavors, coconut puree, ascorbic acid (vit C), gellan gum. Gluten free."
+        },
+        "walmart_chicken_sandwich": {
+          "name": "Sandwich chicken breaded with sauce (Walmart)",
+          "brand": "Walmart",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.914285714285714,
+          "p": 0.12571428571428572,
+          "fat": 0.11428571428571428,
+          "sf": 0.02,
+          "transFat": 0,
+          "carbs": 0.3314285714285714,
+          "fiber": 0.011428571428571429,
+          "sugar": 0.06285714285714286,
+          "addedSugar": 0.05714285714285714,
+          "cholesterol": 0.2571428571428571,
+          "sodium": 6.9714285714285715,
+          "water": 0.4,
+          "vitD": 0,
+          "calcium": 0.17142857142857143,
+          "iron": 0.017714285714285714,
+          "potassium": 1.8857142857142857,
+          "phosphorus": 2,
+          "magnesium": 0.22857142857142856,
+          "zinc": 0.008571428571428572,
+          "selenium": 0.2,
+          "b1": 0.0025714285714285713,
+          "b2": 0.0017142857142857142,
+          "b3": 0.05142857142857143,
+          "b6": 0.0025714285714285713,
+          "b9": 0.7428571428571429,
+          "b12": 0.002,
+          "choline": 0.4,
+          "copper": 0.0008571428571428571,
+          "manganese": 0.0034285714285714284,
+          "vitE": 0.011428571428571429,
+          "vitK": 0.06857142857142857,
+          "purines": 0.5714285714285714,
+          "displayUnits": [
+            {
+              "label": "1 sandwich + sauce (175 g)",
+              "amount": 175,
+              "unit": "g",
+              "default": true,
+              "multiplier": 175
+            },
+            {
+              "label": "sandwich only, no sauce (160 g)",
+              "amount": 160,
+              "unit": "g",
+              "multiplier": 160
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Walmart (distributed by Walmart Inc., Bentonville AR) fully-cooked breaded chicken sandwich, sold with a separate sauce packet. SERVING AS LABELLED = 1 sandwich WITH 1 packet of sauce (15g). Label per serving: 510 kcal, 20g fat (3.5g sat, 0 trans), 45mg cholesterol, SODIUM 1220mg (53% DV), 58g total carb, 2g fiber, 11g total sugars (10g ADDED), 22g protein, Vit D 0, Calcium 30mg, Iron 3.1mg (15%), Potassium 330mg (8%). All label-exact. TOTAL WEIGHT ESTIMATED AT 175g (sandwich ~160g + 15g sauce packet, the latter stated on the label). The sandwich weight is INFERRED, not printed -- typical frozen/prepared breaded chicken sandwiches run 150-175g. Per-gram values therefore carry that uncertainty; the PER-SERVING numbers are exact and are what actually got logged, so the gram estimate only matters if a partial portion is ever logged. A 'sandwich only, no sauce' unit is provided but its nutrient values are NOT separated out -- the label combines them, so that unit merely scales everything by 160/175 and will slightly overstate a sauce-free sandwich (the sauce is ~10g of the added sugar). kcal NEEDS NO CORRECTION: 22x4 + 20x9 + 58x4 = 500 vs label 510. Ordinary rounding. SODIUM IS THE HEADLINE: 1220mg in one sandwich = 53% of the Daily Value in a single item, the highest-sodium single item in this catalog. Driven by the chicken brine seasoning, the breading, and the sauce packet together. ADDED SUGAR 10g comes almost entirely from the SAUCE POUCH, whose first ingredient is sugar (then water, distilled vinegar, soybean oil, tomato paste, corn syrup, pineapple juice concentrate). Skipping the packet removes most of the added sugar and a meaningful share of the sodium. PHOSPHATE ADDITIVES: chicken is marinated with SODIUM PHOSPHATES, and the breading leavening uses SODIUM ACID PYROPHOSPHATE and MONOCALCIUM PHOSPHATE. These are inorganic phosphate salts, absorbed at ~90-100% versus ~40-60% for protein-bound phosphorus. Estimated ~350mg total phosphorus per serving, an unusually high share of it additive-derived. LOW-MEDIUM confidence. PROTEIN EFFICIENCY IS POOR: 22g protein per 510 kcal = 23 kcal per gram of protein, comparable to the braunschweiger and far off the Slate shake's 4.3. The bun and frying oil carry most of the calories. Iron 3.1mg and folate are largely enrichment from the bun's flour, not intrinsic. Ingredients -- CHICKEN: boneless skinless chicken breasts with rib meat, water, seasoning (salt, sugar, yeast extract, natural flavors, spices, maltodextrin, modified food starch, sodium phosphates); BREADING: wheat flour, water, corn starch, sugar, salt, and 2% or less of extractives of paprika, leavening (sodium acid pyrophosphate, sodium bicarbonate, monocalcium phosphate), maltodextrin, modified corn starch, natural flavor, spices, wheat gluten, yeast; set in vegetable oil. BUNS: enriched flour (wheat flour, malted barley flour, niacin, reduced iron, thiamine mononitrate, riboflavin, folic acid), water, sugar, yeast, soybean oil, and 2% or less of salt, wheat starch, wheat gluten, maltodextrin, pea and/or potato and/or faba bean protein, guar gum, mono- and diglycerides, sunflower oil. SAUCE POUCH: sugar, water, distilled vinegar, soybean oil, tomato paste, corn syrup, pineapple juice concentrate, salt, modified corn starch, spices, beet juice (color), xanthan gum, garlic powder, onion powder, extractives of paprika. CONTAINS WHEAT."
         },
         "water": {
           "name": "Water",
