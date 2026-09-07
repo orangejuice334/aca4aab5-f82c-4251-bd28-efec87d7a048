@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-06T11:28:07.698Z",
-  "_gistSavedAt": "2026-09-06T01:20:11.033Z",
+  "_backupTakenAt": "2026-09-07T13:11:42.139Z",
+  "_gistSavedAt": "2026-09-07T12:59:28.124Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -3045,6 +3045,69 @@
         "weightMeta": "2026-09-06T01:19:10.104Z",
         "neck": 40,
         "neckMeta": "2026-09-06T01:19:10.183Z"
+      },
+      "2026-09-06": {
+        "toggles": {},
+        "counters": {
+          "natures_own_keto_bread": 168,
+          "smuckers_sf_strawberry_preserves": 34,
+          "pb_pro_protein_peanut_butter": 32,
+          "slate_ultra_protein_vanilla": 443,
+          "banana": 129.8,
+          "dannon_light_fit_boston_cream": 300,
+          "string_cheese": 42,
+          "laughing_cow_light": 38,
+          "legendary_donuts_dipped_chocolate": 72,
+          "braunschweiger_jones_dairy_farm": 56
+        },
+        "customs": [
+          {
+            "id": "f5163bee-edb9-4ea8-a944-c2235a1c5a48",
+            "name": "225kcal 5p",
+            "kcal": 225,
+            "p": 5,
+            "count": 1,
+            "lastModified": "2026-09-06T14:33:36.309Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "natures_own_keto_bread": "2026-09-06T23:16:13.780Z",
+          "smuckers_sf_strawberry_preserves": "2026-09-06T14:32:30.798Z",
+          "pb_pro_protein_peanut_butter": "2026-09-06T14:32:40.866Z",
+          "slate_ultra_protein_vanilla": "2026-09-06T14:32:52.003Z",
+          "banana": "2026-09-06T14:33:59.287Z",
+          "dannon_light_fit_boston_cream": "2026-09-06T22:26:03.699Z",
+          "string_cheese": "2026-09-06T22:26:14.252Z",
+          "laughing_cow_light": "2026-09-06T22:26:37.905Z",
+          "legendary_donuts_dipped_chocolate": "2026-09-06T22:40:42.007Z",
+          "braunschweiger_jones_dairy_farm": "2026-09-06T23:12:37.812914+00:00"
+        },
+        "weight": 87.2,
+        "weightMeta": "2026-09-06T22:25:40.893Z",
+        "mood": 7,
+        "moodMeta": "2026-09-06T22:25:40.974Z",
+        "neck": 40,
+        "neckMeta": "2026-09-06T22:25:41.057Z"
+      },
+      "2026-09-07": {
+        "toggles": {},
+        "counters": {
+          "natures_own_keto_bread": 56,
+          "smuckers_sf_strawberry_preserves": 34,
+          "pb_pro_protein_peanut_butter": 32,
+          "slate_ultra_protein_vanilla": 443
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "natures_own_keto_bread": "2026-09-07T12:58:50.117Z",
+          "smuckers_sf_strawberry_preserves": "2026-09-07T12:59:00.458Z",
+          "pb_pro_protein_peanut_butter": "2026-09-07T12:59:10.964Z",
+          "slate_ultra_protein_vanilla": "2026-09-07T12:59:26.850Z"
+        },
+        "weight": 87.4,
+        "weightMeta": "2026-09-07T12:58:05.591Z"
       }
     },
     "savedItems": [],
@@ -3129,14 +3192,13 @@
       "history": true,
       "section-archive-section": true,
       "catalog-archive": true,
-      "targets-accumulation": true,
       "supplements-water": true,
       "section-mood-tracker": true,
-      "profile": true,
       "details-recipe-maker": true,
       "today-customs": true,
-      "section-weight-tracker": true,
-      "details-add-new-item": true
+      "targets-accumulation": true,
+      "details-add-new-item": true,
+      "profile": true
     },
     "userCatalog": {
       "items": {
@@ -4072,6 +4134,73 @@
             }
           ],
           "notes": "John Morrell Braunschweiger (pork liver sausage), 16oz/454g package, 8 servings of 2 oz (56g). Label per 56g: 170 kcal (Fat Cal 110), 13g fat (4.5g sat, 0 trans), 115mg cholesterol (38% DV), 480mg sodium (20%), 5g total carb, 0g fiber, <1g sugars, 8g protein, Vitamin A 150%, Vitamin C 0%, Calcium 0%, Iron 45%. NOTE: this is an OLD-FORMAT panel (pre-2016 -- 'Fat Cal.', Vitamin A/C listed, no added-sugars line), so %DV values use the old Daily Values: Vit A 150% of 5000 IU = ~2250mcg RAE/serving; Iron 45% of 18mg = ~8.1mg/serving. kcal NEEDS NO CORRECTION: 8x4 + 13x9 + 5x4 = 169 vs label 170. Essentially exact. SUGAR sub-threshold: label reads '<1g'; estimated 0.5g/serving with ~0.4g added (corn syrup, dextrose, and sugar all appear in the ingredient list). PROTEIN IS LOW FOR A MEAT (8g per 170 kcal = 21 kcal per gram of protein) -- this is a fat-dominant emulsified sausage, not a lean protein source; fat supplies ~65% of calories. LIVER-DRIVEN MICRONUTRIENTS, from USDA FDC 171621 (braunschweiger, pork) per 100g: vitamin B12 20.09mcg (837% DV), vitamin A 4220mcg RAE (469%), riboflavin 1.5mg (117%), selenium 58mcg (105%), pantothenic acid 3.4mg (68%), niacin 8.4mg, iron 11mg, copper 0.24mg, zinc 2.8mg, phosphorus 168mg, potassium 199mg, folate 44mcg, choline ~250mg. HIGH confidence (USDA), though brand formulation varies. Per 56g serving that works out to roughly: B12 11mcg, vitamin A 2250mcg RAE, selenium 32mcg, riboflavin 0.8mg, choline 140mg, iron 8mg. VITAMIN A NOTE: ~2250mcg RAE per serving is PREFORMED retinol (not beta-carotene). The tolerable upper intake level for preformed vitamin A in adults is 3000mcg/day, so a single 2 oz serving supplies about 75% of that ceiling. Unlike carotenoids, preformed retinol accumulates and has a defined upper limit -- worth knowing if liver is eaten regularly. Factual note, not a recommendation. PURINES ~1.8 mg/g => ~100mg per 56g serving -- HIGH. Organ meats/liver are the single highest-purine food category and the classic gout trigger. Relevant to uric-acid tracking. MEDIUM confidence (liver ~290mg/100g; this product is part liver, part pork/bacon). CURED product: contains sodium nitrite plus sodium erythorbate (cure accelerator), potassium lactate and sodium diacetate (antimicrobials), and SODIUM PHOSPHATES (from the bacon component) -- additive phosphate, absorbed more completely than the liver's intrinsic phosphorus. Ingredients: pork liver, pork, bacon (pork, water, salt, sugar, sodium phosphates, sodium erythorbate, sodium nitrite), water, modified food starch, and 2% or less of corn syrup, salt, flavorings, potassium lactate, sodium lactate, dehydrated onion, sodium diacetate, dextrose, sodium erythorbate, sugar, sodium nitrite. Keep refrigerated; use within 5 days of opening."
+        },
+        "braunschweiger_jones_dairy_farm": {
+          "name": "Braunschweiger liverwurst Jones Dairy Farm",
+          "brand": "Jones Dairy Farm",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.714286,
+          "p": 0.160714,
+          "fat": 0.214286,
+          "sf": 0.071429,
+          "transFat": 0.000893,
+          "carbs": 0.035714,
+          "fiber": 0,
+          "sugar": 0.005357,
+          "addedSugar": 0.005357,
+          "sugarAlcohol": 0,
+          "cholesterol": 1.517857,
+          "sodium": 9.107143,
+          "vitA": 61.607143,
+          "vitC": 0.214286,
+          "iron": 0.080357,
+          "water": 0.552,
+          "calcium": 0.09,
+          "magnesium": 0.11,
+          "phosphorus": 1.68,
+          "potassium": 5,
+          "zinc": 0.0281,
+          "copper": 0.0024,
+          "manganese": 0.00155,
+          "selenium": 0.58,
+          "b1": 0.00249,
+          "b2": 0.01525,
+          "b3": 0.08368,
+          "b5": 0.0338,
+          "b6": 0.0033,
+          "b7": 0.16,
+          "b9": 0.44,
+          "b12": 0.2009,
+          "choline": 2.559,
+          "vitD": 0.012,
+          "vitE": 0.0035,
+          "vitK": 0.016,
+          "iodine": 0.08,
+          "omega3": 0.00257,
+          "purines": 1.8,
+          "displayUnits": [
+            {
+              "label": "2 oz (56 g)",
+              "amount": 56,
+              "unit": "g",
+              "multiplier": 56,
+              "default": true
+            },
+            {
+              "label": "1 oz (28 g)",
+              "amount": 28,
+              "unit": "g",
+              "multiplier": 28
+            },
+            {
+              "label": "package 8 oz (224 g)",
+              "amount": 224,
+              "unit": "g",
+              "multiplier": 224
+            }
+          ],
+          "notes": "Jones Dairy Farm Braunschweiger Liverwurst (Original), Fort Atkinson WI, USDA EST. 263, GFCO certified gluten-free. 8 oz / 224 g chub, 4 servings of 2 oz (56 g). OLD-FORMAT panel ('Fat Cal.', Vit A/C %DV, no added-sugars line), so %DVs use the old Daily Values (fat 65 g, sat 20 g, chol 300 mg, sodium 2400 mg, carb 300 g, Vit A 5000 IU, Vit C 60 mg, iron 18 mg); every label %DV cross-checks against those. Label per 56 g: 150 kcal (Fat Cal 110), 12 g fat (4 g sat, 0 trans), 85 mg cholesterol (28%), 510 mg sodium (21%), 2 g total carb (1%), 9 g protein, Vitamin A 230%, Vitamin C 20%, Iron 25%; 'not a significant source of dietary fiber, sugars and calcium'. KCAL: CATALOG USES 152 = Atwater 9x4 + 12x9 + 2x4. Label 150 is rounded to the nearest 10 (window 145-154), so 152 is consistent with it; Fat Cal 110 (window 105-114 = 11.7-12.7 g fat) does not justify unrounding fat above 12 g, so fat stays 12.0 g. 16.9 kcal per g protein; fat supplies ~71% of kcal. Leaner than John Morrell braunschweiger (170 kcal / 13 g fat / 8 g protein per 56 g). VITAMIN A: 230% x 5000 IU = 11,500 IU/serving. Liver vitamin A is preformed retinol (1 IU = 0.3 mcg RAE) => 3450 mcg RAE per 56 g (61.6 mcg/g). USDA generic braunschweiger (FDC 171621) is 4220 mcg RAE/100 g = 2363 per 56 g, so Jones declares ~46% above generic -- plausible for a liver-forward formulation (pork livers listed first) plus the 2-3x natural variation in liver retinol. Declared vitamins are Class II nutrients (actual must be >=80% of declared), so 3450 is nearer a floor than a ceiling. HIGH confidence in the label figure. Factual note: the preformed-retinol UL is 3000 mcg/day; one 2 oz serving is ~115% of it. IRON: 25% x 18 mg = 4.5 mg/serving (8.0 mg/100 g) vs USDA generic 11.2 mg/100 g. Jones thus declares MORE vitamin A but LESS iron than generic -- mixed signal on liver fraction, so label values are used as declared and off-label micros are taken from the generic, unscaled. VITAMIN C: 20% x 60 mg = 12 mg/serving; mostly sodium ascorbate cure accelerator (listed twice) plus residual liver ascorbate; USDA generic lists 0. Label figure used. SUGARS: 'not a significant source' = <0.5 g; dextrose and sugar are trailing ingredients (plus sugar in the bacon cure) => est 0.3 g total, all added. FIBER 0: only dehydrated onion contributes (~0.05 g/serving), effectively zero. TRANS FAT est 0.05 g/serving (pork fat is non-ruminant, ~0.4% TFA; label rounds to 0). OFF-LABEL MICROS from USDA FDC 171621 (braunschweiger, pork) per 100 g, x0.56: B12 20.1 mcg, riboflavin 1.53 mg, niacin 8.4 mg, pantothenic acid 3.4 mg, B6 0.33 mg, thiamin 0.25 mg, folate 44 mcg, choline 256 mg, selenium 58 mcg, copper 0.24 mg, zinc 2.8 mg, manganese 0.16 mg, phosphorus 168 mg, magnesium 11 mg, calcium 9 mg, vitamin D 1.2 mcg, vitamin E 0.35 mg, vitamin K 1.6 mcg. MEDIUM confidence (generic composite; Jones is leaner at 268 vs 327 kcal/100 g). Per 56 g: B12 ~11 mcg, riboflavin ~0.85 mg, selenium ~32 mcg, choline ~143 mg, phosphorus ~94 mg (includes additive sodium phosphates from the bacon component). POTASSIUM: USDA intrinsic 199 mg/100 g, BUT potassium lactate is the 4th ingredient, ahead of salt -- lactate antimicrobials run 2-3% of a 60% solution, adding ~270-460 mg K/100 g. CATALOG USES ~500 mg/100 g (280 mg/serving). LOW-MEDIUM confidence; intrinsic-only would be ~111 mg/serving. OMEGA-3 (stored in g): USDA 18:3 0.342 g/100 g scaled by fat ratio 21.4/28.5 => ~0.26 g/100 g, ~0.14 g ALA/serving; no EPA/DHA. BIOTIN est ~16 mcg/100 g (pork liver ~27 mcg, pork ~5 mcg, roughly half-and-half) => ~9 mcg/serving, LOW confidence. IODINE est ~8 mcg/100 g => ~4.5 mcg/serving, LOW confidence. Chromium and molybdenum omitted: no reliable figure for this product (liver is molybdenum-rich, so the true value is not zero). WATER ~55 g/100 g by difference (leaner than generic 50.6). PURINES ~1.8 mg/g => ~100 mg/serving, HIGH -- liver is the highest-purine food category. MEDIUM-LOW confidence (pork liver ~290 mg/100 g, diluted by pork and bacon). CURED: sodium nitrite (listed twice), sodium ascorbate / sodium erythorbate cure accelerators, potassium lactate + sodium diacetate antimicrobials, sodium phosphates (bacon component). Ingredients: pork livers, pork, bacon (cured with water, salt, sugar, sodium phosphates, sodium ascorbate and/or sodium erythorbate, sodium nitrite), potassium lactate, salt, water, spices, dehydrated onions, sodium diacetate, sodium ascorbate, dextrose, sugar, sodium nitrite. Keep refrigerated."
         },
         "bun_hamburger_white": {
           "name": "Bun hamburger white",
