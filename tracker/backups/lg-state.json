@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-07T13:11:42.139Z",
-  "_gistSavedAt": "2026-09-07T12:59:28.124Z",
+  "_backupTakenAt": "2026-09-08T11:54:56.382Z",
+  "_gistSavedAt": "2026-09-08T11:36:41.789Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -3093,21 +3093,49 @@
       "2026-09-07": {
         "toggles": {},
         "counters": {
-          "natures_own_keto_bread": 56,
+          "natures_own_keto_bread": 112,
           "smuckers_sf_strawberry_preserves": 34,
-          "pb_pro_protein_peanut_butter": 32,
-          "slate_ultra_protein_vanilla": 443
+          "pb_pro_protein_peanut_butter": 0,
+          "slate_ultra_protein_vanilla": 0,
+          "ensure_max_protein_birthday_cake": 330,
+          "evoo_tsp": 15,
+          "yogurt_oikos_triple_zero_lemon": 150,
+          "dannon_light_fit_boston_cream": 150
         },
-        "customs": [],
+        "customs": [
+          {
+            "id": "1575f49b-89c4-46c8-aeee-dc48c16a1c92",
+            "name": "200kcal 1p",
+            "kcal": 200,
+            "p": 1,
+            "count": 1,
+            "lastModified": "2026-09-07T15:16:28.408Z"
+          }
+        ],
         "toggleMeta": {},
         "counterMeta": {
-          "natures_own_keto_bread": "2026-09-07T12:58:50.117Z",
+          "natures_own_keto_bread": "2026-09-07T19:48:43.053Z",
           "smuckers_sf_strawberry_preserves": "2026-09-07T12:59:00.458Z",
-          "pb_pro_protein_peanut_butter": "2026-09-07T12:59:10.964Z",
-          "slate_ultra_protein_vanilla": "2026-09-07T12:59:26.850Z"
+          "pb_pro_protein_peanut_butter": "2026-09-07T15:15:06.371Z",
+          "slate_ultra_protein_vanilla": "2026-09-07T15:14:34.684Z",
+          "ensure_max_protein_birthday_cake": "2026-09-07T15:15:38.438Z",
+          "evoo_tsp": "2026-09-07T15:16:06.199Z",
+          "yogurt_oikos_triple_zero_lemon": "2026-09-07T15:16:39.118Z",
+          "dannon_light_fit_boston_cream": "2026-09-07T15:16:44.960Z"
         },
         "weight": 87.4,
-        "weightMeta": "2026-09-07T12:58:05.591Z"
+        "weightMeta": "2026-09-07T12:58:05.591Z",
+        "mood": 5,
+        "moodMeta": "2026-09-07T19:48:25.711Z"
+      },
+      "2026-09-08": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "weight": 87.3,
+        "weightMeta": "2026-09-08T11:35:53.512Z"
       }
     },
     "savedItems": [],
@@ -3192,13 +3220,14 @@
       "history": true,
       "section-archive-section": true,
       "catalog-archive": true,
-      "supplements-water": true,
       "section-mood-tracker": true,
       "details-recipe-maker": true,
       "today-customs": true,
       "targets-accumulation": true,
+      "profile": true,
+      "supplements-water": true,
       "details-add-new-item": true,
-      "profile": true
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
@@ -13102,7 +13131,6 @@
           "label": "Uncategorized"
         }
       ]
-    },
-    "chartRangeDays": 30
+    }
   }
 }
