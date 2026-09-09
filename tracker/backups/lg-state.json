@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-08T11:54:56.382Z",
-  "_gistSavedAt": "2026-09-08T11:36:41.789Z",
+  "_backupTakenAt": "2026-09-09T12:05:03.130Z",
+  "_gistSavedAt": "2026-09-09T02:17:38.209Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -3130,12 +3130,43 @@
       },
       "2026-09-08": {
         "toggles": {},
-        "counters": {},
-        "customs": [],
+        "counters": {
+          "slate_ultra_protein_vanilla": 443,
+          "natures_own_keto_bread": 168,
+          "braunschweiger_jones_dairy_farm": 112,
+          "banana": 118,
+          "ensure_max_protein_birthday_cake": 330,
+          "ham_smoked_prime_fresh_smithfield": 112,
+          "ketchup_heinz_packet": 18,
+          "slate_ultra_protein_chocolate": 443,
+          "dannon_light_fit_boston_cream": 300,
+          "isopure_zero_carb_apple_melon": 500
+        },
+        "customs": [
+          {
+            "id": "c244c00d-26fc-414e-8585-91d5e375cafc",
+            "name": "225kcal 3p",
+            "kcal": 225,
+            "p": 3,
+            "count": 1,
+            "lastModified": "2026-09-08T12:46:21.092Z"
+          }
+        ],
         "toggleMeta": {},
-        "counterMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_vanilla": "2026-09-08T12:46:28.866Z",
+          "natures_own_keto_bread": "2026-09-09T02:16:42.257Z",
+          "braunschweiger_jones_dairy_farm": "2026-09-09T02:17:36.941Z",
+          "banana": "2026-09-08T15:22:53.251Z",
+          "ensure_max_protein_birthday_cake": "2026-09-08T15:22:58.722Z",
+          "ham_smoked_prime_fresh_smithfield": "2026-09-08T19:23:19.749Z",
+          "ketchup_heinz_packet": "2026-09-08T19:23:41.775Z",
+          "slate_ultra_protein_chocolate": "2026-09-08T20:36:03.386Z",
+          "dannon_light_fit_boston_cream": "2026-09-09T01:40:12.465Z",
+          "isopure_zero_carb_apple_melon": "2026-09-09T01:41:32.236Z"
+        },
         "weight": 87.3,
-        "weightMeta": "2026-09-08T11:35:53.512Z"
+        "weightMeta": "2026-09-09T01:39:42.656Z"
       }
     },
     "savedItems": [],
@@ -3226,8 +3257,7 @@
       "targets-accumulation": true,
       "profile": true,
       "supplements-water": true,
-      "details-add-new-item": true,
-      "catalog-ratio": true
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
