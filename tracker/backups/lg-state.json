@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-09T12:05:03.130Z",
-  "_gistSavedAt": "2026-09-09T02:17:38.209Z",
+  "_backupTakenAt": "2026-09-10T11:59:29.453Z",
+  "_gistSavedAt": "2026-09-10T11:38:07.796Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -3167,6 +3167,50 @@
         },
         "weight": 87.3,
         "weightMeta": "2026-09-09T01:39:42.656Z"
+      },
+      "2026-09-09": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_vanilla": 443,
+          "natures_own_keto_bread": 56,
+          "pb_pro_protein_peanut_butter": 16,
+          "smuckers_sf_strawberry_preserves": 70,
+          "yogurt_oikos_triple_zero_lemon": 150,
+          "dannon_light_fit_boston_cream": 150,
+          "slate_ultra_protein_chocolate": 443,
+          "lean_cuisine_meatloaf_mashed": 265
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_vanilla": "2026-09-09T13:07:14.081Z",
+          "natures_own_keto_bread": "2026-09-09T13:07:44.882Z",
+          "pb_pro_protein_peanut_butter": "2026-09-09T13:08:08.665Z",
+          "smuckers_sf_strawberry_preserves": "2026-09-09T13:08:41.672Z",
+          "yogurt_oikos_triple_zero_lemon": "2026-09-09T14:07:45.423Z",
+          "dannon_light_fit_boston_cream": "2026-09-09T14:08:13.117Z",
+          "slate_ultra_protein_chocolate": "2026-09-09T20:30:39.910Z",
+          "lean_cuisine_meatloaf_mashed": "2026-09-09T22:41:33.737Z"
+        },
+        "weight": 86.7,
+        "weightMeta": "2026-09-09T13:23:32.455Z",
+        "waist": 99.5,
+        "waistMeta": "2026-09-09T13:23:32.669Z",
+        "neck": 40,
+        "neckMeta": "2026-09-09T13:23:32.570Z",
+        "mood": 7,
+        "moodMeta": "2026-09-09T20:06:58.991Z"
+      },
+      "2026-09-10": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "mood": 7,
+        "moodMeta": "2026-09-10T11:30:53.374Z",
+        "weight": 86.5,
+        "weightMeta": "2026-09-10T11:31:28.266Z"
       }
     },
     "savedItems": [],
@@ -3254,10 +3298,11 @@
       "section-mood-tracker": true,
       "details-recipe-maker": true,
       "today-customs": true,
-      "targets-accumulation": true,
-      "profile": true,
       "supplements-water": true,
-      "details-add-new-item": true
+      "details-add-new-item": true,
+      "profile": true,
+      "catalog-ratio": true,
+      "targets-accumulation": true
     },
     "userCatalog": {
       "items": {
@@ -8606,7 +8651,9 @@
               "multiplier": 100
             }
           ],
-          "notes": "Oikos Triple Zero Lemon (Danone). 5.3 oz / 150 g cup. \"Triple Zero\" = 0 added sugar (sweetened with stevia leaf extract), 0 fat, 0 artificial sweeteners. Cultured Grade A nonfat milk + tapioca starch (texture) + lemon juice concentrate + turmeric (color) + stevia + vitamin D3. Cultures: S. thermophilus, L. bulgaricus. Per cup: 90 kcal · 15 g protein. k/g P 6.0 — well under your 8.0 protein-positive cutoff. Single cup is below the 44 g per-meal anabolic threshold (the per-meal protein needed at age 42 to fully trigger muscle protein synthesis) — pair with another protein source for a full MPS-triggering meal."
+          "notes": "Oikos Triple Zero Lemon (Danone). 5.3 oz / 150 g cup. \"Triple Zero\" = 0 added sugar (sweetened with stevia leaf extract), 0 fat, 0 artificial sweeteners. Cultured Grade A nonfat milk + tapioca starch (texture) + lemon juice concentrate + turmeric (color) + stevia + vitamin D3. Cultures: S. thermophilus, L. bulgaricus. Per cup: 90 kcal · 15 g protein. k/g P 6.0 — well under your 8.0 protein-positive cutoff. Single cup is below the 44 g per-meal anabolic threshold (the per-meal protein needed at age 42 to fully trigger muscle protein synthesis) — pair with another protein source for a full MPS-triggering meal.",
+          "prevCategory": "items",
+          "archived": true
         },
         "omega3": {
           "name": "Omega-3 (fish oil)",
@@ -13161,6 +13208,7 @@
           "label": "Uncategorized"
         }
       ]
-    }
+    },
+    "totalsMode": "collapsed"
   }
 }
