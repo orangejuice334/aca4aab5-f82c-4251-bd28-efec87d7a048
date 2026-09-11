@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-10T11:59:29.453Z",
-  "_gistSavedAt": "2026-09-10T11:38:07.796Z",
+  "_backupTakenAt": "2026-09-11T11:57:57.818Z",
+  "_gistSavedAt": "2026-09-10T22:20:09.771Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -3203,14 +3203,41 @@
       },
       "2026-09-10": {
         "toggles": {},
-        "counters": {},
-        "customs": [],
+        "counters": {
+          "natures_own_keto_bread": 28,
+          "slate_ultra_protein_vanilla": 443,
+          "laughing_cow_light": 19,
+          "peach": 130.4,
+          "smoked_salmon_slice": 14,
+          "bar_luna_lemon_zest": 48,
+          "ensure_max_protein_birthday_cake": 264,
+          "dannon_light_fit_boston_cream": 300
+        },
+        "customs": [
+          {
+            "id": "4989c7f2-1a79-40db-8eb5-67f2d59bdbc7",
+            "name": "60kcal 5p",
+            "kcal": 60,
+            "p": 5,
+            "count": 1,
+            "lastModified": "2026-09-10T12:28:08.689Z"
+          }
+        ],
         "toggleMeta": {},
-        "counterMeta": {},
+        "counterMeta": {
+          "natures_own_keto_bread": "2026-09-10T12:27:00.877Z",
+          "slate_ultra_protein_vanilla": "2026-09-10T12:27:06.548Z",
+          "laughing_cow_light": "2026-09-10T12:27:10.964Z",
+          "peach": "2026-09-10T12:27:39.339Z",
+          "smoked_salmon_slice": "2026-09-10T12:27:45.258Z",
+          "bar_luna_lemon_zest": "2026-09-10T13:05:42.201Z",
+          "ensure_max_protein_birthday_cake": "2026-09-10T22:19:49.344Z",
+          "dannon_light_fit_boston_cream": "2026-09-10T22:19:56.973Z"
+        },
         "mood": 7,
-        "moodMeta": "2026-09-10T11:30:53.374Z",
+        "moodMeta": "2026-09-10T22:19:37.888Z",
         "weight": 86.5,
-        "weightMeta": "2026-09-10T11:31:28.266Z"
+        "weightMeta": "2026-09-10T22:19:37.806Z"
       }
     },
     "savedItems": [],
@@ -3299,10 +3326,11 @@
       "details-recipe-maker": true,
       "today-customs": true,
       "supplements-water": true,
-      "details-add-new-item": true,
       "profile": true,
+      "targets-accumulation": true,
+      "details-add-new-item": true,
       "catalog-ratio": true,
-      "targets-accumulation": true
+      "today-log": true
     },
     "userCatalog": {
       "items": {
