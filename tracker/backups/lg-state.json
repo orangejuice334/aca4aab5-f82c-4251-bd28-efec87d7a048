@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-11T11:57:57.818Z",
-  "_gistSavedAt": "2026-09-10T22:20:09.771Z",
+  "_backupTakenAt": "2026-09-12T11:24:42.183Z",
+  "_gistSavedAt": "2026-09-11T20:37:28.061Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -3238,6 +3238,35 @@
         "moodMeta": "2026-09-10T22:19:37.888Z",
         "weight": 86.5,
         "weightMeta": "2026-09-10T22:19:37.806Z"
+      },
+      "2026-09-11": {
+        "toggles": {},
+        "counters": {
+          "harvest_snaps": 50,
+          "slate_ultra_protein_vanilla": 443,
+          "natures_own_keto_bread": 112,
+          "smuckers_sf_strawberry_preserves": 68,
+          "pb_pro_protein_peanut_butter": 32,
+          "yogurt_oikos_triple_zero_lemon": 150,
+          "braunschweiger_jones_dairy_farm": 56,
+          "isopure_zero_carb_apple_melon": 500
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "harvest_snaps": "2026-09-11T14:18:51.024Z",
+          "slate_ultra_protein_vanilla": "2026-09-11T20:37:21.558Z",
+          "natures_own_keto_bread": "2026-09-11T20:36:19.840Z",
+          "smuckers_sf_strawberry_preserves": "2026-09-11T14:19:18.202Z",
+          "pb_pro_protein_peanut_butter": "2026-09-11T14:19:37.432Z",
+          "yogurt_oikos_triple_zero_lemon": "2026-09-11T17:35:20.294Z",
+          "braunschweiger_jones_dairy_farm": "2026-09-11T20:36:36.521Z",
+          "isopure_zero_carb_apple_melon": "2026-09-11T20:37:26.972Z"
+        },
+        "mood": 7,
+        "moodMeta": "2026-09-11T15:59:11.522Z",
+        "weight": 87,
+        "weightMeta": "2026-09-11T15:59:20.916Z"
       }
     },
     "savedItems": [],
@@ -3327,10 +3356,9 @@
       "today-customs": true,
       "supplements-water": true,
       "profile": true,
-      "targets-accumulation": true,
       "details-add-new-item": true,
-      "catalog-ratio": true,
-      "today-log": true
+      "targets-accumulation": true,
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
@@ -13237,6 +13265,6 @@
         }
       ]
     },
-    "totalsMode": "collapsed"
+    "chartRangeDays": 30
   }
 }
