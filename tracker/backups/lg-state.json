@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-12T11:24:42.183Z",
-  "_gistSavedAt": "2026-09-11T20:37:28.061Z",
+  "_backupTakenAt": "2026-09-13T12:28:29.605Z",
+  "_gistSavedAt": "2026-09-13T02:32:25.463Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -3267,6 +3267,43 @@
         "moodMeta": "2026-09-11T15:59:11.522Z",
         "weight": 87,
         "weightMeta": "2026-09-11T15:59:20.916Z"
+      },
+      "2026-09-12": {
+        "toggles": {},
+        "counters": {
+          "natures_own_keto_bread": 112,
+          "braunschweiger_jones_dairy_farm": 56,
+          "slate_ultra_protein_vanilla": 443,
+          "yogurt_oikos_triple_zero_lemon": 150,
+          "dannon_light_fit_boston_cream": 150,
+          "isopure_zero_carb_apple_melon": 500,
+          "ensure_max_protein_birthday_cake": 330,
+          "egg_fried": 0,
+          "chicken_cutlet_breaded_homemade": 0,
+          "evoo_tsp": 30,
+          "garlic_raw": 3,
+          "tomato_hot_house": 100,
+          "slate_ultra_protein_chocolate": 443
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "natures_own_keto_bread": "2026-09-12T22:36:14.871Z",
+          "braunschweiger_jones_dairy_farm": "2026-09-12T17:30:03.988Z",
+          "slate_ultra_protein_vanilla": "2026-09-12T17:30:08.960Z",
+          "yogurt_oikos_triple_zero_lemon": "2026-09-12T17:30:13.458Z",
+          "dannon_light_fit_boston_cream": "2026-09-12T17:30:17.159Z",
+          "isopure_zero_carb_apple_melon": "2026-09-12T21:54:08.819Z",
+          "ensure_max_protein_birthday_cake": "2026-09-12T21:54:14.181Z",
+          "egg_fried": "2026-09-12T22:34:05.504Z",
+          "chicken_cutlet_breaded_homemade": "2026-09-12T22:09:27.228Z",
+          "evoo_tsp": "2026-09-12T22:34:41.927Z",
+          "garlic_raw": "2026-09-12T22:35:38.426Z",
+          "tomato_hot_house": "2026-09-12T22:35:54.665Z",
+          "slate_ultra_protein_chocolate": "2026-09-12T23:21:25.459Z"
+        },
+        "weight": 86.5,
+        "weightMeta": "2026-09-12T21:52:32.140Z"
       }
     },
     "savedItems": [],
@@ -3356,8 +3393,10 @@
       "today-customs": true,
       "supplements-water": true,
       "profile": true,
-      "details-add-new-item": true,
       "targets-accumulation": true,
+      "section-weight-tracker": true,
+      "today-log": true,
+      "details-add-new-item": true,
       "catalog-ratio": true
     },
     "userCatalog": {
@@ -6497,6 +6536,64 @@
             }
           ],
           "notes": "USDA garlic powder, per 100 g: 331 kcal, 16.55 P, 0.73 fat, 72.73 C, 9 fiber, 2.43 sugar, 60 Na, 1193 K, 414 P-phos, 79 Ca. Micros are USDA estimates (LOW CONFIDENCE), and iron/copper especially vary between USDA entries. 1 tbsp taken as 9 g (level ~8.4 g McCormick to ~9.7 g USDA; packing varies). No container size known (added from text, not a label). Trace vitamins / purines left at 0."
+        },
+        "garlic_raw": {
+          "name": "Garlic raw",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.26,
+          "p": 0.0636,
+          "fat": 0.005,
+          "sf": 0.00089,
+          "carbs": 0.3306,
+          "fiber": 0.146,
+          "sugar": 0.01,
+          "sodium": 0.17,
+          "potassium": 4.01,
+          "calcium": 1.81,
+          "iron": 0.017,
+          "magnesium": 0.25,
+          "phosphorus": 1.53,
+          "zinc": 0.0116,
+          "selenium": 0.142,
+          "copper": 0.00299,
+          "manganese": 0.01672,
+          "water": 0.5858,
+          "vitA": 0,
+          "vitC": 0.312,
+          "vitE": 0.0008,
+          "vitK": 0.017,
+          "b1": 0.002,
+          "b2": 0.0011,
+          "b3": 0.007,
+          "b5": 0.00596,
+          "b6": 0.01235,
+          "b9": 0.03,
+          "b12": 0,
+          "choline": 0.232,
+          "purines": 0.1,
+          "displayUnits": [
+            {
+              "label": "1 clove (3 g)",
+              "amount": 3,
+              "unit": "g",
+              "default": true,
+              "multiplier": 3
+            },
+            {
+              "label": "1 head / bulb (~45 g)",
+              "amount": 45,
+              "unit": "g",
+              "multiplier": 45
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Raw garlic, cloves only (papery skin not counted). Macros and micros from USDA SR Legacy 11215 (garlic, raw) per 100 g: 6.36 P, 0.5 fat (0.089 sat), 33.06 carb-by-difference, 1.0 sugar, 58.58 water, 17 Na, 401 K, 181 Ca, 153 P-phos, 25 Mg, 1.16 Zn, 14.2 mcg Se, 0.299 Cu, 1.672 Mn, 31.2 vitC, 1.235 B6, 0.596 B5, 0.2 B1, 0.11 B2, 0.7 B3, 3 mcg B9, 23.2 choline, 1.7 mcg K1, 0.08 vitE. HIGH CONFIDENCE on the USDA panel itself. TWO CORRECTIONS APPLIED (both about garlic's fructans): (1) FIBER raised from USDA 2.1 to 14.6 g/100 g. USDA's fiber value comes from AOAC 985.29 (Association of Official Analytical Chemists method 985.29), which does not recover inulin-type fructans - garlic's dominant storage carbohydrate. Literature (Moshfegh 1999; Van Loo 1995) puts raw garlic fructans at ~9.8-16 g/100 g; midpoint 12.5 used, added to the 2.1 measured. Fructans are non-digestible and fermentable, so they are fiber physiologically even though the reference method misses them. LOW-MEDIUM CONFIDENCE: fructan content varies by cultivar, bulb maturity and storage time (it declines in storage), and long-chain inulin may be partly double-counted inside the 2.1 g. (2) kcal lowered from USDA 149 to 126/100 g. USDA applies Atwater 4 / 9 / 3.60 to carb-by-difference (6.36x4 + 0.5x9 + 33.06x3.60 = 149), which charges all 14.6 g of real fiber at 3.60 kcal/g. Fermentable fiber realistically yields ~2 kcal/g, so 14.6 g x 1.6 kcal = ~23 kcal subtracted. PURINES ~10 mg/100 g - garlic sits in the very-low-purine class, relevant to uric-acid/gout history. LOW CONFIDENCE, not from a measured table. iodine and b7 (biotin) left at 0 (trace only, not in SR Legacy). vitA RAE is genuinely 0 (the 9 IU in USDA is carotenoid trace). b12 = 0 (plant, unfortified). UNITS: 1 clove = 3 g is the USDA reference clove; real supermarket cloves run 2-7 g, so weigh if the amount matters. Head/bulb ~45 g of peeled cloves is a mid-range estimate (typical range 35-60 g). Values are for RAW garlic - roasting drives off water and concentrates everything per gram."
         },
         "goldhen_egg_whites": {
           "name": "Goldhen Liquid Egg Whites (Aldi)",
@@ -11861,6 +11958,64 @@
             }
           ],
           "defaultMeasuredIn": "units"
+        },
+        "tomato_hot_house": {
+          "name": "Tomato hot house",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.158,
+          "p": 0.0088,
+          "fat": 0.002,
+          "sf": 0.00028,
+          "carbs": 0.0389,
+          "fiber": 0.012,
+          "sugar": 0.0263,
+          "sodium": 0.05,
+          "potassium": 2.37,
+          "calcium": 0.1,
+          "iron": 0.0027,
+          "magnesium": 0.11,
+          "phosphorus": 0.24,
+          "zinc": 0.0017,
+          "selenium": 0,
+          "copper": 0.00059,
+          "manganese": 0.00114,
+          "water": 0.9452,
+          "vitA": 0.42,
+          "vitC": 0.137,
+          "vitE": 0.0054,
+          "vitK": 0.079,
+          "b1": 0.00037,
+          "b2": 0.00019,
+          "b3": 0.00594,
+          "b5": 0.00089,
+          "b6": 0.0008,
+          "b9": 0.15,
+          "b12": 0,
+          "choline": 0.067,
+          "purines": 0.065,
+          "displayUnits": [
+            {
+              "label": "1/2 tomato (100 g)",
+              "amount": 100,
+              "unit": "g",
+              "default": true,
+              "multiplier": 100
+            },
+            {
+              "label": "1 tomato (200 g)",
+              "amount": 200,
+              "unit": "g",
+              "multiplier": 200
+            },
+            {
+              "label": "1 slice, 1/4 in (~27 g)",
+              "amount": 27,
+              "unit": "g",
+              "multiplier": 27
+            }
+          ],
+          "notes": "Raw greenhouse / hothouse tomato (on-the-vine beefsteak type), eaten whole with skin. Macros and micros from USDA SR Legacy 11529 (tomatoes, red, ripe, raw, year round average) per 100 g: 0.88 P, 0.20 fat (0.028 sat), 3.89 carb-by-difference, 1.2 fiber, 2.63 sugar, 94.52 water, 5 Na, 237 K, 10 Ca, 24 P-phos, 11 Mg, 0.17 Zn, 0.059 Cu, 0.114 Mn, 13.7 vitC, 42 mcg vitA RAE, 0.54 vitE, 7.9 mcg K1, 0.594 B3, 0.089 B5, 0.08 B6, 0.037 B1, 0.019 B2, 15 mcg B9, 6.7 choline. The year-round-average entry was chosen deliberately: it already blends greenhouse and field fruit, and most US off-season supply is greenhouse. HIGH CONFIDENCE on macros, MEDIUM on micros. kcal CORRECTED from USDA 18 to 15.8/100 g. USDA applies vegetable Atwater factors 2.44 / 8.37 / 3.57 (0.88x2.44 + 0.20x8.37 + 3.89x3.57 = 17.7), charging all 1.2 g fiber at 3.57 kcal/g; counted at ~2 kcal/g instead, so ~1.9 kcal subtracted. Conservative if anything - tomato fiber is mostly insoluble skin and seed cellulose, poorly fermented, so its true yield is likely below 2 kcal/g. HOTHOUSE CAVEAT: greenhouse fruit is typically picked less ripe and tends to the low end of the range for vitamin C and lycopene versus field-ripened. Not adjusted downward here - the spread across variety, ripeness and storage time is wider than any greenhouse-vs-field offset. Treat vitC as +/- 30 percent. LYCOPENE not stored (no schema field): ~2600 mcg/100 g in USDA, lower in hothouse fruit, and it rises sharply with cooking and oil. PURINES ~6.5 mg/100 g - very-low-purine class, relevant to uric-acid/gout history. LOW CONFIDENCE. selenium 0 per USDA. iodine and b7 (biotin) left at 0 (trace, not in SR Legacy). b12 = 0 (plant). UNITS: whole hothouse tomato taken as 200 g, so the half-tomato serving is 100 g. Real fruit runs ~170-250 g, so weigh when the amount matters. Slice = 1/4 inch off a 200 g fruit."
         },
         "tomato_paste_giant": {
           "name": "Tomato paste",
