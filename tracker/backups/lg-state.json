@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-14T13:32:27.804Z",
-  "_gistSavedAt": "2026-09-14T02:00:35.403Z",
+  "_backupTakenAt": "2026-09-15T12:23:27.436Z",
+  "_gistSavedAt": "2026-09-15T11:27:25.676Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -3341,6 +3341,42 @@
         },
         "weight": 85.7,
         "weightMeta": "2026-09-13T13:47:05.306Z"
+      },
+      "2026-09-14": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_vanilla": 443,
+          "legendary_donuts_dipped_chocolate": 72,
+          "macadamia_dry_roasted_365": 21,
+          "dannon_light_fit_boston_cream": 150,
+          "mandarin": 148,
+          "lentejas_con_lomo": 190,
+          "ensure_max_protein_birthday_cake": 330,
+          "david_bar_choc_chip_cookie_dough": 62
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_vanilla": "2026-09-14T23:12:29.419Z",
+          "legendary_donuts_dipped_chocolate": "2026-09-14T13:32:43.648Z",
+          "macadamia_dry_roasted_365": "2026-09-14T13:32:51.504Z",
+          "dannon_light_fit_boston_cream": "2026-09-14T14:48:37.717Z",
+          "mandarin": "2026-09-14T18:04:14.644Z",
+          "lentejas_con_lomo": "2026-09-14T19:03:48.194Z",
+          "ensure_max_protein_birthday_cake": "2026-09-14T23:12:33.085Z",
+          "david_bar_choc_chip_cookie_dough": "2026-09-14T23:32:25.014Z"
+        },
+        "weight": 85.8,
+        "weightMeta": "2026-09-14T13:58:48.649Z"
+      },
+      "2026-09-15": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "weight": 86.2,
+        "weightMeta": "2026-09-15T11:27:12.433Z"
       }
     },
     "savedItems": [],
@@ -3431,7 +3467,8 @@
       "supplements-water": true,
       "profile": true,
       "targets-accumulation": true,
-      "details-add-new-item": true
+      "details-add-new-item": true,
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
@@ -4062,6 +4099,65 @@
             }
           ],
           "notes": "Lidl Preferred Selection Jamón Serrano. Spain, aged 12mo min. 3 oz (85 g) pkg = 3 servings × 28 g. Pork ham + sea salt. 21 mg Na/g. k/g P 7.0. Re-added 2026-05-14 after sync issue."
+        },
+        "bell_pepper_green_raw": {
+          "name": "Bell pepper green raw",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.174,
+          "p": 0.0086,
+          "fat": 0.0017,
+          "sf": 0.0006,
+          "carbs": 0.0464,
+          "fiber": 0.017,
+          "sugar": 0.024,
+          "addedSugar": 0,
+          "sodium": 0.03,
+          "potassium": 1.75,
+          "calcium": 0.1,
+          "iron": 0.0034,
+          "magnesium": 0.1,
+          "phosphorus": 0.2,
+          "zinc": 0.0013,
+          "copper": 0.00066,
+          "manganese": 0.00122,
+          "selenium": 0,
+          "water": 0.9389,
+          "vitA": 0.18,
+          "vitC": 0.804,
+          "vitE": 0.0037,
+          "vitK": 0.074,
+          "b1": 0.00057,
+          "b2": 0.00028,
+          "b3": 0.0048,
+          "b5": 0.00099,
+          "b6": 0.00224,
+          "b9": 0.1,
+          "b12": 0,
+          "choline": 0.055,
+          "purines": 0.05,
+          "displayUnits": [
+            {
+              "label": "1 medium pepper (119 g)",
+              "amount": 119,
+              "unit": "g",
+              "multiplier": 119,
+              "default": true
+            },
+            {
+              "label": "1/2 pepper (60 g)",
+              "amount": 60,
+              "unit": "g",
+              "multiplier": 60
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Raw green bell pepper, seeded. USDA SR Legacy 11333 per 100 g: 20 kcal, 0.86 P, 0.17 fat, 4.64 carb, 1.7 fiber, 2.4 sugar, 3 Na, 175 K, 80.4 vitC, 18 mcg vitA RAE, 7.4 mcg K1, 93.89 water. HIGH CONFIDENCE. kcal corrected 20 -> 17.4 (fiber recounted at ~2 kcal/g from the 3.57 USDA charges). GREEN was assumed for the lentejas recipe; a RED pepper is 31 kcal, 128 mg vitC and 157 mcg vitA RAE per 100 g - if red is what gets used, ask for a separate entry rather than editing this one. PURINES ~5 mg/100 g, LOW."
         },
         "black_bean_pasta": {
           "name": "Black bean pasta",
@@ -4703,6 +4799,65 @@
             }
           ],
           "notes": "Cantaloupe (muskmelon), raw (USDA SR). Per 100g: 34 kcal, 0.84g protein, 0.19g fat, 8.16g carb, 0.9g fiber, 7.86g sugar (all natural), K 267mg, Vit C 36.7mg (HIGH), Vit A 169mcg RAE (HIGH -- beta-carotene), folate 21mcg, Ca 9mg, Mg 12mg, P 15mg, choline 7.6mg, sodium 16mg. ~90% water. Purines ~10mg/100g -- LOW (fruit, gout-favorable). Whole food, high confidence (USDA)."
+        },
+        "carrot_raw": {
+          "name": "Carrot raw",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.365,
+          "p": 0.0093,
+          "fat": 0.0024,
+          "sf": 0.0004,
+          "carbs": 0.0958,
+          "fiber": 0.028,
+          "sugar": 0.0474,
+          "addedSugar": 0,
+          "sodium": 0.69,
+          "potassium": 3.2,
+          "calcium": 0.33,
+          "iron": 0.003,
+          "magnesium": 0.12,
+          "phosphorus": 0.35,
+          "zinc": 0.0024,
+          "copper": 0.00045,
+          "manganese": 0.00143,
+          "selenium": 0.001,
+          "water": 0.8829,
+          "vitA": 8.35,
+          "vitC": 0.059,
+          "vitE": 0.0066,
+          "vitK": 0.132,
+          "b1": 0.00066,
+          "b2": 0.00058,
+          "b3": 0.00983,
+          "b5": 0.00273,
+          "b6": 0.00138,
+          "b9": 0.19,
+          "b12": 0,
+          "choline": 0.088,
+          "purines": 0.05,
+          "displayUnits": [
+            {
+              "label": "1 medium carrot (61 g)",
+              "amount": 61,
+              "unit": "g",
+              "multiplier": 61,
+              "default": true
+            },
+            {
+              "label": "1 cup chopped (128 g)",
+              "amount": 128,
+              "unit": "g",
+              "multiplier": 128
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Raw carrot, trimmed and peeled. USDA SR Legacy 11124 per 100 g: 41 kcal, 0.93 P, 0.24 fat, 9.58 carb, 2.8 fiber, 4.74 sugar, 69 Na, 320 K, 33 Ca, 835 mcg vitA RAE (as beta-carotene), 13.2 mcg K1, 88.29 water. HIGH CONFIDENCE. kcal corrected 41 -> 36.5 (2.8 g fiber recounted at ~2 kcal/g). PURINES ~5 mg/100 g, LOW. Cooked carrot in oil roughly doubles carotenoid absorption versus raw."
         },
         "cc": {
           "name": "Cottage cheese 2%",
@@ -8313,6 +8468,131 @@
             }
           ]
         },
+        "lentejas_con_lomo": {
+          "name": "Lentejas con lomo (mom's)",
+          "category": "recipes",
+          "defaultMeasuredIn": "units",
+          "ingredients": [
+            {
+              "itemKey": "onion_raw",
+              "amount": 64,
+              "label": "64 g onion"
+            },
+            {
+              "itemKey": "tomato_hot_house",
+              "amount": 60,
+              "label": "60 g tomato"
+            },
+            {
+              "itemKey": "bell_pepper_green_raw",
+              "amount": 52,
+              "label": "52 g pepper"
+            },
+            {
+              "itemKey": "carrot_raw",
+              "amount": 56,
+              "label": "56 g carrot"
+            },
+            {
+              "itemKey": "garlic_raw",
+              "amount": 17,
+              "label": "17 g garlic"
+            },
+            {
+              "itemKey": "evoo_tsp",
+              "amount": 27,
+              "label": "2 Tbsp EVOO (27 g)"
+            },
+            {
+              "itemKey": "pork_loin_lean_raw",
+              "amount": 410,
+              "label": "410 g pork loin, edge fat trimmed"
+            },
+            {
+              "itemKey": "lentils_dry_goya",
+              "amount": 454,
+              "label": "1 lb bag Goya dry lentils"
+            }
+          ],
+          "displayUnits": [
+            {
+              "label": "full recipe",
+              "amount": 1140,
+              "unit": "g",
+              "locked": true,
+              "multiplier": 1140
+            },
+            {
+              "label": "1/6 of batch (190 g raw ingredients)",
+              "amount": 190,
+              "unit": "g",
+              "default": true,
+              "multiplier": 190
+            }
+          ]
+        },
+        "lentils_dry_goya": {
+          "name": "Lentils dry Goya",
+          "brand": "Goya",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "ingredients": "Lentils.",
+          "kcal": 3.23,
+          "p": 0.2463,
+          "fat": 0.0106,
+          "sf": 0.00154,
+          "carbs": 0.6335,
+          "fiber": 0.107,
+          "sugar": 0.0203,
+          "addedSugar": 0,
+          "cholesterol": 0,
+          "sodium": 0.06,
+          "potassium": 6.77,
+          "calcium": 0.35,
+          "iron": 0.0651,
+          "magnesium": 0.47,
+          "phosphorus": 2.81,
+          "zinc": 0.0327,
+          "copper": 0.00754,
+          "manganese": 0.01393,
+          "selenium": 0.001,
+          "water": 0.0826,
+          "vitA": 0.02,
+          "vitC": 0.045,
+          "vitE": 0.0049,
+          "vitK": 0.05,
+          "b1": 0.00873,
+          "b2": 0.00211,
+          "b3": 0.02605,
+          "b5": 0.0214,
+          "b6": 0.0054,
+          "b9": 4.79,
+          "b12": 0,
+          "choline": 0.964,
+          "purines": 1.3,
+          "displayUnits": [
+            {
+              "label": "1/4 cup dry (45 g)",
+              "amount": 45,
+              "unit": "g",
+              "multiplier": 45,
+              "default": true
+            },
+            {
+              "label": "1 bag, 1 lb (454 g)",
+              "amount": 454,
+              "unit": "g",
+              "multiplier": 454
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Goya dry brown lentils, 16 oz (454 g) bag, UPC 041331024761. LABEL per 1/4 cup dry (45 g), ~10 servings: 160 kcal, 0 fat, 29 g carb, 5 g fiber, 1 g sugar, 11 g protein, 16 mg calcium, 3 mg iron, 305 mg potassium. That scales to 356 kcal / 24.4 P / 64 carb / 11 fiber per 100 g, i.e. it IS USDA SR Legacy 16069 (lentils, raw: 352 kcal, 24.63 P, 1.06 fat, 63.35 carb, 10.7 fiber, 2.03 sugar, 6 Na, 677 K, 35 Ca, 6.51 Fe, 47 Mg, 281 P-phos, 3.27 Zn, 479 mcg B9, 0.873 B1, 96 choline), so USDA values are stored for the full micro set. HIGH CONFIDENCE. Label fat 0 is a round-down of 1.06 g/100 g, restored. kcal CORRECTED 352 -> 323/100 g: USDA legume Atwater 3.47 / 8.37 / 4.07 charges the 10.7 g fiber at 4.07 (-22 kcal at ~2 kcal/g), and lentils carry ~3.5 g/100 g of raffinose-family oligosaccharides that sit in carb-by-difference but ferment rather than digest (-7). Resistant starch formed on cooking/cooling is NOT deducted (too variable). Plausible range 315-335. MEDIUM CONFIDENCE on the correction. DRY-WEIGHT ITEM: 100 g dry cooks to ~250 g. Log dry grams when cooking from the bag; ask for a cooked-lentil entry if logging from a bowl. PURINES ~130 mg/100 g DRY (~50 per 100 g cooked) - MODERATE per dry gram, but plant purines raise uric acid far less than animal ones. LOW-MEDIUM. FOLATE is the standout: 479 mcg/100 g dry, and folate survives simmering reasonably well (~70-80 percent)."
+        },
         "loven_fresh_protein_everything_bagel": {
           "name": "L'Oven Fresh Protein Everything Bagel (Aldi)",
           "category": "items",
@@ -9228,6 +9508,65 @@
           ],
           "notes": "HOMEMADE plain omelet, whole eggs cooked in extra virgin olive oil. No cheese, no vegetables, no milk, NO ADDED SALT included. COMPOSED ESTIMATE, not a label. Modeled so that 200g FINISHED omelet = 210g raw whole egg (~4.2 large eggs) + 10g olive oil (2 tsp), minus ~20g water evaporated during cooking (~10% loss, mid-range for a soft-to-medium omelet). Nutrients are conserved in cooking while water leaves, so per-gram density here is HIGHER than raw egg: 1.94 kcal/g vs 1.44 kcal/g raw. Egg composition from USDA #01123 raw whole egg (143 kcal, 12.56g protein, 9.51g fat, 372mg cholesterol, 198mg phosphorus, 293.8mg choline, 30.7mcg selenium per 100g) -- cross-checks against this catalog's existing 'Egg' entry (1.44 kcal/g, 0.126 p/g). Olive oil from the catalog's evoo entry (8.82 kcal/g). MEDIUM confidence on macros; the two assumptions that move the number are the OIL AMOUNT (10g assumed; each extra tsp adds ~44 kcal) and the water-loss fraction (10% assumed; a drier omelet concentrates it further). Adjust grams logged, or a revised item, if the real egg count or oil amount is known. Per 200g as modeled: 389 kcal, 26.4g protein, 30g fat (7.9g saturated), ~0g carb, 781mg cholesterol (~4 yolks), 298mg sodium (egg-intrinsic only). Notably dense in choline (~617mg), selenium (~64mcg), vitamin A (~336mcg RAE), folate (~99mcg), B12 (~1.9mcg), and phosphorus (~416mg -- relevant to reduced-eGFR history). PURINES ~4mg/200g -- VERY LOW; eggs are essentially purine-free and gout-favorable. Fat profile shifted toward monounsaturated by the olive oil (~7.3g of the added 10g). Vitamin E and K partly oil-derived. CONTAINS egg."
         },
+        "onion_raw": {
+          "name": "Onion raw",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.33,
+          "p": 0.011,
+          "fat": 0.001,
+          "sf": 0.0004,
+          "carbs": 0.0934,
+          "fiber": 0.042,
+          "sugar": 0.0424,
+          "addedSugar": 0,
+          "sodium": 0.04,
+          "potassium": 1.46,
+          "calcium": 0.23,
+          "iron": 0.0021,
+          "magnesium": 0.1,
+          "phosphorus": 0.29,
+          "zinc": 0.0017,
+          "copper": 0.00039,
+          "manganese": 0.00129,
+          "selenium": 0.005,
+          "water": 0.8911,
+          "vitA": 0,
+          "vitC": 0.074,
+          "vitE": 0.0002,
+          "vitK": 0.004,
+          "b1": 0.00046,
+          "b2": 0.00027,
+          "b3": 0.00116,
+          "b5": 0.00123,
+          "b6": 0.0012,
+          "b9": 0.19,
+          "b12": 0,
+          "choline": 0.061,
+          "purines": 0.1,
+          "displayUnits": [
+            {
+              "label": "1 medium onion (110 g)",
+              "amount": 110,
+              "unit": "g",
+              "multiplier": 110,
+              "default": true
+            },
+            {
+              "label": "1 small onion (70 g)",
+              "amount": 70,
+              "unit": "g",
+              "multiplier": 70
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Raw yellow/white onion, peeled. USDA SR Legacy 11282 per 100 g: 40 kcal, 1.1 P, 0.1 fat, 9.34 carb, 1.7 fiber, 4.24 sugar, 4 Na, 146 K, 23 Ca, 7.4 vitC, 19 mcg B9, 89.11 water. HIGH CONFIDENCE. Two corrections, same logic as the garlic entry: FIBER raised 1.7 -> 4.2 g/100 g to include ~2.5 g of fructans (onion runs ~1-5 g/100 g depending on variety and storage) that the USDA fiber method misses; kcal lowered 40 -> 33 by recounting those 4.2 g at ~2 kcal/g instead of the ~3.6 charged. MEDIUM-LOW confidence on the fructan figure. PURINES ~10 mg/100 g, LOW. Values are raw; sauteed onion concentrates."
+        },
         "orange_chicken_100g": {
           "name": "Orange chicken — takeout",
           "category": "items",
@@ -10013,6 +10352,72 @@
               "multiplier": 35
             }
           ]
+        },
+        "pork_loin_lean_raw": {
+          "name": "Pork loin lean raw",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.43,
+          "p": 0.2143,
+          "fat": 0.0566,
+          "sf": 0.0195,
+          "transFat": 0,
+          "monounsat": 0.0251,
+          "polyunsat": 0.0062,
+          "carbs": 0,
+          "fiber": 0,
+          "sugar": 0,
+          "addedSugar": 0,
+          "cholesterol": 0.63,
+          "sodium": 0.5,
+          "potassium": 3.56,
+          "calcium": 0.17,
+          "iron": 0.0081,
+          "magnesium": 0.24,
+          "phosphorus": 2.08,
+          "zinc": 0.0184,
+          "copper": 0.0007,
+          "manganese": 0.00012,
+          "selenium": 0.303,
+          "iodine": 0.05,
+          "water": 0.726,
+          "vitA": 0.02,
+          "vitC": 0,
+          "vitD": 0.004,
+          "vitE": 0.002,
+          "vitK": 0,
+          "b1": 0.0086,
+          "b2": 0.0028,
+          "b3": 0.059,
+          "b5": 0.007,
+          "b6": 0.0045,
+          "b9": 0.03,
+          "b12": 0.006,
+          "choline": 0.66,
+          "omega3": 0.6,
+          "purines": 1,
+          "displayUnits": [
+            {
+              "label": "100 g raw",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100,
+              "default": true
+            },
+            {
+              "label": "1 chop, boneless (170 g)",
+              "amount": 170,
+              "unit": "g",
+              "multiplier": 170
+            },
+            {
+              "label": "1 lb (454 g)",
+              "amount": 454,
+              "unit": "g",
+              "multiplier": 454
+            }
+          ],
+          "notes": "Raw boneless pork loin, external fat trimmed off. USDA SR Legacy 10020 (pork, fresh, loin, whole, separable lean only, raw) per 100 g: 143 kcal, 21.43 P, 5.66 fat (1.95 sat, 2.51 mono, 0.62 poly), 63 mg cholesterol, 50 Na, 356 K, 208 P-phos, 24 Mg, 1.84 Zn, 0.81 Fe, 30.3 mcg Se, 0.86 B1, 0.28 B2, 5.9 B3, 0.45 B6, 0.6 mcg B12, 66 choline, 72.6 water. HIGH CONFIDENCE. No corrections - pure muscle protein, no carbohydrate. 'Lean only' is a laboratory trim; a home knife trim leaves a little more fat, so real fat is probably 6-8 g/100 g rather than 5.7. MEDIUM on that. RAW-WEIGHT ITEM: cooked pork loin loses ~25-30 percent of its weight, so 100 g raw = ~72 g cooked; the catalog's pork_loin_lean_broiled entry is the cooked-weight sibling. PURINES ~100 mg/100 g raw - MODERATE class, relevant to uric-acid/gout history. MEDIUM-LOW."
         },
         "portofino_yellowfin_tuna": {
           "name": "Tuna yellowfin in olive oil Portofino",
@@ -14007,6 +14412,7 @@
         }
       ]
     },
+    "totalsMode": "collapsed",
     "chartRangeDays": 30
   }
 }
