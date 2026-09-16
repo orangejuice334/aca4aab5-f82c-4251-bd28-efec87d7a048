@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-15T12:23:27.436Z",
-  "_gistSavedAt": "2026-09-15T11:27:25.676Z",
+  "_backupTakenAt": "2026-09-16T12:20:37.106Z",
+  "_gistSavedAt": "2026-09-16T12:15:17.774Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -3371,12 +3371,43 @@
       },
       "2026-09-15": {
         "toggles": {},
+        "counters": {
+          "slate_ultra_protein_vanilla": 443,
+          "natures_own_keto_bread": 84,
+          "tj_smoked_trout_undrained": 66,
+          "dannon_light_fit_boston_cream": 600,
+          "tortilla_de_fatatas": 321.8,
+          "tuna_can": 113,
+          "la_piara_tapa_negra_light": 18.25,
+          "legendary_donuts_dipped_chocolate": 72,
+          "nutricost_casein_vanilla": 32
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_vanilla": "2026-09-15T12:38:07.694Z",
+          "natures_own_keto_bread": "2026-09-15T20:20:42.554Z",
+          "tj_smoked_trout_undrained": "2026-09-15T12:38:23.456Z",
+          "dannon_light_fit_boston_cream": "2026-09-16T02:24:07.899Z",
+          "tortilla_de_fatatas": "2026-09-15T17:28:54.212Z",
+          "tuna_can": "2026-09-15T17:29:07.626Z",
+          "la_piara_tapa_negra_light": "2026-09-15T20:15:13.186Z",
+          "legendary_donuts_dipped_chocolate": "2026-09-16T02:15:28.335Z",
+          "nutricost_casein_vanilla": "2026-09-16T02:24:03.150Z"
+        },
+        "weight": 86.2,
+        "weightMeta": "2026-09-15T11:27:12.433Z"
+      },
+      "2026-09-16": {
+        "toggles": {},
         "counters": {},
         "customs": [],
         "toggleMeta": {},
         "counterMeta": {},
-        "weight": 86.2,
-        "weightMeta": "2026-09-15T11:27:12.433Z"
+        "weight": 86.1,
+        "weightMeta": "2026-09-16T12:12:15.139Z",
+        "waist": 98,
+        "waistMeta": "2026-09-16T12:15:16.261Z"
       }
     },
     "savedItems": [],
@@ -3458,7 +3489,6 @@
       "targets-daily": true,
       "details-profile-section": true,
       "details-sync-error-banner": true,
-      "history": true,
       "section-archive-section": true,
       "catalog-archive": true,
       "section-mood-tracker": true,
@@ -3466,8 +3496,9 @@
       "today-customs": true,
       "supplements-water": true,
       "profile": true,
-      "targets-accumulation": true,
       "details-add-new-item": true,
+      "targets-accumulation": true,
+      "history": true,
       "catalog-ratio": true
     },
     "userCatalog": {
@@ -9958,13 +9989,14 @@
           "displayUnits": [
             {
               "label": "full recipe",
-              "multiplier": 122,
               "amount": 122,
               "unit": "g",
               "default": true,
-              "locked": true
+              "locked": true,
+              "multiplier": 122
             }
-          ]
+          ],
+          "defaultMeasuredIn": "units"
         },
         "peach": {
           "name": "Peach",
@@ -10464,6 +10496,65 @@
             }
           ],
           "notes": "Source: USDA SR Legacy #11457 (raw spinach). Per 100g: 23 kcal, 2.86g protein, 0.39g fat, 0.063g sat fat, 0g trans fat (plant product), 2.2g fiber, 79mg sodium, 558mg potassium, 99mg calcium, 2.71mg iron (non-heme), 91.4g water. Notable micronutrients: vitamin K 483mcg/100g, folate 194mcg/100g, vitamin C 28mg/100g. All values high-confidence USDA data."
+        },
+        "potato_raw": {
+          "name": "Potato raw",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.727,
+          "p": 0.0205,
+          "fat": 0.0009,
+          "sf": 0.0003,
+          "carbs": 0.1749,
+          "fiber": 0.021,
+          "sugar": 0.0082,
+          "addedSugar": 0,
+          "sodium": 0.06,
+          "potassium": 4.25,
+          "calcium": 0.12,
+          "iron": 0.0081,
+          "magnesium": 0.23,
+          "phosphorus": 0.57,
+          "zinc": 0.003,
+          "copper": 0.0011,
+          "manganese": 0.00153,
+          "selenium": 0.004,
+          "water": 0.7925,
+          "vitA": 0,
+          "vitC": 0.197,
+          "vitE": 0.0001,
+          "vitK": 0.02,
+          "b1": 0.00081,
+          "b2": 0.00032,
+          "b3": 0.01061,
+          "b5": 0.00279,
+          "b6": 0.00298,
+          "b9": 0.15,
+          "b12": 0,
+          "choline": 0.121,
+          "purines": 0.065,
+          "displayUnits": [
+            {
+              "label": "1 medium potato (213 g)",
+              "amount": 213,
+              "unit": "g",
+              "multiplier": 213,
+              "default": true
+            },
+            {
+              "label": "1 small potato (170 g)",
+              "amount": 170,
+              "unit": "g",
+              "multiplier": 170
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Raw white/yellow potato. USDA SR Legacy 11352 (potatoes, flesh and skin, raw) per 100 g: 77 kcal, 2.05 P, 0.09 fat, 17.49 carb, 2.1 fiber, 0.82 sugar, 6 Na, 425 K, 12 Ca, 0.81 Fe, 57 P-phos, 19.7 vitC, 0.298 B6, 15 mcg B9, 79.25 water. HIGH CONFIDENCE. kcal corrected 77 -> 72.7 (2.1 g fiber recounted at ~2 kcal/g from the 4.03 USDA charges root vegetables). Peeled potato runs ~15 percent lower in fiber and a little lower in potassium and iron (skin holds them); not separately adjusted. RAW-WEIGHT ITEM - boiled potato is about the same weight, fried or roasted loses 20-40 percent as water. PURINES ~6 mg/100 g, very low. Cooling cooked potato forms resistant starch (a few percent of the starch) - not modeled."
         },
         "premier": {
           "name": "Protein shake",
@@ -13160,6 +13251,50 @@
           ],
           "notes": "Dannon Light + Fit Greek, Boston Cream Pie, fat free yogurt, 150g (5.3oz) container, 1 serving. Label per container: 80 kcal, 0 fat, 0 sat, 0 trans, 10mg chol, 45mg sodium, 8g carb, 0 fiber, 7g total sugars (2g added), 12g protein, Vit D 0%, Calcium 10% (~130mg), Iron 0%, Potassium 2% (~94mg). All label-exact. kcal NEEDS NO CORRECTION: Atwater reconciles exactly (12x4 + 8x4 = 80). No fiber, no sugar alcohols, no polydextrose. SWEETENERS: fructose (caloric, the 2g added sugar) plus acesulfame potassium and sucralose (both non-nutritive, 0 kcal). The other ~5g of sugar is naturally occurring lactose from the nonfat milk. NOTE ON 'GREEK': thickened with modified food starch rather than fully strained, so texture/protein come partly from formulation; protein 12g per 150g (8%) is still Greek-range. Package's own comparison: Light+Fit 80 kcal/0g fat vs average flavored Greek yogurt 110 kcal/1g fat per 5.3oz. Off-label micros ESTIMATED from nonfat yogurt: phosphorus ~150mg/container (relevant to reduced-eGFR history), iodine ~45mcg (dairy), B12 ~0.8mcg, riboflavin. LOW-MEDIUM confidence. Purines ~4mg -- LOW (dairy, gout-favorable). Ingredients: cultured pasteurized nonfat milk, water, fructose, <1%: natural & artificial flavors, modified food starch, acesulfame potassium, sucralose, malic acid, potassium sorbate (freshness), yogurt cultures L. bulgaricus & S. thermophilus. Gluten free. Bioengineered ingredients. CONTAINS milk."
         },
+        "tortilla_de_fatatas": {
+          "name": "Tortilla de fatatas",
+          "category": "recipes",
+          "defaultMeasuredIn": "units",
+          "ingredients": [
+            {
+              "itemKey": "potato_raw",
+              "amount": 665,
+              "label": "665 g potato"
+            },
+            {
+              "itemKey": "onion_raw",
+              "amount": 170,
+              "label": "170 g onion"
+            },
+            {
+              "itemKey": "evoo_tsp",
+              "amount": 92,
+              "label": "100 ml EVOO (92 g)"
+            },
+            {
+              "itemKey": "egg_substitute",
+              "amount": 360,
+              "label": "350 ml egg substitute (360 g)"
+            }
+          ],
+          "displayUnits": [
+            {
+              "label": "full recipe",
+              "amount": 1287,
+              "unit": "g",
+              "locked": true,
+              "multiplier": 1287
+            },
+            {
+              "label": "1/4 of recipe (322 g raw ingredients)",
+              "amount": 321.8,
+              "unit": "g",
+              "default": true,
+              "multiplier": 321.8
+            }
+          ],
+          "notes": "Luis's tortilla de patatas made with egg substitute, added 2026-09-15; the 'fatatas' spelling is intentional. Ingredients as given: 665 g potato, 170 g onion, 100 ml oil, 350 ml egg substitute. RAW weights; ml converted at 0.916 g/ml for the oil (92 g) and ~1.03 g/ml for the egg substitute (360 g); total 1287 g. SERVING = 1/4 OF THE RECIPE; the 322 g shown is raw-ingredient grams, not the weight of a cooked wedge (frying and setting drive off water, so the finished tortilla weighs roughly 1.0-1.1 kg and a quarter ~260-280 g). Logging the default unit still gives exactly one quarter. TWO ASSUMPTIONS TO CHECK: (1) ALL 100 ml of oil is counted as eaten. Potatoes and onion slow-fried in this little oil typically soak up 70-100 g of it, so that is realistic if none was poured off; if oil was drained after frying, every 10 ml drained removes ~20 kcal per serving. (2) Oil confirmed as extra virgin olive oil by Luis on 2026-09-15. Egg substitute is the catalog's existing Egg Beaters-type liquid egg-white item (0 fat, 25 kcal / 5.4 g protein per 46 g), so the fat here is essentially all oil. No salt listed; sodium is the ingredient total."
+        },
         "tuna_can": {
           "name": "Tuna chunk light",
           "category": "items",
@@ -14412,7 +14547,7 @@
         }
       ]
     },
-    "totalsMode": "collapsed",
-    "chartRangeDays": 30
+    "chartRangeDays": 30,
+    "totalsMode": "collapsed"
   }
 }
