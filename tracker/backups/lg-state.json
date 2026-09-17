@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-16T12:20:37.106Z",
-  "_gistSavedAt": "2026-09-16T12:15:17.774Z",
+  "_backupTakenAt": "2026-09-17T12:20:35.567Z",
+  "_gistSavedAt": "2026-09-17T11:54:24.492Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -3400,14 +3400,45 @@
       },
       "2026-09-16": {
         "toggles": {},
-        "counters": {},
+        "counters": {
+          "natures_own_keto_bread": 112,
+          "pb_pro_protein_peanut_butter": 20,
+          "smuckers_sf_strawberry_preserves": 28,
+          "slate_ultra_protein_chocolate": 443,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "lentejas_con_lomo": 190,
+          "mandarin": 148,
+          "macadamia_dry_roasted_365": 25,
+          "avocado_half": 65,
+          "smoked_salmon_slice": 28
+        },
         "customs": [],
         "toggleMeta": {},
-        "counterMeta": {},
+        "counterMeta": {
+          "natures_own_keto_bread": "2026-09-16T23:23:57.405Z",
+          "pb_pro_protein_peanut_butter": "2026-09-16T13:14:04.418Z",
+          "smuckers_sf_strawberry_preserves": "2026-09-16T13:14:31.787Z",
+          "slate_ultra_protein_chocolate": "2026-09-16T13:15:10.191Z",
+          "david_bar_choc_chip_cookie_dough": "2026-09-16T13:52:56.990Z",
+          "lentejas_con_lomo": "2026-09-16T19:04:41.665Z",
+          "mandarin": "2026-09-16T19:56:55.452Z",
+          "macadamia_dry_roasted_365": "2026-09-16T19:57:05.844Z",
+          "avocado_half": "2026-09-16T23:24:02.151Z",
+          "smoked_salmon_slice": "2026-09-16T23:24:13.503Z"
+        },
         "weight": 86.1,
         "weightMeta": "2026-09-16T12:12:15.139Z",
         "waist": 98,
         "waistMeta": "2026-09-16T12:15:16.261Z"
+      },
+      "2026-09-17": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "weight": 86.5,
+        "weightMeta": "2026-09-17T11:54:23.750Z"
       }
     },
     "savedItems": [],
@@ -3499,7 +3530,8 @@
       "details-add-new-item": true,
       "targets-accumulation": true,
       "history": true,
-      "catalog-ratio": true
+      "catalog-ratio": true,
+      "today-log": true
     },
     "userCatalog": {
       "items": {
@@ -14547,7 +14579,6 @@
         }
       ]
     },
-    "chartRangeDays": 30,
-    "totalsMode": "collapsed"
+    "chartRangeDays": 30
   }
 }
