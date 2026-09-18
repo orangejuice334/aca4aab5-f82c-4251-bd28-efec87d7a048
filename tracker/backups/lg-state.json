@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-17T12:20:35.567Z",
-  "_gistSavedAt": "2026-09-17T11:54:24.492Z",
+  "_backupTakenAt": "2026-09-18T12:00:00.437Z",
+  "_gistSavedAt": "2026-09-17T18:15:11.832Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -3433,12 +3433,28 @@
       },
       "2026-09-17": {
         "toggles": {},
-        "counters": {},
+        "counters": {
+          "natures_own_keto_bread": 56,
+          "avocado_half": 65,
+          "cream_cheese": 14.5,
+          "ensure_max_protein_birthday_cake": 330,
+          "dannon_light_fit_boston_cream": 150,
+          "lasagna_homemade_mom": 250,
+          "banana": 118
+        },
         "customs": [],
         "toggleMeta": {},
-        "counterMeta": {},
+        "counterMeta": {
+          "natures_own_keto_bread": "2026-09-17T13:34:46.893Z",
+          "avocado_half": "2026-09-17T13:34:52.505Z",
+          "cream_cheese": "2026-09-17T13:35:08.720Z",
+          "ensure_max_protein_birthday_cake": "2026-09-17T13:35:29.012Z",
+          "dannon_light_fit_boston_cream": "2026-09-17T14:25:34.670Z",
+          "lasagna_homemade_mom": "2026-09-17T18:15:11.035830+00:00",
+          "banana": "2026-09-17T18:15:11.035830+00:00"
+        },
         "weight": 86.5,
-        "weightMeta": "2026-09-17T11:54:23.750Z"
+        "weightMeta": "2026-09-17T13:34:35.271Z"
       }
     },
     "savedItems": [],
@@ -3530,8 +3546,7 @@
       "details-add-new-item": true,
       "targets-accumulation": true,
       "history": true,
-      "catalog-ratio": true,
-      "today-log": true
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
@@ -8262,6 +8277,70 @@
             }
           ],
           "defaultMeasuredIn": "g"
+        },
+        "lasagna_homemade_mom": {
+          "name": "Lasagna mixed homemade (mom's)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.7,
+          "p": 0.105,
+          "fat": 0.09,
+          "sf": 0.038,
+          "transFat": 0.0005,
+          "carbs": 0.135,
+          "fiber": 0.01,
+          "sugar": 0.025,
+          "addedSugar": 0,
+          "cholesterol": 0.35,
+          "sodium": 3.3,
+          "potassium": 2.3,
+          "calcium": 1.3,
+          "iron": 0.011,
+          "magnesium": 0.22,
+          "phosphorus": 1.5,
+          "zinc": 0.015,
+          "copper": 0.001,
+          "manganese": 0.002,
+          "selenium": 0.14,
+          "iodine": 0.06,
+          "water": 0.64,
+          "vitA": 0.7,
+          "vitC": 0.02,
+          "vitD": 0.003,
+          "vitE": 0.008,
+          "vitK": 0.02,
+          "b1": 0.001,
+          "b2": 0.0015,
+          "b3": 0.025,
+          "b5": 0.004,
+          "b6": 0.001,
+          "b9": 0.2,
+          "b12": 0.008,
+          "choline": 0.3,
+          "omega3": 0.6,
+          "purines": 0.65,
+          "displayUnits": [
+            {
+              "label": "portion (250 g)",
+              "amount": 250,
+              "unit": "g",
+              "default": true,
+              "multiplier": 250
+            },
+            {
+              "label": "1/2 portion (125 g)",
+              "amount": 125,
+              "unit": "g",
+              "multiplier": 125
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Homemade lasagna made by Luis's mother, logged 2026-09-17 from the description 'mixed lasagna' with NO recipe and NO label. THIS IS THE LOWEST-CONFIDENCE ITEM IN THE CATALOG - everything below is modeled. 'MIXED' READ AS carne picada mixta (beef + pork mince), the standard Spanish reading. The other plausible Spanish sense of mixto is ham and cheese, but the two land within ~10 percent of each other on every macro, so the ambiguity is not what drives the error bar. MODEL: a typical Spanish lasana al horno - pasta sheets, mixed-mince and tomato sofrito filling, bechamel, grated cheese on top - built from a representative batch (250 g dry sheets, 500 g mince, 400 g sofrito, 2 Tbsp olive oil, bechamel from 500 ml milk + 40 g butter + 40 g flour, 100 g cheese) reduced for baking loss to ~1750 g finished, then rounded DOWN toward the leaner end. STORED 170 kcal/100 g. REAL RANGE 140-210 kcal/100 g, i.e. a 250 g portion is anywhere from 350 to 525 kcal against the 425 logged. The swing is driven by how much bechamel and cheese go on and how fatty the mince is; the raw batch model above actually computes to ~197, and it was pulled down because the same cook trimmed the edge fat off the pork for the lentejas. SODIUM 330 mg/100 g is a guess covering salted pasta water, the sofrito, cheese and any bouillon - could easily be half or double that. LOW CONFIDENCE. PURINES ~65 mg/100 g from the mince - MODERATE class, relevant to uric-acid/gout history. LOW CONFIDENCE. TO FIX THIS PROPERLY: get the ingredient list and weights from his mother and rebuild it as a recipe entry the way lentejas_con_lomo and tortilla_de_fatatas were done, then retire this item. Until then, do not reuse these numbers for a different cook's lasagna."
         },
         "laughing_cow_light": {
           "name": "Cheese spreadable wedges Laughing Cow light",
@@ -14579,6 +14658,7 @@
         }
       ]
     },
-    "chartRangeDays": 30
+    "chartRangeDays": 30,
+    "totalsMode": "collapsed"
   }
 }
