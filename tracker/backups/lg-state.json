@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-18T12:00:00.437Z",
-  "_gistSavedAt": "2026-09-17T18:15:11.832Z",
+  "_backupTakenAt": "2026-09-19T11:43:53.310Z",
+  "_gistSavedAt": "2026-09-18T17:40:41.706Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -3455,6 +3455,15 @@
         },
         "weight": 86.5,
         "weightMeta": "2026-09-17T13:34:35.271Z"
+      },
+      "2026-09-18": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "weight": 86.2,
+        "weightMeta": "2026-09-18T17:40:22.577Z"
       }
     },
     "savedItems": [],
@@ -14658,7 +14667,6 @@
         }
       ]
     },
-    "chartRangeDays": 30,
-    "totalsMode": "collapsed"
+    "chartRangeDays": 30
   }
 }
