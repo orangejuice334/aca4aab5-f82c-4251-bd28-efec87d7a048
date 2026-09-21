@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-20T11:56:32.935Z",
-  "_gistSavedAt": "2026-09-19T17:45:21.766Z",
+  "_backupTakenAt": "2026-09-21T13:31:15.130Z",
+  "_gistSavedAt": "2026-09-20T22:56:21.316Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -3473,6 +3473,32 @@
         "counterMeta": {},
         "weight": 85.8,
         "weightMeta": "2026-09-19T16:40:01.208Z"
+      },
+      "2026-09-20": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_vanilla": 443,
+          "legendary_donuts_dipped_chocolate": 72,
+          "ensure_max_protein_birthday_cake": 330
+        },
+        "customs": [
+          {
+            "id": "71abf715-0303-47d2-a6e3-3c883dd97e23",
+            "name": "275kcal 2p",
+            "kcal": 275,
+            "p": 2,
+            "count": 1,
+            "lastModified": "2026-09-20T14:42:28.405Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_vanilla": "2026-09-20T14:42:10.897Z",
+          "legendary_donuts_dipped_chocolate": "2026-09-20T22:55:06.848Z",
+          "ensure_max_protein_birthday_cake": "2026-09-20T22:55:10.623Z"
+        },
+        "weight": 85.8,
+        "weightMeta": "2026-09-20T16:06:04.592Z"
       }
     },
     "savedItems": [],
@@ -3559,12 +3585,13 @@
       "section-mood-tracker": true,
       "details-recipe-maker": true,
       "today-customs": true,
-      "supplements-water": true,
       "profile": true,
-      "details-add-new-item": true,
       "targets-accumulation": true,
       "history": true,
-      "catalog-ratio": true
+      "details-add-new-item": true,
+      "catalog-ratio": true,
+      "supplements-water": true,
+      "today-log": true
     },
     "userCatalog": {
       "items": {
@@ -14676,6 +14703,7 @@
         }
       ]
     },
-    "chartRangeDays": 30
+    "chartRangeDays": 90,
+    "totalsMode": "collapsed"
   }
 }
