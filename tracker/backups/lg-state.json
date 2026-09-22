@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-21T13:31:15.130Z",
-  "_gistSavedAt": "2026-09-20T22:56:21.316Z",
+  "_backupTakenAt": "2026-09-22T12:15:38.581Z",
+  "_gistSavedAt": "2026-09-21T13:50:14.832Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -3499,6 +3499,17 @@
         },
         "weight": 85.8,
         "weightMeta": "2026-09-20T16:06:04.592Z"
+      },
+      "2026-09-21": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "weight": 85.1,
+        "weightMeta": "2026-09-21T13:49:27.030Z",
+        "waist": 98,
+        "waistMeta": "2026-09-21T13:49:04.496Z"
       }
     },
     "savedItems": [],
@@ -3591,7 +3602,8 @@
       "details-add-new-item": true,
       "catalog-ratio": true,
       "supplements-water": true,
-      "today-log": true
+      "today-log": true,
+      "chart-weight-chart": true
     },
     "userCatalog": {
       "items": {
@@ -14703,7 +14715,7 @@
         }
       ]
     },
-    "chartRangeDays": 90,
-    "totalsMode": "collapsed"
+    "totalsMode": "collapsed",
+    "chartRangeDays": 30
   }
 }
