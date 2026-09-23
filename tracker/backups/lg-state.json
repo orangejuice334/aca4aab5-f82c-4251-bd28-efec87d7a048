@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-22T12:15:38.581Z",
-  "_gistSavedAt": "2026-09-21T13:50:14.832Z",
+  "_backupTakenAt": "2026-09-23T12:28:34.439Z",
+  "_gistSavedAt": "2026-09-22T22:27:28.843Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -3510,6 +3510,41 @@
         "weightMeta": "2026-09-21T13:49:27.030Z",
         "waist": 98,
         "waistMeta": "2026-09-21T13:49:04.496Z"
+      },
+      "2026-09-22": {
+        "toggles": {},
+        "counters": {
+          "egg_fried": 69,
+          "avocado_half": 65,
+          "string_cheese": 31.5,
+          "slate_ultra_protein_vanilla": 443,
+          "dannon_light_fit_boston_cream": 150,
+          "yogurt_oikos_triple_zero_lemon": 150,
+          "quest_chips_nacho": 32,
+          "ensure_max_protein_birthday_cake": 330,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "la_piara_tapa_negra_light": 73,
+          "natures_own_keto_bread": 56,
+          "legendary_donuts_dipped_chocolate": 72
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "egg_fried": "2026-09-22T14:28:25.545Z",
+          "avocado_half": "2026-09-22T14:28:33.229Z",
+          "string_cheese": "2026-09-22T14:28:41.010Z",
+          "slate_ultra_protein_vanilla": "2026-09-22T14:28:45.595Z",
+          "dannon_light_fit_boston_cream": "2026-09-22T15:49:39.848Z",
+          "yogurt_oikos_triple_zero_lemon": "2026-09-22T15:49:47.286Z",
+          "quest_chips_nacho": "2026-09-22T16:40:20.271Z",
+          "ensure_max_protein_birthday_cake": "2026-09-22T16:41:28.184Z",
+          "david_bar_choc_chip_cookie_dough": "2026-09-22T16:41:33.522Z",
+          "la_piara_tapa_negra_light": "2026-09-22T20:08:04.447Z",
+          "natures_own_keto_bread": "2026-09-22T20:08:11.271Z",
+          "legendary_donuts_dipped_chocolate": "2026-09-22T20:21:11.553Z"
+        },
+        "weight": 85.1,
+        "weightMeta": "2026-09-22T20:07:39.147Z"
       }
     },
     "savedItems": [],
@@ -3600,10 +3635,7 @@
       "targets-accumulation": true,
       "history": true,
       "details-add-new-item": true,
-      "catalog-ratio": true,
-      "supplements-water": true,
-      "today-log": true,
-      "chart-weight-chart": true
+      "supplements-water": true
     },
     "userCatalog": {
       "items": {
@@ -14715,7 +14747,6 @@
         }
       ]
     },
-    "totalsMode": "collapsed",
-    "chartRangeDays": 30
+    "chartRangeDays": 15
   }
 }
