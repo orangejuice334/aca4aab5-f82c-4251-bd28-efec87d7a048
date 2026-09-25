@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-24T12:27:32.551Z",
-  "_gistSavedAt": "2026-09-23T23:47:17.738Z",
+  "_backupTakenAt": "2026-09-25T12:29:07.800Z",
+  "_gistSavedAt": "2026-09-24T20:54:59.236Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -3584,6 +3584,27 @@
         },
         "weight": 86,
         "weightMeta": "2026-09-23T23:15:24.434Z"
+      },
+      "2026-09-24": {
+        "toggles": {},
+        "counters": {
+          "kashi_berry_fruitful": 60,
+          "slate_ultra_protein_vanilla": 443,
+          "natures_own_keto_bread": 56,
+          "laughing_cow_light": 38,
+          "david_bar_choc_chip_cookie_dough": 62
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "kashi_berry_fruitful": "2026-09-24T13:27:30.849Z",
+          "slate_ultra_protein_vanilla": "2026-09-24T13:26:32.577Z",
+          "natures_own_keto_bread": "2026-09-24T15:50:30.720Z",
+          "laughing_cow_light": "2026-09-24T15:50:38.183Z",
+          "david_bar_choc_chip_cookie_dough": "2026-09-24T20:41:37.096Z"
+        },
+        "weight": 86.2,
+        "weightMeta": "2026-09-24T13:25:42.699Z"
       }
     },
     "savedItems": [],
@@ -3671,11 +3692,10 @@
       "details-recipe-maker": true,
       "today-customs": true,
       "targets-accumulation": true,
-      "history": true,
       "profile": true,
-      "today-log": true,
       "details-add-new-item": true,
-      "catalog-ratio": true
+      "supplements-water": true,
+      "history": true
     },
     "userCatalog": {
       "items": {
@@ -7912,11 +7932,11 @@
           "fiber": 0.0984,
           "sugar": 0.1475,
           "fat": 0.0164,
-          "vitE": 0.012,
+          "vitE": 0.006,
           "vitK": 0.015,
           "b1": 0.002,
           "b2": 0.002,
-          "b3": 0.066,
+          "b3": 0.035,
           "b5": 0.007,
           "b6": 0.003,
           "b9": 0.35,
@@ -7934,7 +7954,19 @@
           "purines": 0.25,
           "displayUnits": [
             {
-              "label": "32 biscuits",
+              "label": "box 17.2 oz (488 g)",
+              "amount": 488,
+              "unit": "g",
+              "multiplier": 488
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            },
+            {
+              "label": "32 biscuits (61 g)",
               "amount": 61,
               "unit": "g",
               "default": true,
@@ -7942,7 +7974,17 @@
             }
           ],
           "defaultMeasuredIn": "g",
-          "brand": "Kashi"
+          "brand": "Kashi",
+          "sf": 0.0028,
+          "transFat": 0,
+          "polyunsat": 0.007,
+          "monounsat": 0.002,
+          "sodium": 0.03,
+          "addedSugar": 0.13114754098360656,
+          "phosphorus": 2.8,
+          "water": 0.06,
+          "omega3": 0.5,
+          "notes": "Kashi whole wheat biscuit cereal, Berry Fruitful. 17.2 oz (488 g) box, UPC 00018627116073, about 8 servings. ENRICHED 2026-09-24 from the SmartLabel panel (smartlabel.wkkellogg.com); the entry already existed with matching macros but no notes, no sodium, no added sugars and one display unit. Entry name still says 'Organic' while the current package says 'Whole Wheat Biscuits' - same product, Kellogg repackaged it. Name left alone to avoid breaking search; rename if wanted. LABEL per serving of 32 biscuits (61 g): 200 kcal, 1 g fat (0 sat, 0 trans, 0 poly, 0 mono), 0 mg cholesterol, 0 mg sodium, 47 g carb, 6 g fiber (soluble under 1 g, insoluble 5 g), 9 g total sugars of which 8 g added, 7 g protein, vitD 0, calcium 10 mg, iron 1.9 mg, potassium 210 mg, thiamin 10 percent DV (0.12 mg), magnesium 15 percent DV (63 mg), zinc 10 percent DV (1.1 mg). HIGH CONFIDENCE on all of those. kcal NOT CORRECTED, same call as the Planters peanuts and macadamia entries. Kellogg already excluded the fiber entirely: 7x4 + 1x9 + 47x4 = 225, minus 6 g fiber at 4 kcal/g = 201, printed as 200, which equals the net-carb Atwater recompute. Adding the usual 2 kcal/g back for fermentable fiber would be wrong here - the label breaks the fiber out as 5 g insoluble wheat fiber and under 1 g soluble, and insoluble wheat fiber is poorly fermented (~0.5 kcal/g at most). The true gap is ~4-5 kcal per serving, inside label rounding. ADDED SUGARS 8 of the 9 g total - this is a sweetened cereal despite the whole-grain framing. SODIUM stored at 3 mg/100 g rather than the label's 0; that is a sub-threshold round-down, since wheat itself carries ~2-3 mg/100 g. Saturated fat likewise restored from 0 to 0.28 g/100 g, and polyunsaturated to 0.7 g/100 g (wheat lipid is mostly linoleic). All immaterial at these amounts. UNLABELED MICROS are MODELED from USDA whole wheat flour scaled to ~80 percent wheat content, the rest being sugar and fruit. That 80 percent basis is validated by three label numbers: magnesium 103 mg/100 g (flour 137 x 0.8 = 110), iron 3.1 (3.6 x 0.8 = 2.9), zinc 1.8 (2.6 x 0.8 = 2.1). MEDIUM CONFIDENCE. TWO INHERITED ESTIMATES CORRECTED on that basis: niacin 6.6 -> 3.5 mg/100 g (the old value exceeded pure whole wheat flour, and 6.6 would have shown as 25 percent DV on a panel that does list thiamin), and vitamin E 1.2 -> 0.6 mg/100 g. Selenium 60 mcg/100 g left as is - US wheat runs 20-120 depending on soil. PURINES 25 mg/100 g, very-low-purine class like all cereal grains. LOW CONFIDENCE, inherited."
         },
         "kashi_blueberry_clusters": {
           "name": "Kashi Organic Blueberry Clusters",
@@ -8004,32 +8046,6 @@
           "defaultMeasuredIn": "g",
           "notes": "Label-derived (high confidence): kcal, p, carbs, fiber, sugar, fat, polyunsat, monounsat, sodium, iron (fortified via ferric phosphate, 80% DV/serving), potassium, calcium. Sat fat label 0g but contains canola oil; est ~0.1g/serving (sub-threshold rounding). Estimated from USDA whole oats + rice + blueberry composition (lower confidence): B-vitamins, choline, Mg, P, Zn, Se, Cu, Mn, iodine, Mo, purines, water content. Ingredients: whole oats, rice, blueberry granola clusters, cane sugar, canola oil, blueberries, elderberry juice (color), salt, natural flavors, iron (ferric phosphate), mixed tocopherols (vit E).",
           "brand": "Kashi"
-        },
-        "kashi_soymilk_bowl": {
-          "name": "Kashi cereal bowl with soy milk",
-          "category": "recipes",
-          "displayUnits": [
-            {
-              "label": "1 bowl",
-              "amount": 161,
-              "unit": "g",
-              "default": true,
-              "multiplier": 161
-            }
-          ],
-          "ingredients": [
-            {
-              "itemKey": "kashi_berry_fruitful",
-              "amount": 61,
-              "label": "200 g cereal"
-            },
-            {
-              "itemKey": "soy_milk",
-              "amount": 100,
-              "label": "200 ml soy milk"
-            }
-          ],
-          "defaultMeasuredIn": "units"
         },
         "kcl_morton": {
           "name": "Salt substitute potassium chloride",
