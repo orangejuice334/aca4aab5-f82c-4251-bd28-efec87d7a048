@@ -107,6 +107,38 @@ export async function fulfillFromLocalWorker(route) {
   return (await localBackend()).fulfillFromLocalWorker(route);
 }
 
+// Playwright route handler for a save whose answer is lost: the Worker
+// applies the page's request, but the page only sees a network failure.
+export async function applyAndDropAnswer(route) {
+  if (BACKEND === 'local') await (await localBackend()).localWorkerResponseFor(route.request());
+  else await route.fetch();
+  recordGistWrites(1);
+  await route.abort('failed');
+}
+
+// Playwright route handler for a save still in flight when the page dies:
+// the Worker applies the page's request and the answer never comes back
+// (the request stays pending until the page closes).
+export async function applyWithoutAnswer(route) {
+  if (BACKEND === 'local') await (await localBackend()).localWorkerResponseFor(route.request());
+  else await route.fetch();
+  recordGistWrites(1);
+}
+
+// Send one batch of ops to the Worker as the test user, the way a device's
+// save does, and return the Worker's answer.
+export async function postTestUserOps(ops) {
+  await assertTestGistIdentity();
+  const response = await workerFetch(`/ops?user=${TEST_USER}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ops }),
+  });
+  if (!response.ok) throw new Error(`POST /ops?user=test -> HTTP ${response.status}: ${(await response.text()).slice(0, 200)}`);
+  recordGistWrites(1);
+  return response.json();
+}
+
 async function readTestUserWrapper() {
   const response = await workerFetch(`/state?user=${TEST_USER}&e2e=${Date.now()}`, { method: 'GET' });
   if (!response.ok) throw new Error(`GET /state?user=test -> HTTP ${response.status}`);

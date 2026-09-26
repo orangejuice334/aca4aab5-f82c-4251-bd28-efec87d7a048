@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.99">
+<meta name="app-version" content="v6.5.100">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -5575,8 +5575,9 @@
   let opQueue = [];
   let flushTimer = null;
   let flushInFlight = false;
-  // How many ops at the head of the queue the save in flight is carrying.
-  let inFlightOpCount = 0;
+  // The ops the save in flight is carrying (the queue can change under it,
+  // so they are tracked by identity, not by position).
+  let inFlightOps = new Set();
 
   function persistQueue() {
     try { localStorage.setItem(QUEUE_STORAGE_KEY, JSON.stringify(opQueue)); } catch (e) {}
@@ -5589,9 +5590,19 @@
       if (Array.isArray(parsed)) opQueue = parsed;
     } catch (e) {}
   }
+  // A unique opId per op (custom-entry ops already use 'id' for the entry).
+  // The Worker records the opIds it has applied and skips a repeat, so an op
+  // sent again (a save whose answer was lost, resent on the next load) is
+  // applied once.
+  function newOpId() {
+    const cryptoSource = (typeof crypto !== 'undefined') ? crypto : null;
+    if (cryptoSource && typeof cryptoSource.randomUUID === 'function') return cryptoSource.randomUUID().replace(/-/g, '').slice(0, 16);
+    return Date.now().toString(36) + Math.random().toString(36).slice(2, 10);
+  }
   function sendOp(op) {
     if (FORCE_DEMO) return;
     if (!op.ts) op.ts = new Date().toISOString();
+    if (!op.opId) op.opId = newOpId();
     opQueue.push(op);
     persistQueue();
     scheduleQueueFlush();
@@ -5601,7 +5612,7 @@
     clearTimeout(flushTimer);
     flushTimer = setTimeout(flushQueue, FLUSH_DEBOUNCE_MS);
   }
-  // Snapshot the head of the queue, POST it, on success splice that prefix off.
+  // Snapshot the queue, POST it, on success remove those ops from the queue.
   // New ops added during flight stay queued for the next debounce cycle.
   // Errors leave the queue intact so the next mutation re-triggers a flush.
   async function flushQueue() {
@@ -5609,9 +5620,8 @@
     if (!syncEnabled) return;
     flushInFlight = true;
     setSyncStatus('saving', 'saving…');
-    const flushSize = opQueue.length;
-    inFlightOpCount = flushSize;
-    const batch = opQueue.slice(0, flushSize);
+    const batch = opQueue.slice();
+    inFlightOps = new Set(batch);
     try {
       const reqHeaders = { 'Content-Type': 'application/json' };
       if (lastSeenGistVersion) reqHeaders['If-Match'] = lastSeenGistVersion;
@@ -5641,10 +5651,15 @@
         try { data = await res.json(); } catch (e) {}
         const errors = (data && Array.isArray(data.errors)) ? data.errors : [];
         const rejectedIdx = new Set(errors.map(e => e && e.index).filter(i => typeof i === 'number'));
+        // Ops the Worker had already applied (sent before, answer lost) were
+        // skipped there, so they must not be applied to the mirror again.
+        const duplicateIndexes = (data && Array.isArray(data.duplicates)) ? data.duplicates : [];
+        duplicateIndexes.forEach(index => { if (typeof index === 'number') rejectedIdx.add(index); });
         // Drop the entire batch from the queue regardless. Failed ops are
         // dropped on the floor (and logged via showSyncError) since retrying
-        // a server-rejected op produces the same rejection forever.
-        opQueue.splice(0, flushSize);
+        // a server-rejected op produces the same rejection forever. By
+        // identity: a cloud load may have dropped already-applied ops meanwhile.
+        opQueue = opQueue.filter(op => !inFlightOps.has(op));
         persistQueue();
         if (respVersion) lastSeenGistVersion = respVersion;
         else if (data && data.gistVersion) lastSeenGistVersion = data.gistVersion;
@@ -5694,7 +5709,7 @@
       scheduleFlushRetry();
     } finally {
       flushInFlight = false;
-      inFlightOpCount = 0;
+      inFlightOps = new Set();
     }
   }
 
@@ -5726,18 +5741,18 @@
     // queued; clearing the queue on that false success would drop the ops.
     // Keep them for the next page load, which sends them first.
     if (syncMode !== 'normal' || (typeof navigator.onLine === 'boolean' && !navigator.onLine)) return;
-    // Hiding the page already started a save of the head of the queue, and
-    // sending those ops again would apply them twice (a tap is an increment).
-    // They stay queued, so the next page load sends them if that save is lost.
-    const firstUnsent = flushInFlight ? inFlightOpCount : 0;
-    const unsent = opQueue.slice(firstUnsent);
+    // Hiding the page already started a save of some of these ops; they stay
+    // queued, so the next page load sends them if that save's answer is lost
+    // (the Worker skips any it had applied). The beacon carries the rest.
+    const unsent = opQueue.filter(op => !inFlightOps.has(op));
     if (!unsent.length) return;
     try {
       // A plain-text body keeps the beacon a simple request (no CORS preflight
       // during unload); the Worker parses the JSON whatever the content type.
       const ok = navigator.sendBeacon(withUser(OPS_URL), JSON.stringify({ ops: unsent }));
       if (ok) {
-        opQueue.splice(firstUnsent, unsent.length);
+        const beaconed = new Set(unsent);
+        opQueue = opQueue.filter(op => !beaconed.has(op));
         persistQueue();
       }
     } catch (e) {}
@@ -7852,6 +7867,16 @@
     // hydrateCatalog so ITEMS truly reflects the remote payload's catalog,
     // not the offline-demo defaults.
     lastKnownGistState = captureSnapshot();
+    // A queued op the cloud already applied (its save's answer was lost) is
+    // in this copy already: drop it, so it is neither replayed nor sent again.
+    const appliedOpIds = Array.isArray(payload._appliedOpIds) ? new Set(payload._appliedOpIds) : null;
+    if (appliedOpIds && opQueue.length) {
+      const stillQueued = opQueue.filter(op => !(op && op.opId && appliedOpIds.has(op.opId)));
+      if (stillQueued.length !== opQueue.length) {
+        opQueue = stillQueued;
+        persistQueue();
+      }
+    }
     // Ops still waiting in the queue (offline, or retrying after a 412) are
     // not in this copy yet: put them back on top of it.
     const remoteProfileWithQueuedOps = replayQueuedOpsOntoState(remoteState.profile);
@@ -8798,6 +8823,40 @@
   // where an ingredient multiplier means a fraction of the whole batch.
   function isRecipeWithIngredients(item) {
     return !!(item && item.category === 'recipes' && Array.isArray(item.ingredients) && item.ingredients.length);
+  }
+
+  // Batch grams of every recipe logged on the viewed day, read the way that
+  // day's totals read them (a one-off recipe through its copy for the day).
+  // Taken before a catalog edit and handed to keepLoggedRecipePortions after it.
+  function loggedRecipeBatchGrams() {
+    const batches = {};
+    const day = state.days && state.days[state.activeDate];
+    for (const key of Object.keys(state.counters || {})) {
+      if (!((state.counters[key] || 0) > 0)) continue;
+      const recipe = effectiveRecipeForDay(key, day);
+      if (isRecipeWithIngredients(recipe)) batches[key] = recipeCanonicalGrams(recipe);
+    }
+    return batches;
+  }
+
+  // A recipe logged on the viewed day keeps its portion when an edit changes
+  // its batch: the same fraction of the batch (a logged full recipe stays one
+  // full recipe), so its logged grams follow the new batch. The time it was
+  // logged is kept. Returns the keys whose logged grams changed; the caller
+  // saves (emitDiffOps sends the counter_set) and refreshes their rows.
+  function keepLoggedRecipePortions(batchesBefore) {
+    const rescaledKeys = [];
+    const day = state.days && state.days[state.activeDate];
+    for (const key of Object.keys(batchesBefore || {})) {
+      const recipe = effectiveRecipeForDay(key, day);
+      if (!isRecipeWithIngredients(recipe)) continue;
+      const before = batchesBefore[key];
+      const after = recipeCanonicalGrams(recipe);
+      if (!(before > 0) || !(after > 0) || Math.abs(after - before) < 1e-9) continue;
+      state.counters[key] = Math.round((state.counters[key] || 0) * (after / before) * 10000) / 10000;
+      rescaledKeys.push(key);
+    }
+    return rescaledKeys;
   }
 
   // Store a recipe's locked "full recipe" serving as its current ingredient
@@ -13491,10 +13550,15 @@
           ing = { itemKey, multiplier: defaultSize > 0 ? (variantSize / defaultSize) : 1 };
         }
         if (variantLabel) ing.label = variantLabel;
+        const batchesBeforeAdd = loggedRecipeBatchGrams();
         saveExpandedEdits(key, panel);
         item.ingredients = Array.isArray(item.ingredients) ? item.ingredients : [];
         item.ingredients.push(ing);
         syncRecipeFullBatchServing(item);
+        // A one-off recipe logged today reads today's copy: refresh it with
+        // the new ingredient, then keep any logged portion's share of the batch.
+        maybeEmitRecipeSnapshotForToday(key);
+        keepLoggedRecipePortions(batchesBeforeAdd);
         saveState();
         if (typeof renderCatalog === 'function') renderCatalog();
         reopenEditPanelForKey(key);
@@ -13951,7 +14015,10 @@
           warning += '\n\nReferenced by ' + referencingRecipes.length + ' recipe' + (referencingRecipes.length === 1 ? '' : 's') + ': ' + referencingRecipes.slice(0, 5).join(', ') + (referencingRecipes.length > 5 ? '…' : '') + '. Those ingredients will compute as zero.';
         }
         if (!confirm(warning)) return;
+        const batchesBeforeDelete = loggedRecipeBatchGrams();
         delete ITEMS[key];
+        // Recipes logged on the viewed day that used it keep their portion.
+        keepLoggedRecipePortions(batchesBeforeDelete);
         saveState();
         if (typeof renderCatalog === 'function') renderCatalog();
         render();
@@ -14057,7 +14124,12 @@
       // the visible catalog row in place. This is the keystroke-fast path:
       // state save + targeted DOM patch + sendOp's own queue all fire on
       // every event, with NO 'wait for blur'.
+      const batchesBeforeEdit = loggedRecipeBatchGrams();
       saveExpandedEdits(key, panel, { skipCatalogRender: true });
+      // A recipe portion already logged on the viewed day keeps its share of
+      // a batch this edit changed (this recipe, or one that contains it).
+      const rescaledKeys = keepLoggedRecipePortions(batchesBeforeEdit);
+      if (rescaledKeys.length) saveState();
       if (typeof updateCatalogRowInPlace === 'function') updateCatalogRowInPlace(key);
       // Recipes: the read-only "full recipe" serving is the sum of the
       // ingredient grams. Keep its amount box in the open editor in step so
@@ -14075,6 +14147,13 @@
       // What is already logged of this item is worth something else now:
       // today's totals, its counter boxes and Today's log follow at once.
       renderCounterDelta(key);
+      // A logged recipe that contains the edited one changed too: its row's
+      // sizes, macros and counter box follow now, not when the panel closes.
+      rescaledKeys.forEach(rescaledKey => {
+        if (rescaledKey === key) return;
+        if (typeof updateCatalogRowInPlace === 'function') updateCatalogRowInPlace(rescaledKey);
+        updateCatalogCounterDisplay(rescaledKey);
+      });
     };
     document.addEventListener('input', (ev) => {
       const panel = ev.target.closest('[data-edit-panel]');

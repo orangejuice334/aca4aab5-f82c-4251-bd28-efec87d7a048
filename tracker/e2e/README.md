@@ -60,7 +60,8 @@ A scenario that leaves the page mid-save navigates to another page of the same s
 | Recipe maker | Recipes used as ingredients mixed up "default serving" and "whole batch" | recipes-maker |
 | Recipe editing | The Preserve switch never rendered | recipes-editing |
 | Recipe editing | Changing, adding or removing an ingredient left the full-recipe size, the title and the "1 batch ≈ N g" hint stale until the panel closed | recipes-editing, recipes-create-then-change |
-| Recipe editing | A portion already logged kept its old counter box and daily total after its recipe changed | recipes-create-then-change |
+| Recipe editing | A portion logged before its recipe changed lost its share of the batch: a logged full recipe turned into a fraction of the corrected one, and its counter box and the day's total disagreed until the panel closed | recipes-create-then-change |
+| Recipe editing | Adding an ingredient to a one-off recipe logged today left today's copy without it | recipes-create-then-change |
 | Recipe editing | Saving read the 1-decimal box text, so a quarter of another recipe (0.25) was saved as 0.3 | recipes-create-then-change |
 | Recipe editing | A recipe inside a recipe was sized by its default serving instead of its batch: its boxes showed a quarter serving, and typing half a serving added half the whole batch | recipes-create-then-change |
 | Recipe editing | Adding one serving of another recipe from the edit panel added its whole batch | recipes-create-then-change |
@@ -88,6 +89,7 @@ A scenario that leaves the page mid-save navigates to another page of the same s
 | Sync | Retry replaced local state with the cloud and never sent queued changes | sync-and-persistence |
 | Sync | Reloading while saves failed dropped the queued changes | sync-and-persistence |
 | Sync | The unload beacon resent ops a save already in flight was carrying, so a tap could count twice | sync-and-persistence |
+| Sync | A tap whose save was still in flight when the tab died was sent again by the next visit and counted twice (each op carries an opId; the Worker skips an opId it already applied) | sync-and-persistence |
 | Sync | After a 412 conflict the second device's own change disappeared from its screen | sync-and-persistence |
 | Sync | A stale device that merely opened and closed an item overwrote another device's edit of it | sync-and-persistence |
 | Catalog links | A catalog link opened in an already-open tab did nothing | hash-commands |

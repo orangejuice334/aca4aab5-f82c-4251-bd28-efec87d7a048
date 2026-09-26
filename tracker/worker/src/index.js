@@ -15,6 +15,11 @@ const USERS = {
 
 const GIST_FILE = 'tracker-state.json';
 
+// How many applied opIds /ops remembers (stored beside the state) to skip
+// an op that arrives again. A resent batch comes from the same device within
+// minutes, so a few hundred opIds is ample and keeps the gist small.
+const APPLIED_OP_ID_LIMIT = 500;
+
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
@@ -509,7 +514,48 @@ export default {
     }
     if (!wrapper.state || typeof wrapper.state !== 'object') wrapper.state = {};
 
-    const result = applyOps(wrapper.state, body.ops);
+    // Ops carry a unique opId ('id' is a custom entry's id). An op whose opId
+    // was already applied (a batch resent after its answer was lost) is
+    // skipped, so it counts once; the opIds of the last APPLIED_OP_ID_LIMIT
+    // applied ops live beside the state.
+    const appliedOpIds = Array.isArray(wrapper._appliedOpIds) ? wrapper._appliedOpIds : [];
+    const seenOpIds = new Set(appliedOpIds);
+    const freshOps = [];
+    const freshIndexes = [];
+    const duplicates = [];
+    body.ops.forEach((op, index) => {
+      const opId = op && typeof op.opId === 'string' ? op.opId : '';
+      if (opId && seenOpIds.has(opId)) {
+        duplicates.push(index);
+        return;
+      }
+      if (opId) seenOpIds.add(opId);
+      freshOps.push(op);
+      freshIndexes.push(index);
+    });
+    if (!freshOps.length) {
+      // Everything was applied before: nothing to write.
+      const headers = { ...corsHeaders, 'Content-Type': 'application/json' };
+      if (currentVersion) headers['X-Gist-Version'] = currentVersion;
+      return new Response(JSON.stringify({
+        ok: true,
+        applied: 0,
+        errors: [],
+        duplicates,
+        _savedAt: wrapper._savedAt || null,
+        gistVersion: currentVersion,
+      }), { status: 200, headers });
+    }
+    const freshResult = applyOps(wrapper.state, freshOps);
+    const result = {
+      applied: freshResult.applied,
+      errors: freshResult.errors.map(error => ({ ...error, index: freshIndexes[error.index] })),
+    };
+    const rejectedFreshIndexes = new Set(freshResult.errors.map(error => error.index));
+    const newlyAppliedIds = freshOps
+      .filter((op, freshIndex) => !rejectedFreshIndexes.has(freshIndex) && op && typeof op.opId === 'string' && op.opId)
+      .map(op => op.opId);
+    wrapper._appliedOpIds = appliedOpIds.concat(newlyAppliedIds).slice(-APPLIED_OP_ID_LIMIT);
     wrapper._savedAt = new Date().toISOString();
 
     const patchRes = await fetch(gistApi, {
@@ -533,6 +579,7 @@ export default {
       ok: result.errors.length === 0,
       applied: result.applied,
       errors: result.errors,
+      duplicates,
       _savedAt: wrapper._savedAt,
       gistVersion: newVersion,
     }), {

@@ -1,4 +1,5 @@
 import { test, expect } from '../support/fixtures.mjs';
+import { YESTERDAY, logCounter } from '../support/seed.mjs';
 
 // Create a recipe in the recipe maker, then change it: edit one ingredient's
 // amount, add an ingredient, or remove one. After every change, everything
@@ -8,8 +9,9 @@ import { test, expect } from '../support/fixtures.mjs';
 //   - the "1 batch ≈ N g" hint of the Track custom portion block,
 //   - the recipe's catalog row title, macros and + button size,
 //   - what is saved to the cloud and what logging the full recipe adds,
-//   - and a portion logged before the change must keep its counter box and
-//     the daily totals in agreement.
+//   - and a portion logged before the change keeps its share of the batch:
+//     a logged full recipe stays one full recipe, so the day's total follows
+//     the corrected recipe and the logged grams follow the new batch.
 //
 // Fixture macros (per gram or ml, see seed.mjs):
 //   chicken breast 1.65 kcal, 0.31 P, 0.01 SF, 0.65 ml water; 1 breast = 200 g
@@ -59,17 +61,12 @@ async function expectBatch(tracker, panel, key, { name, grams, cells }) {
   await expect(plusButton(tracker, key), 'the + button adds one current batch').toHaveAttribute('data-serving-size', String(grams));
 }
 
-// The counter box of the full-recipe row times the row's calories must equal
-// the daily total (the only thing logged in these scenarios), whichever way
-// the app keeps a logged portion when its recipe changes.
-async function expectLoggedPortionAgreesWithTotal(tracker, key, message) {
-  await expect.poll(async () => {
-    const boxValue = parseFloat(await counterBox(tracker, key).first().inputValue());
-    const rowKcal = await tracker.rowKcal(tracker.row(key));
-    const dailyKcal = await tracker.total('kcal');
-    if (Math.abs(boxValue * rowKcal - dailyKcal) <= 4) return 'agree';
-    return `box ${boxValue} × ${rowKcal} kcal per full recipe = ${Math.round(boxValue * rowKcal)} kcal, daily total ${dailyKcal} kcal`;
-  }, { message }).toBe('agree');
+// A portion logged before the change keeps its share of the batch: the
+// full-recipe row's counter box keeps its value and the day's total becomes
+// that share of the corrected recipe (the only thing logged in these scenarios).
+async function expectLoggedPortion(tracker, key, { box, dailyKcal }, message) {
+  await expect(counterBox(tracker, key).first(), `${message}: the logged portion`).toHaveValue(box);
+  await expect.poll(() => tracker.total('kcal'), { message: `${message}: the day's calories` }).toBe(dailyKcal);
 }
 
 test.describe('New recipe, then one ingredient amount is edited', () => {
@@ -176,7 +173,7 @@ test.describe('New recipe, then one ingredient amount is edited', () => {
     await expect(fullRecipeBox(panel)).toHaveValue('460');
   });
 
-  test('a portion logged before the edit keeps its counter box and the daily total in agreement', async ({ tracker }) => {
+  test('a full recipe logged before the edit stays one full recipe, so the day follows the corrected recipe', async ({ tracker }) => {
     await tracker.open();
     await createRecipe(tracker, 'Chicken and rice', ['chicken_breast', 'rice_cooked']);
     await tracker.plus(CHICKEN_AND_RICE, { servingSize: 360 });
@@ -184,12 +181,26 @@ test.describe('New recipe, then one ingredient amount is edited', () => {
     const panel = await tracker.openEditPanel(CHICKEN_AND_RICE);
     await servingBox(ingredientRow(panel, 'chicken_breast'), 200).fill('1.5');
     await expect(fullRecipeBox(panel)).toHaveValue('460');
-    await expectLoggedPortionAgreesWithTotal(tracker, CHICKEN_AND_RICE, 'while the panel is still open');
+    await expectLoggedPortion(tracker, CHICKEN_AND_RICE, { box: '1', dailyKcal: 703 }, 'while the panel is still open');
+    await tracker.expectTotal('p', 97);
     await tracker.closeEditPanel(CHICKEN_AND_RICE);
-    await expectLoggedPortionAgreesWithTotal(tracker, CHICKEN_AND_RICE, 'after closing the panel');
-    await tracker.waitForSyncIdle();
+    await expectLoggedPortion(tracker, CHICKEN_AND_RICE, { box: '1', dailyKcal: 703 }, 'after closing the panel');
+    expect((await tracker.cloudDay()).counters[CHICKEN_AND_RICE], 'the logged grams follow the batch').toBe(460);
     await tracker.reload();
-    await expectLoggedPortionAgreesWithTotal(tracker, CHICKEN_AND_RICE, 'after a reload');
+    await expectLoggedPortion(tracker, CHICKEN_AND_RICE, { box: '1', dailyKcal: 703 }, 'after a reload');
+  });
+
+  test('half a recipe logged before the edit stays half the recipe', async ({ tracker }) => {
+    await tracker.open();
+    await createRecipe(tracker, 'Chicken and rice', ['chicken_breast', 'rice_cooked']);
+    await tracker.typeCount(CHICKEN_AND_RICE, 360, '0.5');
+    await tracker.expectTotal('kcal', 269);
+    const panel = await tracker.openEditPanel(CHICKEN_AND_RICE);
+    await servingBox(ingredientRow(panel, 'chicken_breast'), 200).fill('1.5');
+    // Half of the corrected 703 kcal batch.
+    await expectLoggedPortion(tracker, CHICKEN_AND_RICE, { box: '0.5', dailyKcal: 352 }, 'after the edit');
+    await tracker.closeEditPanel(CHICKEN_AND_RICE);
+    expect((await tracker.cloudDay()).counters[CHICKEN_AND_RICE]).toBe(230);
   });
 
   test('editing an amount in the recipe maker before saving saves the edited amount', async ({ tracker }) => {
@@ -314,7 +325,7 @@ test.describe('New recipe, then an ingredient is added', () => {
     await tracker.expectTotal('kcal', 678);
   });
 
-  test('a portion logged before an ingredient is added keeps its counter box and the daily total in agreement', async ({ tracker }) => {
+  test('a full recipe logged before an ingredient is added stays one full recipe', async ({ tracker }) => {
     await tracker.open();
     await createRecipe(tracker, 'Chicken and rice', ['chicken_breast', 'rice_cooked']);
     await tracker.plus(CHICKEN_AND_RICE, { servingSize: 360 });
@@ -323,9 +334,10 @@ test.describe('New recipe, then an ingredient is added', () => {
     await panel.locator('[data-ing-add-source]').selectOption('olive_oil');
     await panel.locator('[data-ing-add-confirm]').click();
     await expect(fullRecipeBox(tracker.editPanel(CHICKEN_AND_RICE))).toHaveValue('375');
-    await expectLoggedPortionAgreesWithTotal(tracker, CHICKEN_AND_RICE, 'right after adding');
+    await expectLoggedPortion(tracker, CHICKEN_AND_RICE, { box: '1', dailyKcal: 658 }, 'right after adding');
     await tracker.closeEditPanel(CHICKEN_AND_RICE);
-    await expectLoggedPortionAgreesWithTotal(tracker, CHICKEN_AND_RICE, 'after closing the panel');
+    await expectLoggedPortion(tracker, CHICKEN_AND_RICE, { box: '1', dailyKcal: 658 }, 'after closing the panel');
+    expect((await tracker.cloudDay()).counters[CHICKEN_AND_RICE]).toBe(375);
   });
 
   test('adding an ingredient in the recipe maker before saving saves it with the new batch', async ({ tracker }) => {
@@ -403,7 +415,7 @@ test.describe('New recipe, then an ingredient is removed', () => {
     expect(fullRecipeOf(saved).multiplier).toBe(315);
   });
 
-  test('a portion logged before an ingredient is removed keeps its counter box and the daily total in agreement', async ({ tracker }) => {
+  test('a full recipe logged before an ingredient is removed stays one full recipe', async ({ tracker }) => {
     await tracker.open();
     await createRecipe(tracker, 'Chicken rice and oil', ['chicken_breast', 'rice_cooked', 'olive_oil']);
     await tracker.plus(CHICKEN_RICE_AND_OIL, { servingSize: 375 });
@@ -411,9 +423,10 @@ test.describe('New recipe, then an ingredient is removed', () => {
     const panel = await tracker.openEditPanel(CHICKEN_RICE_AND_OIL);
     await ingredientRow(panel, 'rice_cooked').locator('[data-ing-delete]').click();
     await expect(fullRecipeBox(tracker.editPanel(CHICKEN_RICE_AND_OIL))).toHaveValue('215');
-    await expectLoggedPortionAgreesWithTotal(tracker, CHICKEN_RICE_AND_OIL, 'while the panel is still open');
+    await expectLoggedPortion(tracker, CHICKEN_RICE_AND_OIL, { box: '1', dailyKcal: 450 }, 'while the panel is still open');
     await tracker.closeEditPanel(CHICKEN_RICE_AND_OIL);
-    await expectLoggedPortionAgreesWithTotal(tracker, CHICKEN_RICE_AND_OIL, 'after closing the panel');
+    await expectLoggedPortion(tracker, CHICKEN_RICE_AND_OIL, { box: '1', dailyKcal: 450 }, 'after closing the panel');
+    expect((await tracker.cloudDay()).counters[CHICKEN_RICE_AND_OIL]).toBe(215);
   });
 
   test('removing an ingredient in the recipe maker before saving saves the smaller batch', async ({ tracker }) => {
@@ -474,5 +487,38 @@ test.describe('Recipes that already contain another recipe', () => {
     expect(saved.ingredients[0]).toEqual({ itemKey: 'meal_prep_slab', multiplier: 0.125 });
     await tracker.plus('recipe_in_recipe', { servingSize: 185 });
     await tracker.expectTotal('kcal', 309);
+  });
+
+  test('a recipe logged whole stays whole when a recipe inside it changes', async ({ tracker }) => {
+    await tracker.open();
+    await tracker.plus('recipe_in_recipe', { servingSize: 365 });
+    await tracker.expectTotal('kcal', 578);
+    const panel = await tracker.openEditPanel('meal_prep_slab');
+    await servingBox(ingredientRow(panel, 'chicken_breast'), 1).fill('1000');
+    // The slab becomes 1640 g, 2482 kcal; a quarter of it plus 5 ml oil is
+    // 415 g and 660.5 kcal, and the logged bowl is still one whole bowl.
+    await expect(tracker.rowTitle('recipe_in_recipe')).toHaveText('Slab bowl with oil (full recipe / 415 g)');
+    await expectLoggedPortion(tracker, 'recipe_in_recipe', { box: '1', dailyKcal: 661 }, 'while the slab panel is still open');
+    await tracker.closeEditPanel('meal_prep_slab');
+    await expectLoggedPortion(tracker, 'recipe_in_recipe', { box: '1', dailyKcal: 661 }, 'after closing the panel');
+    expect((await tracker.cloudDay()).counters.recipe_in_recipe).toBe(415);
+  });
+});
+
+test.describe('One-off recipes changed on the day they were logged', () => {
+  test('a one-off recipe logged today stays one full recipe when edited, and yesterday is untouched', async ({ tracker, page }) => {
+    await tracker.open({ seed: state => logCounter(state, 'one_off_lunch', 200, { at: '11:30' }) });
+    await tracker.expectTotal('kcal', 295);
+    const panel = await tracker.openEditPanel('one_off_lunch');
+    await servingBox(ingredientRow(panel, 'chicken_breast'), 1).fill('150');
+    // 150 g chicken (247.5) + 100 g rice (130) = 377.5 kcal in a 250 g batch.
+    await expectLoggedPortion(tracker, 'one_off_lunch', { box: '1', dailyKcal: 378 }, 'after the edit');
+    await tracker.closeEditPanel('one_off_lunch');
+    const day = await tracker.cloudDay();
+    expect(day.counters.one_off_lunch).toBe(250);
+    expect(day.recipeSnapshots.one_off_lunch.ingredients[0]).toEqual({ itemKey: 'chicken_breast', amount: 150 });
+    await page.locator('#checkout-date-prev').click();
+    await expect(page.locator('#checkout-date')).toContainText(YESTERDAY);
+    await tracker.expectTotal('kcal', 295);
   });
 });

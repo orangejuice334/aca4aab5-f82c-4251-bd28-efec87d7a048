@@ -108,16 +108,20 @@ export async function localWorkerFetch(url, init = {}) {
   return worker.fetch(new Request(url, init), { GIST_TOKEN: 'local-e2e-no-token' });
 }
 
-// Playwright route handler: answer a page request from the local Worker.
-export async function fulfillFromLocalWorker(route) {
-  const request = route.request();
+// Run a page request (a Playwright Request) through the local Worker.
+export async function localWorkerResponseFor(request) {
   const init = { method: request.method(), headers: {} };
   for (const [name, value] of Object.entries(request.headers())) {
     if (['content-type', 'if-match', 'authorization'].includes(name.toLowerCase())) init.headers[name] = value;
   }
   const body = request.postDataBuffer();
   if (body && !['GET', 'HEAD'].includes(init.method)) init.body = body;
-  const response = await localWorkerFetch(request.url(), init);
+  return localWorkerFetch(request.url(), init);
+}
+
+// Playwright route handler: answer a page request from the local Worker.
+export async function fulfillFromLocalWorker(route) {
+  const response = await localWorkerResponseFor(route.request());
   const headers = {};
   response.headers.forEach((value, name) => { headers[name] = value; });
   const responseBody = Buffer.from(await response.arrayBuffer());

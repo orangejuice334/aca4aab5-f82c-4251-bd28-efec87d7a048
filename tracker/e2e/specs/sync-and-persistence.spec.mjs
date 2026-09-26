@@ -1,5 +1,5 @@
-import { test, expect } from '../support/fixtures.mjs';
-import { waitForCloudState } from '../support/cloud.mjs';
+import { test, expect, QUEUE_KEY, TrackerPage } from '../support/fixtures.mjs';
+import { applyAndDropAnswer, applyWithoutAnswer, postTestUserOps, readTestUserState, waitForCloudState } from '../support/cloud.mjs';
 import { TODAY, logCounter } from '../support/seed.mjs';
 
 // Cloud sync: every change is queued as a small op and flushed to the
@@ -138,6 +138,96 @@ test.describe('Lost connection', () => {
     await waitForCloudState(state => cloudCounter(state, 'chicken_breast') === 200, {
       timeout: 20000, message: 'the unsaved tap was dropped instead of being sent later',
     });
+  });
+});
+
+test.describe('A save that arrives twice', () => {
+  test('the same op sent to the Worker twice counts once', async ({ tracker }) => {
+    await tracker.open();
+    const tap = { type: 'counter_inc', key: 'chicken_breast', servingSize: 200, date: TODAY, ts: new Date().toISOString(), opId: 'e2e-sent-twice' };
+    expect(await postTestUserOps([tap])).toMatchObject({ ok: true, applied: 1, duplicates: [] });
+    expect(await postTestUserOps([tap]), 'the repeat is recognised and skipped').toMatchObject({ ok: true, applied: 0, duplicates: [0] });
+    const state = await tracker.cloud();
+    expect(cloudCounter(state, 'chicken_breast')).toBe(200);
+  });
+
+  test('a save whose answer is lost is applied once when the next visit sends it again', async ({ tracker, page }) => {
+    await tracker.open();
+    // The first save reaches the Worker but its answer is lost, and the
+    // connection stays down, so the tap is still queued when the page closes.
+    let droppedAnswers = 0;
+    await page.route(isWorker, async route => {
+      if (new URL(route.request().url()).pathname === '/ops' && droppedAnswers === 0) {
+        droppedAnswers += 1;
+        await applyAndDropAnswer(route);
+        return;
+      }
+      await route.abort();
+    });
+    await tracker.plus('chicken_breast', { servingSize: 200 });
+    await expect.poll(() => droppedAnswers, { message: 'the first save reached the Worker' }).toBe(1);
+    await expect(offlineBanner(page)).toBeVisible();
+    const queuedTaps = await page.evaluate(queueKey => (JSON.parse(localStorage.getItem(queueKey) || '[]') || [])
+      .filter(op => op && op.type === 'counter_inc' && op.key === 'chicken_breast').length, QUEUE_KEY);
+    expect(queuedTaps, 'the tap is still queued').toBe(1);
+    await page.unroute(isWorker);
+    // The next visit sends the queued tap first; the Worker had applied it.
+    await tracker.reload();
+    await tracker.waitForSyncIdle({ timeout: 30000 });
+    expect(cloudCounter(await tracker.cloud(), 'chicken_breast'), 'the tap counted once').toBe(200);
+    await expect(chickenCount(tracker)).toHaveValue('1');
+  });
+
+  test('a tap whose save is still in flight when the page dies counts once on the next visit', async ({ tracker, page, context }, testInfo) => {
+    await tracker.open();
+    // The save reaches the Worker, then the page dies before the answer
+    // arrives, so nothing else (no error, no later save) is queued behind it.
+    let markSaveApplied;
+    const saveApplied = new Promise(resolveApplied => { markSaveApplied = resolveApplied; });
+    await page.route(isWorkerWrite, async route => {
+      await applyWithoutAnswer(route);
+      markSaveApplied();
+    });
+    await tracker.plus('chicken_breast', { servingSize: 200 });
+    await saveApplied;
+    const queued = await page.evaluate(queueKey => (JSON.parse(localStorage.getItem(queueKey) || '[]') || []).map(op => op.type), QUEUE_KEY);
+    expect(queued, 'only the tap is waiting for an answer').toEqual(['counter_inc']);
+    // Die the way a killed or crashed tab does: no unload handler runs (a
+    // closed page would still save once more on its way out).
+    const pageCrashed = page.waitForEvent('crash');
+    const devTools = await context.newCDPSession(page);
+    devTools.send('Page.crash').catch(() => { /* the page is gone before it can answer */ });
+    await pageCrashed;
+    // The next visit sends the queued tap first; the Worker had applied it.
+    // (The clock is the context's, already installed, so the new tab keeps it.)
+    const nextVisit = new TrackerPage(await context.newPage(), testInfo);
+    await nextVisit.page.goto('track.html?user=test');
+    await nextVisit.waitForLoaded();
+    await nextVisit.waitForSyncIdle({ timeout: 30000 });
+    expect(cloudCounter((await readTestUserState()).state, 'chicken_breast'), 'the tap counted once').toBe(200);
+    await expect(nextVisit.counterInput('chicken_breast', 200)).toHaveValue('1');
+    expect(nextVisit.pageErrors).toEqual([]);
+  });
+
+  test('a save whose answer is lost is applied once while the page is still open', async ({ tracker, page }) => {
+    await tracker.open();
+    let droppedAnswers = 0;
+    await page.route(isWorkerWrite, async route => {
+      if (droppedAnswers === 0) {
+        droppedAnswers += 1;
+        await applyAndDropAnswer(route);
+        return;
+      }
+      await route.fallback();
+    });
+    await tracker.plus('chicken_breast', { servingSize: 200 });
+    await expect.poll(() => droppedAnswers, { message: 'the first save reached the Worker' }).toBe(1);
+    // The page never heard back, so it retries the same batch; the Worker skips it.
+    await tracker.waitForSyncIdle({ timeout: 30000 });
+    const state = await tracker.cloud();
+    expect(cloudCounter(state, 'chicken_breast'), 'the tap counted once').toBe(200);
+    await expect(chickenCount(tracker)).toHaveValue('1');
+    await expect(offlineBanner(page), 'the retry succeeded, so the page is online').toBeHidden();
   });
 });
 
