@@ -41,14 +41,21 @@ State shape:
 | `state.profile` | Goals, height, weight history target, displayedNutrients list, gender, etc. |
 
 ## Mutate state
-`POST /ops?user=<u>` body `{ ops: [ {type, ...args, ts: <ISO>}, ... ] }`.
+`POST /ops?user=<u>` body `{ ops: [ {type, ...args, ts: <ISO>, opId: <unique string>}, ... ] }`.
 Every food-log op needs `date: "YYYY-MM-DD"`. `ts` is the current ISO
-timestamp; it drives the row's "last touched at" badge.
+timestamp; it drives the row's "last touched at" badge. `opId` is optional
+and unique per op: the Worker remembers the last 500 applied opIds (in
+`_appliedOpIds`, beside `state` in the gist file) and skips an op whose opId
+it has already applied, so a batch resent after its answer was lost is never
+applied twice. Ops without an opId are always applied. Custom-entry ops use
+`id` for the entry itself, which is why the op's own id is `opId`.
 
-Response shape: `{ ok, applied, errors, _savedAt, gistVersion }`. The
-`X-Gist-Version` response header carries the same `gistVersion` for
-clients that prefer headers. `ok: false` means one or more ops failed
-validation; inspect `errors[].index` / `errors[].reason`.
+Response shape: `{ ok, applied, errors, duplicates, _savedAt, gistVersion }`.
+`duplicates` lists the indexes of ops skipped as already applied; a batch of
+nothing but duplicates writes nothing. The `X-Gist-Version` response header
+carries the same `gistVersion` for clients that prefer headers. `ok: false`
+means one or more ops failed validation; inspect `errors[].index` /
+`errors[].reason`.
 
 After any mutation, GET /state once to confirm. On HTTP 403 back off
 about 30 seconds; the underlying gist API is rate-limited.
