@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-25T12:29:07.800Z",
-  "_gistSavedAt": "2026-09-24T20:54:59.236Z",
+  "_backupTakenAt": "2026-09-26T11:59:39.178Z",
+  "_gistSavedAt": "2026-09-26T00:58:04.524Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -3605,6 +3605,37 @@
         },
         "weight": 86.2,
         "weightMeta": "2026-09-24T13:25:42.699Z"
+      },
+      "2026-09-25": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_chocolate": 443,
+          "natures_own_keto_bread": 112,
+          "avocado_half": 156,
+          "smoked_salmon_slice": 28,
+          "egg_fried": 0,
+          "ketchup_packet": 18,
+          "large_egg": 75,
+          "evoo_tsp": 5,
+          "dannon_light_fit_boston_cream": 150,
+          "nutricost_casein_vanilla": 32
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_chocolate": "2026-09-25T13:29:22.242Z",
+          "natures_own_keto_bread": "2026-09-25T23:41:25.075Z",
+          "avocado_half": "2026-09-25T23:41:09.656Z",
+          "smoked_salmon_slice": "2026-09-25T13:29:53.244Z",
+          "egg_fried": "2026-09-25T23:52:14.966Z",
+          "ketchup_packet": "2026-09-25T23:41:31.022Z",
+          "large_egg": "2026-09-25T23:52:12.832Z",
+          "evoo_tsp": "2026-09-25T23:52:32.860Z",
+          "dannon_light_fit_boston_cream": "2026-09-26T00:43:55.945Z",
+          "nutricost_casein_vanilla": "2026-09-26T00:44:01.002Z"
+        },
+        "weight": 85.5,
+        "weightMeta": "2026-09-25T14:30:29.395Z"
       }
     },
     "savedItems": [],
@@ -3686,16 +3717,17 @@
       "targets-daily": true,
       "details-profile-section": true,
       "details-sync-error-banner": true,
-      "section-archive-section": true,
       "catalog-archive": true,
       "section-mood-tracker": true,
-      "details-recipe-maker": true,
       "today-customs": true,
-      "targets-accumulation": true,
       "profile": true,
       "details-add-new-item": true,
       "supplements-water": true,
-      "history": true
+      "history": true,
+      "chart-weight-chart": true,
+      "today-log": true,
+      "section-weight-tracker": true,
+      "targets-accumulation": true
     },
     "userCatalog": {
       "items": {
@@ -14796,6 +14828,6 @@
         }
       ]
     },
-    "chartRangeDays": 15
+    "totalsMode": "collapsed"
   }
 }
