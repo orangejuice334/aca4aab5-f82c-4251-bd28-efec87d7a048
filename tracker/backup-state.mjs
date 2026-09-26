@@ -12,6 +12,7 @@
 // left out of the default set (a daily backup of it would only commit churn).
 
 import { writeFileSync, mkdirSync } from 'node:fs';
+import { EOL } from 'node:os';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
@@ -64,7 +65,9 @@ function saveBackup(user, parsed) {
     user,
     state: parsed.state,
   };
-  const json = JSON.stringify(wrapper, null, 2) + '\n';
+  // The platform's own line ending (CRLF on Windows, LF in the Linux cron):
+  // git stores LF either way and has nothing to convert or warn about.
+  const json = JSON.stringify(wrapper, null, 2).replace(/\n/g, EOL) + EOL;
   const outPath = resolve(BACKUP_DIR, `${user}-state.json`);
   writeFileSync(outPath, json, 'utf8');
   return { outPath, bytes: json.length };

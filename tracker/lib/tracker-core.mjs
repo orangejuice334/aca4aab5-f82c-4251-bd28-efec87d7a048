@@ -89,12 +89,60 @@ export function primaryUnit(item) {
   return (item && item.defaultMeasuredIn === 'ml') ? 'ml' : 'g';
 }
 
+// True for a recipe whose macros come from its ingredients, the case where
+// an ingredient multiplier means a fraction of the whole batch.
+export function isRecipeWithIngredients(item) {
+  return !!(item && item.category === 'recipes' && Array.isArray(item.ingredients) && item.ingredients.length);
+}
+
+// Native units (grams or ml, or pieces for counted items) that a list of
+// recipe ingredients adds up to, the way the page's recipeLinkedGrams counts
+// them (unrounded):
+//   - an amount counts its native units;
+//   - a multiplier on a recipe counts that fraction of the recipe's own batch
+//     (1 when that batch has no linked grams, or when recipes contain each other);
+//   - a multiplier on anything else counts that many of its default serving;
+//   - deleted sources and inline (unlinked) ingredients count as nothing, so
+//     a recipe of inline ingredients keeps its own serving sizes.
+// `visiting` holds the recipes already being summed (cycle protection).
+export function ingredientNativeUnits(ingredients, items, visiting) {
+  const inProgress = visiting || new Set();
+  let total = 0;
+  for (const ing of (ingredients || [])) {
+    if (!ing || !ing.itemKey) continue;
+    const src = items && items[ing.itemKey];
+    if (!src) continue;
+    if (typeof ing.amount === 'number' && ing.amount > 0) {
+      total += ing.amount;
+      continue;
+    }
+    if (!(typeof ing.multiplier === 'number' && ing.multiplier > 0)) continue;
+    if (isRecipeWithIngredients(src)) {
+      let batch = 0;
+      if (!inProgress.has(src)) {
+        inProgress.add(src);
+        batch = ingredientNativeUnits(src.ingredients, items, inProgress);
+        inProgress.delete(src);
+      }
+      total += ing.multiplier * (batch > 0 ? batch : 1);
+      continue;
+    }
+    const servings = getDisplayUnits(src);
+    const canonical = servings.find(u => u && u.default) || servings[0];
+    total += ing.multiplier * ((canonical && canonical.unitsPerServing) || 0);
+  }
+  return total;
+}
+
 // Returns a displayUnits list with `unitsPerServing` mirrored from
 // `multiplier`. Every g/ml item (and every recipe) gets a synthetic "1 g"
 // (or "1 ml") trailer if not already present, so the catalog row + recipe
 // maker always expose a raw native-unit input. The synthetic variant
 // carries `synthetic: true` so the variant editor can filter it out.
-export function getDisplayUnits(item) {
+// With the catalog (`items`) at hand, a recipe's locked "full recipe"
+// serving is its live ingredient total, as on the page, whatever size was
+// stored when the recipe was last saved.
+export function getDisplayUnits(item, items) {
   const measuredForUnit = getDefaultMeasuredIn(item);
   const isRecipeItem = !!(item && item.category === 'recipes' && Array.isArray(item.ingredients));
   // EVERY catalog item gets a synthetic size-1 trailer so the picker
@@ -108,8 +156,12 @@ export function getDisplayUnits(item) {
       ? '1 ' + measuredForUnit
       : '1 unit';
   if (item && Array.isArray(item.displayUnits) && item.displayUnits.length) {
+    const liveBatch = (items && isRecipeItem) ? ingredientNativeUnits(item.ingredients, items, new Set([item])) : 0;
     const out = item.displayUnits.map(v => {
       if (!v) return v;
+      if (liveBatch > 0 && (v.locked || /full recipe/i.test(v.label || ''))) {
+        return Object.assign({}, v, { unitsPerServing: liveBatch, multiplier: liveBatch, amount: liveBatch });
+      }
       if (typeof v.multiplier === 'number' && v.multiplier > 0) {
         return Object.assign({}, v, { unitsPerServing: v.multiplier });
       }
@@ -173,8 +225,9 @@ export function computeIngredientMacros(ing, items, seen) {
     if (typeof ing.multiplier === 'number') {
       batchFraction = ing.multiplier;
     } else if (typeof ing.amount === 'number') {
-      const canon = getDisplayUnits(item).find(u => u && (/full recipe/i.test(u.label || '') || u.locked))
-                  || getDisplayUnits(item)[0];
+      // Grams of a recipe are a share of its live batch (its full recipe).
+      const servings = getDisplayUnits(item, items);
+      const canon = servings.find(u => u && (/full recipe/i.test(u.label || '') || u.locked)) || servings[0];
       const batchGrams = (canon && (canon.multiplier || canon.unitsPerServing)) || 1;
       batchFraction = batchGrams > 0 ? (ing.amount / batchGrams) : 0;
     }
@@ -198,10 +251,11 @@ export function computeIngredientMacros(ing, items, seen) {
 
 // Recipe-maker dropdown options. Mirrors the catalog row "Name (Brand)"
 // format so the same physical item across multiple brand variants is
-// distinguishable. Filters out water (the dedicated hydration item).
+// distinguishable. Archived items and water (the hydration key and the
+// water category) are never offered.
 export function recipeCatalogOptions(items) {
   return Object.entries(items || {})
-    .filter(([k]) => k !== 'water')
+    .filter(([k, item]) => k !== 'water' && item && !item.archived && item.category !== 'water')
     .map(([k, item]) => {
       const brand = (item && typeof item.brand === 'string' && item.brand.trim()) ? item.brand.trim() : '';
       const baseName = (item && item.name) || k;
@@ -240,10 +294,11 @@ export function isEditPanelScratchTarget(target, closestFn) {
 // default variant first, then descending by size, then the synthetic
 // "1 g" / "1 ml" trailer (for g/ml items + recipes). Each entry carries
 // enough info for the picker to commit a sensible {amount or multiplier,
-// label} pair when the user clicks Add.
-export function servingPickerOptions(item) {
+// label} pair when the user clicks Add. Pass the catalog so a recipe's
+// full recipe carries its live size, as on the page.
+export function servingPickerOptions(item, items) {
   if (!item) return [];
-  const variants = orderVariantsForCatalog(getDisplayUnits(item));
+  const variants = orderVariantsForCatalog(getDisplayUnits(item, items));
   return variants.map((v, idx) => ({
     index: idx,
     label: v.label || '',
@@ -257,15 +312,15 @@ export function servingPickerOptions(item) {
 
 // Build a single ingredient entry from a (sourceKey, servingIndex) pair
 // using the SAME shape the page commits via the add-ingredient picker:
-// per-100 sources (g/ml) store native-unit amount; non-basis sources
-// (units, recipes) store the multiplier as a fraction of canonical
-// (default) batch. Returns the ingredient object ready to push into
-// recipe.ingredients[]. Throws when source is missing or servingIndex
-// is out of range so test failures are loud, not silent zeros.
+// per-100 sources (g/ml) store native-unit amount; recipe sources store
+// the multiplier as a fraction of their whole batch; counted sources store
+// it as a count of their default serving. Returns the ingredient object
+// ready to push into recipe.ingredients[]. Throws when source is missing
+// or servingIndex is out of range so test failures are loud, not silent zeros.
 export function buildIngredientFromPicker(items, sourceKey, servingIndex) {
   const source = items && items[sourceKey];
   if (!source) throw new Error('buildIngredientFromPicker: unknown source key ' + sourceKey);
-  const servings = servingPickerOptions(source);
+  const servings = servingPickerOptions(source, items);
   if (!servings.length) throw new Error('buildIngredientFromPicker: no servings for ' + sourceKey);
   const idx = (servingIndex == null) ? 0 : servingIndex;
   if (idx < 0 || idx >= servings.length) {
@@ -279,7 +334,13 @@ export function buildIngredientFromPicker(items, sourceKey, servingIndex) {
     if (label) ing.label = label;
     return ing;
   }
-  // Non-basis: store multiplier as fraction of default variant size
+  if (isRecipeWithIngredients(source)) {
+    const batch = ingredientNativeUnits(source.ingredients, items, new Set([source]));
+    const ing = { itemKey: sourceKey, multiplier: roundStorage(size / (batch > 0 ? batch : 1)) };
+    if (label) ing.label = label;
+    return ing;
+  }
+  // Counted source: store multiplier as a count of the default variant size
   const defaultEntry = servings.find(s => s.default) || servings[0];
   const defaultSize = defaultEntry ? defaultEntry.amount : 1;
   const ing = {
@@ -342,13 +403,19 @@ export function modifyIngredientAmount(recipe, items, index, newAmount) {
   if (typeof newAmount !== 'number' || newAmount < 0) {
     throw new Error('modifyIngredientAmount: newAmount must be a non-negative number');
   }
-  // For per-100 sources we set amount; for non-basis we set multiplier
-  // computed against canonical default size, mirroring the picker logic.
+  // newAmount is in the source's native units (grams of mixture for a
+  // recipe). Per-100 sources store it as the amount; a recipe source stores
+  // its fraction of that recipe's batch; a counted source stores a count of
+  // its default serving, mirroring the picker logic.
   const source = items && items[ing.itemKey];
   if (source && isPer100(source)) {
     ing.amount = newAmount;
+  } else if (source && isRecipeWithIngredients(source)) {
+    const batch = ingredientNativeUnits(source.ingredients, items, new Set([source]));
+    ing.multiplier = roundStorage(newAmount / (batch > 0 ? batch : 1));
+    delete ing.amount;
   } else if (source) {
-    const variants = servingPickerOptions(source);
+    const variants = servingPickerOptions(source, items);
     const def = variants.find(s => s.default) || variants[0];
     const defaultSize = (def && def.amount) || 1;
     ing.multiplier = defaultSize > 0 ? (newAmount / defaultSize) : 1;
@@ -389,7 +456,7 @@ export function addIngredientToRecipe(recipe, items, sourceKey, servingIndex) {
 // can pick a recipe as an ingredient of another recipe.
 export function ingredientPickerOptions(items, currentKey) {
   return Object.entries(items || {})
-    .filter(([k]) => k !== 'water' && k !== currentKey)
+    .filter(([k, item]) => k !== 'water' && k !== currentKey && item && !item.archived && item.category !== 'water')
     .map(([k, item]) => {
       const brand = (item && typeof item.brand === 'string' && item.brand.trim()) ? item.brand.trim() : '';
       const baseName = (item && item.name) || k;
@@ -444,25 +511,10 @@ export function resolveIngredient(ing, items) {
 
 // Sum the native-unit total of every ingredient (used by the recipe edit
 // panel's auto-recompute of the "full recipe" variant).
+// The stored "full recipe" size of an ingredient list: ingredientNativeUnits
+// rounded to 1 decimal, as the page's syncRecipeFullBatchServing stores it.
 export function sumIngredientNativeUnits(ingredients, items) {
-  let total = 0;
-  for (const ing of (ingredients || [])) {
-    if (ing.itemKey) {
-      const src = items[ing.itemKey];
-      if (!src) continue;
-      if (typeof ing.amount === 'number' && ing.amount > 0) {
-        total += ing.amount;
-      } else if (typeof ing.multiplier === 'number' && ing.multiplier > 0) {
-        const srcDef = getDisplayUnits(src).find(u => u && u.default) || getDisplayUnits(src)[0];
-        const srcSize = (srcDef && (srcDef.multiplier || srcDef.unitsPerServing)) || 0;
-        if (srcSize > 0) total += ing.multiplier * srcSize;
-      }
-    } else if (ing.amount && typeof ing.amount.value === 'number' && ing.amount.value > 0) {
-      const u = (ing.amount.unit || '').toLowerCase();
-      if (u === 'g' || u === 'ml') total += ing.amount.value;
-    }
-  }
-  return Math.round(total * 10) / 10;
+  return Math.round(ingredientNativeUnits(ingredients, items) * 10) / 10;
 }
 
 // ---------------------------------------------------------------------------

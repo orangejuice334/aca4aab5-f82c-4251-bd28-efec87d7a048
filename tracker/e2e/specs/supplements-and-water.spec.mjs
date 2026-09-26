@@ -115,8 +115,9 @@ test.describe('Supplements and liquids list', () => {
     await expect(panel).toBeVisible();
     await panel.locator('[data-edit-field="name"]').fill('Magnesium glycinate');
     await row.locator('.checkout-item-name').click();
-    await expect(scheduleRows(page).filter({ hasText: 'Magnesium' }).locator(':scope > div > .checkout-item-name'))
-      .toHaveText(['Magnesium glycinate · AM', 'Magnesium glycinate · PM']);
+    // Match on the row title only: every row's hidden editor lists nutrient names, Magnesium among them.
+    const magnesiumRows = scheduleRows(page).filter({ has: page.locator(':scope > div > .checkout-item-name', { hasText: 'Magnesium' }) });
+    await expect(magnesiumRows.locator(':scope > div > .checkout-item-name')).toHaveText(['Magnesium glycinate · AM', 'Magnesium glycinate · PM']);
     expect((await tracker.cloud()).userCatalog.items.magnesium.name).toBe('Magnesium glycinate');
   });
 });

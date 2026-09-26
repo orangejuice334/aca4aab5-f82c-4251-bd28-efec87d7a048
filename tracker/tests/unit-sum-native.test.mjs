@@ -21,12 +21,14 @@ test('sumIngredientNativeUnits expands multiplier * default variant size', () =>
   assert.equal(total, 280);
 });
 
-test('sumIngredientNativeUnits sums flat g amounts when present', () => {
+test('sumIngredientNativeUnits ignores inline ingredients even when measured in grams, as the page does', () => {
+  // A recipe of inline ingredients keeps its own serving sizes ("1 plate"),
+  // so their gram amounts never become a batch to divide by.
   const total = sumIngredientNativeUnits([
     { name: 'flour', amount: { value: 100, unit: 'g' } },
     { name: 'sugar', amount: { value: 50, unit: 'g' } },
   ], mkCatalog());
-  assert.equal(total, 150);
+  assert.equal(total, 0);
 });
 
 test('sumIngredientNativeUnits ignores flat ingredients with non-g/ml units', () => {
@@ -50,15 +52,15 @@ test('sumIngredientNativeUnits returns 0 for empty/null lists', () => {
   assert.equal(sumIngredientNativeUnits(undefined, mkCatalog()), 0);
 });
 
-test('sumIngredientNativeUnits handles a mix of amount, multiplier, and flat', () => {
+test('sumIngredientNativeUnits handles a mix of amount, multiplier, and inline', () => {
   const items = mkCatalog();
   const total = sumIngredientNativeUnits([
     { itemKey: 'string_cheese', amount: 42 },              // 42
     { itemKey: 'turkey_breast_smithfield', multiplier: 2 },// 56 (2 * 28g default)
-    { name: 'salt', amount: { value: 5, unit: 'g' } },     // 5
-    { name: 'soda', amount: { value: 250, unit: 'ml' } },  // 250
+    { name: 'salt', amount: { value: 5, unit: 'g' } },     // inline: not counted
+    { name: 'soda', amount: { value: 250, unit: 'ml' } },  // inline: not counted
   ], items);
-  assert.equal(total, 42 + 56 + 5 + 250);
+  assert.equal(total, 42 + 56);
 });
 
 test('sumIngredientNativeUnits rounds to 1 decimal', () => {

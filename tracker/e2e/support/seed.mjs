@@ -133,11 +133,12 @@ export function baselineItems() {
     },
     // Recipe with a multiplier-linked discrete ingredient: 1 × the egg's
     // default serving (2 eggs = 140 kcal) + 5 ml oil (40 kcal) = 180 kcal.
-    // Full recipe = 6, the size the recipe maker itself stores for it.
+    // Full recipe = 7 (the 2 eggs count as 2 pieces, the 5 ml as 5), the
+    // size the recipe maker itself stores for it.
     egg_scramble: {
       name: 'Egg scramble', category: 'recipes', defaultMeasuredIn: 'units',
       ingredients: [{ itemKey: 'egg_large', multiplier: 1 }, { itemKey: 'olive_oil', amount: 5 }],
-      displayUnits: [{ label: 'full recipe', multiplier: 6, amount: 6, unit: 'g', default: true, locked: true }],
+      displayUnits: [{ label: 'full recipe', multiplier: 7, amount: 7, unit: 'g', default: true, locked: true }],
     },
     // Batch = 1440 g, 2152 kcal, 264 g protein. Default serving is a quarter.
     meal_prep_slab: {

@@ -144,8 +144,9 @@ test('addIngredientToRecipe with a recipe source (recipe-as-ingredient)', () => 
   const gramIdx = servings.findIndex(s => s.label === '1 g');
   addIngredientToRecipe(recipe, items, 'scrambled_feggs', gramIdx);
   const added = recipe.ingredients[recipe.ingredients.length - 1];
-  // scrambled_feggs is a recipe (non-basis); multiplier = 1g / 912g batch
-  assert.ok(Math.abs(added.multiplier - (1 / 912)) < 1e-6);
+  // scrambled_feggs is a recipe: multiplier = 1 g / 912 g batch, stored to
+  // 4 decimals like every multiplier the page saves.
+  assert.equal(added.multiplier, 0.0011);
 });
 
 test('createRecipe throws when an ingredient sourceKey is missing', () => {

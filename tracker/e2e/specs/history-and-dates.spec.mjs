@@ -1,5 +1,5 @@
 import { test, expect } from '../support/fixtures.mjs';
-import { TODAY, YESTERDAY, dayIn, dayOffset, isoAt, localTime, logCounter } from '../support/seed.mjs';
+import { TODAY, YESTERDAY, dayIn, dayOffset, isoAt, logCounter } from '../support/seed.mjs';
 
 // History (one row per logged day), the date arrows, day rollover, and the
 // Weekly Tracker ribbon. Baseline: 2026-06-08 has only a 90.0 kg weigh-in;
@@ -119,7 +119,7 @@ test.describe('Date navigation', () => {
   });
 
   test('at midnight a page left open on today moves on to the new day', async ({ tracker, page }) => {
-    await tracker.open({ at: localTime('23:59:30') });
+    await tracker.open({ at: new Date(`${TODAY}T23:59:30-04:00`) });
     await expect(page.locator('#checkout-date .date-badge')).toHaveText('today');
     await page.clock.fastForward('02:00'); // 00:01:30 on Tue 2026-06-16; the page re-renders every minute
     const tomorrow = dayOffset(1);

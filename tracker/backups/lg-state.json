@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-26T18:50:59.894Z",
-  "_gistSavedAt": "2026-09-26T16:05:52.936Z",
+  "_backupTakenAt": "2026-09-26T22:42:44.432Z",
+  "_gistSavedAt": "2026-09-26T22:41:04.566Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -3644,18 +3644,24 @@
       "2026-09-26": {
         "toggles": {},
         "counters": {
-          "natures_own_keto_bread": 56,
+          "natures_own_keto_bread": 112,
           "peanut_butter_delight_aldi": 12,
           "smuckers_sf_strawberry_preserves": 37,
-          "slate_ultra_protein_vanilla": 443
+          "slate_ultra_protein_vanilla": 443,
+          "turkey_ground_evoo": 80,
+          "evoo_tsp": 10,
+          "macadamia_dry_roasted_365": 19
         },
         "customs": [],
         "toggleMeta": {},
         "counterMeta": {
-          "natures_own_keto_bread": "2026-09-26T15:47:17.715Z",
+          "natures_own_keto_bread": "2026-09-26T22:36:18.183Z",
           "peanut_butter_delight_aldi": "2026-09-26T15:47:53.507Z",
           "smuckers_sf_strawberry_preserves": "2026-09-26T15:48:11.818Z",
-          "slate_ultra_protein_vanilla": "2026-09-26T15:48:46.181Z"
+          "slate_ultra_protein_vanilla": "2026-09-26T15:48:46.181Z",
+          "turkey_ground_evoo": "2026-09-26T22:34:14.534Z",
+          "evoo_tsp": "2026-09-26T22:35:48.187Z",
+          "macadamia_dry_roasted_365": "2026-09-26T22:40:29.309Z"
         }
       }
     },
@@ -3747,7 +3753,9 @@
       "history": true,
       "chart-weight-chart": true,
       "section-weight-tracker": true,
-      "targets-accumulation": true
+      "targets-accumulation": true,
+      "catalog-ratio": true,
+      "details-recipe-maker": true
     },
     "userCatalog": {
       "items": {
@@ -6607,7 +6615,7 @@
           "notes": "Ensure Max Protein Nutrition Shake, Birthday Cake (Abbott), 11 fl oz / 330 mL carton, 1 serving. Stored as 330 g (mL~=g, matching the Premier shake convention in this catalog). FULLY LABELED (25 vitamins & minerals) -- all values label-derived, HIGH confidence. Per carton: 150 kcal, 2g fat (0.5g sat, 0 trans, 0 poly, 1g mono), 20mg chol, 230mg sodium, 6g total carb, 4g fiber, 1g total sugars, 0g added sugars, 30g protein. Vit D 11mcg (60%), Ca 650mg (50%), Iron 2.7mg (15%), K 390mg (8%). %DV converted to absolute per carton: vitamin A 270mcg RAE (30%), vitamin C 45mg (50%), vitamin E 3.75mg (25%), vitamin K 24mcg (20%), thiamin 0.3mg (25%), riboflavin 0.585mg (45%), niacin 8mg (50%), B6 0.51mg (30%), folate 100mcg DFE (25%, 60mcg folic acid), B12 0.6mcg (25%), biotin 7.5mcg (25%), pantothenic acid 1.75mg (35%), phosphorus 500mg (40% -- HIGH, relevant to reduced-eGFR history), iodine 37.5mcg (25%), magnesium 105mg (25%), zinc 4.95mg (45%), selenium 24.75mcg (45%), copper 0.225mg (25%), manganese 0.575mg (25%), chromium 8.75mcg (25%), molybdenum 20.25mcg (45%), choline 82.5mg (15%). CHLORIDE 345mg (15%) is on the label but has no field in this tracker -- recorded here only. kcal kept at label 150: Atwater with 4g fiber priced near ~1 kcal/g reconciles (30x4 + 2x9 + 2g net carb x4 = 146, plus ~4-8 from the fiber). No correction applied. Fiber source is a corn-fiber/inulin type (partially fermentable); the 6g total carb minus 4g fiber leaves only ~2g digestible. Protein is milk-based (milk protein concentrate / whey) -- complete, high quality, no downgrade. ESTIMATED (not on label): purines ~5mg/carton -- LOW (dairy protein, gout-favorable); water ~88%. Artificially flavored. Halal, kosher. CONTAINS milk."
         },
         "evoo_tsp": {
-          "name": "Olive oil extra virgin",
+          "name": "Extra virgin Olive oil EVOO",
           "category": "small_portions",
           "kcal": 8.8191,
           "fat": 1,
@@ -13840,6 +13848,40 @@
           "defaultMeasuredIn": "g",
           "brand": "Trader Joe's"
         },
+        "turkey_ground_evoo": {
+          "name": "Turkey ground 93/7 cooked in EVOO",
+          "category": "recipes",
+          "defaultMeasuredIn": "units",
+          "ingredients": [
+            {
+              "itemKey": "turkey_ground_safeway_cooked",
+              "amount": 313.3,
+              "label": "1 lb raw 93/7 ground turkey = 313 g cooked (69% yield)"
+            },
+            {
+              "itemKey": "evoo_tsp",
+              "amount": 6.75,
+              "label": "1/2 Tbsp EVOO (6.75 g)"
+            }
+          ],
+          "displayUnits": [
+            {
+              "label": "full recipe",
+              "amount": 320.05,
+              "unit": "g",
+              "locked": true,
+              "multiplier": 320.05
+            },
+            {
+              "label": "1/2 of batch (160 g cooked)",
+              "amount": 160,
+              "unit": "g",
+              "default": true,
+              "multiplier": 160
+            }
+          ],
+          "notes": "Luis's plain ground turkey batch, added 2026-09-26: 1 lb (454 g) RAW Safeway 93/7 ground turkey browned in 1/2 Tbsp (6.75 g) extra virgin olive oil. Turkey choice confirmed by Luis (93/7, not the 99/1 breast). COOKED-WEIGHT RECIPE at Luis's request the same day: built on turkey_ground_safeway_cooked, so the batch weighs ~320 g (313 g cooked meat + the oil) and grams logged here are grams on the plate. The batch's nutrition is still exactly one raw pound of turkey plus the oil (minus small B-vitamin cooking losses). SERVING = 1/2 OF THE BATCH = ~160 g cooked. The 69 percent yield is a USDA-derived estimate; weigh a finished batch once and the cooked turkey entry can be recalibrated to the real number. ALL FAT COUNTED AS EATEN, including what renders into the pan. No salt or seasoning listed."
+        },
         "turkey_ground_safeway": {
           "name": "Turkey ground",
           "category": "items",
@@ -13903,6 +13945,64 @@
           "defaultMeasuredIn": "g",
           "brand": "Safeway",
           "notes": "Legendary Foods Mini Protein Donuts+, Dipped Chocolate. 1 pack = 2 mini donuts (72g), 8 packs/box. Label per pack: 180 kcal, 6g fat (1g sat, 0 trans), 10mg chol, 330mg sodium (14% DV), 28g total carb, 12g fiber (43% DV), 11g erythritol, <1g total sugars, 0g added sugars, 22g protein, Vit D 0, Calcium 20%, Iron 3%, Potassium 10%. Front-of-pack: '5g net carbs' (28 total - 12 fiber - 11 erythritol). All label-exact. CARB BREAKDOWN CHECK: 28g total carb only itemizes to 23g (12 fiber + 11 erythritol + <1 sugar); the remaining ~4-5g is unlabeled but plausibly modified resistant tapioca starch and/or polydextrose (both mid-list ingredients) -- same 'undeclared carbohydrate' phenomenon as the think! bar in this catalog, just smaller in magnitude. kcal kept at label 180: protein 22x4 + fat 6x9 = 142, leaving 38 kcal for the whole 28g carb block (~1.4 kcal/g average) -- consistent with erythritol (~0.2), fiber (~0-2), and a modified/resistant starch fraction (~2-4) blended together. No further correction applied. Protein blend is milk protein isolate + dried egg whites + whey protein isolate + collagen peptides -- collagen (added separately, listed after the main blend) is INCOMPLETE protein (no tryptophan), so utilizable protein from the 22g total is somewhat below the nitrogen-based figure; no fixed downgrade applied, same treatment as other collagen-containing items in this catalog. Off-label micros ESTIMATED from the whey/milk/egg protein blend + cocoa: phosphorus ~250mg/pack (HIGH -- protein isolates; relevant if tracking phosphorus for kidney-function reasons, not otherwise noted as relevant here), Mg ~29mg, selenium ~11mcg, choline ~36mg (egg whites contribute little choline since it's concentrated in yolk, which is absent here). LOW-MEDIUM confidence. PURINES ~29mg/pack -- LOW-MODERATE (whey/milk/egg all low-purine; collagen negligible). Gout-favorable protein sources. SUGAR ALCOHOL LOAD: 11g erythritol/pack. Erythritol is absorbed in the small intestine and excreted in urine largely unchanged, so it causes far less GI distress than maltitol/sorbitol at equivalent doses (contrast the think! bar's 13g maltitol in this catalog) -- but very high erythritol intake has separate research raising questions about cardiovascular clotting markers, an active area of study as of the training cutoff. Ingredients: protein blend (milk protein isolate, dried egg whites, whey protein isolate), erythritol, polydextrose, water, collagen peptides, high oleic sunflower oil, glycerin, modified resistant tapioca starch, <2% of: cocoa processed with alkali, gum arabic, natural flavors, baking soda, potassium bicarbonate, salt, magnesium chloride, xanthan gum, citric acid, sunflower lecithin, sucrose fatty acid esters, sodium lactate, sucralose, guar gum. CONTAINS milk, eggs. Processed in a facility that also processes peanuts and tree nuts. Gluten free."
+        },
+        "turkey_ground_safeway_cooked": {
+          "kcal": 2.199855072463768,
+          "p": 0.27173913043478265,
+          "fat": 0.10347826086956523,
+          "sf": 0.03231884057971015,
+          "cholesterol": 1.1646376811594203,
+          "sodium": 1.2940579710144928,
+          "vitA": 0.07246376811594205,
+          "vitE": 0.0037681159420289855,
+          "vitK": 0.028985507246376815,
+          "b1": 0.0005797101449275363,
+          "b2": 0.002347826086956522,
+          "b3": 0.07391304347826086,
+          "b5": 0.01108695652173913,
+          "b6": 0.005797101449275363,
+          "b7": 0.026086956521739136,
+          "b9": 0.061594202898550734,
+          "b12": 0.018260869565217393,
+          "choline": 1.0869565217391306,
+          "calcium": 0.38826086956521744,
+          "iron": 0.014202898550724638,
+          "magnesium": 0.3768115942028986,
+          "phosphorus": 3.1884057971014497,
+          "potassium": 3.6231884057971016,
+          "zinc": 0.03623188405797102,
+          "selenium": 0.3623188405797102,
+          "copper": 0.0008695652173913044,
+          "iodine": 0.10144927536231886,
+          "omega3": 0.1449275362318841,
+          "purines": 1.2318840579710146,
+          "water": 0.6029492499202043,
+          "name": "Turkey ground 93/7 cooked (Safeway)",
+          "brand": "Safeway",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "displayUnits": [
+            {
+              "label": "100 g cooked",
+              "amount": 100,
+              "unit": "g",
+              "default": true,
+              "multiplier": 100
+            },
+            {
+              "label": "1 lb raw, cooked (313 g)",
+              "amount": 313.3,
+              "unit": "g",
+              "multiplier": 313.3
+            },
+            {
+              "label": "1/4 lb raw, cooked (78 g)",
+              "amount": 78.3,
+              "unit": "g",
+              "multiplier": 78.3
+            }
+          ],
+          "notes": "COOKED-WEIGHT sibling of turkey_ground_safeway (raw), made 2026-09-26 so the turkey_ground_evoo recipe can be logged by what is weighed on the plate. Raw basis = the Safeway 93/7 label as stored on the raw entry: 170 kcal, 21 g protein, 8 g fat per 4 oz (112 g) raw. (The raw entry's own notes field currently holds another item's text - a known catalog issue - so the basis is restated here.) YIELD 69 percent: 1 lb (454 g) raw browns to ~313 g. Derived the standard way, from protein, which does not leave the meat: USDA raw 93/7 is 18.73 g protein/100 g and USDA pan-broiled 93/7 crumbles are 27.1 g/100 g, 18.73 / 27.1 = 0.69. Real yield swings ~65-75 percent with pan heat, how long it cooks and whether the juices are boiled off, so weigh one batch to calibrate if precision matters. MEDIUM CONFIDENCE. Every raw per-gram value divided by 0.69 (concentration from water loss); fat, protein, cholesterol and minerals kept at 100 percent retention because the drippings are eaten with the meat. B-vitamin cooking losses applied on top (USDA retention factors for browned ground meat): B1 and B6 80 percent, B3, B5 and B9 85 percent, B2, B7 and B12 90 percent. Water recomputed from USDA raw 93/7 water (72.6 g/100 g) minus the 141 g lost = 60 g/100 g cooked, matching USDA crumbles; the raw Safeway entry's stored water of 65 g/100 g is too low (its components only sum to ~92 percent) and was not used. Check: USDA crumbles are 213 kcal/100 g; this entry is ~220 because the Safeway label runs slightly higher in kcal per gram of protein than the USDA raw record. Within label tolerance."
         },
         "turkey_leg_baked": {
           "name": "Turkey leg, oven baked",

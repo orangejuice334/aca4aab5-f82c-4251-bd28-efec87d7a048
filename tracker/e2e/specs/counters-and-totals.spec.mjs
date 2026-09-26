@@ -85,9 +85,10 @@ test.describe('Logging with + and −', () => {
     await expect(catalogRow.locator('input.counter-value')).toBeDisabled();
   });
 
-  test('archived items never count toward the totals', async ({ tracker }) => {
+  test('an item archived after it was logged still counts on the day it was eaten', async ({ tracker }) => {
+    // 60 g of the archived granola at 4.5 kcal per gram.
     await tracker.open({ seed: state => logCounter(state, 'old_granola', 60) });
-    await tracker.expectTotal('kcal', 0);
+    await tracker.expectTotal('kcal', 270);
   });
 
   test('logging a timed item clears its "past time" flag right away', async ({ tracker }) => {

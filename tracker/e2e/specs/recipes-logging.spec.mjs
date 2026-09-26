@@ -51,13 +51,13 @@ test.describe('Logging recipe servings', () => {
 
   test('the full recipe of a recipe with a unit-counted ingredient adds one batch', async ({ tracker }) => {
     await tracker.open();
-    await tracker.plus('egg_scramble', { servingSize: 6 });
+    await tracker.plus('egg_scramble', { servingSize: 7 });
     await tracker.expectTotal('kcal', 180);
   });
 
   test("a recipe row's calories match what logging it adds", async ({ tracker }) => {
     await tracker.open();
-    for (const [key, servingSize] of [['chicken_rice_bowl', 375], ['meal_prep_slab', 360], ['recipe_in_recipe', 365], ['egg_scramble', 6], ['inline_breakfast', 1]]) {
+    for (const [key, servingSize] of [['chicken_rice_bowl', 375], ['meal_prep_slab', 360], ['recipe_in_recipe', 365], ['egg_scramble', 7], ['inline_breakfast', 1]]) {
       const before = await tracker.total('kcal');
       const rowKcal = await tracker.rowKcal(tracker.rowForServing(key, servingSize));
       await tracker.plus(key, { servingSize });

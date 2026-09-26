@@ -36,23 +36,27 @@ test.describe('Persistence', () => {
     await expect(page.locator('#profile-form [data-profile="goals.p"]')).toHaveValue('190');
   });
 
-  test('a change made just before closing the tab is not lost', async ({ tracker, page }) => {
-    const users = new Set();
-    page.on('request', request => {
-      const url = new URL(request.url());
-      if (isWorker(url)) users.add(url.searchParams.get('user'));
-    });
+  test('a change made just before leaving the page is not lost', async ({ tracker, page }) => {
     await tracker.open();
-    // Drop the request guard for this page only: an intercepted keep-alive
-    // beacon can be cancelled when its page goes away, which would fake a
-    // loss. The user check the guard did is repeated at the end instead.
-    await page.context().unrouteAll({ behavior: 'ignoreErrors' });
-    await tracker.plus('chicken_breast', { servingSize: 200 });
-    await page.close({ runBeforeUnload: true }); // inside the 700 ms flush debounce
-    await waitForCloudState(state => cloudCounter(state, 'chicken_breast') === 200, {
-      timeout: 15000, message: 'the tap made right before closing never reached the cloud',
+    const workerWrites = [];
+    page.context().on('request', request => {
+      const url = new URL(request.url());
+      if (isWorker(url) && request.method() === 'POST') workerWrites.push(`${url.pathname} ${request.postData() || '(no body)'}`);
     });
-    expect([...users]).toEqual(['test']);
+    await tracker.plus('chicken_breast', { servingSize: 200 });
+    // Leave inside the 700 ms save debounce. Navigating away fires the same
+    // beforeunload / pagehide handlers as closing the tab, while keeping the
+    // browser tab alive so the request routing still sees the unload save.
+    // The destination is another page of the same site: a jump to
+    // about:blank loses the unload request before Playwright's routing sees
+    // it, even though the page sent it (its saved queue is emptied).
+    await page.goto('e2e-leave-page-landing.txt');
+    try {
+      await waitForCloudState(state => cloudCounter(state, 'chicken_breast') === 200, { timeout: 15000 });
+    } catch (error) {
+      throw new Error('the tap made right before leaving did not reach the cloud exactly once: chicken counter '
+        + JSON.stringify(cloudCounter(error.lastState || {}, 'chicken_breast')) + '; Worker writes: ' + (workerWrites.join(' | ') || 'none'));
+    }
   });
 
   test('the page only ever talks to the Worker as the test user', async ({ tracker, page }) => {
@@ -123,8 +127,12 @@ test.describe('Lost connection', () => {
     await page.route(isWorkerWrite, route => route.abort());
     await tracker.plus('chicken_breast', { servingSize: 200 });
     await expect(offlineBanner(page)).toBeVisible();
+    // Saves still fail after the reload, so the page never reaches "saved";
+    // wait for its cloud read to land instead, then check the screen.
+    const cloudRead = page.waitForResponse(response => response.request().method() === 'GET' && new URL(response.url()).pathname === '/state');
     await page.reload();
-    await tracker.waitForLoaded();
+    await cloudRead;
+    await expect(page.locator('#sync-status')).not.toHaveAttribute('data-status', 'loading');
     await expect(chickenCount(tracker), 'the unsaved tap is still on screen after the reload').toHaveValue('1');
     await page.unroute(isWorkerWrite);
     await waitForCloudState(state => cloudCounter(state, 'chicken_breast') === 200, {

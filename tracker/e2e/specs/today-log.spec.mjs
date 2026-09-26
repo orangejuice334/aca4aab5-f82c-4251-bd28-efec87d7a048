@@ -14,8 +14,9 @@ function seedMixedDay(state) {
   logCounter(state, 'protein_shake', 330, { at: '11:05' });
   const day = dayIn(state, TODAY);
   day.customs.push({ id: 'custom-pizza', name: 'Pizza slice', kcal: 285, p: 12, count: 1, lastModified: isoAt('09:00') });
-  day.toggles.vitamin_d = true;
-  day.toggleMeta.vitamin_d = isoAt('07:45');
+  // Scheduled servings are toggled under "<item>#<time>".
+  day.toggles['vitamin_d#08:00'] = true;
+  day.toggleMeta['vitamin_d#08:00'] = isoAt('07:45');
 }
 
 test.describe("Today's log", () => {

@@ -1,5 +1,6 @@
-// Playwright end-to-end suite for the tracker (track.html), run against the
-// real Cloudflare Worker with the disposable `test` user. See e2e/README.md.
+// Playwright end-to-end suite for the tracker (track.html) as the disposable
+// `test` user, answered by the real Worker code in-process (the default) or
+// by the deployed Worker (E2E_BACKEND=live). See e2e/README.md.
 //
 // Browser: Brave when installed (E2E_BROWSER=brave, the default), otherwise
 // Playwright's bundled Chromium (E2E_BROWSER=chromium, needs
@@ -24,15 +25,20 @@ const useBrave = (process.env.E2E_BROWSER || 'brave') === 'brave' && Boolean(bra
 const browserLaunch = useBrave ? { launchOptions: { executablePath: bravePath } } : {};
 const browserName = useBrave ? 'brave' : 'chromium';
 
+// local (default): the real Worker code runs in-process against a simulated
+// gist, so scenarios can run in parallel. live: the deployed Worker and the
+// real test gist, one scenario at a time (see support/cloud.mjs).
+const backend = String(process.env.E2E_BACKEND || 'local').toLowerCase() === 'live' ? 'live' : 'local';
 const port = Number(process.env.E2E_PORT || 4173);
 const baseURL = process.env.E2E_BASE_URL || `http://127.0.0.1:${port}/`;
 
 export default defineConfig({
   testDir: resolve(e2eRoot, 'specs'),
-  // Every scenario shares ONE cloud user whose gist the fixtures rewrite
-  // before each scenario, so scenarios run strictly one at a time.
+  // Live runs share ONE cloud gist that the fixtures rewrite before each
+  // scenario, so they run strictly one at a time. Local runs give every
+  // worker process its own simulated gist, so spec files run in parallel.
   fullyParallel: false,
-  workers: 1,
+  workers: backend === 'live' ? 1 : Number(process.env.E2E_WORKERS || 4),
   // Failures are expected (the scenarios are written against intended
   // behaviour); retrying them would only double the GitHub API load.
   retries: 0,
@@ -41,6 +47,7 @@ export default defineConfig({
   reporter: [
     ['list'],
     ['html', { outputFolder: resolve(e2eRoot, 'playwright-report'), open: 'never' }],
+    ['json', { outputFile: resolve(e2eRoot, 'results', 'results.json') }],
   ],
   outputDir: resolve(e2eRoot, 'test-results'),
   use: {

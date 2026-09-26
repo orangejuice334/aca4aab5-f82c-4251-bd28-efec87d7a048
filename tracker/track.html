@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.98">
+<meta name="app-version" content="v6.5.99">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -5053,6 +5053,9 @@
     return dropTrailingZeros((Math.round(n * 10) / 10).toFixed(1));
   }
 
+  // Recipes whose gram total is being computed right now (see recipeLinkedGrams).
+  const recipeGramsInProgress = new Set();
+
   function getDisplayUnits(item) {
     const measuredForUnit = getDefaultMeasuredIn(item);
     const isRecipeItem = !!(item && item.category === 'recipes' && Array.isArray(item.ingredients));
@@ -5067,8 +5070,16 @@
         ? '1 ' + measuredForUnit
         : '1 unit';
     if (item && Array.isArray(item.displayUnits) && item.displayUnits.length) {
+      // A recipe's locked "full recipe" serving is always the current sum of
+      // its ingredient grams (the batch logging divides by), whatever size
+      // was stored when it was last saved. So logging it adds exactly one
+      // batch even after an ingredient, or a recipe inside it, changes.
+      const liveBatchGrams = isRecipeItem ? recipeLinkedGrams(item) : 0;
       const out = item.displayUnits.map(v => {
         if (!v) return v;
+        if (liveBatchGrams > 0 && (v.locked || /full recipe/i.test(v.label || ''))) {
+          return Object.assign({}, v, { unitsPerServing: liveBatchGrams, multiplier: liveBatchGrams, amount: liveBatchGrams });
+        }
         if (typeof v.multiplier === 'number' && v.multiplier > 0) {
           return Object.assign({}, v, { unitsPerServing: v.multiplier });
         }
@@ -5154,8 +5165,10 @@
     {
       key: 'mercury', label: 'Mercury', days: 7, warn: 49, danger: 70, direction: 'high',
       note: 'EPA RfD: 0.1 μg/kg/day - bioaccumulates',
+      // Scales with the latest weigh-in (the profile has no weight field);
+      // 70 kg only when nothing was ever weighed.
       scaleFn: (p) => {
-        const kg = (p && p.weightKg) || 70;
+        const kg = latestWeightKg() || (p && p.weightKg) || 70;
         return { warn: Math.round(0.1 * kg * 7), danger: Math.round(0.1 * kg * 7 * 1.4) };
       },
     },
@@ -5562,6 +5575,8 @@
   let opQueue = [];
   let flushTimer = null;
   let flushInFlight = false;
+  // How many ops at the head of the queue the save in flight is carrying.
+  let inFlightOpCount = 0;
 
   function persistQueue() {
     try { localStorage.setItem(QUEUE_STORAGE_KEY, JSON.stringify(opQueue)); } catch (e) {}
@@ -5595,6 +5610,7 @@
     flushInFlight = true;
     setSyncStatus('saving', 'saving…');
     const flushSize = opQueue.length;
+    inFlightOpCount = flushSize;
     const batch = opQueue.slice(0, flushSize);
     try {
       const reqHeaders = { 'Content-Type': 'application/json' };
@@ -5647,31 +5663,81 @@
           markSyncSuccess();
           hideSyncError();
         }
+        // The Worker answered, so the page is online again: clear the retry
+        // backoff and the Offline banner. A page that started offline has
+        // never read the cloud, so read it now (queued ops are replayed on top).
+        flushRetryDelayMs = 0;
+        clearTimeout(flushRetryTimer);
+        setSyncMode('normal');
+        if (!firstLoadCompleted) {
+          loadFromGist().then(payload => {
+            if (payload) {
+              applyRemotePayload(payload);
+              render();
+              renderHistory();
+            }
+          });
+        }
       } else {
         const bodyText = await res.text().catch(() => '(no body)');
         setSyncStatus('error', 'sync error: HTTP ' + res.status);
         showSyncError('save', 'HTTP ' + res.status + ' ' + res.statusText, { http_status: res.status, response_body: bodyText.slice(0, 500) });
+        // Leave the queue intact and try again later.
+        scheduleFlushRetry();
       }
-      // non-200: leave queue intact; next mutation re-triggers
     } catch (e) {
-      // network error: leave queue intact and go offline so further writes wait
+      // network error: leave queue intact, go offline, and retry on a backoff
+      // (and as soon as the browser says it is online again).
       setSyncMode('offline');
       setSyncStatus('error', 'sync error: ' + (e.message || 'network'));
       showSyncError('save', e);
+      scheduleFlushRetry();
     } finally {
       flushInFlight = false;
+      inFlightOpCount = 0;
     }
+  }
+
+  // Retry a failed save on its own: 3 s, then doubling up to a minute, for
+  // as long as ops are waiting. Reset by the next successful save.
+  let flushRetryDelayMs = 0;
+  let flushRetryTimer = null;
+  function scheduleFlushRetry() {
+    if (!opQueue.length) return;
+    flushRetryDelayMs = flushRetryDelayMs ? Math.min(flushRetryDelayMs * 2, 60000) : 3000;
+    clearTimeout(flushRetryTimer);
+    flushRetryTimer = setTimeout(() => {
+      flushRetryTimer = null;
+      flushQueue();
+    }, flushRetryDelayMs);
+  }
+  if (typeof window !== 'undefined') {
+    window.addEventListener('online', () => {
+      flushRetryDelayMs = 0;
+      flushQueue();
+    });
   }
   // sendBeacon path for pagehide / beforeunload — fire-and-forget; clears the
   // queue optimistically since the page is going away and we won't see a response.
   function beaconFlushQueue() {
     if (!opQueue.length) return;
     if (!navigator.sendBeacon) return;
+    // Offline, a beacon cannot be delivered, yet sendBeacon still reports it
+    // queued; clearing the queue on that false success would drop the ops.
+    // Keep them for the next page load, which sends them first.
+    if (syncMode !== 'normal' || (typeof navigator.onLine === 'boolean' && !navigator.onLine)) return;
+    // Hiding the page already started a save of the head of the queue, and
+    // sending those ops again would apply them twice (a tap is an increment).
+    // They stay queued, so the next page load sends them if that save is lost.
+    const firstUnsent = flushInFlight ? inFlightOpCount : 0;
+    const unsent = opQueue.slice(firstUnsent);
+    if (!unsent.length) return;
     try {
-      const blob = new Blob([JSON.stringify({ ops: opQueue })], { type: 'application/json' });
-      const ok = navigator.sendBeacon(withUser(OPS_URL), blob);
+      // A plain-text body keeps the beacon a simple request (no CORS preflight
+      // during unload); the Worker parses the JSON whatever the content type.
+      const ok = navigator.sendBeacon(withUser(OPS_URL), JSON.stringify({ ops: unsent }));
       if (ok) {
-        opQueue.length = 0;
+        opQueue.splice(firstUnsent, unsent.length);
         persistQueue();
       }
     } catch (e) {}
@@ -5737,7 +5803,7 @@
             if (op.ts) d.counterMeta[op.key] = op.ts;
             if (op.recipeSnapshot && op.key) {
               if (!d.recipeSnapshots) d.recipeSnapshots = {};
-              d.recipeSnapshots[op.key] = op.recipeSnapshot;
+              d.recipeSnapshots[op.key] = structuredClone(op.recipeSnapshot);
             }
             break;
           }
@@ -5748,7 +5814,7 @@
             if (op.ts) d.counterMeta[op.key] = op.ts;
             if (op.recipeSnapshot && op.key) {
               if (!d.recipeSnapshots) d.recipeSnapshots = {};
-              d.recipeSnapshots[op.key] = op.recipeSnapshot;
+              d.recipeSnapshots[op.key] = structuredClone(op.recipeSnapshot);
             }
             break;
           }
@@ -5758,14 +5824,14 @@
             if (op.ts) d.counterMeta[op.key] = op.ts;
             if (op.recipeSnapshot && op.key) {
               if (!d.recipeSnapshots) d.recipeSnapshots = {};
-              d.recipeSnapshots[op.key] = op.recipeSnapshot;
+              d.recipeSnapshots[op.key] = structuredClone(op.recipeSnapshot);
             }
             break;
           }
           case 'recipe_snapshot_set': {
             const d = ensureDay(op.date);
             if (!d.recipeSnapshots) d.recipeSnapshots = {};
-            d.recipeSnapshots[op.key] = op.recipe;
+            d.recipeSnapshots[op.key] = structuredClone(op.recipe);
             break;
           }
           case 'recipe_snapshot_clear': {
@@ -5789,7 +5855,7 @@
             const d = ensureDay(op.date);
             if (!op.item || !op.item.id) break;
             if (d.customs.some(c => c.id === op.item.id)) break;
-            const c = Object.assign({}, op.item);
+            const c = structuredClone(op.item);
             if (c.count === undefined) c.count = 1;
             if (!c.lastModified && op.ts) c.lastModified = op.ts;
             d.customs.push(c);
@@ -5837,18 +5903,34 @@
             delete d[fld + 'Meta'];
             break;
           }
+          case 'mood_set': {
+            const d = ensureDay(op.date);
+            d.mood = op.value;
+            if (op.ts) d.moodMeta = op.ts;
+            break;
+          }
+          case 'mood_clear': {
+            const d = ensureDay(op.date);
+            delete d.mood;
+            delete d.moodMeta;
+            break;
+          }
           case 'day_delete': {
             if (snap.days && snap.days[op.date]) delete snap.days[op.date];
             break;
           }
+          // Store copies, never the live objects an op points at: an op built
+          // by emitDiffOps carries ITEMS[key] itself, and keeping that
+          // reference would make every later edit of the item look already
+          // saved to the next diff, so it would never be sent.
           case 'catalog_add': {
             if (!snap.ITEMS) snap.ITEMS = {};
-            snap.ITEMS[op.key] = op.item;
+            snap.ITEMS[op.key] = structuredClone(op.item);
             break;
           }
           case 'catalog_edit': {
             if (snap.ITEMS && snap.ITEMS[op.key]) {
-              Object.assign(snap.ITEMS[op.key], op.fields || {});
+              Object.assign(snap.ITEMS[op.key], structuredClone(op.fields || {}));
             }
             break;
           }
@@ -5857,13 +5939,13 @@
             break;
           }
           case 'catalog_categories_set': {
-            snap.CATEGORIES = Array.isArray(op.categories) ? op.categories.slice() : [];
+            snap.CATEGORIES = Array.isArray(op.categories) ? structuredClone(op.categories) : [];
             break;
           }
           case 'saved_item_add': {
             if (!Array.isArray(snap.savedItems)) snap.savedItems = [];
             if (op.item && op.item.key && !snap.savedItems.some(s => s.key === op.item.key)) {
-              snap.savedItems.push(op.item);
+              snap.savedItems.push(structuredClone(op.item));
             }
             break;
           }
@@ -5875,7 +5957,7 @@
           }
           case 'profile_update': {
             if (!snap.profile) snap.profile = {};
-            merge(snap.profile, op.fields || {});
+            merge(snap.profile, structuredClone(op.fields || {}));
             break;
           }
           case 'sort_mode_set': {
@@ -6281,6 +6363,22 @@
     state.toggles = bucket.toggles;
     state.counters = bucket.counters;
     state.customs = bucket.customs;
+  }
+
+  // When the calendar day changes under an open page (midnight, or a phone
+  // woken up the next morning), a page that was showing "today" moves to the
+  // new today; a page showing some other day stays where the user put it.
+  // Returns true when it moved.
+  let lastSeenTodayKey = todayKey();
+  function rollOverToNewDayIfNeeded() {
+    const currentTodayKey = todayKey();
+    if (currentTodayKey === lastSeenTodayKey) return false;
+    const wasShowingToday = (state.activeDate === lastSeenTodayKey);
+    lastSeenTodayKey = currentTodayKey;
+    if (!wasShowingToday) return false;
+    activateDate(currentTodayKey);
+    if (typeof renderCatalog === 'function') renderCatalog();
+    return true;
   }
 
   function loadState() {
@@ -7120,9 +7218,12 @@
     }
 
     if (path.indexOf('display.') === 0) {
-      // Time/date formatters changed - refresh anything that prints either.
+      // Time/date/unit formatters changed - refresh anything that prints them:
+      // the date bar, history, Today's log times and the weight summary.
       if (typeof renderDateStamp === 'function') renderDateStamp();
       if (typeof renderHistory === 'function') renderHistory();
+      if (typeof renderTodayLog === 'function') renderTodayLog();
+      if (typeof renderWeightSummary === 'function') renderWeightSummary();
       scheduleProfileHeavyRender();
       return;
     }
@@ -7700,6 +7801,38 @@
     }
   }
 
+  // Re-apply the ops still waiting in the queue (not yet accepted by the
+  // Worker: offline, or waiting to retry after a 412) on top of state that
+  // was just replaced by a fresh cloud copy. Without this the screen drops
+  // them until the next reload, and the next cold-path diff writes the stale
+  // values back out (a counter_set 0 for a tap the cloud had just accepted).
+  // Uses the same op mirror as the snapshot, so it matches the Worker.
+  // Returns the profile object applyProfile should use.
+  function replayQueuedOpsOntoState(remoteProfile) {
+    if (!opQueue.length) return remoteProfile;
+    const hasProfileOps = opQueue.some(op => op && op.type === 'profile_update');
+    const live = {
+      ITEMS,
+      CATEGORIES,
+      days: state.days,
+      savedItems: state.savedItems,
+      profile: (remoteProfile && typeof remoteProfile === 'object') ? remoteProfile : {},
+      sortMode: state.sortMode,
+      totalsMode: state.totalsMode,
+      chartRangeDays: state.chartRangeDays,
+      collapsedGroups: state.collapsedGroups,
+    };
+    applyOpsToSnapshot(live, opQueue);
+    state.days = live.days;
+    state.savedItems = live.savedItems;
+    state.sortMode = live.sortMode;
+    state.totalsMode = live.totalsMode;
+    state.chartRangeDays = live.chartRangeDays;
+    state.collapsedGroups = live.collapsedGroups;
+    CATEGORIES = live.CATEGORIES;
+    return hasProfileOps ? live.profile : remoteProfile;
+  }
+
   // Apply a fetched gist payload into local state and history caches, then re-render
   function applyRemotePayload(payload) {
     if (!payload || typeof payload !== 'object') return;
@@ -7719,7 +7852,10 @@
     // hydrateCatalog so ITEMS truly reflects the remote payload's catalog,
     // not the offline-demo defaults.
     lastKnownGistState = captureSnapshot();
-    applyProfile(remoteState.profile); // applyProfile falls back to defaults if remote is missing
+    // Ops still waiting in the queue (offline, or retrying after a 412) are
+    // not in this copy yet: put them back on top of it.
+    const remoteProfileWithQueuedOps = replayQueuedOpsOntoState(remoteState.profile);
+    applyProfile(remoteProfileWithQueuedOps); // applyProfile falls back to defaults if remote is missing
     for (const k in state.days) {
       if (!state.days[k].customs) state.days[k].customs = [];
       if (!state.days[k].counterMeta) state.days[k].counterMeta = {};
@@ -7750,14 +7886,19 @@
 
   function computeTotals(s) {
     const t = zeroNutrients();
+    // `state` only proxies the active day's toggles / counters / customs; its
+    // recipe snapshots live on the day's own bucket.
+    const dayBucket = (s === state) ? ((state.days && state.days[state.activeDate]) || s) : s;
     // Predefined items — counter is in the item's native unit (g for
     // mass-measured items, ml for volume-measured ones). scaleByNative
     // just multiplies macros (also stored per native unit) by the count.
-    for (const key of getCounterKeys()) {
-      const counter = (s.counters && s.counters[key]) || 0;
+    // Every logged item counts, including ones archived since: archiving
+    // hides an item from the catalog, it does not un-eat it.
+    for (const key of Object.keys(s.counters || {})) {
+      const counter = s.counters[key] || 0;
       if (!counter) continue;
       const item = ITEMS[key];
-      if (!item) continue;
+      if (!item || item.category === 'water') continue;
       // Scheduled supplements feed totals through the toggle loop below
       // (so checking a scheduled-serving toggle = one dose worth of
       // macros). The catalog row mirrors that count but is read-only;
@@ -7770,7 +7911,7 @@
       // For non-preserve recipes, use the per-day snapshot when present so
       // historical totals stay frozen against later catalog edits.
       if (item.category === 'recipes' && Array.isArray(item.ingredients) && item.ingredients.length) {
-        const effective = effectiveRecipeForDay(key, s);
+        const effective = effectiveRecipeForDay(key, dayBucket);
         const canonUnits = recipeCanonicalGrams(effective);
         const recipeBatch = computeItemMacros(effective);
         const factor = units / canonUnits;
@@ -8066,6 +8207,13 @@
     return h * 60 + m;
   }
 
+  function everyOtherDayServingTakenYesterday(toggleKey) {
+    const schedule = getSupplementSchedule().find(entry => entry.key === toggleKey);
+    if (!schedule || schedule.frequency !== 'alternate') return false;
+    const yesterday = state.days && state.days[shiftDateKey(state.activeDate, -1)];
+    return !!(yesterday && yesterday.toggles && yesterday.toggles[toggleKey]);
+  }
+
   function checkFlags() {
     const now = nowMinutes();
     const isToday = state.activeDate === todayKey();
@@ -8087,7 +8235,9 @@
       } else {
         return;
       }
-      const isLate = isToday && (now > slotMins + 60) && !consumed;
+      // An every-other-day serving taken yesterday is not due today.
+      const offDay = isToggle && everyOtherDayServingTakenYesterday(key);
+      const isLate = isToday && (now > slotMins + 60) && !consumed && !offDay;
       row.classList.toggle('flagged', isLate);
 
       // Pill placement: toggle rows insert right after the name (kept close
@@ -8286,6 +8436,8 @@
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         const dateKey = btn.dataset.deleteDate;
+        // A whole day of logs goes with one tap, so ask first (as item delete does).
+        if (!confirm('Delete everything logged on ' + fmtDate(dateKey) + '? This cannot be undone.')) return;
         deleteHistoryDate(dateKey);
         renderHistory();
       });
@@ -8638,22 +8790,70 @@
   // "1 serving (1/12 slab)" = 253 g) and still get correct per-serving math
   // — 253 / 3040 = 1/12 of the batch.
   function recipeCanonicalGrams(item) {
-    if (!item || !Array.isArray(item.ingredients) || !item.ingredients.length) return 1;
-    let sum = 0;
-    for (const ing of item.ingredients) {
-      if (!ing) continue;
-      if (typeof ing.amount === 'number' && ing.amount > 0) {
-        sum += ing.amount;
-        continue;
-      }
-      if (typeof ing.multiplier === 'number' && ing.multiplier > 0) {
-        const src = ITEMS[ing.itemKey];
-        if (!src) continue;
-        const srcCanon = getDisplayUnits(src)[0];
-        sum += ing.multiplier * ((srcCanon && srcCanon.unitsPerServing) || 0);
+    const sum = recipeLinkedGrams(item);
+    return sum > 0 ? sum : 1;
+  }
+
+  // True for a recipe whose macros come from its ingredients, the case
+  // where an ingredient multiplier means a fraction of the whole batch.
+  function isRecipeWithIngredients(item) {
+    return !!(item && item.category === 'recipes' && Array.isArray(item.ingredients) && item.ingredients.length);
+  }
+
+  // Store a recipe's locked "full recipe" serving as its current ingredient
+  // gram total, so the saved data matches what getDisplayUnits shows. Other
+  // servings ("1 bowl", "1 plate") are fixed portions and are never touched.
+  function syncRecipeFullBatchServing(item) {
+    if (!item || !Array.isArray(item.displayUnits)) return;
+    const batchGrams = recipeLinkedGrams(item);
+    if (!(batchGrams > 0)) return;
+    const rounded = Math.round(batchGrams * 10) / 10;
+    for (const unit of item.displayUnits) {
+      if (unit && (unit.locked || /full recipe/i.test(unit.label || ''))) {
+        unit.multiplier = rounded;
+        unit.amount = rounded;
+        unit.unit = 'g';
       }
     }
-    return sum > 0 ? sum : 1;
+  }
+
+  // The gram total behind recipeCanonicalGrams, 0 when nothing counts.
+  // Deleted (missing) ingredients count as nothing: they add no calories,
+  // so their grams must not dilute the batch either. recipeGramsInProgress
+  // (declared beside getDisplayUnits) stops recipes that contain each other
+  // from recursing forever through getDisplayUnits, which asks this for a
+  // recipe's live full-recipe size.
+  function recipeLinkedGrams(item) {
+    if (!item || !Array.isArray(item.ingredients) || !item.ingredients.length) return 0;
+    if (recipeGramsInProgress.has(item)) return 0;
+    recipeGramsInProgress.add(item);
+    try {
+      let sum = 0;
+      for (const ing of item.ingredients) {
+        if (!ing) continue;
+        if (ing.itemKey && !ITEMS[ing.itemKey]) continue;
+        if (typeof ing.amount === 'number' && ing.amount > 0) {
+          sum += ing.amount;
+          continue;
+        }
+        if (typeof ing.multiplier === 'number' && ing.multiplier > 0) {
+          const src = ITEMS[ing.itemKey];
+          if (!src) continue;
+          // Read the multiplier the way computeIngredientMacros does: that
+          // fraction of a recipe's batch, or that many default servings.
+          if (isRecipeWithIngredients(src)) {
+            sum += ing.multiplier * recipeCanonicalGrams(src);
+            continue;
+          }
+          const srcServings = getDisplayUnits(src);
+          const srcCanon = srcServings.find(u => u && u.default) || srcServings[0];
+          sum += ing.multiplier * ((srcCanon && srcCanon.unitsPerServing) || 0);
+        }
+      }
+      return sum;
+    } finally {
+      recipeGramsInProgress.delete(item);
+    }
   }
 
   // Build the human-readable display string for an item: combines the bare
@@ -8681,6 +8881,11 @@
     const size = (typeof variant.unitsPerServing === 'number') ? variant.unitsPerServing
                : (typeof variant.multiplier === 'number' ? variant.multiplier : 0);
     if (!size || size <= 0) return label ? ' · ' + label : '';
+    // Items counted in pieces (pills, eggs) have no gram weight: the label
+    // already says how many ("2 eggs"), so never append "(2 g)".
+    if (getDefaultMeasuredIn(item) === 'units') {
+      return ' · ' + (label || (formatSize(size) + (size === 1 ? ' unit' : ' units')));
+    }
     const unit = primaryUnit(item);
     const sizeStr = formatSize(size) + ' ' + unit;
     const norm = (s) => (s || '').replace(/\s+/g, '').toLowerCase();
@@ -8934,7 +9139,10 @@
     const map = state.collapsedGroups || {};
     document.querySelectorAll('.checkout-group[data-group-key]').forEach(el => {
       const k = el.dataset.groupKey;
-      if (map[k]) el.classList.add('collapsed');
+      // A bar with filter text stays open while filtering (see the filter
+      // input handler); its saved collapsed choice applies again once cleared.
+      const filtering = (typeof groupFilters === 'object' && groupFilters && String(groupFilters[k] || '').trim() !== '');
+      if (map[k] && !filtering) el.classList.add('collapsed');
       else el.classList.remove('collapsed');
     });
     document.querySelectorAll('section[data-collapsible]').forEach(el => {
@@ -9070,6 +9278,9 @@
       if (!item) return false;
       if (item.category !== 'recipes') return true;
       if (item.preserve !== false) return true;
+      // A one-off shows on the day it was made (so it can be logged at all)
+      // and on any day it was logged.
+      if (item.createdDate && item.createdDate === state.activeDate) return true;
       const counter = (state.counters && state.counters[key]) || 0;
       return counter > 0;
     };
@@ -9544,7 +9755,9 @@
           panel.hidden = false;
           row.classList.add('row-expanded');
         } else {
-          saveExpandedEdits(key, panel);
+          // Only an edited panel is saved: a plain open/close must not rewrite
+          // the item (which would also clobber edits made on another device).
+          if (panel.dataset.dirty === '1') saveExpandedEdits(key, panel);
           panel.hidden = true;
           row.classList.remove('row-expanded');
         }
@@ -9653,7 +9866,7 @@
       // or collapse back to just the primary. Commit pending edits when
       // collapsing.
       const opening = panel.hidden;
-      if (!opening) saveExpandedEdits(key, panel);
+      if (!opening && panel.dataset.dirty === '1') saveExpandedEdits(key, panel);
       group.classList.toggle('variants-shown', opening);
       group.classList.toggle('row-expanded', opening);
       panel.hidden = !opening;
@@ -9911,6 +10124,14 @@
     );
   }
 
+  // The recipe hint of the Track custom portion block, naming the current
+  // batch; the live edit save rewrites it whenever the batch changes.
+  function recipePortionHintText(item) {
+    if (!isRecipeWithIngredients(item)) return 'Add ingredients to enable gram-based logging.';
+    const batchGrams = recipeCanonicalGrams(item);
+    return '1 batch ≈ ' + formatSize(batchGrams) + ' g — logging X g adds X/' + formatSize(batchGrams) + ' of a batch.';
+  }
+
   // Track-custom-portion block. Lets the user log "I ate X of <unit>" ad-hoc
   // without persisting a new serving variant. The unit dropdown includes:
   //   - native generic units (g/oz/lb for mass items, ml/fl_oz/cup/tbsp/tsp
@@ -9959,11 +10180,8 @@
           escapeHtml(labelTxt) + ' (' + v.unitsPerServing + ' ' + prim + ')' +
         '</option>';
       }).join('');
-    const batchG = isRecipe ? recipeCanonicalGrams(item) : 0;
     const recipeHint = isRecipe
-      ? (batchG > 0
-          ? ' <span class="edit-panel-hint">1 batch ≈ ' + formatSize(batchG) + ' g — logging X g adds X/' + formatSize(batchG) + ' of a batch.</span>'
-          : ' <span class="edit-panel-hint">Add ingredients to enable gram-based logging.</span>')
+      ? ' <span class="edit-panel-hint" data-recipe-portion-hint>' + escapeHtml(recipePortionHintText(item)) + '</span>'
       : ' <span class="edit-panel-hint">log an ad-hoc amount without saving it as a serving — adds to today\'s total for this item</span>';
     return (
       '<div class="edit-panel-row">' +
@@ -10063,6 +10281,10 @@
       const source = ITEMS[ing.itemKey];
       const sourceMeasure = source ? getDefaultMeasuredIn(source) : 'units';
       const sourceIsPer100 = (sourceMeasure === 'g' || sourceMeasure === 'ml');
+      // A recipe used as an ingredient is measured in grams of its mixture,
+      // and its multiplier is a fraction of its whole batch (the way
+      // computeIngredientMacros reads it), not a count of its default serving.
+      const sourceIsRecipe = isRecipeWithIngredients(source);
       const resolved = resolveIngredient(ing) || { name: '(missing)', kcal: 0, p: 0, sf: 0, water: 0, caffeine: 0, broken: true };
       // Source's default variant carries the canonical serving size +
       // label. item.amount is just a stub; pull serving info from
@@ -10112,14 +10334,19 @@
       // trailer for every basis item, so no extra inject needed here.
       const sourceVariantsForGrid = source ? orderVariantsForCatalog(getDisplayUnits(source)).slice() : [];
       // Compute current native total. For per-100 sources, ing.amount IS
-      // the native count. For multiplier sources, multiplier * default-
-      // variant-size = native. Default to one canonical serving when the
+      // the native count. For a recipe source, multiplier * its batch grams
+      // (or its amount in grams). For other multiplier sources, multiplier *
+      // default-variant-size. Default to one canonical serving when the
       // ingredient has neither field set.
       let currentNative;
       if (sourceIsPer100) {
         if (typeof ing.amount === 'number') currentNative = ing.amount;
         else if (typeof ing.multiplier === 'number' && sourceDefVarSize > 0) currentNative = ing.multiplier * sourceDefVarSize;
         else currentNative = sourceDefVarSize > 0 ? sourceDefVarSize : 100;
+      } else if (sourceIsRecipe) {
+        if (typeof ing.multiplier === 'number') currentNative = ing.multiplier * recipeCanonicalGrams(source);
+        else if (typeof ing.amount === 'number') currentNative = ing.amount;
+        else currentNative = sourceDefVarSize > 0 ? sourceDefVarSize : recipeCanonicalGrams(source);
       } else {
         const mult = (typeof ing.multiplier === 'number') ? ing.multiplier
                    : (typeof ing.amount === 'number') ? ing.amount : 1;
@@ -10133,6 +10360,9 @@
       const labelWithSize = (v, primaryUnitStr) => {
         const lbl = (v && v.label) ? String(v.label) : '';
         const sz = v && typeof v.unitsPerServing === 'number' ? v.unitsPerServing : 0;
+        // Items counted in pieces have no weight: the label already says
+        // how many ("2 eggs"), so no "(2 units)" suffix.
+        if (!primaryUnitStr) return lbl || (sz > 0 ? fmtV(sz) + (sz === 1 ? ' unit' : ' units') : '1 unit');
         if (!sz || sz <= 0) return lbl || ('1 ' + primaryUnitStr);
         const sizeStr = fmtV(sz) + ' ' + primaryUnitStr;
         if (!lbl) return sizeStr;
@@ -10140,15 +10370,14 @@
         if (norm(lbl).indexOf(norm(sizeStr)) >= 0) return lbl;
         return lbl + ' (' + sizeStr + ')';
       };
-      const variantPrimaryUnit = sourceIsPer100 ? sourceMeasure : (sourceMeasure || 'unit');
-      // Anchor the canonical data-ing-field input:
+      const variantPrimaryUnit = sourceIsPer100 ? sourceMeasure : (sourceIsRecipe ? 'g' : '');
+      // Anchor the canonical data-ing-field input (the stored value itself
+      // comes from the row's exact native total, see linkedIngredientFromRow):
       //  - per-100 sources store an "amount" in native units (g/ml), so
       //    anchor to the size-1 synthetic input whose value IS the
       //    native total.
-      //  - non-basis sources (recipes, discrete-unit) store a
-      //    "multiplier" of the canonical (default) serving, so anchor
-      //    to the default/canonical variant - its value as typed IS
-      //    the multiplier (fraction of canonical batch).
+      //  - non-basis sources (recipes, discrete-unit) store a "multiplier",
+      //    so anchor to the default variant.
       let primaryIdx;
       if (sourceIsPer100) {
         primaryIdx = sourceVariantsForGrid.findIndex(v => v && (v.unitsPerServing || 0) === 1);
@@ -10174,7 +10403,9 @@
         );
       }).join('');
       return (
-        '<div class="ingredient-edit-row" data-ing-row data-ing-linked="true" data-ing-itemkey="' + escapeHtml(ing.itemKey) + '" data-ing-source-measure="' + escapeHtml(sourceMeasure) + '" data-ing-source-basis="' + (sourceIsPer100 ? '1' : '') + '" data-ing-source-value="' + escapeHtml(String(sourceDefaultValue)) + '" data-ing-source-label="' + escapeHtml(sourceDefaultLabel) + '" data-native-units="' + escapeHtml(String(currentNative)) + '">' +
+        '<div class="ingredient-edit-row" data-ing-row data-ing-linked="true" data-ing-itemkey="' + escapeHtml(ing.itemKey) + '" data-ing-source-measure="' + escapeHtml(sourceMeasure) + '" data-ing-source-basis="' + (sourceIsPer100 ? '1' : '') + '" data-ing-source-value="' + escapeHtml(String(sourceDefaultValue)) + '" data-ing-source-label="' + escapeHtml(sourceDefaultLabel) + '" data-native-units="' + escapeHtml(String(currentNative)) + '"' +
+          // A deleted source cannot be re-derived, so saving keeps the stored link as it was.
+          (source ? '' : ' data-ing-original="' + escapeHtml(JSON.stringify(ing)) + '"') + '>' +
           '<div class="ing-linked-header' + (resolved.broken ? ' broken' : '') + '">' +
             '<span class="ing-linked-name">' + escapeHtml(resolved.name) + '</span>' +
             '<button type="button" class="ing-delete" data-ing-delete aria-label="Remove ingredient">×</button>' +
@@ -10302,8 +10533,11 @@
     if (!isRecipe) {
       const servingVal = (topAmt.value != null && !isNaN(topAmt.value) && topAmt.value > 0)
         ? topAmt.value : 100;
-      const factor = servingVal / 100;
-      const fmtServ = (x) => Math.round((x || 0) * factor * 100) / 100;
+      // Macros are stored per native unit (per gram / per ml). The two
+      // basis grids show them per serving (x servingVal) and per 100 (x 100);
+      // saveExpandedEdits divides the per-100 inputs back by 100.
+      const fmtServ = (x) => Math.round((x || 0) * servingVal * 100) / 100;
+      const fmtPer100 = (x) => Math.round((x || 0) * 100 * 10000) / 10000;
       const basisLabel = basis === 'g' ? 'g' : basis === 'ml' ? 'ml' : '';
       const isBasis = (basis === 'g' || basis === 'ml');
 
@@ -10313,10 +10547,14 @@
         const summary = label + ' <span class="nutrient-group-count">(' + nonZero + ' set)</span>';
         const stepFor = (d) => d.dec > 0 ? '0.01' : '1';
         const inputCell = (d, mode) => {
-          // mode = 'per100' (canonical, persists) or 'serving' (synced twin)
-          const val = mode === 'serving' ? fmtServ(item[d.key]) : v(item[d.key]);
-          const editAttr = mode === 'per100' ? ' data-edit-field="' + d.key + '"' : '';
-          const twinAttr = isBasis ? ' data-macro-twin="' + mode + '" data-macro-key="' + d.key + '"' : '';
+          // mode = 'per100' (canonical, persists) or 'serving' (synced twin).
+          // Basis items show per 100 g/ml; other items show the stored
+          // per-unit value as-is.
+          const val = mode === 'serving'
+            ? fmtServ(item[d.key])
+            : (isBasis ? (item[d.key] != null ? fmtPer100(item[d.key]) : '') : v(item[d.key]));
+          const editAttr = mode === 'per100' ? ' data-edit-field="' + d.key + '"' + (isBasis ? ' data-per-hundred="1"' : '') : '';
+          const twinAttr = isBasis ? ' data-macro-twin="' + mode + '" data-macro-key="' + d.key + '" data-serving-value="' + servingVal + '"' : '';
           return (
             '<div><label>' + escapeHtml(d.label) + (d.unit ? ' <em>(' + escapeHtml(d.unit) + ')</em>' : '') + '</label>' +
             '<input type="number"' + editAttr + twinAttr + ' min="0" step="' + stepFor(d) + '" value="' + val + '" /></div>'
@@ -10396,8 +10634,7 @@
               '</select>' +
             '</div>' +
           '</div>' +
-        '</div>' +
-        recipePreserveRow
+        '</div>'
       : '';
 
     return (
@@ -10419,6 +10656,10 @@
       '</div>' +
 
       supplementBlock +
+
+      // Recipes only: the "Preserve across days" switch (a one-off recipe
+      // shows only on days it is logged).
+      recipePreserveRow +
 
       // (Removed parent-level "Serving amount / Serving unit / Serving
       // label" inputs — these properties belong to each serving size,
@@ -10452,7 +10693,7 @@
                 '<select data-ing-add-source>' +
                   '<option value="">— pick item —</option>' +
                   Object.entries(ITEMS)
-                    .filter(([k]) => k !== 'water' && k !== key)
+                    .filter(([k, it]) => k !== 'water' && k !== key && it && !it.archived && it.category !== 'water')
                     .map(([k, it]) => {
                       const brand = (it && typeof it.brand === 'string' && it.brand.trim()) ? it.brand.trim() : '';
                       const base = (it && it.name) || k;
@@ -10693,11 +10934,13 @@
       else delete item.density_g_per_ml;
     }
 
-    // Walk ingredient rows. Three shapes:
+    // Walk ingredient rows. Four shapes (linked ones via linkedIngredientFromRow):
     //   - Linked + source measured in g/ml: stored as {itemKey, amount, label?}
     //     where amount is a number in the source's measure units.
-    //   - Linked + discrete-unit source (units): stored as
-    //     {itemKey, multiplier}.
+    //   - Linked + recipe source: {itemKey, multiplier, label?}, the fraction
+    //     of that recipe's whole batch.
+    //   - Linked + discrete-unit source (units): {itemKey, multiplier, label?},
+    //     a count of its default serving.
     //   - Flat: {name, amount{value,unit}, kcal, p, ...}.
     const rows = panel.querySelectorAll('[data-ing-row]');
     const ingredients = [];
@@ -10724,22 +10967,17 @@
         hasLinked = true;
         const itemKey = row.dataset.ingItemkey;
         if (!itemKey) return;
-        const sourceBasis = row.dataset.ingSourceBasis;
         const labelRaw = (f('label') || '').trim();
-        let entry;
-        if (sourceBasis) {
-          // Per-100 link. Numeric amount in source's basis units.
-          const a = parseFloat(f('amount'));
-          const amt = (isNaN(a) || a < 0) ? 0 : a;
-          entry = { itemKey, amount: amt };
-          if (labelRaw) entry.label = labelRaw;
-        } else {
-          // Multiplier link — source has a discrete unit (no basis).
-          const m = parseFloat(f('multiplier'));
-          const mult = (isNaN(m) || m < 0) ? 1 : m;
-          entry = { itemKey, multiplier: mult };
-          if (labelRaw) entry.label = labelRaw;
+        let entry = null;
+        if (!ITEMS[itemKey] && row.dataset.ingOriginal) {
+          // Deleted source: nothing to re-derive the link from, keep it as stored.
+          try { entry = JSON.parse(row.dataset.ingOriginal); } catch (e) { entry = null; }
         }
+        // Otherwise the exact amount or multiplier behind the row's boxes.
+        if (!entry) entry = linkedIngredientFromRow(row);
+        if (!entry) return;
+        if (labelRaw) entry.label = labelRaw;
+        else delete entry.label;
         ingredients.push(entry);
         addNutrients(sumMacros, computeIngredientMacros(entry));
         return;
@@ -10775,42 +11013,9 @@
       else delete item.ingredients;
       delete item.kcal; delete item.p; delete item.sf;
       delete item.water; delete item.caffeine;
-      // Auto-recompute the recipe's "full recipe" variant size from the
-      // current ingredient gram total so the displayed batch size stays
-      // in sync with what the ingredients actually weigh. Linked
-      // ingredients contribute their native units; multiplier-form
-      // ingredients contribute multiplier * source default size; flat
-      // ingredients with a numeric amount in g/ml contribute that.
-      if (Array.isArray(item.displayUnits) && item.displayUnits.length) {
-        let totalNative = 0;
-        for (const ing of ingredients) {
-          if (ing.itemKey) {
-            const src = ITEMS[ing.itemKey];
-            if (!src) continue;
-            if (typeof ing.amount === 'number' && ing.amount > 0) {
-              totalNative += ing.amount;
-            } else if (typeof ing.multiplier === 'number' && ing.multiplier > 0) {
-              const srcDef = getDisplayUnits(src).find(u => u && u.default) || getDisplayUnits(src)[0];
-              const srcSize = (srcDef && (srcDef.multiplier || srcDef.unitsPerServing)) || 0;
-              if (srcSize > 0) totalNative += ing.multiplier * srcSize;
-            }
-          } else if (ing.amount && typeof ing.amount.value === 'number' && ing.amount.value > 0) {
-            const u = (ing.amount.unit || '').toLowerCase();
-            if (u === 'g' || u === 'ml') totalNative += ing.amount.value;
-          }
-        }
-        if (totalNative > 0) {
-          const fullRecipeVar = item.displayUnits.find(v => v && /full recipe/i.test(v.label || ''))
-                              || item.displayUnits.find(v => v && v.locked)
-                              || item.displayUnits[0];
-          if (fullRecipeVar) {
-            const rounded = Math.round(totalNative * 10) / 10;
-            fullRecipeVar.multiplier = rounded;
-            fullRecipeVar.amount = rounded;
-            fullRecipeVar.unit = 'g';
-          }
-        }
-      }
+      // Keep the stored "full recipe" serving equal to the ingredient gram
+      // total that logging divides by (getDisplayUnits already shows it live).
+      syncRecipeFullBatchServing(item);
     } else if (ingredients.length > 0) {
       // Non-recipe item with sub-ingredients: re-sum totals so the cached
       // top-level macros stay consistent with the components. All stored
@@ -10842,7 +11047,12 @@
         // opened the edit panel and saved without retyping every
         // nutrient. To explicitly clear a field, the user must type 0.
         if (raw === '' || raw == null) continue;
-        const n = roundStorage(num(raw));
+        // Basis items show these inputs per 100 g/ml; storage is per gram/ml.
+        const input = panel.querySelector('[data-edit-field="' + k + '"]');
+        const perHundred = !!(input && input.dataset.perHundred === '1');
+        const n = perHundred
+          ? Math.round((num(raw) / 100) * 1000000) / 1000000
+          : roundStorage(num(raw));
         if (n > 0) item[k] = n;
         else delete item[k];
       }
@@ -11144,17 +11354,20 @@
       }
       let m;
       let ingredientsBreakdown = null;
+      // A one-off recipe logged on this day is priced from that day's frozen
+      // copy (the same one the totals use), not from today's recipe.
+      const loggedRecipe = isRecipeItem ? (effectiveRecipeForDay(key, bucket) || catItem) : null;
       if (catItem) {
         if (isRecipeItem) {
-          const canonUnits = recipeCanonicalGrams(catItem);
-          const batch = computeItemMacros(catItem);
+          const canonUnits = recipeCanonicalGrams(loggedRecipe);
+          const batch = computeItemMacros(loggedRecipe);
           const factor = canonUnits > 0 ? (n / canonUnits) : 0;
           m = {};
           for (const k of STORED_NUTRIENT_KEYS) m[k] = (batch[k] || 0) * factor;
           // Per-ingredient breakdown, scaled by the same factor. resolveIngredient
           // gives us full-batch macros per ingredient; we multiply by `factor` so
           // partial-recipe consumption shows partial ingredient consumption.
-          ingredientsBreakdown = catItem.ingredients.map(ing => {
+          ingredientsBreakdown = loggedRecipe.ingredients.map(ing => {
             const r = resolveIngredient(ing) || { name: '(unknown)', kcal: 0, p: 0, sf: 0, water: 0, caffeine: 0 };
             const scaled = {};
             for (const k of STORED_NUTRIENT_KEYS) scaled[k] = (r[k] || 0) * factor;
@@ -11185,7 +11398,7 @@
         for (const k of STORED_NUTRIENT_KEYS) m[k] = (item[k] || 0) * n;
       }
       entries.push({
-        name: formatItemDisplayName(catItem || item) || item.name || key,
+        name: formatItemDisplayName(loggedRecipe || catItem || item) || item.name || key,
         suffix: countSuffix,
         macrosHtml: formatLogMacroLine(m),
         ingredientsBreakdown,
@@ -11603,6 +11816,9 @@
     try { renderTodayLog(); } catch (_) {}
     try { renderDateStamp(); } catch (_) {}
     try { renderDailyConsequences(totals); } catch (_) {}
+    // A tap can satisfy a timed item, so its "past time" flag must clear now,
+    // not on the next minute tick.
+    try { checkFlags(); } catch (_) {}
     scheduleHeavyRefresh();
   }
 
@@ -11830,8 +12046,10 @@
   // Stored on state.profile.gender ('male' | 'female'); falls back to 'male'
   // when unset.
   function profileGender() {
-    const g = state.profile && state.profile.gender;
-    return (g === 'female') ? 'female' : 'male';
+    // The profile form stores sex as 'M' / 'F'; older profiles may carry
+    // gender: 'male' | 'female'.
+    const recorded = state.profile && (state.profile.sex || state.profile.gender);
+    return (recorded === 'F' || recorded === 'female') ? 'female' : 'male';
   }
 
   // Returns the effective body-fat % for a given day's bucket, either by
@@ -12046,13 +12264,19 @@
       status = 'ok';
     } else if (kgPerWeek > 0.5) {
       status = 'danger';
-      consequence = 'Gaining at ' + kgPerWeek.toFixed(2) + ' kg/wk while on a 1,400 kcal cut means intake is higher than what you logged - likely culprits: weekend drift, restaurant portions, alcohol, snacks, condiments, oils used in cooking. Re-weigh every logged portion for 3 days; if the gain persists, your TDEE is lower than the cut math assumes and the kcal target needs to drop another 100-150.';
+      const kcalGoalText = (GOALS && GOALS.kcal) ? Math.round(GOALS.kcal).toLocaleString() : 'your';
+      consequence = 'Gaining at ' + kgPerWeek.toFixed(2) + ' kg/wk while eating to a ' + kcalGoalText + ' kcal goal means intake is higher than what you logged - likely culprits: weekend drift, restaurant portions, alcohol, snacks, condiments, oils used in cooking. Re-weigh every logged portion for 3 days; if the gain persists, your TDEE is lower than the goal assumes and the kcal target needs to drop another 100-150.';
     } else if (kgPerWeek > 0.2) {
       status = 'warn';
       consequence = 'Trending up on a cut. Could be water retention (high sodium meal, heavy lift recovery, glycogen rebound, monthly cycle) or could be the start of a real drift. Wait one more week before adjusting; if still up, audit portions.';
     } else if (kgPerWeek < -1.0 || pctOfBody > 1.0) {
       status = 'danger';
-      consequence = 'Losing at ' + Math.abs(kgPerWeek).toFixed(2) + ' kg/wk is past the 0.5 to 1.0 kg/wk sustainable cut window. Faster than that you lose muscle alongside fat, energy crashes (especially lifts), and adherence falls apart by week 4 to 6. Bump intake by 150-200 kcal/day and re-check next week.';
+      // Name the rule that actually fired: above 1.0 kg/wk, or (while still
+      // inside 0.5 to 1.0 kg/wk) above 1% of body weight per week.
+      const paceRule = (kgPerWeek < -1.0)
+        ? 'is past the 0.5 to 1.0 kg/wk sustainable cut window'
+        : 'is ' + pctOfBody.toFixed(1) + '% of your body weight per week, past the 1% per week ceiling';
+      consequence = 'Losing at ' + Math.abs(kgPerWeek).toFixed(2) + ' kg/wk ' + paceRule + '. Faster than that you lose muscle alongside fat, energy crashes (especially lifts), and adherence falls apart by week 4 to 6. Bump intake by 150-200 kcal/day and re-check next week.';
     } else if (kgPerWeek < -0.15) {
       status = 'ok';
     } else {
@@ -12074,15 +12298,19 @@
     if (!el) return;
     const series = collectWeightSeries();
     if (!series.length) {
-      el.innerHTML = '<span class="empty">No weight logged yet. Enter today\'s weight in the Checkout List header.</span>';
+      el.innerHTML = '<span class="empty">No weight logged yet. Type today\'s weight into a Weight box (top bar or just above).</span>';
       return;
     }
     const latest = series[series.length - 1];
     const first = series[0];
     const bmi = bmiFor(latest.weight);
     const change = latest.weight - first.weight;
-    const changeStr = change >= 0 ? '+' + change.toFixed(1) : change.toFixed(1);
-    const span = (latest.date === first.date) ? 'first entry' : 'since ' + first.date;
+    // Weights and dates follow the profile's unit and date-format choices,
+    // like the history table does.
+    const imperialFirst = (getDisplayPrefs().unitDisplay === 'imperial' || getDisplayPrefs().unitDisplay === 'both_prefer_imperial');
+    const changeInShownUnit = imperialFirst ? change * 2.20462 : change;
+    const changeStr = (changeInShownUnit >= 0 ? '+' : '') + changeInShownUnit.toFixed(1) + (imperialFirst ? ' lb' : ' kg');
+    const span = (latest.date === first.date) ? 'first entry' : 'since ' + fmtDate(first.date);
     let bmiStr = '—';
     let bmiCat = '';
     if (bmi != null) {
@@ -12095,9 +12323,9 @@
       bmiCat = 'set height in profile';
     }
     el.innerHTML =
-      '<div>Latest: <strong>' + latest.weight.toFixed(1) + ' kg</strong> on ' + latest.date + '</div>' +
+      '<div>Latest: <strong>' + escapeHtml(fmtWeight(latest.weight)) + '</strong> on ' + escapeHtml(fmtDate(latest.date)) + '</div>' +
       '<div>BMI: <strong>' + bmiStr + '</strong> (' + bmiCat + ')</div>' +
-      '<div>Change: <strong>' + changeStr + ' kg</strong> ' + span + ' (' + series.length + ' entries)</div>';
+      '<div>Change: <strong>' + changeStr + '</strong> ' + escapeHtml(span) + ' (' + series.length + ' entries)</div>';
   }
 
   // Build a simple line chart as inline SVG. No external libs.
@@ -12490,12 +12718,14 @@
     // Include brand in the dropdown label so multiple items with the same
     // base name (e.g. several turkey breasts from different brands) are
     // distinguishable. Format mirrors the catalog row: "Name (Brand)".
+    // Archived items and water (hydration, not food) are never offered.
     return Object.entries(ITEMS)
-      .filter(([k]) => k !== 'water')
+      .filter(([k, item]) => k !== 'water' && item && !item.archived && item.category !== 'water')
       .map(([k, item]) => {
         const brand = (item && typeof item.brand === 'string' && item.brand.trim())
           ? item.brand.trim() : '';
-        const label = brand ? (item.name + ' (' + brand + ')') : item.name;
+        const baseName = item.name || k;
+        const label = brand ? (baseName + ' (' + brand + ')') : baseName;
         return { key: k, label };
       })
       .sort((a, b) => a.label.localeCompare(b.label));
@@ -12671,27 +12901,60 @@
       const ov = og > 0 ? nativeUnits / og : 0;
       o.value = fmtVariantDisplay(ov);
     });
-    // For ingredient-edit-rows, the macros readout is recomputed by a
-    // separate input handler keyed off [data-ing-field="amount"] /
-    // ["multiplier"]. When the user types into a sibling variant, that
-    // handler doesn't see an input event on the canonical input, so
-    // re-run the macro probe inline here (dispatching an Event would
-    // re-enter this sync function and recurse).
-    if (row.matches('[data-ing-row][data-ing-linked="true"]')) {
-      const itemKey = row.dataset.ingItemkey;
-      const sourceBasis = row.dataset.ingSourceBasis;
-      const canonical = row.querySelector('[data-ing-field="amount"], [data-ing-field="multiplier"]');
-      const cv = canonical ? parseFloat(canonical.value) : NaN;
-      const safeV = (isNaN(cv) || cv < 0) ? 0 : cv;
-      const probe = sourceBasis ? { itemKey, amount: safeV } : { itemKey, multiplier: safeV };
-      if (itemKey && typeof resolveIngredient === 'function') {
-        const r = resolveIngredient(probe);
-        const out = row.querySelector('[data-ing-computed]');
-        if (out && r) {
-          out.textContent = fmt1(r.kcal) + ' kcal · ' + fmt1(r.p) + ' P · ' + fmt1(r.sf) + ' SF · ' + fmt1(r.water) + ' ml water';
-        }
-      }
+    // Edit-panel ingredient rows also show the ingredient's macros; they
+    // follow the row's exact native total, whichever box was typed in.
+    if (row.matches('[data-ing-row][data-ing-linked="true"]')) refreshLinkedIngredientMacros(row);
+  }
+
+  // The stored link for a linked-ingredient row of an edit panel. It comes
+  // from the row's full-precision native total (data-native-units), never
+  // from the rounded text of one box, so saving cannot drift an amount:
+  //   - gram / ml sources store the amount in native units;
+  //   - recipe sources store a multiplier = the fraction of that recipe's
+  //     whole batch, the way computeIngredientMacros reads it;
+  //   - counted sources store a multiplier of their default serving.
+  function linkedIngredientFromRow(row) {
+    if (!row || !row.dataset) return null;
+    const itemKey = row.dataset.ingItemkey;
+    if (!itemKey) return null;
+    const source = ITEMS[itemKey];
+    let native = parseFloat(row.dataset.nativeUnits);
+    if (!isFinite(native) || native < 0) {
+      const anchor = row.querySelector('[data-ing-field="amount"], [data-ing-field="multiplier"]');
+      const typed = anchor ? parseFloat(anchor.value) : NaN;
+      const anchorSize = anchor ? (parseFloat(anchor.dataset.servingSize) || 1) : 1;
+      native = (isFinite(typed) && typed >= 0) ? typed * anchorSize : 0;
     }
+    if (row.dataset.ingSourceBasis) return { itemKey, amount: roundStorage(native) };
+    if (isRecipeWithIngredients(source)) {
+      return { itemKey, multiplier: roundStorage(native / recipeCanonicalGrams(source)) };
+    }
+    const servings = source ? getDisplayUnits(source) : [];
+    const canonicalServing = servings.find(u => u && u.default) || servings[0];
+    const canonicalSize = (canonicalServing && canonicalServing.unitsPerServing) || 1;
+    return { itemKey, multiplier: roundStorage(native / canonicalSize) };
+  }
+
+  // Rewrite an edit-panel ingredient row's macro line from its current link.
+  function refreshLinkedIngredientMacros(row) {
+    const out = row && row.querySelector('[data-ing-computed]');
+    const link = linkedIngredientFromRow(row);
+    if (!out || !link || typeof resolveIngredient !== 'function') return;
+    const r = resolveIngredient(link);
+    if (r) out.textContent = fmt1(r.kcal) + ' kcal · ' + fmt1(r.p) + ' P · ' + fmt1(r.sf) + ' SF · ' + fmt1(r.water) + ' ml water';
+  }
+
+  // Set an edit-panel ingredient row to a native total: every linked serving
+  // box shows its share (1 decimal, as rendered) and the macro line follows.
+  function setIngredientRowNative(row, nativeUnits) {
+    if (!row || !isFinite(nativeUnits) || nativeUnits < 0) return;
+    row.dataset.nativeUnits = String(nativeUnits);
+    row.querySelectorAll('[data-recipe-variant-input]').forEach(box => {
+      const servingSize = parseFloat(box.dataset.servingSize) || 1;
+      const share = Math.round((nativeUnits / servingSize) * 10) / 10;
+      box.value = (share === Math.floor(share)) ? String(Math.floor(share)) : share.toFixed(1);
+    });
+    refreshLinkedIngredientMacros(row);
   }
 
   // Read the row's current native-unit total. Prefers the precise value
@@ -12740,8 +13003,9 @@
     const scaled = (item.category === 'recipes')
       ? (function () {
           const base = computeItemMacros(item); // per one canonical batch
-          const canon = getDisplayUnits(item)[0];
-          const canonUnits = canon.unitsPerServing || 1;
+          // One batch = the recipe's ingredient gram total, the same divisor
+          // logging uses, whichever serving happens to be listed first.
+          const canonUnits = recipeCanonicalGrams(item);
           const factor = nativeUnits / canonUnits;
           const out = {};
           for (const k of STORED_NUTRIENT_KEYS) out[k] = (base[k] || 0) * factor;
@@ -12840,6 +13104,13 @@
           itemKey: m.key,
           amount: Math.round(m.nativeUnits * 10) / 10,
         });
+      } else if (sourceItem && sourceItem.category === 'recipes') {
+        // Recipe source: computeIngredientMacros reads a recipe multiplier as
+        // a fraction of that recipe's whole batch, so divide by the batch.
+        ingredients.push({
+          itemKey: m.key,
+          multiplier: Math.round((m.nativeUnits / recipeCanonicalGrams(sourceItem)) * 10000) / 10000,
+        });
       } else {
         // Discrete / unit source — keep the multiplier-shaped link (multiplier
         // of the canonical serving). Computed from the row's native units
@@ -12880,7 +13151,11 @@
       category: 'recipes',
       ingredients: ingredients,
     };
-    if (!store) newRecipe.preserve = false;
+    if (!store) {
+      newRecipe.preserve = false;
+      // Visible on the day being viewed, so the one-off can be logged there.
+      newRecipe.createdDate = state.activeDate;
+    }
     const fullBatch = recipeCanonicalGrams(newRecipe);
     if (fullBatch > 0) {
       newRecipe.displayUnits = [{
@@ -13030,9 +13305,13 @@
           const val = groupFilter.value;
           groupFilters[k] = val;
           applyGroupFilter(groupEl, val);
+          // Open the bar while a filter is typed so the matches are visible,
+          // without touching the saved collapsed choice; clearing the box
+          // puts a bar that was collapsed back to collapsed.
           if (val.trim()) {
             groupEl.classList.remove('collapsed');
-            if (state.collapsedGroups) delete state.collapsedGroups[k];
+          } else if (state.collapsedGroups && state.collapsedGroups[k]) {
+            groupEl.classList.add('collapsed');
           }
         }
         return;
@@ -13114,18 +13393,7 @@
       if (linkedAmtEl) {
         const row = linkedAmtEl.closest('[data-ing-row][data-ing-linked="true"]');
         if (!row) return;
-        const itemKey = row.dataset.ingItemkey;
-        const sourceBasis = row.dataset.ingSourceBasis;
-        const v = parseFloat(linkedAmtEl.value);
-        const safeV = (isNaN(v) || v < 0) ? 0 : v;
-        const probe = sourceBasis
-          ? { itemKey, amount: safeV }
-          : { itemKey, multiplier: safeV };
-        const r = resolveIngredient(probe);
-        const out = row.querySelector('[data-ing-computed]');
-        if (out && r) {
-          out.textContent = fmt1(r.kcal) + ' kcal · ' + fmt1(r.p) + ' P · ' + fmt1(r.sf) + ' SF · ' + fmt1(r.water) + ' ml water';
-        }
+        refreshLinkedIngredientMacros(row);
       }
       // Macro-twin sync: when the user edits a per-100 input, update the
       // matching per-serving sibling (and vice versa). The per-100 grid is
@@ -13140,9 +13408,10 @@
           const which = twinEl.dataset.macroTwin; // "per100" | "serving"
           const key = twinEl.dataset.macroKey;
           const val = parseFloat(twinEl.value);
-          const servEl = panel.querySelector('[data-edit-field="top-amount-value"]');
-          const servingVal = servEl ? parseFloat(servEl.value) : 100;
-          const factor = (servingVal > 0) ? servingVal / 100 : 1;
+          // The serving size the grid was rendered with (item.amount.value).
+          const renderedServing = parseFloat(twinEl.dataset.servingValue);
+          const servingVal = (isFinite(renderedServing) && renderedServing > 0) ? renderedServing : 100;
+          const factor = servingVal / 100;
           const def = NUTRIENT_BY_KEY[key];
           const decimals = (def && def.dec != null) ? def.dec : 1;
           const round = (n) => {
@@ -13160,8 +13429,8 @@
             // Per-variant table: derive the new per-native-unit value and push
             // a fresh display into every <span data-macro-variant-display> for
             // this nutrient key. Storage is per native unit (per gram / per ml);
-            // the canonical "per100" cell shows that value as-is.
-            const perNative = (which === 'per100') ? val : (val / factor);
+            // the per-100 cell shows 100x that value.
+            const perNative = (which === 'per100') ? (val / 100) : (val / servingVal);
             const variantSpans = panel.querySelectorAll('span[data-macro-variant-display][data-macro-key="' + key + '"]');
             variantSpans.forEach(span => {
               const servingSize = parseFloat(span.dataset.variantSize) || 0;
@@ -13212,6 +13481,9 @@
         let ing;
         if (isPer100(source)) {
           ing = { itemKey, amount: variantSize };
+        } else if (isRecipeWithIngredients(source)) {
+          // A recipe multiplier is a fraction of that recipe's whole batch.
+          ing = { itemKey, multiplier: roundStorage(variantSize / recipeCanonicalGrams(source)) };
         } else {
           // Canonical (default) variant size for the non-basis source
           const defaultVar = sourceVariants.find(v => v && v.default) || sourceVariants[0] || {};
@@ -13222,6 +13494,7 @@
         saveExpandedEdits(key, panel);
         item.ingredients = Array.isArray(item.ingredients) ? item.ingredients : [];
         item.ingredients.push(ing);
+        syncRecipeFullBatchServing(item);
         saveState();
         if (typeof renderCatalog === 'function') renderCatalog();
         reopenEditPanelForKey(key);
@@ -13245,9 +13518,8 @@
         if (!btnDenom || btnDenom < 2) return;
         const sourceVal = parseFloat(row.dataset.ingSourceValue);
         const sourceFullLabel = row.dataset.ingSourceLabel || '';
-        const amtEl = row.querySelector('[data-ing-field="amount"], [data-ing-field="multiplier"]');
         const labelEl = row.querySelector('[data-ing-field="label"]');
-        if (!amtEl || !labelEl) return;
+        if (!labelEl) return;
         // Parse current state from the label. Noun is the trailing word(s)
         // after any "N/M " prefix. If the label has no fraction prefix,
         // strip a leading "1 ", "one ", or "whole " (case-insensitive) — but
@@ -13289,27 +13561,28 @@
             ? (sourceFullLabel || noun)
             : (next.numer + '/' + next.denom + ' ' + noun);
         labelEl.value = newLabel;
-        // Update amount.
-        if (!isNaN(sourceVal) && sourceVal > 0) {
-          amtEl.value = (Math.round((sourceVal * next.numer / next.denom) * 10) / 10).toString();
-        } else {
-          amtEl.value = (Math.round((next.numer / next.denom) * 1000) / 1000).toString();
-        }
+        // The amount is that fraction of the source's default serving, in
+        // native units, pushed to every linked serving box of the row.
+        const sourceNative = (!isNaN(sourceVal) && sourceVal > 0) ? sourceVal : 1;
+        setIngredientRowNative(row, sourceNative * next.numer / next.denom);
         // 1/3 button text: "+1/3" when state next-press would be additive.
         const thirdBtn = row.querySelector('[data-ing-frac="3"]');
         if (thirdBtn) {
           const onThirds = (next.denom === 3 && next.numer < next.denom);
           thirdBtn.textContent = onThirds ? '+1/3' : '1/3';
         }
-        // Recompute macros via the existing input handler.
-        amtEl.dispatchEvent(new Event('input', { bubbles: true }));
+        const fractionPanel = row.closest('[data-edit-panel]');
+        if (fractionPanel) liveSaveEditPanel(fractionPanel);
         return;
       }
 
       const delIngBtn = ev.target.closest('[data-ing-delete]');
       if (delIngBtn) {
         const row = delIngBtn.closest('[data-ing-row]');
+        const ingredientPanel = delIngBtn.closest('[data-edit-panel]');
         if (row) row.remove();
+        // Save now so the recipe's title and full-recipe size follow at once.
+        if (ingredientPanel) liveSaveEditPanel(ingredientPanel);
         return;
       }
 
@@ -13320,18 +13593,8 @@
       if (detachBtn) {
         const row = detachBtn.closest('[data-ing-row][data-ing-linked="true"]');
         if (!row) return;
-        const itemKey = row.dataset.ingItemkey;
-        const sourceBasis = row.dataset.ingSourceBasis;
-        let probe;
-        if (sourceBasis) {
-          const amtEl = row.querySelector('[data-ing-field="amount"]');
-          const a = amtEl ? parseFloat(amtEl.value) : 0;
-          probe = { itemKey, amount: (isNaN(a) || a < 0) ? 0 : a };
-        } else {
-          const multEl = row.querySelector('[data-ing-field="multiplier"]');
-          const m = multEl ? parseFloat(multEl.value) : 1;
-          probe = { itemKey, multiplier: (isNaN(m) ? 1 : m) };
-        }
+        const probe = linkedIngredientFromRow(row);
+        if (!probe) return;
         const labelEl = row.querySelector('[data-ing-field="label"]');
         if (labelEl && labelEl.value.trim()) probe.label = labelEl.value.trim();
         const r = resolveIngredient(probe);
@@ -13556,6 +13819,10 @@
         if (labelEl)  labelEl.value = '';
         if (timeEl)   timeEl.value = '';
         if (freqEl)   freqEl.value = 'daily';
+        // Persist right away (mirrors the × delete): a serving that only
+        // exists in the open editor is lost on reload or on another device.
+        saveExpandedEdits(key, panel);
+        reopenEditPanelForKey(key);
         return;
       }
       // Density input change: re-enable/disable volume units in the custom-add
@@ -13585,18 +13852,15 @@
         const isRecipe = (item.category === 'recipes');
         let addNative;
         if (isRecipe) {
-          // Recipe: convert the typed mass amount → grams → fraction of one
-          // batch. The recipe row counter is in units of "batches" (canonical
-          // unitsPerServing = 1 by default for recipes), so we add a decimal
-          // fraction of a batch rather than raw grams.
+          // Recipe: a recipe's counter is in grams of the mixture (the full
+          // recipe serving is the batch's gram total, and logging divides by
+          // that same total), so the typed amount is added as grams.
           const grams = (unitVal === 'g') ? amt
                       : (unitVal === 'oz') ? amt * MASS_TO_G.oz
                       : (unitVal === 'lb') ? amt * MASS_TO_G.lb
                       : NaN;
           if (!isFinite(grams) || grams <= 0) return;
-          const batchG = recipeCanonicalGrams(item);
-          if (!isFinite(batchG) || batchG <= 0) return;
-          addNative = grams / batchG;
+          addNative = grams;
         } else if (unitVal && unitVal.indexOf('__variant_') === 0) {
           // Variant option: read the servingSize off the selected <option>.
           const opt = unitEl.options[unitEl.selectedIndex];
@@ -13639,7 +13903,7 @@
         const key = panel && panel.dataset.editPanelKey;
         if (!key || !ITEMS[key]) return;
         // Commit any in-flight edits before flagging archived.
-        saveExpandedEdits(key, panel);
+        if (panel.dataset.dirty === '1') saveExpandedEdits(key, panel);
         const item = ITEMS[key];
         item.prevCategory = item.category;
         item.archived = true;
@@ -13785,6 +14049,9 @@
       opts = opts || {};
       const key = panel.dataset.editPanelKey;
       if (!key || !ITEMS[key]) return;
+      // Closing an editor only saves when something in it was edited, so
+      // opening and closing an item never rewrites it (see the close handlers).
+      panel.dataset.dirty = '1';
       // Persist the edit straight into ITEMS (skipCatalogRender so we don't
       // yank focus by rebuilding the whole catalog), then surgically patch
       // the visible catalog row in place. This is the keystroke-fast path:
@@ -13792,18 +14059,22 @@
       // every event, with NO 'wait for blur'.
       saveExpandedEdits(key, panel, { skipCatalogRender: true });
       if (typeof updateCatalogRowInPlace === 'function') updateCatalogRowInPlace(key);
-      // Recipes: the top-amount input reflects the sum of ingredient native
-      // units (a computed field, not user-typed). Keep it in sync live so
-      // an ingredient edit / add / remove immediately updates the displayed
-      // AMOUNT above the ingredients list.
+      // Recipes: the read-only "full recipe" serving is the sum of the
+      // ingredient grams. Keep its amount box in the open editor in step so
+      // an ingredient edit / add / remove shows the new batch size at once.
       const editedItem = ITEMS[key];
       if (editedItem && editedItem.category === 'recipes') {
-        const topAmt = panel.querySelector('input[data-edit-field="top-amount-value"]');
-        if (topAmt && document.activeElement !== topAmt) {
-          const canon = (typeof recipeCanonicalGrams === 'function') ? recipeCanonicalGrams(editedItem) : 0;
-          topAmt.value = canon > 0 ? (Math.round(canon * 10) / 10) : '';
+        const batchGrams = recipeLinkedGrams(editedItem);
+        if (batchGrams > 0) {
+          panel.querySelectorAll('[data-variant-row][data-variant-locked] [data-variant-field="amount"], [data-variant-row] [data-variant-field="amount"][data-auto-from-ingredients]')
+            .forEach(input => { input.value = formatSize(batchGrams); });
         }
+        const portionHint = panel.querySelector('[data-recipe-portion-hint]');
+        if (portionHint) portionHint.textContent = recipePortionHintText(editedItem);
       }
+      // What is already logged of this item is worth something else now:
+      // today's totals, its counter boxes and Today's log follow at once.
+      renderCounterDelta(key);
     };
     document.addEventListener('input', (ev) => {
       const panel = ev.target.closest('[data-edit-panel]');
@@ -14018,7 +14289,7 @@
         panel.hidden = false;
         row.classList.add('row-expanded');
       } else {
-        saveExpandedEdits(key, panel);
+        if (panel.dataset.dirty === '1') saveExpandedEdits(key, panel);
         panel.hidden = true;
         row.classList.remove('row-expanded');
         // Re-render the schedule rows so the truncated nutrient line picks
@@ -14045,6 +14316,7 @@
           delete bucket.weightMeta;
           saveState();
           renderWeightSection();
+          renderProfileDerived();
           return;
         }
         const n = parseFloat(raw);
@@ -14060,6 +14332,8 @@
         // line path), so visual continuity does not require fabricating
         // bucket.weight values the user never typed.
         renderWeightSection();
+        // BMR / TDEE use the latest weigh-in.
+        renderProfileDerived();
       };
       // JS update + render fire on every keystroke; the gist write is queued
       // through sendOp and debounced by the op queue itself.
@@ -14118,14 +14392,18 @@
     wireMeasurementInputs(['checkout-mood',  'context-bar-mood'],  'mood',  [0, 10],   'mood_set',  'mood_clear');
 
     // Date navigation
+    // Changing days rebuilds the catalog too: one-off recipes show only on
+    // the days they were logged (see isVisibleOnActiveDay).
     dateNavPrev.addEventListener('click', () => {
       activateDate(shiftDateKey(state.activeDate, -1));
       saveState();
+      if (typeof renderCatalog === 'function') renderCatalog();
       render();
     });
     dateNavNext.addEventListener('click', () => {
       activateDate(shiftDateKey(state.activeDate, +1));
       saveState();
+      if (typeof renderCatalog === 'function') renderCatalog();
       render();
     });
 
@@ -14271,6 +14549,9 @@
           // Ensure key uniqueness against existing keys.
           if (CATEGORIES.some(c => c.key === key)) key = key + '_' + Date.now().toString(36).slice(-4);
           CATEGORIES.push({ key, label: newName });
+          // Save the new category list now; the entry itself goes out as its
+          // own op below, which never carries the categories.
+          sendOp({ type: 'catalog_categories_set', categories: CATEGORIES.map(entry => Object.assign({}, entry)) });
           category = key;
           // Repopulate selects so the new category is available immediately.
           populateCustomFormCategories();
@@ -14307,23 +14588,18 @@
           if (!baseKey) baseKey = 'custom';
           let key = baseKey, n = 1;
           while (ITEMS[key]) { key = baseKey + '_' + n; n++; }
+          // Every nutrient typed into the form (the grid covers all stored
+          // nutrients) is kept, per one serving.
           const catalogItem = {
             name,
             category: category || 'uncategorized',
             defaultMeasuredIn: 'units',
             kcal,
-            p,
-            sf,
-            water,
-            caffeine,
+            ...nutrients,
             displayUnits: [
               { label: '1 serving', amount: 1, unit: 'ea', multiplier: 1, default: true },
             ],
           };
-          if (timeRaw) {
-            catalogItem.displayUnits[0].time = timeRaw;
-            catalogItem.displayUnits[0].frequency = frequency;
-          }
           ITEMS[key] = catalogItem;
           state.counters[key] = 1;
           stampCounter(key);
@@ -14382,6 +14658,10 @@
       const original = readonlyRetryBtn.textContent;
       readonlyRetryBtn.textContent = 'Retrying…';
       try {
+        // Send what was logged while offline first, so the fresh cloud copy
+        // already contains it (anything still queued is replayed on top).
+        flushRetryDelayMs = 0;
+        await flushQueue();
         const payload = await loadFromGist();
         if (payload) { applyRemotePayload(payload); render(); renderHistory(); }
       } finally {
@@ -14661,9 +14941,16 @@
     // ordinary fetch is unreliable during teardown.
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) flushQueue();
+      // A phone woken up the next morning must not keep logging onto yesterday.
+      else if (rollOverToNewDayIfNeeded()) render();
     });
     window.addEventListener('pagehide', beaconFlushQueue);
     window.addEventListener('beforeunload', beaconFlushQueue);
+    // A catalog link opened while this tab is already showing the tracker
+    // only changes the hash (no reload), so apply it here as well.
+    window.addEventListener('hashchange', () => {
+      if (firstLoadCompleted) processHashCommands();
+    });
 
     // Then fetch from Gist; if newer/different, replace state and re-render.
     // After the gist load completes, process any URL hash commands (#catalogPart,
@@ -14828,8 +15115,10 @@
       });
     }
 
-    // Re-check flags, date badge, and relative-time displays every minute
+    // Re-check flags, date badge, and relative-time displays every minute,
+    // and move a page left open on today to the new day after midnight.
     setInterval(() => {
+      rollOverToNewDayIfNeeded();
       render();
       renderLastSync();
       renderDataUpdated();

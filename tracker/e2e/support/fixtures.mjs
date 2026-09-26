@@ -6,12 +6,17 @@
 //     the scenario says otherwise), so "today" never depends on the real date;
 //   - any request the page makes for a user other than `test` is blocked and
 //     fails the scenario (lg's data is never touched);
+//   - under the local backend (the default), the test user's Worker calls are
+//     answered in-process by the real Worker code (see cloud.mjs);
 //   - any uncaught exception inside the page fails the scenario;
 //   - in-flight sync finishes before teardown so nothing leaks into the next
 //     scenario's seed.
 
 import { test as base, expect } from '@playwright/test';
-import { readTestUserState, waitForCloudState, writeTestUserState, TEST_USER } from './cloud.mjs';
+import {
+  BACKEND, fulfillFromLocalWorker, GIST_WRITES_PER_HOUR, gistWriteBudgetWait, readTestUserState, recordGistWrites,
+  waitForCloudState, writeTestUserState, TEST_USER,
+} from './cloud.mjs';
 import { baselineState, FIXED_NOON, TODAY } from './seed.mjs';
 
 export { expect };
@@ -22,12 +27,28 @@ export const LOCAL_STATE_KEY = `${STORAGE_PREFIX}-state-${TEST_USER}`;
 
 const isWorkerRequest = (url) => url.hostname.endsWith('.workers.dev');
 
+// Every successful POST the page sends to the real Worker is one gist PATCH
+// on GitHub. Aborted requests never get a response, and the fake Worker
+// responses some scenarios serve carry X-E2E-Fake, so neither is counted.
+function countWorkerWrite(response) {
+  const request = response.request();
+  if (request.method() !== 'POST') return;
+  if (!isWorkerRequest(new URL(request.url()))) return;
+  if (response.status() < 200 || response.status() >= 300) return;
+  if (response.headers()['x-e2e-fake'] === '1') return;
+  recordGistWrites(1);
+}
+
 async function guardOtherUsers(context, blockedRequests) {
   await context.route(isWorkerRequest, async route => {
     const url = new URL(route.request().url());
     if (url.searchParams.get('user') !== TEST_USER) {
       blockedRequests.push(route.request().method() + ' ' + url.toString());
       await route.abort();
+      return;
+    }
+    if (BACKEND === 'local') {
+      await fulfillFromLocalWorker(route);
       return;
     }
     await route.fallback();
@@ -56,6 +77,12 @@ export class TrackerPage {
   // seed: a function mutating the baseline state (its return value, when an
   // object, replaces the state), or a complete state object.
   async open({ seed, at = FIXED_NOON, hash = '', query = '', skipSeed = false, waitForLoad = true } = {}) {
+    const budgetWaitMs = gistWriteBudgetWait(4);
+    if (budgetWaitMs > 0) {
+      this.testInfo.setTimeout(this.testInfo.timeout + budgetWaitMs);
+      console.log(`[e2e] GitHub write budget (${GIST_WRITES_PER_HOUR}/hour) reached; pausing ${Math.ceil(budgetWaitMs / 1000)} s`);
+      await new Promise(resolveWait => setTimeout(resolveWait, budgetWaitMs));
+    }
     if (!skipSeed) {
       let state = baselineState();
       if (typeof seed === 'function') {
@@ -123,6 +150,7 @@ export class TrackerPage {
       baseURL: use.baseURL, timezoneId: use.timezoneId, locale: use.locale, viewport: use.viewport,
     });
     await guardOtherUsers(context, this.blockedRequests || []);
+    context.on('response', countWorkerWrite);
     const page = await context.newPage();
     const second = new TrackerPage(page, this.testInfo);
     await page.clock.install({ time: at });
@@ -259,8 +287,11 @@ export class TrackerPage {
 
   async addRecipeIngredient(itemKey) {
     await this.openRecipeMaker();
+    // Pin the new row by position: a `.last()` locator would silently move
+    // to whichever row is added next.
+    const rowIndex = await this.recipeRows().count();
     await this.recipeMaker().locator('[data-recipe-ing-add]').click();
-    const row = this.recipeRows().last();
+    const row = this.recipeRows().nth(rowIndex);
     if (itemKey) await row.locator('[data-recipe-ing-select]').selectOption(itemKey);
     return row;
   }
@@ -292,6 +323,7 @@ export const test = base.extend({
   tracker: async ({ page, context }, use, testInfo) => {
     const blockedRequests = [];
     await guardOtherUsers(context, blockedRequests);
+    context.on('response', countWorkerWrite);
     const tracker = new TrackerPage(page, testInfo);
     tracker.blockedRequests = blockedRequests;
     await use(tracker);

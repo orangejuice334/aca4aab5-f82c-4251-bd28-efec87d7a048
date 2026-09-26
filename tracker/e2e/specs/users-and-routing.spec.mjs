@@ -27,6 +27,7 @@ function fakeGistResponse(state) {
       'X-Gist-Version': 'fake-version-1',
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Expose-Headers': 'X-Gist-Version',
+      'X-E2E-Fake': '1',
     },
     body: JSON.stringify({
       id: 'fake-lg-gist',

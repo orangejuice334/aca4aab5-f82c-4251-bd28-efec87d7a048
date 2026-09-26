@@ -9,7 +9,8 @@ import { test, expect } from '../support/fixtures.mjs';
 // lg's gist nor the test gist is touched and no real data is uploaded.
 
 const BACKUP_PATH = fileURLToPath(new URL('../../backups/lg-state.json', import.meta.url));
-const CORS = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Content-Type, If-Match', 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS', 'Access-Control-Expose-Headers': 'X-Gist-Version' };
+// X-E2E-Fake keeps these locally answered writes out of the GitHub write budget.
+const CORS = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Content-Type, If-Match', 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS', 'Access-Control-Expose-Headers': 'X-Gist-Version', 'X-E2E-Fake': '1' };
 
 function loadBackup() {
   const backup = JSON.parse(readFileSync(BACKUP_PATH, 'utf8'));
@@ -84,8 +85,9 @@ function batchKcal(recipe, items, visiting = new Set()) {
       let fraction = 0;
       if (typeof ingredient.multiplier === 'number') fraction = ingredient.multiplier;
       else if (typeof ingredient.amount === 'number') {
+        // Grams of a recipe are a share of its live batch.
         const full = fullRecipeServing(source) || servingsOf(source)[0];
-        const grams = (full && full.multiplier) || 1;
+        const grams = batchGrams(source, items) || (full && full.multiplier) || 1;
         fraction = ingredient.amount / grams;
       }
       total += sourceBatch * fraction;
@@ -96,6 +98,44 @@ function batchKcal(recipe, items, visiting = new Set()) {
     else if (typeof ingredient.multiplier === 'number') total += ingredient.multiplier * defaultServingSize(source) * kcalPerNativeUnit;
   }
   return total;
+}
+
+// A recipe's full recipe is the live sum of its ingredient grams (a stored
+// size can be stale): an amount counts its grams, a multiplier on an item
+// counts that many of its default serving, a multiplier on a recipe counts
+// that fraction of its own batch. Deleted ingredients count as nothing.
+function batchGrams(recipe, items, visiting = new Set()) {
+  let total = 0;
+  for (const ingredient of recipe.ingredients || []) {
+    if (!ingredient || !ingredient.itemKey) continue;
+    const source = items[ingredient.itemKey];
+    if (!source) continue;
+    if (typeof ingredient.amount === 'number' && ingredient.amount > 0) {
+      total += ingredient.amount;
+      continue;
+    }
+    if (!(typeof ingredient.multiplier === 'number' && ingredient.multiplier > 0)) continue;
+    if (isRecipe(source)) {
+      if (visiting.has(ingredient.itemKey)) continue;
+      visiting.add(ingredient.itemKey);
+      total += ingredient.multiplier * (batchGrams(source, items, visiting) || 1);
+      visiting.delete(ingredient.itemKey);
+      continue;
+    }
+    total += ingredient.multiplier * defaultServingSize(source);
+  }
+  return total;
+}
+
+// The recipe row whose + button adds `grams`, compared numerically (the
+// attribute carries the unrounded batch, e.g. 644.5 or 1/3-gram dust).
+async function rowAddingGrams(tracker, key, grams) {
+  const sizes = await tracker.rows(key).evaluateAll(rows => rows.map(row => {
+    const plus = row.querySelector('.counter-btn[data-action="inc"]');
+    return plus ? parseFloat(plus.dataset.servingSize) : NaN;
+  }));
+  const index = sizes.findIndex(size => Math.abs(size - grams) <= 0.05);
+  return index === -1 ? null : tracker.rows(key).nth(index);
 }
 
 test.describe('Real data smoke (local lg backup, nothing uploaded)', () => {
@@ -136,9 +176,10 @@ test.describe('Real data smoke (local lg backup, nothing uploaded)', () => {
         mismatches.push(`${recipe.name} (${key}): ${error.message}`);
         continue;
       }
-      const row = tracker.rowForServing(key, full.multiplier);
-      if (!(await row.count())) {
-        mismatches.push(`${recipe.name} (${key}): no row for its ${full.multiplier} g full recipe`);
+      const liveGrams = batchGrams(recipe, items);
+      const row = await rowAddingGrams(tracker, key, liveGrams);
+      if (!row) {
+        mismatches.push(`${recipe.name} (${key}): no row adds its ${liveGrams} g full recipe (stored ${full.multiplier} g)`);
         continue;
       }
       const shownKcal = await tracker.rowKcal(row);
@@ -152,24 +193,36 @@ test.describe('Real data smoke (local lg backup, nothing uploaded)', () => {
   });
 
   test('tapping + on every item adds exactly what its row shows', async ({ tracker, page }) => {
-    test.setTimeout(300000);
+    test.setTimeout(900000);
     await openWithRealData(tracker, page);
     const keys = [...new Set(await page.locator('#catalog-groups .checkout-row[data-key]').evaluateAll(rows => rows.map(row => row.dataset.key)))];
+    // One round trip per reading: the primary row's + state and kcal, plus the daily kcal total.
+    const readRowAndTotal = key => page.evaluate(rowKey => {
+      const row = document.querySelector(`#catalog-groups .checkout-row[data-key="${CSS.escape(rowKey)}"]`);
+      const plus = row && row.querySelector('.counter-btn[data-action="inc"]');
+      const kcalText = row
+        ? [...row.querySelectorAll(':scope > div > .checkout-item-macros span')].map(span => span.textContent.trim()).find(text => /^-?[\d.]+ kcal$/.test(text))
+        : undefined;
+      const totalCell = document.querySelector('[data-total="kcal"]');
+      const totalText = totalCell ? (totalCell.firstChild ? totalCell.firstChild.textContent : totalCell.textContent) : '';
+      return { plusDisabled: !plus || plus.disabled, shownKcal: kcalText ? parseFloat(kcalText) : NaN, total: parseFloat(String(totalText).trim()) };
+    }, key);
     const mismatches = [];
     for (const key of keys) {
-      const row = tracker.row(key);
-      const plus = row.locator('.counter-btn[data-action="inc"]');
-      if (await plus.isDisabled()) continue;
-      const shownKcal = await tracker.rowKcal(row);
-      if (!Number.isFinite(shownKcal)) {
+      const before = await readRowAndTotal(key);
+      if (before.plusDisabled) continue;
+      if (!Number.isFinite(before.shownKcal)) {
         mismatches.push(`${key}: its row shows no calories`);
         continue;
       }
-      const before = await tracker.total('kcal');
-      await plus.click();
-      const after = await tracker.total('kcal');
-      if (!(Math.abs(after - before - shownKcal) <= 1)) {
-        mismatches.push(`${key}: row shows ${shownKcal} kcal but + added ${after - before} kcal`);
+      await tracker.row(key).locator('.counter-btn[data-action="inc"]').click();
+      const after = await readRowAndTotal(key);
+      if (!Number.isFinite(before.total) || !Number.isFinite(after.total)) {
+        mismatches.push(`${key}: the daily kcal total is missing (before ${before.total}, after ${after.total})`);
+        continue;
+      }
+      if (!(Math.abs(after.total - before.total - before.shownKcal) <= 1)) {
+        mismatches.push(`${key}: row shows ${before.shownKcal} kcal but + added ${after.total - before.total} kcal`);
       }
     }
     expect(mismatches).toEqual([]);

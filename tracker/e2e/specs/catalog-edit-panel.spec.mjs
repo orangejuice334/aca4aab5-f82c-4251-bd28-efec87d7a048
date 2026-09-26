@@ -247,7 +247,8 @@ test.describe('Catalog edit panel: archive and delete', () => {
   test('unarchiving restores the item to its category', async ({ tracker, page }) => {
     await tracker.open();
     await page.locator('[data-item-unarchive="old_granola"]').click();
-    await expect(tracker.categoryBar('items').locator('.checkout-row[data-key="old_granola"]')).toHaveCount(1);
+    await expect(tracker.categoryBar('items').locator('.checkout-row[data-key="old_granola"]').first()).toBeVisible();
+    await expect(tracker.rowForServing('old_granola', 60)).toHaveCount(1);
     await expect(page.locator('#catalog-archive-container')).toBeHidden();
     const item = await cloudItem(tracker, 'old_granola');
     expect(item.category).toBe('items');

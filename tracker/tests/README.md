@@ -40,6 +40,7 @@ Or directly (Node 24 requires explicit file list):
 | Cycle protection | unit-cycle-safety |
 | resolveIngredient | unit-resolve-ingredient |
 | sumIngredientNativeUnits | unit-sum-native |
+| Recipe batch grams (ingredientNativeUnits, live full recipe, recipe-source Add / edit, picker filters) | unit-recipe-batch-grams |
 | Format helpers | unit-format-helpers + unit-format-item-name |
 | History lookup | unit-history-helpers |
 | Body fat / BMI | unit-bf-bmi |
