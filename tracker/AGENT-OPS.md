@@ -17,7 +17,9 @@ and coverage targets. No commit may land with a red suite.
 Endpoint: `https://19ff6f4d-3d5b-40e6-88e2-573f647f903f.orangejuice9137.workers.dev`
 User: this document is scoped to `?user=lg` (Luis). Every read and write
 in here assumes that query string. Do not act on any other user from this
-playbook.
+playbook. The only other user is `test`: disposable fixture data owned by
+the Playwright suite in `tracker/e2e`, which rewrites that gist before
+every scenario. Never put real data there.
 
 ## Read state
 `GET /state?user=<u>` returns the raw gist object. Parse the live state via

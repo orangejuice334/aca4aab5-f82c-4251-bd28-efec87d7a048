@@ -19,7 +19,7 @@
 // unrelated state because the Worker only mutates the keys named in the ops.
 
 const WORKER_BASE = 'https://19ff6f4d-3d5b-40e6-88e2-573f647f903f.orangejuice9137.workers.dev';
-const KNOWN_USERS = new Set(['lg', 'eg']);
+const KNOWN_USERS = new Set(['lg', 'test']);
 
 function parseArgs(argv) {
   const args = argv.slice(2);

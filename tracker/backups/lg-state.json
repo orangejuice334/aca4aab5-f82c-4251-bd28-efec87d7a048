@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-26T11:59:39.178Z",
-  "_gistSavedAt": "2026-09-26T00:58:04.524Z",
+  "_backupTakenAt": "2026-09-26T18:47:04.392Z",
+  "_gistSavedAt": "2026-09-26T16:05:52.936Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -3618,7 +3618,9 @@
           "large_egg": 75,
           "evoo_tsp": 5,
           "dannon_light_fit_boston_cream": 150,
-          "nutricost_casein_vanilla": 32
+          "nutricost_casein_vanilla": 32,
+          "peanut_butter_delight_aldi": 12,
+          "smuckers_sf_strawberry_preserves": 37
         },
         "customs": [],
         "toggleMeta": {},
@@ -3632,10 +3634,29 @@
           "large_egg": "2026-09-25T23:52:12.832Z",
           "evoo_tsp": "2026-09-25T23:52:32.860Z",
           "dannon_light_fit_boston_cream": "2026-09-26T00:43:55.945Z",
-          "nutricost_casein_vanilla": "2026-09-26T00:44:01.002Z"
+          "nutricost_casein_vanilla": "2026-09-26T00:44:01.002Z",
+          "peanut_butter_delight_aldi": "2026-09-26T15:46:38.778Z",
+          "smuckers_sf_strawberry_preserves": "2026-09-26T15:47:06.571Z"
         },
         "weight": 85.5,
         "weightMeta": "2026-09-25T14:30:29.395Z"
+      },
+      "2026-09-26": {
+        "toggles": {},
+        "counters": {
+          "natures_own_keto_bread": 56,
+          "peanut_butter_delight_aldi": 12,
+          "smuckers_sf_strawberry_preserves": 37,
+          "slate_ultra_protein_vanilla": 443
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "natures_own_keto_bread": "2026-09-26T15:47:17.715Z",
+          "peanut_butter_delight_aldi": "2026-09-26T15:47:53.507Z",
+          "smuckers_sf_strawberry_preserves": "2026-09-26T15:48:11.818Z",
+          "slate_ultra_protein_vanilla": "2026-09-26T15:48:46.181Z"
+        }
       }
     },
     "savedItems": [],
@@ -3725,7 +3746,6 @@
       "supplements-water": true,
       "history": true,
       "chart-weight-chart": true,
-      "today-log": true,
       "section-weight-tracker": true,
       "targets-accumulation": true
     },
@@ -12225,19 +12245,14 @@
           "brand": "Smucker's",
           "category": "items",
           "defaultMeasuredIn": "g",
-          "kcal": 0.588235,
-          "p": 0,
-          "fat": 0,
-          "sf": 0,
+          "kcal": 0.5882,
           "transFat": 0,
-          "carbs": 0.294118,
-          "fiber": 0.176471,
-          "sugar": 0.023529,
+          "carbs": 0.2941,
+          "fiber": 0.1765,
+          "sugar": 0.0235,
           "addedSugar": 0,
-          "cholesterol": 0,
-          "sodium": 0.294118,
+          "sodium": 0.2941,
           "water": 0.6,
-          "vitD": 0,
           "calcium": 0.3,
           "iron": 0.002,
           "potassium": 0.6,
@@ -12249,11 +12264,10 @@
           "purines": 0.1,
           "displayUnits": [
             {
-              "label": "1 Tbsp (17 g)",
-              "amount": 17,
+              "label": "jar (361 g)",
+              "amount": 361,
               "unit": "g",
-              "default": true,
-              "multiplier": 17
+              "multiplier": 361
             },
             {
               "label": "2 Tbsp (34 g)",
@@ -12262,10 +12276,11 @@
               "multiplier": 34
             },
             {
-              "label": "jar (361 g)",
-              "amount": 361,
+              "label": "1 Tbsp (17 g)",
+              "amount": 17,
               "unit": "g",
-              "multiplier": 361
+              "default": true,
+              "multiplier": 17
             }
           ],
           "notes": "Smucker's Sugar Free Strawberry Preserves, sucralose-sweetened. Net 12.75oz/361g, about 21 servings of 1 Tbsp (17g). Label per Tbsp: 10 kcal, 0g fat, 5mg sodium, 5g total carb, 0g total sugars, 0g added sugars, 0g protein. Label states 'not a significant source of sat fat, trans fat, cholesterol, FIBER, vitamin D, calcium, iron and potassium.' Pack notes calorie content reduced from 50 to 10 per serving. kcal NEEDS NO CORRECTION: label 10 already prices polydextrose at ~1 kcal/g, matching this catalog's rule. Reconciles as ~3g polydextrose (~3 kcal) + ~1g maltodextrin (~4 kcal) + ~0.4g strawberry sugar (~1.6 kcal) ~= 9-10. FIBER CORRECTED to ~3g/serving (label declares none). Polydextrose is the 3rd ingredient and IS an FDA-recognized dietary fiber (~1 kcal/g, poorly digested); the 5g carb is mostly polydextrose, so a true 0g fiber is inconsistent with the ingredient list. 3g used to match the near-identical Skinnygirl sugar-free preserves entry in this catalog (same 17g serving, 10 kcal, 5g carb, 3g fiber). Net digestible carb therefore ~2g/serving. LOW-MEDIUM confidence. SUGAR CORRECTED to ~0.4g/serving: label rounds to 0g, but the pack's own footnote says strawberries add 'a trivial amount of sugar, <0.5g/serving' -- sub-threshold rounding, so estimated rather than zeroed. Micros ESTIMATED LOW confidence from the strawberry/water base (strawberries are 2nd ingredient): K ~10mg, vitamin C ~1.7mg (most degraded by processing), calcium ~5mg (partly added calcium chloride) per serving. Purines ~2mg -- LOW (fruit). Ingredients: water, strawberries, polydextrose, maltodextrin, 2% or less of: fruit pectin, citric acid, locust bean gum, vegetable juice (color), natural flavors, potassium sorbate, calcium chloride, sucralose. No artificial dyes. Refrigerate after opening."
@@ -14827,7 +14842,6 @@
           "label": "Uncategorized"
         }
       ]
-    },
-    "totalsMode": "collapsed"
+    }
   }
 }

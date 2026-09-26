@@ -3,8 +3,12 @@ const USERS = {
     gistId: 'f4fa252abfc508ed57c7af26cd7399bb',
     requireAuth: false,
   },
-  eg: {
-    gistId: 'e6ba2e8a43359c092f0deff9a76582a0',
+  // Disposable fixture user for the Playwright end-to-end suite
+  // (tracker/e2e). The suite rewrites this gist's state before every
+  // scenario, so it has its own gist: its version token and revision
+  // history never interfere with lg's.
+  test: {
+    gistId: '4da0464ca688d5308e121cf1e8c0cace',
     requireAuth: false,
   },
 };

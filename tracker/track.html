@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.97">
+<meta name="app-version" content="v6.5.98">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -736,23 +736,29 @@
     gap: 8px;
   }
 
-  /* ===== CHECKOUT LIST ===== */
-  /* 20% tighter than the prior 24px so the subsection bars sit visually
-     closer to each other inside the Catalog section. */
+  /* ===== CATALOG BARS ===== */
+  /* Plain layout column for the catalog bars (no heading, no collapse).
+     Every bar inside is a top-level bar, so the column spaces them like
+     the page's other top-level sections (17 px apart) and keeps the same
+     17 px outer margin a section-minimal band has. */
   .checkout {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 17px;
+    margin: 17px 0;
   }
-  /* #catalog-groups is a sibling container of the other .checkout-group
-     bars; its children (All items / Archive / per-category groups) are
-     also .checkout-group bars and need the same 24 px separation as the
-     top-level flex children, otherwise they render flush against each
-     other with no visible gap. */
+  /* #catalog-groups holds the per-category (or All items) bars rendered by
+     renderCatalog; same 17 px rhythm as the column it sits in. */
   #catalog-groups {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 17px;
+  }
+  /* Host for the Archive bar at the bottom of the page. Same outer margin
+     as a top-level section; hidden via the hidden attribute while nothing
+     is archived. */
+  .catalog-archive-container {
+    margin: 17px 0;
   }
 
   /* Multi-variant item group: groups all variant rows of one item.
@@ -1404,12 +1410,13 @@
     display: none;
   }
 
-  /* Subsection bars share the section.section-minimal "labeled top rule"
-     look. Only difference vs the parent section: the heading sits ~40 px
-     (~5 letters) further to the right, so subsections nest visually
-     under the parent label without looking like a separate section. */
+  /* Catalog bars (each category group, Today's log, Supplements and
+     liquids, Today's custom items, Archive) are top-level bars: same
+     labeled top rule, rule color and heading position as a
+     section.section-minimal band, so none of them reads as nested under
+     another bar. */
   .checkout-group {
-    border-top: 2px solid #6a6a6a;
+    border-top: 2px solid var(--ink);
     border-bottom: none;
     padding: 18px 0;
     margin: 0;
@@ -1419,7 +1426,7 @@
   .checkout-group-header {
     position: absolute;
     top: -7px;
-    left: 56px;
+    left: 16px;
     background: var(--paper);
     padding: 0 8px;
     font-family: 'JetBrains Mono', monospace;
@@ -1457,7 +1464,7 @@
   /* Filter input is a sibling of the header inside the .checkout-group
      band so every group's filter lines up at the same X position
      regardless of how long its label is. Paper background + dark-grey
-     border to match the subsection top-rule color. */
+     border. */
   .checkout-group-header .group-title { display: inline; }
   .checkout-group > .group-filter {
     position: absolute;
@@ -2131,10 +2138,10 @@
     border-radius: 2px;
   }
   .item-archive-btn:hover { background: var(--ink-soft); color: var(--paper); border-color: var(--ink-soft); }
-  /* Archive group at the bottom of the catalog. Read-only - no counters,
-     no edit panel - just an Unarchive button per row. The dimmer opacity
-     applies to the row body only so the header bar stays the same fully
-     black background as every other subsection. */
+  /* Archive bar at the bottom of the page. Read-only - no counters, no
+     edit panel - just an Unarchive button per row. The dimmer opacity
+     applies to the row body only so the header bar reads the same as
+     every other top-level bar. */
   .archive-group {
     margin-top: 0;
   }
@@ -2180,7 +2187,7 @@
      the same red/green ratio gradient used on goal-relative catalog rows,
      and saves the result as a new userCatalog recipes-category item. */
   .recipe-maker {
-    border-top: 2px solid #6a6a6a;
+    border-top: 2px solid var(--ink);
     border-bottom: none;
     background: transparent;
     margin: 0;
@@ -2192,7 +2199,7 @@
     cursor: pointer;
     position: absolute;
     top: -7px;
-    left: 56px;
+    left: 16px;
     background: var(--paper);
     color: var(--ink);
     padding: 0 8px;
@@ -3108,7 +3115,7 @@
     color: var(--ink);
   }
   .custom-add {
-    border-top: 2px solid #6a6a6a;
+    border-top: 2px solid var(--ink);
     border-bottom: none;
     background: transparent;
     padding: 18px 0;
@@ -3119,7 +3126,7 @@
     cursor: pointer;
     position: absolute;
     top: -7px;
-    left: 56px;
+    left: 16px;
     background: var(--paper);
     color: var(--ink);
     padding: 0 8px;
@@ -4544,11 +4551,14 @@
        profile.displayedNutrients. -->
 </section>
 
-<!-- ============ SECTION 1: CATALOG ============ -->
-<section id="checkout" class="section-minimal" data-collapsible>
-  <h2>Catalog</h2>
-
-  <div class="checkout">
+<!-- ============ CATALOG BARS ============
+     Every bar that used to be nested inside the parent "Catalog" section
+     (Today's log, Supplements and liquids, each category group, Today's
+     custom items, Add new catalog item, Recipe maker) is a top-level bar:
+     the Catalog wrapper and its heading are gone, and each bar collapses
+     on its own. This div is only a layout column (no heading, no rule,
+     no collapse); it keeps id="checkout" for the print stylesheet. -->
+<div class="checkout" id="checkout">
     <div class="checkout-group" id="today-log-group" data-group-key="today-log" style="display: none;">
       <div class="checkout-group-header">Today's log</div>
       <div id="today-log-rows"></div>
@@ -4667,10 +4677,9 @@
         </div>
       </div>
     </details>
-  </div>
+</div>
 
-  <div class="checkout-warnings" id="checkout-warnings"></div>
-</section>
+<div class="checkout-warnings" id="checkout-warnings"></div>
 
 <!-- ============ WEEKLY TRACKER ============ -->
 <section class="section-minimal band-tiles targets warnings-ribbon" data-collapsible data-collapse-key="targets-accumulation" aria-labelledby="warnings-heading" id="warnings-ribbon">
@@ -4840,14 +4849,13 @@
 <!-- ============ SECTION 4 (Supplements reference cards) removed.
      Per-supplement notes now live as catalog item fields in the gist. ============ -->
 
-<!-- ============ ARCHIVE SECTION ============
-     Lives at the very bottom of the page, after Weight & BMI. Only renders
-     content when the catalog has archived items. renderArchiveGroup() owns
-     the container and clears it on each refresh. -->
-<section id="archive-section" class="section-minimal" data-collapsible>
-  <h2>Archive</h2>
-  <div id="catalog-archive-container"></div>
-</section>
+<!-- ============ ARCHIVE BAR ============
+     Lives at the very bottom of the page, after Weight & BMI and Mood. The
+     Archive group that renderArchiveGroup() builds (titled with the item
+     count, with its own filter box) IS the top-level bar; there is no
+     parent section around it any more. The host stays hidden while
+     nothing is archived. -->
+<div id="catalog-archive-container" class="catalog-archive-container" hidden></div>
 
 </main>
 <script>
@@ -4856,7 +4864,7 @@
   // ===== USER ROUTING — gates the entire app =====
   // Resolution rules:
   //   ?user=lg   → lg
-  //   ?user=eg   → eg
+  //   ?user=test → test (disposable fixture user for the Playwright suite)
   //   (missing)  → lg (default; preserves bare-URL bookmarks and artifact previews)
   //   ?user=xx   → hard error and bail out (explicit-but-unknown is a real misuse)
   // The hard-error path is preserved deliberately — once we add real auth or
@@ -4867,7 +4875,7 @@
     if (FORCE_DEMO) return 'lg';                    // arbitrary; gated below
     const raw = new URLSearchParams(location.search).get('user');
     if (raw === null) return 'lg';                  // missing param → default
-    if (raw === 'lg' || raw === 'eg') return raw;   // valid explicit value
+    if (raw === 'lg' || raw === 'test') return raw; // valid explicit value
     return null;                                    // unknown explicit value → hard error
   })();
 
@@ -4879,7 +4887,7 @@
     return; // halt the IIFE — nothing else runs
   }
 
-  const USER_DISPLAY = { lg: 'L.G.', eg: 'E.G.' };
+  const USER_DISPLAY = { lg: 'L.G.', test: 'Test' };
   document.title = USER_DISPLAY[USER] + ' Tracker';
   (function setH1() {
     const el = document.getElementById('page-h1');
@@ -4917,18 +4925,21 @@
         timeFormat: '24h',                   // '24h' | '12h'
       },
     },
-    eg: {
-      // TODO(luis): replace placeholders with eg's actual values
-      displayName: 'E.G.',
-      fullName: 'Eg',
-      heightCm: 165,         // PLACEHOLDER
-      ageYears: 38,          // PLACEHOLDER
-      sex: 'F',              // PLACEHOLDER
+    test: {
+      // Disposable fixture user for the Playwright end-to-end suite
+      // (tracker/e2e). Mirrors lg's numbers so goal, ratio and pacing math
+      // run against realistic values; every scenario seeds its own profile
+      // over these defaults.
+      displayName: 'Test',
+      fullName: 'Test user',
+      heightCm: 183,
+      ageYears: 42,
+      sex: 'M',
       activityLevel: 'light',
-      startWeightKg: 65.0,   // PLACEHOLDER
-      targetWeightKg: 60.0,  // PLACEHOLDER
-      goals: { kcal: 1400, p: 110, sf: 12, water: 2500, caffeine: 200 }, // PLACEHOLDERS
-      displayedNutrients: ['kcal', 'p', 'sf', 'water', 'caffeine'],
+      startWeightKg: 102.0,
+      targetWeightKg: 88.0,
+      goals: { kcal: 1650, p: 184, sf: 12, water: 3200, caffeine: 400 },
+      displayedNutrients: ['kcal', 'p', 'sf', 'water', 'caffeine', 'potassium', '_kcal_per_p'],
       units: { weight: 'kg', height: 'cm' },
       display: {
         unitDisplay: 'both_prefer_imperial',
@@ -9250,7 +9261,6 @@
   // `prevCategory`).
   function renderArchiveGroup() {
     const host = document.getElementById('catalog-archive-container');
-    const section = document.getElementById('archive-section');
     if (!host) return;
     host.innerHTML = '';
     const archived = Object.keys(ITEMS)
@@ -9258,11 +9268,11 @@
       .map(k => ({ key: k, item: ITEMS[k] }))
       .sort((a, b) => (a.item.name || a.key).localeCompare(b.item.name || b.key));
     if (!archived.length) {
-      // Hide the whole section header when there's nothing to show.
-      if (section) section.hidden = true;
+      // Nothing archived: hide the host so no empty Archive bar renders.
+      host.hidden = true;
       return;
     }
-    if (section) section.hidden = false;
+    host.hidden = false;
     const group = document.createElement('div');
     group.className = 'checkout-group archive-group';
     group.dataset.groupKey = 'catalog-archive';
@@ -11311,18 +11321,13 @@
 
   // Surface a catalog item from a today-log click: populate the item's
   // catalog group filter box with the item name so the row shows up, expand
-  // the catalog section + that group, scroll the row into view, and flash a
-  // brief highlight. Purpose: the user logged "half a bagel" earlier and now
-  // wants to find that exact catalog row to bump the amount for the other
-  // half, without hunting the list.
+  // that group, scroll the row into view, and flash a brief highlight.
+  // Purpose: the user logged "half a bagel" earlier and now wants to find
+  // that exact catalog row to bump the amount for the other half, without
+  // hunting the list.
   function surfaceCatalogItem(key) {
     const item = (typeof ITEMS !== 'undefined') && ITEMS[key];
     if (!item) return;
-    const section = document.getElementById('checkout');
-    if (section && section.classList.contains('collapsed')) {
-      section.classList.remove('collapsed');
-      if (state.collapsedGroups) delete state.collapsedGroups['section-checkout'];
-    }
     const sel = (typeof CSS !== 'undefined' && CSS.escape)
       ? '.checkout-row[data-key="' + CSS.escape(key) + '"]'
       : '.checkout-row[data-key="' + key.replace(/"/g, '\\"') + '"]';

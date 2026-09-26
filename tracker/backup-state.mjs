@@ -4,8 +4,12 @@
 // .github/workflows/backup-state.yml cron. Git history then provides
 // per-day snapshots without any per-day file proliferation.
 //
-// Usage: node backup-state.mjs           # both users
-//        node backup-state.mjs lg eg     # specific users
+// Usage: node backup-state.mjs           # lg, the only real user
+//        node backup-state.mjs lg test   # specific users
+//
+// The `test` user is disposable fixture data: the Playwright suite in
+// tracker/e2e rewrites its gist before every scenario, so it is deliberately
+// left out of the default set (a daily backup of it would only commit churn).
 
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
@@ -13,7 +17,7 @@ import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
 
 const WORKER = 'https://19ff6f4d-3d5b-40e6-88e2-573f647f903f.orangejuice9137.workers.dev';
-const DEFAULT_USERS = ['lg', 'eg'];
+const DEFAULT_USERS = ['lg'];
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const BACKUP_DIR = resolve(__dirname, 'backups');
