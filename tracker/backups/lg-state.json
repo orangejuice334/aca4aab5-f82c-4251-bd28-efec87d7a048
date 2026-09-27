@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-27T00:26:01.200Z",
-  "_gistSavedAt": "2026-09-26T22:41:04.566Z",
+  "_backupTakenAt": "2026-09-27T12:37:08.897Z",
+  "_gistSavedAt": "2026-09-27T00:42:45.094Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -129,7 +129,103 @@
         "neck": 43,
         "neckMeta": "2026-05-19T00:21:04.797Z",
         "waist": 110,
-        "waistMeta": "2026-05-19T01:36:17.938Z"
+        "waistMeta": "2026-05-19T01:36:17.938Z",
+        "recipeSnapshots": {
+          "turkey_salmon_black_bean_slab": {
+            "name": "Turkey salmon black bean slab",
+            "category": "recipes",
+            "defaultMeasuredIn": "units",
+            "ingredients": [
+              {
+                "itemKey": "turkey_ground_safeway",
+                "amount": 448,
+                "label": "1 pkg"
+              },
+              {
+                "itemKey": "salmon_pink_canned",
+                "amount": 418,
+                "label": "1 can"
+              },
+              {
+                "itemKey": "black_beans_dry_goya",
+                "amount": 35,
+                "label": "1/2 bag (≈650 g cooked)"
+              },
+              {
+                "itemKey": "egg_substitute",
+                "amount": 920,
+                "label": "2 cups"
+              },
+              {
+                "itemKey": "yogurt_half",
+                "amount": 453.5,
+                "label": "1/4 tub"
+              },
+              {
+                "itemKey": "mozzarella_ff_shred",
+                "amount": 196,
+                "label": "1 bag"
+              },
+              {
+                "itemKey": "mushrooms_pampa_jar",
+                "amount": 207,
+                "label": "2 jars drained"
+              },
+              {
+                "itemKey": "tomato_paste_giant",
+                "amount": 340,
+                "label": "100 g"
+              },
+              {
+                "itemKey": "veggies_bag",
+                "amount": 170,
+                "label": "1 bag (steamed + drained)"
+              },
+              {
+                "itemKey": "shrimp_oceans_cooked",
+                "amount": 340,
+                "label": "1 pkg (whole, fold in last)"
+              }
+            ],
+            "displayUnits": [
+              {
+                "label": "full recipe",
+                "amount": 3527.5,
+                "unit": "g",
+                "locked": true,
+                "multiplier": 3527.5
+              },
+              {
+                "label": "1 serving",
+                "amount": 200,
+                "unit": "g",
+                "default": true,
+                "multiplier": 200
+              }
+            ]
+          },
+          "turkey_slices_oven_roasted": {
+            "name": "Turkey slices air fried ket-must",
+            "category": "recipes",
+            "ingredients": [
+              {
+                "itemKey": "turkey_breast_smithfield",
+                "amount": 56,
+                "label": "2 slices (56 g)"
+              }
+            ],
+            "defaultMeasuredIn": "units",
+            "displayUnits": [
+              {
+                "label": "1 serving",
+                "amount": 56,
+                "unit": "g",
+                "default": true,
+                "multiplier": 56
+              }
+            ]
+          }
+        }
       },
       "2026-05-19": {
         "toggles": {
@@ -1139,7 +1235,34 @@
           "ham_roll": "2026-06-24T20:24:33.865Z"
         },
         "weight": 95.2,
-        "weightMeta": "2026-06-24T14:44:12.485Z"
+        "weightMeta": "2026-06-24T14:44:12.485Z",
+        "recipeSnapshots": {
+          "ham_roll": {
+            "name": "ham roll",
+            "category": "recipes",
+            "ingredients": [
+              {
+                "itemKey": "string_cheese",
+                "amount": 21
+              },
+              {
+                "itemKey": "ham_black_forest_aldi",
+                "amount": 56
+              }
+            ],
+            "displayUnits": [
+              {
+                "label": "full recipe",
+                "amount": 77,
+                "unit": "g",
+                "default": true,
+                "locked": true,
+                "multiplier": 77
+              }
+            ],
+            "defaultMeasuredIn": "units"
+          }
+        }
       },
       "2026-06-25": {
         "toggles": {},
@@ -1267,7 +1390,82 @@
         "neck": 43,
         "neckMeta": "2026-06-30T02:08:40.552Z",
         "weight": 94,
-        "weightMeta": "2026-06-30T02:08:40.489Z"
+        "weightMeta": "2026-06-30T02:08:40.489Z",
+        "recipeSnapshots": {
+          "turkey_salmon_black_bean_slab": {
+            "name": "Turkey salmon black bean slab",
+            "category": "recipes",
+            "defaultMeasuredIn": "units",
+            "ingredients": [
+              {
+                "itemKey": "turkey_ground_safeway",
+                "amount": 448,
+                "label": "1 pkg"
+              },
+              {
+                "itemKey": "salmon_pink_canned",
+                "amount": 418,
+                "label": "1 can"
+              },
+              {
+                "itemKey": "black_beans_dry_goya",
+                "amount": 35,
+                "label": "1/2 bag (≈650 g cooked)"
+              },
+              {
+                "itemKey": "egg_substitute",
+                "amount": 920,
+                "label": "2 cups"
+              },
+              {
+                "itemKey": "yogurt_half",
+                "amount": 453.5,
+                "label": "1/4 tub"
+              },
+              {
+                "itemKey": "mozzarella_ff_shred",
+                "amount": 196,
+                "label": "1 bag"
+              },
+              {
+                "itemKey": "mushrooms_pampa_jar",
+                "amount": 207,
+                "label": "2 jars drained"
+              },
+              {
+                "itemKey": "tomato_paste_giant",
+                "amount": 340,
+                "label": "100 g"
+              },
+              {
+                "itemKey": "veggies_bag",
+                "amount": 170,
+                "label": "1 bag (steamed + drained)"
+              },
+              {
+                "itemKey": "shrimp_oceans_cooked",
+                "amount": 340,
+                "label": "1 pkg (whole, fold in last)"
+              }
+            ],
+            "displayUnits": [
+              {
+                "label": "full recipe",
+                "amount": 3527.5,
+                "unit": "g",
+                "locked": true,
+                "multiplier": 3527.5
+              },
+              {
+                "label": "1 serving",
+                "amount": 200,
+                "unit": "g",
+                "default": true,
+                "multiplier": 200
+              }
+            ]
+          }
+        }
       },
       "2026-06-30": {
         "toggles": {},
@@ -1412,7 +1610,47 @@
         "weight": 94.6,
         "weightMeta": "2026-07-08T00:55:56.927Z",
         "neck": 43,
-        "neckMeta": "2026-07-08T00:55:57.080Z"
+        "neckMeta": "2026-07-08T00:55:57.080Z",
+        "recipeSnapshots": {
+          "strawberry_smoothy": {
+            "name": "strawberry smoothie",
+            "category": "recipes",
+            "ingredients": [
+              {
+                "itemKey": "strawberry_frozen_blb",
+                "amount": 276
+              },
+              {
+                "itemKey": "yogurt_half",
+                "amount": 170
+              },
+              {
+                "itemKey": "protein_whey_dymatize_iso100_vanilla",
+                "amount": 33
+              },
+              {
+                "itemKey": "spinach_fresh",
+                "amount": 40
+              },
+              {
+                "itemKey": "sucralose",
+                "amount": 1,
+                "label": "1 packet"
+              }
+            ],
+            "displayUnits": [
+              {
+                "label": "full recipe",
+                "amount": 520,
+                "unit": "g",
+                "default": true,
+                "locked": true,
+                "multiplier": 520
+              }
+            ],
+            "defaultMeasuredIn": "units"
+          }
+        }
       },
       "2026-07-08": {
         "toggles": {},
@@ -1476,6 +1714,72 @@
           "feggs_scrambled": "2026-07-09T18:34:23.009Z",
           "harvest_snaps": "2026-07-09T18:34:32.960Z",
           "tomate_frito": "2026-07-09T18:34:50.419Z"
+        },
+        "recipeSnapshots": {
+          "feggs_scrambled": {
+            "name": "Feggs scrambled",
+            "category": "recipes",
+            "ingredients": [
+              {
+                "itemKey": "evoo_tsp",
+                "amount": 5
+              },
+              {
+                "itemKey": "egg_substitute",
+                "amount": 460
+              },
+              {
+                "itemKey": "tomate_frito",
+                "multiplier": 0.5
+              }
+            ],
+            "displayUnits": [
+              {
+                "label": "full recipe",
+                "amount": 553,
+                "unit": "g",
+                "default": true,
+                "locked": true,
+                "multiplier": 553
+              }
+            ],
+            "defaultMeasuredIn": "units"
+          },
+          "tomate_frito": {
+            "name": "Tomate frito",
+            "category": "recipes",
+            "ingredients": [
+              {
+                "itemKey": "tomato_paste_signature_select",
+                "amount": 340
+              },
+              {
+                "itemKey": "evoo_tsp",
+                "amount": 10
+              },
+              {
+                "itemKey": "garlic_powder",
+                "amount": 9
+              }
+            ],
+            "displayUnits": [
+              {
+                "label": "full recipe",
+                "amount": 359,
+                "unit": "g",
+                "locked": true,
+                "default": true,
+                "multiplier": 359
+              },
+              {
+                "label": "1 g",
+                "amount": 1,
+                "unit": "g",
+                "multiplier": 1
+              }
+            ],
+            "defaultMeasuredIn": "units"
+          }
         }
       },
       "2026-07-11": {
@@ -2448,7 +2752,42 @@
         "neck": 43,
         "neckMeta": "2026-08-18T21:37:27.008Z",
         "weight": 88.9,
-        "weightMeta": "2026-08-18T21:37:25.399Z"
+        "weightMeta": "2026-08-18T21:37:25.399Z",
+        "recipeSnapshots": {
+          "pb_sandwich_oikos": {
+            "name": "pb sandwich oikos",
+            "category": "recipes",
+            "ingredients": [
+              {
+                "itemKey": "jif_pb_cup",
+                "amount": 21
+              },
+              {
+                "itemKey": "natures_own_keto_bread",
+                "amount": 56
+              },
+              {
+                "itemKey": "smuckers_sf_strawberry_preserves",
+                "amount": 34
+              },
+              {
+                "itemKey": "yogurt_oikos_triple_zero_lemon",
+                "amount": 150
+              }
+            ],
+            "displayUnits": [
+              {
+                "label": "full recipe",
+                "amount": 261,
+                "unit": "g",
+                "default": true,
+                "locked": true,
+                "multiplier": 261
+              }
+            ],
+            "defaultMeasuredIn": "units"
+          }
+        }
       },
       "2026-08-19": {
         "toggles": {},
@@ -2726,7 +3065,38 @@
         "mood": 7,
         "moodMeta": "2026-08-28T13:26:43.757Z",
         "weight": 87.8,
-        "weightMeta": "2026-08-28T13:26:55.045Z"
+        "weightMeta": "2026-08-28T13:26:55.045Z",
+        "recipeSnapshots": {
+          "pbj_sandwich": {
+            "name": "PBJ sandwich",
+            "category": "recipes",
+            "ingredients": [
+              {
+                "itemKey": "pb_pro_protein_peanut_butter",
+                "amount": 32
+              },
+              {
+                "itemKey": "natures_own_keto_bread",
+                "amount": 56
+              },
+              {
+                "itemKey": "smuckers_sf_strawberry_preserves",
+                "amount": 34
+              }
+            ],
+            "displayUnits": [
+              {
+                "label": "full recipe",
+                "amount": 122,
+                "unit": "g",
+                "default": true,
+                "locked": true,
+                "multiplier": 122
+              }
+            ],
+            "defaultMeasuredIn": "units"
+          }
+        }
       },
       "2026-08-29": {
         "toggles": {},
@@ -3044,7 +3414,44 @@
         "weight": 87.6,
         "weightMeta": "2026-09-06T01:19:10.104Z",
         "neck": 40,
-        "neckMeta": "2026-09-06T01:19:10.183Z"
+        "neckMeta": "2026-09-06T01:19:10.183Z",
+        "recipeSnapshots": {
+          "tomate_frito": {
+            "name": "Tomate frito",
+            "category": "recipes",
+            "ingredients": [
+              {
+                "itemKey": "tomato_paste_signature_select",
+                "amount": 340
+              },
+              {
+                "itemKey": "evoo_tsp",
+                "amount": 10
+              },
+              {
+                "itemKey": "garlic_powder",
+                "amount": 9
+              }
+            ],
+            "displayUnits": [
+              {
+                "label": "full recipe",
+                "amount": 359,
+                "unit": "g",
+                "locked": true,
+                "default": true,
+                "multiplier": 359
+              },
+              {
+                "label": "1 g",
+                "amount": 1,
+                "unit": "g",
+                "multiplier": 1
+              }
+            ],
+            "defaultMeasuredIn": "units"
+          }
+        }
       },
       "2026-09-06": {
         "toggles": {},
@@ -3367,7 +3774,72 @@
           "david_bar_choc_chip_cookie_dough": "2026-09-14T23:32:25.014Z"
         },
         "weight": 85.8,
-        "weightMeta": "2026-09-14T13:58:48.649Z"
+        "weightMeta": "2026-09-14T13:58:48.649Z",
+        "recipeSnapshots": {
+          "lentejas_con_lomo": {
+            "name": "Lentejas con lomo (mom's)",
+            "category": "recipes",
+            "defaultMeasuredIn": "units",
+            "ingredients": [
+              {
+                "itemKey": "onion_raw",
+                "amount": 64,
+                "label": "64 g onion"
+              },
+              {
+                "itemKey": "tomato_hot_house",
+                "amount": 60,
+                "label": "60 g tomato"
+              },
+              {
+                "itemKey": "bell_pepper_green_raw",
+                "amount": 52,
+                "label": "52 g pepper"
+              },
+              {
+                "itemKey": "carrot_raw",
+                "amount": 56,
+                "label": "56 g carrot"
+              },
+              {
+                "itemKey": "garlic_raw",
+                "amount": 17,
+                "label": "17 g garlic"
+              },
+              {
+                "itemKey": "evoo_tsp",
+                "amount": 27,
+                "label": "2 Tbsp EVOO (27 g)"
+              },
+              {
+                "itemKey": "pork_loin_lean_raw",
+                "amount": 410,
+                "label": "410 g pork loin, edge fat trimmed"
+              },
+              {
+                "itemKey": "lentils_dry_goya",
+                "amount": 454,
+                "label": "1 lb bag Goya dry lentils"
+              }
+            ],
+            "displayUnits": [
+              {
+                "label": "full recipe",
+                "amount": 1140,
+                "unit": "g",
+                "locked": true,
+                "multiplier": 1140
+              },
+              {
+                "label": "1/6 of batch (190 g raw ingredients)",
+                "amount": 190,
+                "unit": "g",
+                "default": true,
+                "multiplier": 190
+              }
+            ]
+          }
+        }
       },
       "2026-09-15": {
         "toggles": {},
@@ -3396,7 +3868,53 @@
           "nutricost_casein_vanilla": "2026-09-16T02:24:03.150Z"
         },
         "weight": 86.2,
-        "weightMeta": "2026-09-15T11:27:12.433Z"
+        "weightMeta": "2026-09-15T11:27:12.433Z",
+        "recipeSnapshots": {
+          "tortilla_de_fatatas": {
+            "name": "Tortilla de fatatas",
+            "category": "recipes",
+            "defaultMeasuredIn": "units",
+            "ingredients": [
+              {
+                "itemKey": "potato_raw",
+                "amount": 665,
+                "label": "665 g potato"
+              },
+              {
+                "itemKey": "onion_raw",
+                "amount": 170,
+                "label": "170 g onion"
+              },
+              {
+                "itemKey": "evoo_tsp",
+                "amount": 92,
+                "label": "100 ml EVOO (92 g)"
+              },
+              {
+                "itemKey": "egg_substitute",
+                "amount": 360,
+                "label": "350 ml egg substitute (360 g)"
+              }
+            ],
+            "displayUnits": [
+              {
+                "label": "full recipe",
+                "amount": 1287,
+                "unit": "g",
+                "locked": true,
+                "multiplier": 1287
+              },
+              {
+                "label": "1/4 of recipe (322 g raw ingredients)",
+                "amount": 321.8,
+                "unit": "g",
+                "default": true,
+                "multiplier": 321.8
+              }
+            ],
+            "notes": "Luis's tortilla de patatas made with egg substitute, added 2026-09-15; the 'fatatas' spelling is intentional. Ingredients as given: 665 g potato, 170 g onion, 100 ml oil, 350 ml egg substitute. RAW weights; ml converted at 0.916 g/ml for the oil (92 g) and ~1.03 g/ml for the egg substitute (360 g); total 1287 g. SERVING = 1/4 OF THE RECIPE; the 322 g shown is raw-ingredient grams, not the weight of a cooked wedge (frying and setting drive off water, so the finished tortilla weighs roughly 1.0-1.1 kg and a quarter ~260-280 g). Logging the default unit still gives exactly one quarter. TWO ASSUMPTIONS TO CHECK: (1) ALL 100 ml of oil is counted as eaten. Potatoes and onion slow-fried in this little oil typically soak up 70-100 g of it, so that is realistic if none was poured off; if oil was drained after frying, every 10 ml drained removes ~20 kcal per serving. (2) Oil confirmed as extra virgin olive oil by Luis on 2026-09-15. Egg substitute is the catalog's existing Egg Beaters-type liquid egg-white item (0 fat, 25 kcal / 5.4 g protein per 46 g), so the fat here is essentially all oil. No salt listed; sodium is the ingredient total."
+          }
+        }
       },
       "2026-09-16": {
         "toggles": {},
@@ -3429,7 +3947,72 @@
         "weight": 86.1,
         "weightMeta": "2026-09-16T12:12:15.139Z",
         "waist": 98,
-        "waistMeta": "2026-09-16T12:15:16.261Z"
+        "waistMeta": "2026-09-16T12:15:16.261Z",
+        "recipeSnapshots": {
+          "lentejas_con_lomo": {
+            "name": "Lentejas con lomo (mom's)",
+            "category": "recipes",
+            "defaultMeasuredIn": "units",
+            "ingredients": [
+              {
+                "itemKey": "onion_raw",
+                "amount": 64,
+                "label": "64 g onion"
+              },
+              {
+                "itemKey": "tomato_hot_house",
+                "amount": 60,
+                "label": "60 g tomato"
+              },
+              {
+                "itemKey": "bell_pepper_green_raw",
+                "amount": 52,
+                "label": "52 g pepper"
+              },
+              {
+                "itemKey": "carrot_raw",
+                "amount": 56,
+                "label": "56 g carrot"
+              },
+              {
+                "itemKey": "garlic_raw",
+                "amount": 17,
+                "label": "17 g garlic"
+              },
+              {
+                "itemKey": "evoo_tsp",
+                "amount": 27,
+                "label": "2 Tbsp EVOO (27 g)"
+              },
+              {
+                "itemKey": "pork_loin_lean_raw",
+                "amount": 410,
+                "label": "410 g pork loin, edge fat trimmed"
+              },
+              {
+                "itemKey": "lentils_dry_goya",
+                "amount": 454,
+                "label": "1 lb bag Goya dry lentils"
+              }
+            ],
+            "displayUnits": [
+              {
+                "label": "full recipe",
+                "amount": 1140,
+                "unit": "g",
+                "locked": true,
+                "multiplier": 1140
+              },
+              {
+                "label": "1/6 of batch (190 g raw ingredients)",
+                "amount": 190,
+                "unit": "g",
+                "default": true,
+                "multiplier": 190
+              }
+            ]
+          }
+        }
       },
       "2026-09-17": {
         "toggles": {},
@@ -3662,6 +4245,42 @@
           "turkey_ground_evoo": "2026-09-26T22:34:14.534Z",
           "evoo_tsp": "2026-09-26T22:35:48.187Z",
           "macadamia_dry_roasted_365": "2026-09-26T22:40:29.309Z"
+        },
+        "recipeSnapshots": {
+          "turkey_ground_evoo": {
+            "name": "Turkey ground 93/7 cooked in EVOO",
+            "category": "recipes",
+            "defaultMeasuredIn": "units",
+            "ingredients": [
+              {
+                "itemKey": "turkey_ground_safeway_cooked",
+                "amount": 313.3,
+                "label": "1 lb raw 93/7 ground turkey = 313 g cooked (69% yield)"
+              },
+              {
+                "itemKey": "evoo_tsp",
+                "amount": 6.75,
+                "label": "1/2 Tbsp EVOO (6.75 g)"
+              }
+            ],
+            "displayUnits": [
+              {
+                "label": "full recipe",
+                "amount": 320.05,
+                "unit": "g",
+                "locked": true,
+                "multiplier": 320.05
+              },
+              {
+                "label": "1/2 of batch (160 g cooked)",
+                "amount": 160,
+                "unit": "g",
+                "default": true,
+                "multiplier": 160
+              }
+            ],
+            "notes": "Luis's plain ground turkey batch, added 2026-09-26: 1 lb (454 g) RAW Safeway 93/7 ground turkey browned in 1/2 Tbsp (6.75 g) extra virgin olive oil. Turkey choice confirmed by Luis (93/7, not the 99/1 breast). COOKED-WEIGHT RECIPE at Luis's request the same day: built on turkey_ground_safeway_cooked, so the batch weighs ~320 g (313 g cooked meat + the oil) and grams logged here are grams on the plate. The batch's nutrition is still exactly one raw pound of turkey plus the oil (minus small B-vitamin cooking losses). SERVING = 1/2 OF THE BATCH = ~160 g cooked. The 69 percent yield is a USDA-derived estimate; weigh a finished batch once and the cooked turkey entry can be recalibrated to the real number. ALL FAT COUNTED AS EATEN, including what renders into the pan. No salt or seasoning listed."
+          }
         }
       }
     },
