@@ -36,7 +36,7 @@ State shape:
 | `state.days[<d>].toggles[<key>]` | Bool. Scheduled servings use compound keys `<itemKey>#<HH:MM>`. |
 | `state.days[<d>].customs[]` | One-off custom items logged on that day. |
 | `state.days[<d>].weight` | kg as a number. Also `neck` and `waist` in cm. |
-| `state.days[<d>].recipeSnapshots[<key>]` | Frozen copy of a non-preserve recipe. |
+| `state.days[<d>].recipeSnapshots[<key>]` | Frozen copy of a recipe logged that day, or of a recipe nested in one. |
 | `state.savedItems[]` | Reusable custom items the user saved (similar to catalog items but lighter). |
 | `state.profile` | Goals, height, weight history target, displayedNutrients list, gender, etc. |
 
@@ -236,25 +236,34 @@ size (yogurt default 226 g, "1/4 tub" = multiplier 0.5).
 
 `{type:'catalog_edit', key, fields:{ingredients:[...full new array...]}}`.
 
-### Recipe snapshots (non-preserve recipes only)
+### Recipe snapshots (every logged recipe)
 
-Non-preserve recipes get a per-day frozen copy stored at
-`state.days[<date>].recipeSnapshots[<key>]`. Past days are immutable;
-today's snapshot tracks edits to the recipe so same-day logs see the
-latest definition.
+A day that logs a recipe holds a frozen copy of it at
+`state.days[<date>].recipeSnapshots[<key>]`, and a copy of every recipe
+nested in it at any depth, so editing a recipe later never changes a past
+day's totals. Today's copies follow edits to the recipes; a past day's are
+written by the first log that needs them and never change after.
 
-`counter_inc / counter_dec / counter_set` ops accept an optional
-`recipeSnapshot` field (a deep-clone of the recipe item). When present,
-the Worker writes it to `state.days[<op.date>].recipeSnapshots[<op.key>]`.
+The page writes the copies with `recipe_snapshot_set` ops sent beside the
+counter op. An agent that logs a recipe with counter ops sends the same:
+one `recipe_snapshot_set` for the recipe and one for each recipe nested in
+it, each `recipe` a deep clone of the catalog item, with `ifMissing: true`
+when the date is not today.
 
 | Op | Meaning |
 |---|---|
-| `recipe_snapshot_set { date, key, recipe }` | Refresh a snapshot. Used when the user edits a non-preserve recipe and today already has a counter or snapshot for it. |
-| `recipe_snapshot_clear { date, key }` | Drop a snapshot so the next log re-captures it. |
+| `recipe_snapshot_set { date, key, recipe, ifMissing? }` | Write the day's copy of recipe `key`. With `ifMissing`, a day that already has a copy keeps it. |
+| `recipe_snapshot_clear { date, key }` | Drop a copy so the next log re-captures it. |
 
-Macro compute paths (the daily totals function and the history detail
-view) resolve a recipe via `effectiveRecipeForDay(key, day)`: returns
-the snapshot when present, falls back to live `ITEMS[key]` otherwise.
+`counter_inc / counter_dec / counter_set` still accept the older optional
+`recipeSnapshot` field (a deep clone of the logged recipe), which the
+Worker writes to `state.days[<op.date>].recipeSnapshots[<op.key>]`.
+
+Every pricing path (the daily totals, the history detail view, Today's log)
+resolves a logged recipe through the day's copy when present, else the live
+`ITEMS[key]`, and resolves the recipes nested in it through the same day's
+copies. Plain items always use the catalog, and a deleted item computes as
+zero on every day.
 
 ### "Set my counter directly to N"
 

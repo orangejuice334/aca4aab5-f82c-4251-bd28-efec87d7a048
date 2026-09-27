@@ -518,6 +518,60 @@ export function sumIngredientNativeUnits(ingredients, items) {
 }
 
 // ---------------------------------------------------------------------------
+// Per-day recipe copies (day.recipeSnapshots)
+// ---------------------------------------------------------------------------
+
+// The catalog as a day prices what it logged: each recipe the day holds a
+// frozen copy of reads as that copy, while the recipe is still in the
+// catalog; plain items, and recipes without a copy, stay the catalog's. The
+// page's withRecipeDay / ingredientSource do the same.
+export function itemsForDay(items, day) {
+  const copies = day && day.recipeSnapshots;
+  if (!copies) return items;
+  const dayItems = Object.assign({}, items);
+  for (const key of Object.keys(copies)) {
+    if (items && items[key] && isRecipeWithIngredients(copies[key])) dayItems[key] = copies[key];
+  }
+  return dayItems;
+}
+
+// The recipes a day needs copies of to price recipe `key`: the recipe and
+// every recipe nested in it at any depth, each once. `followCatalog` (today,
+// whose copies track the recipes) walks the catalog; otherwise (a past day)
+// the day's own copies where it has them. Mirrors the page's
+// recipeKeysNeededForDay.
+export function recipeKeysNeededForDay(key, items, day, followCatalog) {
+  const walkItems = followCatalog ? items : itemsForDay(items, day);
+  const neededKeys = [];
+  const visit = (recipeKey) => {
+    if (neededKeys.includes(recipeKey) || !(items && items[recipeKey])) return;
+    const recipe = walkItems[recipeKey];
+    if (!isRecipeWithIngredients(recipe)) return;
+    neededKeys.push(recipeKey);
+    for (const ing of recipe.ingredients) {
+      if (ing && ing.itemKey) visit(ing.itemKey);
+    }
+  };
+  visit(key);
+  return neededKeys;
+}
+
+// Nutrients of `grams` of recipe `key` as logged on `day`: that day's copy of
+// the recipe, with the recipes nested in it read from the day's copies too,
+// scaled by grams over the batch (the page's loggedRecipeNutrients).
+export function loggedRecipeNutrients(key, grams, items, day) {
+  const dayItems = itemsForDay(items, day);
+  const recipe = dayItems[key];
+  if (!isRecipeWithIngredients(recipe)) return zeroNutrients();
+  const linkedGrams = ingredientNativeUnits(recipe.ingredients, dayItems, new Set([recipe]));
+  const batchGrams = linkedGrams > 0 ? linkedGrams : 1;
+  const batch = computeItemMacros(recipe, dayItems);
+  const nutrients = {};
+  for (const k of STORED_NUTRIENT_KEYS) nutrients[k] = (batch[k] || 0) * (grams / batchGrams);
+  return nutrients;
+}
+
+// ---------------------------------------------------------------------------
 // Formatting helpers
 // ---------------------------------------------------------------------------
 

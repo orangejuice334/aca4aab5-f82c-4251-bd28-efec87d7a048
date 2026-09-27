@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="app-version" content="v6.5.100">
+<meta name="app-version" content="v6.5.101">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">Tracker</title>
@@ -5846,6 +5846,7 @@
           case 'recipe_snapshot_set': {
             const d = ensureDay(op.date);
             if (!d.recipeSnapshots) d.recipeSnapshots = {};
+            if (op.ifMissing && d.recipeSnapshots[op.key]) break;
             d.recipeSnapshots[op.key] = structuredClone(op.recipe);
             break;
           }
@@ -6099,9 +6100,9 @@
       const oldC = (old && old.counters) || {};
       for (const k in curC) {
         if ((oldC[k] || 0) !== curC[k]) {
-          const op = { type: 'counter_set', key: k, date, value: curC[k], ts: counterMeta[k] };
-          attachRecipeSnapshotIfApplicable(op, k);
-          sendOp(op);
+          // A recipe logged here brings the day the copies that price it.
+          if (curC[k] > 0) freezeRecipeCopiesForLog(date, k);
+          sendOp({ type: 'counter_set', key: k, date, value: curC[k], ts: counterMeta[k] });
         }
       }
       for (const k in oldC) {
@@ -7328,17 +7329,14 @@
         // the daily-totals computation in computeTotals. Recipes scale the
         // batch by counter/canonical-batch-units; everything else scales
         // per-native macros by counter directly.
+        // History view: a recipe is priced from the day's frozen copies, so a
+        // past day stays as it was logged whatever the recipe became since.
+        const loggedRecipe = catItem ? effectiveRecipeForDay(key, bucket) : null;
+        const isRecipeItem = isRecipeWithIngredients(loggedRecipe);
         let m;
         if (catItem) {
-          if (catItem.category === 'recipes' && Array.isArray(catItem.ingredients) && catItem.ingredients.length) {
-            // History view: a non-preserve recipe uses the day's snapshot if
-            // one was captured, so past days stay frozen against later edits.
-            const effective = effectiveRecipeForDay(key, bucket);
-            const canonUnits = recipeCanonicalGrams(effective);
-            const batch = computeItemMacros(effective);
-            const factor = n / canonUnits;
-            m = {};
-            for (const k of STORED_NUTRIENT_KEYS) m[k] = (batch[k] || 0) * factor;
+          if (isRecipeItem) {
+            m = loggedRecipeNutrients(key, bucket, n);
           } else {
             m = scaleByNative(catItem, n);
           }
@@ -7352,10 +7350,8 @@
         let countSuffix = '';
         if (catItem) {
           const prim = primaryUnit(catItem);
-          const isRecipeItem = catItem.category === 'recipes' && Array.isArray(catItem.ingredients) && catItem.ingredients.length;
           if (isRecipeItem) {
-            const effective = effectiveRecipeForDay(key, bucket);
-            const variants = getDisplayUnits(effective || catItem);
+            const variants = withRecipeDay(bucket, () => getDisplayUnits(loggedRecipe));
             const def = (variants.find(v => v && v.default) || variants[0]) || null;
             const defSize = def && typeof def.unitsPerServing === 'number' && def.unitsPerServing > 0
               ? def.unitsPerServing : 0;
@@ -7932,15 +7928,11 @@
       if (isCounterLocked(item, key)) continue;
       const units = getCounterNative(item, counter);
       // Recipes compute via their ingredients list, scaled by the
-      // ratio of units_consumed / recipeCanonicalGrams (sum of ingredient grams).
-      // For non-preserve recipes, use the per-day snapshot when present so
-      // historical totals stay frozen against later catalog edits.
-      if (item.category === 'recipes' && Array.isArray(item.ingredients) && item.ingredients.length) {
-        const effective = effectiveRecipeForDay(key, dayBucket);
-        const canonUnits = recipeCanonicalGrams(effective);
-        const recipeBatch = computeItemMacros(effective);
-        const factor = units / canonUnits;
-        for (const k of STORED_NUTRIENT_KEYS) t[k] += (recipeBatch[k] || 0) * factor;
+      // ratio of units_consumed / recipeCanonicalGrams (sum of ingredient grams),
+      // from the day's frozen copies so a later edit never changes a past day.
+      if (isRecipeWithIngredients(effectiveRecipeForDay(key, dayBucket))) {
+        const recipePortion = loggedRecipeNutrients(key, dayBucket, units);
+        for (const k of STORED_NUTRIENT_KEYS) t[k] += (recipePortion[k] || 0);
         continue;
       }
       const m = scaleByNative(item, units);
@@ -8620,7 +8612,7 @@
   function resolveIngredient(ing) {
     if (!ing || typeof ing !== 'object') return null;
     if (ing.itemKey) {
-      const item = ITEMS[ing.itemKey];
+      const item = ingredientSource(ing.itemKey);
       if (!item) {
         return {
           name: '(missing item: ' + ing.itemKey + ')',
@@ -8669,7 +8661,8 @@
   }
 
   // Compute the nutrients for a single ingredient against the live ITEMS
-  // map. ingredient.amount is in native units (g for mass items, ml for
+  // map (a nested recipe reads the priced day's copy, see ingredientSource).
+  // ingredient.amount is in native units (g for mass items, ml for
   // volume items); source's macros are per-native-unit. Multiplier-shape
   // ingredients resolve against the source's canonical amount. `seen`
   // threads through the recipe → ingredient → recipe recursion so a
@@ -8684,7 +8677,7 @@
       for (const k of STORED_NUTRIENT_KEYS) out[k] = ing[k] || 0;
       return out;
     }
-    const item = ITEMS[ing.itemKey];
+    const item = ingredientSource(ing.itemKey);
     if (!item) return z;
     // Recipes-as-ingredients carry no per-native macros (saveExpandedEdits
     // strips them, deferring to ingredient sum). Compute the source recipe
@@ -8748,21 +8741,18 @@
     return scaleByNative(item, canon.unitsPerServing || 0);
   }
 
-  // Recipe-snapshot helpers. Non-preserve recipes (preserve === false) are
-  // logged onto a day with a frozen copy of their definition at log time, so
-  // editing the recipe later doesn't retroactively change past totals.
-  //   - On log (counter_inc/dec/set on today): the client embeds the current
-  //     recipe object as op.recipeSnapshot so the Worker mirrors it into
-  //     state.days[date].recipeSnapshots[key].
-  //   - On edit (saveExpandedEdits) while on today: the client emits a
-  //     recipe_snapshot_set op for today so the day's snapshot tracks the
-  //     latest definition for the rest of the day. Past days never refresh.
-  //   - Compute paths read effectiveRecipeForDay(key, day) — snapshot when
-  //     present, live ITEMS[key] otherwise.
-  function isNonPreserveRecipe(item) {
-    return !!(item && item.category === 'recipes' && item.preserve === false
-              && Array.isArray(item.ingredients) && item.ingredients.length);
-  }
+  // Every recipe is logged onto a day with a frozen copy of its definition,
+  // state.days[date].recipeSnapshots[key], and so is every recipe nested in
+  // it, so editing a recipe later never changes a past day's totals.
+  //   - Today's copies follow the recipes: a log writes each copy the day is
+  //     missing or that differs from the catalog, and a catalog edit does the
+  //     same for every recipe logged today (refreshTodaysRecipeCopies).
+  //   - A past day's copies are written by the first log that needs them and
+  //     never change after: their recipe_snapshot_set ops carry ifMissing,
+  //     which the Worker skips when the day already has a copy.
+  //   - Pricing a logged recipe reads the day's copy (effectiveRecipeForDay),
+  //     and withRecipeDay makes the recipes nested in it read the same day's
+  //     copies (ingredientSource). Plain items always read the catalog.
   function effectiveRecipeForDay(key, day) {
     if (day && day.recipeSnapshots && day.recipeSnapshots[key]
         && Array.isArray(day.recipeSnapshots[key].ingredients)
@@ -8771,40 +8761,93 @@
     }
     return ITEMS[key];
   }
-  // Attach `recipeSnapshot` to a counter op for non-preserve recipes when
-  // logging on today. Mutates `op` in place. No-op if not a recipe, if
-  // preserve isn't false, or if activeDate isn't today.
-  function attachRecipeSnapshotIfApplicable(op, key) {
-    if (!op || !key) return;
-    if (op.date !== todayKey()) return;
-    const item = ITEMS[key];
-    if (!isNonPreserveRecipe(item)) return;
-    try { op.recipeSnapshot = JSON.parse(JSON.stringify(item)); }
-    catch (e) {}
+
+  // The day whose copies nested recipes read while that day is priced, null
+  // everywhere else: the catalog, the edit panel and the pickers always read
+  // the current recipes.
+  let pricedRecipeDay = null;
+  function withRecipeDay(day, compute) {
+    const previousDay = pricedRecipeDay;
+    pricedRecipeDay = day || null;
+    try {
+      return compute();
+    } finally {
+      pricedRecipeDay = previousDay;
+    }
   }
-  // After a non-preserve recipe is edited, refresh today's snapshot so
-  // ongoing same-day logs see the updated definition (and tomorrow's view
-  // freezes the latest state). Past-day snapshots are never touched.
-  function maybeEmitRecipeSnapshotForToday(key) {
-    const item = ITEMS[key];
-    if (!isNonPreserveRecipe(item)) return;
+
+  // A linked ingredient's source: the priced day's copy of a recipe when the
+  // day has one, else the catalog item. A deleted item has no source on any
+  // day, so it computes as zero, as the delete confirmation warns.
+  function ingredientSource(itemKey) {
+    if (!ITEMS[itemKey]) return undefined;
+    return pricedRecipeDay ? effectiveRecipeForDay(itemKey, pricedRecipeDay) : ITEMS[itemKey];
+  }
+
+  // Nutrients of `grams` of recipe `key` as logged on `day`, priced from the
+  // day's copies.
+  function loggedRecipeNutrients(key, day, grams) {
+    return withRecipeDay(day, () => {
+      const recipe = effectiveRecipeForDay(key, day);
+      const batchGrams = recipeCanonicalGrams(recipe);
+      const batch = computeItemMacros(recipe);
+      const factor = batchGrams > 0 ? grams / batchGrams : 0;
+      const nutrients = {};
+      for (const k of STORED_NUTRIENT_KEYS) nutrients[k] = (batch[k] || 0) * factor;
+      return nutrients;
+    });
+  }
+
+  // The recipes a day needs copies of to price recipe `key`: the recipe and
+  // every recipe nested in it at any depth, each once. Today follows the
+  // catalog, whose recipes its copies track; a past day follows its own
+  // copies where it has them, since those are what it prices.
+  function recipeKeysNeededForDay(key, day, followCatalog) {
+    const neededKeys = [];
+    const visit = (recipeKey) => {
+      if (neededKeys.includes(recipeKey) || !ITEMS[recipeKey]) return;
+      const recipe = followCatalog ? ITEMS[recipeKey] : effectiveRecipeForDay(recipeKey, day);
+      if (!isRecipeWithIngredients(recipe)) return;
+      neededKeys.push(recipeKey);
+      for (const ing of recipe.ingredients) {
+        if (ing && ing.itemKey) visit(ing.itemKey);
+      }
+    };
+    visit(key);
+    return neededKeys;
+  }
+
+  // Write the copies day `dateKey` needs once recipe `key` is logged there:
+  // today, every copy that is missing or differs from the catalog; a past
+  // day, only the missing ones. Each goes into the local day at once, so the
+  // screen and a later edit read it before the cloud answers, and to the
+  // Worker as a recipe_snapshot_set op.
+  function freezeRecipeCopiesForLog(dateKey, key) {
+    if (!dateKey || !isRecipeWithIngredients(ITEMS[key])) return;
+    const isToday = dateKey === todayKey();
+    const day = ensureDayBucket(dateKey);
+    for (const recipeKey of recipeKeysNeededForDay(key, day, isToday)) {
+      const existingCopy = day.recipeSnapshots && day.recipeSnapshots[recipeKey];
+      if (existingCopy && (!isToday || stableStringify(existingCopy) === stableStringify(ITEMS[recipeKey]))) continue;
+      const copy = JSON.parse(JSON.stringify(ITEMS[recipeKey]));
+      if (!day.recipeSnapshots) day.recipeSnapshots = {};
+      day.recipeSnapshots[recipeKey] = copy;
+      const snapshotOp = { type: 'recipe_snapshot_set', key: recipeKey, date: dateKey, recipe: copy };
+      if (!isToday) snapshotOp.ifMissing = true;
+      sendOp(snapshotOp);
+    }
+  }
+
+  // After a catalog edit, today's copies catch up with it: every recipe
+  // logged today gets each copy it is missing or that the edit changed,
+  // including those of the recipes nested in it. Past days keep theirs.
+  function refreshTodaysRecipeCopies() {
     const today = todayKey();
     const day = state.days && state.days[today];
-    if (!day) return;
-    const hasCounter = (day.counters && (day.counters[key] || 0) > 0);
-    const hasSnapshot = !!(day.recipeSnapshots && day.recipeSnapshots[key]);
-    if (!hasCounter && !hasSnapshot) return;
-    // Update local snapshot for immediate UI consistency, then sync via op.
-    if (!day.recipeSnapshots) day.recipeSnapshots = {};
-    const snap = JSON.parse(JSON.stringify(item));
-    day.recipeSnapshots[key] = snap;
-    sendOp({
-      type: 'recipe_snapshot_set',
-      key,
-      date: today,
-      recipe: snap,
-      ts: new Date().toISOString(),
-    });
+    if (!day || !day.counters) return;
+    for (const key of Object.keys(day.counters)) {
+      if ((day.counters[key] || 0) > 0) freezeRecipeCopiesForLog(today, key);
+    }
   }
 
   // Canonical scale for a recipe = total grams resolved from its ingredients
@@ -8825,38 +8868,71 @@
     return !!(item && item.category === 'recipes' && Array.isArray(item.ingredients) && item.ingredients.length);
   }
 
-  // Batch grams of every recipe logged on the viewed day, read the way that
-  // day's totals read them (a one-off recipe through its copy for the day).
-  // Taken before a catalog edit and handed to keepLoggedRecipePortions after it.
-  function loggedRecipeBatchGrams() {
-    const batches = {};
-    const day = state.days && state.days[state.activeDate];
-    for (const key of Object.keys(state.counters || {})) {
-      if (!((state.counters[key] || 0) > 0)) continue;
-      const recipe = effectiveRecipeForDay(key, day);
-      if (isRecipeWithIngredients(recipe)) batches[key] = recipeCanonicalGrams(recipe);
-    }
-    return batches;
+  // Every catalog recipe that contains `key`, directly or through another
+  // recipe, each once.
+  function recipesContaining(key) {
+    const containingKeys = [];
+    const visit = (innerKey) => {
+      for (const [recipeKey, recipe] of Object.entries(ITEMS)) {
+        if (recipeKey === key || containingKeys.includes(recipeKey) || !isRecipeWithIngredients(recipe)) continue;
+        if (recipe.ingredients.some(ing => ing && ing.itemKey === innerKey)) {
+          containingKeys.push(recipeKey);
+          visit(recipeKey);
+        }
+      }
+    };
+    visit(key);
+    return containingKeys;
   }
 
-  // A recipe logged on the viewed day keeps its portion when an edit changes
-  // its batch: the same fraction of the batch (a logged full recipe stays one
-  // full recipe), so its logged grams follow the new batch. The time it was
-  // logged is kept. Returns the keys whose logged grams changed; the caller
-  // saves (emitDiffOps sends the counter_set) and refreshes their rows.
-  function keepLoggedRecipePortions(batchesBefore) {
-    const rescaledKeys = [];
-    const day = state.days && state.days[state.activeDate];
-    for (const key of Object.keys(batchesBefore || {})) {
-      const recipe = effectiveRecipeForDay(key, day);
-      if (!isRecipeWithIngredients(recipe)) continue;
-      const before = batchesBefore[key];
-      const after = recipeCanonicalGrams(recipe);
-      if (!(before > 0) || !(after > 0) || Math.abs(after - before) < 1e-9) continue;
-      state.counters[key] = Math.round((state.counters[key] || 0) * (after / before) * 10000) / 10000;
-      rescaledKeys.push(key);
+  // Batch grams of every recipe logged on the viewed day and on today, keyed
+  // by date, read the way each day's totals read them (from the day's
+  // copies). Taken before a catalog edit and handed to
+  // keepLoggedRecipePortions after it.
+  function loggedRecipeBatchGrams() {
+    const batchesByDate = {};
+    for (const dateKey of new Set([state.activeDate, todayKey()])) {
+      const day = state.days && state.days[dateKey];
+      if (!day || !day.counters) continue;
+      const batches = {};
+      withRecipeDay(day, () => {
+        for (const key of Object.keys(day.counters)) {
+          if (!((day.counters[key] || 0) > 0)) continue;
+          const recipe = effectiveRecipeForDay(key, day);
+          if (isRecipeWithIngredients(recipe)) batches[key] = recipeCanonicalGrams(recipe);
+        }
+      });
+      batchesByDate[dateKey] = batches;
     }
-    return rescaledKeys;
+    return batchesByDate;
+  }
+
+  // A recipe logged on the viewed day or on today keeps its portion when an
+  // edit changes the batch that day reads: the same fraction of the batch (a
+  // logged full recipe stays one full recipe), so its logged grams follow the
+  // new batch. Today's copies follow the catalog, so today's batches move; a
+  // past day's copies are frozen, so its batches stay. The time it was logged
+  // is kept. Returns { date, key } for every portion whose grams changed; the
+  // caller saves (emitDiffOps sends the counter_set) and refreshes the rows
+  // of the viewed day's.
+  function keepLoggedRecipePortions(batchesBefore) {
+    const rescaledPortions = [];
+    for (const dateKey of Object.keys(batchesBefore || {})) {
+      const day = state.days && state.days[dateKey];
+      if (!day || !day.counters) continue;
+      withRecipeDay(day, () => {
+        for (const key of Object.keys(batchesBefore[dateKey])) {
+          const recipe = effectiveRecipeForDay(key, day);
+          if (!isRecipeWithIngredients(recipe)) continue;
+          const before = batchesBefore[dateKey][key];
+          const after = recipeCanonicalGrams(recipe);
+          if (!(before > 0) || !(after > 0) || Math.abs(after - before) < 1e-9) continue;
+          day.counters[key] = Math.round((day.counters[key] || 0) * (after / before) * 10000) / 10000;
+          rescaledPortions.push({ date: dateKey, key });
+        }
+      });
+    }
+    return rescaledPortions;
   }
 
   // Store a recipe's locked "full recipe" serving as its current ingredient
@@ -8890,13 +8966,13 @@
       let sum = 0;
       for (const ing of item.ingredients) {
         if (!ing) continue;
-        if (ing.itemKey && !ITEMS[ing.itemKey]) continue;
+        const src = ing.itemKey ? ingredientSource(ing.itemKey) : null;
+        if (ing.itemKey && !src) continue;
         if (typeof ing.amount === 'number' && ing.amount > 0) {
           sum += ing.amount;
           continue;
         }
         if (typeof ing.multiplier === 'number' && ing.multiplier > 0) {
-          const src = ITEMS[ing.itemKey];
           if (!src) continue;
           // Read the multiplier the way computeIngredientMacros does: that
           // fraction of a recipe's batch, or that many default servings.
@@ -11173,10 +11249,9 @@
     }
 
     saveState();
-    // If this is a non-preserve recipe edited on today AND today has a
-    // counter or snapshot for it, refresh today's snapshot so same-day logs
-    // pick up the latest definition. Past days are never touched.
-    maybeEmitRecipeSnapshotForToday(key);
+    // Today's copies of the recipes logged today follow the edit (this
+    // recipe, or one it is nested in). Past days keep theirs.
+    refreshTodaysRecipeCopies();
     const skipRender = !!(options && options.skipCatalogRender);
     if (!skipRender) {
       if (typeof renderCatalog === 'function') renderCatalog();
@@ -11399,7 +11474,10 @@
       // listing the same serving as both "counter" and "toggle".
       if (catItem && isCounterLocked(catItem, key)) continue;
       const prim = (typeof primaryUnit === 'function') ? primaryUnit(catItem || item) : '';
-      const isRecipeItem = catItem && catItem.category === 'recipes' && Array.isArray(catItem.ingredients) && catItem.ingredients.length;
+      // A recipe logged on this day is priced from that day's frozen copies
+      // (the same ones the totals use), not from today's recipes.
+      const loggedRecipe = catItem ? effectiveRecipeForDay(key, bucket) : null;
+      const isRecipeItem = isRecipeWithIngredients(loggedRecipe);
       let countSuffix = '';
       if (catItem) {
         if (isRecipeItem) {
@@ -11413,41 +11491,39 @@
       }
       let m;
       let ingredientsBreakdown = null;
-      // A one-off recipe logged on this day is priced from that day's frozen
-      // copy (the same one the totals use), not from today's recipe.
-      const loggedRecipe = isRecipeItem ? (effectiveRecipeForDay(key, bucket) || catItem) : null;
       if (catItem) {
         if (isRecipeItem) {
-          const canonUnits = recipeCanonicalGrams(loggedRecipe);
-          const batch = computeItemMacros(loggedRecipe);
-          const factor = canonUnits > 0 ? (n / canonUnits) : 0;
-          m = {};
-          for (const k of STORED_NUTRIENT_KEYS) m[k] = (batch[k] || 0) * factor;
+          m = loggedRecipeNutrients(key, bucket, n);
           // Per-ingredient breakdown, scaled by the same factor. resolveIngredient
           // gives us full-batch macros per ingredient; we multiply by `factor` so
           // partial-recipe consumption shows partial ingredient consumption.
-          ingredientsBreakdown = loggedRecipe.ingredients.map(ing => {
-            const r = resolveIngredient(ing) || { name: '(unknown)', kcal: 0, p: 0, sf: 0, water: 0, caffeine: 0 };
-            const scaled = {};
-            for (const k of STORED_NUTRIENT_KEYS) scaled[k] = (r[k] || 0) * factor;
-            // Suffix mirrors the recipe-editor "amount" display: prefer label,
-            // then the numeric amount (scaled), then the multiplier fraction.
-            let suffix = '';
-            if (r.amount) {
-              const av = r.amount.value;
-              const au = r.amount.unit || '';
-              if (typeof av === 'number' && av > 0) {
-                const scaledAv = Math.round(av * factor * 10) / 10;
-                suffix = ' · ' + scaledAv + (au ? ' ' + au : '');
-              } else if (au) {
-                suffix = ' · ' + au;
+          // The recipes nested in it read the same day's copies.
+          ingredientsBreakdown = withRecipeDay(bucket, () => {
+            const canonUnits = recipeCanonicalGrams(loggedRecipe);
+            const factor = canonUnits > 0 ? (n / canonUnits) : 0;
+            return loggedRecipe.ingredients.map(ing => {
+              const r = resolveIngredient(ing) || { name: '(unknown)', kcal: 0, p: 0, sf: 0, water: 0, caffeine: 0 };
+              const scaled = {};
+              for (const k of STORED_NUTRIENT_KEYS) scaled[k] = (r[k] || 0) * factor;
+              // Suffix mirrors the recipe-editor "amount" display: prefer label,
+              // then the numeric amount (scaled), then the multiplier fraction.
+              let suffix = '';
+              if (r.amount) {
+                const av = r.amount.value;
+                const au = r.amount.unit || '';
+                if (typeof av === 'number' && av > 0) {
+                  const scaledAv = Math.round(av * factor * 10) / 10;
+                  suffix = ' · ' + scaledAv + (au ? ' ' + au : '');
+                } else if (au) {
+                  suffix = ' · ' + au;
+                }
               }
-            }
-            return {
-              name: r.name || '(unknown)',
-              suffix,
-              macrosHtml: formatLogMacroLine(scaled),
-            };
+              return {
+                name: r.name || '(unknown)',
+                suffix,
+                macrosHtml: formatLogMacroLine(scaled),
+              };
+            });
           });
         } else {
           m = scaleByNative(catItem, n);
@@ -11457,7 +11533,7 @@
         for (const k of STORED_NUTRIENT_KEYS) m[k] = (item[k] || 0) * n;
       }
       entries.push({
-        name: formatItemDisplayName(loggedRecipe || catItem || item) || item.name || key,
+        name: withRecipeDay(bucket, () => formatItemDisplayName(loggedRecipe || catItem || item)) || item.name || key,
         suffix: countSuffix,
         macrosHtml: formatLogMacroLine(m),
         ingredientsBreakdown,
@@ -13555,9 +13631,9 @@
         item.ingredients = Array.isArray(item.ingredients) ? item.ingredients : [];
         item.ingredients.push(ing);
         syncRecipeFullBatchServing(item);
-        // A one-off recipe logged today reads today's copy: refresh it with
-        // the new ingredient, then keep any logged portion's share of the batch.
-        maybeEmitRecipeSnapshotForToday(key);
+        // A recipe logged today reads today's copy: refresh it with the new
+        // ingredient, then keep any logged portion's share of the batch.
+        refreshTodaysRecipeCopies();
         keepLoggedRecipePortions(batchesBeforeAdd);
         saveState();
         if (typeof renderCatalog === 'function') renderCatalog();
@@ -14126,10 +14202,10 @@
       // every event, with NO 'wait for blur'.
       const batchesBeforeEdit = loggedRecipeBatchGrams();
       saveExpandedEdits(key, panel, { skipCatalogRender: true });
-      // A recipe portion already logged on the viewed day keeps its share of
-      // a batch this edit changed (this recipe, or one that contains it).
-      const rescaledKeys = keepLoggedRecipePortions(batchesBeforeEdit);
-      if (rescaledKeys.length) saveState();
+      // A recipe portion already logged on the viewed day or today keeps its
+      // share of a batch this edit changed (this recipe, or one containing it).
+      const rescaledPortions = keepLoggedRecipePortions(batchesBeforeEdit);
+      if (rescaledPortions.length) saveState();
       if (typeof updateCatalogRowInPlace === 'function') updateCatalogRowInPlace(key);
       // Recipes: the read-only "full recipe" serving is the sum of the
       // ingredient grams. Keep its amount box in the open editor in step so
@@ -14149,10 +14225,14 @@
       renderCounterDelta(key);
       // A logged recipe that contains the edited one changed too: its row's
       // sizes, macros and counter box follow now, not when the panel closes.
-      rescaledKeys.forEach(rescaledKey => {
-        if (rescaledKey === key) return;
+      rescaledPortions.forEach(({ date, key: rescaledKey }) => {
+        if (date !== state.activeDate || rescaledKey === key) return;
         if (typeof updateCatalogRowInPlace === 'function') updateCatalogRowInPlace(rescaledKey);
         updateCatalogCounterDisplay(rescaledKey);
+      });
+      // So does the row of every recipe containing it, logged or not.
+      recipesContaining(key).forEach(containingKey => {
+        if (typeof updateCatalogRowInPlace === 'function') updateCatalogRowInPlace(containingKey);
       });
     };
     document.addEventListener('input', (ev) => {
@@ -14329,15 +14409,15 @@
       }
       stampCounter(key);
       saveStateLocal();
-      const counterOp = {
+      // A recipe logged here brings the day the copies that price it.
+      if (state.counters[key] > 0) freezeRecipeCopiesForLog(state.activeDate, key);
+      sendOp({
         type: action === 'inc' ? 'counter_inc' : 'counter_dec',
         key,
         servingSize,
         date: state.activeDate,
         ts: new Date().toISOString(),
-      };
-      attachRecipeSnapshotIfApplicable(counterOp, key);
-      sendOp(counterOp);
+      });
       // Fast path: only touch this row's counter triplet + totals strip +
       // today log. The heavy renderers (history, warnings ribbon) refresh
       // on the 800ms debounce in scheduleHeavyRefresh().

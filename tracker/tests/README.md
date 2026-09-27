@@ -41,6 +41,7 @@ Or directly (Node 24 requires explicit file list):
 | resolveIngredient | unit-resolve-ingredient |
 | sumIngredientNativeUnits | unit-sum-native |
 | Recipe batch grams (ingredientNativeUnits, live full recipe, recipe-source Add / edit, picker filters) | unit-recipe-batch-grams |
+| Per-day recipe copies (itemsForDay, recipeKeysNeededForDay, loggedRecipeNutrients) | unit-recipe-day-copies |
 | Format helpers | unit-format-helpers + unit-format-item-name |
 | History lookup | unit-history-helpers |
 | Body fat / BMI | unit-bf-bmi |

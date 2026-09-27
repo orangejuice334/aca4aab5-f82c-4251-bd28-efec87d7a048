@@ -77,6 +77,8 @@ function deepMerge(dst, src) {
   }
 }
 
+// A counter op from a page older than recipe_snapshot_set-per-copy carries
+// the logged one-off recipe's copy itself.
 function maybeWriteRecipeSnapshot(day, op) {
   if (!op || !op.recipeSnapshot || !op.key) return;
   if (!day.recipeSnapshots) day.recipeSnapshots = {};
@@ -117,11 +119,11 @@ const OPS = {
     maybeWriteRecipeSnapshot(day, op);
     return { ok: true };
   },
-  // Refresh a recipe snapshot for a specific day without changing the
-  // counter. Used when the user edits a non-preserve recipe ON the day it
-  // was logged — the snapshot tracks the latest definition for that day's
-  // historical view. The client only emits this for the current activeDate;
-  // past-day snapshots stay frozen.
+  // Write a day's frozen copy of a recipe without changing the counter. The
+  // page writes one for every recipe a log needs (the recipe and each recipe
+  // nested in it): today's copies follow edits, so they overwrite; a past
+  // day's are written once, so they carry ifMissing and a day that already
+  // has a copy keeps it, even when another device logged there first.
   recipe_snapshot_set(state, op) {
     if (!op.key) return { ok: false, error: 'recipe_snapshot_set requires key' };
     if (!op.recipe || typeof op.recipe !== 'object') {
@@ -129,6 +131,7 @@ const OPS = {
     }
     const day = ensureDay(state, op.date);
     if (!day.recipeSnapshots) day.recipeSnapshots = {};
+    if (op.ifMissing && day.recipeSnapshots[op.key]) return { ok: true };
     day.recipeSnapshots[op.key] = op.recipe;
     return { ok: true };
   },

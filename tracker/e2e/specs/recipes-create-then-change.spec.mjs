@@ -1,5 +1,6 @@
 import { test, expect } from '../support/fixtures.mjs';
-import { YESTERDAY, logCounter } from '../support/seed.mjs';
+import { postTestUserOps } from '../support/cloud.mjs';
+import { TODAY, YESTERDAY, dayOffset, logCounter } from '../support/seed.mjs';
 
 // Create a recipe in the recipe maker, then change it: edit one ingredient's
 // amount, add an ingredient, or remove one. After every change, everything
@@ -520,5 +521,129 @@ test.describe('One-off recipes changed on the day they were logged', () => {
     await page.locator('#checkout-date-prev').click();
     await expect(page.locator('#checkout-date')).toContainText(YESTERDAY);
     await tracker.expectTotal('kcal', 295);
+  });
+});
+
+// A recipe logged on a past day with the copies that price it, the way the
+// page writes them when the portion is logged.
+function logWithCopies(state, key, grams, { dateKey = YESTERDAY, at = '12:30', copies = [key] } = {}) {
+  logCounter(state, key, grams, { dateKey, at });
+  const day = state.days[dateKey];
+  day.recipeSnapshots = day.recipeSnapshots || {};
+  for (const copyKey of copies) day.recipeSnapshots[copyKey] = JSON.parse(JSON.stringify(state.userCatalog.items[copyKey]));
+  return state;
+}
+
+const logEntryTotals = (tracker, name) => tracker.todayLogRows().filter({ hasText: name }).locator(':scope > div > .checkout-item-macros');
+
+async function showDay(page, dateKey, button) {
+  await page.locator(button).click();
+  await expect(page.locator('#checkout-date')).toContainText(dateKey);
+}
+
+// Every recipe a day logs is frozen on that day, with the recipes nested in
+// it, so editing a recipe afterwards never changes a past day. Today follows
+// the edit (a logged portion keeps its share of the new batch). Yesterday's
+// baseline also holds the 295 kcal one-off lunch.
+test.describe('A later recipe edit never changes a past day', () => {
+  test('logging a recipe writes the day a copy of it and of the recipe nested in it', async ({ tracker }) => {
+    await tracker.open();
+    await tracker.plus('recipe_in_recipe', { servingSize: 365 });
+    await tracker.expectTotal('kcal', 578);
+    const cloud = await tracker.cloud();
+    const copies = cloud.days[TODAY].recipeSnapshots;
+    expect(Object.keys(copies).sort()).toEqual(['meal_prep_slab', 'recipe_in_recipe']);
+    expect(copies.recipe_in_recipe).toEqual(cloud.userCatalog.items.recipe_in_recipe);
+    expect(copies.meal_prep_slab).toEqual(cloud.userCatalog.items.meal_prep_slab);
+  });
+
+  test('editing a recipe leaves a past day that logged it as it was, while today follows the edit', async ({ tracker, page }) => {
+    await tracker.open({ seed: state => {
+      logWithCopies(state, 'chicken_rice_bowl', 375);
+      logCounter(state, 'chicken_rice_bowl', 375, { at: '11:30' });
+    } });
+    await tracker.expectTotal('kcal', 658);
+    const panel = await tracker.openEditPanel('chicken_rice_bowl');
+    await servingBox(ingredientRow(panel, 'chicken_breast'), 1).fill('300');
+    // 300 g chicken (495) + 160 g rice (208) + 15 ml oil (120) = 823 kcal in a 475 g batch.
+    await expectLoggedPortion(tracker, 'chicken_rice_bowl', { box: '1', dailyKcal: 823 }, 'today, after the edit');
+    await tracker.closeEditPanel('chicken_rice_bowl');
+    await showDay(page, YESTERDAY, '#checkout-date-prev');
+    await tracker.expectTotal('kcal', 953);
+    await expect(logEntryTotals(tracker, 'Chicken rice bowl'), "yesterday's entry is the bowl as it was logged").toContainText('658 kcal');
+    const cloud = await tracker.cloud();
+    expect(cloud.days[YESTERDAY].counters.chicken_rice_bowl, "yesterday's logged grams stay").toBe(375);
+    expect(cloud.days[YESTERDAY].recipeSnapshots.chicken_rice_bowl.ingredients[0]).toEqual({ itemKey: 'chicken_breast', amount: 200 });
+    expect(cloud.days[TODAY].counters.chicken_rice_bowl, "today's full bowl follows the new batch").toBe(475);
+    expect(cloud.days[TODAY].recipeSnapshots.chicken_rice_bowl.ingredients[0]).toEqual({ itemKey: 'chicken_breast', amount: 300 });
+  });
+
+  test("editing a recipe while viewing a past day leaves that day as it was and keeps today's portion whole", async ({ tracker, page }) => {
+    await tracker.open({ seed: state => {
+      logWithCopies(state, 'chicken_rice_bowl', 375);
+      logCounter(state, 'chicken_rice_bowl', 375, { at: '11:30' });
+    } });
+    await showDay(page, YESTERDAY, '#checkout-date-prev');
+    await tracker.expectTotal('kcal', 953);
+    const panel = await tracker.openEditPanel('chicken_rice_bowl');
+    await servingBox(ingredientRow(panel, 'chicken_breast'), 1).fill('300');
+    await expect(fullRecipeBox(panel)).toHaveValue('475');
+    expect(await tracker.total('kcal'), 'yesterday while the panel is still open').toBe(953);
+    await tracker.closeEditPanel('chicken_rice_bowl');
+    await tracker.expectTotal('kcal', 953);
+    const cloud = await tracker.cloud();
+    expect(cloud.days[YESTERDAY].counters.chicken_rice_bowl).toBe(375);
+    expect(cloud.days[TODAY].counters.chicken_rice_bowl, "today's full bowl follows the new batch").toBe(475);
+    await showDay(page, TODAY, '#checkout-date-next');
+    await expectLoggedPortion(tracker, 'chicken_rice_bowl', { box: '1', dailyKcal: 823 }, 'today');
+  });
+
+  test('a recipe logged on a past day is frozen there by that log', async ({ tracker, page }) => {
+    await tracker.open();
+    await showDay(page, YESTERDAY, '#checkout-date-prev');
+    await tracker.plus('chicken_rice_bowl', { servingSize: 375 });
+    await tracker.expectTotal('kcal', 953);
+    const panel = await tracker.openEditPanel('chicken_rice_bowl');
+    await servingBox(ingredientRow(panel, 'chicken_breast'), 1).fill('300');
+    await expect(fullRecipeBox(panel)).toHaveValue('475');
+    await tracker.closeEditPanel('chicken_rice_bowl');
+    await tracker.expectTotal('kcal', 953);
+    const yesterday = await tracker.cloudDay(YESTERDAY);
+    expect(yesterday.counters.chicken_rice_bowl).toBe(375);
+    expect(yesterday.recipeSnapshots.chicken_rice_bowl.ingredients[0]).toEqual({ itemKey: 'chicken_breast', amount: 200 });
+    await tracker.reload();
+    await showDay(page, YESTERDAY, '#checkout-date-prev');
+    await tracker.expectTotal('kcal', 953);
+  });
+
+  test('editing a recipe nested in one a past day logged leaves that day as it was', async ({ tracker, page }) => {
+    await tracker.open({ seed: state => logWithCopies(state, 'recipe_in_recipe', 365, { copies: ['recipe_in_recipe', 'meal_prep_slab'] }) });
+    const panel = await tracker.openEditPanel('meal_prep_slab');
+    await servingBox(ingredientRow(panel, 'chicken_breast'), 1).fill('1000');
+    await expect(tracker.rowTitle('recipe_in_recipe'), 'the catalog shows the bowl with the new slab').toHaveText('Slab bowl with oil (full recipe / 415 g)');
+    await tracker.closeEditPanel('meal_prep_slab');
+    await showDay(page, YESTERDAY, '#checkout-date-prev');
+    // The 578 kcal bowl as it was logged, plus the one-off lunch.
+    await tracker.expectTotal('kcal', 873);
+    await expect(logEntryTotals(tracker, 'Slab bowl with oil')).toContainText('578 kcal');
+    const yesterday = await tracker.cloudDay(YESTERDAY);
+    expect(yesterday.counters.recipe_in_recipe).toBe(365);
+    expect(yesterday.recipeSnapshots.meal_prep_slab.ingredients[0]).toEqual({ itemKey: 'chicken_breast', amount: 800 });
+  });
+
+  test("a past day's copy is written once: a later copy for that day is ignored", async ({ tracker }) => {
+    await tracker.open();
+    const catalogLunch = (await tracker.cloud()).userCatalog.items.one_off_lunch;
+    const laterLunch = JSON.parse(JSON.stringify(catalogLunch));
+    laterLunch.ingredients = [{ itemKey: 'chicken_breast', amount: 300 }];
+    const weekAgo = dayOffset(-7);
+    const answer = await postTestUserOps([
+      { type: 'recipe_snapshot_set', key: 'one_off_lunch', date: YESTERDAY, recipe: laterLunch, ifMissing: true, opId: 'e2e-copy-yesterday' },
+      { type: 'recipe_snapshot_set', key: 'one_off_lunch', date: weekAgo, recipe: laterLunch, ifMissing: true, opId: 'e2e-copy-week-ago' },
+    ]);
+    expect(answer).toMatchObject({ ok: true, errors: [] });
+    const cloud = await tracker.cloud();
+    expect(cloud.days[YESTERDAY].recipeSnapshots.one_off_lunch.ingredients, 'yesterday keeps its first copy').toEqual(catalogLunch.ingredients);
+    expect(cloud.days[weekAgo].recipeSnapshots.one_off_lunch.ingredients, 'a day without a copy gets this one').toEqual(laterLunch.ingredients);
   });
 });

@@ -70,6 +70,10 @@ A scenario that leaves the page mid-save navigates to another page of the same s
 | Recipe editing | Renaming a recipe changed its calories | recipes-editing |
 | Recipe editing | A custom portion in g or oz added a fraction of a batch instead of grams | recipes-editing |
 | Recipe editing | Editing an inner recipe did not refresh a recipe that contains it | recipes-editing |
+| Recipe editing | While an inner recipe's panel was open, a recipe containing it kept its old batch size in its row title unless it was logged | recipes-create-then-change |
+| Recipe editing | Editing a recipe changed every past day that logged it (only one-off recipes had a frozen copy, and the recipes nested in them still followed the catalog) | recipes-create-then-change |
+| Recipe editing | Logging a recipe on a past day froze nothing there, so a later edit changed that day | recipes-create-then-change |
+| Recipe editing | Editing a recipe while viewing a past day changed today's logged portion instead of keeping its share of the batch | recipes-create-then-change |
 | Recipe logging | Date navigation did not re-render the catalog, so one-off recipes did not follow the viewed day | recipes-logging |
 | Today's log | A past day's one-off recipe entry used the live recipe instead of that day's frozen copy | today-log |
 | Supplements | Every-other-day supplements were flagged "past time" on their off days | supplements-and-water |
