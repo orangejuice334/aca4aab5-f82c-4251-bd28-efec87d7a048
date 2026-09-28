@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-27T12:37:08.897Z",
-  "_gistSavedAt": "2026-09-27T00:42:45.094Z",
+  "_backupTakenAt": "2026-09-28T14:48:42.535Z",
+  "_gistSavedAt": "2026-09-28T13:45:55.464Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -4282,6 +4282,25 @@
             "notes": "Luis's plain ground turkey batch, added 2026-09-26: 1 lb (454 g) RAW Safeway 93/7 ground turkey browned in 1/2 Tbsp (6.75 g) extra virgin olive oil. Turkey choice confirmed by Luis (93/7, not the 99/1 breast). COOKED-WEIGHT RECIPE at Luis's request the same day: built on turkey_ground_safeway_cooked, so the batch weighs ~320 g (313 g cooked meat + the oil) and grams logged here are grams on the plate. The batch's nutrition is still exactly one raw pound of turkey plus the oil (minus small B-vitamin cooking losses). SERVING = 1/2 OF THE BATCH = ~160 g cooked. The 69 percent yield is a USDA-derived estimate; weigh a finished batch once and the cooked turkey entry can be recalibrated to the real number. ALL FAT COUNTED AS EATEN, including what renders into the pan. No salt or seasoning listed."
           }
         }
+      },
+      "2026-09-28": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_vanilla": 443,
+          "natures_own_keto_bread": 56,
+          "smuckers_sf_strawberry_preserves": 51,
+          "peanut_butter_delight_aldi": 14
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_vanilla": "2026-09-28T13:44:28.709Z",
+          "natures_own_keto_bread": "2026-09-28T13:45:05.488Z",
+          "smuckers_sf_strawberry_preserves": "2026-09-28T13:45:11.676Z",
+          "peanut_butter_delight_aldi": "2026-09-28T13:45:34.600Z"
+        },
+        "weight": 85.5,
+        "weightMeta": "2026-09-28T13:44:09.499Z"
       }
     },
     "savedItems": [],
@@ -4373,8 +4392,8 @@
       "chart-weight-chart": true,
       "section-weight-tracker": true,
       "targets-accumulation": true,
-      "catalog-ratio": true,
-      "details-recipe-maker": true
+      "details-recipe-maker": true,
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
