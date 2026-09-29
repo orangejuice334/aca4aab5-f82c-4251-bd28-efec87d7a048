@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-28T14:48:42.535Z",
-  "_gistSavedAt": "2026-09-28T13:45:55.464Z",
+  "_backupTakenAt": "2026-09-29T13:37:58.313Z",
+  "_gistSavedAt": "2026-09-29T13:17:29.292Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -4287,20 +4287,49 @@
         "toggles": {},
         "counters": {
           "slate_ultra_protein_vanilla": 443,
-          "natures_own_keto_bread": 56,
+          "natures_own_keto_bread": 112,
           "smuckers_sf_strawberry_preserves": 51,
-          "peanut_butter_delight_aldi": 14
+          "peanut_butter_delight_aldi": 14,
+          "dannon_light_fit_boston_cream": 150,
+          "yogurt_oikos_triple_zero_lemon": 150,
+          "nutricost_casein_vanilla": 32,
+          "tomato_hot_house": 100,
+          "laughing_cow_light": 38
         },
         "customs": [],
         "toggleMeta": {},
         "counterMeta": {
           "slate_ultra_protein_vanilla": "2026-09-28T13:44:28.709Z",
-          "natures_own_keto_bread": "2026-09-28T13:45:05.488Z",
+          "natures_own_keto_bread": "2026-09-28T18:46:05.403Z",
           "smuckers_sf_strawberry_preserves": "2026-09-28T13:45:11.676Z",
-          "peanut_butter_delight_aldi": "2026-09-28T13:45:34.600Z"
+          "peanut_butter_delight_aldi": "2026-09-28T13:45:34.600Z",
+          "dannon_light_fit_boston_cream": "2026-09-28T15:14:58.807Z",
+          "yogurt_oikos_triple_zero_lemon": "2026-09-28T15:15:04.528Z",
+          "nutricost_casein_vanilla": "2026-09-28T15:15:13.454Z",
+          "tomato_hot_house": "2026-09-28T18:46:34.639Z",
+          "laughing_cow_light": "2026-09-28T18:47:01.519Z"
         },
         "weight": 85.5,
         "weightMeta": "2026-09-28T13:44:09.499Z"
+      },
+      "2026-09-29": {
+        "toggles": {},
+        "counters": {
+          "natures_own_keto_bread": 61.6,
+          "smuckers_sf_strawberry_preserves": 56.1,
+          "slate_ultra_protein_vanilla": 443,
+          "peanut_butter_delight_aldi": 16
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "natures_own_keto_bread": "2026-09-29T13:15:58.311Z",
+          "smuckers_sf_strawberry_preserves": "2026-09-29T13:16:06.678Z",
+          "slate_ultra_protein_vanilla": "2026-09-29T13:16:15.077Z",
+          "peanut_butter_delight_aldi": "2026-09-29T13:16:39.135Z"
+        },
+        "weight": 85.2,
+        "weightMeta": "2026-09-29T12:32:42.517Z"
       }
     },
     "savedItems": [],
@@ -4389,11 +4418,10 @@
       "details-add-new-item": true,
       "supplements-water": true,
       "history": true,
-      "chart-weight-chart": true,
-      "section-weight-tracker": true,
       "targets-accumulation": true,
       "details-recipe-maker": true,
-      "catalog-ratio": true
+      "catalog-ratio": true,
+      "today-log": true
     },
     "userCatalog": {
       "items": {
@@ -15580,6 +15608,7 @@
           "label": "Uncategorized"
         }
       ]
-    }
+    },
+    "chartRangeDays": 90
   }
 }
