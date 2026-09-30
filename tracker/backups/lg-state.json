@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-29T13:37:58.313Z",
-  "_gistSavedAt": "2026-09-29T13:17:29.292Z",
+  "_backupTakenAt": "2026-09-30T13:13:48.041Z",
+  "_gistSavedAt": "2026-09-30T13:12:25.218Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -4318,7 +4318,14 @@
           "natures_own_keto_bread": 61.6,
           "smuckers_sf_strawberry_preserves": 56.1,
           "slate_ultra_protein_vanilla": 443,
-          "peanut_butter_delight_aldi": 16
+          "peanut_butter_delight_aldi": 16,
+          "laughing_cow_light": 38,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "protein_casein_dymatize_elite_cookies_cream": 34,
+          "dannon_light_fit_boston_cream": 150,
+          "macadamia_dry_roasted_365": 20,
+          "slate_ultra_protein_chocolate": 443,
+          "guisantes_con_jamon": 459.7
         },
         "customs": [],
         "toggleMeta": {},
@@ -4326,10 +4333,92 @@
           "natures_own_keto_bread": "2026-09-29T13:15:58.311Z",
           "smuckers_sf_strawberry_preserves": "2026-09-29T13:16:06.678Z",
           "slate_ultra_protein_vanilla": "2026-09-29T13:16:15.077Z",
-          "peanut_butter_delight_aldi": "2026-09-29T13:16:39.135Z"
+          "peanut_butter_delight_aldi": "2026-09-29T13:16:39.135Z",
+          "laughing_cow_light": "2026-09-29T14:57:19.943Z",
+          "david_bar_choc_chip_cookie_dough": "2026-09-29T21:43:26.231Z",
+          "protein_casein_dymatize_elite_cookies_cream": "2026-09-29T21:44:31.497Z",
+          "dannon_light_fit_boston_cream": "2026-09-29T21:44:47.305Z",
+          "macadamia_dry_roasted_365": "2026-09-29T21:56:15.143Z",
+          "slate_ultra_protein_chocolate": "2026-09-30T00:27:05.127Z",
+          "guisantes_con_jamon": "2026-09-30T01:12:13.580Z"
         },
         "weight": 85.2,
-        "weightMeta": "2026-09-29T12:32:42.517Z"
+        "weightMeta": "2026-09-29T20:01:28.416Z",
+        "recipeSnapshots": {
+          "guisantes_con_jamon": {
+            "name": "Guisantes con jamón",
+            "category": "recipes",
+            "defaultMeasuredIn": "units",
+            "ingredients": [
+              {
+                "itemKey": "peas_frozen_seasons_choice",
+                "amount": 340,
+                "label": "1 bag frozen peas, 12 oz (340 g)"
+              },
+              {
+                "itemKey": "potato_raw",
+                "amount": 118,
+                "label": "118 g potato"
+              },
+              {
+                "itemKey": "onion_raw",
+                "amount": 82,
+                "label": "82 g onion"
+              },
+              {
+                "itemKey": "evoo_tsp",
+                "amount": 9.16,
+                "label": "10 ml EVOO (9.16 g)"
+              },
+              {
+                "itemKey": "water_recipe",
+                "amount": 400,
+                "label": "400 ml water"
+              },
+              {
+                "itemKey": "ham_boneless_aldi",
+                "amount": 430,
+                "label": "430 g ham, Aldi fully cooked"
+              }
+            ],
+            "displayUnits": [
+              {
+                "label": "full recipe",
+                "amount": 1379.16,
+                "unit": "g",
+                "locked": true,
+                "multiplier": 1379.16
+              },
+              {
+                "label": "1/3 of recipe (460 g)",
+                "amount": 459.7,
+                "unit": "g",
+                "default": true,
+                "multiplier": 459.7
+              }
+            ],
+            "notes": "Luis's peas-and-ham stew, added 2026-09-29 (name chosen by Claude; he didn't give one). Ingredients as given: one full 12 oz (340 g) bag of Season's Choice frozen peas, 118 g potato, 82 g onion, 10 ml EVOO (9.16 g at 0.916 g/ml), 400 ml water, 430 g Aldi fully cooked ham. SERVING = 1/3 OF THE RECIPE. NO COOKING ADJUSTMENTS, at Luis's instruction ('fully cooked so do not subtract anything'): the ham is used at its as-sold weight and nothing is deducted for water that boils off, so the batch weight is the plain ingredient sum of 1379 g including the 400 g of water. The default 1/3 unit gives exactly one third of the pot either way; if logging by plate weight after a long simmer, a plate would be slightly richer per gram than this entry assumes. No added salt listed - sodium is the ham (most of it), the peas, and trace from the vegetables. Vitamin C, folate and B1 from the peas and potato are partly lost to heat but the broth is eaten, so no losses applied beyond what is baked into the base items."
+          }
+        }
+      },
+      "2026-09-30": {
+        "toggles": {},
+        "counters": {
+          "macadamia_dry_roasted_365": 16,
+          "tj_tiny_fruity_cuties": 36,
+          "slate_ultra_protein_vanilla": 443,
+          "protein_casein_dymatize_elite_cookies_cream": 17
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "macadamia_dry_roasted_365": "2026-09-30T13:11:44.218Z",
+          "tj_tiny_fruity_cuties": "2026-09-30T13:10:49.857Z",
+          "slate_ultra_protein_vanilla": "2026-09-30T13:10:56.867Z",
+          "protein_casein_dymatize_elite_cookies_cream": "2026-09-30T13:11:11.046Z"
+        },
+        "weight": 85.1,
+        "weightMeta": "2026-09-30T13:12:23.251Z"
       }
     },
     "savedItems": [],
@@ -4414,14 +4503,14 @@
       "catalog-archive": true,
       "section-mood-tracker": true,
       "today-customs": true,
-      "profile": true,
       "details-add-new-item": true,
-      "supplements-water": true,
       "history": true,
       "targets-accumulation": true,
       "details-recipe-maker": true,
-      "catalog-ratio": true,
-      "today-log": true
+      "supplements-water": true,
+      "today-log": true,
+      "profile": true,
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
@@ -7323,11 +7412,11 @@
           "displayUnits": [
             {
               "label": "full recipe",
-              "amount": 553,
+              "amount": 644.5,
               "unit": "g",
               "default": true,
               "locked": true,
-              "multiplier": 553
+              "multiplier": 644.5
             }
           ],
           "defaultMeasuredIn": "units"
@@ -7961,6 +8050,59 @@
           ],
           "defaultMeasuredIn": "g"
         },
+        "guisantes_con_jamon": {
+          "name": "Guisantes con jamón",
+          "category": "recipes",
+          "defaultMeasuredIn": "units",
+          "ingredients": [
+            {
+              "itemKey": "peas_frozen_seasons_choice",
+              "amount": 340,
+              "label": "1 bag frozen peas, 12 oz (340 g)"
+            },
+            {
+              "itemKey": "potato_raw",
+              "amount": 118,
+              "label": "118 g potato"
+            },
+            {
+              "itemKey": "onion_raw",
+              "amount": 82,
+              "label": "82 g onion"
+            },
+            {
+              "itemKey": "evoo_tsp",
+              "amount": 9.16,
+              "label": "10 ml EVOO (9.16 g)"
+            },
+            {
+              "itemKey": "water_recipe",
+              "amount": 400,
+              "label": "400 ml water"
+            },
+            {
+              "itemKey": "ham_boneless_aldi",
+              "amount": 430,
+              "label": "430 g ham, Aldi fully cooked"
+            }
+          ],
+          "displayUnits": [
+            {
+              "label": "full recipe",
+              "amount": 1379.2,
+              "unit": "g",
+              "locked": true,
+              "multiplier": 1379.2
+            },
+            {
+              "label": "1/3 of recipe (460 g)",
+              "amount": 459.7,
+              "unit": "g",
+              "default": true,
+              "multiplier": 459.7
+            }
+          ]
+        },
         "ham_black_forest_365": {
           "name": "Ham Black Forest uncured (365 Whole Foods)",
           "category": "items",
@@ -8088,6 +8230,70 @@
           "notes": "Label-derived (high confidence): kcal, macros, sodium (440mg/56g = HIGH at 7.86 mg/g), cholesterol, iron. Estimated from USDA cooked ham composition (high confidence — well-characterized): pork excellent in thiamine (B1 ~0.5 mg/100g, one of best dietary sources), niacin (B3 ~4.5 mg/100g), B12, selenium, phosphorus, choline. Water ~72% (highly hydrated due to phosphate brining). Purines moderate ~150 mg/100g. Ingredients: ham, water, less than 2% of sea salt, organic sugar, dextrose, sodium phosphate, dried vinegar, sodium erythorbate (antioxidant — reduces nitrosamine formation from nitrite), sodium nitrite (preservative), spice extracts. PROCESSED MEAT — WHO IARC Group 1 carcinogen (colorectal cancer association at ≥50g/day chronic intake). Sodium-dense; flag for gout management given moderate purine content + documented prior history.",
           "brand": "Aldi"
         },
+        "ham_boneless_aldi": {
+          "name": "Ham boneless fully cooked Aldi",
+          "brand": "Aldi",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.3095,
+          "p": 0.2024,
+          "fat": 0.0536,
+          "sf": 0.0179,
+          "transFat": 0,
+          "monounsat": 0.024,
+          "polyunsat": 0.0055,
+          "cholesterol": 0.5357,
+          "sodium": 4.7619,
+          "carbs": 0.0238,
+          "sugar": 0.0119,
+          "addedSugar": 0.011904761904761904,
+          "vitD": 0.0036,
+          "calcium": 0.2381,
+          "iron": 0.0071,
+          "potassium": 5.2381,
+          "magnesium": 0.18,
+          "phosphorus": 2.8,
+          "zinc": 0.02,
+          "copper": 0.0008,
+          "manganese": 0.0001,
+          "selenium": 0.25,
+          "iodine": 0.02,
+          "water": 0.69,
+          "vitC": 0.05,
+          "vitE": 0.0025,
+          "b1": 0.0065,
+          "b2": 0.002,
+          "b3": 0.045,
+          "b5": 0.005,
+          "b6": 0.0035,
+          "b9": 0.03,
+          "b12": 0.006,
+          "choline": 0.75,
+          "omega3": 0.5,
+          "purines": 1.1,
+          "displayUnits": [
+            {
+              "label": "1 lb (454 g)",
+              "amount": 454,
+              "unit": "g",
+              "multiplier": 454
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            },
+            {
+              "label": "3 slices (84 g)",
+              "amount": 84,
+              "unit": "g",
+              "default": true,
+              "multiplier": 84
+            }
+          ],
+          "notes": "Aldi boneless fully cooked ham (whole ham with warming instructions and a brown-sugar mustard glaze recipe on the wrap; brand panel not photographed), 'varied servings per container'. Cured with celery powder and cherry powder rather than added nitrite. LABEL per 3 slices (84 g): 110 kcal, 4.5 g fat (1.5 sat, 0 trans), 45 mg cholesterol, 400 mg sodium, 2 g carb, 0 fiber, 1 g total sugars (1 g added), 17 g protein, vitD 0.3 mcg, calcium 20 mg, iron 0.6 mg, potassium 440 mg. HIGH CONFIDENCE. kcal not corrected - pure muscle protein, no fiber; 17x4 + 4.5x9 + 2x4 = 116.5 printed as 110 is within label rounding. SODIUM IS UNUSUALLY LOW FOR HAM: 476 mg/100 g versus ~1100-1300 for typical cured ham (the Smithfield ham steak in this catalog is ~1200). Potassium lactate and potassium chloride stand in for part of the salt, which is also why potassium is high at 524 mg/100 g. Not a duplicate of ham_steak_smithfield_hickory despite the identical 110 kcal per 84 g - every other line differs. UNLABELED MICROS from USDA extra-lean cured ham, roasted. Phosphorus raised to ~280 mg/100 g for the added sodium phosphate. Vitamin C ~5 mg/100 g is a guess for the cherry powder (an ascorbate source used to speed curing, mostly consumed in the process). MEDIUM-LOW CONFIDENCE. PURINES ~110 mg/100 g, MODERATE class, relevant to uric-acid/gout history. MEDIUM-LOW. Fully cooked as sold - these values are the as-eaten weight, no cooking yield applies."
+        },
         "ham_roll": {
           "name": "ham roll",
           "category": "recipes",
@@ -8181,41 +8387,56 @@
           "brand": "Prime Fresh Delicatessen by Smithfield",
           "defaultMeasuredIn": "g",
           "kcal": 1.125,
-          "fat": 0.030357142857142857,
-          "sf": 0.008928571428571428,
+          "fat": 0.0304,
+          "sf": 0.0089,
           "transFat": 0,
-          "p": 0.17857142857142858,
-          "carbs": 0.03571428571428571,
-          "fiber": 0,
-          "sugar": 0.017857142857142856,
+          "p": 0.1786,
+          "carbs": 0.0357,
+          "sugar": 0.0179,
           "addedSugar": 0.017857142857142856,
-          "cholesterol": 0.5357142857142857,
-          "sodium": 10.178571428571429,
-          "iron": 0.0064285714285714285,
+          "cholesterol": 0.5357,
+          "sodium": 10.1786,
+          "iron": 0.0064,
           "calcium": 0.052,
           "potassium": 5,
           "magnesium": 0.191,
           "phosphorus": 2.6,
           "zinc": 0.0152,
           "selenium": 0.317,
-          "copper": 0.00043,
+          "copper": 0.0004,
           "manganese": 0.0001,
           "iodine": 0.0122,
-          "vitA": 0,
           "vitD": 0.0061,
           "vitE": 0.003,
           "vitK": 0.0043,
-          "b1": 0.00348,
-          "b2": 0.00261,
+          "b1": 0.0035,
+          "b2": 0.0026,
           "b3": 0.0565,
-          "b5": 0.00696,
-          "b6": 0.00391,
-          "b9": 0,
-          "b12": 0.00348,
+          "b5": 0.007,
+          "b6": 0.0039,
+          "b12": 0.0035,
           "choline": 0.626,
           "water": 0.748,
           "purines": 1.2,
           "displayUnits": [
+            {
+              "label": "1 package (16 oz, 454 g)",
+              "amount": 454,
+              "unit": "g",
+              "multiplier": 454
+            },
+            {
+              "label": "4 slices (112 g)",
+              "amount": 112,
+              "unit": "g",
+              "multiplier": 112
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            },
             {
               "label": "2 slices (56 g)",
               "amount": 56,
@@ -8228,24 +8449,6 @@
               "amount": 28,
               "unit": "g",
               "multiplier": 28
-            },
-            {
-              "label": "4 slices (112 g)",
-              "amount": 112,
-              "unit": "g",
-              "multiplier": 112
-            },
-            {
-              "label": "1 package (16 oz, 454 g)",
-              "amount": 454,
-              "unit": "g",
-              "multiplier": 454
-            },
-            {
-              "label": "100 g",
-              "amount": 100,
-              "unit": "g",
-              "multiplier": 100
             }
           ],
           "notes": "Prime Fresh Delicatessen by Smithfield, SMOKED HAM with natural juices, 96% fat free, FAMILY SIZE, net wt 16 oz (1 lb / 454 g). Old-format label (Calories from Fat, Sugars, Vitamin A/C %). Serving 2 slices (56 g), 8 servings per container => 16 slices, ~28 g each. LABEL-EXACT per 56 g (high confidence): 60 kcal, 15 kcal from fat, 2 g fat (0.5 g sat, 0 trans), 30 mg cholesterol, 570 mg sodium, 2 g total carb, 1 g sugars, 10 g protein, vit A 0%, iron 2%. Iron converted at the OLD 18 mg RDI: 2% = 0.36 mg per 56 g. Label states it is not a significant source of dietary fiber, vitamin C or calcium -- fiber set to 0, calcium taken from USDA. CALORIE RECONCILIATION (+3 kcal correction applied, 60 -> 63 per 56 g): (1) Strict Atwater on the DECLARED macros gives 2x9 + 2x4 + 10x4 = 18 + 8 + 40 = 66 kcal, 10% above label. (2) But 'Calories from Fat 15' pins unrounded fat at 15/9 = 1.67 g, not 2.0 -- so fat contributes 15, not 18. (3) The 2 g total carb is not all sugar: label sugars are 1 g, and the cure contains POTASSIUM LACTATE, whose lactate counts in carbohydrate-by-difference at ~3.6 kcal/g rather than 4. So 1 g sugar x 4 = 4.0 plus ~1 g lactate x 3.6 = 3.6, total 7.6 kcal from carb. (4) Rebuild: 15.3 (fat, 1.7 g) + 40.0 (protein, 10 g) + 7.6 (carb) = 62.9 => 63 kcal per 56 g = 1.125 kcal/g. FAT STORED AT THE UNROUNDED 1.7 g, not the declared 2 g, so the item is internally consistent with that kcal. CONFIDENCE LOW-MEDIUM on the correction: USDA's independent profile for this exact food class scales to 60.9 kcal per 56 g, which supports the label's 60 outright, and the gap is entirely attributable to this product carrying ~1.6 g more carb per serving than the USDA sample. Keeping 60 would also be defensible; 63 is the middle course and errs upward. ADDED SUGAR: all 1 g of sugars is from the cure (sugar is an ingredient; ham contributes no native sugar), so addedSugar = total sugars. OFF-LABEL MICROS from USDA SR Legacy 173863 / SR 07028, 'Ham, sliced, pre-packaged, deli meat (96% fat free, water added)' -- an exact class match, and it agrees closely with the label on shared anchors (kcal 108.7 vs 107.1 per 100 g, protein 17.0 vs 17.9 g, sodium 945 vs 1018 mg). MEDIUM-HIGH confidence: magnesium 19.1 mg/100 g, phosphorus 252 (stored slightly higher at 260 for the added sodium phosphates), zinc 1.52, calcium 5.2, copper 0.043 mg, selenium 31.7 mcg, iodine 1.22 mcg, B1 0.348, B2 0.261, B3 5.65, B5 0.696, B6 0.391 mg, B9 0, B12 0.348 mcg, choline 62.6 mg, vit D 0.61 mcg, vit E 0.30 mg, vit K 0.43 mcg (as MK-4), water 74.8%. Pork is an excellent thiamine (B1) source -- one serving carries roughly 16% DV despite only 63 kcal. POTASSIUM stored at 500 mg/100 g vs USDA's 463 -- raised because POTASSIUM LACTATE is an explicit cure ingredient here and the USDA sample may not carry it. LOW-MEDIUM confidence, plausible range 460-600. PURINES ~120 mg/100 g -- moderate, and lower per gram than solid ham because the product is brine-extended to ~75% water. LOW-MEDIUM confidence. SODIUM IS THE HEADLINE NUMBER: 570 mg per 56 g serving = 1018 mg/100 g, 24% DV for two slices. Among the most sodium-dense items in this catalog on a per-calorie basis (16 mg sodium per kcal). Ingredients: cured with water, contains 2% or less of salt, sugar, potassium lactate, sodium phosphates, sodium diacetate, sodium erythorbate (antioxidant, limits nitrosamine formation), sodium nitrite (preservative). PROCESSED MEAT -- IARC Group 1, colorectal association at chronic intake around 50 g/day. Protein is complete pork muscle protein, no quality downgrade. Use within 5 days of opening. Package photographed use-by SEP 03 2026."
@@ -8772,6 +8975,73 @@
           "defaultMeasuredIn": "g",
           "notes": "Label-derived (high confidence): kcal, p, carbs, fiber, sugar, fat, polyunsat, monounsat, sodium, iron (fortified via ferric phosphate, 80% DV/serving), potassium, calcium. Sat fat label 0g but contains canola oil; est ~0.1g/serving (sub-threshold rounding). Estimated from USDA whole oats + rice + blueberry composition (lower confidence): B-vitamins, choline, Mg, P, Zn, Se, Cu, Mn, iodine, Mo, purines, water content. Ingredients: whole oats, rice, blueberry granola clusters, cane sugar, canola oil, blueberries, elderberry juice (color), salt, natural flavors, iron (ferric phosphate), mixed tocopherols (vit E).",
           "brand": "Kashi"
+        },
+        "kashi_strawberry_banana_loops": {
+          "name": "Cereal Strawberry Banana Smoothie Loops Kashi",
+          "brand": "Kashi",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "ingredients": "Whole grain oat flour, whole wheat flour, cane sugar, degerminated yellow corn meal, oat fiber, banana puree, strawberry puree, expeller pressed canola oil, salt, natural flavors, vegetable juice for color, mixed tocopherols (vitamin E) for freshness.",
+          "kcal": 3.6842105263157894,
+          "p": 0.07894736842105263,
+          "fat": 0.039473684210526314,
+          "sf": 0.006578947368421052,
+          "transFat": 0,
+          "polyunsat": 0.013157894736842105,
+          "monounsat": 0.013157894736842105,
+          "cholesterol": 0,
+          "sodium": 3.9473684210526314,
+          "carbs": 0.8421052631578947,
+          "fiber": 0.10526315789473684,
+          "sugar": 0.23684210526315788,
+          "addedSugar": 0.21052631578947367,
+          "vitD": 0,
+          "calcium": 0.2631578947368421,
+          "iron": 0.021052631578947368,
+          "potassium": 2.6315789473684212,
+          "magnesium": 0.87,
+          "phosphorus": 2.5,
+          "zinc": 0.018,
+          "copper": 0.0025,
+          "manganese": 0.027,
+          "selenium": 0.3,
+          "b1": 0.0025,
+          "b2": 0.0008,
+          "b3": 0.02,
+          "b5": 0.006,
+          "b6": 0.0015,
+          "b9": 0.25,
+          "b12": 0,
+          "vitA": 0,
+          "vitC": 0,
+          "vitE": 0.015,
+          "vitK": 0.03,
+          "choline": 0.2,
+          "omega3": 2,
+          "water": 0.03,
+          "purines": 0.3,
+          "displayUnits": [
+            {
+              "label": "1 cup (38 g)",
+              "amount": 38,
+              "unit": "g",
+              "multiplier": 38,
+              "default": true
+            },
+            {
+              "label": "box 12.7 oz (360 g)",
+              "amount": 360,
+              "unit": "g",
+              "multiplier": 360
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Kashi Strawberry Banana Smoothie Loops, whole grain, vegan, 12.7 oz (360 g) box, about 9 servings. LABEL per 1 cup (38 g), from the Amazon listing: 140 kcal, 1.5 g fat (0 sat, 0 trans, 0.5 poly, 0.5 mono), 0 cholesterol, 150 mg sodium, 32 g carb, 4 g fiber (1 soluble, 3 insoluble), 9 g total sugars (8 added), 3 g protein, vitD 0, calcium 10 mg, iron 0.8 mg, potassium 100 mg. HIGH CONFIDENCE. Contains wheat. Not fortified. kcal NOT CORRECTED, same call as Kashi Berry Fruitful: 3x4 + 1.5x9 + 32x4 = 153.5, and the label's 140 only closes with the 4 g of fiber excluded (137.5). Adding it back at the catalog's rates - 1 g soluble at ~2 kcal/g, 3 g insoluble oat fiber at ~0.5 - gives ~141, so the label is already right. Saturated fat restored from 0 to 0.25 g per serving (oat lipid plus canola; label rounds under 0.5 g to 0). UNLABELED MICROS modeled from whole oat and whole wheat flour at ~60 percent of the product, checked against the label's iron (2.1 mg/100 g versus ~2.5 predicted). MEDIUM-LOW CONFIDENCE. Vitamin E ~1.5 mg/100 g reflects the added mixed tocopherols and canola oil; omega-3 ~200 mg/100 g is canola ALA. PURINES ~30 mg/100 g, very low. LOW."
         },
         "kcl_morton": {
           "name": "Salt substitute potassium chloride",
@@ -11148,6 +11418,71 @@
           "notes": "Dry roasted peanuts, lightly salted (USDA reference per 100 g: 585 kcal · 23.7 g protein · 49.7 g fat · 21.5 g carbs · 8 g fiber · 410 mg sodium). Fistful weight estimated at 30 g (about 1 oz, ~25-35 peanuts). k/g P ~24.7 — calorie-dense, protein per calorie is poor. Strong vitE, niacin (b3), magnesium, potassium contributor. Sodium varies by brand; unsalted ~0.05 mg/g, heavily salted ~8 mg/g.",
           "purines": 0.75
         },
+        "peas_frozen_seasons_choice": {
+          "name": "Peas sweet garden frozen Season's Choice",
+          "brand": "Season's Choice (Aldi)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "ingredients": "Peas.",
+          "kcal": 0.706,
+          "p": 0.047058823529411764,
+          "fat": 0.004,
+          "sf": 0.0007,
+          "transFat": 0,
+          "carbs": 0.1411764705882353,
+          "fiber": 0.058823529411764705,
+          "sugar": 0.047058823529411764,
+          "addedSugar": 0,
+          "cholesterol": 0,
+          "sodium": 0.7058823529411765,
+          "potassium": 1.1176470588235294,
+          "calcium": 0.23529411764705882,
+          "iron": 0.011764705882352941,
+          "magnesium": 0.22,
+          "phosphorus": 0.77,
+          "zinc": 0.007,
+          "copper": 0.0013,
+          "manganese": 0.0032,
+          "selenium": 0.01,
+          "water": 0.795,
+          "vitA": 0.6,
+          "vitC": 0.18,
+          "vitD": 0,
+          "vitE": 0.002,
+          "vitK": 0.229,
+          "b1": 0.0026,
+          "b2": 0.001,
+          "b3": 0.019,
+          "b5": 0.0015,
+          "b6": 0.0012,
+          "b9": 0.61,
+          "b12": 0,
+          "choline": 0.275,
+          "omega3": 0.3,
+          "purines": 0.5,
+          "displayUnits": [
+            {
+              "label": "label serving (85 g)",
+              "amount": 85,
+              "unit": "g",
+              "multiplier": 85,
+              "default": true
+            },
+            {
+              "label": "bag 12 oz (340 g)",
+              "amount": 340,
+              "unit": "g",
+              "multiplier": 340
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Aldi Season's Choice Steamed Sweet Garden Peas, frozen steam-in-bag, 12 oz (340 g), Premium Grade A, no preservatives, 'no sodium added', product of USA. LABEL per serving (85 g; the cup fraction was cut off in the photo), 4 per bag: 70 kcal, 0 fat / sat / trans, 0 cholesterol, 60 mg sodium, 12 g carb, 5 g fiber, 4 g total sugars, 0 added, 4 g protein, vitD 0, calcium 20 mg, iron 1 mg, potassium 95 mg. HIGH CONFIDENCE. Sodium is natural plus blanching - frozen peas carry ~70-110 mg/100 g even with none added. kcal CORRECTED 82 -> 71/100 g: the label's 70 only closes with the 5 g of fiber charged at ~4 kcal/g (USDA's legume factor is 4.07), and pea fiber is recounted at ~2 kcal/g, so 10 kcal per 85 g subtracted. Same fix as the lentils. MEDIUM CONFIDENCE - pea hull fiber is partly insoluble, so the real figure could be a few kcal lower still. Fat restored from the label's 0 to 0.4 g/100 g (USDA, sub-threshold round-down). UNLABELED MICROS from USDA SR Legacy 11312 (peas, green, frozen, unprepared). MEDIUM CONFIDENCE. Vitamin A set to 60 mcg RAE/100 g, between USDA raw peas (38) and the frozen record (~105) - carotene content varies a lot by variety. Values are as bagged: boiling or stewing roughly halves the vitamin C (18 mg/100 g here) and leaches some folate into the liquid, which is recovered if the broth is eaten. PURINES ~50 mg/100 g, moderate for a vegetable but plant purines raise uric acid far less than meat. LOW CONFIDENCE."
+        },
         "planters_sea_salt_vinegar_peanuts": {
           "name": "Peanuts sea salt & vinegar Planters",
           "brand": "Planters",
@@ -11371,9 +11706,6 @@
           "transFat": 0,
           "monounsat": 0.0251,
           "polyunsat": 0.0062,
-          "carbs": 0,
-          "fiber": 0,
-          "sugar": 0,
           "addedSugar": 0,
           "cholesterol": 0.63,
           "sodium": 0.5,
@@ -11384,15 +11716,13 @@
           "phosphorus": 2.08,
           "zinc": 0.0184,
           "copper": 0.0007,
-          "manganese": 0.00012,
+          "manganese": 0.0001,
           "selenium": 0.303,
           "iodine": 0.05,
           "water": 0.726,
           "vitA": 0.02,
-          "vitC": 0,
           "vitD": 0.004,
           "vitE": 0.002,
-          "vitK": 0,
           "b1": 0.0086,
           "b2": 0.0028,
           "b3": 0.059,
@@ -11405,11 +11735,10 @@
           "purines": 1,
           "displayUnits": [
             {
-              "label": "100 g raw",
-              "amount": 100,
+              "label": "1 lb (454 g)",
+              "amount": 454,
               "unit": "g",
-              "multiplier": 100,
-              "default": true
+              "multiplier": 454
             },
             {
               "label": "1 chop, boneless (170 g)",
@@ -11418,10 +11747,11 @@
               "multiplier": 170
             },
             {
-              "label": "1 lb (454 g)",
-              "amount": 454,
+              "label": "100 g raw",
+              "amount": 100,
               "unit": "g",
-              "multiplier": 454
+              "default": true,
+              "multiplier": 100
             }
           ],
           "notes": "Raw boneless pork loin, external fat trimmed off. USDA SR Legacy 10020 (pork, fresh, loin, whole, separable lean only, raw) per 100 g: 143 kcal, 21.43 P, 5.66 fat (1.95 sat, 2.51 mono, 0.62 poly), 63 mg cholesterol, 50 Na, 356 K, 208 P-phos, 24 Mg, 1.84 Zn, 0.81 Fe, 30.3 mcg Se, 0.86 B1, 0.28 B2, 5.9 B3, 0.45 B6, 0.6 mcg B12, 66 choline, 72.6 water. HIGH CONFIDENCE. No corrections - pure muscle protein, no carbohydrate. 'Lean only' is a laboratory trim; a home knife trim leaves a little more fat, so real fat is probably 6-8 g/100 g rather than 5.7. MEDIUM on that. RAW-WEIGHT ITEM: cooked pork loin loses ~25-30 percent of its weight, so 100 g raw = ~72 g cooked; the catalog's pork_loin_lean_broiled entry is the cooked-weight sibling. PURINES ~100 mg/100 g raw - MODERATE class, relevant to uric-acid/gout history. MEDIUM-LOW."
@@ -12256,28 +12586,28 @@
           "brand": "Shamrock Farms",
           "category": "liquids",
           "defaultMeasuredIn": "g",
-          "kcal": 0.549828,
-          "p": 0.085911,
-          "fat": 0.010309,
-          "sf": 0.005155,
+          "kcal": 0.5498,
+          "p": 0.0859,
+          "fat": 0.0103,
+          "sf": 0.0052,
           "transFat": 0,
-          "carbs": 0.036082,
-          "fiber": 0.010309,
-          "sugar": 0.022337,
+          "carbs": 0.0361,
+          "fiber": 0.0103,
+          "sugar": 0.0223,
           "addedSugar": 0,
-          "cholesterol": 0.07732,
-          "sodium": 1.030928,
+          "cholesterol": 0.0773,
+          "sodium": 1.0309,
           "water": 0.85,
-          "vitD": 0.005498,
-          "calcium": 2.216495,
-          "iron": 0.006186,
-          "potassium": 2.061856,
-          "vitA": 0.429553,
-          "b1": 0.000155,
-          "b2": 0.000567,
-          "phosphorus": 1.37457,
-          "magnesium": 0.128866,
-          "b12": 0.004467,
+          "vitD": 0.0055,
+          "calcium": 2.2165,
+          "iron": 0.0062,
+          "potassium": 2.0619,
+          "vitA": 0.4296,
+          "b1": 0.0002,
+          "b2": 0.0006,
+          "phosphorus": 1.3746,
+          "magnesium": 0.1289,
+          "b12": 0.0045,
           "iodine": 0.17,
           "zinc": 0.004,
           "selenium": 0.034,
@@ -13750,23 +14080,19 @@
           "brand": "Trader Joe's",
           "category": "items",
           "defaultMeasuredIn": "g",
-          "ingredients": "Trout fillets, canola oil, salt.",
-          "kcal": 1.8181818181818181,
-          "p": 0.2597402597402597,
-          "fat": 0.09090909090909091,
-          "sf": 0.006493506493506494,
+          "kcal": 1.8182,
+          "p": 0.2597,
+          "fat": 0.0909,
+          "sf": 0.0065,
           "transFat": 0,
           "polyunsat": 0.025974025974025976,
           "monounsat": 0.05194805194805195,
-          "cholesterol": 0.5844155844155844,
-          "sodium": 6.363636363636363,
-          "carbs": 0,
-          "fiber": 0,
-          "sugar": 0,
+          "cholesterol": 0.5844,
+          "sodium": 6.3636,
           "addedSugar": 0,
-          "potassium": 3.6623376623376624,
+          "potassium": 3.6623,
           "calcium": 0.1,
-          "iron": 0.004675324675324675,
+          "iron": 0.0047,
           "magnesium": 0.33,
           "phosphorus": 3,
           "zinc": 0.006,
@@ -13776,8 +14102,7 @@
           "iodine": 0.04,
           "water": 0.62,
           "vitA": 0.9,
-          "vitC": 0,
-          "vitD": 0.07792207792207792,
+          "vitD": 0.0779,
           "vitE": 0.03,
           "vitK": 0.008,
           "b1": 0.001,
@@ -13792,6 +14117,12 @@
           "purines": 1.6,
           "displayUnits": [
             {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            },
+            {
               "label": "1 can drained (77 g)",
               "amount": 77,
               "unit": "g",
@@ -13803,12 +14134,6 @@
               "amount": 38.5,
               "unit": "g",
               "multiplier": 38.5
-            },
-            {
-              "label": "100 g",
-              "amount": 100,
-              "unit": "g",
-              "multiplier": 100
             }
           ],
           "notes": "Trader Joe's Farm Raised Hardwood Smoked Trout Fillets, skinless, in canola oil. Product of Germany (DE NI 27472 EG), SKU 44405, UPC 00444057. Net 3.9 oz (110 g), drained 2.7 oz (77 g). Ingredients: trout fillets, canola oil, salt. LABEL per 1 can drained (77 g): 140 kcal, 7 g fat (0.5 sat, 0 trans, 2 poly, 4 mono), 45 mg cholesterol, 490 mg sodium, 0 carb / fiber / sugar, 20 g protein, vitD 30 percent DV (6 mcg), calcium 0 percent, iron 2 percent (0.36 mg), potassium 6 percent (282 mg). THIS ENTRY = FISH ONLY, oil poured off; sister entry tj_smoked_trout_undrained is the whole can with its oil. Label macros used as-is. HIGH CONFIDENCE. Atwater check 20x4 + 7x9 = 143, printed as 140 under the round-to-nearest-10 rule; no carbs or fiber, so nothing to correct. Drained fish works out to 26 percent protein and 9 percent fat, in line with hot-smoked farmed rainbow trout (USDA cooked farmed trout is 23.8 protein / 7.4 fat before smoking concentrates it), so little canola clings to the drained fillets. UNLABELED MICROS backfilled from USDA FDC 173717/173718 (farmed rainbow trout raw and cooked) scaled ~1.1x for smoking moisture loss, then haircut for retort losses on B1/B6/B5. MEDIUM CONFIDENCE. Label wins where the two disagree: vitD 7.8 mcg/100 g here versus USDA's ~16-19 for fresh farmed trout, potassium 366 versus 450 (canning leaches it). CALCIUM set to 10 mg/100 g - label 0 percent means under ~13 mg per can, consistent with skinless boneless fillets. OMEGA-3 ~1100 mg/100 g, essentially all EPA+DHA (~850 mg per can). MEDIUM. PURINES ~160 mg/100 g (rainbow trout ~180 raw, some leaches into the covering oil) - MODERATE-HIGH class, relevant to uric-acid/gout history. LOW-MEDIUM CONFIDENCE. IODINE ~4 mcg/100 g, freshwater farmed fish is low. LOW. Farmed trout is very high in vitamin E (feed) and vitamin A; the 3 mg vitE and 90 mcg RAE per 100 g stored here follow USDA. MEDIUM."
@@ -13880,6 +14205,69 @@
             }
           ],
           "notes": "Trader Joe's Farm Raised Hardwood Smoked Trout Fillets, skinless, in canola oil. Product of Germany (DE NI 27472 EG), SKU 44405, UPC 00444057. Net 3.9 oz (110 g), drained 2.7 oz (77 g). Ingredients: trout fillets, canola oil, salt. LABEL per 1 can drained (77 g): 140 kcal, 7 g fat (0.5 sat, 0 trans, 2 poly, 4 mono), 45 mg cholesterol, 490 mg sodium, 0 carb / fiber / sugar, 20 g protein, vitD 30 percent DV (6 mcg), calcium 0 percent, iron 2 percent (0.36 mg), potassium 6 percent (282 mg). THIS ENTRY = WHOLE CAN EATEN WITH ITS OIL; sister entry tj_smoked_trout_drained is the fish alone. The label only covers the drained fish, so the 33 g of covering liquid (110 net - 77 drained) is MODELED: ~28 g canola oil + ~5 g aqueous exudate from the fish. Hot-smoked fish has already shed most of its free water before canning, so the liquid is assumed ~85 percent oil; published canned-fish-in-oil analyses run roughly 80-90 percent oil in the covering phase. Canola oil 8.84 kcal/g gives +248 kcal, so the can lands at ~388 kcal versus 140 drained - 2.8x. LOW-MEDIUM CONFIDENCE on the oil split; plausible range 26-31 g oil puts the can at 370-415 kcal. Nothing else in the tracker has this large a drained-vs-undrained gap, so log this entry only when the oil is actually eaten (soaked into bread, mixed into a salad). FAT PROFILE from USDA canola oil (7.4 percent sat, 63 percent mono, 28 percent poly, 9.1 percent ALA): 35 g fat per can, 2.6 sat, 21.7 mono, 9.9 poly. OMEGA-3 ~3400 mg per can, of which ~850 mg is fish EPA+DHA and ~2550 mg is canola ALA (only ~5-10 percent of ALA converts to EPA/DHA, so the two are not equivalent). VITAMIN E 7.2 mg and VITAMIN K 21 mcg per can come mostly from the oil. SODIUM 540 mg per can - label 490 mg for the fish plus an estimated ~50 mg of salt dissolved in the aqueous part of the liquid. LOW CONFIDENCE on the add-on. POTASSIUM likewise +18 mg for leached exudate. Water-soluble B vitamins and purines that leached into the liquid are recovered when undrained, so their absolute per-can amounts here equal the drained entry (not scaled down); if anything undrained is a little higher. PURINES ~123 mg per can, MODERATE-HIGH class, relevant to uric-acid/gout history. LOW-MEDIUM. All other micronutrient sourcing and confidence notes are as in the drained entry."
+        },
+        "tj_tiny_fruity_cuties": {
+          "name": "Cereal Tiny Fruity Cuties Trader Joe's",
+          "brand": "Trader Joe's",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 4.0476190476190474,
+          "p": 0.047619047619047616,
+          "fat": 0.07142857142857142,
+          "sf": 0.007142857142857143,
+          "transFat": 0,
+          "cholesterol": 0,
+          "sodium": 4.0476190476190474,
+          "carbs": 0.8333333333333334,
+          "fiber": 0.047619047619047616,
+          "sugar": 0.30952380952380953,
+          "addedSugar": 0.30952380952380953,
+          "vitD": 0,
+          "calcium": 0.07,
+          "iron": 0.1285714285714286,
+          "potassium": 1.9047619047619047,
+          "b1": 0.02,
+          "b3": 0.04047619047619048,
+          "b6": 0.006190476190476191,
+          "b9": 0.9523809523809523,
+          "b5": 0.01904761904761905,
+          "zinc": 0.0380952380952381,
+          "magnesium": 0.35,
+          "phosphorus": 1,
+          "copper": 0.001,
+          "manganese": 0.01,
+          "selenium": 0.08,
+          "b2": 0.0005,
+          "b12": 0,
+          "vitA": 0,
+          "vitC": 0,
+          "vitE": 0.01,
+          "vitK": 0.05,
+          "choline": 0.1,
+          "water": 0.03,
+          "purines": 0.25,
+          "displayUnits": [
+            {
+              "label": "1 1/4 cups (42 g)",
+              "amount": 42,
+              "unit": "g",
+              "multiplier": 42,
+              "default": true
+            },
+            {
+              "label": "box 12 oz (340 g)",
+              "amount": 340,
+              "unit": "g",
+              "multiplier": 340
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Trader Joe's Tiny Fruity Cuties, sweetened corn and oat cereal, naturally flavored, kosher, 12 oz (340 g) box, serves about 8. LABEL per 1 1/4 cups (42 g), from traderjoes.com: 170 kcal, 3 g fat (0 sat, 0 trans), 0 cholesterol, 170 mg sodium, 35 g carb, 2 g fiber, 13 g total sugars (all 13 added), 2 g protein, vitD 0, calcium 0 mg, iron 5.4 mg, potassium 80 mg, thiamin 0.84 mg, niacin 1.7 mg, B6 0.26 mg, folate 40 mcg DFE (25 mcg as folic acid), pantothenic acid 0.8 mg, zinc 1.6 mg. HIGH CONFIDENCE. FORTIFIED - iron, thiamin, niacin, B6, folate, B5 and zinc are added; that is why iron is 30 percent DV per bowl from a corn-and-oat base. kcal NOT CORRECTED: net-carb Atwater gives 2x4 + 3x9 + 33x4 = 167, plus 2 g fiber at ~2 kcal/g = 171, so the label's 170 already matches the catalog convention. ROUNDED-TO-ZERO restored: saturated fat 0.3 g per serving (label 0 g; ~10 percent of the 3 g fat is a typical vegetable oil), calcium ~3 mg per serving (label 0 mg). Oil type unknown - the ingredient list wasn't in the screenshots - so no mono/poly/omega-3 split is stored. UNLABELED MICROS modeled from corn and oat flours at ~60 percent of the product (the rest sugar and oil). Anything a fortified cereal would add is taken as absent if the panel doesn't list it (B2, B12, vitamins A and C). LOW-MEDIUM CONFIDENCE. PURINES ~25 mg/100 g, very low like all cereal grains. LOW."
         },
         "tofu_firm_half": {
           "name": "Tofu firm",
@@ -14533,10 +14921,10 @@
           "displayUnits": [
             {
               "label": "full recipe",
-              "amount": 320.05,
+              "amount": 320.1,
               "unit": "g",
               "locked": true,
-              "multiplier": 320.05
+              "multiplier": 320.1
             },
             {
               "label": "1/2 of batch (160 g cooked)",
@@ -14545,8 +14933,7 @@
               "default": true,
               "multiplier": 160
             }
-          ],
-          "notes": "Luis's plain ground turkey batch, added 2026-09-26: 1 lb (454 g) RAW Safeway 93/7 ground turkey browned in 1/2 Tbsp (6.75 g) extra virgin olive oil. Turkey choice confirmed by Luis (93/7, not the 99/1 breast). COOKED-WEIGHT RECIPE at Luis's request the same day: built on turkey_ground_safeway_cooked, so the batch weighs ~320 g (313 g cooked meat + the oil) and grams logged here are grams on the plate. The batch's nutrition is still exactly one raw pound of turkey plus the oil (minus small B-vitamin cooking losses). SERVING = 1/2 OF THE BATCH = ~160 g cooked. The 69 percent yield is a USDA-derived estimate; weigh a finished batch once and the cooked turkey entry can be recalibrated to the real number. ALL FAT COUNTED AS EATEN, including what renders into the pan. No salt or seasoning listed."
+          ]
         },
         "turkey_ground_safeway": {
           "name": "Turkey ground",
@@ -14613,53 +15000,53 @@
           "notes": "Legendary Foods Mini Protein Donuts+, Dipped Chocolate. 1 pack = 2 mini donuts (72g), 8 packs/box. Label per pack: 180 kcal, 6g fat (1g sat, 0 trans), 10mg chol, 330mg sodium (14% DV), 28g total carb, 12g fiber (43% DV), 11g erythritol, <1g total sugars, 0g added sugars, 22g protein, Vit D 0, Calcium 20%, Iron 3%, Potassium 10%. Front-of-pack: '5g net carbs' (28 total - 12 fiber - 11 erythritol). All label-exact. CARB BREAKDOWN CHECK: 28g total carb only itemizes to 23g (12 fiber + 11 erythritol + <1 sugar); the remaining ~4-5g is unlabeled but plausibly modified resistant tapioca starch and/or polydextrose (both mid-list ingredients) -- same 'undeclared carbohydrate' phenomenon as the think! bar in this catalog, just smaller in magnitude. kcal kept at label 180: protein 22x4 + fat 6x9 = 142, leaving 38 kcal for the whole 28g carb block (~1.4 kcal/g average) -- consistent with erythritol (~0.2), fiber (~0-2), and a modified/resistant starch fraction (~2-4) blended together. No further correction applied. Protein blend is milk protein isolate + dried egg whites + whey protein isolate + collagen peptides -- collagen (added separately, listed after the main blend) is INCOMPLETE protein (no tryptophan), so utilizable protein from the 22g total is somewhat below the nitrogen-based figure; no fixed downgrade applied, same treatment as other collagen-containing items in this catalog. Off-label micros ESTIMATED from the whey/milk/egg protein blend + cocoa: phosphorus ~250mg/pack (HIGH -- protein isolates; relevant if tracking phosphorus for kidney-function reasons, not otherwise noted as relevant here), Mg ~29mg, selenium ~11mcg, choline ~36mg (egg whites contribute little choline since it's concentrated in yolk, which is absent here). LOW-MEDIUM confidence. PURINES ~29mg/pack -- LOW-MODERATE (whey/milk/egg all low-purine; collagen negligible). Gout-favorable protein sources. SUGAR ALCOHOL LOAD: 11g erythritol/pack. Erythritol is absorbed in the small intestine and excreted in urine largely unchanged, so it causes far less GI distress than maltitol/sorbitol at equivalent doses (contrast the think! bar's 13g maltitol in this catalog) -- but very high erythritol intake has separate research raising questions about cardiovascular clotting markers, an active area of study as of the training cutoff. Ingredients: protein blend (milk protein isolate, dried egg whites, whey protein isolate), erythritol, polydextrose, water, collagen peptides, high oleic sunflower oil, glycerin, modified resistant tapioca starch, <2% of: cocoa processed with alkali, gum arabic, natural flavors, baking soda, potassium bicarbonate, salt, magnesium chloride, xanthan gum, citric acid, sunflower lecithin, sucrose fatty acid esters, sodium lactate, sucralose, guar gum. CONTAINS milk, eggs. Processed in a facility that also processes peanuts and tree nuts. Gluten free."
         },
         "turkey_ground_safeway_cooked": {
-          "kcal": 2.199855072463768,
-          "p": 0.27173913043478265,
-          "fat": 0.10347826086956523,
-          "sf": 0.03231884057971015,
-          "cholesterol": 1.1646376811594203,
-          "sodium": 1.2940579710144928,
-          "vitA": 0.07246376811594205,
-          "vitE": 0.0037681159420289855,
-          "vitK": 0.028985507246376815,
-          "b1": 0.0005797101449275363,
-          "b2": 0.002347826086956522,
-          "b3": 0.07391304347826086,
-          "b5": 0.01108695652173913,
-          "b6": 0.005797101449275363,
-          "b7": 0.026086956521739136,
-          "b9": 0.061594202898550734,
-          "b12": 0.018260869565217393,
-          "choline": 1.0869565217391306,
-          "calcium": 0.38826086956521744,
-          "iron": 0.014202898550724638,
-          "magnesium": 0.3768115942028986,
-          "phosphorus": 3.1884057971014497,
-          "potassium": 3.6231884057971016,
-          "zinc": 0.03623188405797102,
-          "selenium": 0.3623188405797102,
-          "copper": 0.0008695652173913044,
-          "iodine": 0.10144927536231886,
-          "omega3": 0.1449275362318841,
-          "purines": 1.2318840579710146,
-          "water": 0.6029492499202043,
+          "kcal": 2.1999,
+          "p": 0.2717,
+          "fat": 0.1035,
+          "sf": 0.0323,
+          "cholesterol": 1.1646,
+          "sodium": 1.2941,
+          "vitA": 0.0725,
+          "vitE": 0.0038,
+          "vitK": 0.029,
+          "b1": 0.0006,
+          "b2": 0.0023,
+          "b3": 0.0739,
+          "b5": 0.0111,
+          "b6": 0.0058,
+          "b7": 0.0261,
+          "b9": 0.0616,
+          "b12": 0.0183,
+          "choline": 1.087,
+          "calcium": 0.3883,
+          "iron": 0.0142,
+          "magnesium": 0.3768,
+          "phosphorus": 3.1884,
+          "potassium": 3.6232,
+          "zinc": 0.0362,
+          "selenium": 0.3623,
+          "copper": 0.0009,
+          "iodine": 0.1014,
+          "omega3": 0.1449,
+          "purines": 1.2319,
+          "water": 0.6029,
           "name": "Turkey ground 93/7 cooked (Safeway)",
           "brand": "Safeway",
           "category": "items",
           "defaultMeasuredIn": "g",
           "displayUnits": [
             {
+              "label": "1 lb raw, cooked (313 g)",
+              "amount": 313.3,
+              "unit": "g",
+              "multiplier": 313.3
+            },
+            {
               "label": "100 g cooked",
               "amount": 100,
               "unit": "g",
               "default": true,
               "multiplier": 100
-            },
-            {
-              "label": "1 lb raw, cooked (313 g)",
-              "amount": 313.3,
-              "unit": "g",
-              "multiplier": 313.3
             },
             {
               "label": "1/4 lb raw, cooked (78 g)",
@@ -14994,6 +15381,70 @@
             }
           ],
           "notes": "Vita Coco Pineapple coconut water (from concentrate), 500 mL carton = ~2 servings of 240 mL. Label columns were scrambled in photo; realigned against known coconut-water profile. PER CONTAINER (500 mL): 120 kcal, 0g protein, 28g carb, 27g sugar (10g ADDED — cane sugar added, plus coconut-water intrinsic sugars), 115mg sodium, K 979mg (20% DV — headline electrolyte), vit C 615mg (680% DV — added ascorbic acid), Ca 75mg (6%), Mg 40mg (10%), P 40mg (4%), 0.5g fat. Container mass assumed ~510g (500 mL x 1.02 density). Per-serving (240 mL): 60 kcal, 13g sugar (5g added), K 470mg, vit C 295mg. Zero protein — this is a hydration/electrolyte + sugar drink, no protein density. Purines negligible. Ingredients: coconut water from concentrate (water, coconut water concentrate), sugar, natural flavors, coconut puree, ascorbic acid (vit C), gellan gum. Gluten free."
+        },
+        "vitabella_strawberry_pillows": {
+          "name": "Snack Strawberry Pillows Vitabella",
+          "brand": "Vitabella",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "ingredients": "Organic rice flour, organic gluten-free oat flour, organic corn flour, organic strawberry puree (20%) ... (rest of list not photographed).",
+          "kcal": 3.75,
+          "p": 0.0625,
+          "fat": 0.015625,
+          "sf": 0.003125,
+          "transFat": 0,
+          "cholesterol": 0,
+          "sodium": 1.25,
+          "carbs": 0.84375,
+          "fiber": 0.0234375,
+          "sugar": 0.21875,
+          "addedSugar": 0.21875,
+          "vitD": 0,
+          "calcium": 0.08,
+          "iron": 0.01,
+          "potassium": 1.25,
+          "magnesium": 0.35,
+          "phosphorus": 1,
+          "zinc": 0.009,
+          "copper": 0.0012,
+          "manganese": 0.015,
+          "selenium": 0.1,
+          "b1": 0.0015,
+          "b2": 0.0005,
+          "b3": 0.015,
+          "b5": 0.005,
+          "b6": 0.001,
+          "b9": 0.1,
+          "b12": 0,
+          "vitA": 0,
+          "vitC": 0.02,
+          "vitE": 0.002,
+          "vitK": 0,
+          "choline": 0.08,
+          "water": 0.05,
+          "purines": 0.2,
+          "displayUnits": [
+            {
+              "label": "3/4 cup (32 g)",
+              "amount": 32,
+              "unit": "g",
+              "multiplier": 32,
+              "default": true
+            },
+            {
+              "label": "box 10.6 oz (300 g)",
+              "amount": 300,
+              "unit": "g",
+              "multiplier": 300
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Vitabella Strawberry Pillows Snack, organic, 10.6 oz (300 g) box, about 9 servings. European-made (the panel uses decimal commas). LABEL per 3/4 cup (32 g): 120 kcal, 0.5 g fat (0 sat, 0 trans), 0 cholesterol, 40 mg sodium, 27 g carb, fiber under 1 g, 7 g total sugars (all 7 added), 2 g protein, vitD 0, calcium 0, iron 0, potassium 40 mg. Ingredients start: organic rice flour, organic gluten-free oat flour, organic corn flour, organic strawberry puree 20 percent - rest not photographed. HIGH CONFIDENCE on macros. NOT FORTIFIED. kcal NOT CORRECTED: 2x4 + 0.5x9 + 27x4 = 120.5, matching the label, and under 1 g of fiber makes any fiber adjustment immaterial. ROUNDED-TO-ZERO restored: fiber 0.75 g per serving ('under 1 g' on a US panel means roughly 0.5-0.99), iron ~0.3 mg and calcium ~3 mg per serving (label 0 for both - oat and corn flour carry some of each), saturated fat 0.1 g. LOW-MEDIUM CONFIDENCE on those. Vitamin C ~2 mg/100 g is what's likely left of the strawberry puree after baking (fresh strawberry would give ~12). UNLABELED MICROS modeled from rice, oat and corn flours, proportions unknown. LOW CONFIDENCE. PURINES ~20 mg/100 g, very low. LOW."
         },
         "walmart_chicken_sandwich": {
           "name": "Sandwich chicken breaded with sauce (Walmart)",
@@ -15609,6 +16060,6 @@
         }
       ]
     },
-    "chartRangeDays": 90
+    "chartRangeDays": 30
   }
 }
