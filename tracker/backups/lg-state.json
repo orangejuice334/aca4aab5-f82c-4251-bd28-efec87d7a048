@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-09-30T13:13:48.041Z",
-  "_gistSavedAt": "2026-09-30T13:12:25.218Z",
+  "_backupTakenAt": "2026-10-01T14:04:54.250Z",
+  "_gistSavedAt": "2026-10-01T13:10:45.204Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -4407,7 +4407,15 @@
           "macadamia_dry_roasted_365": 16,
           "tj_tiny_fruity_cuties": 36,
           "slate_ultra_protein_vanilla": 443,
-          "protein_casein_dymatize_elite_cookies_cream": 17
+          "protein_casein_dymatize_elite_cookies_cream": 17,
+          "mayo_packet": 7,
+          "ketchup_packet": 9,
+          "eggs_tuna_evoo": 136.08,
+          "chobani_protein_raspberry_lemon": 190,
+          "natures_own_keto_bread": 56,
+          "peanut_butter_delight_aldi": 10,
+          "smuckers_sf_strawberry_preserves": 51,
+          "slate_ultra_protein_chocolate": 443
         },
         "customs": [],
         "toggleMeta": {},
@@ -4415,10 +4423,71 @@
           "macadamia_dry_roasted_365": "2026-09-30T13:11:44.218Z",
           "tj_tiny_fruity_cuties": "2026-09-30T13:10:49.857Z",
           "slate_ultra_protein_vanilla": "2026-09-30T13:10:56.867Z",
-          "protein_casein_dymatize_elite_cookies_cream": "2026-09-30T13:11:11.046Z"
+          "protein_casein_dymatize_elite_cookies_cream": "2026-09-30T13:11:11.046Z",
+          "mayo_packet": "2026-09-30T17:42:36.949Z",
+          "ketchup_packet": "2026-09-30T17:42:30.330Z",
+          "eggs_tuna_evoo": "2026-09-30T17:42:13.852Z",
+          "chobani_protein_raspberry_lemon": "2026-09-30T20:07:32.550Z",
+          "natures_own_keto_bread": "2026-09-30T22:46:50.517Z",
+          "peanut_butter_delight_aldi": "2026-09-30T22:47:13.784Z",
+          "smuckers_sf_strawberry_preserves": "2026-09-30T22:47:29.025Z",
+          "slate_ultra_protein_chocolate": "2026-09-30T22:57:57.400Z"
         },
-        "weight": 85.1,
-        "weightMeta": "2026-09-30T13:12:23.251Z"
+        "weight": 85.2,
+        "weightMeta": "2026-09-30T22:46:36.615Z",
+        "recipeSnapshots": {
+          "eggs_tuna_evoo": {
+            "name": "Omelette and albacore tuna",
+            "category": "recipes",
+            "defaultMeasuredIn": "units",
+            "ingredients": [
+              {
+                "itemKey": "large_egg",
+                "amount": 150,
+                "label": "3 large eggs (150 g)"
+              },
+              {
+                "itemKey": "evoo_tsp",
+                "amount": 9.16,
+                "label": "10 ml EVOO (9.16 g)"
+              },
+              {
+                "itemKey": "tj_albacore_water",
+                "amount": 113,
+                "label": "1 can TJ albacore in water, drained (113 g)"
+              }
+            ],
+            "displayUnits": [
+              {
+                "label": "full recipe",
+                "amount": 272.2,
+                "unit": "g",
+                "default": true,
+                "locked": true,
+                "multiplier": 272.2
+              },
+              {
+                "label": "1/2 recipe",
+                "amount": 136.1,
+                "unit": "g",
+                "multiplier": 136.1
+              }
+            ]
+          }
+        },
+        "neck": 40,
+        "neckMeta": "2026-09-30T22:46:36.838Z"
+      },
+      "2026-10-01": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "weight": 84.5,
+        "weightMeta": "2026-10-01T13:08:00.177Z",
+        "waist": 97,
+        "waistMeta": "2026-10-01T13:10:36.808Z"
       }
     },
     "savedItems": [],
@@ -7255,6 +7324,44 @@
           ],
           "defaultMeasuredIn": "units"
         },
+        "eggs_tuna_evoo": {
+          "name": "Omelette and albacore tuna",
+          "category": "recipes",
+          "defaultMeasuredIn": "units",
+          "ingredients": [
+            {
+              "itemKey": "large_egg",
+              "amount": 150,
+              "label": "3 large eggs (150 g)"
+            },
+            {
+              "itemKey": "evoo_tsp",
+              "amount": 9.16,
+              "label": "10 ml EVOO (9.16 g)"
+            },
+            {
+              "itemKey": "tj_albacore_water",
+              "amount": 113,
+              "label": "1 can TJ albacore in water, drained (113 g)"
+            }
+          ],
+          "displayUnits": [
+            {
+              "label": "full recipe",
+              "amount": 272.2,
+              "unit": "g",
+              "default": true,
+              "locked": true,
+              "multiplier": 272.2
+            },
+            {
+              "label": "1/2 recipe",
+              "amount": 136.1,
+              "unit": "g",
+              "multiplier": 136.1
+            }
+          ]
+        },
         "elevation_protein_puffs_jalapeno": {
           "name": "Elevation Protein Puffs Jalapeño Cheddar (Aldi)",
           "category": "items",
@@ -9166,7 +9273,7 @@
           "brand": "Heinz"
         },
         "ketchup_packet": {
-          "name": "Ketchup packet",
+          "name": "Ketchup packet Whole Food Sir Kensington",
           "category": "small_portions",
           "kcal": 0.8889,
           "carbs": 0.24,
@@ -10120,7 +10227,7 @@
           "notes": "Generic mandarin / clementine-type easy peeler, peeled edible portion. REBUILT 2026-09-13 from a Darling Mandarins bag label (LGS Specialty Sales, New Rochelle NY; wax/resin coated, not eaten). The entry had never been logged before the rebuild, so no history moved. LABEL per 2 mandarins (148 g): 70 kcal, 0 fat / sat / trans, 0 cholesterol, 0 sodium, 18 g total carb, 3 g fiber, 14 g total sugars, 0 added, 1 g protein, vitD 0, calcium 40 mg, iron 0.2 mg, potassium 260 mg, vitamin C 72 mg. That panel is USDA SR Legacy 09433 (clementines, raw) scaled to two 74 g fruits - every line matches within rounding - so USDA per-100 g values are stored rather than the rounded label: 47 kcal, 0.85 P, 0.15 fat, 12.02 carb, 1.7 fiber, 9.18 sugar, 1 Na, 177 K, 30 Ca, 0.14 Fe, 10 Mg, 21 P-phos, 48.8 vitC, 24 mcg B9, 14 choline, 86.58 water. HIGH CONFIDENCE. PREVIOUS VALUES were USDA 09218 (tangerine) - 53 kcal/100 g, vitC 26.7, one 88 g 'medium' unit - replaced because the fruit actually bought is the clementine-type, which runs sweeter-per-calorie and nearly double the vitamin C. kcal CORRECTED 47 -> 44.3/100 g, same fix as the blueberry entry: USDA applies fruit Atwater 3.60 kcal/g to total carbohydrate including the 1.7 g fiber; citrus fiber is largely pectin (fermentable), recounted at ~2 kcal/g, so 1.7 x 1.6 = 2.7 kcal subtracted. ROUNDING-TO-ZERO fixed: fat 0.15 and sodium 1 mg per 100 g restored from the label's zeros. vitA 34 mcg RAE/100 g is an ESTIMATE borrowed from the tangerine entry - USDA's clementine record lists 0, which is a data gap, not a real absence; mandarins are among the richest beta-cryptoxanthin sources. MEDIUM CONFIDENCE. PURINES ~3 mg/100 g, citrus is about as low as food gets (previous 20 mg was unsourced). LOW CONFIDENCE. b7 left at the prior unsourced 0.5 mcg/100 g. UNITS: 74 g per fruit is the label's and USDA's peeled weight. Real easy-peelers run ~60-90 g peeled, so count fruit for casual logging and weigh when it matters."
         },
         "mayo_packet": {
-          "name": "Mayonnaise packet",
+          "name": "Mayonnaise packet Whole Foods Sir Kensington",
           "category": "small_portions",
           "kcal": 6.4286,
           "carbs": 0.02,
@@ -13758,6 +13865,68 @@
           "notes": "Label-derived (high confidence): kcal, macros, sodium (240mg/serving = high from coarse salt + NaOH processing), Ca, Fe (enriched flour fortification, 1.2mg/serving), K, fiber, added sugar (3g/serving). Estimated from USDA wheat flour + almond butter blend composition (lower confidence): B-vitamins (enrichment), Mg, P, Zn, Se, Cu, Mn, vit E (from almond), purines, water content (~5% moisture). Ingredients: unbleached enriched wheat flour, almond butter (almonds, sugar, salt), malted barley extract, coarse salt, canola oil, sodium hydroxide (processing aid). Contains: wheat, almond.",
           "brand": "Trader Joe's"
         },
+        "tj_albacore_water": {
+          "name": "Tuna albacore solid white in water Trader Joe's",
+          "brand": "Trader Joe's",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "ingredients": "Albacore tuna, water, salt.",
+          "kcal": 1.1504424778761062,
+          "p": 0.25663716814159293,
+          "fat": 0.008849557522123894,
+          "sf": 0.0024,
+          "transFat": 0,
+          "monounsat": 0.00234,
+          "polyunsat": 0.0033,
+          "cholesterol": 0.35398230088495575,
+          "sodium": 3.185840707964602,
+          "carbs": 0,
+          "fiber": 0,
+          "sugar": 0,
+          "addedSugar": 0,
+          "vitD": 0.010619469026548672,
+          "calcium": 0.14,
+          "iron": 0.009557522123893806,
+          "potassium": 2.495575221238938,
+          "magnesium": 0.33,
+          "phosphorus": 2.17,
+          "zinc": 0.0048,
+          "copper": 0.0004,
+          "manganese": 0.0002,
+          "selenium": 0.657,
+          "iodine": 0.12,
+          "water": 0.73,
+          "vitA": 0.06,
+          "vitC": 0,
+          "vitE": 0.0085,
+          "vitK": 0.017,
+          "b1": 0.00008,
+          "b2": 0.00044,
+          "b3": 0.058,
+          "b5": 0.00121,
+          "b6": 0.0022,
+          "b9": 0.02,
+          "b12": 0.0117,
+          "choline": 0.293,
+          "omega3": 2.6,
+          "purines": 1.3,
+          "displayUnits": [
+            {
+              "label": "1 can drained (113 g)",
+              "amount": 113,
+              "unit": "g",
+              "default": true,
+              "multiplier": 113
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Trader Joe's Solid White Albacore Tuna in water, salt added, caught using circle hooks and nylon leads, pareve. Net 5 oz (142 g), drained 4 oz (113 g). LABEL per 1 can drained (113 g): 130 kcal, 1 g fat (0 sat, 0 trans), 40 mg cholesterol, 360 mg sodium, 0 carb / fiber / sugar, 29 g protein, vitamin D 6 percent DV (1.2 mcg), calcium 0 percent, iron 6 percent (1.1 mg), potassium 6 percent (282 mg). HIGH CONFIDENCE. kcal not corrected: 29x4 + 1x9 = 125, printed as 130 under round-to-nearest-10; pure fish protein. LEANER THAN USDA: 0.9 g fat/100 g versus 2.97 for USDA canned albacore in water - albacore fat swings a lot with season and fish size. Saturated fat restored from 0 to 0.27 g per can (albacore fat is ~27 percent saturated), mono/poly split scaled the same way. OMEGA-3 scaled down with the fat: ~290 mg EPA+DHA per can versus ~970 at USDA's fat level. LOW-MEDIUM CONFIDENCE - a fattier batch carries more. UNLABELED MICROS from USDA SR Legacy 15126 (tuna, white, canned in water, drained). MEDIUM. Selenium 74 mcg per can (well over the 55 mcg RDA) and B12 1.3 mcg per can are the standouts. Calcium set to 14 mg/100 g per USDA; the label's 0 percent is consistent (anything under 2 percent DV can print as 0). MERCURY (no schema field): albacore averages ~0.35 ppm in FDA testing, about 3x chunk light, so ~40 mcg per can. FDA puts albacore in its 'good choices' group at 1 serving (4 oz) a week for adults; chunk light is 'best choices' at 2-3 a week. The catalog's tuna_can entry is chunk light. PURINES ~130 mg/100 g, MODERATE-HIGH class, relevant to uric-acid/gout history. MEDIUM-LOW."
+        },
         "tj_beef_kebabs": {
           "name": "Trader Joe's Middle Eastern Style Kebabs (seasoned beef patties)",
           "category": "items",
@@ -16059,7 +16228,6 @@
           "label": "Uncategorized"
         }
       ]
-    },
-    "chartRangeDays": 30
+    }
   }
 }
