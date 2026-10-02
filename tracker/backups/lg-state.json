@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-01T14:04:54.250Z",
-  "_gistSavedAt": "2026-10-01T13:10:45.204Z",
+  "_backupTakenAt": "2026-10-02T13:25:08.814Z",
+  "_gistSavedAt": "2026-10-02T13:11:37.370Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -4480,14 +4480,176 @@
       },
       "2026-10-01": {
         "toggles": {},
-        "counters": {},
+        "counters": {
+          "smuckers_sf_strawberry_preserves": 51,
+          "turkey85_bb_spaghetti": 226.19,
+          "laughing_cow_light": 19,
+          "string_cheese": 42,
+          "yogurt_oikos_triple_zero_lemon": 150,
+          "skim_milk": 251,
+          "guisantes_con_jamon": 459.7,
+          "natures_own_keto_bread": 56,
+          "avocado_half": 65,
+          "slate_ultra_protein_chocolate": 443
+        },
         "customs": [],
         "toggleMeta": {},
-        "counterMeta": {},
-        "weight": 84.5,
-        "weightMeta": "2026-10-01T13:08:00.177Z",
+        "counterMeta": {
+          "smuckers_sf_strawberry_preserves": "2026-10-01T21:09:32.778Z",
+          "turkey85_bb_spaghetti": "2026-10-01T21:09:45.981Z",
+          "laughing_cow_light": "2026-10-01T21:09:56.786Z",
+          "string_cheese": "2026-10-01T21:10:25.612Z",
+          "yogurt_oikos_triple_zero_lemon": "2026-10-01T21:10:46.395Z",
+          "skim_milk": "2026-10-02T00:48:48.890Z",
+          "guisantes_con_jamon": "2026-10-02T00:49:13.821Z",
+          "natures_own_keto_bread": "2026-10-02T00:49:31.841Z",
+          "avocado_half": "2026-10-02T00:49:45.606Z",
+          "slate_ultra_protein_chocolate": "2026-10-02T04:18:03.377Z"
+        },
+        "weight": 85.2,
+        "weightMeta": "2026-10-02T00:48:06.301Z",
         "waist": 97,
-        "waistMeta": "2026-10-01T13:10:36.808Z"
+        "waistMeta": "2026-10-02T00:48:06.205Z",
+        "neck": 40,
+        "neckMeta": "2026-10-02T00:48:06.405Z",
+        "recipeSnapshots": {
+          "turkey85_bb_spaghetti": {
+            "name": "Turkey 85/15 + black bean spaghetti",
+            "category": "recipes",
+            "defaultMeasuredIn": "units",
+            "ingredients": [
+              {
+                "itemKey": "turkey_ground_kirkwood_85",
+                "amount": 350,
+                "label": "350 g Kirkwood 85/15 ground turkey, raw"
+              },
+              {
+                "itemKey": "black_bean_pasta",
+                "amount": 200,
+                "label": "200 g Explore Cuisine black bean spaghetti, dry"
+              },
+              {
+                "itemKey": "garlic_raw",
+                "amount": 18,
+                "label": "18 g garlic"
+              },
+              {
+                "itemKey": "onion_raw",
+                "amount": 130,
+                "label": "130 g onion"
+              },
+              {
+                "itemKey": "tomato_paste_giant",
+                "amount": 133,
+                "label": "133 g tomato paste"
+              },
+              {
+                "itemKey": "bell_pepper_green_raw",
+                "amount": 60,
+                "label": "60 g pepper (green assumed)"
+              },
+              {
+                "itemKey": "evoo_tsp",
+                "amount": 13.74,
+                "label": "15 ml EVOO (13.74 g)"
+              }
+            ],
+            "displayUnits": [
+              {
+                "label": "full recipe",
+                "amount": 904.74,
+                "unit": "g",
+                "locked": true,
+                "multiplier": 904.74
+              },
+              {
+                "label": "1/4 of recipe",
+                "amount": 226.19,
+                "unit": "g",
+                "default": true,
+                "multiplier": 226.19
+              }
+            ],
+            "notes": "Luis's turkey and black bean spaghetti, added 2026-10-01, in the same style as turkey_bb_pasta: 350 g Aldi Kirkwood 85/15 ground turkey (raw), 200 g Explore Cuisine black bean spaghetti (dry; catalog item black_bean_pasta, 180 kcal per 56 g), 18 g garlic, 130 g onion, 133 g tomato paste, 60 g pepper (green assumed - a red pepper adds ~8 kcal to the batch and much more vitamin C and A), 15 ml EVOO (13.74 g). SERVING = 1/4 OF THE RECIPE. WATER IGNORED at Luis's instruction: no pasta-cooking water and no evaporation adjustment, so the 905 g batch weight is raw/dry ingredient grams and does not match what the finished pot weighs. The default 1/4 unit still gives exactly a quarter of the batch. All fat counted as eaten, including what renders from the turkey. No salt listed."
+          },
+          "guisantes_con_jamon": {
+            "name": "Guisantes con jamón",
+            "category": "recipes",
+            "defaultMeasuredIn": "units",
+            "ingredients": [
+              {
+                "itemKey": "peas_frozen_seasons_choice",
+                "amount": 340,
+                "label": "1 bag frozen peas, 12 oz (340 g)"
+              },
+              {
+                "itemKey": "potato_raw",
+                "amount": 118,
+                "label": "118 g potato"
+              },
+              {
+                "itemKey": "onion_raw",
+                "amount": 82,
+                "label": "82 g onion"
+              },
+              {
+                "itemKey": "evoo_tsp",
+                "amount": 9.16,
+                "label": "10 ml EVOO (9.16 g)"
+              },
+              {
+                "itemKey": "water_recipe",
+                "amount": 400,
+                "label": "400 ml water"
+              },
+              {
+                "itemKey": "ham_boneless_aldi",
+                "amount": 430,
+                "label": "430 g ham, Aldi fully cooked"
+              }
+            ],
+            "displayUnits": [
+              {
+                "label": "full recipe",
+                "amount": 1379.2,
+                "unit": "g",
+                "locked": true,
+                "multiplier": 1379.2
+              },
+              {
+                "label": "1/3 of recipe (460 g)",
+                "amount": 459.7,
+                "unit": "g",
+                "default": true,
+                "multiplier": 459.7
+              }
+            ]
+          }
+        }
+      },
+      "2026-10-02": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_chocolate": 443,
+          "natures_own_keto_bread": 56
+        },
+        "customs": [
+          {
+            "id": "fd7193e4-3662-4439-b0ed-7a250fa2b5b8",
+            "name": "200kcal 2p",
+            "kcal": 200,
+            "p": 2,
+            "count": 1,
+            "lastModified": "2026-10-02T13:11:36.090Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_chocolate": "2026-10-02T13:11:10.376Z",
+          "natures_own_keto_bread": "2026-10-02T13:11:16.855Z"
+        },
+        "weight": 84.8,
+        "weightMeta": "2026-10-02T13:10:15.764Z"
       }
     },
     "savedItems": [],
@@ -4572,14 +4734,13 @@
       "catalog-archive": true,
       "section-mood-tracker": true,
       "today-customs": true,
-      "details-add-new-item": true,
       "history": true,
       "targets-accumulation": true,
       "details-recipe-maker": true,
       "supplements-water": true,
-      "today-log": true,
       "profile": true,
-      "catalog-ratio": true
+      "catalog-ratio": true,
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
@@ -14869,6 +15030,65 @@
           ],
           "defaultMeasuredIn": "g"
         },
+        "turkey85_bb_spaghetti": {
+          "name": "Turkey 85/15 + black bean spaghetti",
+          "category": "recipes",
+          "defaultMeasuredIn": "units",
+          "ingredients": [
+            {
+              "itemKey": "turkey_ground_kirkwood_85",
+              "amount": 350,
+              "label": "350 g Kirkwood 85/15 ground turkey, raw"
+            },
+            {
+              "itemKey": "black_bean_pasta",
+              "amount": 200,
+              "label": "200 g Explore Cuisine black bean spaghetti, dry"
+            },
+            {
+              "itemKey": "garlic_raw",
+              "amount": 18,
+              "label": "18 g garlic"
+            },
+            {
+              "itemKey": "onion_raw",
+              "amount": 130,
+              "label": "130 g onion"
+            },
+            {
+              "itemKey": "tomato_paste_giant",
+              "amount": 133,
+              "label": "133 g tomato paste"
+            },
+            {
+              "itemKey": "bell_pepper_green_raw",
+              "amount": 60,
+              "label": "60 g pepper (green assumed)"
+            },
+            {
+              "itemKey": "evoo_tsp",
+              "amount": 13.74,
+              "label": "15 ml EVOO (13.74 g)"
+            }
+          ],
+          "displayUnits": [
+            {
+              "label": "full recipe",
+              "amount": 904.74,
+              "unit": "g",
+              "locked": true,
+              "multiplier": 904.74
+            },
+            {
+              "label": "1/4 of recipe",
+              "amount": 226.19,
+              "unit": "g",
+              "default": true,
+              "multiplier": 226.19
+            }
+          ],
+          "notes": "Luis's turkey and black bean spaghetti, added 2026-10-01, in the same style as turkey_bb_pasta: 350 g Aldi Kirkwood 85/15 ground turkey (raw), 200 g Explore Cuisine black bean spaghetti (dry; catalog item black_bean_pasta, 180 kcal per 56 g), 18 g garlic, 130 g onion, 133 g tomato paste, 60 g pepper (green assumed - a red pepper adds ~8 kcal to the batch and much more vitamin C and A), 15 ml EVOO (13.74 g). SERVING = 1/4 OF THE RECIPE. WATER IGNORED at Luis's instruction: no pasta-cooking water and no evaporation adjustment, so the 905 g batch weight is raw/dry ingredient grams and does not match what the finished pot weighs. The default 1/4 unit still gives exactly a quarter of the batch. All fat counted as eaten, including what renders from the turkey. No salt listed."
+        },
         "turkey_bacon": {
           "name": "Turkey bacon uncured",
           "category": "items",
@@ -15103,6 +15323,74 @@
               "multiplier": 160
             }
           ]
+        },
+        "turkey_ground_kirkwood_85": {
+          "name": "Turkey ground 85/15 Kirkwood (Aldi)",
+          "brand": "Kirkwood (Aldi)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "ingredients": "Ground turkey, natural flavorings.",
+          "kcal": 1.7857142857142858,
+          "p": 0.17857142857142858,
+          "fat": 0.125,
+          "sf": 0.03571428571428571,
+          "transFat": 0,
+          "monounsat": 0.046,
+          "polyunsat": 0.034,
+          "cholesterol": 0.7589285714285714,
+          "sodium": 0.5357142857142857,
+          "carbs": 0,
+          "fiber": 0,
+          "sugar": 0,
+          "addedSugar": 0,
+          "vitD": 0,
+          "calcium": 0.33035714285714285,
+          "iron": 0.009642857142857144,
+          "potassium": 2.017857142857143,
+          "magnesium": 0.19,
+          "phosphorus": 1.8,
+          "zinc": 0.024,
+          "copper": 0.0007,
+          "manganese": 0.0001,
+          "selenium": 0.18,
+          "iodine": 0.01,
+          "water": 0.687,
+          "vitA": 0.1,
+          "vitC": 0,
+          "vitE": 0.0025,
+          "vitK": 0,
+          "b1": 0.0006,
+          "b2": 0.002,
+          "b3": 0.038,
+          "b5": 0.008,
+          "b6": 0.0035,
+          "b9": 0.06,
+          "b12": 0.011,
+          "choline": 0.6,
+          "omega3": 1.5,
+          "purines": 1.1,
+          "displayUnits": [
+            {
+              "label": "4 oz raw (112 g)",
+              "amount": 112,
+              "unit": "g",
+              "default": true,
+              "multiplier": 112
+            },
+            {
+              "label": "package 3 lb (1361 g)",
+              "amount": 1361,
+              "unit": "g",
+              "multiplier": 1361
+            },
+            {
+              "label": "100 g raw",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Aldi Kirkwood fresh ground turkey with natural flavoring, 85 percent lean / 15 percent fat, about 12 servings (~3 lb tray), UPC 4099100347173. Ingredients: ground turkey, natural flavorings. LABEL per 4 oz (112 g) RAW: 200 kcal, 14 g fat (4 sat, 0 trans), 85 mg cholesterol, 60 mg sodium, 0 carb / fiber / sugar, 20 g protein, vitD 0, calcium 37 mg, iron ~1 mg (6 percent DV, digit smudged on the photo), potassium 226 mg. HIGH CONFIDENCE. kcal not corrected: 20x4 + 14x9 = 206, printed 200. RAW-WEIGHT ITEM; browned 85/15 turkey loses roughly 30 percent of its weight and some fat renders out. Mono/poly split (4.6 / 3.4 g per 100 g) and unlabeled micros from USDA raw 85/15 ground turkey. MEDIUM. PURINES ~110 mg/100 g raw, MODERATE class, relevant to uric-acid/gout history. MEDIUM-LOW. Third ground turkey in the catalog: turkey_ground_99 (99/1 breast) and turkey_ground_safeway (93/7) are the others; this one carries about twice the fat of the 93/7 per gram."
         },
         "turkey_ground_safeway": {
           "name": "Turkey ground",
@@ -16228,6 +16516,7 @@
           "label": "Uncategorized"
         }
       ]
-    }
+    },
+    "chartRangeDays": 15
   }
 }
