@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-02T13:25:08.814Z",
-  "_gistSavedAt": "2026-10-02T13:11:37.370Z",
+  "_backupTakenAt": "2026-10-03T12:10:00.221Z",
+  "_gistSavedAt": "2026-10-02T20:31:19.077Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -4631,7 +4631,9 @@
         "toggles": {},
         "counters": {
           "slate_ultra_protein_chocolate": 443,
-          "natures_own_keto_bread": 56
+          "natures_own_keto_bread": 56,
+          "dannon_light_fit_boston_cream": 150,
+          "quest_chips_nacho": 32
         },
         "customs": [
           {
@@ -4646,10 +4648,14 @@
         "toggleMeta": {},
         "counterMeta": {
           "slate_ultra_protein_chocolate": "2026-10-02T13:11:10.376Z",
-          "natures_own_keto_bread": "2026-10-02T13:11:16.855Z"
+          "natures_own_keto_bread": "2026-10-02T13:11:16.855Z",
+          "dannon_light_fit_boston_cream": "2026-10-02T15:03:44.794Z",
+          "quest_chips_nacho": "2026-10-02T15:03:51.707Z"
         },
         "weight": 84.8,
-        "weightMeta": "2026-10-02T13:10:15.764Z"
+        "weightMeta": "2026-10-02T20:31:16.898Z",
+        "neck": 40,
+        "neckMeta": "2026-10-02T20:31:16.993Z"
       }
     },
     "savedItems": [],
