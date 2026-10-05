@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-04T12:59:05.455Z",
-  "_gistSavedAt": "2026-10-02T20:31:19.077Z",
+  "_backupTakenAt": "2026-10-05T15:27:19.181Z",
+  "_gistSavedAt": "2026-10-05T15:17:57.218Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -4656,6 +4656,40 @@
         "weightMeta": "2026-10-02T20:31:16.898Z",
         "neck": 40,
         "neckMeta": "2026-10-02T20:31:16.993Z"
+      },
+      "2026-10-04": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {}
+      },
+      "2026-10-05": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_chocolate": 443,
+          "natures_own_keto_bread": 56,
+          "smuckers_sf_strawberry_preserves": 51,
+          "peanut_butter_delight_aldi": 10
+        },
+        "customs": [
+          {
+            "id": "5e7c917f-a6a5-4e5f-b4b2-a76305297439",
+            "name": "250kcal 18p",
+            "kcal": 250,
+            "p": 18,
+            "fat": 12,
+            "count": 1,
+            "lastModified": "2026-10-05T15:17:55.655Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_chocolate": "2026-10-05T14:02:08.197Z",
+          "natures_own_keto_bread": "2026-10-05T14:02:17.518Z",
+          "smuckers_sf_strawberry_preserves": "2026-10-05T14:02:23.518Z",
+          "peanut_butter_delight_aldi": "2026-10-05T14:02:34.743Z"
+        }
       }
     },
     "savedItems": [],
@@ -4746,6 +4780,7 @@
       "supplements-water": true,
       "profile": true,
       "catalog-ratio": true,
+      "today-log": true,
       "details-add-new-item": true
     },
     "userCatalog": {
