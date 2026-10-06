@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-05T15:27:19.181Z",
-  "_gistSavedAt": "2026-10-05T15:17:57.218Z",
+  "_backupTakenAt": "2026-10-06T13:49:43.012Z",
+  "_gistSavedAt": "2026-10-06T12:03:29.508Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -4670,7 +4670,10 @@
           "slate_ultra_protein_chocolate": 443,
           "natures_own_keto_bread": 56,
           "smuckers_sf_strawberry_preserves": 51,
-          "peanut_butter_delight_aldi": 10
+          "peanut_butter_delight_aldi": 10,
+          "turkey85_bb_spaghetti": 226.19,
+          "quest_mint_choc_chunk_bar": 60,
+          "bar_luna_lemon_zest": 48
         },
         "customs": [
           {
@@ -4681,6 +4684,14 @@
             "fat": 12,
             "count": 1,
             "lastModified": "2026-10-05T15:17:55.655Z"
+          },
+          {
+            "id": "a1ec0079-5b6f-4762-b7de-9088335249bf",
+            "name": "130kcal 5p",
+            "kcal": 130,
+            "p": 5,
+            "count": 1,
+            "lastModified": "2026-10-05T23:28:44.098130+00:00"
           }
         ],
         "toggleMeta": {},
@@ -4688,8 +4699,82 @@
           "slate_ultra_protein_chocolate": "2026-10-05T14:02:08.197Z",
           "natures_own_keto_bread": "2026-10-05T14:02:17.518Z",
           "smuckers_sf_strawberry_preserves": "2026-10-05T14:02:23.518Z",
-          "peanut_butter_delight_aldi": "2026-10-05T14:02:34.743Z"
+          "peanut_butter_delight_aldi": "2026-10-05T14:02:34.743Z",
+          "turkey85_bb_spaghetti": "2026-10-05T20:38:44.798Z",
+          "quest_mint_choc_chunk_bar": "2026-10-05T21:46:14.007484+00:00",
+          "bar_luna_lemon_zest": "2026-10-05T21:46:14.007484+00:00"
+        },
+        "recipeSnapshots": {
+          "turkey85_bb_spaghetti": {
+            "name": "Turkey 85/15 + black soybean spaghetti",
+            "category": "recipes",
+            "defaultMeasuredIn": "units",
+            "ingredients": [
+              {
+                "itemKey": "turkey_ground_kirkwood_85",
+                "amount": 350,
+                "label": "350 g Kirkwood 85/15 ground turkey, raw"
+              },
+              {
+                "itemKey": "black_bean_pasta",
+                "amount": 200,
+                "label": "200 g Explore Cuisine black bean spaghetti, dry"
+              },
+              {
+                "itemKey": "garlic_raw",
+                "amount": 18,
+                "label": "18 g garlic"
+              },
+              {
+                "itemKey": "onion_raw",
+                "amount": 130,
+                "label": "130 g onion"
+              },
+              {
+                "itemKey": "tomato_paste_giant",
+                "amount": 133,
+                "label": "133 g tomato paste"
+              },
+              {
+                "itemKey": "bell_pepper_green_raw",
+                "amount": 60,
+                "label": "60 g pepper (green assumed)"
+              },
+              {
+                "itemKey": "evoo_tsp",
+                "amount": 13.74,
+                "label": "15 ml EVOO (13.74 g)"
+              }
+            ],
+            "displayUnits": [
+              {
+                "label": "full recipe",
+                "amount": 904.7,
+                "unit": "g",
+                "locked": true,
+                "multiplier": 904.7
+              },
+              {
+                "label": "1/4 of recipe",
+                "amount": 226.2,
+                "unit": "g",
+                "default": true,
+                "multiplier": 226.2
+              }
+            ]
+          }
         }
+      },
+      "2026-10-06": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "neck": 40,
+        "neckMeta": "2026-10-06T12:02:46.997Z",
+        "weight": 85.6,
+        "weightMeta": "2026-10-06T12:02:59.841Z"
       }
     },
     "savedItems": [],
@@ -4765,7 +4850,7 @@
         "timeFormat": "24h"
       }
     },
-    "sortMode": "ratio",
+    "sortMode": "category",
     "collapsedGroups": {
       "section-density": true,
       "targets-daily": true,
@@ -4779,9 +4864,14 @@
       "details-recipe-maker": true,
       "supplements-water": true,
       "profile": true,
-      "catalog-ratio": true,
       "today-log": true,
-      "details-add-new-item": true
+      "details-add-new-item": true,
+      "catalog-ratio": true,
+      "catalog-cat-liquids": true,
+      "catalog-cat-recipes": true,
+      "catalog-cat-items": true,
+      "catalog-cat-small_portions": true,
+      "catalog-cat-supplements": true
     },
     "userCatalog": {
       "items": {
@@ -12768,6 +12858,47 @@
           ],
           "notes": "Label per 1 bagel (75g): 130 kcal LABEL, 19g protein (front-panel confirmed; side-panel '10g' was glare misread), 4g fat, 0.5g sat, 25g carb, 21g fiber, 0g sugar, 460mg sodium, 0 cholesterol, Ca 20mg, Iron 3mg (15% DV), K 30mg. Net carb = 4g. KCAL CORRECTION (revised): stored at 140 kcal/bagel (1.8667 kcal/g). Fiber is 'resistant wheat starch' = almost certainly RS4 (chemically phosphated/cross-linked wheat starch, e.g. Fibersym). RS4 is the LEAST fermentable resistant starch type — caloric availability ~0-1 kcal/g, NOT the ~2 kcal/g of readily-fermentable RS2/RS3. So the standard 'add back 2 kcal/g' fiber rule does NOT cleanly apply here. Added back only ~0.5 kcal/g over the ~21g fiber = ~10 kcal over label's 130 = 140 total. Real value plausibly 135-150. (Earlier stored 162 was an over-correction that wrongly treated this as readily-fermentable fiber.) Estimated micros from wheat gluten + fava bean protein composition (medium confidence): folate (B9) elevated from fava (~1 mcg/g), selenium (wheat ~0.3 mcg/g), manganese, phosphorus, Mg. B12=0 (plant). Protein blend: vital wheat gluten + fava bean protein (complementary lysine). Ingredients: water, resistant wheat starch, wheat protein, fava bean protein, [remainder obscured]. Contains wheat. High-protein/high-fiber/low-net-carb marketed bagel."
         },
+        "quest_mint_choc_chunk_bar": {
+          "water": 0.1,
+          "phosphorus": 3.33,
+          "magnesium": 0.67,
+          "zinc": 0.025,
+          "selenium": 0.167,
+          "b12": 0.008,
+          "b2": 0.005,
+          "choline": 0.5,
+          "purines": 0.167,
+          "name": "Protein bar Quest mint chocolate chunk",
+          "brand": "Quest Nutrition",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 3,
+          "p": 0.3333333333333333,
+          "fat": 0.11666666666666667,
+          "sf": 0.05,
+          "transFat": 0,
+          "cholesterol": 0.08333333333333333,
+          "sodium": 3.8333333333333335,
+          "carbs": 0.4,
+          "fiber": 0.23333333333333334,
+          "sugar": 0.016666666666666666,
+          "addedSugar": 0,
+          "sugarAlcohol": 0.1,
+          "vitD": 0,
+          "calcium": 2.3333333333333335,
+          "iron": 0.02333333333333333,
+          "potassium": 2.1666666666666665,
+          "displayUnits": [
+            {
+              "label": "1 bar (60 g)",
+              "amount": 60,
+              "unit": "g",
+              "default": true,
+              "multiplier": 60
+            }
+          ],
+          "notes": "Quest Protein Bar, Mint Chocolate Chunk, 1 bar (60 g). LABEL per bar: 180 kcal, 7 g fat (3 g sat), 0 trans, 5 mg cholesterol, 230 mg sodium, 24 g total carb, 14 g fiber, 1 g total sugars, 0 added, 6 g sugar alcohols (erythritol), 20 g protein, vitD 0, calcium 140 mg, iron 1.4 mg, potassium 130 mg. Front panel: 4 g net carbs (24 - 14 - 6). HIGH CONFIDENCE. kcal STORED AT LABEL 180, matching the quest_smores_bar entry: 20x4 + 7x9 + 4x4 = 159, leaving ~21 kcal the label charges for the 14 g soluble corn fiber (~1.5 kcal/g) with erythritol at ~0. Recounting the fiber at the catalog's ~2 kcal/g would give ~188; kept at label for consistency with the other Quest and David bar entries. UNLABELED MICROS copied from quest_smores_bar (same milk-protein / soluble-corn-fiber / erythritol base). LOW-MEDIUM; the unsweetened chocolate here likely adds some magnesium, copper and iron the s'mores bar lacks."
+        },
         "quest_smores_bar": {
           "name": "Protein bar Quest s'mores",
           "brand": "Quest",
@@ -15072,7 +15203,7 @@
           "defaultMeasuredIn": "g"
         },
         "turkey85_bb_spaghetti": {
-          "name": "Turkey 85/15 + black bean spaghetti",
+          "name": "Turkey 85/15 + black soybean spaghetti",
           "category": "recipes",
           "defaultMeasuredIn": "units",
           "ingredients": [
@@ -15115,20 +15246,19 @@
           "displayUnits": [
             {
               "label": "full recipe",
-              "amount": 904.74,
+              "amount": 904.7,
               "unit": "g",
               "locked": true,
-              "multiplier": 904.74
+              "multiplier": 904.7
             },
             {
               "label": "1/4 of recipe",
-              "amount": 226.19,
+              "amount": 226.2,
               "unit": "g",
               "default": true,
-              "multiplier": 226.19
+              "multiplier": 226.2
             }
-          ],
-          "notes": "Luis's turkey and black bean spaghetti, added 2026-10-01, in the same style as turkey_bb_pasta: 350 g Aldi Kirkwood 85/15 ground turkey (raw), 200 g Explore Cuisine black bean spaghetti (dry; catalog item black_bean_pasta, 180 kcal per 56 g), 18 g garlic, 130 g onion, 133 g tomato paste, 60 g pepper (green assumed - a red pepper adds ~8 kcal to the batch and much more vitamin C and A), 15 ml EVOO (13.74 g). SERVING = 1/4 OF THE RECIPE. WATER IGNORED at Luis's instruction: no pasta-cooking water and no evaporation adjustment, so the 905 g batch weight is raw/dry ingredient grams and does not match what the finished pot weighs. The default 1/4 unit still gives exactly a quarter of the batch. All fat counted as eaten, including what renders from the turkey. No salt listed."
+          ]
         },
         "turkey_bacon": {
           "name": "Turkey bacon uncured",
