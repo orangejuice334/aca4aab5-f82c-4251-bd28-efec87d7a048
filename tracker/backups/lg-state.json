@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-06T13:49:43.012Z",
-  "_gistSavedAt": "2026-10-06T12:03:29.508Z",
+  "_backupTakenAt": "2026-10-07T14:07:07.813Z",
+  "_gistSavedAt": "2026-10-07T13:27:35.701Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -4767,14 +4767,90 @@
       },
       "2026-10-06": {
         "toggles": {},
-        "counters": {},
+        "counters": {
+          "natures_own_keto_bread": 140,
+          "braunschweiger_jones_dairy_farm": 39.2,
+          "laughing_cow_light": 57,
+          "slate_ultra_protein_vanilla": 443,
+          "legendary_donuts_dipped_chocolate": 72,
+          "eggs_tuna_evoo": 136.08
+        },
         "customs": [],
         "toggleMeta": {},
-        "counterMeta": {},
+        "counterMeta": {
+          "natures_own_keto_bread": "2026-10-06T21:42:56.451Z",
+          "braunschweiger_jones_dairy_farm": "2026-10-06T14:04:47.656Z",
+          "laughing_cow_light": "2026-10-06T14:04:57.970Z",
+          "slate_ultra_protein_vanilla": "2026-10-06T14:05:03.302Z",
+          "legendary_donuts_dipped_chocolate": "2026-10-06T21:42:39.878Z",
+          "eggs_tuna_evoo": "2026-10-06T21:42:49.637Z"
+        },
         "neck": 40,
-        "neckMeta": "2026-10-06T12:02:46.997Z",
+        "neckMeta": "2026-10-06T21:42:32.186Z",
         "weight": 85.6,
-        "weightMeta": "2026-10-06T12:02:59.841Z"
+        "weightMeta": "2026-10-06T21:42:32.070Z",
+        "recipeSnapshots": {
+          "eggs_tuna_evoo": {
+            "name": "Omelette and albacore tuna",
+            "category": "recipes",
+            "defaultMeasuredIn": "units",
+            "ingredients": [
+              {
+                "itemKey": "large_egg",
+                "amount": 150,
+                "label": "3 large eggs (150 g)"
+              },
+              {
+                "itemKey": "evoo_tsp",
+                "amount": 9.16,
+                "label": "10 ml EVOO (9.16 g)"
+              },
+              {
+                "itemKey": "tj_albacore_water",
+                "amount": 113,
+                "label": "1 can TJ albacore in water, drained (113 g)"
+              }
+            ],
+            "displayUnits": [
+              {
+                "label": "full recipe",
+                "amount": 272.2,
+                "unit": "g",
+                "default": true,
+                "locked": true,
+                "multiplier": 272.2
+              },
+              {
+                "label": "1/2 recipe",
+                "amount": 136.1,
+                "unit": "g",
+                "multiplier": 136.1
+              }
+            ]
+          }
+        }
+      },
+      "2026-10-07": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_chocolate": 443,
+          "banana": 118
+        },
+        "customs": [
+          {
+            "id": "f5028a2b-76ec-4151-beae-a045ce230dfb",
+            "name": "400kcal 4p",
+            "kcal": 400,
+            "p": 4,
+            "count": 1,
+            "lastModified": "2026-10-07T13:27:22.615Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_chocolate": "2026-10-07T13:27:28.902Z",
+          "banana": "2026-10-07T13:27:34.556Z"
+        }
       }
     },
     "savedItems": [],
@@ -4850,7 +4926,7 @@
         "timeFormat": "24h"
       }
     },
-    "sortMode": "category",
+    "sortMode": "ratio",
     "collapsedGroups": {
       "section-density": true,
       "targets-daily": true,
@@ -4865,13 +4941,14 @@
       "supplements-water": true,
       "profile": true,
       "today-log": true,
-      "details-add-new-item": true,
       "catalog-ratio": true,
       "catalog-cat-liquids": true,
       "catalog-cat-recipes": true,
       "catalog-cat-items": true,
       "catalog-cat-small_portions": true,
-      "catalog-cat-supplements": true
+      "catalog-cat-supplements": true,
+      "section-weight-tracker": true,
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
