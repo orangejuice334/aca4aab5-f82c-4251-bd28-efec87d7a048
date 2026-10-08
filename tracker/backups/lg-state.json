@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-07T14:07:07.813Z",
-  "_gistSavedAt": "2026-10-07T13:27:35.701Z",
+  "_backupTakenAt": "2026-10-08T14:17:43.505Z",
+  "_gistSavedAt": "2026-10-08T11:31:41.480Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -4786,9 +4786,9 @@
           "eggs_tuna_evoo": "2026-10-06T21:42:49.637Z"
         },
         "neck": 40,
-        "neckMeta": "2026-10-06T21:42:32.186Z",
+        "neckMeta": "2026-10-07T03:02:40.193Z",
         "weight": 85.6,
-        "weightMeta": "2026-10-06T21:42:32.070Z",
+        "weightMeta": "2026-10-07T03:02:40.075Z",
         "recipeSnapshots": {
           "eggs_tuna_evoo": {
             "name": "Omelette and albacore tuna",
@@ -4834,7 +4834,8 @@
         "toggles": {},
         "counters": {
           "slate_ultra_protein_chocolate": 443,
-          "banana": 118
+          "banana": 118,
+          "elevation_bar_golden_vanilla": 58
         },
         "customs": [
           {
@@ -4849,8 +4850,20 @@
         "toggleMeta": {},
         "counterMeta": {
           "slate_ultra_protein_chocolate": "2026-10-07T13:27:28.902Z",
-          "banana": "2026-10-07T13:27:34.556Z"
+          "banana": "2026-10-07T13:27:34.556Z",
+          "elevation_bar_golden_vanilla": "2026-10-07T14:56:33.772474+00:00"
         }
+      },
+      "2026-10-08": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "neck": 40,
+        "neckMeta": "2026-10-08T11:31:14.929Z",
+        "weight": 86.9,
+        "weightMeta": "2026-10-08T11:31:27.079Z"
       }
     },
     "savedItems": [],
@@ -4947,7 +4960,6 @@
       "catalog-cat-items": true,
       "catalog-cat-small_portions": true,
       "catalog-cat-supplements": true,
-      "section-weight-tracker": true,
       "details-add-new-item": true
     },
     "userCatalog": {
@@ -7730,6 +7742,62 @@
               "multiplier": 136.1
             }
           ]
+        },
+        "elevation_bar_golden_vanilla": {
+          "name": "Protein bar Elevation golden vanilla cream (Aldi)",
+          "brand": "Elevation (Aldi)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "ingredients": "Soy protein crisp (isolated soy protein, tapioca starch), maltitol, peanut butter (peanuts), vanilla cookie crumb (buckwheat flour, rice flour, maltitol, palm oil, oat flour, natural flavor, salt, sodium bicarbonate, sunflower lecithin, stevia glycoside), glycerin, whey protein concentrate, milk protein, white confectionery (sugar, palm kernel oil, nonfat dry milk, whole milk powder, whey powder, palm oil, soy lecithin, vanilla), peanuts, chocolate confectionery (sugar, palm kernel oil, cocoa powder, whey powder, nonfat dry milk, soy lecithin, vanilla), palm oil, guarana seed, salt, omega 3 oil, MCT oil, natural flavor.",
+          "kcal": 4.310344827586207,
+          "p": 0.3103448275862069,
+          "fat": 0.1724137931034483,
+          "sf": 0.06896551724137931,
+          "transFat": 0,
+          "monounsat": 0.06551724137931034,
+          "polyunsat": 0.03793103448275863,
+          "cholesterol": 0.08620689655172414,
+          "sodium": 3.2758620689655173,
+          "carbs": 0.41379310344827586,
+          "fiber": 0.034482758620689655,
+          "sugar": 0.06896551724137931,
+          "addedSugar": 0.05172413793103448,
+          "sugarAlcohol": 0.10344827586206896,
+          "vitD": 0,
+          "calcium": 1.0344827586206897,
+          "iron": 0.01206896551724138,
+          "potassium": 1.0344827586206897,
+          "vitA": 0,
+          "vitC": 0,
+          "phosphorus": 2.2413793103448274,
+          "magnesium": 0.69,
+          "zinc": 0.017,
+          "copper": 0.0043,
+          "manganese": 0.0069,
+          "selenium": 0.14,
+          "b1": 0.0009,
+          "b2": 0.0017,
+          "b3": 0.034,
+          "b5": 0.005,
+          "b6": 0.0014,
+          "b9": 0.34,
+          "b12": 0.0034,
+          "choline": 0.34,
+          "vitE": 0.017,
+          "vitK": 0.034,
+          "water": 0.14,
+          "omega3": 2,
+          "purines": 0.34,
+          "displayUnits": [
+            {
+              "label": "1 bar (58 g)",
+              "amount": 58,
+              "unit": "g",
+              "default": true,
+              "multiplier": 58
+            }
+          ],
+          "notes": "Aldi Elevation Functional Protein Bar, Golden Vanilla Cream, gluten free, 1 bar 2.05 oz (58 g). Front: 5 mg caffeine (from guarana; no schema field), 18 g protein, 4 g sugar, plus omega-3 and MCT oils. LABEL per bar: 250 kcal, 10 g fat (4 g sat, 0 trans), 5 mg cholesterol, 190 mg sodium, 24 g carb, 2 g fiber, 4 g total sugars (3 g added), 18 g protein, vitD 0, calcium 60 mg, iron 0.7 mg, potassium 60 mg, vitamin A 0, vitamin C 0, phosphorus 130 mg. HIGH CONFIDENCE. SUGAR ALCOHOLS NOT DECLARED but maltitol is the 2nd ingredient (and again in the cookie crumb), with glycerin 5th - same situation as the think_bar_lemon_delight entry, except this panel has no sugar-alcohol line at all. sugarAlcohol stored as ~6 g of maltitol per bar by subtraction (24 g carb minus 4 sugar, 2 fiber, ~9 tapioca/flour starch and ~3 glycerin). LOW CONFIDENCE - could be 4-9 g. Glycerin is not included in it, matching the think bar precedent. kcal KEPT AT LABEL 250: 18x4 + 10x9 + (24-2)x4 = 250 exactly, so the label charges maltitol at a full 4 kcal/g. Recounting ~6 g maltitol at ~2.4 kcal/g (-10) and the 2 g fiber at ~2 kcal/g (+4) nets ~-5 kcal, inside label rounding and resting on a guessed maltitol amount, so not applied - same call as the Quest and David bars. Mono/poly split estimated from peanut and palm fats; saturated fat includes the MCT oil. Omega-3 ~115 mg per bar is a guess for the unspecified 'omega 3 oil' listed after salt. Other unlabeled micros modeled from soy protein isolate, milk proteins and peanuts. LOW-MEDIUM. PURINES ~20 mg per bar, low. LOW. Distinct from elevation_protein_puffs_jalapeno."
         },
         "elevation_protein_puffs_jalapeno": {
           "name": "Elevation Protein Puffs Jalapeño Cheddar (Aldi)",
@@ -16765,6 +16833,7 @@
         }
       ]
     },
-    "chartRangeDays": 15
+    "chartRangeDays": 90,
+    "totalsMode": "collapsed"
   }
 }
