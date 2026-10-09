@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-08T14:17:43.505Z",
-  "_gistSavedAt": "2026-10-08T11:31:41.480Z",
+  "_backupTakenAt": "2026-10-09T14:02:27.619Z",
+  "_gistSavedAt": "2026-10-08T22:34:06.004Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -4856,10 +4856,35 @@
       },
       "2026-10-08": {
         "toggles": {},
-        "counters": {},
-        "customs": [],
+        "counters": {
+          "slate_ultra_protein_chocolate": 443,
+          "legendary_donuts_dipped_chocolate": 72,
+          "natures_own_keto_bread": 56,
+          "laughing_cow_light": 38,
+          "jacklinks_turkey": 13.5,
+          "banana": 118,
+          "elevation_bar_golden_vanilla": 58
+        },
+        "customs": [
+          {
+            "id": "87eadc84-4a2b-479d-9462-41d3ed411636",
+            "name": "200kcal 4p",
+            "kcal": 200,
+            "p": 4,
+            "count": 1,
+            "lastModified": "2026-10-08T22:34:04.532Z"
+          }
+        ],
         "toggleMeta": {},
-        "counterMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_chocolate": "2026-10-08T17:52:02.494Z",
+          "legendary_donuts_dipped_chocolate": "2026-10-08T17:52:07.275Z",
+          "natures_own_keto_bread": "2026-10-08T17:52:15.786Z",
+          "laughing_cow_light": "2026-10-08T17:52:59.273Z",
+          "jacklinks_turkey": "2026-10-08T17:53:36.957Z",
+          "banana": "2026-10-08T22:33:29.575Z",
+          "elevation_bar_golden_vanilla": "2026-10-08T22:33:49.556Z"
+        },
         "neck": 40,
         "neckMeta": "2026-10-08T11:31:14.929Z",
         "weight": 86.9,
@@ -4954,12 +4979,12 @@
       "supplements-water": true,
       "profile": true,
       "today-log": true,
-      "catalog-ratio": true,
       "catalog-cat-liquids": true,
       "catalog-cat-recipes": true,
       "catalog-cat-items": true,
       "catalog-cat-small_portions": true,
       "catalog-cat-supplements": true,
+      "catalog-ratio": true,
       "details-add-new-item": true
     },
     "userCatalog": {
@@ -16833,7 +16858,6 @@
         }
       ]
     },
-    "chartRangeDays": 90,
-    "totalsMode": "collapsed"
+    "chartRangeDays": 90
   }
 }
