@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-10T13:11:00.776Z",
-  "_gistSavedAt": "2026-10-08T22:34:06.004Z",
+  "_backupTakenAt": "2026-10-11T13:41:55.285Z",
+  "_gistSavedAt": "2026-10-11T13:11:15.288Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -4889,6 +4889,34 @@
         "neckMeta": "2026-10-08T11:31:14.929Z",
         "weight": 86.9,
         "weightMeta": "2026-10-08T11:31:27.079Z"
+      },
+      "2026-10-10": {
+        "toggles": {},
+        "counters": {
+          "yogurt_oikos_triple_zero_lemon": 150,
+          "dannon_light_fit_boston_cream": 150,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "slate_ultra_protein_vanilla": 443
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "yogurt_oikos_triple_zero_lemon": "2026-10-10T14:19:02.697Z",
+          "dannon_light_fit_boston_cream": "2026-10-10T14:19:07.414Z",
+          "david_bar_choc_chip_cookie_dough": "2026-10-10T14:19:12.518Z",
+          "slate_ultra_protein_vanilla": "2026-10-10T14:19:49.705Z"
+        },
+        "neck": 40,
+        "neckMeta": "2026-10-10T15:06:46.543Z"
+      },
+      "2026-10-11": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "weight": 85,
+        "weightMeta": "2026-10-11T13:10:30.526Z"
       }
     },
     "savedItems": [],
@@ -4984,8 +5012,8 @@
       "catalog-cat-items": true,
       "catalog-cat-small_portions": true,
       "catalog-cat-supplements": true,
-      "catalog-ratio": true,
-      "details-add-new-item": true
+      "details-add-new-item": true,
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
@@ -16857,7 +16885,6 @@
           "label": "Uncategorized"
         }
       ]
-    },
-    "chartRangeDays": 90
+    }
   }
 }
