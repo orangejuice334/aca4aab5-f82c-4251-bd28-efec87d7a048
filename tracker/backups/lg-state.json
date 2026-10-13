@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-12T16:22:32.579Z",
-  "_gistSavedAt": "2026-10-12T15:28:08.746Z",
+  "_backupTakenAt": "2026-10-13T14:43:25.114Z",
+  "_gistSavedAt": "2026-10-13T14:37:28.337Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -4921,21 +4921,56 @@
       "2026-10-12": {
         "toggles": {},
         "counters": {
-          "slate_ultra_protein_chocolate": 443,
+          "slate_ultra_protein_chocolate": 886,
           "natures_own_keto_bread": 56,
           "large_egg": 50,
           "egg_fried": 23,
-          "ketchup_packet": 18
+          "ketchup_packet": 18,
+          "avocado_half": 26,
+          "legendary_donuts_dipped_chocolate": 72,
+          "dannon_light_fit_boston_cream": 150,
+          "protein_powder_whey_premier_chocolate": 82
         },
         "customs": [],
         "toggleMeta": {},
         "counterMeta": {
-          "slate_ultra_protein_chocolate": "2026-10-12T15:21:10.877Z",
+          "slate_ultra_protein_chocolate": "2026-10-12T20:23:34.576Z",
           "natures_own_keto_bread": "2026-10-12T15:21:26.514Z",
           "large_egg": "2026-10-12T15:21:46.643Z",
           "egg_fried": "2026-10-12T15:21:47.851Z",
-          "ketchup_packet": "2026-10-12T15:21:56.478Z"
-        }
+          "ketchup_packet": "2026-10-12T15:21:56.478Z",
+          "avocado_half": "2026-10-12T20:22:59.152Z",
+          "legendary_donuts_dipped_chocolate": "2026-10-12T20:23:29.971Z",
+          "dannon_light_fit_boston_cream": "2026-10-12T23:03:34.327Z",
+          "protein_powder_whey_premier_chocolate": "2026-10-12T23:03:41.172Z"
+        },
+        "neck": 40,
+        "neckMeta": "2026-10-12T23:03:22.370Z",
+        "weight": 85,
+        "weightMeta": "2026-10-12T23:03:22.251Z"
+      },
+      "2026-10-13": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_vanilla": 443,
+          "legendary_donuts_dipped_chocolate": 72,
+          "natures_own_keto_bread": 56,
+          "peanut_butter_delight_aldi": 15,
+          "smuckers_sf_strawberry_preserves": 51
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_vanilla": "2026-10-13T14:36:10.397Z",
+          "legendary_donuts_dipped_chocolate": "2026-10-13T14:36:16.727Z",
+          "natures_own_keto_bread": "2026-10-13T14:36:22.719Z",
+          "peanut_butter_delight_aldi": "2026-10-13T14:36:45.621Z",
+          "smuckers_sf_strawberry_preserves": "2026-10-13T14:37:02.677Z"
+        },
+        "neck": 40,
+        "neckMeta": "2026-10-13T11:43:55.512Z",
+        "weight": 84.2,
+        "weightMeta": "2026-10-13T11:44:06.643Z"
       }
     },
     "savedItems": [],
@@ -5023,15 +5058,15 @@
       "history": true,
       "targets-accumulation": true,
       "details-recipe-maker": true,
-      "supplements-water": true,
       "profile": true,
-      "today-log": true,
       "catalog-cat-liquids": true,
       "catalog-cat-recipes": true,
       "catalog-cat-items": true,
       "catalog-cat-small_portions": true,
       "catalog-cat-supplements": true,
-      "details-add-new-item": true
+      "details-add-new-item": true,
+      "supplements-water": true,
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
@@ -16903,6 +16938,7 @@
           "label": "Uncategorized"
         }
       ]
-    }
+    },
+    "chartRangeDays": 30
   }
 }
