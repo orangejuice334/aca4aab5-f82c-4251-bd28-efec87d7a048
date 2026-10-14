@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-13T14:43:25.114Z",
-  "_gistSavedAt": "2026-10-13T14:37:28.337Z",
+  "_backupTakenAt": "2026-10-14T12:35:19.596Z",
+  "_gistSavedAt": "2026-10-13T16:57:14.763Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -4954,18 +4954,32 @@
         "counters": {
           "slate_ultra_protein_vanilla": 443,
           "legendary_donuts_dipped_chocolate": 72,
-          "natures_own_keto_bread": 56,
+          "natures_own_keto_bread": 84,
           "peanut_butter_delight_aldi": 15,
-          "smuckers_sf_strawberry_preserves": 51
+          "smuckers_sf_strawberry_preserves": 51,
+          "banana": 118,
+          "pate_mejillon_nuestra_alacena_dia": 20,
+          "soy_milk_original": 160
         },
-        "customs": [],
+        "customs": [
+          {
+            "id": "2371544e-33d3-439a-a35a-05614ed9d4ef",
+            "name": "140kcal",
+            "kcal": 140,
+            "count": 1,
+            "lastModified": "2026-10-13T15:03:46.580Z"
+          }
+        ],
         "toggleMeta": {},
         "counterMeta": {
           "slate_ultra_protein_vanilla": "2026-10-13T14:36:10.397Z",
           "legendary_donuts_dipped_chocolate": "2026-10-13T14:36:16.727Z",
-          "natures_own_keto_bread": "2026-10-13T14:36:22.719Z",
+          "natures_own_keto_bread": "2026-10-13T16:56:10.618Z",
           "peanut_butter_delight_aldi": "2026-10-13T14:36:45.621Z",
-          "smuckers_sf_strawberry_preserves": "2026-10-13T14:37:02.677Z"
+          "smuckers_sf_strawberry_preserves": "2026-10-13T14:37:02.677Z",
+          "banana": "2026-10-13T15:03:29.091Z",
+          "pate_mejillon_nuestra_alacena_dia": "2026-10-13T16:56:32.735Z",
+          "soy_milk_original": "2026-10-13T16:57:13.458Z"
         },
         "neck": 40,
         "neckMeta": "2026-10-13T11:43:55.512Z",
@@ -5064,9 +5078,9 @@
       "catalog-cat-items": true,
       "catalog-cat-small_portions": true,
       "catalog-cat-supplements": true,
-      "details-add-new-item": true,
       "supplements-water": true,
-      "catalog-ratio": true
+      "catalog-ratio": true,
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
