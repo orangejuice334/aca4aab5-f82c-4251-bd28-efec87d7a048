@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-14T12:35:19.596Z",
-  "_gistSavedAt": "2026-10-13T16:57:14.763Z",
+  "_backupTakenAt": "2026-10-15T12:22:07.550Z",
+  "_gistSavedAt": "2026-10-14T14:03:16.975Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -4985,6 +4985,36 @@
         "neckMeta": "2026-10-13T11:43:55.512Z",
         "weight": 84.2,
         "weightMeta": "2026-10-13T11:44:06.643Z"
+      },
+      "2026-10-14": {
+        "toggles": {},
+        "counters": {
+          "krispy_kreme_original_glazed": 49,
+          "slate_ultra_protein_vanilla": 0,
+          "slate_ultra_protein_chocolate": 443,
+          "dannon_light_fit_boston_cream": 150
+        },
+        "customs": [
+          {
+            "id": "eb64ca17-a7be-44e7-93df-b3fac1321eb4",
+            "name": "175kcal 22p",
+            "kcal": 175,
+            "p": 22,
+            "count": 1,
+            "lastModified": "2026-10-14T14:03:14.553Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "krispy_kreme_original_glazed": "2026-10-14T13:30:14.371808+00:00",
+          "slate_ultra_protein_vanilla": "2026-10-14T14:02:39.838Z",
+          "slate_ultra_protein_chocolate": "2026-10-14T14:02:40.651Z",
+          "dannon_light_fit_boston_cream": "2026-10-14T14:02:46.614Z"
+        },
+        "neck": 40,
+        "neckMeta": "2026-10-14T14:02:24.129Z",
+        "weight": 84.2,
+        "weightMeta": "2026-10-14T14:02:28.977Z"
       }
     },
     "savedItems": [],
@@ -5080,6 +5110,7 @@
       "catalog-cat-supplements": true,
       "supplements-water": true,
       "catalog-ratio": true,
+      "today-log": true,
       "details-add-new-item": true
     },
     "userCatalog": {
@@ -9923,6 +9954,64 @@
             }
           ],
           "notes": "MEAT-COUNTER ITEM, NO LABEL — macros estimated. Confirmed PURE LAMB by source. Values per gram COOKED. Basis: USDA ground lamb broiled (283 kcal, 24.75g P, 19.66g fat, 8.9g sat, 97mg chol /100g), diluted ~12% for onion/herb/spice mix-ins + moderate-fat lamb assumption. Estimated cooked: ~265 kcal, 20g protein, 20g fat (8.5g sat), 3g carb, ~450mg sodium /100g -> ~13.3 kcal per g protein. Lamb vs beef differences applied: higher saturated fat, higher cholesterol (~82mg/100g), higher B12 (~2.6 mcg/100g) and natural ruminant trans fat, slightly lower heme iron than beef. Purines moderate-high (~120 mg/100g — relevant for gout at larger portions). Sodium still a guess (350-550mg/100g range). If the lamb was extra-fatty, calories up to ~300/100g; if lean, ~230/100g. If 95g logged was RAW weight, scale down ~25%."
+        },
+        "krispy_kreme_original_glazed": {
+          "name": "Doughnut Original Glazed Krispy Kreme",
+          "brand": "Krispy Kreme",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 3.877551020408163,
+          "p": 0.061224489795918366,
+          "fat": 0.22448979591836735,
+          "sf": 0.10204081632653061,
+          "transFat": 0,
+          "cholesterol": 0,
+          "sodium": 1.7346938775510203,
+          "carbs": 0.4489795918367347,
+          "fiber": 0.01020408163265306,
+          "sugar": 0.20408163265306123,
+          "addedSugar": 0.1836734693877551,
+          "vitD": 0,
+          "calcium": 1.0612244897959184,
+          "iron": 0.014285714285714285,
+          "potassium": 0.6122448979591837,
+          "vitA": 0,
+          "vitC": 0.04081632653061224,
+          "magnesium": 0.13,
+          "phosphorus": 0.6,
+          "zinc": 0.008,
+          "copper": 0.0009,
+          "manganese": 0.003,
+          "selenium": 0.09,
+          "b1": 0.0019,
+          "b2": 0.0015,
+          "b3": 0.023,
+          "b5": 0.004,
+          "b6": 0.0004,
+          "b9": 0.7,
+          "b12": 0.0006,
+          "choline": 0.15,
+          "vitE": 0.006,
+          "vitK": 0.045,
+          "water": 0.25,
+          "omega3": 0.4,
+          "purines": 0.15,
+          "displayUnits": [
+            {
+              "label": "1 doughnut (49 g)",
+              "amount": 49,
+              "unit": "g",
+              "default": true,
+              "multiplier": 49
+            },
+            {
+              "label": "dozen (588 g)",
+              "amount": 588,
+              "unit": "g",
+              "multiplier": 588
+            }
+          ],
+          "notes": "Krispy Kreme Original Glazed doughnut, US. Logged 2026-10-14 from Luis's 'plain donut from Krispy Kreme' - Original Glazed assumed as the standard doughnut; swap if it was an unglazed one. No package photo; values are Krispy Kreme's published US panel as carried by CalorieKing and MyFoodDiary: per 1 doughnut (49 g) 190 kcal, 11 g fat (5 g sat, 0 trans), 0 mg cholesterol, 85 mg sodium, 22 g carb, ~0.5 g fiber, 10 g sugars (9 g added), 3 g protein, vitD 0, calcium ~52 mg (CalorieKing says 40), iron 0.7 mg, potassium 30 mg, vitamin A 0, vitamin C ~2 mg (likely ascorbic acid used as a dough conditioner). MEDIUM-HIGH CONFIDENCE - third-party copies of the official panel, not the store's own page. kcal not corrected: 3x4 + 11x9 + 22x4 = 199, published as 190; under 1 g fiber, nothing to adjust. Unlabeled micros from USDA SR Legacy glazed yeast doughnut, enriched flour (so folate and B1 reflect fortification). MEDIUM-LOW. PURINES ~15 mg/100 g, very low. LOW."
         },
         "la_piara_tapa_negra_light": {
           "name": "Pate pork liver La Piara Tapa Negra -50% grasa",
