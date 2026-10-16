@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-15T12:22:07.550Z",
-  "_gistSavedAt": "2026-10-14T14:03:16.975Z",
+  "_backupTakenAt": "2026-10-16T12:01:55.028Z",
+  "_gistSavedAt": "2026-10-15T21:05:47.492Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5015,6 +5015,39 @@
         "neckMeta": "2026-10-14T14:02:24.129Z",
         "weight": 84.2,
         "weightMeta": "2026-10-14T14:02:28.977Z"
+      },
+      "2026-10-15": {
+        "toggles": {},
+        "counters": {
+          "think_bar_lemon_delight": 60,
+          "soy_milk_original": 100,
+          "slate_ultra_protein_chocolate": 443,
+          "natures_own_keto_bread": 56,
+          "peanut_butter_delight_aldi": 10,
+          "smuckers_sf_strawberry_preserves": 25,
+          "slate_ultra_protein_vanilla": 443,
+          "soy_milk": 140,
+          "vitabella_strawberry_pillows": 35,
+          "ghost_pb_protein_cereal": 35
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "think_bar_lemon_delight": "2026-10-15T14:53:37.904Z",
+          "soy_milk_original": "2026-10-15T14:53:59.703Z",
+          "slate_ultra_protein_chocolate": "2026-10-15T15:47:50.898Z",
+          "natures_own_keto_bread": "2026-10-15T15:47:57.545Z",
+          "peanut_butter_delight_aldi": "2026-10-15T15:48:12.408Z",
+          "smuckers_sf_strawberry_preserves": "2026-10-15T15:48:36.078Z",
+          "slate_ultra_protein_vanilla": "2026-10-15T21:01:48.771Z",
+          "soy_milk": "2026-10-15T21:02:03.075Z",
+          "vitabella_strawberry_pillows": "2026-10-15T21:02:29.895Z",
+          "ghost_pb_protein_cereal": "2026-10-15T21:05:46.692055+00:00"
+        },
+        "neck": 40,
+        "neckMeta": "2026-10-15T19:39:11.506Z",
+        "weight": 84.2,
+        "weightMeta": "2026-10-15T19:39:11.331Z"
       }
     },
     "savedItems": [],
@@ -5109,9 +5142,8 @@
       "catalog-cat-small_portions": true,
       "catalog-cat-supplements": true,
       "supplements-water": true,
-      "catalog-ratio": true,
-      "today-log": true,
-      "details-add-new-item": true
+      "details-add-new-item": true,
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
@@ -8520,6 +8552,75 @@
             }
           ],
           "notes": "Raw garlic, cloves only (papery skin not counted). Macros and micros from USDA SR Legacy 11215 (garlic, raw) per 100 g: 6.36 P, 0.5 fat (0.089 sat), 33.06 carb-by-difference, 1.0 sugar, 58.58 water, 17 Na, 401 K, 181 Ca, 153 P-phos, 25 Mg, 1.16 Zn, 14.2 mcg Se, 0.299 Cu, 1.672 Mn, 31.2 vitC, 1.235 B6, 0.596 B5, 0.2 B1, 0.11 B2, 0.7 B3, 3 mcg B9, 23.2 choline, 1.7 mcg K1, 0.08 vitE. HIGH CONFIDENCE on the USDA panel itself. TWO CORRECTIONS APPLIED (both about garlic's fructans): (1) FIBER raised from USDA 2.1 to 14.6 g/100 g. USDA's fiber value comes from AOAC 985.29 (Association of Official Analytical Chemists method 985.29), which does not recover inulin-type fructans - garlic's dominant storage carbohydrate. Literature (Moshfegh 1999; Van Loo 1995) puts raw garlic fructans at ~9.8-16 g/100 g; midpoint 12.5 used, added to the 2.1 measured. Fructans are non-digestible and fermentable, so they are fiber physiologically even though the reference method misses them. LOW-MEDIUM CONFIDENCE: fructan content varies by cultivar, bulb maturity and storage time (it declines in storage), and long-chain inulin may be partly double-counted inside the 2.1 g. (2) kcal lowered from USDA 149 to 126/100 g. USDA applies Atwater 4 / 9 / 3.60 to carb-by-difference (6.36x4 + 0.5x9 + 33.06x3.60 = 149), which charges all 14.6 g of real fiber at 3.60 kcal/g. Fermentable fiber realistically yields ~2 kcal/g, so 14.6 g x 1.6 kcal = ~23 kcal subtracted. PURINES ~10 mg/100 g - garlic sits in the very-low-purine class, relevant to uric-acid/gout history. LOW CONFIDENCE, not from a measured table. iodine and b7 (biotin) left at 0 (trace only, not in SR Legacy). vitA RAE is genuinely 0 (the 9 IU in USDA is carotenoid trace). b12 = 0 (plant, unfortified). UNITS: 1 clove = 3 g is the USDA reference clove; real supermarket cloves run 2-7 g, so weigh if the amount matters. Head/bulb ~45 g of peeled cloves is a mid-range estimate (typical range 35-60 g). Values are for RAW garlic - roasting drives off water and concentrates everything per gram."
+        },
+        "ghost_pb_protein_cereal": {
+          "name": "Cereal Ghost peanut butter protein",
+          "brand": "Ghost",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "ingredients": "Milk protein concentrate, sodium caseinate, soy protein isolate, peanut butter (peanuts, sugar, salt), sugar, allulose, peanut flour, palm oil, palm kernel oil, canola and/or sunflower oil, whey protein concentrate, nonfat dry milk, salt, calcium carbonate, soy lecithin, sucralose, natural flavor, rosemary extract, turmeric extract (color), vitamin E (mixed tocopherols).",
+          "kcal": 4.358974358974359,
+          "p": 0.46153846153846156,
+          "fat": 0.1794871794871795,
+          "sf": 0.08974358974358974,
+          "transFat": 0,
+          "polyunsat": 0.02564102564102564,
+          "monounsat": 0.05128205128205128,
+          "cholesterol": 0.1282051282051282,
+          "sodium": 7.17948717948718,
+          "carbs": 0.28205128205128205,
+          "fiber": 0.020512820512820513,
+          "sugar": 0.15384615384615385,
+          "addedSugar": 0.1282051282051282,
+          "sugarAlcohol": 0.07692307692307693,
+          "vitD": 0,
+          "calcium": 3.3333333333333335,
+          "iron": 0.023076923076923078,
+          "potassium": 3.3333333333333335,
+          "phosphorus": 3.85,
+          "magnesium": 0.64,
+          "zinc": 0.031,
+          "copper": 0.0038,
+          "manganese": 0.0077,
+          "selenium": 0.15,
+          "iodine": 0.26,
+          "b1": 0.001,
+          "b2": 0.0038,
+          "b3": 0.051,
+          "b5": 0.0077,
+          "b6": 0.0015,
+          "b9": 0.38,
+          "b12": 0.0077,
+          "choline": 0.38,
+          "vitA": 0,
+          "vitC": 0,
+          "vitE": 0.026,
+          "vitK": 0.026,
+          "water": 0.03,
+          "omega3": 1.5,
+          "purines": 0.5,
+          "displayUnits": [
+            {
+              "label": "1 cup (39 g)",
+              "amount": 39,
+              "unit": "g",
+              "default": true,
+              "multiplier": 39
+            },
+            {
+              "label": "box 10.8 oz (306 g)",
+              "amount": 306,
+              "unit": "g",
+              "multiplier": 306
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Ghost Peanut Butter Protein Cereal, 10.8 oz (306 g) bag, about 8 servings. LABEL per 1 cup (39 g), cereal only, from the Amazon listing image: 170 kcal, 7 g fat (3.5 sat, 0 trans, 1 poly, 2 mono), 5 mg cholesterol, 280 mg sodium, 11 g carb, fiber under 1 g, 6 g total sugars (5 g added), 18 g protein, vitD 0, calcium 130 mg, iron 0.9 mg, potassium 130 mg. (With 1/2 cup skim milk the panel says 240 kcal - not stored; log milk separately.) HIGH CONFIDENCE on macros. ALLULOSE (a rare sugar the body barely uses, ~0.4 kcal/g, which FDA keeps out of the sugar line) is the 6th ingredient. ~3 g per cup stored in the sugarAlcohol field by subtraction (11 g carb minus 6 sugar, ~0.8 fiber, ~1 g peanut-flour starch), same treatment as the Chobani Zero Sugar entries. LOW CONFIDENCE on the 3 g. kcal KEPT AT LABEL: 18x4 + 7x9 + 8x4 + ~3 g allulose at 0.4 = ~168, so the label already counts the allulose as nearly calorie-free. Protein is milk protein concentrate, caseinate, soy isolate and whey - no collagen, no downgrade. Fiber 0.8 g from the label's 'less than 1 g' (3 percent DV). UNLABELED MICROS modeled from milk proteins, soy isolate and peanuts. Phosphorus ~150 mg per cup is the notable one (milk protein concentrate and caseinate are phosphorus-dense). LOW-MEDIUM. PURINES ~20 mg per cup, low. LOW."
         },
         "goldhen_egg_whites": {
           "name": "Goldhen Liquid Egg Whites (Aldi)",
