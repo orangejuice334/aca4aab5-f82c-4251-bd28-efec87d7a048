@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-16T12:01:55.028Z",
-  "_gistSavedAt": "2026-10-15T21:05:47.492Z",
+  "_backupTakenAt": "2026-10-17T11:17:22.026Z",
+  "_gistSavedAt": "2026-10-16T19:08:36.115Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5048,6 +5048,51 @@
         "neckMeta": "2026-10-15T19:39:11.506Z",
         "weight": 84.2,
         "weightMeta": "2026-10-15T19:39:11.331Z"
+      },
+      "2026-10-16": {
+        "toggles": {},
+        "counters": {
+          "tj_tiny_fruity_cuties": 40,
+          "ghost_pb_protein_cereal": 40,
+          "slate_ultra_protein_vanilla": 443,
+          "macadamia_dry_roasted_365": 16
+        },
+        "customs": [
+          {
+            "id": "a1847d7d-a998-47d2-b78c-885962be5a4f",
+            "name": "360kcal 4p",
+            "kcal": 360,
+            "p": 4,
+            "count": 1,
+            "lastModified": "2026-10-16T13:42:38.686Z"
+          },
+          {
+            "id": "514c3032-7814-4651-8fff-7a43cc127636",
+            "name": "50kcal 7p",
+            "kcal": 50,
+            "p": 7,
+            "count": 1,
+            "lastModified": "2026-10-16T14:11:19.233Z"
+          },
+          {
+            "id": "8a88b159-56f9-4df9-88be-e2ea09dd8b9c",
+            "name": "400kcal",
+            "kcal": 400,
+            "count": 1,
+            "lastModified": "2026-10-16T19:08:34.471Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "tj_tiny_fruity_cuties": "2026-10-16T13:22:52.775Z",
+          "ghost_pb_protein_cereal": "2026-10-16T13:23:08.486Z",
+          "slate_ultra_protein_vanilla": "2026-10-16T13:23:16.444Z",
+          "macadamia_dry_roasted_365": "2026-10-16T13:25:50.074Z"
+        },
+        "neck": 40,
+        "neckMeta": "2026-10-16T19:08:19.207Z",
+        "weight": 84.3,
+        "weightMeta": "2026-10-16T19:08:19.093Z"
       }
     },
     "savedItems": [],
@@ -5142,8 +5187,9 @@
       "catalog-cat-small_portions": true,
       "catalog-cat-supplements": true,
       "supplements-water": true,
-      "details-add-new-item": true,
-      "catalog-ratio": true
+      "catalog-ratio": true,
+      "today-log": true,
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
@@ -13328,21 +13374,20 @@
           "category": "items",
           "defaultMeasuredIn": "g",
           "kcal": 3,
-          "p": 0.3333333333333333,
-          "fat": 0.11666666666666667,
+          "p": 0.3333,
+          "fat": 0.1167,
           "sf": 0.05,
           "transFat": 0,
-          "cholesterol": 0.08333333333333333,
-          "sodium": 3.8333333333333335,
+          "cholesterol": 0.0833,
+          "sodium": 3.8333,
           "carbs": 0.4,
-          "fiber": 0.23333333333333334,
-          "sugar": 0.016666666666666666,
+          "fiber": 0.2333,
+          "sugar": 0.0167,
           "addedSugar": 0,
           "sugarAlcohol": 0.1,
-          "vitD": 0,
-          "calcium": 2.3333333333333335,
-          "iron": 0.02333333333333333,
-          "potassium": 2.1666666666666665,
+          "calcium": 2.3333,
+          "iron": 0.0233,
+          "potassium": 2.1667,
           "displayUnits": [
             {
               "label": "1 bar (60 g)",
@@ -14658,24 +14703,20 @@
           "brand": "Trader Joe's",
           "category": "items",
           "defaultMeasuredIn": "g",
-          "ingredients": "Albacore tuna, water, salt.",
-          "kcal": 1.1504424778761062,
-          "p": 0.25663716814159293,
-          "fat": 0.008849557522123894,
+          "kcal": 1.1504,
+          "p": 0.2566,
+          "fat": 0.0088,
           "sf": 0.0024,
           "transFat": 0,
           "monounsat": 0.00234,
           "polyunsat": 0.0033,
-          "cholesterol": 0.35398230088495575,
-          "sodium": 3.185840707964602,
-          "carbs": 0,
-          "fiber": 0,
-          "sugar": 0,
+          "cholesterol": 0.354,
+          "sodium": 3.1858,
           "addedSugar": 0,
-          "vitD": 0.010619469026548672,
+          "vitD": 0.0106,
           "calcium": 0.14,
-          "iron": 0.009557522123893806,
-          "potassium": 2.495575221238938,
+          "iron": 0.0096,
+          "potassium": 2.4956,
           "magnesium": 0.33,
           "phosphorus": 2.17,
           "zinc": 0.0048,
@@ -14685,13 +14726,12 @@
           "iodine": 0.12,
           "water": 0.73,
           "vitA": 0.06,
-          "vitC": 0,
           "vitE": 0.0085,
           "vitK": 0.017,
-          "b1": 0.00008,
-          "b2": 0.00044,
+          "b1": 0.0001,
+          "b2": 0.0004,
           "b3": 0.058,
-          "b5": 0.00121,
+          "b5": 0.0012,
           "b6": 0.0022,
           "b9": 0.02,
           "b12": 0.0117,
