@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-19T14:13:34.829Z",
-  "_gistSavedAt": "2026-10-18T14:57:51.821Z",
+  "_backupTakenAt": "2026-10-20T12:27:28.387Z",
+  "_gistSavedAt": "2026-10-19T16:55:20.172Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5127,6 +5127,36 @@
           "peanut_butter_delight_aldi": "2026-10-18T14:57:33.264Z",
           "smuckers_sf_strawberry_preserves": "2026-10-18T14:57:50.426Z"
         }
+      },
+      "2026-10-19": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_chocolate": 443,
+          "tj_tiny_fruity_cuties": 40,
+          "ghost_pb_protein_cereal": 40,
+          "soy_milk_original": 140
+        },
+        "customs": [
+          {
+            "id": "67b4def3-0576-4b88-8ead-89aa2ef89cc8",
+            "name": "400kcal 4p",
+            "kcal": 400,
+            "p": 4,
+            "count": 1,
+            "lastModified": "2026-10-19T16:54:50.269Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_chocolate": "2026-10-19T16:53:47.579Z",
+          "tj_tiny_fruity_cuties": "2026-10-19T16:54:00.094Z",
+          "ghost_pb_protein_cereal": "2026-10-19T16:55:15.009Z",
+          "soy_milk_original": "2026-10-19T16:54:37.165Z"
+        },
+        "neck": 40,
+        "neckMeta": "2026-10-19T16:51:54.684Z",
+        "weight": 85.7,
+        "weightMeta": "2026-10-19T16:53:42.229Z"
       }
     },
     "savedItems": [],
@@ -5221,9 +5251,8 @@
       "catalog-cat-small_portions": true,
       "catalog-cat-supplements": true,
       "supplements-water": true,
-      "catalog-ratio": true,
-      "today-log": true,
-      "details-add-new-item": true
+      "details-add-new-item": true,
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
