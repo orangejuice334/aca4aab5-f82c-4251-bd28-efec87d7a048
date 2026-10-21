@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-20T12:27:28.387Z",
-  "_gistSavedAt": "2026-10-19T16:55:20.172Z",
+  "_backupTakenAt": "2026-10-21T12:37:14.341Z",
+  "_gistSavedAt": "2026-10-21T02:28:54.159Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5157,6 +5157,39 @@
         "neckMeta": "2026-10-19T16:51:54.684Z",
         "weight": 85.7,
         "weightMeta": "2026-10-19T16:53:42.229Z"
+      },
+      "2026-10-20": {
+        "toggles": {},
+        "counters": {
+          "legendary_donuts_dipped_chocolate": 72,
+          "slate_ultra_protein_chocolate": 443,
+          "natures_own_keto_bread": 56,
+          "pate_mejillon_nuestra_alacena_dia": 40,
+          "premier": 325,
+          "grapes_green_raw": 150,
+          "popeyes_blackened_tenders": 150,
+          "popeyes_mashed_cajun_gravy": 142,
+          "yogurt_oikos_triple_zero_lemon": 150,
+          "smuckers_sf_strawberry_preserves": 51
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "legendary_donuts_dipped_chocolate": "2026-10-20T14:25:57.562Z",
+          "slate_ultra_protein_chocolate": "2026-10-20T14:26:09.546Z",
+          "natures_own_keto_bread": "2026-10-20T18:42:46.495Z",
+          "pate_mejillon_nuestra_alacena_dia": "2026-10-20T18:42:58.218Z",
+          "premier": "2026-10-20T18:43:08.006Z",
+          "grapes_green_raw": "2026-10-20T18:44:31.305796+00:00",
+          "popeyes_blackened_tenders": "2026-10-21T02:09:01.202716+00:00",
+          "popeyes_mashed_cajun_gravy": "2026-10-21T02:09:01.202716+00:00",
+          "yogurt_oikos_triple_zero_lemon": "2026-10-21T02:28:10.585Z",
+          "smuckers_sf_strawberry_preserves": "2026-10-21T02:28:19.754Z"
+        },
+        "neck": 40,
+        "neckMeta": "2026-10-21T02:27:51.802Z",
+        "weight": 85.7,
+        "weightMeta": "2026-10-21T02:27:51.684Z"
       }
     },
     "savedItems": [],
@@ -5251,8 +5284,7 @@
       "catalog-cat-small_portions": true,
       "catalog-cat-supplements": true,
       "supplements-water": true,
-      "details-add-new-item": true,
-      "catalog-ratio": true
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
@@ -8849,6 +8881,68 @@
             }
           ],
           "notes": "Gorton's Parmesan Crusted Breaded Fish Fillets (wild-caught Alaskan pollock, whole fillet not minced, real parmesan/romano, breadcrumb coating). 5 servings/container, 2 fillets (103g)/serving => ~515g box, ~51.5g/fillet. Label per 2 fillets (103g): 260 kcal, 14g fat (1g sat -- low, canola/soybean oil), 0 trans, 35mg chol, 590mg sodium (26% DV), 23g carb, 1g fiber, 3g sugar, 0 added, 11g protein, Vit D 0.3mcg, Ca 20mg, Iron 1.2mg, K 220mg, plus 120mg EPA+DHA omega-3/serving. All label-exact (high confidence). kcal NOT corrected (fiber only 1g, breading; negligible). Off-label micros ESTIMATED from breaded pollock + cheese + enriched flour: selenium ~30mcg/serving (pollock high), B12 ~2.5mcg, phosphorus ~200mg/serving (relevant to reduced-eGFR history; also aluminum phosphate in coating), choline ~65mg, iodine ~40mcg (fish), folate ~40mcg (enriched flour). LOW-MEDIUM confidence. PURINES ~1.2 mg/g => ~124mg per 103g serving -- MODERATE-HIGH (pollock; fish). Relevant to uric-acid/gout history. LOW confidence. CONTAINS: fish (pollock), milk (parmesan/whey), wheat. Fried/baked breaded product. Uncooked -- cook to 165F."
+        },
+        "grapes_green_raw": {
+          "name": "Grapes green raw",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.675,
+          "p": 0.0072,
+          "fat": 0.0016,
+          "sf": 0.0005,
+          "transFat": 0,
+          "cholesterol": 0,
+          "carbs": 0.181,
+          "fiber": 0.009,
+          "sugar": 0.1548,
+          "addedSugar": 0,
+          "sodium": 0.02,
+          "potassium": 1.91,
+          "calcium": 0.1,
+          "iron": 0.0036,
+          "magnesium": 0.07,
+          "phosphorus": 0.2,
+          "zinc": 0.0007,
+          "copper": 0.00127,
+          "manganese": 0.00071,
+          "selenium": 0.001,
+          "water": 0.8054,
+          "vitA": 0.03,
+          "vitC": 0.032,
+          "vitD": 0,
+          "vitE": 0.0019,
+          "vitK": 0.146,
+          "b1": 0.00069,
+          "b2": 0.0007,
+          "b3": 0.00188,
+          "b5": 0.0005,
+          "b6": 0.00086,
+          "b9": 0.02,
+          "b12": 0,
+          "choline": 0.056,
+          "purines": 0.05,
+          "displayUnits": [
+            {
+              "label": "1 cup (151 g)",
+              "amount": 151,
+              "unit": "g",
+              "default": true,
+              "multiplier": 151
+            },
+            {
+              "label": "10 grapes (49 g)",
+              "amount": 49,
+              "unit": "g",
+              "multiplier": 49
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Raw green seedless grapes (Thompson-type). USDA SR Legacy 09132 (grapes, red or green, European type, raw) per 100 g: 69 kcal, 0.72 P, 0.16 fat, 18.1 carb, 0.9 fiber, 15.48 sugar, 2 Na, 191 K, 10 Ca, 0.36 Fe, 3.2 vitC, 14.6 mcg K1, 80.54 water. HIGH CONFIDENCE. kcal corrected 69 -> 67.5 (0.9 g fiber recounted at ~2 kcal/g from the fruit factor 3.60), same fix as the blueberry and mandarin entries. Sugars are intrinsic, addedSugar 0. Green grapes carry far less of the skin pigments (anthocyanins) than red, otherwise the same record covers both. Units: USDA 1 cup = 151 g, 10 seedless grapes = 49 g. PURINES ~5 mg/100 g, very low. LOW."
         },
         "gts_synergy_gingerade": {
           "name": "Kombucha GT's Synergy Gingerade",
@@ -12554,6 +12648,119 @@
             }
           ],
           "notes": "Annasea Authentic Hawaii-Style Poke, Wasabi Tuna (sesame oil & kukui nuts), frozen, sauce pack included. Net 10oz/283g, 2 servings/container. Label per 1/2 pkg (142g): 310 kcal, 20g fat, 2.5g sat, 0 trans, 50mg chol, 670mg sodium (29% DV, HIGH), 2g carb, 1g fiber, 0g sugar, 28g protein, Vit D 0, Ca 60mg, Iron 0.6mg, K 560mg. Per container: 610 kcal, 41g fat, 5g sat, 100mg chol, 1340mg sodium, 3g carb, 1g fiber, 55g protein, Ca 110, Fe 1.2, K 1110. STORED VALUES derived from per-CONTAINER column / 283g (more accurate: per-serving column shows FDA rounding, e.g. calcium 60mg/serving vs truer 55mg from 110/2). Protein source: yellowfin and/or bigeye tuna (~205g of the 283g), plus sesame seeds, capelin fish roe (masago), trace kukui. High added fat (~39g of 41g) from sesame oil/soybean oil, sesame seeds, kukui nuts, wasabi oil -- tuna itself is lean (~1g fat). PURINES HIGH: ~1.33 mg/g => ~190mg per 1/2-pkg serving, ~377mg per package (yellowfin 150-200 mg/100g + roe). Relevant to uric-acid/gout history. MEDIUM confidence. Off-label micros ESTIMATED from yellowfin composition (USDA: Se 90.6mcg, niacin 18mg, B12 2.1mcg, B6 0.93mg, phosphorus 278mg, Mg 35mg, choline 65mg per 100g): selenium ~185mcg/pkg (very high), B12 ~4.5mcg, niacin ~37mg, phosphorus ~600mg/pkg (relevant to reduced-eGFR history), MEDIUM confidence. vitD stored 0 per label, BUT raw yellowfin has ~1.7mcg/100g so true value likely ~3.5mcg/container -- label's 0 may be understated (kept at label value). omega-3 ~0.65g/pkg (yellowfin lean ~0.24g/100g EPA+DHA + kukui/candlenut ALA) LOW confidence. B9/folate low in tuna. CONTAINS: fish (tuna, capelin roe), sesame, soy, wheat, tree nuts (kukui). Raw fish -- foodborne-illness advisory on pack. Ingredients: yellowfin/bigeye tuna (tasteless-smoke treated), sesame oil (sesame+soybean oil), sesame seeds, white shoyu, masago, water, kukui nuts, sea salt, red chili flakes, wasabi oil (rapeseed oil, mustard extract, wasabi), xanthan gum."
+        },
+        "popeyes_blackened_tenders": {
+          "name": "Chicken tenders blackened Popeyes",
+          "brand": "Popeyes",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 1.8666666666666667,
+          "p": 0.2866666666666667,
+          "fat": 0.07133333333333333,
+          "sf": 0.013333333333333334,
+          "transFat": 0,
+          "cholesterol": 0.7666666666666667,
+          "sodium": 6.133333333333334,
+          "carbs": 0.02,
+          "fiber": 0,
+          "sugar": 0,
+          "addedSugar": 0,
+          "potassium": 2.5,
+          "phosphorus": 2.28,
+          "magnesium": 0.29,
+          "calcium": 0.15,
+          "iron": 0.0104,
+          "zinc": 0.01,
+          "selenium": 0.276,
+          "copper": 0.0005,
+          "manganese": 0.0002,
+          "b1": 0.0007,
+          "b2": 0.0011,
+          "b3": 0.137,
+          "b5": 0.0097,
+          "b6": 0.006,
+          "b9": 0.04,
+          "b12": 0.0034,
+          "choline": 0.85,
+          "vitA": 0.06,
+          "vitC": 0,
+          "vitD": 0.001,
+          "vitE": 0.006,
+          "vitK": 0.02,
+          "water": 0.62,
+          "omega3": 1,
+          "purines": 1.6,
+          "displayUnits": [
+            {
+              "label": "5 pc (~150 g)",
+              "amount": 150,
+              "unit": "g",
+              "default": true,
+              "multiplier": 150
+            },
+            {
+              "label": "3 pc (~90 g)",
+              "amount": 90,
+              "unit": "g",
+              "multiplier": 90
+            },
+            {
+              "label": "1 tender (~30 g)",
+              "amount": 30,
+              "unit": "g",
+              "multiplier": 30
+            }
+          ],
+          "notes": "Popeyes Blackened Chicken Tenders (unbreaded, still fried). PUBLISHED per 5 pc (EatThisMuch copy of the Popeyes panel; Fitia agrees on 280 kcal): 280 kcal, 3 g fat, 0 sat, 0 trans, 40 mg cholesterol, 920 mg sodium, 3 g carb, 0 fiber, 0 sugar, 43 g protein. 3 pc published 170 kcal / 2 g fat / 26 g protein / 550 mg sodium. One 2026 dietitian column gives 3 pc sodium as 860 mg, which would put 5 pc near 1,430 - sodium is the least certain line. CheatDayDesign lists 5 pc as 290 kcal / 45 g protein. MEDIUM CONFIDENCE overall. THE PUBLISHED MACROS DON'T ADD UP: 43x4 + 3x9 + 3x4 = 211 kcal against the stated 280 (the 3 pc has the same ~30 percent gap). kcal and protein KEPT as published; FAT RAISED 3 -> 10.7 g so the macros reconcile with the stated calories. That is also what the food physically implies: ~150 g of cooked breast meat carries ~5 g of its own fat, and frying without breading adds a few grams of oil. Saturated fat set ~2 g (label 0), cholesterol ~115 mg (label 40 is far below the ~85 mg/100 g of any cooked chicken breast). MEDIUM-LOW on those three. WEIGHT NOT PUBLISHED: 5 pc assumed ~150 g from the protein (cooked breast ~29 percent protein); per-gram values hang on that. Unlabeled micros from USDA roasted chicken breast scaled to 150 g. PURINES ~160 mg/100 g, MODERATE-HIGH, relevant to uric-acid/gout history. MEDIUM-LOW."
+        },
+        "popeyes_mashed_cajun_gravy": {
+          "name": "Mashed potatoes Cajun gravy Popeyes",
+          "brand": "Popeyes",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.7746478873239436,
+          "p": 0.02112676056338028,
+          "fat": 0.028169014084507043,
+          "sf": 0.014084507042253521,
+          "transFat": 0,
+          "cholesterol": 0.035211267605633804,
+          "sodium": 4.154929577464789,
+          "carbs": 0.1267605633802817,
+          "fiber": 0.007042253521126761,
+          "sugar": 0.007042253521126761,
+          "addedSugar": 0,
+          "potassium": 2,
+          "calcium": 0.2,
+          "iron": 0.003,
+          "magnesium": 0.15,
+          "phosphorus": 0.45,
+          "zinc": 0.002,
+          "vitC": 0.03,
+          "b1": 0.0007,
+          "b3": 0.008,
+          "b6": 0.001,
+          "b9": 0.08,
+          "choline": 0.12,
+          "vitE": 0.003,
+          "vitK": 0.02,
+          "water": 0.8,
+          "purines": 0.15,
+          "displayUnits": [
+            {
+              "label": "regular side (142 g)",
+              "amount": 142,
+              "unit": "g",
+              "default": true,
+              "multiplier": 142
+            },
+            {
+              "label": "large side (426 g)",
+              "amount": 426,
+              "unit": "g",
+              "multiplier": 426
+            }
+          ],
+          "notes": "Popeyes Mashed Potatoes with Cajun Gravy, regular side 142 g. PUBLISHED (FatSecret and EatThisMuch copies of the Popeyes panel, consistent): 110 kcal, 4 g fat (2 g sat), 0 trans, 5 mg cholesterol, 590 mg sodium, 18 g carb, 1 g fiber, 1 g sugar, 3 g protein. Large is 330 kcal / 1,770 mg sodium, exactly 3x, so the large unit is set at 426 g. MEDIUM-HIGH CONFIDENCE. kcal not corrected: 3x4 + 4x9 + 17x4 = 116, published 110; 1 g fiber is immaterial. Unlabeled micros modeled from flake-style mashed potato diluted by gravy. LOW. The Cajun gravy is reported to contain bits of meat; PURINES set ~15 mg/100 g. LOW."
         },
         "pork_beans_halfcup": {
           "name": "Pork & beans",
