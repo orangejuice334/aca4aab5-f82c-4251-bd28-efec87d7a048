@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-21T12:37:14.341Z",
-  "_gistSavedAt": "2026-10-21T02:28:54.159Z",
+  "_backupTakenAt": "2026-10-22T12:41:58.021Z",
+  "_gistSavedAt": "2026-10-21T17:58:42.025Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5190,6 +5190,29 @@
         "neckMeta": "2026-10-21T02:27:51.802Z",
         "weight": 85.7,
         "weightMeta": "2026-10-21T02:27:51.684Z"
+      },
+      "2026-10-21": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_vanilla": 443,
+          "tj_tiny_fruity_cuties": 40,
+          "ghost_pb_protein_cereal": 40,
+          "macadamia_dry_roasted_365": 20,
+          "soy_milk_original": 144,
+          "david_bar_choc_chip_cookie_dough": 62
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_vanilla": "2026-10-21T13:29:43.237Z",
+          "tj_tiny_fruity_cuties": "2026-10-21T13:29:56.295Z",
+          "ghost_pb_protein_cereal": "2026-10-21T13:30:12.183Z",
+          "macadamia_dry_roasted_365": "2026-10-21T13:30:26.445Z",
+          "soy_milk_original": "2026-10-21T14:44:39.170Z",
+          "david_bar_choc_chip_cookie_dough": "2026-10-21T17:58:40.540Z"
+        },
+        "weight": 84.7,
+        "weightMeta": "2026-10-21T13:21:51.032Z"
       }
     },
     "savedItems": [],
@@ -5284,7 +5307,8 @@
       "catalog-cat-small_portions": true,
       "catalog-cat-supplements": true,
       "supplements-water": true,
-      "details-add-new-item": true
+      "details-add-new-item": true,
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
@@ -17453,6 +17477,6 @@
         }
       ]
     },
-    "chartRangeDays": 30
+    "chartRangeDays": 90
   }
 }
