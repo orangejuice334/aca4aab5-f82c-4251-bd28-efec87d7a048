@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-22T12:41:58.021Z",
-  "_gistSavedAt": "2026-10-21T17:58:42.025Z",
+  "_backupTakenAt": "2026-10-23T12:19:27.813Z",
+  "_gistSavedAt": "2026-10-22T14:17:10.073Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5213,6 +5213,34 @@
         },
         "weight": 84.7,
         "weightMeta": "2026-10-21T13:21:51.032Z"
+      },
+      "2026-10-22": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_vanilla": 443,
+          "elevation_bar_golden_vanilla": 58,
+          "slate_ultra_protein_chocolate": 443
+        },
+        "customs": [
+          {
+            "id": "84b902ae-62db-4a1f-9691-f08ffe42f891",
+            "name": "225kcal 3p",
+            "kcal": 225,
+            "p": 3,
+            "count": 1,
+            "lastModified": "2026-10-22T12:53:30.436Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_vanilla": "2026-10-22T12:53:41.544Z",
+          "elevation_bar_golden_vanilla": "2026-10-22T14:16:02.778Z",
+          "slate_ultra_protein_chocolate": "2026-10-22T14:17:08.799Z"
+        },
+        "neck": 40,
+        "neckMeta": "2026-10-22T12:53:00.281Z",
+        "weight": 85.2,
+        "weightMeta": "2026-10-22T12:53:19.727Z"
       }
     },
     "savedItems": [],
@@ -5300,15 +5328,15 @@
       "history": true,
       "targets-accumulation": true,
       "details-recipe-maker": true,
-      "profile": true,
       "catalog-cat-liquids": true,
       "catalog-cat-recipes": true,
       "catalog-cat-items": true,
       "catalog-cat-small_portions": true,
       "catalog-cat-supplements": true,
       "supplements-water": true,
+      "catalog-ratio": true,
       "details-add-new-item": true,
-      "catalog-ratio": true
+      "profile": true
     },
     "userCatalog": {
       "items": {
