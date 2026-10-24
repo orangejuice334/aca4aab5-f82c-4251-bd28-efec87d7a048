@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-23T12:19:27.813Z",
-  "_gistSavedAt": "2026-10-22T14:17:10.073Z",
+  "_backupTakenAt": "2026-10-24T11:45:50.309Z",
+  "_gistSavedAt": "2026-10-23T23:37:39.687Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5241,6 +5241,39 @@
         "neckMeta": "2026-10-22T12:53:00.281Z",
         "weight": 85.2,
         "weightMeta": "2026-10-22T12:53:19.727Z"
+      },
+      "2026-10-23": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_chocolate": 443,
+          "natures_own_keto_bread": 112,
+          "jif_simply_crunchy_unsweetened": 17,
+          "egg_fried": 92,
+          "ketchup_packet": 18,
+          "dannon_light_fit_boston_cream": 150
+        },
+        "customs": [
+          {
+            "id": "29db0cbf-0caf-4062-858b-41196ea77839",
+            "name": "45kcal",
+            "kcal": 45,
+            "count": 1,
+            "lastModified": "2026-10-23T13:35:41.548Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_chocolate": "2026-10-23T13:35:24.108Z",
+          "natures_own_keto_bread": "2026-10-23T20:36:07.756Z",
+          "jif_simply_crunchy_unsweetened": "2026-10-23T15:41:28.933428+00:00",
+          "egg_fried": "2026-10-23T20:36:21.534Z",
+          "ketchup_packet": "2026-10-23T20:36:28.780Z",
+          "dannon_light_fit_boston_cream": "2026-10-23T20:36:43.083Z"
+        },
+        "neck": 40,
+        "neckMeta": "2026-10-23T23:37:38.349Z",
+        "weight": 85.2,
+        "weightMeta": "2026-10-23T23:37:38.203Z"
       }
     },
     "savedItems": [],
@@ -5335,8 +5368,8 @@
       "catalog-cat-supplements": true,
       "supplements-water": true,
       "catalog-ratio": true,
-      "details-add-new-item": true,
-      "profile": true
+      "profile": true,
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
@@ -9842,6 +9875,79 @@
             }
           ],
           "notes": "Jif Creamy Peanut Butter, single-serve hotel/foodservice cup. WRAPPER SHOWS NET WT 3/4 OZ (21g) -- weight is on the package even though nutrition is not; 21g used (not a guess). Nutrition sourced from Jif official (jif.com) per 2 Tbsp (33g): 190 kcal, 16g fat (3.5g sat, 0 trans), 0 chol, 140mg sodium, 8g carb, 2g fiber, 3g sugars (2g added), 7g protein. Per-gram values derived from that 33g serving; the 21g cup therefore computes to ~121 kcal, 10.2g fat, 4.5g protein, 89mg sodium. HIGH confidence on macros (manufacturer data), scaled by weight. TRANS FAT CORRECTION: label reads 0g, but ingredients include FULLY hydrogenated vegetable oils (rapeseed and soybean) + mono/diglycerides. Fully hydrogenated (unlike PARTIALLY hydrogenated) produces essentially no trans fat -- it saturates the bonds completely -- so real trans is trace only; estimated ~0.03g per 33g (~0.02g per cup) rather than a true zero. LOW confidence, small either way. Off-label micros ESTIMATED from peanut composition (USDA, ~90% peanuts): Mg ~29mg/cup, phosphorus ~67mg/cup (relevant to reduced-eGFR history), vitamin E ~1.3mg, niacin ~2.5mg, folate ~16mcg. LOW-MEDIUM confidence. Purines ~13mg/cup -- LOW-MODERATE (peanuts/legumes). Contains added sugar + molasses, unlike natural peanut butter; distinct from the Aldi Peanut Delight entry (palm oil, no-stir). Ingredients: roasted peanuts, sugar, <2%: molasses, fully hydrogenated vegetable oils (rapeseed and soybean), mono and diglycerides, salt. CONTAINS peanuts. Gluten free."
+        },
+        "jif_simply_crunchy_unsweetened": {
+          "name": "Peanut butter crunchy unsweetened Jif Simply",
+          "brand": "Jif (J.M. Smucker)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "ingredients": "Peanuts, contains 2% or less of: palm oil, salt.",
+          "kcal": 6.0606060606060606,
+          "p": 0.24242424242424243,
+          "fat": 0.5151515151515151,
+          "sf": 0.10606060606060606,
+          "transFat": 0,
+          "monounsat": 0.24242424242424243,
+          "polyunsat": 0.13636363636363635,
+          "cholesterol": 0,
+          "sodium": 1.3636363636363635,
+          "carbs": 0.21212121212121213,
+          "fiber": 0.09090909090909091,
+          "sugar": 0.06060606060606061,
+          "addedSugar": 0,
+          "vitD": 0,
+          "calcium": 0.5757575757575758,
+          "iron": 0.015151515151515152,
+          "potassium": 6.212121212121212,
+          "vitE": 0.06060606060606061,
+          "b3": 0.18181818181818182,
+          "magnesium": 1.6,
+          "phosphorus": 3.17,
+          "zinc": 0.0279,
+          "copper": 0.005,
+          "manganese": 0.017,
+          "selenium": 0.041,
+          "b1": 0.0011,
+          "b2": 0.0011,
+          "b5": 0.011,
+          "b6": 0.0045,
+          "b9": 0.92,
+          "b12": 0,
+          "choline": 0.63,
+          "vitA": 0,
+          "vitC": 0,
+          "vitK": 0.006,
+          "water": 0.011,
+          "omega3": 0.5,
+          "purines": 0.8,
+          "displayUnits": [
+            {
+              "label": "2 Tbsp (33 g)",
+              "amount": 33,
+              "unit": "g",
+              "default": true,
+              "multiplier": 33
+            },
+            {
+              "label": "1 Tbsp (16.5 g)",
+              "amount": 16.5,
+              "unit": "g",
+              "multiplier": 16.5
+            },
+            {
+              "label": "jar 15.5 oz (440 g)",
+              "amount": 440,
+              "unit": "g",
+              "multiplier": 440
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Jif Simply Crunchy Unsweetened Peanut Butter Spread, 'made with 3 ingredients' (peanuts, under 2 percent palm oil and salt), about 13 servings per jar (~15.5 oz / 440 g). Gluten free, no artificial preservatives, no refrigeration needed. LABEL per 2 Tbsp (33 g): 200 kcal, 17 g fat (3.5 g sat, 0 trans), 0 cholesterol, 45 mg sodium, 7 g carb, 3 g fiber, 2 g total sugars (0 added), 8 g protein, vitD 0, calcium 19 mg, iron 0.5 mg, potassium 205 mg, vitamin E 2 mg, niacin 6 mg. HIGH CONFIDENCE. Not the same product as jif_pb_cup (regular Jif, which has added sugar and hydrogenated oils). kcal NOT CORRECTED, same call as the Planters peanuts and macadamia entries: 8x4 + 17x9 + 4x4 = 201 (label excludes the fiber), printed 200. Peanut fiber is mostly insoluble and poorly fermented, so adding it back at the catalog's ~2 kcal/g would overstate; the true gap is a few kcal, inside rounding. Unlike whole peanuts, grinding breaks the cell walls, so the 'nuts deliver fewer calories than labeled' effect is much smaller for peanut butter. Mono/poly split (8 / 4.5 g per serving) estimated from peanut fat plus a little palm oil; label doesn't list it. Unlabeled micros from USDA chunky peanut butter. MEDIUM. Folate ~30 mcg and magnesium ~53 mg per serving are the notable ones. PURINES ~80 mg/100 g, low-moderate (plant). LOW."
         },
         "juice_orange": {
           "name": "Juice orange",
