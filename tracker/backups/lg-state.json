@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-24T11:45:50.309Z",
-  "_gistSavedAt": "2026-10-23T23:37:39.687Z",
+  "_backupTakenAt": "2026-10-25T12:15:09.911Z",
+  "_gistSavedAt": "2026-10-24T22:40:21.719Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5274,6 +5274,45 @@
         "neckMeta": "2026-10-23T23:37:38.349Z",
         "weight": 85.2,
         "weightMeta": "2026-10-23T23:37:38.203Z"
+      },
+      "2026-10-24": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_chocolate": 443,
+          "ghost_pb_protein_cereal": 55,
+          "tj_tiny_fruity_cuties": 20,
+          "banana": 0,
+          "sbux_chicken_bacon_protein_pocket": 140,
+          "sbux_sf_vanilla_protein_matcha_venti": 612,
+          "legendary_donuts_dipped_chocolate": 72,
+          "yogurt_oikos_triple_zero_lemon": 150,
+          "dannon_light_fit_boston_cream": 150
+        },
+        "customs": [
+          {
+            "id": "209266a3-113e-4ba3-ba10-a3f1aede292c",
+            "name": "33kcal",
+            "kcal": 33,
+            "count": 1,
+            "lastModified": "2026-10-24T14:05:42.856Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_chocolate": "2026-10-24T13:46:25.515Z",
+          "ghost_pb_protein_cereal": "2026-10-24T13:46:38.585Z",
+          "tj_tiny_fruity_cuties": "2026-10-24T13:47:28.837Z",
+          "banana": "2026-10-24T14:39:08.753Z",
+          "sbux_chicken_bacon_protein_pocket": "2026-10-24T18:23:30.127837+00:00",
+          "sbux_sf_vanilla_protein_matcha_venti": "2026-10-24T18:23:30.127837+00:00",
+          "legendary_donuts_dipped_chocolate": "2026-10-24T22:39:54.575Z",
+          "yogurt_oikos_triple_zero_lemon": "2026-10-24T22:40:04.822Z",
+          "dannon_light_fit_boston_cream": "2026-10-24T22:40:16.319Z"
+        },
+        "neck": 40,
+        "neckMeta": "2026-10-24T13:46:14.364Z",
+        "weight": 85.2,
+        "weightMeta": "2026-10-24T13:46:14.238Z"
       }
     },
     "savedItems": [],
@@ -5367,9 +5406,8 @@
       "catalog-cat-small_portions": true,
       "catalog-cat-supplements": true,
       "supplements-water": true,
-      "catalog-ratio": true,
       "profile": true,
-      "details-add-new-item": true
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
@@ -5445,6 +5483,62 @@
           "defaultMeasuredIn": "g",
           "brand": "Barney Butter",
           "notes": "Oikos Pro Complete Protein, Lemon (Danone). 5.3 oz / 150 g. Front label: \"20 g protein, 0 g added sugar, 8 vitamins (vit D + B2/B6/B12).\" Uses whey protein concentrate IN ADDITION to ultra-filtered milk for higher protein density. Sweetened with stevia. Note: NOT a low-calorie food (130 kcal per cup, vs 90 for Triple Zero). Per cup: k/g P 6.5 — still protein-positive. 20 g/cup is closer to clearing the 44 g per-meal anabolic threshold (protein per sitting at age 42 needed to fully trigger muscle protein synthesis) — 2 cups = 40 g, just under threshold. Pair with one other protein source for a full MPS event."
+        },
+        "apple_gala_raw": {
+          "name": "Apple Gala raw with skin",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.522,
+          "p": 0.0025,
+          "fat": 0.0012,
+          "sf": 0.0002,
+          "transFat": 0,
+          "cholesterol": 0,
+          "carbs": 0.1368,
+          "fiber": 0.023,
+          "sugar": 0.1037,
+          "addedSugar": 0,
+          "sodium": 0.01,
+          "potassium": 1.08,
+          "calcium": 0.07,
+          "iron": 0.0011,
+          "magnesium": 0.05,
+          "phosphorus": 0.11,
+          "zinc": 0.0005,
+          "copper": 0.0003,
+          "manganese": 0.0003,
+          "selenium": 0,
+          "water": 0.853,
+          "vitA": 0.01,
+          "vitC": 0.03,
+          "vitD": 0,
+          "vitE": 0.0017,
+          "vitK": 0.009,
+          "b1": 0.00017,
+          "b2": 0.00025,
+          "b3": 0.00075,
+          "b5": 0.0005,
+          "b6": 0.00037,
+          "b9": 0.03,
+          "b12": 0,
+          "choline": 0.034,
+          "purines": 0.05,
+          "displayUnits": [
+            {
+              "label": "1 medium (172 g)",
+              "amount": 172,
+              "unit": "g",
+              "default": true,
+              "multiplier": 172
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Raw Gala apple, eaten with skin. USDA SR Legacy 09503 (apples, raw, gala, with skin) per 100 g: 57 kcal, 0.25 P, 0.12 fat, 13.68 carb, 2.3 fiber, 10.4 sugar, 1 Na, ~108 K, ~3 vitC. HIGH CONFIDENCE on macros, MEDIUM on micros. The newer USDA Foundation record for Gala runs a little sweeter (11.8 g sugar, 2.1 fiber per 100 g) - normal variety-to-variety and season-to-season spread. kcal CORRECTED 57 -> 52.2/100 g: this record was computed with general 4/9/4 factors, charging the 2.3 g of fiber (mostly pectin) at a full 4 kcal/g; recounted at ~2 kcal/g. Lands right on USDA's generic apple (52 kcal). Same fix as the other fruit entries. UNIT: USDA's 'medium Gala' is 172 g of EDIBLE apple - skin on, core and stem excluded (~10 percent of the whole fruit). A whole medium Gala on the scale is ~190 g. If weighing, weigh what you eat or subtract the core. Gala has less vitamin C than the generic apple record (~3 vs 4.6 mg/100 g). PURINES ~5 mg/100 g, very low. LOW."
         },
         "applesauce": {
           "name": "Applesauce",
@@ -14151,6 +14245,99 @@
           ],
           "purines": 0.1,
           "brand": "Casa Mamita / ALDI"
+        },
+        "sbux_chicken_bacon_protein_pocket": {
+          "name": "Chicken bacon protein pocket Starbucks",
+          "brand": "Starbucks",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.2142857142857144,
+          "p": 0.14285714285714285,
+          "fat": 0.09285714285714286,
+          "sf": 0.03571428571428571,
+          "transFat": 0,
+          "cholesterol": 0.25,
+          "sodium": 6.285714285714286,
+          "carbs": 0.20714285714285716,
+          "fiber": 0.02857142857142857,
+          "sugar": 0.02142857142857143,
+          "potassium": 1.79,
+          "calcium": 1.07,
+          "iron": 0.0143,
+          "magnesium": 0.29,
+          "phosphorus": 1.79,
+          "zinc": 0.0143,
+          "selenium": 0.214,
+          "b1": 0.0021,
+          "b2": 0.0018,
+          "b3": 0.04,
+          "b9": 0.57,
+          "b12": 0.0036,
+          "choline": 0.43,
+          "vitA": 0.3,
+          "vitD": 0.002,
+          "water": 0.45,
+          "purines": 0.5,
+          "displayUnits": [
+            {
+              "label": "1 pocket (~140 g)",
+              "amount": 140,
+              "unit": "g",
+              "default": true,
+              "multiplier": 140
+            }
+          ],
+          "notes": "Starbucks Chicken Bacon Protein Pocket, from the Starbucks app's nutrition screen (standard recipe): 310 kcal (120 from fat), 13 g fat (5 g sat, 0 trans), 35 mg cholesterol, 880 mg sodium, 29 g carb, 4 g fiber, 3 g sugars, 20 g protein. Added sugars and micronutrients not shown on that screen. HIGH CONFIDENCE on what's listed. WEIGHT NOT PUBLISHED: assumed ~140 g, so per-gram values hang on that; log by the pocket unit, not grams. kcal kept at the app's 310: 20x4 + 13x9 + 29x4 = 313; counting the 4 g fiber at ~2 kcal/g gives ~305, inside rounding. Ingredients tab not captured. Unlabeled micros modeled from a chicken, bacon and cheese filling in an enriched-flour pocket. LOW. PURINES ~70 mg per pocket, moderate (chicken and bacon). LOW. Different product from subway_pocket_chicken."
+        },
+        "sbux_sf_vanilla_protein_matcha_venti": {
+          "name": "Matcha sugar-free vanilla protein Starbucks venti",
+          "brand": "Starbucks",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "density_g_per_ml": 1.035,
+          "kcal": 0.49019607843137253,
+          "p": 0.05065359477124183,
+          "fat": 0.014705882352941176,
+          "sf": 0.008169934640522876,
+          "transFat": 0,
+          "cholesterol": 0.05718954248366013,
+          "sodium": 0.35947712418300654,
+          "carbs": 0.03758169934640523,
+          "fiber": 0.0016339869281045752,
+          "sugar": 0.032679738562091505,
+          "addedSugar": 0,
+          "calcium": 0.98,
+          "potassium": 1.23,
+          "vitD": 0.0095,
+          "b12": 0.0041,
+          "vitA": 0.44,
+          "b2": 0.0015,
+          "phosphorus": 0.82,
+          "iodine": 0.245,
+          "magnesium": 0.1,
+          "zinc": 0.0033,
+          "selenium": 0.025,
+          "choline": 0.11,
+          "vitK": 0.065,
+          "vitC": 0,
+          "water": 0.88,
+          "purines": 0,
+          "displayUnits": [
+            {
+              "label": "venti 20 fl oz (612 g)",
+              "amount": 612,
+              "unit": "g",
+              "default": true,
+              "multiplier": 612
+            },
+            {
+              "label": "grande 16 fl oz (490 g)",
+              "amount": 490,
+              "unit": "g",
+              "multiplier": 490
+            }
+          ],
+          "notes": "Starbucks Sugar-Free Vanilla Protein Matcha, venti 20 fl oz, standard recipe, from the Starbucks app: 300 kcal (80 from fat), 9 g fat (5 g sat, 0 trans), 35 mg cholesterol, 220 mg sodium, 23 g carb, 1 g fiber, 20 g sugars, 31 g protein, caffeine ~100 mg (no schema field). HIGH CONFIDENCE on what's listed. kcal check 31x4 + 9x9 + 23x4 = 297, printed 300. SUGARS ~20 g are taken as milk sugar (lactose) - the vanilla syrup is sugar-free and Starbucks moved to an unsweetened matcha powder - so addedSugar is set to 0. LOW-MEDIUM CONFIDENCE on that split; if the matcha blend is still sweetened in this market, some of the 20 g is added sugar. Protein comes from milk plus added protein powder (whey-type). WEIGHT: 20 fl oz = 591 ml x ~1.035 g/ml = 612 g. The grande unit (16 fl oz) is volume-scaled only; Starbucks' grande panel will differ a little because ice, foam and powder amounts don't scale exactly - for a grande, check the app. Unlabeled micros modeled from ~16 oz of fortified 2 percent milk plus whey and ~2 g matcha (vitamin K is the matcha). MEDIUM-LOW. Calcium ~600 mg per venti and vitamin D ~5.8 mcg are the notable ones. PURINES ~0 - tea's caffeine is not a uric-acid purine."
         },
         "sea_queen_shrimp": {
           "name": "Shrimp Sea Queen cooked medium peeled (Aldi)",
