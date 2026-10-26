@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-25T12:15:09.911Z",
-  "_gistSavedAt": "2026-10-24T22:40:21.719Z",
+  "_backupTakenAt": "2026-10-26T13:46:33.762Z",
+  "_gistSavedAt": "2026-10-26T12:57:28.202Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5313,6 +5313,52 @@
         "neckMeta": "2026-10-24T13:46:14.364Z",
         "weight": 85.2,
         "weightMeta": "2026-10-24T13:46:14.238Z"
+      },
+      "2026-10-25": {
+        "toggles": {},
+        "counters": {
+          "natures_own_keto_bread": 140,
+          "evoo_tsp": 45,
+          "garlic_raw": 4.5,
+          "tomato_paste_signature_select": 40,
+          "smuckers_sf_strawberry_preserves": 68,
+          "jif_simply_crunchy_unsweetened": 33,
+          "slate_ultra_protein_chocolate": 443,
+          "wendys_kids_hamburger": 115,
+          "premier": 325,
+          "legendary_donuts_pink_sprinkles": 62,
+          "tj_orange_juice_cal_d": 250
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "natures_own_keto_bread": "2026-10-25T15:05:51.084Z",
+          "evoo_tsp": "2026-10-25T15:06:10.018Z",
+          "garlic_raw": "2026-10-25T15:06:47.630Z",
+          "tomato_paste_signature_select": "2026-10-25T15:07:33.928Z",
+          "smuckers_sf_strawberry_preserves": "2026-10-25T15:07:54.241Z",
+          "jif_simply_crunchy_unsweetened": "2026-10-25T15:08:23.412Z",
+          "slate_ultra_protein_chocolate": "2026-10-25T15:08:40.093Z",
+          "wendys_kids_hamburger": "2026-10-25T18:35:21.336032+00:00",
+          "premier": "2026-10-25T23:03:17.992Z",
+          "legendary_donuts_pink_sprinkles": "2026-10-25T23:25:59.387822+00:00",
+          "tj_orange_juice_cal_d": "2026-10-25T23:25:59.387822+00:00"
+        },
+        "neck": 40,
+        "neckMeta": "2026-10-25T15:05:28.371Z",
+        "weight": 85.1,
+        "weightMeta": "2026-10-25T15:05:43.366Z"
+      },
+      "2026-10-26": {
+        "toggles": {},
+        "counters": {
+          "natures_own_keto_bread": 28
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "natures_own_keto_bread": "2026-10-26T12:57:26.854Z"
+        }
       }
     },
     "savedItems": [],
@@ -11060,6 +11106,62 @@
             }
           ]
         },
+        "legendary_donuts_pink_sprinkles": {
+          "name": "Donuts mini protein Legendary Foods pink frosted sprinkles",
+          "brand": "Legendary Foods",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "ingredients": "Protein blend (milk protein isolate, dried egg whites, whey protein isolate), erythritol, water, collagen peptides, polydextrose, high oleic sunflower oil and/or palm oil, glycerin; under 2%: modified resistant tapioca starch, natural flavors, baking soda, xanthan gum, sunflower lecithin, soluble corn fiber, sea salt, citric acid, palm kernel oil, sucrose fatty acid esters, guar gum, beet juice powder, carnauba wax, gum arabic, Red 40, Yellow 5, Blue 1, Yellow 6, cellulose, sucralose, cellulose gum, confectioner's glaze.",
+          "kcal": 2.5806451612903225,
+          "p": 0.2903225806451613,
+          "fat": 0.0967741935483871,
+          "sf": 0.016129032258064516,
+          "transFat": 0,
+          "cholesterol": 0.08064516129032258,
+          "sodium": 6.129032258064516,
+          "carbs": 0.4032258064516129,
+          "fiber": 0.11290322580645161,
+          "sugar": 0.008064516129032258,
+          "addedSugar": 0,
+          "sugarAlcohol": 0.20967741935483872,
+          "vitD": 0,
+          "calcium": 4.5,
+          "iron": 0,
+          "potassium": 1.2580645161290323,
+          "phosphorus": 3.2,
+          "magnesium": 0.16,
+          "zinc": 0.008,
+          "selenium": 0.13,
+          "b2": 0.0048,
+          "b12": 0.0048,
+          "iodine": 0.32,
+          "vitE": 0.016,
+          "choline": 0.16,
+          "water": 0.2,
+          "purines": 0.1,
+          "displayUnits": [
+            {
+              "label": "1 serving (2 donuts, 62 g)",
+              "amount": 62,
+              "unit": "g",
+              "default": true,
+              "multiplier": 62
+            },
+            {
+              "label": "1 donut (31 g)",
+              "amount": 31,
+              "unit": "g",
+              "multiplier": 31
+            },
+            {
+              "label": "box (4 servings, 248 g)",
+              "amount": 248,
+              "unit": "g",
+              "multiplier": 248
+            }
+          ],
+          "notes": "Legendary Foods Mini Protein Donuts, pink frosted with sprinkles (flavor name not visible in the photo), 4 servings per box, gluten free, UPC 810035972674. LABEL per 2 donuts (62 g): 160 kcal, 6 g fat (1 g sat, 0 trans), 5 mg cholesterol, 380 mg sodium, 25 g carb, 7 g fiber, under 1 g total sugars (0 added), 13 g erythritol, 20 g protein, vitD 0, calcium 279 mg, iron 0, potassium 78 mg. Front panel: 5 g net carbs (25 - 7 - 13). HIGH CONFIDENCE. kcal KEPT AT LABEL 160: 20x4 + 6x9 + 5x4 = 154, plus the 7 g fiber (mostly polydextrose) at ~1 kcal/g = 161, erythritol at ~0. Already matches the catalog's polydextrose and erythritol rules. PROTEIN DOWNGRADED 20 -> 18 g per the catalog's collagen rule: collagen peptides are the 4th ingredient, listed ahead of polydextrose (~6 g), so collagen is ~6-7 g of the 20 g protein; 30 percent of that (~2 g) removed for its weak muscle-building value. Calories unchanged - collagen still supplies energy. MEDIUM-LOW on the collagen amount. The older legendary_donuts_dipped_chocolate entry was stored at label protein with no notes, so the two are not yet treated the same way. sugarAlcohol = the declared 13 g erythritol. Unlabeled micros modeled from milk protein isolate, egg white and whey. LOW-MEDIUM. PURINES very low."
+        },
         "lentejas_con_lomo": {
           "name": "Lentejas con lomo (mom's)",
           "category": "recipes",
@@ -15637,6 +15739,64 @@
             }
           ]
         },
+        "tj_orange_juice_cal_d": {
+          "name": "Juice orange Trader Joe's not from concentrate (calcium + vitamin D)",
+          "brand": "Trader Joe's",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "density_g_per_ml": 1.04,
+          "ingredients": "Orange juice, calcium lactate, tricalcium phosphate, vitamin D3.",
+          "kcal": 0.44,
+          "p": 0.008,
+          "fat": 0.002,
+          "sf": 0.0002,
+          "transFat": 0,
+          "cholesterol": 0,
+          "sodium": 0.01,
+          "carbs": 0.104,
+          "fiber": 0.002,
+          "sugar": 0.092,
+          "addedSugar": 0,
+          "vitD": 0.02,
+          "calcium": 1.4,
+          "iron": 0.001,
+          "potassium": 1.8,
+          "vitC": 0.28,
+          "phosphorus": 0.56,
+          "magnesium": 0.11,
+          "b1": 0.0009,
+          "b3": 0.004,
+          "b5": 0.0019,
+          "b6": 0.0004,
+          "b9": 0.3,
+          "choline": 0.062,
+          "vitA": 0.04,
+          "vitE": 0.0004,
+          "water": 0.88,
+          "purines": 0.02,
+          "displayUnits": [
+            {
+              "label": "8 fl oz / 240 ml (250 g)",
+              "amount": 250,
+              "unit": "g",
+              "default": true,
+              "multiplier": 250
+            },
+            {
+              "label": "carton 52 fl oz (1.5 L, 1560 g)",
+              "amount": 1560,
+              "unit": "g",
+              "multiplier": 1560
+            },
+            {
+              "label": "100 ml (104 g)",
+              "amount": 104,
+              "unit": "g",
+              "multiplier": 104
+            }
+          ],
+          "notes": "Trader Joe's 100% Orange Juice, not from concentrate, with calcium and vitamin D, pasteurized, 52 fl oz (1.5 L) carton, about 7 servings, pareve. LABEL per 8 fl oz (240 ml): 110 kcal, 0 fat, 0 cholesterol, 0 sodium, 26 g carb, 0 fiber, 23 g total sugars (0 added), 2 g protein, vitamin D 5 mcg, calcium 350 mg, iron 0, potassium 450 mg, vitamin C 70 mg. HIGH CONFIDENCE. kcal not corrected: 2x4 + 26x4 = 112, printed 110. FORTIFIED: the calcium (350 mg per glass, ~3x what a glass of milk-free OJ would have) and the vitamin D are added via calcium lactate, tricalcium phosphate and D3 - that's the main difference from the generic juice_orange entry, which this does not replace. Tricalcium phosphate also adds phosphorus; ~140 mg per glass is an estimate. ROUNDED-TO-ZERO restored at natural orange-juice levels: fat 0.5 g, fiber 0.5 g, sodium ~2 mg per glass. DENSITY 1.04 g/ml, so 240 ml = 250 g. Other micros from USDA chilled not-from-concentrate orange juice. MEDIUM. PURINES very low."
+        },
         "tj_serrano_ham": {
           "name": "Ham serrano Trader Joe's",
           "brand": "Trader Joe's",
@@ -17412,6 +17572,54 @@
           "notes": "Oral semaglutide. Strict admin protocol per FDA label:\n• Take on empty stomach with up to 100-120 mL plain water.\n• Wait 30 min before food, other liquids, or any other oral medications/supplements.\n• 4-week dose escalation: 1.5 mg → 4 mg → 9 mg → 25 mg target.\n• If miss a dose: skip it and resume the next day. Do not double up.\n\nGI side effects (nausea, constipation) most common in first 1-2 weeks of each dose step.\nConstipation: psyllium husk + extra water is the standard fix.",
           "defaultMeasuredIn": "g",
           "brand": "Wegovy"
+        },
+        "wendys_kids_hamburger": {
+          "name": "Hamburger kids Wendy's",
+          "brand": "Wendy's",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 2.0869565217391304,
+          "p": 0.11304347826086956,
+          "fat": 0.08695652173913043,
+          "sf": 0.034782608695652174,
+          "transFat": 0.004347826086956522,
+          "cholesterol": 0.2608695652173913,
+          "sodium": 3.217391304347826,
+          "carbs": 0.20869565217391303,
+          "fiber": 0.008695652173913044,
+          "sugar": 0.043478260869565216,
+          "addedSugar": 0.02608695652173913,
+          "calcium": 0.34782608695652173,
+          "iron": 0.02347826086956522,
+          "potassium": 1.4782608695652173,
+          "zinc": 0.0217,
+          "b12": 0.0087,
+          "phosphorus": 1.04,
+          "magnesium": 0.174,
+          "selenium": 0.157,
+          "b1": 0.0022,
+          "b2": 0.0017,
+          "b3": 0.03,
+          "b6": 0.001,
+          "b9": 0.52,
+          "choline": 0.26,
+          "vitA": 0.087,
+          "vitC": 0.009,
+          "vitD": 0,
+          "vitE": 0.0035,
+          "vitK": 0.026,
+          "water": 0.48,
+          "purines": 0.43,
+          "displayUnits": [
+            {
+              "label": "1 burger (~115 g)",
+              "amount": 115,
+              "unit": "g",
+              "default": true,
+              "multiplier": 115
+            }
+          ],
+          "notes": "Wendy's Kids' Hamburger (the kids'-meal burger: Jr. patty on a bun with ketchup, mustard and pickle). No package or app screenshot; third-party copies of Wendy's panel disagree a little, so values are a reconciled middle: 240 kcal (sources 240-250), 10 g fat (9-10), 4 g sat (3.5-4), 0.5 g trans, ~30 mg cholesterol (25-40), ~370 mg sodium, 24 g carb (23-25), 1 g fiber, 5 g sugars, 13 g protein (12-14), calcium ~40 mg, iron ~2.7 mg, potassium ~170 mg. SODIUM IS THE SOFT LINE: an older Fitbit copy says 530 mg, FatSecret (updated 2025) says 350, ketogenic.com 420, a 2025-26 Eat This dietitian piece 370 - stored 370 as the most recent. MEDIUM CONFIDENCE overall. addedSugar ~3 g is an estimate for the bun and ketchup. WEIGHT NOT PUBLISHED here: ~115 g assumed (typical Jr. hamburger). Log by the burger unit. kcal not corrected: 13x4 + 10x9 + 23x4 = 234, published 240. Unlabeled micros modeled from a ~45 g beef patty plus an enriched-flour bun. LOW-MEDIUM. PURINES ~50 mg per burger, moderate. LOW."
         },
         "wf_egg_salad": {
           "name": "Egg salad Whole Foods",
