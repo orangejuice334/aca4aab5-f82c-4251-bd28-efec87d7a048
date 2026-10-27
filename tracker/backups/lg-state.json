@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-26T13:46:33.762Z",
-  "_gistSavedAt": "2026-10-26T12:57:28.202Z",
+  "_backupTakenAt": "2026-10-27T12:53:44.327Z",
+  "_gistSavedAt": "2026-10-26T18:54:06.863Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5352,13 +5352,31 @@
       "2026-10-26": {
         "toggles": {},
         "counters": {
-          "natures_own_keto_bread": 28
+          "natures_own_keto_bread": 28,
+          "jif_simply_crunchy_unsweetened": 16.5,
+          "smuckers_sf_strawberry_preserves": 68,
+          "slate_ultra_protein_vanilla": 221.5,
+          "slate_ultra_protein_chocolate": 443,
+          "legendary_donuts_pink_sprinkles": 31,
+          "legendary_donuts_dipped_chocolate": 36,
+          "chobani_protein_raspberry_lemon": 190,
+          "dannon_light_fit_boston_cream": 150
         },
         "customs": [],
         "toggleMeta": {},
         "counterMeta": {
-          "natures_own_keto_bread": "2026-10-26T12:57:26.854Z"
-        }
+          "natures_own_keto_bread": "2026-10-26T12:57:26.854Z",
+          "jif_simply_crunchy_unsweetened": "2026-10-26T14:44:52.338Z",
+          "smuckers_sf_strawberry_preserves": "2026-10-26T14:45:14.353Z",
+          "slate_ultra_protein_vanilla": "2026-10-26T14:46:52.029Z",
+          "slate_ultra_protein_chocolate": "2026-10-26T14:46:52.765Z",
+          "legendary_donuts_pink_sprinkles": "2026-10-26T14:47:14.992Z",
+          "legendary_donuts_dipped_chocolate": "2026-10-26T14:47:17.120Z",
+          "chobani_protein_raspberry_lemon": "2026-10-26T18:53:54.659Z",
+          "dannon_light_fit_boston_cream": "2026-10-26T18:54:05.555Z"
+        },
+        "neck": 40,
+        "neckMeta": "2026-10-26T18:53:24.950Z"
       }
     },
     "savedItems": [],
@@ -11111,23 +11129,20 @@
           "brand": "Legendary Foods",
           "category": "items",
           "defaultMeasuredIn": "g",
-          "ingredients": "Protein blend (milk protein isolate, dried egg whites, whey protein isolate), erythritol, water, collagen peptides, polydextrose, high oleic sunflower oil and/or palm oil, glycerin; under 2%: modified resistant tapioca starch, natural flavors, baking soda, xanthan gum, sunflower lecithin, soluble corn fiber, sea salt, citric acid, palm kernel oil, sucrose fatty acid esters, guar gum, beet juice powder, carnauba wax, gum arabic, Red 40, Yellow 5, Blue 1, Yellow 6, cellulose, sucralose, cellulose gum, confectioner's glaze.",
-          "kcal": 2.5806451612903225,
-          "p": 0.2903225806451613,
-          "fat": 0.0967741935483871,
-          "sf": 0.016129032258064516,
+          "kcal": 2.5806,
+          "p": 0.2903,
+          "fat": 0.0968,
+          "sf": 0.0161,
           "transFat": 0,
-          "cholesterol": 0.08064516129032258,
-          "sodium": 6.129032258064516,
-          "carbs": 0.4032258064516129,
-          "fiber": 0.11290322580645161,
-          "sugar": 0.008064516129032258,
+          "cholesterol": 0.0806,
+          "sodium": 6.129,
+          "carbs": 0.4032,
+          "fiber": 0.1129,
+          "sugar": 0.0081,
           "addedSugar": 0,
           "sugarAlcohol": 0.20967741935483872,
-          "vitD": 0,
           "calcium": 4.5,
-          "iron": 0,
-          "potassium": 1.2580645161290323,
+          "potassium": 1.2581,
           "phosphorus": 3.2,
           "magnesium": 0.16,
           "zinc": 0.008,
@@ -11141,6 +11156,12 @@
           "purines": 0.1,
           "displayUnits": [
             {
+              "label": "box (4 servings, 248 g)",
+              "amount": 248,
+              "unit": "g",
+              "multiplier": 248
+            },
+            {
               "label": "1 serving (2 donuts, 62 g)",
               "amount": 62,
               "unit": "g",
@@ -11152,12 +11173,6 @@
               "amount": 31,
               "unit": "g",
               "multiplier": 31
-            },
-            {
-              "label": "box (4 servings, 248 g)",
-              "amount": 248,
-              "unit": "g",
-              "multiplier": 248
             }
           ],
           "notes": "Legendary Foods Mini Protein Donuts, pink frosted with sprinkles (flavor name not visible in the photo), 4 servings per box, gluten free, UPC 810035972674. LABEL per 2 donuts (62 g): 160 kcal, 6 g fat (1 g sat, 0 trans), 5 mg cholesterol, 380 mg sodium, 25 g carb, 7 g fiber, under 1 g total sugars (0 added), 13 g erythritol, 20 g protein, vitD 0, calcium 279 mg, iron 0, potassium 78 mg. Front panel: 5 g net carbs (25 - 7 - 13). HIGH CONFIDENCE. kcal KEPT AT LABEL 160: 20x4 + 6x9 + 5x4 = 154, plus the 7 g fiber (mostly polydextrose) at ~1 kcal/g = 161, erythritol at ~0. Already matches the catalog's polydextrose and erythritol rules. PROTEIN DOWNGRADED 20 -> 18 g per the catalog's collagen rule: collagen peptides are the 4th ingredient, listed ahead of polydextrose (~6 g), so collagen is ~6-7 g of the 20 g protein; 30 percent of that (~2 g) removed for its weak muscle-building value. Calories unchanged - collagen still supplies energy. MEDIUM-LOW on the collagen amount. The older legendary_donuts_dipped_chocolate entry was stored at label protein with no notes, so the two are not yet treated the same way. sugarAlcohol = the declared 13 g erythritol. Unlabeled micros modeled from milk protein isolate, egg white and whey. LOW-MEDIUM. PURINES very low."
@@ -13008,16 +13023,14 @@
           "brand": "Popeyes",
           "category": "items",
           "defaultMeasuredIn": "g",
-          "kcal": 1.8666666666666667,
-          "p": 0.2866666666666667,
-          "fat": 0.07133333333333333,
-          "sf": 0.013333333333333334,
+          "kcal": 1.8667,
+          "p": 0.2867,
+          "fat": 0.0713,
+          "sf": 0.0133,
           "transFat": 0,
-          "cholesterol": 0.7666666666666667,
-          "sodium": 6.133333333333334,
+          "cholesterol": 0.7667,
+          "sodium": 6.1333,
           "carbs": 0.02,
-          "fiber": 0,
-          "sugar": 0,
           "addedSugar": 0,
           "potassium": 2.5,
           "phosphorus": 2.28,
@@ -13037,7 +13050,6 @@
           "b12": 0.0034,
           "choline": 0.85,
           "vitA": 0.06,
-          "vitC": 0,
           "vitD": 0.001,
           "vitE": 0.006,
           "vitK": 0.02,
