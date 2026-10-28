@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-27T12:53:44.327Z",
-  "_gistSavedAt": "2026-10-26T18:54:06.863Z",
+  "_backupTakenAt": "2026-10-28T13:42:22.805Z",
+  "_gistSavedAt": "2026-10-27T16:22:01.374Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5377,6 +5377,28 @@
         },
         "neck": 40,
         "neckMeta": "2026-10-26T18:53:24.950Z"
+      },
+      "2026-10-27": {
+        "toggles": {},
+        "counters": {
+          "la_piara_tapa_negra_light": 73,
+          "loven_fresh_protein_everything_bagel": 66
+        },
+        "customs": [
+          {
+            "id": "14d06044-301f-40ce-8899-d14b0f606a9b",
+            "name": "1000kcal 100p",
+            "kcal": 1000,
+            "p": 100,
+            "count": 1,
+            "lastModified": "2026-10-27T15:04:36.180Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "la_piara_tapa_negra_light": "2026-10-27T16:21:20.556Z",
+          "loven_fresh_protein_everything_bagel": "2026-10-27T16:22:00.191Z"
+        }
       }
     },
     "savedItems": [],
@@ -5471,7 +5493,7 @@
       "catalog-cat-supplements": true,
       "supplements-water": true,
       "profile": true,
-      "catalog-ratio": true
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
