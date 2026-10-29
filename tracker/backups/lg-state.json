@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-28T13:42:22.805Z",
-  "_gistSavedAt": "2026-10-27T16:22:01.374Z",
+  "_backupTakenAt": "2026-10-29T13:52:21.662Z",
+  "_gistSavedAt": "2026-10-29T13:33:15.865Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5398,7 +5398,49 @@
         "counterMeta": {
           "la_piara_tapa_negra_light": "2026-10-27T16:21:20.556Z",
           "loven_fresh_protein_everything_bagel": "2026-10-27T16:22:00.191Z"
-        }
+        },
+        "neck": 40,
+        "neckMeta": "2026-10-27T23:01:33.752Z"
+      },
+      "2026-10-28": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_vanilla": 443,
+          "soy_milk": 240,
+          "natures_own_keto_bread": 56,
+          "jif_simply_crunchy_unsweetened": 16.5,
+          "smuckers_sf_strawberry_preserves": 38
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_vanilla": "2026-10-28T21:09:34.609Z",
+          "soy_milk": "2026-10-28T21:09:53.338Z",
+          "natures_own_keto_bread": "2026-10-28T21:10:35.964Z",
+          "jif_simply_crunchy_unsweetened": "2026-10-28T21:10:48.312Z",
+          "smuckers_sf_strawberry_preserves": "2026-10-28T21:11:52.903Z"
+        },
+        "neck": 40,
+        "neckMeta": "2026-10-28T21:09:20.518Z",
+        "weight": 85.1,
+        "weightMeta": "2026-10-28T21:09:30.562Z"
+      },
+      "2026-10-29": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_chocolate": 443,
+          "ghost_pb_protein_cereal": 40,
+          "ham_black_forest_aldi": 56
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_chocolate": "2026-10-29T13:32:53.533Z",
+          "ghost_pb_protein_cereal": "2026-10-29T13:33:01.418Z",
+          "ham_black_forest_aldi": "2026-10-29T13:33:14.264Z"
+        },
+        "weight": 84.7,
+        "weightMeta": "2026-10-29T13:32:47.680Z"
       }
     },
     "savedItems": [],
@@ -5493,7 +5535,8 @@
       "catalog-cat-supplements": true,
       "supplements-water": true,
       "profile": true,
-      "details-add-new-item": true
+      "details-add-new-item": true,
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
@@ -18040,6 +18083,7 @@
         }
       ]
     },
-    "chartRangeDays": 90
+    "chartRangeDays": 30,
+    "totalsMode": "collapsed"
   }
 }
