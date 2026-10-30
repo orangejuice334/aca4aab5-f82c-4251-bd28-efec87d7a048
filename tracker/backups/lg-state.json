@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-29T13:52:21.662Z",
-  "_gistSavedAt": "2026-10-29T13:33:15.865Z",
+  "_backupTakenAt": "2026-10-30T13:44:39.412Z",
+  "_gistSavedAt": "2026-10-30T13:36:36.150Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5428,19 +5428,56 @@
       "2026-10-29": {
         "toggles": {},
         "counters": {
-          "slate_ultra_protein_chocolate": 443,
+          "slate_ultra_protein_chocolate": 886,
           "ghost_pb_protein_cereal": 40,
-          "ham_black_forest_aldi": 56
+          "ham_black_forest_aldi": 56,
+          "kraft_protein_pepper_jack_stick": 56,
+          "dannon_light_fit_boston_cream": 300,
+          "premier": 325
+        },
+        "customs": [
+          {
+            "id": "80264870-340a-405c-8ebf-26acd4ae492e",
+            "name": "150kcal 5p",
+            "kcal": 150,
+            "p": 5,
+            "count": 1,
+            "lastModified": "2026-10-29T17:12:27.015Z"
+          },
+          {
+            "id": "796cb37d-54b7-43eb-8e51-e1a953501767",
+            "name": "10kcal",
+            "kcal": 10,
+            "count": 1,
+            "lastModified": "2026-10-29T20:23:07.409Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_chocolate": "2026-10-29T20:22:25.194Z",
+          "ghost_pb_protein_cereal": "2026-10-29T13:33:01.418Z",
+          "ham_black_forest_aldi": "2026-10-29T13:33:14.264Z",
+          "kraft_protein_pepper_jack_stick": "2026-10-29T17:14:41.056048+00:00",
+          "dannon_light_fit_boston_cream": "2026-10-29T20:22:37.561Z",
+          "premier": "2026-10-29T20:22:54.264Z"
+        },
+        "weight": 84.7,
+        "weightMeta": "2026-10-29T13:32:47.680Z"
+      },
+      "2026-10-30": {
+        "toggles": {},
+        "counters": {
+          "legendary_donuts_pink_sprinkles": 62
         },
         "customs": [],
         "toggleMeta": {},
         "counterMeta": {
-          "slate_ultra_protein_chocolate": "2026-10-29T13:32:53.533Z",
-          "ghost_pb_protein_cereal": "2026-10-29T13:33:01.418Z",
-          "ham_black_forest_aldi": "2026-10-29T13:33:14.264Z"
+          "legendary_donuts_pink_sprinkles": "2026-10-30T13:36:35.382807+00:00"
         },
+        "neck": 40,
+        "neckMeta": "2026-10-30T13:34:59.080Z",
         "weight": 84.7,
-        "weightMeta": "2026-10-29T13:32:47.680Z"
+        "weightMeta": "2026-10-30T13:34:58.944Z"
       }
     },
     "savedItems": [],
@@ -5535,8 +5572,8 @@
       "catalog-cat-supplements": true,
       "supplements-water": true,
       "profile": true,
-      "details-add-new-item": true,
-      "catalog-ratio": true
+      "catalog-ratio": true,
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
@@ -10640,6 +10677,58 @@
           ],
           "notes": "MEAT-COUNTER ITEM, NO LABEL — macros estimated. Confirmed PURE LAMB by source. Values per gram COOKED. Basis: USDA ground lamb broiled (283 kcal, 24.75g P, 19.66g fat, 8.9g sat, 97mg chol /100g), diluted ~12% for onion/herb/spice mix-ins + moderate-fat lamb assumption. Estimated cooked: ~265 kcal, 20g protein, 20g fat (8.5g sat), 3g carb, ~450mg sodium /100g -> ~13.3 kcal per g protein. Lamb vs beef differences applied: higher saturated fat, higher cholesterol (~82mg/100g), higher B12 (~2.6 mcg/100g) and natural ruminant trans fat, slightly lower heme iron than beef. Purines moderate-high (~120 mg/100g — relevant for gout at larger portions). Sodium still a guess (350-550mg/100g range). If the lamb was extra-fatty, calories up to ~300/100g; if lean, ~230/100g. If 95g logged was RAW weight, scale down ~25%."
         },
+        "kraft_protein_pepper_jack_stick": {
+          "name": "Cheese stick pepper jack protein Kraft (reduced fat)",
+          "brand": "Kraft (Lactalis Heritage Dairy)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "ingredients": "Cultured pasteurized skim milk, jalapeño peppers, salt, enzymes, vitamin A palmitate.",
+          "kcal": 2.6785714285714284,
+          "p": 0.30357142857142855,
+          "fat": 0.14285714285714285,
+          "sf": 0.08928571428571429,
+          "transFat": 0.008928571428571428,
+          "monounsat": 0.03571428571428571,
+          "polyunsat": 0.005357142857142857,
+          "cholesterol": 0.44642857142857145,
+          "sodium": 7.5,
+          "carbs": 0.017857142857142856,
+          "fiber": 0,
+          "sugar": 0.008928571428571428,
+          "addedSugar": 0,
+          "vitD": 0,
+          "calcium": 8.214285714285714,
+          "iron": 0.0015,
+          "potassium": 0.7,
+          "vitA": 2.857142857142857,
+          "phosphorus": 4.8,
+          "magnesium": 0.25,
+          "zinc": 0.035,
+          "selenium": 0.15,
+          "b12": 0.006,
+          "b2": 0.003,
+          "iodine": 0.3,
+          "choline": 0.16,
+          "vitC": 0.018,
+          "water": 0.54,
+          "purines": 0.05,
+          "displayUnits": [
+            {
+              "label": "1 stick (56 g)",
+              "amount": 56,
+              "unit": "g",
+              "default": true,
+              "multiplier": 56
+            },
+            {
+              "label": "pack (5 sticks, 280 g)",
+              "amount": 280,
+              "unit": "g",
+              "multiplier": 280
+            }
+          ],
+          "notes": "Kraft Protein Cheese Snack, Pepper Jack - reduced-fat Monterey Jack with jalapeño, made from skim milk, 5 sticks per pack. Distributed by Lactalis Heritage Dairy under the Kraft name. LABEL per 1 stick (56 g; the gram figure is partly hidden in the photo, 56 fits the 'fat reduced from 17 g to 8 g' claim against regular pepper jack): 150 kcal, 8 g fat (5 g sat, 0.5 g trans - natural dairy trans fat), 25 mg cholesterol, 420 mg sodium, 1 g carb, 0 fiber, under 1 g sugar (0 added), 17 g protein, vitD 0, calcium 460 mg, iron 0, potassium 0, vitamin A 160 mcg (added as palmitate, since skim milk loses its own). The percent-DV column on the package is offset by one row; the gram and milligram values are the ones used. HIGH CONFIDENCE. kcal not corrected: 17x4 + 8x9 + 1x4 = 144, printed 150. ROUNDED-TO-ZERO restored: potassium ~40 mg and iron ~0.1 mg per stick (cheese carries ~70 mg/100 g potassium; a label 0 is a shortcut). Mono/poly split from typical dairy fat. Unlabeled micros from USDA reduced-fat cheese. MEDIUM. Phosphorus ~270 mg per stick is the notable one. PURINES ~0, cheese is about as low as it gets. Not the same as string_cheese (21 g mozzarella)."
+        },
         "krispy_kreme_original_glazed": {
           "name": "Doughnut Original Glazed Krispy Kreme",
           "brand": "Krispy Kreme",
@@ -11190,7 +11279,7 @@
           ]
         },
         "legendary_donuts_pink_sprinkles": {
-          "name": "Donuts mini protein Legendary Foods pink frosted sprinkles",
+          "name": "Donuts mini protein Legendary Foods pink sprinkle",
           "brand": "Legendary Foods",
           "category": "items",
           "defaultMeasuredIn": "g",
@@ -11227,7 +11316,7 @@
               "multiplier": 248
             },
             {
-              "label": "1 serving (2 donuts, 62 g)",
+              "label": "1 packet (2 donuts, 62 g)",
               "amount": 62,
               "unit": "g",
               "default": true,
@@ -11240,7 +11329,7 @@
               "multiplier": 31
             }
           ],
-          "notes": "Legendary Foods Mini Protein Donuts, pink frosted with sprinkles (flavor name not visible in the photo), 4 servings per box, gluten free, UPC 810035972674. LABEL per 2 donuts (62 g): 160 kcal, 6 g fat (1 g sat, 0 trans), 5 mg cholesterol, 380 mg sodium, 25 g carb, 7 g fiber, under 1 g total sugars (0 added), 13 g erythritol, 20 g protein, vitD 0, calcium 279 mg, iron 0, potassium 78 mg. Front panel: 5 g net carbs (25 - 7 - 13). HIGH CONFIDENCE. kcal KEPT AT LABEL 160: 20x4 + 6x9 + 5x4 = 154, plus the 7 g fiber (mostly polydextrose) at ~1 kcal/g = 161, erythritol at ~0. Already matches the catalog's polydextrose and erythritol rules. PROTEIN DOWNGRADED 20 -> 18 g per the catalog's collagen rule: collagen peptides are the 4th ingredient, listed ahead of polydextrose (~6 g), so collagen is ~6-7 g of the 20 g protein; 30 percent of that (~2 g) removed for its weak muscle-building value. Calories unchanged - collagen still supplies energy. MEDIUM-LOW on the collagen amount. The older legendary_donuts_dipped_chocolate entry was stored at label protein with no notes, so the two are not yet treated the same way. sugarAlcohol = the declared 13 g erythritol. Unlabeled micros modeled from milk protein isolate, egg white and whey. LOW-MEDIUM. PURINES very low."
+          "notes": "Legendary Foods Mini Protein Donuts, Pink Sprinkle flavored (flavor name confirmed from the box front on 2026-10-30), 4 servings per box, gluten free, UPC 810035972674. LABEL per 2 donuts (62 g): 160 kcal, 6 g fat (1 g sat, 0 trans), 5 mg cholesterol, 380 mg sodium, 25 g carb, 7 g fiber, under 1 g total sugars (0 added), 13 g erythritol, 20 g protein, vitD 0, calcium 279 mg, iron 0, potassium 78 mg. Front panel: 5 g net carbs (25 - 7 - 13). HIGH CONFIDENCE. kcal KEPT AT LABEL 160: 20x4 + 6x9 + 5x4 = 154, plus the 7 g fiber (mostly polydextrose) at ~1 kcal/g = 161, erythritol at ~0. Already matches the catalog's polydextrose and erythritol rules. PROTEIN DOWNGRADED 20 -> 18 g per the catalog's collagen rule: collagen peptides are the 4th ingredient, listed ahead of polydextrose (~6 g), so collagen is ~6-7 g of the 20 g protein; 30 percent of that (~2 g) removed for its weak muscle-building value. Calories unchanged - collagen still supplies energy. MEDIUM-LOW on the collagen amount. The older legendary_donuts_dipped_chocolate entry was stored at label protein with no notes, so the two are not yet treated the same way. sugarAlcohol = the declared 13 g erythritol. Unlabeled micros modeled from milk protein isolate, egg white and whey. LOW-MEDIUM. PURINES very low."
         },
         "lentejas_con_lomo": {
           "name": "Lentejas con lomo (mom's)",
@@ -18083,7 +18172,6 @@
         }
       ]
     },
-    "chartRangeDays": 30,
-    "totalsMode": "collapsed"
+    "chartRangeDays": 30
   }
 }
