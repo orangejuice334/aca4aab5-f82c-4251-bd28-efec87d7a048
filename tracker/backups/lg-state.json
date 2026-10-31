@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-10-30T13:44:39.412Z",
-  "_gistSavedAt": "2026-10-30T13:36:36.150Z",
+  "_backupTakenAt": "2026-10-31T13:13:27.373Z",
+  "_gistSavedAt": "2026-10-30T20:49:45.833Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5467,17 +5467,29 @@
       "2026-10-30": {
         "toggles": {},
         "counters": {
-          "legendary_donuts_pink_sprinkles": 62
+          "legendary_donuts_pink_sprinkles": 62,
+          "slate_ultra_protein_vanilla": 443,
+          "soy_milk": 200,
+          "larabar": 45,
+          "kind_dark_choc_mocha_almond": 40,
+          "dannon_light_fit_boston_cream": 150
         },
         "customs": [],
         "toggleMeta": {},
         "counterMeta": {
-          "legendary_donuts_pink_sprinkles": "2026-10-30T13:36:35.382807+00:00"
+          "legendary_donuts_pink_sprinkles": "2026-10-30T13:36:35.382807+00:00",
+          "slate_ultra_protein_vanilla": "2026-10-30T13:49:15.714Z",
+          "soy_milk": "2026-10-30T13:49:31.087Z",
+          "larabar": "2026-10-30T14:20:26.771Z",
+          "kind_dark_choc_mocha_almond": "2026-10-30T18:02:18.603784+00:00",
+          "dannon_light_fit_boston_cream": "2026-10-30T20:49:24.955Z"
         },
         "neck": 40,
-        "neckMeta": "2026-10-30T13:34:59.080Z",
+        "neckMeta": "2026-10-30T20:48:56.650Z",
         "weight": 84.7,
-        "weightMeta": "2026-10-30T13:34:58.944Z"
+        "weightMeta": "2026-10-30T20:48:56.508Z",
+        "waist": 98,
+        "waistMeta": "2026-10-30T18:15:12.552Z"
       }
     },
     "savedItems": [],
@@ -5570,9 +5582,7 @@
       "catalog-cat-items": true,
       "catalog-cat-small_portions": true,
       "catalog-cat-supplements": true,
-      "supplements-water": true,
       "profile": true,
-      "catalog-ratio": true,
       "details-add-new-item": true
     },
     "userCatalog": {
@@ -10619,6 +10629,67 @@
             }
           ],
           "defaultMeasuredIn": "g"
+        },
+        "kind_dark_choc_mocha_almond": {
+          "name": "Bar KIND dark chocolate mocha almond",
+          "brand": "KIND",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "ingredients": "Almonds, chicory root fiber, palm kernel oil, cane sugar, honey, glucose syrup, unsweetened chocolate, alkalized cocoa, rice flour, cocoa nibs, coffee powder, soy lecithin, natural flavor, sea salt, cocoa butter.",
+          "kcal": 4.5,
+          "p": 0.125,
+          "fat": 0.375,
+          "sf": 0.0875,
+          "transFat": 0,
+          "polyunsat": 0.075,
+          "monounsat": 0.2,
+          "cholesterol": 0,
+          "sodium": 0.375,
+          "carbs": 0.4,
+          "fiber": 0.175,
+          "sugar": 0.125,
+          "addedSugar": 0.1,
+          "sugarAlcohol": 0,
+          "vitD": 0,
+          "calcium": 1.675,
+          "iron": 0.05,
+          "potassium": 5.3,
+          "magnesium": 1.5,
+          "phosphorus": 2.4,
+          "zinc": 0.018,
+          "copper": 0.007,
+          "manganese": 0.015,
+          "selenium": 0.02,
+          "vitE": 0.128,
+          "b1": 0.001,
+          "b2": 0.0057,
+          "b3": 0.018,
+          "b6": 0.0007,
+          "b9": 0.22,
+          "b12": 0,
+          "choline": 0.26,
+          "vitA": 0,
+          "vitC": 0,
+          "vitK": 0,
+          "water": 0.05,
+          "omega3": 0.03,
+          "purines": 0.2,
+          "displayUnits": [
+            {
+              "label": "1 bar (40 g)",
+              "amount": 40,
+              "unit": "g",
+              "default": true,
+              "multiplier": 40
+            },
+            {
+              "label": "box (6 bars, 240 g)",
+              "amount": 240,
+              "unit": "g",
+              "multiplier": 240
+            }
+          ],
+          "notes": "KIND Dark Chocolate Mocha Almond bar, gluten free, 6 x 1.4 oz (40 g) bars per box. LABEL per bar: 180 kcal, 15 g fat (3.5 sat, 0 trans, 3 poly, 8 mono), 0 cholesterol, 15 mg sodium, 16 g carb, 7 g fiber, 5 g total sugars (4 g added), 0 sugar alcohol, 5 g protein, vitD 0, calcium 67 mg, iron 2 mg, potassium 212 mg. HIGH CONFIDENCE. kcal KEPT AT LABEL 180, which is well BELOW plain Atwater math (5x4 + 15x9 + 16x4 = 219; net-carb 191). That gap is consistent with KIND using the measured, lower calorie value for almonds (USDA feeding trials found whole almonds deliver ~25-30 percent less than Atwater predicts) plus the chicory root fiber (inulin) at ~1.5-2 kcal/g: ~20 g almonds at ~4.6 instead of ~5.8 kcal/g is -24, and 7 g fiber at ~1.7 instead of 4 is -16, landing right at 180. So the label already reflects the catalog's real-value rules; nothing to correct. Same keep-the-label call as the other nut items. Caffeine from the coffee powder and cocoa, maybe ~10-15 mg per bar (no schema field). Unlabeled micros modeled at ~50 percent almonds plus cocoa. MEDIUM. Vitamin E ~5 mg and magnesium ~60 mg per bar are the notable ones. PURINES ~8 mg per bar, low."
         },
         "kofta_kebab_counter": {
           "name": "Kofta kebab, grilled (meat counter, pure lamb)",
@@ -18171,7 +18242,6 @@
           "label": "Uncategorized"
         }
       ]
-    },
-    "chartRangeDays": 30
+    }
   }
 }
