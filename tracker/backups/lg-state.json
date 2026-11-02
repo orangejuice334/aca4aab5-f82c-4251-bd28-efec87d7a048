@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-11-01T13:57:20.920Z",
-  "_gistSavedAt": "2026-10-30T20:49:45.833Z",
+  "_backupTakenAt": "2026-11-02T16:43:32.361Z",
+  "_gistSavedAt": "2026-11-02T16:27:26.986Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5490,6 +5490,38 @@
         "weightMeta": "2026-10-30T20:48:56.508Z",
         "waist": 98,
         "waistMeta": "2026-10-30T18:15:12.552Z"
+      },
+      "2026-11-01": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "neck": 40,
+        "neckMeta": "2026-11-01T18:25:49.780Z",
+        "weight": 84.7,
+        "weightMeta": "2026-11-01T18:25:49.641Z",
+        "waist": 98,
+        "waistMeta": "2026-11-01T18:25:49.521Z"
+      },
+      "2026-11-02": {
+        "toggles": {},
+        "counters": {
+          "ghost_pb_protein_cereal": 36,
+          "vitabella_strawberry_pillows": 15,
+          "macadamia_dry_roasted_365": 28,
+          "slate_ultra_protein_chocolate": 443,
+          "yogurt_oikos_pro_lemon": 150
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "ghost_pb_protein_cereal": "2026-11-02T15:12:27.108Z",
+          "vitabella_strawberry_pillows": "2026-11-02T15:12:43.236Z",
+          "macadamia_dry_roasted_365": "2026-11-02T15:13:48.435Z",
+          "slate_ultra_protein_chocolate": "2026-11-02T15:13:03.417Z",
+          "yogurt_oikos_pro_lemon": "2026-11-02T16:27:25.344Z"
+        }
       }
     },
     "savedItems": [],
@@ -5583,7 +5615,9 @@
       "catalog-cat-small_portions": true,
       "catalog-cat-supplements": true,
       "profile": true,
-      "details-add-new-item": true
+      "details-add-new-item": true,
+      "supplements-water": true,
+      "today-log": true
     },
     "userCatalog": {
       "items": {
