@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-11-02T16:43:32.361Z",
-  "_gistSavedAt": "2026-11-02T16:27:26.986Z",
+  "_backupTakenAt": "2026-11-03T14:47:04.376Z",
+  "_gistSavedAt": "2026-11-02T16:56:08.820Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5511,7 +5511,12 @@
           "vitabella_strawberry_pillows": 15,
           "macadamia_dry_roasted_365": 28,
           "slate_ultra_protein_chocolate": 443,
-          "yogurt_oikos_pro_lemon": 150
+          "yogurt_oikos_pro_lemon": 150,
+          "isopure_zero_carb_apple_melon": 0,
+          "premier": 325,
+          "natures_own_keto_bread": 56,
+          "jif_simply_crunchy_unsweetened": 15,
+          "smuckers_sf_strawberry_preserves": 85
         },
         "customs": [],
         "toggleMeta": {},
@@ -5520,7 +5525,12 @@
           "vitabella_strawberry_pillows": "2026-11-02T15:12:43.236Z",
           "macadamia_dry_roasted_365": "2026-11-02T15:13:48.435Z",
           "slate_ultra_protein_chocolate": "2026-11-02T15:13:03.417Z",
-          "yogurt_oikos_pro_lemon": "2026-11-02T16:27:25.344Z"
+          "yogurt_oikos_pro_lemon": "2026-11-02T16:27:25.344Z",
+          "isopure_zero_carb_apple_melon": "2026-11-02T16:47:23.206Z",
+          "premier": "2026-11-02T16:55:01.556Z",
+          "natures_own_keto_bread": "2026-11-02T16:55:13.777Z",
+          "jif_simply_crunchy_unsweetened": "2026-11-02T16:55:29.572Z",
+          "smuckers_sf_strawberry_preserves": "2026-11-02T16:56:07.575Z"
         }
       }
     },
