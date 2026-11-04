@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-11-03T14:47:04.376Z",
-  "_gistSavedAt": "2026-11-02T16:56:08.820Z",
+  "_backupTakenAt": "2026-11-04T14:59:16.928Z",
+  "_gistSavedAt": "2026-11-04T14:47:19.601Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5532,6 +5532,40 @@
           "jif_simply_crunchy_unsweetened": "2026-11-02T16:55:29.572Z",
           "smuckers_sf_strawberry_preserves": "2026-11-02T16:56:07.575Z"
         }
+      },
+      "2026-11-03": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_vanilla": 443,
+          "natures_own_keto_bread": 56,
+          "la_piara_tapa_negra_light": 36.5,
+          "slate_ultra_protein_chocolate": 443,
+          "ensure_max_protein_birthday_cake": 330,
+          "dannon_light_fit_boston_cream": 150,
+          "kind_dark_choc_mocha_almond": 40
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_vanilla": "2026-11-03T19:30:16.504Z",
+          "natures_own_keto_bread": "2026-11-03T16:14:14.326Z",
+          "la_piara_tapa_negra_light": "2026-11-03T16:14:20.199Z",
+          "slate_ultra_protein_chocolate": "2026-11-03T19:30:15.791Z",
+          "ensure_max_protein_birthday_cake": "2026-11-03T19:30:30.791Z",
+          "dannon_light_fit_boston_cream": "2026-11-03T19:30:39.845Z",
+          "kind_dark_choc_mocha_almond": "2026-11-03T19:32:19.684973+00:00"
+        },
+        "neck": 40,
+        "neckMeta": "2026-11-03T21:02:26.289Z"
+      },
+      "2026-11-04": {
+        "toggles": {},
+        "counters": {},
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {},
+        "weight": 84,
+        "weightMeta": "2026-11-04T14:46:31.988Z"
       }
     },
     "savedItems": [],
