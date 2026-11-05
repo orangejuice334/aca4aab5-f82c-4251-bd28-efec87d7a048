@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-11-04T14:59:16.928Z",
-  "_gistSavedAt": "2026-11-04T14:47:19.601Z",
+  "_backupTakenAt": "2026-11-05T15:04:56.929Z",
+  "_gistSavedAt": "2026-11-05T13:28:20.959Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5560,12 +5560,56 @@
       },
       "2026-11-04": {
         "toggles": {},
-        "counters": {},
-        "customs": [],
+        "counters": {
+          "slate_ultra_protein_vanilla": 443,
+          "legendary_donuts_pink_sprinkles": 31,
+          "legendary_donuts_dipped_chocolate": 36
+        },
+        "customs": [
+          {
+            "id": "eaf11f51-4620-46dc-a5f2-0b600619da2e",
+            "name": "450kcal",
+            "kcal": 450,
+            "count": 1,
+            "lastModified": "2026-11-04T14:47:17.187Z"
+          },
+          {
+            "id": "56871b54-ac05-47c7-9448-74083c32379b",
+            "name": "100kcal",
+            "kcal": 100,
+            "count": 1,
+            "lastModified": "2026-11-04T17:46:19.735Z"
+          }
+        ],
         "toggleMeta": {},
-        "counterMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_vanilla": "2026-11-04T17:46:33.244Z",
+          "legendary_donuts_pink_sprinkles": "2026-11-04T17:46:45.535Z",
+          "legendary_donuts_dipped_chocolate": "2026-11-04T17:46:49.149Z"
+        },
         "weight": 84,
         "weightMeta": "2026-11-04T14:46:31.988Z"
+      },
+      "2026-11-05": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_chocolate": 443,
+          "vitabella_strawberry_pillows": 20,
+          "ghost_pb_protein_cereal": 39,
+          "macadamia_dry_roasted_365": 20
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_chocolate": "2026-11-05T13:21:20.295Z",
+          "vitabella_strawberry_pillows": "2026-11-05T13:21:41.748Z",
+          "ghost_pb_protein_cereal": "2026-11-05T13:21:54.029Z",
+          "macadamia_dry_roasted_365": "2026-11-05T13:22:04.914Z"
+        },
+        "neck": 40,
+        "neckMeta": "2026-11-05T13:21:01.209Z",
+        "weight": 85,
+        "weightMeta": "2026-11-05T13:21:13.064Z"
       }
     },
     "savedItems": [],
@@ -5659,9 +5703,8 @@
       "catalog-cat-small_portions": true,
       "catalog-cat-supplements": true,
       "profile": true,
-      "details-add-new-item": true,
       "supplements-water": true,
-      "today-log": true
+      "details-add-new-item": true
     },
     "userCatalog": {
       "items": {
