@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-11-05T15:04:56.929Z",
-  "_gistSavedAt": "2026-11-05T13:28:20.959Z",
+  "_backupTakenAt": "2026-11-06T14:43:33.254Z",
+  "_gistSavedAt": "2026-11-06T14:33:30.892Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5593,23 +5593,57 @@
       "2026-11-05": {
         "toggles": {},
         "counters": {
-          "slate_ultra_protein_chocolate": 443,
+          "slate_ultra_protein_chocolate": 886,
           "vitabella_strawberry_pillows": 20,
           "ghost_pb_protein_cereal": 39,
-          "macadamia_dry_roasted_365": 20
+          "macadamia_dry_roasted_365": 20,
+          "natures_own_keto_bread": 56,
+          "la_piara_tapa_negra_light": 36.5
         },
         "customs": [],
         "toggleMeta": {},
         "counterMeta": {
-          "slate_ultra_protein_chocolate": "2026-11-05T13:21:20.295Z",
+          "slate_ultra_protein_chocolate": "2026-11-05T19:51:11.351Z",
           "vitabella_strawberry_pillows": "2026-11-05T13:21:41.748Z",
           "ghost_pb_protein_cereal": "2026-11-05T13:21:54.029Z",
-          "macadamia_dry_roasted_365": "2026-11-05T13:22:04.914Z"
+          "macadamia_dry_roasted_365": "2026-11-05T13:22:04.914Z",
+          "natures_own_keto_bread": "2026-11-05T19:50:31.053Z",
+          "la_piara_tapa_negra_light": "2026-11-05T19:50:37.262Z"
         },
         "neck": 40,
         "neckMeta": "2026-11-05T13:21:01.209Z",
         "weight": 85,
         "weightMeta": "2026-11-05T13:21:13.064Z"
+      },
+      "2026-11-06": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_chocolate": 443,
+          "protein_powder_whey_premier_chocolate": 41,
+          "natures_own_keto_bread": 56,
+          "jif_simply_crunchy_unsweetened": 17,
+          "smuckers_sf_strawberry_preserves": 34
+        },
+        "customs": [
+          {
+            "id": "4c971d4f-1ae3-449e-863c-94727b85d045",
+            "name": "125kcal 1p",
+            "kcal": 125,
+            "p": 1,
+            "count": 1,
+            "lastModified": "2026-11-06T14:33:27.581Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_chocolate": "2026-11-06T14:32:06.481Z",
+          "protein_powder_whey_premier_chocolate": "2026-11-06T14:32:13.056Z",
+          "natures_own_keto_bread": "2026-11-06T14:32:32.046Z",
+          "jif_simply_crunchy_unsweetened": "2026-11-06T14:32:52.918Z",
+          "smuckers_sf_strawberry_preserves": "2026-11-06T14:33:05.938Z"
+        },
+        "weight": 85.5,
+        "weightMeta": "2026-11-06T14:32:01.082Z"
       }
     },
     "savedItems": [],
@@ -5704,6 +5738,8 @@
       "catalog-cat-supplements": true,
       "profile": true,
       "supplements-water": true,
+      "catalog-ratio": true,
+      "today-log": true,
       "details-add-new-item": true
     },
     "userCatalog": {
@@ -18363,6 +18399,7 @@
           "label": "Uncategorized"
         }
       ]
-    }
+    },
+    "chartRangeDays": 30
   }
 }
