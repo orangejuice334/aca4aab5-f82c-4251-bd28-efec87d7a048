@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-11-06T14:43:33.254Z",
-  "_gistSavedAt": "2026-11-06T14:33:30.892Z",
+  "_backupTakenAt": "2026-11-07T13:40:56.172Z",
+  "_gistSavedAt": "2026-11-06T19:40:36.452Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5622,7 +5622,8 @@
           "protein_powder_whey_premier_chocolate": 41,
           "natures_own_keto_bread": 56,
           "jif_simply_crunchy_unsweetened": 17,
-          "smuckers_sf_strawberry_preserves": 34
+          "smuckers_sf_strawberry_preserves": 34,
+          "legendary_donuts_pink_sprinkles": 62
         },
         "customs": [
           {
@@ -5640,7 +5641,8 @@
           "protein_powder_whey_premier_chocolate": "2026-11-06T14:32:13.056Z",
           "natures_own_keto_bread": "2026-11-06T14:32:32.046Z",
           "jif_simply_crunchy_unsweetened": "2026-11-06T14:32:52.918Z",
-          "smuckers_sf_strawberry_preserves": "2026-11-06T14:33:05.938Z"
+          "smuckers_sf_strawberry_preserves": "2026-11-06T14:33:05.938Z",
+          "legendary_donuts_pink_sprinkles": "2026-11-06T19:40:36.008666+00:00"
         },
         "weight": 85.5,
         "weightMeta": "2026-11-06T14:32:01.082Z"
