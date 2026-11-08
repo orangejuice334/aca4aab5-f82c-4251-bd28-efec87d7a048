@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-11-07T13:40:56.172Z",
-  "_gistSavedAt": "2026-11-06T19:40:36.452Z",
+  "_backupTakenAt": "2026-11-08T13:59:45.263Z",
+  "_gistSavedAt": "2026-11-07T17:31:53.780Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5646,6 +5646,29 @@
         },
         "weight": 85.5,
         "weightMeta": "2026-11-06T14:32:01.082Z"
+      },
+      "2026-11-07": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_chocolate": 443,
+          "natures_own_keto_bread": 112,
+          "evoo_tsp": 20,
+          "tomato_paste_signature_select": 33,
+          "yogurt_oikos_pro_lemon": 150
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_chocolate": "2026-11-07T16:42:29.513Z",
+          "natures_own_keto_bread": "2026-11-07T16:42:38.583Z",
+          "evoo_tsp": "2026-11-07T16:42:49.138Z",
+          "tomato_paste_signature_select": "2026-11-07T16:43:22.133Z",
+          "yogurt_oikos_pro_lemon": "2026-11-07T17:31:53.513Z"
+        },
+        "neck": 40,
+        "neckMeta": "2026-11-07T16:41:17.497Z",
+        "weight": 85.5,
+        "weightMeta": "2026-11-07T16:41:17.214Z"
       }
     },
     "savedItems": [],
@@ -5740,7 +5763,6 @@
       "catalog-cat-supplements": true,
       "profile": true,
       "supplements-water": true,
-      "catalog-ratio": true,
       "today-log": true,
       "details-add-new-item": true
     },
@@ -6429,6 +6451,73 @@
             }
           ],
           "notes": "Lidl Preferred Selection Jamón Serrano. Spain, aged 12mo min. 3 oz (85 g) pkg = 3 servings × 28 g. Pork ham + sea salt. 21 mg Na/g. k/g P 7.0. Re-added 2026-05-14 after sync issue."
+        },
+        "beef_round_tip_strips_raw": {
+          "name": "Beef round tip strips stir fry raw (Safeway, USDA Choice)",
+          "brand": "Safeway",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "ingredients": "Beef (round tip, USDA Choice), cut into strips.",
+          "kcal": 1.56,
+          "p": 0.2016,
+          "fat": 0.0773,
+          "sf": 0.031,
+          "monounsat": 0.033,
+          "polyunsat": 0.003,
+          "transFat": 0.003,
+          "cholesterol": 0.62,
+          "sodium": 0.56,
+          "carbs": 0,
+          "fiber": 0,
+          "sugar": 0,
+          "addedSugar": 0,
+          "potassium": 3.3,
+          "calcium": 0.1,
+          "iron": 0.02,
+          "magnesium": 0.22,
+          "phosphorus": 2,
+          "zinc": 0.045,
+          "selenium": 0.24,
+          "copper": 0.0008,
+          "manganese": 0.0001,
+          "b1": 0.0008,
+          "b2": 0.002,
+          "b3": 0.055,
+          "b5": 0.006,
+          "b6": 0.005,
+          "b9": 0.08,
+          "b12": 0.025,
+          "choline": 0.7,
+          "vitA": 0,
+          "vitC": 0,
+          "vitD": 0.001,
+          "vitE": 0.003,
+          "vitK": 0.012,
+          "water": 0.71,
+          "omega3": 0.2,
+          "purines": 1.15,
+          "displayUnits": [
+            {
+              "label": "4 oz raw (113 g)",
+              "amount": 113,
+              "unit": "g",
+              "default": true,
+              "multiplier": 113
+            },
+            {
+              "label": "package 1.09 lb raw (494 g)",
+              "amount": 494,
+              "unit": "g",
+              "multiplier": 494
+            },
+            {
+              "label": "100 g raw",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Safeway USDA Choice beef round tip strips for stir fry, raw, sold by weight from the meat counter (this package 1.09 lb, packed 2026-11-06). No nutrition panel on fresh single-ingredient meat, so values are USDA SR Legacy FDC 168646 (beef, round, tip round, roast, separable lean and fat, trimmed to 0\" fat, choice, raw) per 100 g: 156 kcal, 20.16 g protein, 7.73 g fat (3.1 g sat), 0 carb. Lean-and-fat was chosen over lean-only because the strips show visible marbling and some edge fat; if the visible fat gets trimmed off before cooking, the real numbers move toward USDA's lean-only record (~126 kcal, 21 g protein, 4 g fat per 100 g). HIGH CONFIDENCE on the macros for this cut and grade; MEDIUM on micros (cholesterol, sodium, potassium, iron and B vitamins filled from the neighbouring USDA tip-round records). No kcal correction - pure muscle protein and fat, no fiber or sugar alcohols. RAW-WEIGHT ITEM: stir-fried strips lose roughly 25-30 percent of their weight as water, so 113 g raw is ~80-85 g cooked. Weigh before cooking, or ask for a cooked-weight sibling like turkey_ground_safeway_cooked. Oil and any sauce are not included. B12 ~2.8 mcg, zinc ~5 mg and heme iron ~2.3 mg per 4 oz are the notable micros. PURINES ~115 mg/100 g raw, MODERATE class, relevant to uric-acid/gout history. MEDIUM-LOW."
         },
         "bell_pepper_green_raw": {
           "name": "Bell pepper green raw",
