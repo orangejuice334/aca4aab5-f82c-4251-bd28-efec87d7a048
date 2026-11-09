@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-11-08T13:59:45.263Z",
-  "_gistSavedAt": "2026-11-07T17:31:53.780Z",
+  "_backupTakenAt": "2026-11-09T17:01:10.412Z",
+  "_gistSavedAt": "2026-11-09T16:41:44.681Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5669,6 +5669,57 @@
         "neckMeta": "2026-11-07T16:41:17.497Z",
         "weight": 85.5,
         "weightMeta": "2026-11-07T16:41:17.214Z"
+      },
+      "2026-11-08": {
+        "toggles": {},
+        "counters": {
+          "banana": 118,
+          "slate_ultra_protein_vanilla": 443,
+          "legendary_donuts_pink_sprinkles": 62,
+          "legendary_donuts_dipped_chocolate": 72,
+          "apple_gala_raw": 86,
+          "soy_milk": 150
+        },
+        "customs": [
+          {
+            "id": "b2efd333-cd0a-4912-a44e-2f4ea9448b2c",
+            "name": "350kcal 5p",
+            "kcal": 350,
+            "p": 5,
+            "count": 1,
+            "lastModified": "2026-11-08T17:55:56.721Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "banana": "2026-11-08T15:57:21.585Z",
+          "slate_ultra_protein_vanilla": "2026-11-08T15:57:29.361Z",
+          "legendary_donuts_pink_sprinkles": "2026-11-08T15:57:39.064Z",
+          "legendary_donuts_dipped_chocolate": "2026-11-08T15:57:39.785Z",
+          "apple_gala_raw": "2026-11-08T17:56:21.975Z",
+          "soy_milk": "2026-11-08T17:56:40.864Z"
+        },
+        "neck": 40,
+        "neckMeta": "2026-11-09T01:43:54.643Z",
+        "weight": 84.4,
+        "weightMeta": "2026-11-09T01:43:54.505Z"
+      },
+      "2026-11-09": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_vanilla": 443,
+          "quest_smores_bar": 60
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_vanilla": "2026-11-09T16:41:36.276Z",
+          "quest_smores_bar": "2026-11-09T16:41:43.252Z"
+        },
+        "neck": 40,
+        "neckMeta": "2026-11-09T16:41:28.335Z",
+        "weight": 84.4,
+        "weightMeta": "2026-11-09T16:41:28.194Z"
       }
     },
     "savedItems": [],
