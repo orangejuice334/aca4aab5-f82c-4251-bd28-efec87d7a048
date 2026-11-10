@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-11-09T17:01:10.412Z",
-  "_gistSavedAt": "2026-11-09T16:41:44.681Z",
+  "_backupTakenAt": "2026-11-10T15:20:36.153Z",
+  "_gistSavedAt": "2026-11-10T13:42:27.334Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5708,18 +5708,47 @@
         "toggles": {},
         "counters": {
           "slate_ultra_protein_vanilla": 443,
-          "quest_smores_bar": 60
+          "quest_smores_bar": 60,
+          "beef_round_tip_strips_airfried_rawwt": 296.4,
+          "acme_whitefish_spread": 49.5,
+          "nurri_vanilla_milk_shake": 338
         },
         "customs": [],
         "toggleMeta": {},
         "counterMeta": {
           "slate_ultra_protein_vanilla": "2026-11-09T16:41:36.276Z",
-          "quest_smores_bar": "2026-11-09T16:41:43.252Z"
+          "quest_smores_bar": "2026-11-09T16:41:43.252Z",
+          "beef_round_tip_strips_airfried_rawwt": "2026-11-09T19:01:39.548780+00:00",
+          "acme_whitefish_spread": "2026-11-09T19:01:39.548780+00:00",
+          "nurri_vanilla_milk_shake": "2026-11-09T19:04:53.060594+00:00"
         },
         "neck": 40,
-        "neckMeta": "2026-11-09T16:41:28.335Z",
+        "neckMeta": "2026-11-09T19:02:41.431Z",
         "weight": 84.4,
-        "weightMeta": "2026-11-09T16:41:28.194Z"
+        "weightMeta": "2026-11-09T19:02:41.291Z"
+      },
+      "2026-11-10": {
+        "toggles": {},
+        "counters": {
+          "blueberry": 160,
+          "slate_ultra_protein_vanilla": 443,
+          "natures_own_keto_bread": 84,
+          "jif_simply_crunchy_unsweetened": 28,
+          "simply_nature_blueberry_preserves": 18
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "blueberry": "2026-11-10T13:23:47.918Z",
+          "slate_ultra_protein_vanilla": "2026-11-10T13:23:51.850Z",
+          "natures_own_keto_bread": "2026-11-10T13:37:36.398Z",
+          "jif_simply_crunchy_unsweetened": "2026-11-10T13:37:52.263Z",
+          "simply_nature_blueberry_preserves": "2026-11-10T13:40:57.999973+00:00"
+        },
+        "neck": 40,
+        "neckMeta": "2026-11-10T13:22:57.933Z",
+        "weight": 85,
+        "weightMeta": "2026-11-10T13:23:29.694Z"
       }
     },
     "savedItems": [],
@@ -5837,6 +5866,66 @@
           "notes": "Doctor's Best Magnesium Glycinate, 4 tablets (800 mg magnesium total). Multiple reasons:\n\n• Sleep quality — glycinate contains glycine, an inhibitory neurotransmitter that promotes calm.\n• Cramps and recovery — heavy lifting + sweating + a deficit all increase magnesium demand; calf cramps are often magnesium-adjacent.\n• Cardiovascular — mild blood pressure lowering, modest insulin sensitivity.\n• Constipation prevention — lower food intake + high protein slows transit.\n\nGlycinate specifically because it's highly bioavailable AND non-laxative, unlike oxide (poorly absorbed) or citrate (loose stools at higher doses). Dinner timing keeps it away from caffeine (which antagonizes magnesium) and lets the calming effect help sleep.",
           "defaultMeasuredIn": "g",
           "brand": "Doctor's Best"
+        },
+        "acme_whitefish_spread": {
+          "name": "Spread smoked whitefish ACME",
+          "brand": "ACME Smoked Fish (Brooklyn)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "ingredients": "Smoked whitefish (whitefish and/or whiting, salt), mayonnaise (expeller-pressed canola oil, cage-free egg yolks, water, honey, distilled vinegar, cage-free whole eggs).",
+          "kcal": 3.75,
+          "p": 0.14285714285714285,
+          "fat": 0.35714285714285715,
+          "sf": 0.017857142857142856,
+          "transFat": 0,
+          "monounsat": 0.21428571428571427,
+          "polyunsat": 0.09821428571428571,
+          "cholesterol": 0.7142857142857143,
+          "sodium": 5.714285714285714,
+          "carbs": 0.017857142857142856,
+          "fiber": 0,
+          "sugar": 0.017857142857142856,
+          "addedSugar": 0.017857142857142856,
+          "vitD": 0.014285714285714287,
+          "calcium": 0.4642857142857143,
+          "iron": 0.003,
+          "potassium": 3.357142857142857,
+          "phosphorus": 0.9,
+          "magnesium": 0.107,
+          "zinc": 0.0027,
+          "selenium": 0.14,
+          "iodine": 0.18,
+          "b3": 0.0107,
+          "b6": 0.0018,
+          "b12": 0.0143,
+          "choline": 0.45,
+          "vitE": 0.054,
+          "vitK": 0.27,
+          "water": 0.48,
+          "omega3": 30,
+          "purines": 0.45,
+          "displayUnits": [
+            {
+              "label": "2 oz (56 g)",
+              "amount": 56,
+              "unit": "g",
+              "default": true,
+              "multiplier": 56
+            },
+            {
+              "label": "1/4 container (49.5 g)",
+              "amount": 49.5,
+              "unit": "g",
+              "multiplier": 49.5
+            },
+            {
+              "label": "container 7 oz (198 g)",
+              "amount": 198,
+              "unit": "g",
+              "multiplier": 198
+            }
+          ],
+          "notes": "ACME Smoked Fish (Brooklyn) Wild Caught Smoked Whitefish Spread, 7 oz (198 g) tub, 3.5 servings, kosher parve. LABEL per 2 oz (56 g): 210 kcal, 20 g fat (1 g sat, 0 trans), 40 mg cholesterol, 320 mg sodium, 1 g carb, 0 fiber, 1 g total sugars (1 g added - honey in the mayo), 8 g protein, vitamin D 4 percent DV (~0.8 mcg), calcium 2 percent (~26 mg), iron 0 percent, potassium 4 percent (~188 mg). HIGH CONFIDENCE. LABEL INCONSISTENCY: sodium prints as 320 mg but '9% DV', which would be ~210 mg; the milligram figure was used (320 mg is 14 percent), as the more conservative reading and the one that fits a salty smoked-fish product. kcal not corrected: 8x4 + 20x9 + 1x4 = 216, printed 210. MAYO-HEAVY: ~85 percent of the calories are fat, nearly all canola oil, so this is mostly a fat food that tastes like fish. Mono/poly split (12 / 5.5 g per serving) estimated from canola; OMEGA-3 ~1.7 g per serving is mostly canola ALA, with only ~0.1 g of fish EPA+DHA. Unlabeled micros modeled at ~45 percent smoked whitefish plus egg-yolk mayo. MEDIUM-LOW. PURINES ~25 mg per serving, low-moderate."
         },
         "almond_powder_tbsp": {
           "name": "Almond powder defatted",
@@ -5986,7 +6075,7 @@
           "defaultMeasuredIn": "g"
         },
         "apricot_preserves_sf_quarter": {
-          "name": "Apricot preserves sugar-free",
+          "name": "Preserves / jam / marmalade apricot sugar-free",
           "category": "items",
           "kcal": 0.5,
           "carbs": 0.15,
@@ -6502,6 +6591,71 @@
             }
           ],
           "notes": "Lidl Preferred Selection Jamón Serrano. Spain, aged 12mo min. 3 oz (85 g) pkg = 3 servings × 28 g. Pork ham + sea salt. 21 mg Na/g. k/g P 7.0. Re-added 2026-05-14 after sync issue."
+        },
+        "beef_round_tip_strips_airfried_rawwt": {
+          "kcal": 1.3489041999999998,
+          "p": 0.2016,
+          "fat": 0.05410999999999999,
+          "sf": 0.021699999999999997,
+          "monounsat": 0.0231,
+          "polyunsat": 0.0021,
+          "transFat": 0.0021,
+          "cholesterol": 0.62,
+          "sodium": 0.56,
+          "carbs": 0,
+          "fiber": 0,
+          "sugar": 0,
+          "addedSugar": 0,
+          "potassium": 3.3,
+          "calcium": 0.1,
+          "iron": 0.02,
+          "magnesium": 0.22,
+          "phosphorus": 2,
+          "zinc": 0.045,
+          "selenium": 0.24,
+          "copper": 0.0008,
+          "manganese": 0.0001,
+          "b1": 0.00064,
+          "b2": 0.0018000000000000002,
+          "b3": 0.0495,
+          "b5": 0.0051,
+          "b6": 0.004,
+          "b9": 0.068,
+          "b12": 0.022500000000000003,
+          "choline": 0.7,
+          "vitA": 0,
+          "vitC": 0,
+          "vitD": 0.001,
+          "vitE": 0.0021,
+          "vitK": 0.012,
+          "omega3": 0.13999999999999999,
+          "purines": 1.15,
+          "name": "Beef round tip strips air-fried, fat rendered (log by RAW weight)",
+          "brand": "Safeway",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "displayUnits": [
+            {
+              "label": "4 oz raw (113 g)",
+              "amount": 113,
+              "unit": "g",
+              "default": true,
+              "multiplier": 113
+            },
+            {
+              "label": "package 1.09 lb raw (494 g)",
+              "amount": 494,
+              "unit": "g",
+              "multiplier": 494
+            },
+            {
+              "label": "100 g raw",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Air-fried version of beef_round_tip_strips_raw (Safeway USDA Choice round tip strips), made 2026-11-09 after Luis air-fried 60 percent of a 1.09 lb package and saw a lot of the fat render out. LOG BY RAW WEIGHT - grams here are the meat as it came out of the package, so 'X percent of the package' maps straight onto it; nutrition is what's left after cooking. FAT: 70 percent of the raw 7.73 g/100 g kept (5.4 g), i.e. ~30 percent dripped out. That lands roughly midway between USDA's lean-and-fat record (7.7 g) and its lean-only record (4.0 g, all visible fat gone); oven-roasted tip round typically loses ~20 percent, and Luis saw more than usual. Saturated, mono, poly and trans fat scaled the same way. LOW-MEDIUM CONFIDENCE: plausible range 3.9-6.2 g fat/100 g raw, i.e. 120-140 kcal/100 g raw. Protein (20.16 g/100 g raw) and minerals kept in full. kcal recomputed with USDA's beef factors (4.27 per g protein, 9.02 per g fat): 135 kcal/100 g raw versus 156 uncooked. B vitamins trimmed for cooking (B1 and B6 -20 percent, B5 and B9 -15, B2, B3 and B12 -10). No oil or seasoning included. PURINES ~115 mg/100 g raw, MODERATE class, relevant to uric-acid/gout history."
         },
         "beef_round_tip_strips_raw": {
           "name": "Beef round tip strips stir fry raw (Safeway, USDA Choice)",
@@ -12528,6 +12682,59 @@
             }
           ]
         },
+        "nurri_vanilla_milk_shake": {
+          "name": "Shake Nurri vanilla (ultra-filtered milk)",
+          "brand": "Nurri",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "density_g_per_ml": 1.04,
+          "kcal": 0.4437869822485207,
+          "p": 0.08875739644970414,
+          "fat": 0.0073964497041420114,
+          "sf": 0.004437869822485207,
+          "transFat": 0,
+          "monounsat": 0.0017751479289940828,
+          "polyunsat": 0.0002958579881656805,
+          "cholesterol": 0.07396449704142012,
+          "sodium": 0.5325443786982249,
+          "carbs": 0.005917159763313609,
+          "fiber": 0,
+          "sugar": 0.0029585798816568047,
+          "addedSugar": 0,
+          "vitD": 0.014792899408284023,
+          "calcium": 2.1893491124260356,
+          "iron": 0.0008875739644970414,
+          "potassium": 1.0355029585798816,
+          "vitA": 0.591715976331361,
+          "phosphorus": 1.863905325443787,
+          "magnesium": 0.11834319526627218,
+          "zinc": 0.011834319526627219,
+          "selenium": 0.05917159763313609,
+          "b1": 0.0003,
+          "b2": 0.00178,
+          "b5": 0.003,
+          "b12": 0.0074,
+          "iodine": 0.44,
+          "choline": 0.148,
+          "water": 0.88,
+          "purines": 0,
+          "displayUnits": [
+            {
+              "label": "1 can 11 fl oz (338 g)",
+              "amount": 338,
+              "unit": "g",
+              "default": true,
+              "multiplier": 338
+            },
+            {
+              "label": "100 ml (104 g)",
+              "amount": 104,
+              "unit": "g",
+              "multiplier": 104
+            }
+          ],
+          "notes": "Nurri ultra-filtered milk shake, vanilla, 11 fl oz (325 ml) can, sweetened with non-sugar sweeteners (the partly visible ingredient list shows acesulfame and monk fruit), lactase enzyme added. LABEL per can: 150 kcal, 2.5 g fat (1.5 g sat, 0 trans), 25 mg cholesterol, 180 mg sodium, 2 g carb, 0 fiber, 1 g total sugars (0 added), 30 g protein, vitamin D 5 mcg, calcium 740 mg, iron 0.3 mg, potassium 350 mg, vitamin A 200 mcg, phosphorus 630 mg, magnesium 40 mg, zinc 4 mg, selenium 20 mcg, chloride 160 mg. HIGH CONFIDENCE. kcal not corrected: 30x4 + 2.5x9 + 2x4 = 150.5. Protein is concentrated milk protein (casein and whey in milk's natural ratio) - complete protein, no collagen, no downgrade. Calcium (57 percent of the daily value) and phosphorus (630 mg, 50 percent) per can are the standouts, both from the concentrated milk. DENSITY ~1.04 g/ml, so 325 ml = 338 g. B12, riboflavin, iodine and choline modeled from milk proteins. MEDIUM. PURINES ~0."
+        },
         "nutricost_casein_vanilla": {
           "name": "Nutricost Casein Protein Vanilla (micellar)",
           "category": "items",
@@ -14108,7 +14315,7 @@
           "defaultMeasuredIn": "units"
         },
         "preserves_blackberry_skinnygirl": {
-          "name": "Preserves blackberry sugar-free",
+          "name": "Preserves / jam / marmalade blackberry sugar-free",
           "category": "items",
           "kcal": 0.5882,
           "carbs": 0.2941,
@@ -15239,6 +15446,55 @@
           "notes": "Chobani Zero Sugar Mixed Berry, nonfat Greek yogurt, lactose free, 150g container. Label per container: 60 kcal, 0 fat, 0 sat, 0 trans, 10mg chol, 65mg sodium, 5g carb, 0 fiber, 0 sugar (0 added), 12g protein, Vit D 0, Ca 10% (~130mg), Iron 0, K 0%. SWEETENERS: allulose + stevia + monk fruit (zero sugar). The 5g total carb is mostly ALLULOSE (a rare sugar, ~0 kcal, non-glycemic, FDA-excluded from calories/sugars). Stored ~4g in the sugarAlcohol field so net carb computes to ~1g digestible (allulose is not chemically a polyol but is functionally non-caloric like erythritol). kcal 60 = label (already accounts for allulose). Off-label micros ESTIMATED from nonfat Greek yogurt: phosphorus ~150mg/container (relevant to reduced-eGFR history), iodine ~50mcg (dairy), B12 ~0.8mcg. LOW-MEDIUM confidence. Purines ~4mg -- LOW (dairy, gout-favorable). Distinct from Chobani 20g Protein and Oikos entries. Ingredients: ultra-filtered nonfat milk, water, skim milk, allulose, <2%: natural flavors, tapioca flour, citrus fiber, sea salt, guar gum, veg juice concentrate (color), stevia leaf extract, monk fruit extract, cultures. CONTAINS milk.",
           "brand": "Simms (Aldi)"
         },
+        "simply_nature_blueberry_preserves": {
+          "name": "Preserves / jam / marmalade blueberry organic Simply Nature (Aldi)",
+          "brand": "Simply Nature (Aldi)",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "ingredients": "Organic cane sugar, organic blueberries, fruit pectin, citric acid.",
+          "kcal": 2.5,
+          "p": 0.003,
+          "fat": 0.001,
+          "sf": 0,
+          "transFat": 0,
+          "cholesterol": 0,
+          "sodium": 0.05,
+          "carbs": 0.65,
+          "fiber": 0.05,
+          "sugar": 0.65,
+          "addedSugar": 0.65,
+          "vitD": 0,
+          "calcium": 0.03,
+          "iron": 0.001,
+          "potassium": 0.3,
+          "manganese": 0.0013,
+          "vitC": 0.01,
+          "vitK": 0.077,
+          "water": 0.32,
+          "purines": 0,
+          "displayUnits": [
+            {
+              "label": "1 Tbsp (20 g)",
+              "amount": 20,
+              "unit": "g",
+              "default": true,
+              "multiplier": 20
+            },
+            {
+              "label": "jar 11 oz (312 g)",
+              "amount": 312,
+              "unit": "g",
+              "multiplier": 312
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Aldi Simply Nature Organic Blueberry Preserves, non-GMO, no high fructose corn syrup, 11 oz (312 g) jar, about 16 servings. Name carries 'preserves', 'jam' and 'marmalade' so any of the three finds it (Luis's request). Ingredients: organic cane sugar (listed first, ahead of the fruit), organic blueberries, fruit pectin, citric acid. LABEL per 1 Tbsp (20 g): 50 kcal, 0 fat, 0 cholesterol, 0 sodium, 13 g carb, 1 g fiber, 13 g total sugars (all 13 counted as added), 0 protein, vitamin D, calcium, iron and potassium all 0 percent. HIGH CONFIDENCE. kcal not corrected: 12 g digestible carb x 4 + 1 g pectin fiber x 2 = 50, which is already the catalog's fiber rule. Trace values the label rounds to zero restored from ~40 percent blueberry content: potassium ~6 mg, vitamin K ~1.5 mcg, manganese ~0.03 mg per Tbsp, plus a little protein and sodium. LOW, and immaterial at these amounts. Cooking destroys most of the berries' vitamin C. Not the same as smuckers_sf_strawberry_preserves (sugar-free)."
+        },
         "skim_milk": {
           "name": "Skim milk",
           "category": "liquids",
@@ -15438,7 +15694,7 @@
           "notes": "Volo + Vero High Protein Instant Ramen (plant-based, non-fried, air-dried). Label per 1 bag (66g): 220 kcal, 2g fat, 0.5g sat, 0 trans, 0 chol, 660mg sodium (29% DV, HIGH), 18g carb, 4g fiber, 3g sugar, 0 added sugar, 32g protein, Vit D 0, Ca 53mg, Iron 5.5mg (30% DV, high -- label-exact), K 177mg. Nutrition panel = 2 servings/container (132g). SODIUM varies by flavor: the box is a variety pack (Spicy Kimchi, Spicy Curry, Beef, Chicken seasonings) sharing one panel; 660mg is representative, beef/chicken/curry differ. kcal stored at label 220 BUT likely ~6-10 kcal overcounted: label uses total-carb x4, counting the 4g fiber at 4 kcal/g, though konjac powder/glucomannan (~0 kcal) and pea fiber (~2 kcal/g) are sub-4; real value ~210-214. Small/uncertain, left at label. Protein 32g at label. Blend = vital wheat gluten (lysine-limited) + pea protein (complements lysine) + buckwheat flour (lysine-rich pseudograin) = reasonably COMPLETE plant blend, decent DIAAS; no downgrade applied. Off-label micros ESTIMATED from noodle composition (vital wheat gluten, pea protein, wheat + buckwheat flour, pea fiber, konjac, xanthan): Mg ~50mg (buckwheat), phosphorus ~150mg/serving (relevant to reduced-eGFR history), Mn/Cu bumped by buckwheat, selenium ~15mcg from wheat. LOW-MEDIUM confidence. PURINES ~75mg/serving MODERATE: noodle (wheat gluten low, pea protein moderate, buckwheat moderate) PLUS seasoning yeast extract and disodium 5'-ribonucleotide (added inosinate/guanylate purines). Relevant to uric-acid/gout history. LOW confidence. b12 = 0 (plant, unfortified). Full box net 17.8oz/504g. CONTAINS wheat, soy. Noodle ingredients: vital wheat gluten, pea protein, wheat flour, buckwheat flour, pea fiber powder, konjac powder, xanthan gum, sodium carbonate, tapioca starch."
         },
         "smuckers_sf_strawberry_preserves": {
-          "name": "Preserves strawberry sugar-free Smucker's",
+          "name": "Preserves / jam / marmalade strawberry sugar-free Smucker's",
           "brand": "Smucker's",
           "category": "items",
           "defaultMeasuredIn": "g",
