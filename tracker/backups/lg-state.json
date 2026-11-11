@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-11-10T15:20:36.153Z",
-  "_gistSavedAt": "2026-11-10T13:42:27.334Z",
+  "_backupTakenAt": "2026-11-11T14:51:18.743Z",
+  "_gistSavedAt": "2026-11-11T14:14:55.244Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5734,7 +5734,11 @@
           "slate_ultra_protein_vanilla": 443,
           "natures_own_keto_bread": 84,
           "jif_simply_crunchy_unsweetened": 28,
-          "simply_nature_blueberry_preserves": 18
+          "simply_nature_blueberry_preserves": 18,
+          "david_bar_choc_chip_cookie_dough": 62,
+          "dannon_light_fit_boston_cream": 150,
+          "banana": 118,
+          "quest_mint_choc_chunk_bar": 60
         },
         "customs": [],
         "toggleMeta": {},
@@ -5743,12 +5747,33 @@
           "slate_ultra_protein_vanilla": "2026-11-10T13:23:51.850Z",
           "natures_own_keto_bread": "2026-11-10T13:37:36.398Z",
           "jif_simply_crunchy_unsweetened": "2026-11-10T13:37:52.263Z",
-          "simply_nature_blueberry_preserves": "2026-11-10T13:40:57.999973+00:00"
+          "simply_nature_blueberry_preserves": "2026-11-10T13:40:57.999973+00:00",
+          "david_bar_choc_chip_cookie_dough": "2026-11-10T18:52:01.968Z",
+          "dannon_light_fit_boston_cream": "2026-11-10T21:41:10.834Z",
+          "banana": "2026-11-10T21:41:16.316Z",
+          "quest_mint_choc_chunk_bar": "2026-11-10T22:59:27.970Z"
         },
         "neck": 40,
         "neckMeta": "2026-11-10T13:22:57.933Z",
         "weight": 85,
         "weightMeta": "2026-11-10T13:23:29.694Z"
+      },
+      "2026-11-11": {
+        "toggles": {},
+        "counters": {
+          "ghost_pb_protein_cereal": 39,
+          "slate_ultra_protein_vanilla": 443,
+          "macadamia_dry_roasted_365": 20
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "ghost_pb_protein_cereal": "2026-11-11T14:14:22.954Z",
+          "slate_ultra_protein_vanilla": "2026-11-11T14:14:30.196Z",
+          "macadamia_dry_roasted_365": "2026-11-11T14:14:47.337Z"
+        },
+        "weight": 84,
+        "weightMeta": "2026-11-11T14:13:43.303Z"
       }
     },
     "savedItems": [],
@@ -5844,7 +5869,9 @@
       "profile": true,
       "supplements-water": true,
       "today-log": true,
-      "details-add-new-item": true
+      "section-weight-tracker": true,
+      "details-add-new-item": true,
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
@@ -14726,6 +14753,55 @@
           ],
           "notes": "Label per 1 bagel (75g): 130 kcal LABEL, 19g protein (front-panel confirmed; side-panel '10g' was glare misread), 4g fat, 0.5g sat, 25g carb, 21g fiber, 0g sugar, 460mg sodium, 0 cholesterol, Ca 20mg, Iron 3mg (15% DV), K 30mg. Net carb = 4g. KCAL CORRECTION (revised): stored at 140 kcal/bagel (1.8667 kcal/g). Fiber is 'resistant wheat starch' = almost certainly RS4 (chemically phosphated/cross-linked wheat starch, e.g. Fibersym). RS4 is the LEAST fermentable resistant starch type — caloric availability ~0-1 kcal/g, NOT the ~2 kcal/g of readily-fermentable RS2/RS3. So the standard 'add back 2 kcal/g' fiber rule does NOT cleanly apply here. Added back only ~0.5 kcal/g over the ~21g fiber = ~10 kcal over label's 130 = 140 total. Real value plausibly 135-150. (Earlier stored 162 was an over-correction that wrongly treated this as readily-fermentable fiber.) Estimated micros from wheat gluten + fava bean protein composition (medium confidence): folate (B9) elevated from fava (~1 mcg/g), selenium (wheat ~0.3 mcg/g), manganese, phosphorus, Mg. B12=0 (plant). Protein blend: vital wheat gluten + fava bean protein (complementary lysine). Ingredients: water, resistant wheat starch, wheat protein, fava bean protein, [remainder obscured]. Contains wheat. High-protein/high-fiber/low-net-carb marketed bagel."
         },
+        "quest_double_choc_chunk_bar": {
+          "water": 0.1,
+          "phosphorus": 3.33,
+          "magnesium": 1.0866666666666667,
+          "zinc": 0.025,
+          "selenium": 0.167,
+          "b12": 0.008,
+          "b2": 0.005,
+          "choline": 0.5,
+          "purines": 0.167,
+          "copper": 0.005,
+          "name": "Protein bar Quest double chocolate chunk",
+          "brand": "Quest Nutrition",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "ingredients": "Protein blend (milk protein isolate, whey protein isolate), polydextrose (prebiotic fiber), almonds, water, erythritol, unsweetened chocolate, cocoa processed with alkali, glycerin, cocoa butter; under 2%: natural flavors, sodium caseinate, sea salt, lecithin (sunflower and/or soy), stevia sweetener, sucralose.",
+          "kcal": 2.8333333333333335,
+          "p": 0.3333333333333333,
+          "fat": 0.11666666666666667,
+          "sf": 0.03333333333333333,
+          "transFat": 0,
+          "cholesterol": 0.08333333333333333,
+          "sodium": 4,
+          "carbs": 0.4,
+          "fiber": 0.2,
+          "sugar": 0.008333333333333333,
+          "addedSugar": 0,
+          "sugarAlcohol": 0.15,
+          "vitD": 0,
+          "calcium": 2.3333333333333335,
+          "iron": 0.025,
+          "potassium": 2.6666666666666665,
+          "displayUnits": [
+            {
+              "label": "1 bar (60 g)",
+              "amount": 60,
+              "unit": "g",
+              "default": true,
+              "multiplier": 60
+            },
+            {
+              "label": "box 4 ct (240 g)",
+              "amount": 240,
+              "unit": "g",
+              "multiplier": 240
+            }
+          ],
+          "notes": "Quest Protein Bar, Double Chocolate Chunk, 1 bar (60 g), from the Quest website panel. LABEL per bar: 170 kcal, 7 g fat (2 g sat, 0 trans), 5 mg cholesterol, 240 mg sodium, 24 g total carb, 12 g fiber, under 1 g total sugars (0 added), 9 g sugar alcohols, 20 g protein, vitD 0, calcium 140 mg, iron 1.5 mg, potassium 160 mg. Front: 3 g net carbs (24 - 12 - 9). HIGH CONFIDENCE on the panel. kcal CHECKED AGAINST REALITY and kept at 170 (Luis wants real values, not label values - here they coincide). Fiber is mostly polydextrose (~1 kcal/g) plus a little cocoa fiber; sugar alcohols are mostly erythritol (~0) with glycerin (~4.3 kcal/g) either inside the 9 g or inside the 3 g net carbs - the panel doesn't say which. Rebuilding from 20 g protein x 4, 7 g fat x 9, polydextrose at 1, erythritol at ~0.2 and glycerin at 4.3 gives 168-174 depending on where the ~1.5 g of glycerin sits; the label's 170 is the middle. Same formula family as quest_white_choc_raspberry_bar (stored 174 from the same method). Almonds appear ground into the dough, so no whole-nut discount. No collagen. sugarAlcohol = the declared 9 g. Unlabeled micros copied from quest_mint_choc_chunk_bar, with magnesium and copper raised for the unsweetened chocolate and cocoa. LOW-MEDIUM."
+        },
         "quest_mint_choc_chunk_bar": {
           "water": 0.1,
           "phosphorus": 3.33,
@@ -14805,6 +14881,48 @@
             }
           ],
           "notes": "Quest Protein Bar, S'mores, 1 bar (60g). Label per bar: 180 kcal, 7g fat (2.5g sat), 0 trans, 5mg chol, 210mg sodium, 23g total carb, 12g fiber, 1g sugar, 0 added, 7g sugar alcohol (erythritol) => 4g net carb, 21g protein, Vit D 0, Ca 150mg (10%), Iron 0.5mg, K 120mg. Stored carbs 23/fiber 12/sugarAlcohol 7 (nets to 4g digestible). kcal STORED AT LABEL 180 (consistent with David bar precedent; fiber not zeroed, erythritol correctly ~0 kcal). NOTE: label counts the 12g soluble corn fiber at ~1.4 kcal/g; a strict fermentable-fiber treatment at 2 kcal/g would give ~187 kcal. Erythritol ~0.2 kcal/g (~0). Off-label micros ESTIMATED from milk/whey protein isolate + almonds + cocoa: phosphorus ~200mg/bar (HIGH -- protein isolates; relevant to reduced-eGFR history), Mg ~40mg, selenium ~10mcg. LOW-MEDIUM confidence. PURINES ~10mg/bar -- LOW (dairy protein, gout-favorable). CONTAINS milk, almonds (tree nuts); may contain soy, egg, peanut."
+        },
+        "quest_white_choc_raspberry_bar": {
+          "water": 0.1,
+          "phosphorus": 3.33,
+          "magnesium": 0.67,
+          "zinc": 0.025,
+          "selenium": 0.167,
+          "b12": 0.008,
+          "b2": 0.005,
+          "choline": 0.5,
+          "purines": 0.167,
+          "name": "Protein bar Quest white chocolate raspberry",
+          "brand": "Quest Nutrition",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "ingredients": "Protein blend (milk protein isolate, whey protein isolate), polydextrose (prebiotic fiber), almonds, water, erythritol, palm kernel oil, glycerin, raspberries, sodium caseinate; under 2%: natural flavors, salt, lecithin (sunflower and/or soy), stevia sweetener, sucralose.",
+          "kcal": 2.9,
+          "p": 0.3333333333333333,
+          "fat": 0.11666666666666667,
+          "sf": 0.041666666666666664,
+          "transFat": 0,
+          "cholesterol": 0.08333333333333333,
+          "sodium": 4,
+          "carbs": 0.38333333333333336,
+          "fiber": 0.21666666666666667,
+          "sugar": 0.016666666666666666,
+          "addedSugar": 0,
+          "sugarAlcohol": 0.1,
+          "vitD": 0,
+          "calcium": 3,
+          "iron": 0.006666666666666667,
+          "potassium": 1.6666666666666667,
+          "displayUnits": [
+            {
+              "label": "1 bar (60 g)",
+              "amount": 60,
+              "unit": "g",
+              "default": true,
+              "multiplier": 60
+            }
+          ],
+          "notes": "Quest Protein Bar, White Chocolate Raspberry, 1 bar 2.12 oz (60 g). LABEL per bar: 180 kcal, 7 g fat (2.5 g sat, 0 trans), 5 mg cholesterol, 240 mg sodium, 23 g total carb, 13 g fiber, 1 g total sugars (0 added), 6 g sugar alcohols (erythritol), 20 g protein, vitD 0, calcium 180 mg, iron 0.4 mg, potassium 100 mg. Front: 4 g net carbs (23 - 13 - 6). HIGH CONFIDENCE on the panel. kcal STORED AT 174, NOT THE LABEL'S 180 (Luis wants real values over label values). The fiber in this formula is POLYDEXTROSE, which yields ~1 kcal/g (FDA's own figure). Rebuilt: 20 g protein x 4 = 80, 7 g fat x 9 = 63, 4 g net carb (mostly glycerin plus 1 g sugar) x ~4.1 = 16, 13 g polydextrose x 1 = 13, 6 g erythritol x ~0.2 = 1 -> 174. The label's 180 implies ~1.6 kcal/g for the fiber. MEDIUM-HIGH CONFIDENCE on the correction. Almonds look ground into the dough rather than whole, so no whole-nut discount is applied. Protein is milk protein isolate, whey isolate and caseinate - no collagen, no downgrade. NOTE: quest_smores_bar and quest_mint_choc_chunk_bar use soluble corn fiber (~2 kcal/g) instead, so their realistic values run a few kcal ABOVE label; both are still stored at label. sugarAlcohol = the declared 6 g erythritol. Unlabeled micros copied from quest_mint_choc_chunk_bar (same milk-protein base); LOW-MEDIUM."
         },
         "ramen_high_protein_volo_vero": {
           "name": "Ramen high-protein Volo+Vero",
