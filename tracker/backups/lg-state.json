@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-11-11T14:51:18.743Z",
-  "_gistSavedAt": "2026-11-11T14:14:55.244Z",
+  "_backupTakenAt": "2026-11-12T15:42:08.717Z",
+  "_gistSavedAt": "2026-11-12T13:39:01.859Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5763,17 +5763,55 @@
         "counters": {
           "ghost_pb_protein_cereal": 39,
           "slate_ultra_protein_vanilla": 443,
-          "macadamia_dry_roasted_365": 20
+          "macadamia_dry_roasted_365": 20,
+          "soy_milk": 300,
+          "quest_white_choc_raspberry_bar": 60,
+          "nurri_vanilla_milk_shake": 338,
+          "banana": 94.4
         },
         "customs": [],
         "toggleMeta": {},
         "counterMeta": {
           "ghost_pb_protein_cereal": "2026-11-11T14:14:22.954Z",
           "slate_ultra_protein_vanilla": "2026-11-11T14:14:30.196Z",
-          "macadamia_dry_roasted_365": "2026-11-11T14:14:47.337Z"
+          "macadamia_dry_roasted_365": "2026-11-11T14:14:47.337Z",
+          "soy_milk": "2026-11-11T17:58:45.035Z",
+          "quest_white_choc_raspberry_bar": "2026-11-11T17:58:54.262Z",
+          "nurri_vanilla_milk_shake": "2026-11-11T20:47:52.921Z",
+          "banana": "2026-11-11T21:15:29.731Z"
         },
-        "weight": 84,
-        "weightMeta": "2026-11-11T14:13:43.303Z"
+        "weight": 85,
+        "weightMeta": "2026-11-11T20:46:59.188Z",
+        "neck": 40,
+        "neckMeta": "2026-11-11T20:46:59.336Z"
+      },
+      "2026-11-12": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_vanilla": 443,
+          "banana": 94.4,
+          "quest_double_choc_chunk_bar": 60
+        },
+        "customs": [
+          {
+            "id": "fb277632-8311-4d42-ae09-4ab110ae2f14",
+            "name": "130kcal 1p",
+            "kcal": 130,
+            "p": 1,
+            "count": 1,
+            "lastModified": "2026-11-12T13:37:59.581Z"
+          }
+        ],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_vanilla": "2026-11-12T13:37:46.998Z",
+          "banana": "2026-11-12T13:38:20.297Z",
+          "quest_double_choc_chunk_bar": "2026-11-12T13:38:29.728Z"
+        },
+        "neck": 40,
+        "neckMeta": "2026-11-12T13:37:26.645Z",
+        "weight": 85,
+        "weightMeta": "2026-11-12T13:37:26.501Z"
       }
     },
     "savedItems": [],
@@ -5854,12 +5892,10 @@
       "section-density": true,
       "targets-daily": true,
       "details-profile-section": true,
-      "details-sync-error-banner": true,
       "catalog-archive": true,
       "section-mood-tracker": true,
       "today-customs": true,
       "history": true,
-      "targets-accumulation": true,
       "details-recipe-maker": true,
       "catalog-cat-liquids": true,
       "catalog-cat-recipes": true,
@@ -5868,10 +5904,11 @@
       "catalog-cat-supplements": true,
       "profile": true,
       "supplements-water": true,
-      "today-log": true,
       "section-weight-tracker": true,
       "details-add-new-item": true,
-      "catalog-ratio": true
+      "catalog-ratio": true,
+      "today-log": true,
+      "targets-accumulation": true
     },
     "userCatalog": {
       "items": {
@@ -6620,18 +6657,15 @@
           "notes": "Lidl Preferred Selection Jamón Serrano. Spain, aged 12mo min. 3 oz (85 g) pkg = 3 servings × 28 g. Pork ham + sea salt. 21 mg Na/g. k/g P 7.0. Re-added 2026-05-14 after sync issue."
         },
         "beef_round_tip_strips_airfried_rawwt": {
-          "kcal": 1.3489041999999998,
+          "kcal": 1.3489,
           "p": 0.2016,
-          "fat": 0.05410999999999999,
-          "sf": 0.021699999999999997,
+          "fat": 0.0541,
+          "sf": 0.0217,
           "monounsat": 0.0231,
           "polyunsat": 0.0021,
           "transFat": 0.0021,
           "cholesterol": 0.62,
           "sodium": 0.56,
-          "carbs": 0,
-          "fiber": 0,
-          "sugar": 0,
           "addedSugar": 0,
           "potassium": 3.3,
           "calcium": 0.1,
@@ -6642,20 +6676,18 @@
           "selenium": 0.24,
           "copper": 0.0008,
           "manganese": 0.0001,
-          "b1": 0.00064,
-          "b2": 0.0018000000000000002,
+          "b1": 0.0006,
+          "b2": 0.0018,
           "b3": 0.0495,
           "b5": 0.0051,
           "b6": 0.004,
           "b9": 0.068,
-          "b12": 0.022500000000000003,
+          "b12": 0.0225,
           "choline": 0.7,
-          "vitA": 0,
-          "vitC": 0,
           "vitD": 0.001,
           "vitE": 0.0021,
           "vitK": 0.012,
-          "omega3": 0.13999999999999999,
+          "omega3": 0.14,
           "purines": 1.15,
           "name": "Beef round tip strips air-fried, fat rendered (log by RAW weight)",
           "brand": "Safeway",
@@ -6663,17 +6695,17 @@
           "defaultMeasuredIn": "g",
           "displayUnits": [
             {
+              "label": "package 1.09 lb raw (494 g)",
+              "amount": 494,
+              "unit": "g",
+              "multiplier": 494
+            },
+            {
               "label": "4 oz raw (113 g)",
               "amount": 113,
               "unit": "g",
               "default": true,
               "multiplier": 113
-            },
-            {
-              "label": "package 1.09 lb raw (494 g)",
-              "amount": 494,
-              "unit": "g",
-              "multiplier": 494
             },
             {
               "label": "100 g raw",
@@ -6689,7 +6721,6 @@
           "brand": "Safeway",
           "category": "items",
           "defaultMeasuredIn": "g",
-          "ingredients": "Beef (round tip, USDA Choice), cut into strips.",
           "kcal": 1.56,
           "p": 0.2016,
           "fat": 0.0773,
@@ -6699,9 +6730,6 @@
           "transFat": 0.003,
           "cholesterol": 0.62,
           "sodium": 0.56,
-          "carbs": 0,
-          "fiber": 0,
-          "sugar": 0,
           "addedSugar": 0,
           "potassium": 3.3,
           "calcium": 0.1,
@@ -6720,8 +6748,6 @@
           "b9": 0.08,
           "b12": 0.025,
           "choline": 0.7,
-          "vitA": 0,
-          "vitC": 0,
           "vitD": 0.001,
           "vitE": 0.003,
           "vitK": 0.012,
@@ -6730,17 +6756,17 @@
           "purines": 1.15,
           "displayUnits": [
             {
+              "label": "package 1.09 lb raw (494 g)",
+              "amount": 494,
+              "unit": "g",
+              "multiplier": 494
+            },
+            {
               "label": "4 oz raw (113 g)",
               "amount": 113,
               "unit": "g",
               "default": true,
               "multiplier": 113
-            },
-            {
-              "label": "package 1.09 lb raw (494 g)",
-              "amount": 494,
-              "unit": "g",
-              "multiplier": 494
             },
             {
               "label": "100 g raw",
@@ -11233,25 +11259,22 @@
           "brand": "Kraft (Lactalis Heritage Dairy)",
           "category": "items",
           "defaultMeasuredIn": "g",
-          "ingredients": "Cultured pasteurized skim milk, jalapeño peppers, salt, enzymes, vitamin A palmitate.",
-          "kcal": 2.6785714285714284,
-          "p": 0.30357142857142855,
-          "fat": 0.14285714285714285,
-          "sf": 0.08928571428571429,
+          "kcal": 2.6786,
+          "p": 0.3036,
+          "fat": 0.1429,
+          "sf": 0.0893,
           "transFat": 0.008928571428571428,
           "monounsat": 0.03571428571428571,
           "polyunsat": 0.005357142857142857,
-          "cholesterol": 0.44642857142857145,
+          "cholesterol": 0.4464,
           "sodium": 7.5,
-          "carbs": 0.017857142857142856,
-          "fiber": 0,
-          "sugar": 0.008928571428571428,
+          "carbs": 0.0179,
+          "sugar": 0.0089,
           "addedSugar": 0,
-          "vitD": 0,
-          "calcium": 8.214285714285714,
+          "calcium": 8.2143,
           "iron": 0.0015,
           "potassium": 0.7,
-          "vitA": 2.857142857142857,
+          "vitA": 2.8571,
           "phosphorus": 4.8,
           "magnesium": 0.25,
           "zinc": 0.035,
@@ -11265,17 +11288,17 @@
           "purines": 0.05,
           "displayUnits": [
             {
+              "label": "pack (5 sticks, 280 g)",
+              "amount": 280,
+              "unit": "g",
+              "multiplier": 280
+            },
+            {
               "label": "1 stick (56 g)",
               "amount": 56,
               "unit": "g",
               "default": true,
               "multiplier": 56
-            },
-            {
-              "label": "pack (5 sticks, 280 g)",
-              "amount": 280,
-              "unit": "g",
-              "multiplier": 280
             }
           ],
           "notes": "Kraft Protein Cheese Snack, Pepper Jack - reduced-fat Monterey Jack with jalapeño, made from skim milk, 5 sticks per pack. Distributed by Lactalis Heritage Dairy under the Kraft name. LABEL per 1 stick (56 g; the gram figure is partly hidden in the photo, 56 fits the 'fat reduced from 17 g to 8 g' claim against regular pepper jack): 150 kcal, 8 g fat (5 g sat, 0.5 g trans - natural dairy trans fat), 25 mg cholesterol, 420 mg sodium, 1 g carb, 0 fiber, under 1 g sugar (0 added), 17 g protein, vitD 0, calcium 460 mg, iron 0, potassium 0, vitamin A 160 mcg (added as palmitate, since skim milk loses its own). The percent-DV column on the package is offset by one row; the gram and milligram values are the ones used. HIGH CONFIDENCE. kcal not corrected: 17x4 + 8x9 + 1x4 = 144, printed 150. ROUNDED-TO-ZERO restored: potassium ~40 mg and iron ~0.1 mg per stick (cheese carries ~70 mg/100 g potassium; a label 0 is a shortcut). Mono/poly split from typical dairy fat. Unlabeled micros from USDA reduced-fat cheese. MEDIUM. Phosphorus ~270 mg per stick is the notable one. PURINES ~0, cheese is about as low as it gets. Not the same as string_cheese (21 g mozzarella)."
@@ -12715,36 +12738,34 @@
           "category": "items",
           "defaultMeasuredIn": "g",
           "density_g_per_ml": 1.04,
-          "kcal": 0.4437869822485207,
-          "p": 0.08875739644970414,
-          "fat": 0.0073964497041420114,
-          "sf": 0.004437869822485207,
+          "kcal": 0.4438,
+          "p": 0.0888,
+          "fat": 0.0074,
+          "sf": 0.0044,
           "transFat": 0,
           "monounsat": 0.0017751479289940828,
           "polyunsat": 0.0002958579881656805,
-          "cholesterol": 0.07396449704142012,
-          "sodium": 0.5325443786982249,
-          "carbs": 0.005917159763313609,
-          "fiber": 0,
-          "sugar": 0.0029585798816568047,
+          "cholesterol": 0.074,
+          "sodium": 0.5325,
+          "carbs": 0.0059,
+          "sugar": 0.003,
           "addedSugar": 0,
-          "vitD": 0.014792899408284023,
-          "calcium": 2.1893491124260356,
-          "iron": 0.0008875739644970414,
-          "potassium": 1.0355029585798816,
-          "vitA": 0.591715976331361,
-          "phosphorus": 1.863905325443787,
-          "magnesium": 0.11834319526627218,
-          "zinc": 0.011834319526627219,
-          "selenium": 0.05917159763313609,
+          "vitD": 0.0148,
+          "calcium": 2.1893,
+          "iron": 0.0009,
+          "potassium": 1.0355,
+          "vitA": 0.5917,
+          "phosphorus": 1.8639,
+          "magnesium": 0.1183,
+          "zinc": 0.0118,
+          "selenium": 0.0592,
           "b1": 0.0003,
-          "b2": 0.00178,
+          "b2": 0.0018,
           "b5": 0.003,
           "b12": 0.0074,
           "iodine": 0.44,
           "choline": 0.148,
           "water": 0.88,
-          "purines": 0,
           "displayUnits": [
             {
               "label": "1 can 11 fl oz (338 g)",
@@ -14756,7 +14777,7 @@
         "quest_double_choc_chunk_bar": {
           "water": 0.1,
           "phosphorus": 3.33,
-          "magnesium": 1.0866666666666667,
+          "magnesium": 1.0867,
           "zinc": 0.025,
           "selenium": 0.167,
           "b12": 0.008,
@@ -14768,36 +14789,34 @@
           "brand": "Quest Nutrition",
           "category": "items",
           "defaultMeasuredIn": "g",
-          "ingredients": "Protein blend (milk protein isolate, whey protein isolate), polydextrose (prebiotic fiber), almonds, water, erythritol, unsweetened chocolate, cocoa processed with alkali, glycerin, cocoa butter; under 2%: natural flavors, sodium caseinate, sea salt, lecithin (sunflower and/or soy), stevia sweetener, sucralose.",
-          "kcal": 2.8333333333333335,
-          "p": 0.3333333333333333,
-          "fat": 0.11666666666666667,
-          "sf": 0.03333333333333333,
+          "kcal": 2.8333,
+          "p": 0.3333,
+          "fat": 0.1167,
+          "sf": 0.0333,
           "transFat": 0,
-          "cholesterol": 0.08333333333333333,
+          "cholesterol": 0.0833,
           "sodium": 4,
           "carbs": 0.4,
           "fiber": 0.2,
-          "sugar": 0.008333333333333333,
+          "sugar": 0.0083,
           "addedSugar": 0,
           "sugarAlcohol": 0.15,
-          "vitD": 0,
-          "calcium": 2.3333333333333335,
+          "calcium": 2.3333,
           "iron": 0.025,
-          "potassium": 2.6666666666666665,
+          "potassium": 2.6667,
           "displayUnits": [
+            {
+              "label": "box 4 ct (240 g)",
+              "amount": 240,
+              "unit": "g",
+              "multiplier": 240
+            },
             {
               "label": "1 bar (60 g)",
               "amount": 60,
               "unit": "g",
               "default": true,
               "multiplier": 60
-            },
-            {
-              "label": "box 4 ct (240 g)",
-              "amount": 240,
-              "unit": "g",
-              "multiplier": 240
             }
           ],
           "notes": "Quest Protein Bar, Double Chocolate Chunk, 1 bar (60 g), from the Quest website panel. LABEL per bar: 170 kcal, 7 g fat (2 g sat, 0 trans), 5 mg cholesterol, 240 mg sodium, 24 g total carb, 12 g fiber, under 1 g total sugars (0 added), 9 g sugar alcohols, 20 g protein, vitD 0, calcium 140 mg, iron 1.5 mg, potassium 160 mg. Front: 3 g net carbs (24 - 12 - 9). HIGH CONFIDENCE on the panel. kcal CHECKED AGAINST REALITY and kept at 170 (Luis wants real values, not label values - here they coincide). Fiber is mostly polydextrose (~1 kcal/g) plus a little cocoa fiber; sugar alcohols are mostly erythritol (~0) with glycerin (~4.3 kcal/g) either inside the 9 g or inside the 3 g net carbs - the panel doesn't say which. Rebuilding from 20 g protein x 4, 7 g fat x 9, polydextrose at 1, erythritol at ~0.2 and glycerin at 4.3 gives 168-174 depending on where the ~1.5 g of glycerin sits; the label's 170 is the middle. Same formula family as quest_white_choc_raspberry_bar (stored 174 from the same method). Almonds appear ground into the dough, so no whole-nut discount. No collagen. sugarAlcohol = the declared 9 g. Unlabeled micros copied from quest_mint_choc_chunk_bar, with magnesium and copper raised for the unsweetened chocolate and cocoa. LOW-MEDIUM."
@@ -14896,23 +14915,21 @@
           "brand": "Quest Nutrition",
           "category": "items",
           "defaultMeasuredIn": "g",
-          "ingredients": "Protein blend (milk protein isolate, whey protein isolate), polydextrose (prebiotic fiber), almonds, water, erythritol, palm kernel oil, glycerin, raspberries, sodium caseinate; under 2%: natural flavors, salt, lecithin (sunflower and/or soy), stevia sweetener, sucralose.",
           "kcal": 2.9,
-          "p": 0.3333333333333333,
-          "fat": 0.11666666666666667,
-          "sf": 0.041666666666666664,
+          "p": 0.3333,
+          "fat": 0.1167,
+          "sf": 0.0417,
           "transFat": 0,
-          "cholesterol": 0.08333333333333333,
+          "cholesterol": 0.0833,
           "sodium": 4,
-          "carbs": 0.38333333333333336,
-          "fiber": 0.21666666666666667,
-          "sugar": 0.016666666666666666,
+          "carbs": 0.3833,
+          "fiber": 0.2167,
+          "sugar": 0.0167,
           "addedSugar": 0,
           "sugarAlcohol": 0.1,
-          "vitD": 0,
           "calcium": 3,
-          "iron": 0.006666666666666667,
-          "potassium": 1.6666666666666667,
+          "iron": 0.0067,
+          "potassium": 1.6667,
           "displayUnits": [
             {
               "label": "1 bar (60 g)",
@@ -18916,6 +18933,7 @@
         }
       ]
     },
-    "chartRangeDays": 30
+    "chartRangeDays": 30,
+    "totalsMode": "collapsed"
   }
 }
