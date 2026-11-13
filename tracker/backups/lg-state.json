@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-11-12T15:42:08.717Z",
-  "_gistSavedAt": "2026-11-12T13:39:01.859Z",
+  "_backupTakenAt": "2026-11-13T15:00:54.273Z",
+  "_gistSavedAt": "2026-11-12T17:49:00.645Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5790,7 +5790,11 @@
         "counters": {
           "slate_ultra_protein_vanilla": 443,
           "banana": 94.4,
-          "quest_double_choc_chunk_bar": 60
+          "quest_double_choc_chunk_bar": 60,
+          "soy_milk": 80,
+          "macadamia_dry_roasted_365": 60,
+          "persimmon_fuyu_raw": 270,
+          "slate_ultra_protein_chocolate": 443
         },
         "customs": [
           {
@@ -5806,12 +5810,12 @@
         "counterMeta": {
           "slate_ultra_protein_vanilla": "2026-11-12T13:37:46.998Z",
           "banana": "2026-11-12T13:38:20.297Z",
-          "quest_double_choc_chunk_bar": "2026-11-12T13:38:29.728Z"
-        },
-        "neck": 40,
-        "neckMeta": "2026-11-12T13:37:26.645Z",
-        "weight": 85,
-        "weightMeta": "2026-11-12T13:37:26.501Z"
+          "quest_double_choc_chunk_bar": "2026-11-12T13:38:29.728Z",
+          "soy_milk": "2026-11-12T17:30:20.290Z",
+          "macadamia_dry_roasted_365": "2026-11-12T17:44:17.113Z",
+          "persimmon_fuyu_raw": "2026-11-12T17:44:32.378512+00:00",
+          "slate_ultra_protein_chocolate": "2026-11-12T17:48:10.005Z"
+        }
       }
     },
     "savedItems": [],
@@ -5905,10 +5909,10 @@
       "profile": true,
       "supplements-water": true,
       "section-weight-tracker": true,
+      "targets-accumulation": true,
+      "details-sync-error-banner": true,
       "details-add-new-item": true,
-      "catalog-ratio": true,
-      "today-log": true,
-      "targets-accumulation": true
+      "catalog-ratio": true
     },
     "userCatalog": {
       "items": {
@@ -13688,6 +13692,68 @@
           ],
           "notes": "Aldi Season's Choice Steamed Sweet Garden Peas, frozen steam-in-bag, 12 oz (340 g), Premium Grade A, no preservatives, 'no sodium added', product of USA. LABEL per serving (85 g; the cup fraction was cut off in the photo), 4 per bag: 70 kcal, 0 fat / sat / trans, 0 cholesterol, 60 mg sodium, 12 g carb, 5 g fiber, 4 g total sugars, 0 added, 4 g protein, vitD 0, calcium 20 mg, iron 1 mg, potassium 95 mg. HIGH CONFIDENCE. Sodium is natural plus blanching - frozen peas carry ~70-110 mg/100 g even with none added. kcal CORRECTED 82 -> 71/100 g: the label's 70 only closes with the 5 g of fiber charged at ~4 kcal/g (USDA's legume factor is 4.07), and pea fiber is recounted at ~2 kcal/g, so 10 kcal per 85 g subtracted. Same fix as the lentils. MEDIUM CONFIDENCE - pea hull fiber is partly insoluble, so the real figure could be a few kcal lower still. Fat restored from the label's 0 to 0.4 g/100 g (USDA, sub-threshold round-down). UNLABELED MICROS from USDA SR Legacy 11312 (peas, green, frozen, unprepared). MEDIUM CONFIDENCE. Vitamin A set to 60 mcg RAE/100 g, between USDA raw peas (38) and the frozen record (~105) - carotene content varies a lot by variety. Values are as bagged: boiling or stewing roughly halves the vitamin C (18 mg/100 g here) and leaches some folate into the liquid, which is recovered if the broth is eaten. PURINES ~50 mg/100 g, moderate for a vegetable but plant purines raise uric acid far less than meat. LOW CONFIDENCE."
         },
+        "persimmon_fuyu_raw": {
+          "name": "Persimmon Fuyu raw (Percinnamon, Kingsburg Orchards)",
+          "brand": "Kingsburg Orchards",
+          "category": "items",
+          "defaultMeasuredIn": "g",
+          "kcal": 0.647,
+          "p": 0.0058,
+          "fat": 0.0019,
+          "sf": 0.0002,
+          "transFat": 0,
+          "cholesterol": 0,
+          "carbs": 0.1859,
+          "fiber": 0.036,
+          "sugar": 0.1253,
+          "addedSugar": 0,
+          "sodium": 0.01,
+          "potassium": 1.61,
+          "calcium": 0.08,
+          "iron": 0.0015,
+          "magnesium": 0.09,
+          "phosphorus": 0.17,
+          "zinc": 0.0011,
+          "copper": 0.00113,
+          "manganese": 0.00355,
+          "selenium": 0.006,
+          "water": 0.8032,
+          "vitA": 0.81,
+          "vitC": 0.075,
+          "vitD": 0,
+          "vitE": 0.0073,
+          "vitK": 0.026,
+          "b1": 0.0003,
+          "b2": 0.0002,
+          "b3": 0.001,
+          "b6": 0.001,
+          "b9": 0.08,
+          "b12": 0,
+          "choline": 0.076,
+          "purines": 0.05,
+          "displayUnits": [
+            {
+              "label": "1 medium fruit, edible (168 g)",
+              "amount": 168,
+              "unit": "g",
+              "default": true,
+              "multiplier": 168
+            },
+            {
+              "label": "1 large fruit, edible (270 g)",
+              "amount": 270,
+              "unit": "g",
+              "multiplier": 270
+            },
+            {
+              "label": "100 g",
+              "amount": 100,
+              "unit": "g",
+              "multiplier": 100
+            }
+          ],
+          "notes": "Kingsburg Orchards 'Percinnamon' persimmons (kakis) - the sweet, non-astringent Fuyu type eaten firm, from California; sold in a 908 g bag. No nutrition panel on the bag; values are USDA SR Legacy 09263 (persimmons, Japanese, raw) per 100 g: 70 kcal, 0.58 P, 0.19 fat, 18.59 carb, 3.6 fiber, 12.53 sugar, 80.32 water, 1 Na, 161 K, 7.5 vitC, 81 mcg vitA RAE, 0.355 Mn. HIGH CONFIDENCE on macros, MEDIUM on micros. kcal CORRECTED 70 -> 64.7/100 g: USDA charges the 3.6 g of fiber at the fruit factor of 3.60 kcal/g; recounted at ~2 kcal/g, the same fix as the other fruit entries. UNITS are edible weight (calyx and any peel trimmings removed). USDA's 'medium' is 168 g; the 270 g 'large' unit is what Luis weighed on 2026-11-12. Persimmons are one of the better fruit sources of vitamin A (as beta-carotene) and manganese. PURINES ~5 mg/100 g, very low."
+        },
         "planters_sea_salt_vinegar_peanuts": {
           "name": "Peanuts sea salt & vinegar Planters",
           "brand": "Planters",
@@ -18933,7 +18999,6 @@
         }
       ]
     },
-    "chartRangeDays": 30,
-    "totalsMode": "collapsed"
+    "chartRangeDays": 30
   }
 }
