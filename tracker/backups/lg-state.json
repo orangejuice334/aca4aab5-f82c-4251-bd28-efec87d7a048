@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-11-15T14:27:02.461Z",
-  "_gistSavedAt": "2026-11-12T17:49:00.645Z",
+  "_backupTakenAt": "2026-11-16T16:39:52.638Z",
+  "_gistSavedAt": "2026-11-16T15:56:13.066Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5816,6 +5816,31 @@
           "persimmon_fuyu_raw": "2026-11-12T17:44:32.378512+00:00",
           "slate_ultra_protein_chocolate": "2026-11-12T17:48:10.005Z"
         }
+      },
+      "2026-11-16": {
+        "toggles": {},
+        "counters": {
+          "slate_ultra_protein_vanilla": 443,
+          "natures_own_keto_bread": 56,
+          "avocado_half": 130,
+          "quest_chips_nacho": 32,
+          "legendary_donuts_pink_sprinkles": 62,
+          "soy_milk_original": 247
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "slate_ultra_protein_vanilla": "2026-11-16T15:54:54.884Z",
+          "natures_own_keto_bread": "2026-11-16T15:55:02.719Z",
+          "avocado_half": "2026-11-16T15:55:08.447Z",
+          "quest_chips_nacho": "2026-11-16T15:55:24.956Z",
+          "legendary_donuts_pink_sprinkles": "2026-11-16T15:55:42.598Z",
+          "soy_milk_original": "2026-11-16T15:56:11.211Z"
+        },
+        "neck": 40,
+        "neckMeta": "2026-11-16T15:54:44.537Z",
+        "weight": 85,
+        "weightMeta": "2026-11-16T15:55:58.762Z"
       }
     },
     "savedItems": [],
