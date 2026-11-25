@@ -1,6 +1,6 @@
 {
-  "_backupTakenAt": "2026-11-24T18:31:27.660Z",
-  "_gistSavedAt": "2026-11-23T14:28:50.364Z",
+  "_backupTakenAt": "2026-11-25T17:43:53.473Z",
+  "_gistSavedAt": "2026-11-25T15:53:33.872Z",
   "user": "lg",
   "state": {
     "activeDate": "2026-05-15",
@@ -5848,6 +5848,17 @@
         "customs": [],
         "toggleMeta": {},
         "counterMeta": {}
+      },
+      "2026-11-25": {
+        "toggles": {},
+        "counters": {
+          "soy_milk": 200
+        },
+        "customs": [],
+        "toggleMeta": {},
+        "counterMeta": {
+          "soy_milk": "2026-11-25T15:53:30.555Z"
+        }
       }
     },
     "savedItems": [],
